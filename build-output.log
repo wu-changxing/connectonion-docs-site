@@ -1,0 +1,159 @@
+npm warn cli npm v11.5.1 does not support Node.js v20.10.0. This version of npm supports the following node versions: `^20.17.0 || >=22.9.0`. You can find the latest version at https://nodejs.org/.
+
+> docs-site@0.1.0 build
+> next build
+
+ ⚠ Warning: Found multiple lockfiles. Selecting /Users/changxing/project/package-lock.json.
+   Consider removing the lockfiles at:
+   * /Users/changxing/project/OnCourse/platform/connectonion/docs-site/package-lock.json
+
+   ▲ Next.js 15.4.5
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 4.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/44) ...
+ ⚠ Unsupported metadata viewport is configured in metadata export in /tools. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /links. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /blog/llm-do. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /cli. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /blog/trust-keyword. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /blog/agent-address-format. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /blog/cli-ux-progressive-disclosure. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /blog. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /examples. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /blog/naming-is-hard. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /blog/input-method. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /blog/network-protocol-design. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /max-iterations. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /threat-model. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /tutorials/001-ai-agent-is-just-prompt-plus-function. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /examples/calculator. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /vibe-coding. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /website-maintenance. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /tools/browser. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+   Generating static pages (11/44) 
+ ⚠ Unsupported metadata viewport is configured in metadata export in /prompts/examples/business-strategist. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /prompts/formats. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /auto-debug-exception. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /xray/trace. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+   Generating static pages (22/44) 
+ ⚠ Unsupported metadata viewport is configured in metadata export in /models. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /trust. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /xray. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /prompts/examples. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /prompts. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /prompts/examples/friendly-assistant. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /roadmap. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /prompts/examples/customer-support. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /prompts/examples/math-tutor. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /llm_do. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /send-email. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+   Generating static pages (33/44) 
+ ⚠ Unsupported metadata viewport is configured in metadata export in /prompts/examples/data-analyst. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /prompts/examples/code-reviewer. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /examples/browser. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /prompts/examples/security-analyst. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /prompts/examples/technical-writer. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /quickstart. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ✓ Generating static pages (44/44)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                                  Size  First Load JS
+┌ ○ /                                                     10.1 kB         344 kB
+├ ○ /_not-found                                             997 B         101 kB
+├ ○ /auto-debug-exception                                 6.24 kB         342 kB
+├ ○ /blog                                                 2.85 kB         112 kB
+├ ○ /blog/agent-address-format                              171 B         103 kB
+├ ○ /blog/cli-ux-progressive-disclosure                     171 B         103 kB
+├ ○ /blog/input-method                                    4.41 kB         154 kB
+├ ○ /blog/llm-do                                          4.83 kB         154 kB
+├ ○ /blog/naming-is-hard                                    171 B         103 kB
+├ ○ /blog/network-protocol-design                         5.58 kB         155 kB
+├ ○ /blog/trust-keyword                                      6 kB         115 kB
+├ ○ /cli                                                  10.9 kB         125 kB
+├ ○ /examples                                             3.69 kB         113 kB
+├ ○ /examples/browser                                     5.83 kB         344 kB
+├ ○ /examples/calculator                                   6.6 kB         347 kB
+├ ○ /links                                                15.4 kB         130 kB
+├ ○ /llm_do                                                6.8 kB         347 kB
+├ ○ /max-iterations                                       4.28 kB         340 kB
+├ ○ /models                                               6.06 kB         344 kB
+├ ○ /prompts                                              3.48 kB         339 kB
+├ ○ /prompts/examples                                     4.03 kB         107 kB
+├ ○ /prompts/examples/business-strategist                 7.54 kB         337 kB
+├ ○ /prompts/examples/code-reviewer                       6.01 kB         332 kB
+├ ○ /prompts/examples/customer-support                    6.04 kB         336 kB
+├ ○ /prompts/examples/data-analyst                        6.47 kB         336 kB
+├ ○ /prompts/examples/friendly-assistant                  5.36 kB         335 kB
+├ ○ /prompts/examples/math-tutor                             6 kB         336 kB
+├ ○ /prompts/examples/security-analyst                    6.98 kB         337 kB
+├ ○ /prompts/examples/technical-writer                    6.67 kB         336 kB
+├ ○ /prompts/formats                                      3.72 kB         330 kB
+├ ○ /quickstart                                           6.25 kB         350 kB
+├ ○ /roadmap                                              3.42 kB         113 kB
+├ ○ /send-email                                           6.09 kB         349 kB
+├ ○ /threat-model                                         8.73 kB         118 kB
+├ ○ /tools                                                5.37 kB         349 kB
+├ ○ /tools/browser                                        6.74 kB         116 kB
+├ ○ /trust                                                4.47 kB         340 kB
+├ ○ /tutorials/001-ai-agent-is-just-prompt-plus-function  7.99 kB         344 kB
+├ ○ /vibe-coding                                          10.2 kB         351 kB
+├ ○ /website-maintenance                                  1.21 kB         111 kB
+├ ○ /xray                                                 7.62 kB         385 kB
+└ ○ /xray/trace                                           10.1 kB         340 kB
++ First Load JS shared by all                             99.9 kB
+  ├ chunks/4bd1b696-cc729d47eba2cee4.js                   54.1 kB
+  ├ chunks/5964-40978821a2ce41e4.js                       43.9 kB
+  └ other shared chunks (total)                           1.94 kB
+
+
+○  (Static)  prerendered as static content
+
