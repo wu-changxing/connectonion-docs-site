@@ -415,7 +415,7 @@ agent.input("Send email to John")
           </div>
           <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
             <div className="text-blue-400 font-semibold mb-2">Lesson #2:</div>
-            <div className="text-gray-300">Symbolic shortcuts (?, >>>) require learning. Not discoverable without docs.</div>
+            <div className="text-gray-300">Symbolic shortcuts (?, {'>>>'}) require learning. Not discoverable without docs.</div>
           </div>
         </section>
 
@@ -530,7 +530,7 @@ agent.input("Send email to John")
               </p>
             </div>
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-2">4. Visual Discovery > Command Recall</h3>
+              <h3 className="text-lg font-semibold text-white mb-2">4. Visual Discovery {'>'}Command Recall</h3>
               <p className="text-gray-300 text-sm">
                 Menu navigation beats typed commands for discoverability. See all options immediately. No memorization required.
               </p>
