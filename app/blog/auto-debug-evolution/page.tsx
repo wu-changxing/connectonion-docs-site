@@ -561,12 +561,7 @@ agent.input("Send email to John")
         </section>
 
         {/* Navigation */}
-        <ContentNavigation
-          prevHref="/blog/cli-ux-progressive-disclosure"
-          prevTitle="Progressive Disclosure CLI"
-          nextHref="/roadmap"
-          nextTitle="Coming Soon Features"
-        />
+        <ContentNavigation />
       </div>
     </div>
   )
