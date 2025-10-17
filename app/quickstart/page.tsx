@@ -126,47 +126,35 @@ pip install connectonion
         />
       </section>
 
-      {/* Create Meta-Agent */}
+      {/* Create Agent */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">2</div>
-          Create Your First Meta-Agent
+          Create Your First Agent
         </h2>
-        
+
         <p className="text-gray-300 mb-6">
-          Initialize a ConnectOnion development assistant with powerful built-in capabilities:
+          Create a new agent project with automatic setup:
         </p>
 
         <div className="mb-6">
-          <CommandBlock 
+          <CommandBlock
             commands={[
-              'mkdir meta-agent',
-              'cd meta-agent',
-              'co init'
+              'co create my-agent',
+              'cd my-agent'
             ]}
           />
         </div>
 
-        <FileTree 
+        <FileTree
           structure={[
             {
-              name: 'meta-agent',
+              name: 'my-agent',
               type: 'folder',
               children: [
-                { name: 'agent.py', type: 'file', comment: 'Your meta-agent with tools', icon: 'python' },
-                { name: 'prompt.md', type: 'file', comment: 'Main system prompt', icon: 'markdown' },
-                {
-                  name: 'prompts',
-                  type: 'folder',
-                  comment: 'Specialized prompts',
-                  children: [
-                    { name: 'metagent.md', type: 'file', icon: 'markdown' },
-                    { name: 'docs_retrieve_prompt.md', type: 'file', icon: 'markdown' },
-                    { name: 'answer_prompt.md', type: 'file', icon: 'markdown' },
-                    { name: 'think_prompt.md', type: 'file', icon: 'markdown' }
-                  ]
-                },
-                { name: '.env.example', type: 'file', comment: 'API key template', icon: 'env' },
+                { name: 'agent.py', type: 'file', comment: 'Ready-to-run agent with example tools', icon: 'python' },
+                { name: '.env', type: 'file', comment: 'API keys (auto-configured)', icon: 'env' },
+                { name: 'co-vibecoding-principles-docs-contexts-all-in-one.md', type: 'file', comment: 'Complete framework docs', icon: 'markdown' },
                 { name: '.gitignore', type: 'file', comment: 'Git config', icon: 'git' },
                 {
                   name: '.co',
@@ -178,7 +166,7 @@ pip install connectonion
                       name: 'docs',
                       type: 'folder',
                       children: [
-                        { name: 'connectonion.md', type: 'file', icon: 'markdown' }
+                        { name: 'co-vibecoding-principles-docs-contexts-all-in-one.md', type: 'file', icon: 'markdown' }
                       ]
                     }
                   ]
@@ -189,72 +177,52 @@ pip install connectonion
           className="mb-8"
         />
 
-        <div className="bg-gradient-to-b from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-lg p-6 mb-8">
-          <h3 className="text-lg font-semibold text-blue-200 mb-4">Your meta-agent includes:</h3>
-          <ul className="space-y-2 text-blue-100">
+        <div className="bg-gradient-to-b from-green-900/30 to-green-800/10 border border-green-500/30 rounded-lg p-6 mb-8">
+          <h3 className="text-lg font-semibold text-green-200 mb-4">✨ The CLI handles:</h3>
+          <ul className="space-y-2 text-green-100">
             <li className="flex items-start gap-2">
-              <span className="text-blue-400 mt-1">•</span>
-              <span><strong>answer_connectonion_question()</strong> - Expert answers from embedded docs</span>
+              <span className="text-green-400 mt-1">•</span>
+              <span><strong>API key setup</strong> - Automatic detection from environment or interactive input</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-400 mt-1">•</span>
-              <span><strong>create_agent_from_template()</strong> - Generate complete agent code</span>
+              <span className="text-green-400 mt-1">•</span>
+              <span><strong>Project structure</strong> - All files created and configured</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-400 mt-1">•</span>
-              <span><strong>generate_tool_code()</strong> - Create tool functions</span>
+              <span className="text-green-400 mt-1">•</span>
+              <span><strong>Documentation</strong> - Complete framework docs included</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-400 mt-1">•</span>
-              <span><strong>create_test_for_agent()</strong> - Generate pytest test suites</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-blue-400 mt-1">•</span>
-              <span><strong>think()</strong> - Self-reflection to analyze tasks</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-blue-400 mt-1">•</span>
-              <span><strong>generate_todo_list()</strong> - Create structured plans (uses GPT-4o-mini)</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-blue-400 mt-1">•</span>
-              <span><strong>suggest_project_structure()</strong> - Architecture recommendations</span>
+              <span className="text-green-400 mt-1">•</span>
+              <span><strong>Git configuration</strong> - .gitignore ready for version control</span>
             </li>
           </ul>
         </div>
       </section>
 
-      {/* Set Up API Key */}
+      {/* Run Your Agent */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
           <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold">3</div>
-          Set Up Your API Key
+          Run Your Agent
         </h2>
-        
-        <div className="mb-4">
-          <CommandBlock 
-            commands={['cp .env.example .env']}
+
+        <div className="mb-6">
+          <CommandBlock
+            commands={['python agent.py']}
           />
         </div>
 
-        <p className="text-gray-300 mb-4">Then edit <code className="bg-gray-800 px-2 py-1 rounded text-blue-300">.env</code> and add your OpenAI API key:</p>
-
-        <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
-          <div className="flex items-center justify-between bg-gray-800 px-4 py-2 border-b border-gray-700">
-            <span className="text-sm text-gray-400 font-mono">.env</span>
-          </div>
-          <div className="bg-black p-4 font-mono text-sm">
-            <span className="text-gray-400"># OpenAI API Configuration</span><br/>
-            <span className="text-white">OPENAI_API_KEY=sk-your-actual-api-key-here</span>
-          </div>
-        </div>
+        <p className="text-gray-300 mb-4">
+          Your agent is ready to use! The minimal template includes example tools to get you started.
+        </p>
       </section>
 
-      {/* Try Commands */}
+      {/* Customize */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
           <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">4</div>
-          Try These Commands
+          Customize Your Agent
         </h2>
         
         <p className="text-gray-300 mb-6">
@@ -371,14 +339,17 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
           <div className="w-8 h-8 bg-yellow-600 rounded-lg flex items-center justify-center text-white font-bold">5</div>
           Alternative: Playwright Web Automation
         </h2>
-        
+
         <p className="text-gray-300 mb-6">
           For web automation tasks, use the Playwright template:
         </p>
 
         <div className="mb-6">
-          <CommandBlock 
-            commands={['co init --template playwright']}
+          <CommandBlock
+            commands={[
+              'co create my-browser-bot --template playwright',
+              'cd my-browser-bot'
+            ]}
           />
         </div>
 
