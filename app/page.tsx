@@ -100,34 +100,45 @@ export default function HomePage() {
   return (
     <main className="">
       {/* Hero Section - Mobile optimized */}
-      <section className="min-h-[75vh] md:min-h-screen flex items-center justify-center px-4 md:px-6 py-6 md:py-12 relative overflow-hidden">
+      <section className="min-h-[60vh] md:min-h-[80vh] lg:min-h-screen flex items-center justify-center px-4 md:px-6 py-6 md:py-12 relative overflow-hidden">
         {/* Simplified gradient - just one clean background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-transparent" />
-        
-        {/* Single subtle glow effect - reduced opacity */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 via-transparent to-transparent" />
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           {/* Subtle pain point intro - larger on mobile */}
-          <p className="text-sm md:text-base text-gray-400 mb-2">
+          <p className="text-sm md:text-base text-gray-300 mb-2">
             AI agents shouldn't need <span className="text-red-400">500 lines of boilerplate</span>
           </p>
           
-          {/* Version badge - production ready */}
-          <span className="inline-block px-2 py-0.5 text-xs font-mono bg-green-500/10 text-green-400 rounded-full border border-green-500/20 mb-3">
-            v0.1.9 Production Ready
-          </span>
+          {/* Badges - production info and links */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
+            <a href="https://connectonion.com" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=flat-square" alt="Production Ready" className="h-5" />
+            </a>
+            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="MIT License" className="h-5" />
+            </a>
+            <a href="https://python.org" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python" alt="Python 3.9+" className="h-5" />
+            </a>
+            <a href="https://pepy.tech/projects/connectonion" target="_blank" rel="noopener noreferrer">
+              <img src="https://static.pepy.tech/personalized-badge/connectonion?period=total&units=international_system&left_color=black&right_color=green&left_text=downloads" alt="PyPI Downloads" className="h-5" />
+            </a>
+            <a href="https://discord.gg/4xfD9k8AUF" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/Discord-Join-7289DA?style=flat-square&logo=discord" alt="Discord" className="h-5" />
+            </a>
+          </div>
           
           {/* Main Title - smaller on mobile */}
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-2">
+          <h1 className="font-bold text-white mb-2" style={{ fontSize: 'clamp(2rem, 5vw + 1rem, 4.5rem)' }}>
             ConnectOnion
           </h1>
           
           {/* Combined tagline and benefit - better mobile sizing */}
-          <p className="text-base sm:text-lg md:text-2xl text-gray-300 mb-1">
+          <p className="text-gray-300 mb-1" style={{ fontSize: 'clamp(1rem, 2vw + 0.5rem, 1.5rem)' }}>
             The <span className="font-bold bg-gradient-to-r from-purple-300 via-purple-400 to-blue-400 bg-clip-text text-transparent">simplest</span> AI agent framework
           </p>
-          <p className="text-sm md:text-lg text-gray-300 mb-4 md:mb-5">
+          <p className="text-gray-200 mb-4 md:mb-5" style={{ fontSize: 'clamp(0.875rem, 1.5vw + 0.5rem, 1.125rem)' }}>
             Ship in <span className="text-white font-semibold">5 minutes</span>, not 5 days
           </p>
           
@@ -140,27 +151,28 @@ export default function HomePage() {
           
           {/* CTAs - mobile optimized with full width primary */}
           <div className="flex flex-col gap-2 w-full max-w-sm mx-auto md:max-w-none md:flex-row md:justify-center md:items-center">
-            <a 
-              href="#vibe-coding" 
+            <a
+              href="#vibe-coding"
               className="relative group w-full md:w-auto"
             >
-              <div className="absolute inset-0 bg-purple-600 rounded-lg blur-xl group-hover:bg-purple-500 transition-all opacity-30" />
-              <div className="relative px-5 py-2.5 md:py-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2 shadow-md">
+              <div className="px-5 py-2.5 md:py-2 bg-purple-600 hover:bg-purple-500 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2 shadow-md">
                 <Copy className="w-4 h-4" />
                 Vibe Coding Now
               </div>
             </a>
             <div className="flex gap-4 justify-center">
-              <a 
-                href="https://github.com/wu-changxing/connectonion" 
-                className="px-4 py-2.5 text-gray-400 hover:text-white transition-colors flex items-center gap-1.5"
+              <a
+                href="https://github.com/wu-changxing/connectonion"
+                className="px-4 py-2.5 text-gray-300 hover:text-white transition-colors flex items-center gap-1.5"
+                aria-label="View ConnectOnion on GitHub"
               >
                 <Github className="w-4 h-4" />
                 <span className="hidden sm:inline">GitHub</span>
               </a>
-              <a 
-                href="https://discord.gg/4xfD9k8AUF" 
-                className="px-4 py-2.5 text-gray-400 hover:text-white transition-colors flex items-center gap-1.5"
+              <a
+                href="https://discord.gg/4xfD9k8AUF"
+                className="px-4 py-2.5 text-gray-300 hover:text-white transition-colors flex items-center gap-1.5"
+                aria-label="Join ConnectOnion Discord community"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span className="hidden sm:inline">Discord</span>
@@ -175,7 +187,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 mb-4">
             <div className="h-px w-8 bg-gradient-to-r from-transparent to-purple-500" />
-            <span className="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-gray-400">ConnectOnion Philosophy</span>
+            <span className="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-gray-300">ConnectOnion Philosophy</span>
             <div className="h-px w-8 bg-gradient-to-l from-transparent to-purple-500" />
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight text-white mb-2">
@@ -318,23 +330,23 @@ print(result)  # "42 * 17 equals 714"`}
             <div className="flex gap-2 mb-4">
               <button
                 onClick={() => setActiveComparison('connectonion')}
-                className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all ${
+                className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all min-h-[48px] ${
                   activeComparison === 'connectonion'
-                    ? 'bg-green-600 text-white'
-                    : 'bg-gray-800 text-gray-400 hover:text-white'
+                    ? 'bg-green-600 text-white shadow-lg scale-105'
+                    : 'bg-gray-800 text-gray-300 hover:text-white'
                 }`}
               >
                 ConnectOnion
-                <span className="block text-xs mt-1 flex items-center gap-1">
+                <span className="block text-xs mt-1 flex items-center justify-center gap-1">
                   8 lines <FaStar className="text-xs" />
                 </span>
               </button>
               <button
                 onClick={() => setActiveComparison('other')}
-                className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all ${
+                className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all min-h-[48px] ${
                   activeComparison === 'other'
-                    ? 'bg-gray-700 text-white'
-                    : 'bg-gray-800 text-gray-400 hover:text-white'
+                    ? 'bg-gray-700 text-white shadow-lg scale-105'
+                    : 'bg-gray-800 text-gray-300 hover:text-white'
                 }`}
               >
                 Other Frameworks
@@ -595,7 +607,7 @@ print(result)`}
               <p className="text-2xl md:text-3xl font-bold text-white mb-1">
                 Same result, <span className="text-green-400">85% less code</span>
               </p>
-              <p className="text-sm md:text-base text-gray-400">
+              <p className="text-sm md:text-base text-gray-300">
                 No boilerplate. No complexity. Just agents.
               </p>
             </div>
@@ -605,8 +617,6 @@ print(result)`}
       
       {/* Section 6: Vibe Coding - Stunning Design */}
       <section id="vibe-coding" className="py-20 px-6 relative overflow-hidden">
-        {/* Background gradient effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20" />
         
         <div className="max-w-5xl mx-auto relative">
           {/* Header with better typography */}
@@ -620,7 +630,7 @@ print(result)`}
             <h2 className="text-3xl md:text-5xl font-black text-white mb-3">
               Vibe Coding Now
             </h2>
-            <p className="text-base md:text-lg text-gray-400 mb-6 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-gray-200 mb-6 max-w-2xl mx-auto">
               Copy our docs once. Your AI assistant writes perfect ConnectOnion code forever.
             </p>
             
@@ -662,15 +672,11 @@ print(result)`}
           
           {/* The Big CTA - Calmer emphasis */}
           <div className="text-center mb-16">
-            <div className="relative inline-block">
-              {/* Subtle glow */}
-              <div className="absolute inset-0 bg-purple-600/25 blur-xl" />
-              
-              {/* Button */}
-              <button
-                onClick={copyAllDocs}
-                className="relative px-8 py-4 md:px-10 md:py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold text-lg md:text-xl rounded-xl shadow-xl transition-all transform hover:scale-[1.02] inline-flex items-center gap-3"
-              >
+            <button
+              onClick={copyAllDocs}
+              className="px-8 py-4 md:px-10 md:py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg md:text-xl rounded-xl shadow-xl transition-all inline-flex items-center gap-3"
+              aria-label={copyAllStatus === 'done' ? 'Documentation copied to clipboard' : 'Copy all ConnectOnion documentation to clipboard'}
+            >
                 {copyAllStatus === 'done' ? (
                   <>
                     <Check className="w-6 h-6 animate-bounce" />
@@ -684,10 +690,9 @@ print(result)`}
                     <ArrowRight className="w-6 h-6" />
                   </>
                 )}
-              </button>
-            </div>
+            </button>
             
-            <p className="text-sm text-gray-400 mt-4 font-mono">
+            <p className="text-sm text-gray-300 mt-4 font-mono">
               One click • Full context • Start immediately
             </p>
           </div>
@@ -699,7 +704,7 @@ print(result)`}
                 <span className="text-xl font-bold text-purple-400">1</span>
               </div>
               <h3 className="font-bold text-white mb-1 text-sm md:text-base">Copy Documentation</h3>
-              <p className="text-sm text-gray-400">Click the button above</p>
+              <p className="text-sm text-gray-300">Click the button above</p>
             </div>
             
             <div className="text-center group">
@@ -707,7 +712,7 @@ print(result)`}
                 <span className="text-xl font-bold text-blue-400">2</span>
               </div>
               <h3 className="font-bold text-white mb-1 text-sm md:text-base">Paste to Your AI</h3>
-              <p className="text-sm text-gray-400">Any AI coding assistant</p>
+              <p className="text-sm text-gray-300">Any AI coding assistant</p>
             </div>
             
             <div className="text-center group">
@@ -715,7 +720,7 @@ print(result)`}
                 <span className="text-xl font-bold text-green-400">3</span>
               </div>
               <h3 className="font-bold text-white mb-1 text-sm md:text-base">Start Building</h3>
-              <p className="text-sm text-gray-400">AI writes perfect code</p>
+              <p className="text-sm text-gray-300">AI writes perfect code</p>
             </div>
           </div>
           
@@ -732,7 +737,7 @@ print(result)`}
       <section className="py-20 px-6 bg-gray-900/20">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Start Simple, Ship Production-Ready</h2>
-          <p className="text-lg text-gray-400">Zero setup complexity, full production capabilities</p>
+          <p className="text-lg text-gray-200">Zero setup complexity, full production capabilities</p>
         </div>
 
         {/* Key features in clean grid */}
@@ -740,19 +745,19 @@ print(result)`}
           <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
             <FaBullseye className="text-2xl mb-2 text-gray-400" />
             <h3 className="font-semibold text-white mb-1">Zero Setup</h3>
-            <p className="text-sm text-gray-400">Functions become tools instantly</p>
+            <p className="text-sm text-gray-300">Functions become tools instantly</p>
           </div>
           
           <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
             <FaSearch className="text-2xl mb-2 text-gray-400" />
             <h3 className="font-semibold text-white mb-1">Debug Mode</h3>
-            <p className="text-sm text-gray-400">@xray shows everything</p>
+            <p className="text-sm text-gray-300">@xray shows everything</p>
           </div>
           
           <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
             <FaChartBar className="text-2xl mb-2 text-gray-400" />
             <h3 className="font-semibold text-white mb-1">Auto Logging</h3>
-            <p className="text-sm text-gray-400">Every interaction logged to .co/logs/</p>
+            <p className="text-sm text-gray-300">Every interaction logged to .co/logs/</p>
           </div>
         </div>
 
@@ -822,26 +827,28 @@ print(result)`}
           <h2 className="text-3xl font-bold text-white mb-8">Join the Community</h2>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            <a 
+            <a
               href="https://discord.gg/4xfD9k8AUF"
               target="_blank"
               rel="noopener noreferrer"
               className="p-6 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-colors"
+              aria-label="Join ConnectOnion Discord community - Get help and share ideas"
             >
               <MessageCircle className="w-10 h-10 text-purple-400 mb-3 mx-auto" />
               <h3 className="font-semibold text-white mb-1">Discord</h3>
-              <p className="text-sm text-gray-400">Get help & share ideas</p>
+              <p className="text-sm text-gray-300">Get help & share ideas</p>
             </a>
-            
-            <a 
+
+            <a
               href="https://github.com/wu-changxing/connectonion"
               target="_blank"
               rel="noopener noreferrer"
               className="p-6 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-colors"
+              aria-label="View ConnectOnion on GitHub - Star and contribute to the project"
             >
               <Github className="w-10 h-10 text-blue-400 mb-3 mx-auto" />
               <h3 className="font-semibold text-white mb-1">GitHub</h3>
-              <p className="text-sm text-gray-400">Star & contribute</p>
+              <p className="text-sm text-gray-300">Star & contribute</p>
             </a>
           </div>
         </div>
@@ -851,7 +858,7 @@ print(result)`}
       <section className="py-16 md:py-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">Ready to Start?</h2>
-          <p className="text-base md:text-lg text-gray-400 mb-6 md:mb-8">
+          <p className="text-base md:text-lg text-gray-200 mb-6 md:mb-8">
             Build your first agent today
           </p>
           
