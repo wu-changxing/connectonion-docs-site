@@ -37,7 +37,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Terminal, Play, ArrowRight, BookOpen, Code, Zap, Clock, Users, Activity, CheckCircle, AlertCircle, Github, Copy, Check, Sparkles, Rocket, FileCode, Package, GitBranch, MessageCircle } from 'lucide-react'
+import { Terminal, Play, ArrowRight, BookOpen, Code, Zap, Clock, Users, Activity, CheckCircle, AlertCircle, Github, Copy, Check, Sparkles, Rocket, FileCode, Package, GitBranch, MessageCircle, Bug } from 'lucide-react'
 import { FaEdit, FaWrench, FaRobot, FaLaptop, FaRocket, FaComments, FaBullseye, FaSearch, FaChartBar, FaStar } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -789,34 +789,39 @@ print(result)`}
             </ul>
           </div>
 
-          {/* Debugging */}
-          <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+          {/* Interactive Debugging - NEW */}
+          <div className="bg-gradient-to-br from-purple-900/50 to-purple-800/30 rounded-xl p-6 border border-purple-500/50">
             <div className="flex items-center gap-3 mb-4">
-              <Zap className="w-5 h-5 text-purple-400" />
-              <h3 className="text-lg font-bold text-white">@xray Debugging</h3>
+              <Bug className="w-5 h-5 text-purple-300" />
+              <h3 className="text-lg font-bold text-white">Interactive Debugging</h3>
+              <span className="text-xs bg-purple-500/30 text-purple-200 px-2 py-1 rounded-full">NEW</span>
             </div>
-            <div className="bg-black/50 rounded-lg p-4 mb-4 font-mono text-sm">
-              <span className="text-purple-400">@xray</span>
-              <div className="text-blue-400">def process(data):</div>
-              <div className="text-gray-500 mt-1 flex items-center gap-1">
-                <FaSearch className="text-sm" />
-                <span>See everything</span>
-              </div>
+            <div className="bg-black/50 rounded-lg p-4 mb-4 font-mono text-xs leading-relaxed">
+              <span className="text-purple-400">agent.auto_debug()</span>
+              <div className="text-gray-500 mt-2">🔍 Breakpoint hit!</div>
+              <div className="text-blue-300 mt-1">&gt; Press 'c' to continue</div>
+              <div className="text-green-300">&gt; Press 'e' to edit variables</div>
             </div>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2 text-gray-300">
                 <CheckCircle className="w-4 h-4 text-green-400" />
-                Real-time insights
+                Pause at breakpoints
               </li>
               <li className="flex items-center gap-2 text-gray-300">
                 <CheckCircle className="w-4 h-4 text-green-400" />
-                Iteration tracking
+                Python REPL access
               </li>
               <li className="flex items-center gap-2 text-gray-300">
                 <CheckCircle className="w-4 h-4 text-green-400" />
-                Performance metrics
+                Test "what if" scenarios
               </li>
             </ul>
+            <Link
+              href="/auto-debug"
+              className="mt-4 inline-flex items-center gap-2 text-purple-300 hover:text-purple-200 transition-colors text-sm"
+            >
+              Learn more <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

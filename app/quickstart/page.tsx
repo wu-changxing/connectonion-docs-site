@@ -49,7 +49,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Play, Terminal, ArrowRight, Zap, FileText, Clock, Code, Wrench, Copy, Check } from 'lucide-react'
+import { Play, Terminal, ArrowRight, Zap, FileText, Clock, Code, Wrench, Copy, Check, Bug } from 'lucide-react'
 import { FaSearch, FaBullseye } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -449,12 +449,12 @@ The answer is 739.`}
           <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center text-white font-bold">7</div>
           Debugging with @xray
         </h2>
-        
+
         <p className="text-gray-300 mb-6">
           Use the @xray decorator to see what your agent is thinking:
         </p>
 
-        <CodeWithResult 
+        <CodeWithResult
           code={`from connectonion import Agent
 from connectonion.decorators import xray
 
@@ -464,7 +464,7 @@ def calculate(expression: str) -> str:
     print(f"[SEARCH] Agent '{xray.agent.name}' is calculating: {expression}")
     print(f"[SEARCH] User's original request: {xray.task}")
     print(f"[SEARCH] This is iteration #{xray.iteration}"
-    
+
     result = eval(expression)
     return f"Result: {result}"
 
@@ -481,6 +481,98 @@ The result is 80.`}
         />
       </section>
 
+      {/* Interactive Debugging */}
+      <section className="mb-16">
+        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold">8</div>
+          Interactive Debugging
+        </h2>
+
+        <p className="text-gray-300 mb-6">
+          Debug your agents interactively - pause at breakpoints, inspect state, and test "what if" scenarios:
+        </p>
+
+        <CodeWithResult
+          code={`from connectonion import Agent
+from connectonion.decorators import xray
+
+@xray  # Breakpoint: pause here for inspection
+def search_database(query: str) -> str:
+    results = db.search(query)
+    return f"Found {len(results)} results"
+
+agent = Agent(
+    name="search_bot",
+    tools=[search_database],
+    system_prompt="You are a helpful search assistant"
+)
+
+# Launch interactive debug session
+agent.auto_debug()`}
+          result={`🔍 Interactive Debug Session Started
+Agent: search_bot | Tools: 1
+
+💡 Quick Tips:
+  - Tools with @xray will pause for inspection
+  - Use arrow keys to navigate menus
+  - Press 'c' to continue
+
+Type your message to the agent:
+> Find recent Python tutorials
+
+→ Tool: search_database({"query": "Python tutorials"})
+← Result: Found 5 results
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+@xray BREAKPOINT: search_database
+
+Local Variables:
+  query = "Python tutorials"
+  result = "Found 5 results"
+
+What do you want to do?
+  → Continue execution 🚀       [c or Enter]
+    Edit values 🔍             [e]  ← Test "what if" scenarios
+    Quit debugging 🚫          [q]
+
+> c
+
+✓ Task complete`}
+          className="mb-8"
+        />
+
+        <div className="bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-purple-200 mb-4">🔍 Why use interactive debugging?</h3>
+          <div className="grid sm:grid-cols-2 gap-4 text-purple-100 text-sm">
+            <div className="flex items-start gap-2">
+              <span className="text-purple-400 mt-1">•</span>
+              <span><strong>Pause at breakpoints</strong> - Inspect state at any tool</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-purple-400 mt-1">•</span>
+              <span><strong>Test edge cases</strong> - Modify variables to explore "what if"</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-purple-400 mt-1">•</span>
+              <span><strong>Python REPL access</strong> - Full runtime inspection</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-purple-400 mt-1">•</span>
+              <span><strong>Step through execution</strong> - See every tool call</span>
+            </div>
+          </div>
+          <div className="mt-4 pt-4 border-t border-purple-500/30">
+            <Link
+              href="/auto-debug"
+              className="text-purple-300 hover:text-purple-200 transition-colors flex items-center gap-2 text-sm"
+            >
+              Learn more about interactive debugging
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Next Steps */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
@@ -489,24 +581,40 @@ The result is 80.`}
         </h2>
         
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-          <Link 
-            href="/prompts" 
+          <Link
+            href="/auto-debug"
             className="group bg-gradient-to-r from-purple-900/20 to-purple-800/20 border border-purple-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all"
           >
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center">
-                <FileText className="w-6 h-6 text-white" />
+                <Bug className="w-6 h-6 text-white" />
               </div>
               <ArrowRight className="w-5 h-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Master System Prompts</h3>
+            <h3 className="text-xl font-semibold text-white mb-2">Interactive Debugging</h3>
             <p className="text-purple-100 text-sm">
+              Master breakpoints, Python REPL, and "what if" scenario testing for your agents.
+            </p>
+          </Link>
+
+          <Link
+            href="/prompts"
+            className="group bg-gradient-to-r from-pink-900/20 to-pink-800/20 border border-pink-500/30 rounded-xl p-6 hover:border-pink-400/50 transition-all"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-12 h-12 bg-pink-600 rounded-xl flex items-center justify-center">
+                <FileText className="w-6 h-6 text-white" />
+              </div>
+              <ArrowRight className="w-5 h-5 text-pink-400 group-hover:translate-x-1 transition-transform" />
+            </div>
+            <h3 className="text-xl font-semibold text-white mb-2">Master System Prompts</h3>
+            <p className="text-pink-100 text-sm">
               Learn advanced prompting techniques to create expert agents for any domain.
             </p>
           </Link>
 
-          <Link 
-            href="/xray" 
+          <Link
+            href="/xray"
             className="group bg-gradient-to-r from-green-900/20 to-green-800/20 border border-green-500/30 rounded-xl p-6 hover:border-green-400/50 transition-all"
           >
             <div className="flex items-center justify-between mb-4">
@@ -521,8 +629,8 @@ The result is 80.`}
             </p>
           </Link>
 
-          <Link 
-            href="/examples" 
+          <Link
+            href="/examples"
             className="group bg-gradient-to-r from-blue-900/20 to-blue-800/20 border border-blue-500/30 rounded-xl p-6 hover:border-blue-400/50 transition-all"
           >
             <div className="flex items-center justify-between mb-4">
@@ -537,8 +645,8 @@ The result is 80.`}
             </p>
           </Link>
 
-          <Link 
-            href="/tools" 
+          <Link
+            href="/tools"
             className="group bg-gradient-to-r from-orange-900/20 to-orange-800/20 border border-orange-500/30 rounded-xl p-6 hover:border-orange-400/50 transition-all"
           >
             <div className="flex items-center justify-between mb-4">
