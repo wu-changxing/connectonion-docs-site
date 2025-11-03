@@ -1,3 +1,13 @@
+/**
+ * @purpose Copy/download button for markdown content with floating mobile FAB and desktop inline buttons
+ * @llm-note
+ *   Dependencies: imports from [react, lucide-react] | imported by [app/page.tsx, app/agent/page.tsx, app/tools/page.tsx, +26 more pages]
+ *   Data flow: receives {markdownPath?: string, content?: string} → fetch(markdownPath) or use content → copy to clipboard or download as .md file
+ *   State/Effects: manages {copied, loading, error, showFloating} states | fetches markdown from public folder | writes to navigator.clipboard | creates Blob for download | haptic feedback (navigator.vibrate 50ms)
+ *   Integration: exposes CopyMarkdownButton component | two modes: markdownPath (fetch) or directContent (prop) | backward compatible
+ *   Performance: lazy loads markdown on mount | scroll listener for floating button (100px threshold) | cleanup on unmount
+ *   UX: floating FAB on mobile (bottom-right, appears after 100px scroll) | desktop inline buttons | green success state (2s) | loading spinner | haptic feedback
+ */
 'use client'
 
 import { useState, useEffect } from 'react'

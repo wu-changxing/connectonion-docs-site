@@ -1,8 +1,12 @@
 /**
  * @purpose Side-by-side code and output display component for interactive examples
- * @context Used throughout docs to show Python/JavaScript code with expected results
- * @llm-note Supports syntax highlighting via Prism, copy functionality per pane,
- *           REPL output formatting, responsive grid layout (stacks on mobile)
+ * @llm-note
+ *   Dependencies: imports from [react, lucide-react, react-syntax-highlighter] | imported by [app/page.tsx, app/quickstart/page.tsx, app/agent/page.tsx, +8 more]
+ *   Data flow: receives {code: string, result?: string, language?: string} → syntax highlights code via Prism → colorizes REPL output → two-column grid (stacks mobile)
+ *   State/Effects: manages copied state (2s timeout) | writes to clipboard | no external API calls
+ *   Integration: exposes CodeWithResult component | supports python/typescript/javascript syntax | Python REPL formatting (>>>, ..., colored outputs)
+ *   Performance: uses react-syntax-highlighter with monokai theme | inline REPL colorization (regex pattern matching) | responsive clamp() font sizing
+ *   UX: 44px copy button | xl:grid-cols-2 breakpoint (1280px) | interactive status indicator | language icons (Python/TS/JS)
  */
 /*
   DESIGN IMPROVEMENTS IMPLEMENTED:

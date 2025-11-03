@@ -1,7 +1,16 @@
+/**
+ * @purpose ConnectOnion landing page - showcases framework simplicity, code examples, and vibe coding workflow
+ * @llm-note
+ *   Dependencies: imports from [react, lucide-react, react-icons/fa, framer-motion, next/link, react-syntax-highlighter] | imports [utils/copyAllDocs, components/CommandBlock, components/CodeWithResult, components/CopyMarkdownButton, components/ContentNavigation]
+ *   Data flow: renders 9 sections (Hero → Philosophy → Equation → Example → Comparison → Vibe Coding → Production Features → Agent Collaboration → Community → CTA) | manages state for {copyAllStatus, activeComparison, copiedId}
+ *   State/Effects: copyAllDocs() writes full docs to clipboard | tab switching between code comparisons | 2s timeout for copy feedback | no external API calls
+ *   Integration: Next.js page component (app/page.tsx) | uses "use client" for interactivity | links to /quickstart, /auto-debug, Discord, GitHub
+ *   Performance: lazy loads framer-motion animations | syntax highlighter for code comparison section | responsive clamp() typography | mobile-first breakpoints (md:, xl:)
+ *   UX: "Vibe Coding" button copies all docs for AI assistants | 8 lines vs 50 lines code comparison | agent collaboration demo with serve() and connect() | production-ready features (CLI, debugging, logging)
+ */
 /*
   @date: 2025-01-01
-  @description: Landing Page
-  
+
   DESIGN ISSUES TO FIX:
   
   1. **Mobile Experience Issues** (Priority: HIGH)
@@ -46,6 +55,8 @@ import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/pri
 import { copyAllDocsToClipboard } from '../utils/copyAllDocs'
 import { CommandBlock } from '../components/CommandBlock'
 import CodeWithResult from '../components/CodeWithResult'
+import { CopyMarkdownButton } from '../components/CopyMarkdownButton'
+import { ContentNavigation } from '../components/ContentNavigation'
 
 export default function HomePage() {
   const [isRunning, setIsRunning] = useState(false)
@@ -100,11 +111,16 @@ export default function HomePage() {
   return (
     <main className="">
       {/* Hero Section - Mobile optimized */}
-      <section className="min-h-[60vh] md:min-h-[80vh] lg:min-h-screen flex items-center justify-center px-4 md:px-6 py-6 md:py-12 relative overflow-hidden">
+      <section className="min-h-[70vh] md:min-h-[85vh] lg:min-h-screen flex items-center justify-center px-4 md:px-6 py-6 md:py-12 relative overflow-hidden">
         {/* Simplified gradient - just one clean background */}
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 via-transparent to-transparent" />
-        
+
         <div className="max-w-4xl mx-auto text-center relative z-10">
+          {/* Copy Markdown Button - Top Right */}
+          <div className="absolute top-0 right-0">
+            <CopyMarkdownButton />
+          </div>
+
           {/* Subtle pain point intro - larger on mobile */}
           <p className="text-sm md:text-base text-gray-300 mb-2">
             AI agents shouldn't need <span className="text-red-400">500 lines of boilerplate</span>
@@ -130,15 +146,15 @@ export default function HomePage() {
           </div>
           
           {/* Main Title - smaller on mobile */}
-          <h1 className="font-bold text-white mb-2" style={{ fontSize: 'clamp(2rem, 5vw + 1rem, 4.5rem)' }}>
+          <h1 className="font-bold text-white mb-2" style={{ fontSize: 'clamp(1.75rem, 4vw, 4.5rem)' }}>
             ConnectOnion
           </h1>
-          
+
           {/* Combined tagline and benefit - better mobile sizing */}
-          <p className="text-gray-300 mb-1" style={{ fontSize: 'clamp(1rem, 2vw + 0.5rem, 1.5rem)' }}>
+          <p className="text-gray-300 mb-1" style={{ fontSize: 'clamp(0.875rem, 2vw, 1.5rem)' }}>
             The <span className="font-bold bg-gradient-to-r from-purple-300 via-purple-400 to-blue-400 bg-clip-text text-transparent">simplest</span> AI agent framework
           </p>
-          <p className="text-gray-200 mb-4 md:mb-5" style={{ fontSize: 'clamp(0.875rem, 1.5vw + 0.5rem, 1.125rem)' }}>
+          <p className="text-gray-200 mb-4 md:mb-5" style={{ fontSize: 'clamp(0.75rem, 1.5vw, 1.125rem)' }}>
             Ship in <span className="text-white font-semibold">5 minutes</span>, not 5 days
           </p>
           
@@ -182,6 +198,30 @@ export default function HomePage() {
         </div>
       </section>
       
+      {/* Framework Status Callout */}
+      <section className="px-6 py-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
+            <div className="flex items-start gap-3">
+              <Rocket className="w-5 h-5 text-blue-300 mt-1 flex-shrink-0" />
+              <div>
+                <p className="font-semibold text-blue-100 mb-3">Framework Status (v0.3.2 - Production Ready)</p>
+                <div className="grid md:grid-cols-2 gap-3 text-sm">
+                  <div className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                    <span className="text-gray-300"><strong>Stable:</strong> Core agent, tools, LLM integration, CLI, auto-logging</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Sparkles className="w-4 h-4 text-yellow-400 mt-0.5" />
+                    <span className="text-gray-300"><strong>New:</strong> Interactive debugging (@xray), Python REPL, breakpoints</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Section 2: Philosophy - Core Belief */}
       <section className="min-h-[90vh] md:min-h-screen flex items-center justify-center px-6 bg-gray-900/10 py-12 md:py-16">
         <div className="max-w-5xl mx-auto text-center">
@@ -226,7 +266,7 @@ export default function HomePage() {
             <div className="md:hidden space-y-4">
               <div className="flex items-center justify-between bg-gray-900/30 rounded-lg p-4">
                 <div className="flex items-center gap-3">
-                  <FaEdit className="text-2xl text-gray-400" />
+                  <FaEdit className="text-2xl text-gray-300" />
                   <div>
                     <div className="font-semibold text-white">Markdown</div>
                     <div className="text-xs text-gray-500">your prompt</div>
@@ -238,7 +278,7 @@ export default function HomePage() {
               
               <div className="flex items-center justify-between bg-gray-900/30 rounded-lg p-4">
                 <div className="flex items-center gap-3">
-                  <FaWrench className="text-2xl text-gray-400" />
+                  <FaWrench className="text-2xl text-gray-300" />
                   <div>
                     <div className="font-semibold text-white">Functions</div>
                     <div className="text-xs text-gray-500">your tools</div>
@@ -250,7 +290,7 @@ export default function HomePage() {
               
               <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-500/30">
                 <div className="flex items-center justify-center gap-3">
-                  <FaRobot className="text-2xl text-gray-400" />
+                  <FaRobot className="text-2xl text-gray-300" />
                   <div>
                     <div className="font-semibold text-white">Agent</div>
                     <div className="text-xs text-purple-400">AI assistant</div>
@@ -262,7 +302,7 @@ export default function HomePage() {
             {/* Desktop: Horizontal flow */}
             <div className="hidden md:grid grid-cols-5 gap-2 items-center">
               <div className="text-center">
-                <FaEdit className="text-4xl mb-2 text-gray-400" />
+                <FaEdit className="text-4xl mb-2 text-gray-300" />
                 <div className="font-semibold text-white">Markdown</div>
                 <div className="text-xs text-gray-500">prompt</div>
               </div>
@@ -270,7 +310,7 @@ export default function HomePage() {
               <div className="text-center text-2xl text-gray-600">+</div>
               
               <div className="text-center">
-                <FaWrench className="text-4xl mb-2 text-gray-400" />
+                <FaWrench className="text-4xl mb-2 text-gray-300" />
                 <div className="font-semibold text-white">Functions</div>
                 <div className="text-xs text-gray-500">tools</div>
               </div>
@@ -278,7 +318,7 @@ export default function HomePage() {
               <div className="text-center text-2xl text-gray-600">=</div>
               
               <div className="text-center p-4 bg-purple-900/20 rounded-lg border border-purple-500/30">
-                <FaRobot className="text-4xl mb-2 text-gray-400" />
+                <FaRobot className="text-4xl mb-2 text-gray-300" />
                 <div className="font-semibold text-white">Agent</div>
                 <div className="text-xs text-purple-400">AI</div>
               </div>
@@ -475,7 +515,7 @@ print(result["output"])`}
             {/* Other Frameworks */}
             <div className="order-2 md:order-1">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-gray-400">Other Frameworks</h3>
+                <h3 className="text-lg font-semibold text-gray-300">Other Frameworks</h3>
                 <span className="text-sm text-red-400 font-mono">~50 lines</span>
               </div>
               <div className="bg-gray-900/50 rounded-lg border border-gray-700 overflow-hidden">
@@ -639,7 +679,7 @@ print(result)`}
               <div className="group relative">
                 <div className="absolute inset-0 bg-purple-600/10 rounded-xl blur-lg group-hover:bg-purple-600/20 transition-all" />
                 <div className="relative bg-gray-900/40 backdrop-blur-sm border border-purple-500/20 rounded-xl p-3 hover:border-purple-500/40 transition-all">
-                  <FaRobot className="text-xl mb-2 text-gray-400" />
+                  <FaRobot className="text-xl mb-2 text-gray-300" />
                   <div className="text-sm font-semibold text-purple-300">Claude Code</div>
                 </div>
               </div>
@@ -647,7 +687,7 @@ print(result)`}
               <div className="group relative">
                 <div className="absolute inset-0 bg-blue-600/10 rounded-xl blur-lg group-hover:bg-blue-600/20 transition-all" />
                 <div className="relative bg-gray-900/40 backdrop-blur-sm border border-blue-500/20 rounded-xl p-3 hover:border-blue-500/40 transition-all">
-                  <FaLaptop className="text-xl mb-2 text-gray-400" />
+                  <FaLaptop className="text-xl mb-2 text-gray-300" />
                   <div className="text-sm font-semibold text-blue-300">Cursor</div>
                 </div>
               </div>
@@ -655,7 +695,7 @@ print(result)`}
               <div className="group relative">
                 <div className="absolute inset-0 bg-green-600/10 rounded-xl blur-lg group-hover:bg-green-600/20 transition-all" />
                 <div className="relative bg-gray-900/40 backdrop-blur-sm border border-green-500/20 rounded-xl p-3 hover:border-green-500/40 transition-all">
-                  <FaRocket className="text-xl mb-2 text-gray-400" />
+                  <FaRocket className="text-xl mb-2 text-gray-300" />
                   <div className="text-sm font-semibold text-green-300">GitHub Copilot</div>
                 </div>
               </div>
@@ -663,7 +703,7 @@ print(result)`}
               <div className="group relative">
                 <div className="absolute inset-0 bg-orange-600/10 rounded-xl blur-lg group-hover:bg-orange-600/20 transition-all" />
                 <div className="relative bg-gray-900/40 backdrop-blur-sm border border-orange-500/20 rounded-xl p-3 hover:border-orange-500/40 transition-all">
-                  <FaComments className="text-xl mb-2 text-gray-400" />
+                  <FaComments className="text-xl mb-2 text-gray-300" />
                   <div className="text-sm font-semibold text-orange-300">ChatGPT</div>
                 </div>
               </div>
@@ -743,19 +783,19 @@ print(result)`}
         {/* Key features in clean grid */}
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
           <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
-            <FaBullseye className="text-2xl mb-2 text-gray-400" />
+            <FaBullseye className="text-2xl mb-2 text-gray-300" />
             <h3 className="font-semibold text-white mb-1">Zero Setup</h3>
             <p className="text-sm text-gray-300">Functions become tools instantly</p>
           </div>
           
           <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
-            <FaSearch className="text-2xl mb-2 text-gray-400" />
+            <FaSearch className="text-2xl mb-2 text-gray-300" />
             <h3 className="font-semibold text-white mb-1">Debug Mode</h3>
             <p className="text-sm text-gray-300">@xray shows everything</p>
           </div>
           
           <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
-            <FaChartBar className="text-2xl mb-2 text-gray-400" />
+            <FaChartBar className="text-2xl mb-2 text-gray-300" />
             <h3 className="font-semibold text-white mb-1">Auto Logging</h3>
             <p className="text-sm text-gray-300">Every interaction logged to .co/logs/</p>
           </div>
@@ -826,7 +866,265 @@ print(result)`}
         </div>
       </section>
 
-      {/* Section 8: Join the Community */}
+      {/* Section 8: Agents That Debug Themselves */}
+      <section className="py-20 px-6 bg-gradient-to-b from-purple-950/30 via-purple-950/10 to-transparent relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
+        <div className="absolute top-20 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl" />
+
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-6">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-purple-500" />
+              <span className="text-purple-400 text-sm font-mono uppercase tracking-wider">Interactive Debugging</span>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Agents That Debug <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600">Themselves</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              Pause at breakpoints, inspect variables, test edge cases - all in real-time
+            </p>
+          </div>
+
+          {/* Main Example */}
+          <div className="mb-16">
+            <CodeWithResult
+              code={`from connectonion import Agent
+from connectonion.decorators import xray
+
+@xray  # This tool becomes a breakpoint
+def search_emails(query: str):
+    return api.search(query)
+
+def send_email(to: str, body: str):
+    return api.send(to, body)
+
+agent = Agent(
+    name="email_assistant",
+    tools=[search_emails, send_email]
+)
+
+# Debug with a prompt - starts immediately!
+agent.auto_debug("Send email to John")`}
+              result={`🔍 Interactive Debug Session Started
+Agent: email_assistant | Tools: 2
+Debugging: "Send email to John"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔴 @xray BREAKPOINT: search_emails
+
+📊 Local Variables:
+  query = "John"
+  result = "Found 1 email from john@company.com"
+
+📍 Context:
+  User: "Send email to John"
+  Iteration: 1/10
+  Tools executed: 1/2
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚡ What do you want to do?
+  → Continue execution 🚀       [c or Enter]
+    Edit variables 🔍           [e]
+    Quit debugging 🚫          [q]
+
+💡 Tip: Press 'c' to continue or '?' for help
+> c
+
+→ Tool: send_email(to="john@company.com", ...)
+← Result: Email sent successfully
+
+✓ Task complete (1.2s)`}
+            />
+          </div>
+
+          {/* Key Features Grid */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all hover:shadow-lg hover:shadow-purple-500/10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-600/30 to-purple-700/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Bug className="w-6 h-6 text-purple-400" />
+                </div>
+                <h3 className="font-bold text-white text-lg">@xray Breakpoints</h3>
+              </div>
+              <p className="text-sm text-gray-300 leading-relaxed">
+                Decorate any tool with <code className="text-purple-400 bg-purple-950/50 px-1.5 py-0.5 rounded font-mono text-xs">@xray</code> - agent pauses automatically. Inspect variables, context, and full execution state.
+              </p>
+            </div>
+
+            <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all hover:shadow-lg hover:shadow-purple-500/10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-600/30 to-purple-700/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Terminal className="w-6 h-6 text-purple-400" />
+                </div>
+                <h3 className="font-bold text-white text-lg">Zero Learning Curve</h3>
+              </div>
+              <p className="text-sm text-gray-300 leading-relaxed">
+                Arrow keys or shortcuts (<kbd className="bg-gray-700 px-1.5 py-0.5 rounded text-xs">c</kbd>/<kbd className="bg-gray-700 px-1.5 py-0.5 rounded text-xs">e</kbd>/<kbd className="bg-gray-700 px-1.5 py-0.5 rounded text-xs">q</kbd>). Tips always shown. No docs needed.
+              </p>
+            </div>
+
+            <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all hover:shadow-lg hover:shadow-purple-500/10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-600/30 to-purple-700/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <CheckCircle className="w-6 h-6 text-purple-400" />
+                </div>
+                <h3 className="font-bold text-white text-lg">Time-Travel Testing</h3>
+              </div>
+              <p className="text-sm text-gray-300 leading-relaxed">
+                Press <kbd className="bg-gray-700 px-1.5 py-0.5 rounded text-xs">e</kbd> for Python REPL. Change one variable, watch entire agent behavior change. Test edge cases instantly.
+              </p>
+            </div>
+          </div>
+
+          {/* CTA with additional info */}
+          <div className="text-center">
+            <Link
+              href="/auto-debug"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white rounded-xl transition-all font-semibold shadow-lg shadow-purple-600/30 hover:shadow-purple-500/40 hover:scale-105"
+            >
+              Learn Interactive Debugging <ArrowRight className="w-5 h-5" />
+            </Link>
+            <p className="mt-4 text-sm text-gray-400">
+              Available in <span className="text-purple-400 font-mono">v0.3.2</span> • Coming soon: Ask AI, View trace, Step mode
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 9: Agent Collaboration */}
+      <section className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-6">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-500" />
+              <span className="text-blue-400 text-sm font-mono uppercase tracking-wider">Multi-Agent Systems</span>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-500" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Agents That Work Together</h2>
+            <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+              One line to serve. One line to connect. That's all you need.
+            </p>
+          </div>
+
+          {/* Code Example - Vertical Layout for better mobile/tablet experience */}
+          <div className="space-y-8 mb-12 max-w-4xl mx-auto">
+            {/* Step 1: Serve an Agent */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span className="text-xl font-bold text-purple-400">1</span>
+                </div>
+                <h3 className="text-xl font-semibold text-white">Serve an Agent</h3>
+              </div>
+              <CodeWithResult
+                code={`from connectonion import Agent
+
+def translate(text: str) -> str:
+    return translation_result
+
+agent = Agent(
+    "You are a translator",
+    tools=[translate]
+)
+
+# Make it available to others
+agent.serve()`}
+                result={`🟢 Agent Online
+Public Key: 0x3d4017c3...
+
+Debug: https://oo.openonion.ai/...
+Protocol: co://0x3d4017c3...
+
+[Waiting for connections...]`}
+              />
+            </div>
+
+            {/* Step 2: Connect to It */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span className="text-xl font-bold text-blue-400">2</span>
+                </div>
+                <h3 className="text-xl font-semibold text-white">Connect to It</h3>
+              </div>
+              <CodeWithResult
+                code={`from connectonion import connect
+
+# Connect using public key
+translator = connect(
+    "0x3d4017c3..."
+)
+
+# Use it like any function
+result = translator.input(
+    "Translate 'Hello' to Spanish"
+)
+
+print(result)`}
+                result={`"Hola"`}
+              />
+            </div>
+          </div>
+
+          {/* Key Features */}
+          <div className="grid md:grid-cols-3 gap-4 mb-12">
+            <div className="bg-gray-800/30 rounded-lg p-5 border border-gray-700">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                <h4 className="font-semibold text-white">Zero Config</h4>
+              </div>
+              <p className="text-sm text-gray-300">Public key is auto-generated</p>
+            </div>
+
+            <div className="bg-gray-800/30 rounded-lg p-5 border border-gray-700">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                <h4 className="font-semibold text-white">Web Debugger</h4>
+              </div>
+              <p className="text-sm text-gray-300">Test agents in browser instantly</p>
+            </div>
+
+            <div className="bg-gray-800/30 rounded-lg p-5 border border-gray-700">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                <h4 className="font-semibold text-white">Long Tasks</h4>
+              </div>
+              <p className="text-sm text-gray-300">Built for 20+ minute operations</p>
+            </div>
+          </div>
+
+          {/* What You Get */}
+          <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-xl p-6 border border-blue-500/30">
+            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-blue-400" />
+              What You Get
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-300"><strong>Ed25519 Identity:</strong> Cryptographic public key as address</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-300"><strong>Auto Relay:</strong> NAT traversal handled automatically</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-300"><strong>Signed Messages:</strong> All communication verified</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-300"><strong>Protocol URL:</strong> co:// links open debug interface</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 10: Join the Community */}
       <section className="py-20 px-6 bg-gray-900/20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-8">Join the Community</h2>
@@ -859,24 +1157,31 @@ print(result)`}
         </div>
       </section>
 
-      {/* Section 9: Final CTA - Simplified */}
+      {/* Section 11: Final CTA - Simplified */}
       <section className="py-16 md:py-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">Ready to Start?</h2>
           <p className="text-base md:text-lg text-gray-200 mb-6 md:mb-8">
             Build your first agent today
           </p>
-          
+
           <CommandBlock commands={['pip install connectonion']} />
-          
+
           <div className="mt-4 md:mt-6">
-            <Link 
+            <Link
               href="/quickstart"
               className="text-sm text-gray-500 hover:text-white transition-colors"
             >
               View Documentation →
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Navigation */}
+      <section className="px-4 md:px-8 pb-12">
+        <div className="max-w-6xl mx-auto">
+          <ContentNavigation />
         </div>
       </section>
     </main>

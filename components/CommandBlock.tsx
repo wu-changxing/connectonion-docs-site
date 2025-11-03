@@ -1,8 +1,12 @@
 /**
  * @purpose Terminal-style component for displaying shell commands with syntax highlighting
- * @context Used throughout docs to show CLI commands with copy functionality
- * @llm-note Colorizes common commands (pip, cd, python, npm, co), provides one-click copy,
- *           shows $ prompt visually but excludes from copy text, hover effects per command
+ * @llm-note
+ *   Dependencies: imports from [react, lucide-react] | imported by [app/page.tsx, app/quickstart/page.tsx, app/cli/page.tsx, +11 more]
+ *   Data flow: receives commands: string[] → colorizes each command → displays with $ prompt → copy button writes to navigator.clipboard
+ *   State/Effects: manages copied state (2s timeout) | writes to clipboard | no external API calls
+ *   Integration: exposes CommandBlock component | accepts {title?: string, commands: string[], id?: string}
+ *   Performance: inline colorization per command | no memoization needed (fast)
+ *   UX: $ prompt is select-none | command hover highlighting | 44px touch target | green checkmark on copy
  */
 /*
   DESIGN IMPROVEMENTS IMPLEMENTED:

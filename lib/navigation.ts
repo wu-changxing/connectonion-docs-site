@@ -1,7 +1,7 @@
-import { 
-  Home, Rocket, Terminal, MessageSquare, Code, Gauge, Zap, Shield, Bug, 
+import {
+  Home, Rocket, Terminal, MessageSquare, Code, Gauge, Zap, Shield, Bug,
   GitBranch, FileText, FolderOpen, Sparkles, Calculator, Cloud, BookOpen,
-  Users, Settings, Layers, Brain, MessageCircle, Database, Package, Cpu, Chrome, Camera, Link, Mail, FileCode2
+  Users, Settings, Layers, Brain, MessageCircle, Database, Package, Cpu, Chrome, Camera, Link, Mail, FileCode2, Network, Wifi
 } from 'lucide-react'
 
 // Simple, flat navigation structure with all metadata in one place
@@ -159,6 +159,28 @@ export const navigation = [
     section: 'Core Concepts',
     keywords: ['debug', 'xray', 'decorator', 'trace', 'monitor', 'visibility'],
     prev: { href: '/trust', title: 'Trust Parameter' },
+    next: { href: '/serve', title: 'Agent Serving' }
+  },
+
+  // Networking
+  {
+    title: 'Agent Serving',
+    href: '/serve',
+    icon: Wifi,
+    section: 'Networking',
+    difficulty: 'Essential',
+    keywords: ['serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'agent serving', 'ed25519'],
+    prev: { href: '/xray', title: '@xray Decorator' },
+    next: { href: '/connect', title: 'Connect to Agents' }
+  },
+  {
+    title: 'Connect to Agents',
+    href: '/connect',
+    icon: Network,
+    section: 'Networking',
+    difficulty: 'Essential',
+    keywords: ['connect', 'remote', 'network', 'relay', 'distributed', 'client', 'remote agent', 'proxy'],
+    prev: { href: '/serve', title: 'Agent Serving' },
     next: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' }
   },
 

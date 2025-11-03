@@ -1,3 +1,12 @@
+/**
+ * @purpose Bottom-of-page navigation component showing prev/next links and example series progress dots
+ * @llm-note
+ *   Dependencies: imports from [next/link, next/navigation, lucide-react, lib/navigation] | imported by [app/page.tsx, app/quickstart/page.tsx, app/agent/page.tsx, +28 more pages]
+ *   Data flow: receives pathname from usePathname() → getPageByHref() returns {prev, next, section, exampleIndex} → renders prev/next buttons + progress dots
+ *   State/Effects: reads URL pathname | no state mutations | no API calls | client-side navigation via Link
+ *   Integration: exposes ContentNavigation component | uses lib/navigation for page metadata | returns null if page not in navigation map
+ *   UX: example series shows dots with active indicator (purple w-8 vs gray w-2) | prev/next buttons with hover effects | empty div spacers for alignment
+ */
 'use client'
 
 import Link from 'next/link'
