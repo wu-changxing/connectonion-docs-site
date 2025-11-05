@@ -77,6 +77,52 @@ This provides two equivalent commands:
 - \`co\` (short form)
 - \`connectonion\` (full form)
 
+## Getting Help
+
+The ConnectOnion CLI has a **three-level help system** that makes it easy to find what you need:
+
+### Level 1: Quick Overview
+\`\`\`bash
+co
+\`\`\`
+Shows a brief, scannable overview with:
+- Common commands and usage examples
+- Quick links to documentation
+- Guidance on getting more detailed help
+
+**When to use:** You need a quick refresher or want to see available commands.
+
+### Level 2: Detailed Help
+\`\`\`bash
+co --help
+\`\`\`
+Shows complete help with:
+- All available commands
+- All command-line options
+- Real usage examples
+- Links to documentation
+
+**When to use:** You want to see all available options or need examples.
+
+### Level 3: Command-Specific Help
+\`\`\`bash
+co <command> --help
+\`\`\`
+Examples:
+\`\`\`bash
+co init --help
+co create --help
+co auth --help
+\`\`\`
+
+Shows detailed help for a specific command including:
+- All options for that command
+- Multiple usage examples
+- List of files that will be created
+- Direct link to command documentation
+
+**When to use:** You're about to run a command and want to know all the options.
+
 ## Commands Overview
 
 ConnectOnion provides two main commands for project creation:
@@ -89,7 +135,7 @@ Both commands share the same interactive flow:
 2. API key input (with auto-detection)
 3. Template selection
 
-## Commands
+## Core Commands
 
 ### co create [name]
 
@@ -205,6 +251,56 @@ Every project automatically gets:
 | \`co create --ai --template custom\` | Create custom AI template |
 | \`co --version\` | Show version |
 | \`co --help\` | Show help |
+| \`co <command> --help\` | Get help for specific command |
+
+## Authentication & Account Management
+
+### co auth
+
+Authenticate with OpenOnion for managed LLM keys (allows using \`co/\` models).
+
+\`\`\`bash
+co auth
+\`\`\`
+
+**What it does:**
+1. Loads your agent's keys from \`.co/keys/\`
+2. Signs an authentication message
+3. Authenticates directly with the backend
+4. Saves the token for future use
+
+**When to use:**
+- You want to use managed LLM keys (no need to provide your own API keys)
+- You want to use \`co/\` models like \`co/gpt-4o-mini\`, \`co/claude-sonnet-4\`
+
+### co status
+
+Check your account balance and usage.
+
+\`\`\`bash
+co status
+\`\`\`
+
+**Shows:**
+- Current balance
+- Usage statistics
+- Account information
+
+**Note:** Does not require re-authentication. Uses saved token from \`co auth\`.
+
+### co reset
+
+Reset your account and create a new one.
+
+\`\`\`bash
+co reset
+\`\`\`
+
+**⚠️ WARNING:** This will delete all your data and create a new account. You will lose your balance and transaction history.
+
+**When to use:**
+- You want to start fresh with a new account
+- You lost access to your keys and need a new identity
 
 ## Browser Features
 
