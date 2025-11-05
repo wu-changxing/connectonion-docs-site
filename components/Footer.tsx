@@ -41,48 +41,48 @@ export default function Footer() {
 
       {/* Minimal Footer - Mobile Optimized */}
       <div className="border-t border-gray-800/50 mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           {/* Mobile: Stacked | Desktop: Side by side */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             {/* Left: Brand & Copyright */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-500">
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-base text-gray-400">
               <div className="flex items-center gap-2">
-                <img 
-                  src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png" 
-                  alt="ConnectOnion" 
-                  className="w-6 h-6 rounded"
+                <img
+                  src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png"
+                  alt="ConnectOnion"
+                  className="w-8 h-8 rounded"
                 />
-                <span className="font-medium text-gray-400">ConnectOnion</span>
+                <span className="font-medium text-gray-300">ConnectOnion</span>
               </div>
               <span className="hidden sm:inline text-gray-700">·</span>
               <span>© {currentYear}</span>
               <span className="hidden sm:inline text-gray-700">·</span>
               <span className="hidden sm:flex items-center gap-1">
-                Built with <Heart className="w-3 h-3 text-red-500 fill-current" />
+                Built with <Heart className="w-4 h-4 text-red-500 fill-current" />
               </span>
             </div>
-            
+
             {/* Right: Social Links */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <a
                 href="https://github.com/wu-changxing/connectonion"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-300 transition-colors"
+                className="text-gray-400 hover:text-gray-200 transition-colors"
                 aria-label="GitHub"
               >
-                <Github className="w-5 h-5" />
+                <Github className="w-6 h-6" />
               </a>
               <a
                 href="https://discord.gg/4xfD9k8AUF"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-300 transition-colors"
+                className="text-gray-400 hover:text-gray-200 transition-colors"
                 aria-label="Discord"
               >
-                <FaDiscord className="w-5 h-5" />
+                <FaDiscord className="w-6 h-6" />
               </a>
-              <span className="text-xs text-gray-600 ml-2">v0.1.9</span>
+              <span className="text-sm text-gray-500 ml-2">v0.1.9</span>
             </div>
           </div>
         </div>

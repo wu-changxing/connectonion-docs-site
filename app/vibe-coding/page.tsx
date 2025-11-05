@@ -72,58 +72,58 @@ export default function VibeCodingPage() {
             </div>
             <div>
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient">
-                Vibe Coding Guide
+                Vibe-Coding Support
               </h1>
-              <p className="text-gray-400 mt-2 text-lg">Build AI Agents in 60 Seconds with Cursor</p>
+              <p className="text-gray-400 mt-2 text-lg">Build AI Agents Correctly with Claude Code Plugin</p>
             </div>
           </div>
           <div className="flex gap-3">
             <CopyMarkdownButton />
-            <a 
-              href="https://cursor.sh" 
-              target="_blank" 
+            <a
+              href="https://github.com/openonion/connectonion-claude-plugin"
+              target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors border border-gray-700"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors border border-blue-500"
             >
-              <Download className="w-4 h-4" />
-              <span className="text-sm">Get Cursor</span>
+              <Terminal className="w-4 h-4" />
+              <span className="text-sm">Get Claude Plugin</span>
             </a>
           </div>
         </div>
 
         {/* Hero Section */}
         <section className="mb-20">
-          <div className="bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10 rounded-2xl p-8 border border-purple-500/20 mb-12">
+          <div className="bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-blue-500/10 rounded-2xl p-8 border border-blue-500/20 mb-12">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 rounded-full border border-purple-500/30 mb-6">
-                <Sparkles className="w-4 h-4 text-purple-400" />
-                <span className="text-sm font-medium text-purple-300">No Coding Experience Required</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 rounded-full border border-blue-500/30 mb-6">
+                <Terminal className="w-4 h-4 text-blue-400" />
+                <span className="text-sm font-medium text-blue-300">Documentation-Grounded Development</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                From Idea to Working Agent in <span className="text-purple-400">3 Steps</span>
+                Build ConnectOnion Agents <span className="text-blue-400">The Right Way</span>
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                Just drag our docs into Cursor AI and describe what you want. The AI handles everything else.
+                Code review and agent builder powered by actual ConnectOnion documentation. No hallucinations, no wrong patterns.
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
               <div className="flex items-center gap-3 bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-                <div className="bg-purple-500/20 p-2 rounded-lg">
-                  <Mouse className="w-5 h-5 text-purple-400" />
+                <div className="bg-blue-500/20 p-2 rounded-lg">
+                  <Terminal className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <p className="font-semibold">1. Drag</p>
-                  <p className="text-sm text-gray-400">Our docs file</p>
+                  <p className="font-semibold">1. Install Plugin</p>
+                  <p className="text-sm text-gray-400">2 simple commands</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-                <div className="bg-pink-500/20 p-2 rounded-lg">
-                  <Code className="w-5 h-5 text-pink-400" />
+                <div className="bg-purple-500/20 p-2 rounded-lg">
+                  <Check className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
-                  <p className="font-semibold">2. Describe</p>
-                  <p className="text-sm text-gray-400">Your agent idea</p>
+                  <p className="font-semibold">2. Review or Build</p>
+                  <p className="text-sm text-gray-400">Use /co commands</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 bg-gray-900/50 rounded-lg p-4 border border-gray-700">
@@ -131,106 +131,136 @@ export default function VibeCodingPage() {
                   <Rocket className="w-5 h-5 text-green-400" />
                 </div>
                 <div>
-                  <p className="font-semibold">3. Run</p>
-                  <p className="text-sm text-gray-400">Your new agent</p>
+                  <p className="font-semibold">3. Ship</p>
+                  <p className="text-sm text-gray-400">Correct code, first time</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Quick Start */}
+        {/* Claude Code Plugin - Installation */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <Zap className="w-6 h-6 text-yellow-400" />
-            <h2 className="text-3xl font-bold">Getting Started</h2>
-            <span className="text-sm text-gray-500 bg-gray-800 px-3 py-1 rounded-full">2 Simple Methods</span>
+          <div className="relative bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-blue-500/10 rounded-2xl p-8 border border-blue-500/30 overflow-hidden">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-3 bg-blue-500/20 rounded-xl border border-blue-500/30">
+                <Terminal className="w-8 h-8 text-blue-400" />
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-blue-300">Claude Code Plugin</h2>
+                <p className="text-gray-400 text-sm">Code review & agent builder directly in Claude Code</p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="bg-gray-900/60 rounded-xl p-4 border border-gray-700">
+                <div className="flex items-center gap-2 mb-3">
+                  <Check className="w-5 h-5 text-green-400" />
+                  <h3 className="font-semibold">Documentation-Grounded</h3>
+                </div>
+                <p className="text-sm text-gray-400">Every recommendation based on actual ConnectOnion docs. No hallucinations.</p>
+              </div>
+              <div className="bg-gray-900/60 rounded-xl p-4 border border-gray-700">
+                <div className="flex items-center gap-2 mb-3">
+                  <Zap className="w-5 h-5 text-yellow-400" />
+                  <h3 className="font-semibold">Two Powerful Commands</h3>
+                </div>
+                <p className="text-sm text-gray-400"><code className="bg-gray-800 px-1 rounded">/co-review</code> for code review & <code className="bg-gray-800 px-1 rounded">/co-build</code> for agent builder</p>
+              </div>
+            </div>
+
+            <div className="bg-gray-900/80 rounded-xl p-6 border border-gray-800 mb-4">
+              <p className="text-sm text-gray-400 mb-3 font-semibold">Quick Install:</p>
+              <div className="space-y-2">
+                <div className="bg-gray-800 rounded-lg p-3 font-mono text-sm flex items-center justify-between">
+                  <div>
+                    <span className="text-gray-500 select-none">1. </span>
+                    <span className="text-blue-400">/plugin marketplace add openonion/connectonion-claude-plugin</span>
+                  </div>
+                  <button
+                    onClick={() => handleCopyCode('/plugin marketplace add openonion/connectonion-claude-plugin', 'plugin-marketplace')}
+                    className="p-1.5 bg-gray-700 hover:bg-gray-600 rounded"
+                  >
+                    {copiedCode === 'plugin-marketplace' ? (
+                      <Check className="w-3.5 h-3.5 text-green-400" />
+                    ) : (
+                      <Copy className="w-3.5 h-3.5 text-gray-400" />
+                    )}
+                  </button>
+                </div>
+                <div className="bg-gray-800 rounded-lg p-3 font-mono text-sm flex items-center justify-between">
+                  <div>
+                    <span className="text-gray-500 select-none">2. </span>
+                    <span className="text-blue-400">/plugin install connectonion</span>
+                  </div>
+                  <button
+                    onClick={() => handleCopyCode('/plugin install connectonion', 'plugin-install')}
+                    className="p-1.5 bg-gray-700 hover:bg-gray-600 rounded"
+                  >
+                    {copiedCode === 'plugin-install' ? (
+                      <Check className="w-3.5 h-3.5 text-green-400" />
+                    ) : (
+                      <Copy className="w-3.5 h-3.5 text-gray-400" />
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://github.com/openonion/connectonion-claude-plugin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/40 rounded-lg transition-all text-sm font-medium text-blue-300"
+              >
+                <Code className="w-4 h-4" />
+                <span>View on GitHub</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </a>
+              <button
+                onClick={() => {
+                  const el = document.getElementById('plugin-usage-examples')
+                  el?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-lg transition-all text-sm"
+              >
+                <BookOpen className="w-4 h-4" />
+                <span>See Examples</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Alternative: Cursor AI */}
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-6">
+            <Mouse className="w-5 h-5 text-gray-500" />
+            <h3 className="text-xl font-semibold text-gray-400">Alternative: Use Cursor AI</h3>
+            <span className="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded-full">For general coding</span>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="group bg-gradient-to-br from-purple-500/5 to-transparent rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-colors">
-                    <Mouse className="w-5 h-5 text-purple-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold">Method 1: Local Files</h3>
-                </div>
-                <span className="text-xs text-purple-400 bg-purple-500/10 px-2 py-1 rounded">Recommended</span>
-              </div>
-              <ol className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                  <div>
-                    <p className="font-medium">Run Setup</p>
-                    <code className="text-xs bg-gray-800 px-2 py-1 rounded mt-1 inline-block">co init</code>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center text-xs font-bold">2</span>
-                  <div>
-                    <p className="font-medium">Open Cursor AI</p>
-                    <p className="text-xs text-gray-500 mt-1">In your project folder</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                  <div>
-                    <p className="font-medium">Drag File to Chat</p>
-                    <code className="text-xs bg-gray-800 px-2 py-1 rounded mt-1 inline-block break-all">.co/docs/co-vibecoding-*.md</code>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center text-xs font-bold">4</span>
-                  <div>
-                    <p className="font-medium">Ask Cursor</p>
-                    <p className="text-xs text-gray-400 mt-1">"Create an agent for..."</p>
-                  </div>
-                </li>
-              </ol>
-            </div>
-
-            <div className="group bg-gradient-to-br from-pink-500/5 to-transparent rounded-xl p-6 border border-gray-700 hover:border-pink-500/40 transition-all">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-pink-500/20 rounded-lg group-hover:bg-pink-500/30 transition-colors">
-                    <Copy className="w-5 h-5 text-pink-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold">Method 2: Copy from Web</h3>
-                </div>
-                <span className="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded">Quick</span>
-              </div>
-              <ol className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                  <div>
-                    <p className="font-medium">Visit Docs</p>
-                    <a href="https://docs.connectonion.com" className="text-xs text-pink-400 hover:text-pink-300 mt-1 inline-block">docs.connectonion.com</a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center text-xs font-bold">2</span>
-                  <div>
-                    <p className="font-medium">Click Purple Button</p>
-                    <p className="text-xs text-gray-500 mt-1">"Copy All Docs"</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                  <div>
-                    <p className="font-medium">Open Cursor Chat</p>
-                    <p className="text-xs text-gray-500 mt-1">CMD+L or CTRL+L</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center text-xs font-bold">4</span>
-                  <div>
-                    <p className="font-medium">Paste & Ask</p>
-                    <p className="text-xs text-gray-400 mt-1">Describe your agent</p>
-                  </div>
-                </li>
-              </ol>
-            </div>
+          <div className="bg-gradient-to-r from-gray-800/50 to-transparent rounded-xl p-6 border border-gray-700">
+            <p className="text-sm text-gray-400 mb-4">
+              If you prefer using Cursor AI for broader coding tasks, you can drag our documentation file into Cursor:
+            </p>
+            <ol className="space-y-2 text-sm text-gray-400">
+              <li className="flex items-start gap-2">
+                <span className="text-gray-600">1.</span>
+                <span>Run <code className="bg-gray-800 px-2 py-0.5 rounded text-xs">co init</code> to get docs</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-gray-600">2.</span>
+                <span>Drag <code className="bg-gray-800 px-2 py-0.5 rounded text-xs">.co/docs/co-vibecoding-*.md</code> into Cursor chat</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-gray-600">3.</span>
+                <span>Describe what agent you want to build</span>
+              </li>
+            </ol>
+            <p className="text-xs text-gray-500 mt-4">
+              💡 Note: Claude Code plugin provides more accurate results with documentation-grounded code review
+            </p>
           </div>
         </section>
 
@@ -314,9 +344,90 @@ print(result)  # Output: "5 plus 3 equals 8"`}
           </div>
         </section>
 
+        {/* Plugin Usage Examples */}
+        <section id="plugin-usage-examples" className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <Terminal className="w-6 h-6 text-blue-400" />
+            <h2 className="text-3xl font-bold">Claude Code Plugin Usage</h2>
+            <span className="text-sm text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/30">After Installation</span>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-gradient-to-br from-blue-500/5 to-transparent rounded-xl p-6 border border-blue-500/20">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-blue-500/20 rounded-lg">
+                  <Check className="w-5 h-5 text-blue-400" />
+                </div>
+                <h3 className="text-xl font-semibold">/co-review</h3>
+              </div>
+              <p className="text-sm text-gray-400 mb-4">Review your ConnectOnion code against official documentation</p>
+              <div className="space-y-2">
+                <div className="bg-gray-900/60 rounded-lg p-3 border border-gray-800">
+                  <code className="text-sm text-blue-300">/co-review</code>
+                  <p className="text-xs text-gray-500 mt-1">Review current file</p>
+                </div>
+                <div className="bg-gray-900/60 rounded-lg p-3 border border-gray-800">
+                  <code className="text-sm text-blue-300">/co-review agent.py</code>
+                  <p className="text-xs text-gray-500 mt-1">Review specific file</p>
+                </div>
+                <div className="bg-gray-900/60 rounded-lg p-3 border border-gray-800">
+                  <code className="text-sm text-blue-300">/co-review .</code>
+                  <p className="text-xs text-gray-500 mt-1">Review entire project</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-purple-500/5 to-transparent rounded-xl p-6 border border-purple-500/20">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-purple-500/20 rounded-lg">
+                  <Rocket className="w-5 h-5 text-purple-400" />
+                </div>
+                <h3 className="text-xl font-semibold">/co-build</h3>
+              </div>
+              <p className="text-sm text-gray-400 mb-4">Interactive agent builder with documented patterns</p>
+              <div className="space-y-2">
+                <div className="bg-gray-900/60 rounded-lg p-3 border border-gray-800">
+                  <code className="text-sm text-purple-300">/co-build</code>
+                  <p className="text-xs text-gray-500 mt-1">Start interactive agent builder</p>
+                </div>
+                <div className="bg-gray-900/60 rounded-lg p-4 border border-gray-800 mt-3">
+                  <p className="text-xs text-gray-400 mb-2">The agent will ask:</p>
+                  <ul className="space-y-1 text-xs text-gray-500">
+                    <li>• What should your agent do?</li>
+                    <li>• What tools does it need?</li>
+                    <li>• Does it need shared state?</li>
+                  </ul>
+                  <p className="text-xs text-green-400 mt-2">Then generates complete working code!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-blue-500/5 rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-yellow-400" />
+              <span>Why Use the Plugin?</span>
+            </h3>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-800">
+                <p className="font-medium text-sm mb-2 text-green-400">✓ No Hallucinations</p>
+                <p className="text-xs text-gray-400">Every pattern comes from actual docs</p>
+              </div>
+              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-800">
+                <p className="font-medium text-sm mb-2 text-blue-400">✓ Instant Feedback</p>
+                <p className="text-xs text-gray-400">Review code in seconds</p>
+              </div>
+              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-800">
+                <p className="font-medium text-sm mb-2 text-purple-400">✓ Learn Best Practices</p>
+                <p className="text-xs text-gray-400">Explains why patterns matter</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Prompt Examples */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8">Prompt Templates</h2>
+          <h2 className="text-3xl font-bold mb-8">Cursor AI Prompt Templates</h2>
           <p className="text-gray-400 mb-8">Copy and customize these prompts for Cursor:</p>
 
           <div className="space-y-4">
