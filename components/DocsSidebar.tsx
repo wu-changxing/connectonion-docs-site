@@ -358,14 +358,16 @@ export function DocsSidebar() {
               onClick={() => toggleSection(section)}
               className="w-full flex items-center justify-between px-3 py-2 mb-2 text-left text-xs font-bold text-gray-400 uppercase tracking-wider hover:text-gray-200 transition-colors"
             >
-              <SearchHighlight 
-                text={section} 
-                query={searchQuery}
-              />
+              <span className="flex-1 truncate">
+                <SearchHighlight
+                  text={section}
+                  query={searchQuery}
+                />
+              </span>
               {openSections.includes(section) ? (
-                <ChevronDown className="w-3 h-3" />
+                <ChevronDown className="w-3 h-3 flex-shrink-0" />
               ) : (
-                <ChevronRight className="w-3 h-3" />
+                <ChevronRight className="w-3 h-3 flex-shrink-0" />
               )}
             </button>
             

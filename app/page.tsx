@@ -122,7 +122,7 @@ export default function HomePage() {
           </div>
 
           {/* Subtle pain point intro - larger on mobile */}
-          <p className="text-sm md:text-base text-gray-300 mb-2">
+          <p className="text-sm md:text-base text-gray-100 mb-2">
             AI agents shouldn't need <span className="text-red-400">500 lines of boilerplate</span>
           </p>
           
@@ -209,11 +209,11 @@ export default function HomePage() {
                 <div className="grid md:grid-cols-2 gap-3 text-sm">
                   <div className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-green-400 mt-0.5" />
-                    <span className="text-gray-300"><strong>Stable:</strong> Core agent, tools, LLM integration, CLI, auto-logging</span>
+                    <span className="text-gray-100"><strong>Stable:</strong> Core agent, tools, LLM integration, CLI, auto-logging</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Sparkles className="w-4 h-4 text-yellow-400 mt-0.5" />
-                    <span className="text-gray-300"><strong>New:</strong> Interactive debugging (@xray), Python REPL, breakpoints</span>
+                    <span className="text-gray-100"><strong>New:</strong> Interactive debugging (@xray), Python REPL, breakpoints</span>
                   </div>
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 mb-4">
             <div className="h-px w-8 bg-gradient-to-r from-transparent to-purple-500" />
-            <span className="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-gray-300">ConnectOnion Philosophy</span>
+            <span className="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-gray-100">ConnectOnion Philosophy</span>
             <div className="h-px w-8 bg-gradient-to-l from-transparent to-purple-500" />
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight text-white mb-2">
@@ -249,7 +249,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 md:mb-3">How It Works</h2>
-            <p className="text-base md:text-lg text-gray-300">It's just this simple:</p>
+            <p className="text-base md:text-lg text-gray-100">It's just this simple:</p>
           </div>
           
           {/* Responsive Equation */}
@@ -332,7 +332,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Complete Example</h2>
-            <p className="text-lg text-gray-300">This is all the code you need:</p>
+            <p className="text-lg text-gray-100">This is all the code you need:</p>
           </div>
           
           <CodeWithResult 
@@ -361,7 +361,7 @@ print(result)  # "42 * 17 equals 714"`}
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 md:mb-3">See the Difference</h2>
-            <p className="text-base md:text-lg text-gray-300">Same AI agent, different approach</p>
+            <p className="text-base md:text-lg text-gray-100">Same AI agent, different approach</p>
           </div>
           
           {/* Mobile: Tab Interface */}
@@ -647,7 +647,7 @@ print(result)`}
               <p className="text-2xl md:text-3xl font-bold text-white mb-1">
                 Same result, <span className="text-green-400">85% less code</span>
               </p>
-              <p className="text-sm md:text-base text-gray-300">
+              <p className="text-sm md:text-base text-gray-100">
                 No boilerplate. No complexity. Just agents.
               </p>
             </div>
@@ -744,7 +744,7 @@ print(result)`}
                 <span className="text-xl font-bold text-purple-400">1</span>
               </div>
               <h3 className="font-bold text-white mb-1 text-sm md:text-base">Copy Documentation</h3>
-              <p className="text-sm text-gray-300">Click the button above</p>
+              <p className="text-sm text-gray-100">Click the button above</p>
             </div>
             
             <div className="text-center group">
@@ -752,7 +752,7 @@ print(result)`}
                 <span className="text-xl font-bold text-blue-400">2</span>
               </div>
               <h3 className="font-bold text-white mb-1 text-sm md:text-base">Paste to Your AI</h3>
-              <p className="text-sm text-gray-300">Any AI coding assistant</p>
+              <p className="text-sm text-gray-100">Any AI coding assistant</p>
             </div>
             
             <div className="text-center group">
@@ -760,7 +760,7 @@ print(result)`}
                 <span className="text-xl font-bold text-green-400">3</span>
               </div>
               <h3 className="font-bold text-white mb-1 text-sm md:text-base">Start Building</h3>
-              <p className="text-sm text-gray-300">AI writes perfect code</p>
+              <p className="text-sm text-gray-100">AI writes perfect code</p>
             </div>
           </div>
           
@@ -785,19 +785,19 @@ print(result)`}
           <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
             <FaBullseye className="text-2xl mb-2 text-gray-300" />
             <h3 className="font-semibold text-white mb-1">Zero Setup</h3>
-            <p className="text-sm text-gray-300">Functions become tools instantly</p>
+            <p className="text-sm text-gray-100">Functions become tools instantly</p>
           </div>
           
           <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
             <FaSearch className="text-2xl mb-2 text-gray-300" />
             <h3 className="font-semibold text-white mb-1">Debug Mode</h3>
-            <p className="text-sm text-gray-300">@xray shows everything</p>
+            <p className="text-sm text-gray-100">@xray shows everything</p>
           </div>
           
           <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
             <FaChartBar className="text-2xl mb-2 text-gray-300" />
             <h3 className="font-semibold text-white mb-1">Auto Logging</h3>
-            <p className="text-sm text-gray-300">Every interaction logged to .co/logs/</p>
+            <p className="text-sm text-gray-100">Every interaction logged to .co/logs/</p>
           </div>
         </div>
 
@@ -814,15 +814,15 @@ print(result)`}
               <div className="text-gray-500 mt-1">✓ Project ready in 5 seconds</div>
             </div>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2 text-gray-300">
+              <li className="flex items-center gap-2 text-gray-100">
                 <CheckCircle className="w-4 h-4 text-green-400" />
                 Project templates
               </li>
-              <li className="flex items-center gap-2 text-gray-300">
+              <li className="flex items-center gap-2 text-gray-100">
                 <CheckCircle className="w-4 h-4 text-green-400" />
                 Environment management
               </li>
-              <li className="flex items-center gap-2 text-gray-300">
+              <li className="flex items-center gap-2 text-gray-100">
                 <CheckCircle className="w-4 h-4 text-green-400" />
                 Best practices built-in
               </li>
@@ -843,15 +843,15 @@ print(result)`}
               <div className="text-green-300">&gt; Press 'e' to edit variables</div>
             </div>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2 text-gray-300">
+              <li className="flex items-center gap-2 text-gray-100">
                 <CheckCircle className="w-4 h-4 text-green-400" />
                 Pause at breakpoints
               </li>
-              <li className="flex items-center gap-2 text-gray-300">
+              <li className="flex items-center gap-2 text-gray-100">
                 <CheckCircle className="w-4 h-4 text-green-400" />
                 Python REPL access
               </li>
-              <li className="flex items-center gap-2 text-gray-300">
+              <li className="flex items-center gap-2 text-gray-100">
                 <CheckCircle className="w-4 h-4 text-green-400" />
                 Test "what if" scenarios
               </li>
@@ -1076,7 +1076,7 @@ print(result)`}
                 <CheckCircle className="w-5 h-5 text-green-400" />
                 <h4 className="font-semibold text-white">Zero Config</h4>
               </div>
-              <p className="text-sm text-gray-300">Public key is auto-generated</p>
+              <p className="text-sm text-gray-100">Public key is auto-generated</p>
             </div>
 
             <div className="bg-gray-800/30 rounded-lg p-5 border border-gray-700">
@@ -1084,7 +1084,7 @@ print(result)`}
                 <CheckCircle className="w-5 h-5 text-green-400" />
                 <h4 className="font-semibold text-white">Web Debugger</h4>
               </div>
-              <p className="text-sm text-gray-300">Test agents in browser instantly</p>
+              <p className="text-sm text-gray-100">Test agents in browser instantly</p>
             </div>
 
             <div className="bg-gray-800/30 rounded-lg p-5 border border-gray-700">
@@ -1092,7 +1092,7 @@ print(result)`}
                 <CheckCircle className="w-5 h-5 text-green-400" />
                 <h4 className="font-semibold text-white">Long Tasks</h4>
               </div>
-              <p className="text-sm text-gray-300">Built for 20+ minute operations</p>
+              <p className="text-sm text-gray-100">Built for 20+ minute operations</p>
             </div>
           </div>
 
@@ -1105,19 +1105,19 @@ print(result)`}
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300"><strong>Ed25519 Identity:</strong> Cryptographic public key as address</span>
+                <span className="text-gray-100"><strong>Ed25519 Identity:</strong> Cryptographic public key as address</span>
               </div>
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300"><strong>Auto Relay:</strong> NAT traversal handled automatically</span>
+                <span className="text-gray-100"><strong>Auto Relay:</strong> NAT traversal handled automatically</span>
               </div>
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300"><strong>Signed Messages:</strong> All communication verified</span>
+                <span className="text-gray-100"><strong>Signed Messages:</strong> All communication verified</span>
               </div>
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300"><strong>Protocol URL:</strong> co:// links open debug interface</span>
+                <span className="text-gray-100"><strong>Protocol URL:</strong> co:// links open debug interface</span>
               </div>
             </div>
           </div>
@@ -1139,7 +1139,7 @@ print(result)`}
             >
               <MessageCircle className="w-10 h-10 text-purple-400 mb-3 mx-auto" />
               <h3 className="font-semibold text-white mb-1">Discord</h3>
-              <p className="text-sm text-gray-300">Get help & share ideas</p>
+              <p className="text-sm text-gray-100">Get help & share ideas</p>
             </a>
 
             <a
@@ -1151,7 +1151,7 @@ print(result)`}
             >
               <Github className="w-10 h-10 text-blue-400 mb-3 mx-auto" />
               <h3 className="font-semibold text-white mb-1">GitHub</h3>
-              <p className="text-sm text-gray-300">Star & contribute</p>
+              <p className="text-sm text-gray-100">Star & contribute</p>
             </a>
           </div>
         </div>
