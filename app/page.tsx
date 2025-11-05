@@ -665,9 +665,9 @@ print(result)`}
         </div>
       </section>
       
-      {/* Section 6: Vibe Coding - Stunning Design */}
+      {/* Section 6: Vibe Coding with Claude Code */}
       <section id="vibe-coding" className="py-20 px-6 relative overflow-hidden">
-        
+
         <div className="max-w-5xl mx-auto relative">
           {/* Header with better typography */}
           <div className="text-center mb-12">
@@ -676,74 +676,40 @@ print(result)`}
               <span className="text-purple-400 text-sm font-mono uppercase tracking-wider">AI-Powered Development</span>
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
             </div>
-            
+
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              Vibe Coding Now
+              Vibe Coding with Claude Code
             </h2>
             <p className="text-base md:text-lg text-gray-200 mb-6 max-w-2xl mx-auto">
-              Copy our docs once. Your AI assistant writes perfect ConnectOnion code forever.
+              Install the Claude Code plugin and let AI write your ConnectOnion agents for you.
             </p>
-            
-            {/* AI Tools Grid - More Visual */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
+
+            {/* Claude Code Highlight */}
+            <div className="max-w-md mx-auto mb-8">
               <div className="group relative">
-                <div className="absolute inset-0 bg-purple-600/10 rounded-xl blur-lg group-hover:bg-purple-600/20 transition-all" />
-                <div className="relative bg-gray-900/40 backdrop-blur-sm border border-purple-500/20 rounded-xl p-3 hover:border-purple-500/40 transition-all">
-                  <FaRobot className="text-xl mb-2 text-gray-300" />
-                  <div className="text-sm font-semibold text-purple-300">Claude Code</div>
-                </div>
-              </div>
-              
-              <div className="group relative">
-                <div className="absolute inset-0 bg-blue-600/10 rounded-xl blur-lg group-hover:bg-blue-600/20 transition-all" />
-                <div className="relative bg-gray-900/40 backdrop-blur-sm border border-blue-500/20 rounded-xl p-3 hover:border-blue-500/40 transition-all">
-                  <FaLaptop className="text-xl mb-2 text-gray-300" />
-                  <div className="text-sm font-semibold text-blue-300">Cursor</div>
-                </div>
-              </div>
-              
-              <div className="group relative">
-                <div className="absolute inset-0 bg-green-600/10 rounded-xl blur-lg group-hover:bg-green-600/20 transition-all" />
-                <div className="relative bg-gray-900/40 backdrop-blur-sm border border-green-500/20 rounded-xl p-3 hover:border-green-500/40 transition-all">
-                  <FaRocket className="text-xl mb-2 text-gray-300" />
-                  <div className="text-sm font-semibold text-green-300">GitHub Copilot</div>
-                </div>
-              </div>
-              
-              <div className="group relative">
-                <div className="absolute inset-0 bg-orange-600/10 rounded-xl blur-lg group-hover:bg-orange-600/20 transition-all" />
-                <div className="relative bg-gray-900/40 backdrop-blur-sm border border-orange-500/20 rounded-xl p-3 hover:border-orange-500/40 transition-all">
-                  <FaComments className="text-xl mb-2 text-gray-300" />
-                  <div className="text-sm font-semibold text-orange-300">ChatGPT</div>
+                <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-2xl group-hover:bg-purple-600/30 transition-all" />
+                <div className="relative bg-gradient-to-br from-gray-900/60 to-gray-900/80 backdrop-blur-sm border-2 border-purple-500/40 rounded-2xl p-8 hover:border-purple-500/60 transition-all">
+                  <FaRobot className="text-5xl mb-4 text-purple-300 mx-auto" />
+                  <div className="text-2xl font-bold text-purple-200 mb-2">Claude Code</div>
+                  <div className="text-gray-300 text-sm">Official Anthropic Plugin</div>
                 </div>
               </div>
             </div>
           </div>
-          
-          {/* The Big CTA - Calmer emphasis */}
+
+          {/* The Big CTA - Install Plugin */}
           <div className="text-center mb-16">
-            <button
-              onClick={copyAllDocs}
+            <Link
+              href="/vibe-coding"
               className="px-8 py-4 md:px-10 md:py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg md:text-xl rounded-xl shadow-xl transition-all inline-flex items-center gap-3"
-              aria-label={copyAllStatus === 'done' ? 'Documentation copied to clipboard' : 'Copy all ConnectOnion documentation to clipboard'}
             >
-                {copyAllStatus === 'done' ? (
-                  <>
-                    <Check className="w-6 h-6 animate-bounce" />
-                    <span>Documentation Copied!</span>
-                    <Sparkles className="w-6 h-6 animate-pulse" />
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-6 h-6" />
-                    <span>Copy All Documentation</span>
-                    <ArrowRight className="w-6 h-6" />
-                  </>
-                )}
-            </button>
-            
+              <Sparkles className="w-6 h-6" />
+              <span>Install Claude Code Plugin</span>
+              <ArrowRight className="w-6 h-6" />
+            </Link>
+
             <p className="text-sm text-gray-300 mt-4 font-mono">
-              One click • Full context • Start immediately
+              Free plugin • 2-minute setup • Start coding with AI
             </p>
           </div>
           
