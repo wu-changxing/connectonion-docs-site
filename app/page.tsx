@@ -364,8 +364,34 @@ print(result)  # "42 * 17 equals 714"`}
             <p className="text-base md:text-lg text-gray-100">Same AI agent, different approach</p>
           </div>
           
-          {/* Mobile: Tab Interface */}
+          {/* Mobile: Visual Summary + Tab Interface */}
           <div className="md:hidden">
+            {/* Visual Comparison Summary */}
+            <div className="bg-gradient-to-r from-green-500/10 to-gray-500/10 rounded-lg p-4 mb-4 border border-green-500/20">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-semibold text-gray-200">Lines of Code</span>
+                <span className="text-2xl font-bold text-green-400">85% less</span>
+              </div>
+              {/* Visual bar chart */}
+              <div className="flex gap-3 h-24 items-end mb-3">
+                <div className="flex-1 flex flex-col items-center gap-2">
+                  <div className="w-full bg-green-500/20 rounded relative flex-1">
+                    <div className="absolute bottom-0 w-full bg-green-500 rounded transition-all"
+                         style={{height: '16%'}} />
+                  </div>
+                  <span className="text-xs text-green-400 font-bold">8 lines</span>
+                </div>
+                <div className="flex-1 flex flex-col items-center gap-2">
+                  <div className="w-full bg-gray-500/20 rounded relative flex-1">
+                    <div className="absolute bottom-0 w-full bg-gray-500 rounded transition-all"
+                         style={{height: '100%'}} />
+                  </div>
+                  <span className="text-xs text-gray-400 font-bold">~50 lines</span>
+                </div>
+              </div>
+              <p className="text-xs text-gray-300 text-center">Same result, way less boilerplate</p>
+            </div>
+
             {/* Tab Buttons */}
             <div className="flex gap-2 mb-4">
               <button
