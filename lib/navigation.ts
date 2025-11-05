@@ -1,7 +1,7 @@
 import {
   Home, Rocket, Terminal, MessageSquare, Code, Gauge, Zap, Shield, Bug,
   GitBranch, FileText, FolderOpen, Sparkles, Calculator, Cloud, BookOpen,
-  Users, Settings, Layers, Brain, MessageCircle, Database, Package, Cpu, Chrome, Camera, Link, Mail, FileCode2, Network, Wifi
+  Users, Settings, Layers, Brain, MessageCircle, Database, Package, Cpu, Chrome, Camera, Link, Mail, FileCode2, Network, Wifi, Activity
 } from 'lucide-react'
 
 // Simple, flat navigation structure with all metadata in one place
@@ -159,6 +159,16 @@ export const navigation = [
     section: 'Core Concepts',
     keywords: ['debug', 'xray', 'decorator', 'trace', 'monitor', 'visibility'],
     prev: { href: '/trust', title: 'Trust Parameter' },
+    next: { href: '/on_events', title: 'Event System (on_events)' }
+  },
+  {
+    title: 'Event System (on_events)',
+    href: '/on_events',
+    icon: Activity,
+    section: 'Core Concepts',
+    difficulty: 'NEW',
+    keywords: ['events', 'on_events', 'hooks', 'lifecycle', 'monitoring', 'after_llm', 'before_tool', 'after_tool', 'on_error', 'after_user_input', 'before_llm'],
+    prev: { href: '/xray', title: '@xray Decorator' },
     next: { href: '/serve', title: 'Agent Serving' }
   },
 
@@ -170,7 +180,7 @@ export const navigation = [
     section: 'Networking',
     difficulty: 'Essential',
     keywords: ['serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'agent serving', 'ed25519'],
-    prev: { href: '/xray', title: '@xray Decorator' },
+    prev: { href: '/on_events', title: 'Event System (on_events)' },
     next: { href: '/connect', title: 'Connect to Agents' }
   },
   {
