@@ -302,6 +302,33 @@ co reset
 - You want to start fresh with a new account
 - You lost access to your keys and need a new identity
 
+### co doctor
+
+Run comprehensive diagnostics on your ConnectOnion installation.
+
+\`\`\`bash
+co doctor
+\`\`\`
+
+**What it checks:**
+- **System Info:** ConnectOnion version, Python version, virtual environment status, command location
+- **Configuration:** Config files, keys directory, API keys, agent identity
+- **Connectivity:** Backend reachability, authentication status, network connectivity
+
+**When to use:**
+- \`co\` command not found
+- API key problems
+- Authentication failures
+- Network connectivity issues
+- General troubleshooting
+
+**Common issues it detects:**
+- Missing \`co\` command in PATH
+- Python version incompatibility
+- Missing or invalid API keys
+- Authentication failures
+- Incorrect file permissions
+
 ## Browser Features
 
 ### Browser Commands
