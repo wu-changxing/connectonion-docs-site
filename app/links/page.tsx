@@ -2,12 +2,16 @@
 
 import { useState, useEffect } from 'react'
 import {
-  Github, MessageCircle, Package, BookOpen, Newspaper, Mail,
-  Twitter, Instagram, Youtube, Linkedin, Globe, ExternalLink,
+  Package, BookOpen, Newspaper, Mail,
+  Globe, ExternalLink,
   Copy, Check, Share2, QrCode, Link as LinkIcon, Heart,
-  Sparkles, Users, Code, FileText, HelpCircle, Video
+  Sparkles, Code, FileText, HelpCircle
 } from 'lucide-react'
-import { FaRocket, FaComments, FaBook, FaMobile, FaHandshake } from 'react-icons/fa'
+import {
+  FaRocket, FaComments, FaBook, FaMobile, FaHandshake,
+  FaGithub, FaDiscord, FaTwitter, FaYoutube, FaLinkedin,
+  FaInstagram, FaTiktok, FaUsers
+} from 'react-icons/fa'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import QRCode from 'qrcode'
@@ -91,7 +95,7 @@ export default function LinksPage() {
           title: 'GitHub Repository',
           description: 'Source code, issues, and contributions',
           url: 'https://github.com/wu-changxing/connectonion',
-          icon: Github,
+          icon: FaGithub,
           color: 'text-white',
           bgColor: 'bg-gradient-to-br from-gray-700 to-gray-900',
           borderColor: 'border-gray-600',
@@ -135,7 +139,7 @@ export default function LinksPage() {
           title: 'Discord Server',
           description: 'Chat with the community',
           url: 'https://discord.gg/4xfD9k8AUF',
-          icon: MessageCircle,
+          icon: FaDiscord,
           color: 'text-indigo-400',
           bgColor: 'bg-gradient-to-br from-indigo-600 to-indigo-800',
           borderColor: 'border-indigo-500',
@@ -146,7 +150,7 @@ export default function LinksPage() {
           title: 'GitHub Discussions',
           description: 'Ask questions and share ideas',
           url: 'https://github.com/wu-changxing/connectonion/discussions',
-          icon: Users,
+          icon: FaUsers,
           color: 'text-green-400',
           bgColor: 'bg-gradient-to-br from-green-600 to-green-800',
           borderColor: 'border-green-500',
@@ -168,7 +172,7 @@ export default function LinksPage() {
           title: 'Twitter / X',
           description: 'Latest news and updates',
           url: '#',
-          icon: Twitter,
+          icon: FaTwitter,
           color: 'text-sky-400',
           bgColor: 'bg-gradient-to-br from-sky-600 to-sky-800',
           borderColor: 'border-sky-500',
@@ -179,7 +183,7 @@ export default function LinksPage() {
           title: 'YouTube',
           description: 'Video tutorials and demos',
           url: 'https://www.youtube.com/@openonionai',
-          icon: Youtube,
+          icon: FaYoutube,
           color: 'text-red-400',
           bgColor: 'bg-gradient-to-br from-red-600 to-red-800',
           borderColor: 'border-red-500',
@@ -190,7 +194,7 @@ export default function LinksPage() {
           title: 'LinkedIn',
           description: 'Professional updates',
           url: 'https://www.linkedin.com/company/openonion/',
-          icon: Linkedin,
+          icon: FaLinkedin,
           color: 'text-blue-400',
           bgColor: 'bg-gradient-to-br from-blue-700 to-blue-900',
           borderColor: 'border-blue-600',
@@ -201,7 +205,7 @@ export default function LinksPage() {
           title: 'Instagram',
           description: 'Behind the scenes',
           url: 'https://www.instagram.com/openonionai/',
-          icon: Instagram,
+          icon: FaInstagram,
           color: 'text-pink-400',
           bgColor: 'bg-gradient-to-br from-pink-600 to-purple-700',
           borderColor: 'border-pink-500',
@@ -212,7 +216,7 @@ export default function LinksPage() {
           title: 'TikTok',
           description: 'Quick tips and demos',
           url: 'https://www.tiktok.com/@closeonion',
-          icon: Video,
+          icon: FaTiktok,
           color: 'text-pink-400',
           bgColor: 'bg-gradient-to-br from-gray-900 to-pink-900',
           borderColor: 'border-pink-600',

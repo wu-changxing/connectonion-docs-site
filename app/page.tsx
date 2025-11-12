@@ -46,8 +46,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Terminal, Play, ArrowRight, BookOpen, Code, Zap, Clock, Users, Activity, CheckCircle, AlertCircle, Github, Copy, Check, Sparkles, Rocket, FileCode, Package, GitBranch, MessageCircle, Bug } from 'lucide-react'
-import { FaEdit, FaWrench, FaRobot, FaLaptop, FaRocket, FaComments, FaBullseye, FaSearch, FaChartBar, FaStar, FaDiscord } from 'react-icons/fa'
+import { Terminal, Play, ArrowRight, BookOpen, Code, Zap, Clock, Users, Activity, CheckCircle, AlertCircle, Copy, Check, Sparkles, Rocket, FileCode, Package, GitBranch, Bug } from 'lucide-react'
+import { FaEdit, FaWrench, FaRobot, FaLaptop, FaRocket, FaComments, FaBullseye, FaSearch, FaChartBar, FaStar, FaDiscord, FaGithub } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -144,7 +144,7 @@ export default function HomePage() {
               className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 py-2 min-h-[48px]"
               aria-label="View ConnectOnion on GitHub"
             >
-              <Github className="w-4 h-4" />
+              <FaGithub className="w-4 h-4" />
               <span>GitHub</span>
             </a>
             <a
@@ -1113,7 +1113,7 @@ print(result)`}
               className="p-6 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-colors"
               aria-label="Join ConnectOnion Discord community - Get help and share ideas"
             >
-              <MessageCircle className="w-10 h-10 text-purple-400 mb-3 mx-auto" />
+              <FaDiscord className="w-10 h-10 text-purple-400 mb-3 mx-auto" />
               <h3 className="font-semibold text-white mb-1">Discord</h3>
               <p className="text-sm text-gray-100">Get help & share ideas</p>
             </a>
@@ -1125,7 +1125,7 @@ print(result)`}
               className="p-6 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-colors"
               aria-label="View ConnectOnion on GitHub - Star and contribute to the project"
             >
-              <Github className="w-10 h-10 text-blue-400 mb-3 mx-auto" />
+              <FaGithub className="w-10 h-10 text-blue-400 mb-3 mx-auto" />
               <h3 className="font-semibold text-white mb-1">GitHub</h3>
               <p className="text-sm text-gray-100">Star & contribute</p>
             </a>

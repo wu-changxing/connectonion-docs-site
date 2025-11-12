@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Github, Heart } from 'lucide-react'
-import { FaDiscord } from 'react-icons/fa'
+import { Heart } from 'lucide-react'
+import { FaDiscord, FaGithub } from 'react-icons/fa'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -71,7 +71,7 @@ export default function Footer() {
                 className="text-gray-400 hover:text-gray-200 transition-colors"
                 aria-label="GitHub"
               >
-                <Github className="w-6 h-6" />
+                <FaGithub className="w-6 h-6" />
               </a>
               <a
                 href="https://discord.gg/4xfD9k8AUF"

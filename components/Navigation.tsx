@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { Menu, X, Github, ExternalLink, Zap, FileText, Terminal, Copy, Check, Download } from 'lucide-react'
-import { FaDiscord } from 'react-icons/fa'
+import { Menu, X, ExternalLink, Zap, FileText, Terminal, Copy, Check, Download } from 'lucide-react'
+import { FaDiscord, FaGithub } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface NavigationProps {
@@ -100,7 +100,7 @@ export default function Navigation({ markdownContent, markdownPath, filename = '
             <NavLink href="/xray" icon={<Zap className="w-4 h-4" />}>
               @xray
             </NavLink>
-            <NavLink href="https://github.com/wu-changxing/connectonion" icon={<Github className="w-4 h-4" />} external>
+            <NavLink href="https://github.com/wu-changxing/connectonion" icon={<FaGithub className="w-4 h-4" />} external>
               GitHub
             </NavLink>
             <NavLink href="https://pypi.org/project/connectonion/" icon={<ExternalLink className="w-4 h-4" />} external>

@@ -9,10 +9,11 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { 
-  Search, ChevronRight, ChevronDown, Copy, Check, X, 
-  Package, MessageCircle, Loader2, GitBranch
+import {
+  Search, ChevronRight, ChevronDown, Copy, Check, X,
+  Loader2
 } from 'lucide-react'
+import { FaGithub, FaDiscord, FaPython } from 'react-icons/fa'
 import { DifficultyBadge } from './DifficultyBadge'
 import { copyAllDocsToClipboard } from '../utils/copyAllDocs'
 import { SearchHighlight } from './SearchHighlight'
@@ -466,7 +467,7 @@ export function DocsSidebar() {
             className="p-2 rounded-lg text-gray-400 hover:text-purple-300 hover:bg-gray-700/50 transition-all"
             title="GitHub"
           >
-            <GitBranch className="w-4 h-4" />
+            <FaGithub className="w-4 h-4" />
           </a>
           <a
             href="https://pypi.org/project/connectonion/"
@@ -475,7 +476,7 @@ export function DocsSidebar() {
             className="p-2 rounded-lg text-gray-400 hover:text-purple-300 hover:bg-gray-700/50 transition-all"
             title="PyPI"
           >
-            <Package className="w-4 h-4" />
+            <FaPython className="w-4 h-4" />
           </a>
           <a
             href="https://discord.gg/4xfD9k8AUF"
@@ -484,7 +485,7 @@ export function DocsSidebar() {
             className="p-2 rounded-lg text-gray-400 hover:text-purple-300 hover:bg-gray-700/50 transition-all"
             title="Discord"
           >
-            <MessageCircle className="w-4 h-4" />
+            <FaDiscord className="w-4 h-4" />
           </a>
           <div className="flex items-center gap-2 px-2">
             <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
