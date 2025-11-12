@@ -13,6 +13,7 @@ import {
   FaInstagram, FaTiktok, FaUsers
 } from 'react-icons/fa'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import QRCode from 'qrcode'
 
@@ -85,7 +86,7 @@ export default function LinksPage() {
     {
       title: (
         <span className="flex items-center gap-2">
-          <FaRocket className="inline-flex w-5 h-5 text-blue-400" />
+          <FaRocket className="inline-flex w-5 h-5 text-purple-400" />
           Core Platform
         </span>
       ),
@@ -96,9 +97,9 @@ export default function LinksPage() {
           description: 'Source code, issues, and contributions',
           url: 'https://github.com/wu-changxing/connectonion',
           icon: FaGithub,
-          color: 'text-white',
-          bgColor: 'bg-gradient-to-br from-gray-700 to-gray-900',
-          borderColor: 'border-gray-600',
+          color: 'text-blue-400',
+          bgColor: 'bg-gradient-to-br from-blue-600 to-blue-800',
+          borderColor: 'border-blue-500',
           external: true,
           available: true
         },
@@ -140,9 +141,9 @@ export default function LinksPage() {
           description: 'Chat with the community',
           url: 'https://discord.gg/4xfD9k8AUF',
           icon: FaDiscord,
-          color: 'text-indigo-400',
-          bgColor: 'bg-gradient-to-br from-indigo-600 to-indigo-800',
-          borderColor: 'border-indigo-500',
+          color: 'text-green-400',
+          bgColor: 'bg-gradient-to-br from-green-600 to-green-800',
+          borderColor: 'border-green-500',
           external: true,
           available: true
         },
@@ -162,7 +163,7 @@ export default function LinksPage() {
     {
       title: (
         <span className="flex items-center gap-2">
-          <FaMobile className="inline-flex w-5 h-5 text-pink-400" />
+          <FaMobile className="inline-flex w-5 h-5 text-purple-400" />
           Social Media
         </span>
       ),
@@ -173,9 +174,9 @@ export default function LinksPage() {
           description: 'Latest news and updates',
           url: '#',
           icon: FaTwitter,
-          color: 'text-sky-400',
-          bgColor: 'bg-gradient-to-br from-sky-600 to-sky-800',
-          borderColor: 'border-sky-500',
+          color: 'text-gray-400',
+          bgColor: 'bg-gradient-to-br from-gray-600 to-gray-800',
+          borderColor: 'border-gray-500',
           external: true,
           available: false
         },
@@ -184,9 +185,9 @@ export default function LinksPage() {
           description: 'Video tutorials and demos',
           url: 'https://www.youtube.com/@openonionai',
           icon: FaYoutube,
-          color: 'text-red-400',
-          bgColor: 'bg-gradient-to-br from-red-600 to-red-800',
-          borderColor: 'border-red-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gradient-to-br from-purple-600 to-purple-800',
+          borderColor: 'border-purple-500',
           external: true,
           available: true
         },
@@ -196,8 +197,8 @@ export default function LinksPage() {
           url: 'https://www.linkedin.com/company/openonion/',
           icon: FaLinkedin,
           color: 'text-blue-400',
-          bgColor: 'bg-gradient-to-br from-blue-700 to-blue-900',
-          borderColor: 'border-blue-600',
+          bgColor: 'bg-gradient-to-br from-blue-600 to-blue-800',
+          borderColor: 'border-blue-500',
           external: true,
           available: true
         },
@@ -206,9 +207,9 @@ export default function LinksPage() {
           description: 'Behind the scenes',
           url: 'https://www.instagram.com/openonionai/',
           icon: FaInstagram,
-          color: 'text-pink-400',
-          bgColor: 'bg-gradient-to-br from-pink-600 to-purple-700',
-          borderColor: 'border-pink-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gradient-to-br from-purple-600 to-purple-800',
+          borderColor: 'border-purple-500',
           external: true,
           available: true
         },
@@ -217,9 +218,9 @@ export default function LinksPage() {
           description: 'Quick tips and demos',
           url: 'https://www.tiktok.com/@closeonion',
           icon: FaTiktok,
-          color: 'text-pink-400',
-          bgColor: 'bg-gradient-to-br from-gray-900 to-pink-900',
-          borderColor: 'border-pink-600',
+          color: 'text-purple-400',
+          bgColor: 'bg-gradient-to-br from-purple-600 to-purple-800',
+          borderColor: 'border-purple-500',
           external: true,
           available: true
         }
@@ -228,7 +229,7 @@ export default function LinksPage() {
     {
       title: (
         <span className="flex items-center gap-2">
-          <FaBook className="inline-flex w-5 h-5 text-orange-400" />
+          <FaBook className="inline-flex w-5 h-5 text-purple-400" />
           Resources
         </span>
       ),
@@ -239,9 +240,9 @@ export default function LinksPage() {
           description: 'Design decisions and insights',
           url: 'https://docs.connectonion.com/blog',
           icon: Newspaper,
-          color: 'text-orange-400',
-          bgColor: 'bg-gradient-to-br from-orange-600 to-orange-800',
-          borderColor: 'border-orange-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gradient-to-br from-purple-600 to-purple-800',
+          borderColor: 'border-purple-500',
           external: true,
           available: true
         },
@@ -250,9 +251,9 @@ export default function LinksPage() {
           description: 'Sample projects and tutorials',
           url: 'https://docs.connectonion.com/examples',
           icon: Code,
-          color: 'text-yellow-400',
-          bgColor: 'bg-gradient-to-br from-yellow-600 to-yellow-800',
-          borderColor: 'border-yellow-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gradient-to-br from-purple-600 to-purple-800',
+          borderColor: 'border-purple-500',
           external: true,
           available: true
         },
@@ -261,9 +262,9 @@ export default function LinksPage() {
           description: 'Technical documentation',
           url: 'https://docs.connectonion.com/tools',
           icon: FileText,
-          color: 'text-teal-400',
-          bgColor: 'bg-gradient-to-br from-teal-600 to-teal-800',
-          borderColor: 'border-teal-500',
+          color: 'text-blue-400',
+          bgColor: 'bg-gradient-to-br from-blue-600 to-blue-800',
+          borderColor: 'border-blue-500',
           external: true,
           available: true
         }
@@ -272,7 +273,7 @@ export default function LinksPage() {
     {
       title: (
         <span className="flex items-center gap-2">
-          <FaHandshake className="inline-flex w-5 h-5 text-amber-400" />
+          <FaHandshake className="inline-flex w-5 h-5 text-green-400" />
           Support
         </span>
       ),
@@ -283,9 +284,9 @@ export default function LinksPage() {
           description: 'Bug reports and feature requests',
           url: 'https://github.com/wu-changxing/connectonion/issues',
           icon: HelpCircle,
-          color: 'text-amber-400',
-          bgColor: 'bg-gradient-to-br from-amber-600 to-amber-800',
-          borderColor: 'border-amber-500',
+          color: 'text-blue-400',
+          bgColor: 'bg-gradient-to-br from-blue-600 to-blue-800',
+          borderColor: 'border-blue-500',
           external: true,
           available: true
         },
@@ -316,8 +317,8 @@ export default function LinksPage() {
       `}>
         {/* Coming Soon Badge */}
         {!link.available && (
-          <div className="absolute -top-2 -right-2 px-3 py-1 bg-gray-800 border border-gray-600 rounded-full">
-            <span className="text-xs font-medium text-gray-400">Coming Soon</span>
+          <div className="absolute -top-2 -right-2 px-3 py-1 bg-gray-800 border border-gray-600 rounded-full flex items-center gap-1">
+            <span className="text-xs font-medium text-gray-400">🔒 Coming Soon</span>
           </div>
         )}
         
@@ -327,10 +328,13 @@ export default function LinksPage() {
             <Icon className="w-6 h-6" />
           </div>
           <div className="flex-1">
-            <h3 className="text-lg font-semibold text-white mb-1 flex items-center gap-2">
+            <h3 className="heading-4 text-white mb-1 flex items-center gap-2">
               {link.title}
               {link.external && isClickable && (
-                <ExternalLink className="w-4 h-4 text-gray-400" />
+                <>
+                  <ExternalLink className="w-4 h-4 text-gray-400" />
+                  <span className="sr-only">opens in new tab</span>
+                </>
               )}
             </h3>
             {link.description && (
@@ -347,8 +351,9 @@ export default function LinksPage() {
               e.stopPropagation()
               handleCopyLink(link.url, link.title)
             }}
-            className="absolute top-4 right-4 p-2 rounded-lg bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/20"
-            title="Copy link"
+            className="absolute top-4 right-4 p-3 min-w-[44px] min-h-[44px] rounded-lg bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/20 flex items-center justify-center"
+            aria-label={`Copy ${link.title} link to clipboard`}
+            title={`Copy ${link.title} link`}
           >
             {copiedUrl === link.title ? (
               <Check className="w-4 h-4 text-green-400" />
@@ -392,21 +397,24 @@ export default function LinksPage() {
           {/* Logo */}
           <div className="flex justify-center mb-6">
             <div className="relative">
-              <div className="absolute inset-0 bg-purple-500 blur-xl opacity-50 animate-pulse"></div>
-              <img 
-                src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png" 
-                alt="ConnectOnion" 
-                className="relative w-24 h-24 rounded-2xl object-cover shadow-2xl"
+              <div className="absolute inset-0 bg-purple-500 blur-xl opacity-30"></div>
+              <Image
+                src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png"
+                alt="ConnectOnion logo"
+                width={96}
+                height={96}
+                priority
+                className="relative rounded-2xl object-cover shadow-2xl"
               />
             </div>
           </div>
           
           {/* Title and Description */}
-          <h1 className="text-5xl font-bold text-white mb-4 flex items-center justify-center gap-3">
-            <LinkIcon className="w-10 h-10 text-purple-400" />
+          <h1 className="heading-1 text-white mb-4 flex items-center justify-center gap-3">
+            <LinkIcon className="w-8 h-8 text-purple-400" />
             ConnectOnion Links
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
             All our platforms and resources in one place. Build AI agents with simple, powerful Python code.
           </p>
           
@@ -414,14 +422,17 @@ export default function LinksPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={handleSharePage}
-              className="flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors font-medium"
+              className="flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors font-medium min-h-[44px]"
+              aria-label="Share this page via system share menu or copy link"
             >
               <Share2 className="w-5 h-5" />
               Share Page
             </button>
             <button
               onClick={() => setShowQR(!showQR)}
-              className="flex items-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors font-medium"
+              className="flex items-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors font-medium min-h-[44px]"
+              aria-expanded={showQR}
+              aria-label={showQR ? "Hide QR code" : "Show QR code for this page"}
             >
               <QrCode className="w-5 h-5" />
               QR Code
@@ -450,10 +461,12 @@ export default function LinksPage() {
                       {/* Center logo overlay */}
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="bg-white rounded-xl p-2 shadow-lg">
-                          <img 
-                            src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png" 
-                            alt="ConnectOnion Logo" 
-                            className="w-12 h-12 rounded-lg"
+                          <Image
+                            src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png"
+                            alt="ConnectOnion logo overlay on QR code"
+                            width={48}
+                            height={48}
+                            className="rounded-lg"
                           />
                         </div>
                       </div>
@@ -498,11 +511,11 @@ export default function LinksPage() {
           {linkSections.map((section, idx) => (
             <div key={idx}>
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-white mb-2">
+                <h2 className="heading-3 text-white mb-2">
                   {section.title}
                 </h2>
                 {section.description && (
-                  <p className="text-gray-400">{section.description}</p>
+                  <p className="text-base text-gray-400">{section.description}</p>
                 )}
               </div>
               
