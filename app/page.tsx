@@ -111,7 +111,7 @@ export default function HomePage() {
   return (
     <main className="">
       {/* Hero Section - Clean Hierarchy */}
-      <section className="min-h-[60vh] md:min-h-[70vh] flex items-center justify-center px-4 md:px-6 py-16 relative overflow-hidden">
+      <section className="flex items-center justify-center px-4 md:px-6 pt-16 pb-12 md:pt-24 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 via-transparent to-transparent" />
 
         <div className="max-w-3xl mx-auto text-center relative z-10">
@@ -128,20 +128,20 @@ export default function HomePage() {
             <div className="bg-black/60 backdrop-blur-sm border-2 border-purple-500/30 rounded-xl p-2 hover:border-purple-500/60 transition-all shadow-2xl hover:shadow-purple-500/20">
               <CommandBlock commands={['pip install connectonion']} />
             </div>
-            <p className="text-gray-400 text-sm mt-3 mb-10">Copy and run to get started in 30 seconds</p>
+            <p className="text-gray-300 text-sm mt-3 mb-10">Copy and run to get started in 30 seconds</p>
           </div>
 
           {/* LEVEL 3: Supporting Links */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
             <a
               href="/quickstart"
-              className="text-gray-300 hover:text-white transition-colors py-2"
+              className="inline-flex items-center justify-center min-h-[48px] px-4 text-gray-300 hover:text-white transition-colors"
             >
               Quick Start →
             </a>
             <a
               href="https://github.com/wu-changxing/connectonion"
-              className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 py-2 min-h-[48px]"
+              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-4 text-gray-300 hover:text-white transition-colors"
               aria-label="View ConnectOnion on GitHub"
             >
               <FaGithub className="w-4 h-4" />
@@ -149,7 +149,7 @@ export default function HomePage() {
             </a>
             <a
               href="https://discord.gg/4xfD9k8AUF"
-              className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 py-2 min-h-[48px]"
+              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-4 text-gray-300 hover:text-white transition-colors"
               aria-label="Join ConnectOnion Discord community"
             >
               <FaDiscord className="w-4 h-4" />
@@ -160,7 +160,7 @@ export default function HomePage() {
       </section>
 
       {/* Trust Indicators Section - LEVEL 5 */}
-      <section className="py-12 px-4 border-t border-gray-800/50 bg-gray-900/20">
+      <section className="py-12 md:py-16 px-4 md:px-6 border-t border-gray-800/50 bg-gray-900/20">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-6">
             <a href="https://connectonion.com" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center">
@@ -183,7 +183,7 @@ export default function HomePage() {
       </section>
       
       {/* Framework Status Callout */}
-      <section className="px-6 py-8">
+      <section className="py-12 md:py-16 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
             <div className="flex items-start gap-3">
@@ -229,7 +229,7 @@ export default function HomePage() {
 
       {/* Section 3: The Equation - Show don't tell */}
 
-      <section className="py-16 px-6">
+      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">How It Works</h2>
@@ -312,7 +312,7 @@ export default function HomePage() {
       </section>
       
       {/* Section 4: Code Example - Cleaner */}
-      <section className="py-20 px-6 bg-gray-900/20">
+      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6 bg-gray-900/20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Complete Example</h2>
@@ -750,7 +750,7 @@ print(result)`}
       </section>
 
       {/* Section 7: Start Simple, Ship Production-Ready */}
-      <section className="py-20 px-6 bg-gray-900/20">
+      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6 bg-gray-900/20">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Start Simple, Ship Production-Ready</h2>
           <p className="text-lg text-gray-200">Zero setup complexity, full production capabilities</p>
@@ -971,7 +971,7 @@ Debugging: "Send email to John"
       </section>
 
       {/* Section 9: Agent Collaboration */}
-      <section className="py-20 px-6">
+      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-6">
@@ -1101,7 +1101,7 @@ print(result)`}
       </section>
 
       {/* Section 10: Join the Community */}
-      <section className="py-20 px-6 bg-gray-900/20">
+      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6 bg-gray-900/20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Join the Community</h2>
           
@@ -1134,7 +1134,7 @@ print(result)`}
       </section>
 
       {/* Section 11: Final CTA - Simplified */}
-      <section className="py-16 px-6">
+      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Start?</h2>
           <p className="text-base md:text-lg text-gray-200 mb-6 md:mb-8">
