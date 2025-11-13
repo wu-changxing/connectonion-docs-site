@@ -27,54 +27,43 @@ export default function PluginPage() {
     <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
       <div className="max-w-4xl mx-auto">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-12 md:py-20">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-3xl mx-auto">
-              {/* Breadcrumb */}
-              <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-                <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                <ArrowRight className="w-4 h-4" />
-                <span className="text-white">Plugins</span>
-              </nav>
+        <header className="flex items-start justify-between mb-8">
+          <div className="flex-1">
+            {/* Breadcrumb */}
+            <nav className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <ArrowRight className="w-4 h-4" />
+              <span className="text-white">Plugins</span>
+            </nav>
 
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-3 bg-purple-900/20 border border-purple-500/30 rounded-full px-4 md:px-6 py-2 md:py-3 mb-6">
-                  <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-purple-400" />
-                  <span className="text-xs md:text-sm font-medium">NEW: Plugin System</span>
-                  <Package className="w-4 h-4 md:w-5 md:h-5 text-purple-300" />
-                </div>
-
-                <h1 className="text-3xl md:text-5xl font-bold mb-4 text-gray-100">
-                  Reusable Event Bundles
-                </h1>
-
-                <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-                  Package event handlers into reusable plugins. A plugin is just an event list you can use across multiple agents.
-                </p>
-              </div>
-
-              {/* Key Concept */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 md:p-8 mb-12">
-                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                  <Code className="text-purple-400 w-5 h-5" />
-                  A Plugin is an Event List
-                </h3>
-                <div className="text-sm text-gray-300 space-y-3">
-                  <p>
-                    <code className="bg-gray-800 px-2 py-1 rounded">on_events</code> takes one event list → custom for this agent
-                  </p>
-                  <p>
-                    <code className="bg-gray-800 px-2 py-1 rounded">plugins</code> takes a list of event lists → reusable across agents
-                  </p>
-                </div>
-              </div>
+            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gradient-to-r from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-full">
+              <Sparkles className="w-4 h-4 text-purple-400" />
+              <span className="text-xs font-medium text-purple-200">NEW</span>
             </div>
+
+            <h1 className="text-4xl font-bold text-white mb-4">
+              Reusable Event Bundles
+            </h1>
+
+            <p className="text-xl text-gray-300">
+              Package event handlers into reusable plugins. A plugin is just an event list you can use across multiple agents.
+            </p>
           </div>
-        </section>
+        </header>
+
+        {/* Key Concept Info Box */}
+        <div className="flex items-center gap-2 mb-12 p-4 bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg">
+          <Code className="text-purple-400 w-5 h-5 flex-shrink-0" />
+          <div className="text-sm text-purple-200">
+            <strong className="text-purple-100">A Plugin is an Event List:</strong>{' '}
+            <code className="bg-purple-950/50 px-2 py-0.5 rounded text-purple-200">on_events</code> takes one event list → custom for this agent.{' '}
+            <code className="bg-purple-950/50 px-2 py-0.5 rounded text-purple-200">plugins</code> takes a list of event lists → reusable across agents.
+          </div>
+        </div>
 
         {/* Quick Start */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
             <Play className="text-purple-400 w-7 h-7" />
             Quick Start (60 seconds)
           </h2>
@@ -100,7 +89,7 @@ agent.input("Search for Python")
 
         {/* What is a Plugin */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-white mb-6">
             What is a Plugin?
           </h2>
 
@@ -123,27 +112,27 @@ agent = Agent("assistant", tools=[search], plugins=[reflection, logger])
             language="python"
           />
 
-          <div className="mt-6 bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <p className="text-sm text-gray-300">
-              <strong className="text-white">Just like tools:</strong>
+          <div className="mt-6 bg-gradient-to-b from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-lg p-6">
+            <p className="text-sm text-blue-100">
+              <strong className="text-blue-50">Just like tools:</strong>
             </p>
-            <ul className="text-sm text-gray-400 mt-2 space-y-1">
-              <li>• Tools: <code className="bg-gray-800 px-2 py-1 rounded">Agent(tools=[search, calculate])</code></li>
-              <li>• Plugins: <code className="bg-gray-800 px-2 py-1 rounded">Agent(plugins=[reflection, logger])</code></li>
+            <ul className="text-sm text-blue-100 mt-2 space-y-1">
+              <li>• Tools: <code className="bg-blue-900/50 px-2 py-1 rounded">Agent(tools=[search, calculate])</code></li>
+              <li>• Plugins: <code className="bg-blue-900/50 px-2 py-1 rounded">Agent(plugins=[reflection, logger])</code></li>
             </ul>
           </div>
         </section>
 
         {/* Plugin vs on_events */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-white mb-6">
             Plugin vs on_events
           </h2>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mb-6">
-            <ul className="text-sm text-gray-300 space-y-2">
-              <li>• <strong>on_events</strong>: Takes one event list (custom for this agent)</li>
-              <li>• <strong>plugins</strong>: Takes a list of event lists (reusable across agents)</li>
+          <div className="bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg p-6 mb-6">
+            <ul className="text-sm text-purple-100 space-y-2">
+              <li>• <strong className="text-purple-50">on_events</strong>: Takes one event list (custom for this agent)</li>
+              <li>• <strong className="text-purple-50">plugins</strong>: Takes a list of event lists (reusable across agents)</li>
             </ul>
           </div>
 
@@ -167,7 +156,7 @@ agent = Agent(
 
         {/* Built-in Plugins */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-white mb-6">
             Built-in Plugins (useful_plugins)
           </h2>
 
@@ -226,15 +215,15 @@ agent.input("Take a screenshot of the homepage and describe what you see")
             language="python"
           />
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mt-4">
-            <p className="text-sm text-white font-semibold mb-2">When to use:</p>
-            <ul className="text-sm text-gray-300 space-y-1">
+          <div className="bg-gradient-to-b from-green-900/30 to-green-800/10 border border-green-500/30 rounded-lg p-6 mt-4">
+            <p className="text-sm text-green-50 font-semibold mb-2">When to use:</p>
+            <ul className="text-sm text-green-100 space-y-1">
               <li>• Tools that return screenshots as base64</li>
               <li>• Image generation tools</li>
               <li>• Any tool that returns visual data</li>
             </ul>
-            <p className="text-sm text-white font-semibold mb-2 mt-4">What it does:</p>
-            <ul className="text-sm text-gray-300 space-y-1">
+            <p className="text-sm text-green-50 font-semibold mb-2 mt-4">What it does:</p>
+            <ul className="text-sm text-green-100 space-y-1">
               <li>• Detects base64 images in tool results (data URLs or plain base64)</li>
               <li>• Converts to OpenAI vision API format</li>
               <li>• Allows multimodal LLMs to see images visually instead of as text</li>
@@ -265,7 +254,7 @@ agent = Agent(
 
         {/* Writing Custom Plugins */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-white mb-6">
             Writing Custom Plugins
           </h2>
 
@@ -312,9 +301,9 @@ def _compress_messages(messages: List[Dict], tool_result_limit: int = 150) -> st
             language="python"
           />
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mt-4">
-            <p className="text-sm text-white font-semibold mb-2">Why this works:</p>
-            <ul className="text-sm text-gray-300 space-y-1">
+          <div className="bg-gradient-to-b from-amber-900/30 to-amber-800/10 border border-amber-500/30 rounded-lg p-6 mt-4">
+            <p className="text-sm text-amber-50 font-semibold mb-2">Why this works:</p>
+            <ul className="text-sm text-amber-100 space-y-1">
               <li>• Keep user messages FULL (need to know what they asked)</li>
               <li>• Keep tool parameters FULL (exactly what actions were taken)</li>
               <li>• Keep assistant text FULL (reasoning/responses)</li>
@@ -370,11 +359,11 @@ Reflect in 1-2 sentences on what we learned:"""
             language="python"
           />
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mt-4">
-            <p className="text-sm text-white font-semibold mb-2">Key insights:</p>
-            <ul className="text-sm text-gray-300 space-y-1">
-              <li>• Access agent state via <code className="bg-gray-800 px-2 py-1 rounded">agent.current_session</code></li>
-              <li>• Use <code className="bg-gray-800 px-2 py-1 rounded">llm_do()</code> for AI-powered analysis</li>
+          <div className="bg-gradient-to-b from-cyan-900/30 to-cyan-800/10 border border-cyan-500/30 rounded-lg p-6 mt-4">
+            <p className="text-sm text-cyan-50 font-semibold mb-2">Key insights:</p>
+            <ul className="text-sm text-cyan-100 space-y-1">
+              <li>• Access agent state via <code className="bg-cyan-900/50 px-2 py-1 rounded">agent.current_session</code></li>
+              <li>• Use <code className="bg-cyan-900/50 px-2 py-1 rounded">llm_do()</code> for AI-powered analysis</li>
               <li>• Add results back to conversation messages</li>
               <li>• Print to console for user feedback</li>
             </ul>
@@ -402,7 +391,7 @@ reflection = [after_tool(_add_reflection)]`}
 
         {/* Quick Custom Plugin Example */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-white mb-6">
             Quick Custom Plugin Example
           </h2>
 
@@ -428,7 +417,7 @@ agent = Agent("assistant", tools=[search], plugins=[logger])`}
 
         {/* Example: Reflection Plugin */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-white mb-6">
             Example: Reflection Plugin
           </h2>
 
@@ -470,7 +459,7 @@ agent.input("Search for Python")
 
         {/* Example: Todo Plugin */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-white mb-6">
             Example: Todo Plugin
           </h2>
 
@@ -535,7 +524,7 @@ agent.input("Research Python and summarize")
 
         {/* Reusing Plugins */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-white mb-6">
             Reusing Plugins
           </h2>
 
@@ -559,12 +548,12 @@ analyst = Agent("analyst", tools=[calculate], plugins=[logger])
 
         {/* Summary */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-white mb-6">
             Summary
           </h2>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <p className="text-lg font-semibold text-white mb-4">A plugin is an event list</p>
+          <div className="bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
+            <p className="text-lg font-semibold text-purple-50 mb-4">A plugin is an event list</p>
 
             <CodeWithResult
               code={`# Define a plugin (an event list)
@@ -588,33 +577,38 @@ agent = Agent("assistant", tools=[search], plugins=[my_plugin])
 
         {/* What's Next */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
+            <ArrowRight className="text-purple-400 w-6 h-6" />
             What's Next?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             <Link
               href="/on_events"
-              className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-purple-500 transition-colors"
+              className="group bg-gradient-to-r from-purple-900/20 to-purple-800/20 border border-purple-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all"
             >
-              <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
-                <Layers className="text-purple-400 w-5 h-5" />
+              <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
+                <Layers className="text-white w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">
                 Event System
               </h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-purple-100 text-sm">
                 Learn about events that power plugins
               </p>
             </Link>
 
             <Link
               href="/llm_do"
-              className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-purple-500 transition-colors"
+              className="group bg-gradient-to-r from-blue-900/20 to-blue-800/20 border border-blue-500/30 rounded-xl p-6 hover:border-blue-400/50 transition-all"
             >
-              <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
-                <Code className="text-purple-400 w-5 h-5" />
+              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
+                <Code className="text-white w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">
                 llm_do
               </h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-blue-100 text-sm">
                 Use llm_do in plugin handlers
               </p>
             </Link>
