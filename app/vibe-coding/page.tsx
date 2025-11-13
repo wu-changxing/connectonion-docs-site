@@ -10,7 +10,50 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 
 export default function VibeCodingPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
-  
+
+  const markdownContent = `# Vibe-Coding Support
+
+Build AI Agents Correctly with Claude Code Plugin
+
+## Overview
+
+Code review and agent builder powered by actual ConnectOnion documentation. No hallucinations, no wrong patterns - every recommendation is documentation-grounded.
+
+## Claude Code Plugin
+
+### Quick Install
+
+\`\`\`bash
+# 1. Add plugin marketplace
+/plugin marketplace add openonion/connectonion-claude-plugin
+
+# 2. Install the plugin
+/plugin install connectonion
+\`\`\`
+
+###Features
+
+- **Documentation-Grounded**: Every recommendation based on actual ConnectOnion docs
+- **Two Powerful Commands**:
+  - \`/co-review\` - Code review against documentation
+  - \`/co-build\` - Agent builder with best practices
+
+### Usage
+
+1. **Code Review**: Use \`/co-review\` to check your ConnectOnion code against official patterns
+2. **Agent Builder**: Use \`/co-build\` to generate agents following documentation
+3. **Ship**: Get correct code the first time
+
+### Links
+
+- GitHub: https://github.com/openonion/connectonion-claude-plugin
+- Documentation: https://docs.connectonion.com
+
+## For Other IDEs
+
+The same vibe-coding approach works with Cursor, Copilot, or any AI coding assistant - just provide the ConnectOnion documentation context.
+`
+
   // Add CSS for gradient animation
   const gradientStyle = `
     @keyframes gradient {
@@ -78,7 +121,7 @@ export default function VibeCodingPage() {
             </div>
           </div>
           <div className="flex gap-3">
-            <CopyMarkdownButton />
+            <CopyMarkdownButton content={markdownContent} filename="vibe-coding.md" />
             <a
               href="https://github.com/openonion/connectonion-claude-plugin"
               target="_blank"

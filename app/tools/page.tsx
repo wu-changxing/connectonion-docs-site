@@ -63,7 +63,7 @@ export default function ToolsDocsPage() {
     setTimeout(() => setCopiedId(null), 2000)
   }
 
-  const unused_pageContent = `# Tools
+  const pageContent = `# Tools
 
 Build powerful, reusable function tools and stateful class tools. Typed signatures become schemas automatically; docstrings become human-friendly descriptions.
 
@@ -392,8 +392,8 @@ browser.close()`
               </p>
             </div>
           </div>
-          <CopyMarkdownButton 
-            content={unused_pageContent}
+          <CopyMarkdownButton
+            content={pageContent}
             filename="tools-documentation.md"
             className="flex-shrink-0"
           />
