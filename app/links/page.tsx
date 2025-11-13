@@ -96,9 +96,9 @@ export default function LinksPage() {
           description: 'Source code, issues, and contributions',
           url: 'https://github.com/wu-changxing/connectonion',
           icon: FaGithub,
-          color: 'text-blue-400',
-          bgColor: 'bg-gradient-to-br from-blue-600 to-blue-800',
-          borderColor: 'border-blue-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         },
@@ -107,9 +107,9 @@ export default function LinksPage() {
           description: 'Install via pip',
           url: 'https://pypi.org/project/connectonion/',
           icon: Package,
-          color: 'text-blue-400',
-          bgColor: 'bg-gradient-to-br from-blue-600 to-blue-800',
-          borderColor: 'border-blue-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         },
@@ -119,8 +119,8 @@ export default function LinksPage() {
           url: 'https://docs.connectonion.com',
           icon: BookOpen,
           color: 'text-purple-400',
-          bgColor: 'bg-gradient-to-br from-purple-600 to-purple-800',
-          borderColor: 'border-purple-500',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         }
@@ -140,9 +140,9 @@ export default function LinksPage() {
           description: 'Chat with the community',
           url: 'https://discord.gg/4xfD9k8AUF',
           icon: FaDiscord,
-          color: 'text-green-400',
-          bgColor: 'bg-gradient-to-br from-green-600 to-green-800',
-          borderColor: 'border-green-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         },
@@ -151,9 +151,9 @@ export default function LinksPage() {
           description: 'Ask questions and share ideas',
           url: 'https://github.com/wu-changxing/connectonion/discussions',
           icon: FaUsers,
-          color: 'text-green-400',
-          bgColor: 'bg-gradient-to-br from-green-600 to-green-800',
-          borderColor: 'border-green-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         }
@@ -171,13 +171,13 @@ export default function LinksPage() {
         {
           title: 'Twitter / X',
           description: 'Latest news and updates',
-          url: '#',
+          url: 'https://x.com/ConnectOnionAI',
           icon: FaTwitter,
-          color: 'text-gray-400',
-          bgColor: 'bg-gradient-to-br from-gray-600 to-gray-800',
-          borderColor: 'border-gray-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
-          available: false
+          available: true
         },
         {
           title: 'YouTube',
@@ -185,8 +185,8 @@ export default function LinksPage() {
           url: 'https://www.youtube.com/@openonionai',
           icon: FaYoutube,
           color: 'text-purple-400',
-          bgColor: 'bg-gradient-to-br from-purple-600 to-purple-800',
-          borderColor: 'border-purple-500',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         },
@@ -195,9 +195,9 @@ export default function LinksPage() {
           description: 'Professional updates',
           url: 'https://www.linkedin.com/company/openonion/',
           icon: FaLinkedin,
-          color: 'text-blue-400',
-          bgColor: 'bg-gradient-to-br from-blue-600 to-blue-800',
-          borderColor: 'border-blue-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         },
@@ -207,8 +207,8 @@ export default function LinksPage() {
           url: 'https://www.instagram.com/openonionai/',
           icon: FaInstagram,
           color: 'text-purple-400',
-          bgColor: 'bg-gradient-to-br from-purple-600 to-purple-800',
-          borderColor: 'border-purple-500',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         },
@@ -218,8 +218,8 @@ export default function LinksPage() {
           url: 'https://www.tiktok.com/@closeonion',
           icon: FaTiktok,
           color: 'text-purple-400',
-          bgColor: 'bg-gradient-to-br from-purple-600 to-purple-800',
-          borderColor: 'border-purple-500',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         }
@@ -240,8 +240,8 @@ export default function LinksPage() {
           url: 'https://docs.connectonion.com/blog',
           icon: Newspaper,
           color: 'text-purple-400',
-          bgColor: 'bg-gradient-to-br from-purple-600 to-purple-800',
-          borderColor: 'border-purple-500',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         },
@@ -251,8 +251,8 @@ export default function LinksPage() {
           url: 'https://docs.connectonion.com/examples',
           icon: Code,
           color: 'text-purple-400',
-          bgColor: 'bg-gradient-to-br from-purple-600 to-purple-800',
-          borderColor: 'border-purple-500',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         },
@@ -261,9 +261,9 @@ export default function LinksPage() {
           description: 'Technical documentation',
           url: 'https://docs.connectonion.com/tools',
           icon: FileText,
-          color: 'text-blue-400',
-          bgColor: 'bg-gradient-to-br from-blue-600 to-blue-800',
-          borderColor: 'border-blue-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         }
@@ -283,9 +283,9 @@ export default function LinksPage() {
           description: 'Bug reports and feature requests',
           url: 'https://github.com/wu-changxing/connectonion/issues',
           icon: HelpCircle,
-          color: 'text-blue-400',
-          bgColor: 'bg-gradient-to-br from-blue-600 to-blue-800',
-          borderColor: 'border-blue-500',
+          color: 'text-purple-400',
+          bgColor: 'bg-gray-800/50',
+          borderColor: 'border-purple-500/30',
           external: true,
           available: true
         },
@@ -295,8 +295,8 @@ export default function LinksPage() {
           url: 'mailto:contact@connectonion.com',
           icon: Mail,
           color: 'text-gray-400',
-          bgColor: 'bg-gradient-to-br from-gray-600 to-gray-800',
-          borderColor: 'border-gray-500',
+          bgColor: 'bg-gray-800/30',
+          borderColor: 'border-gray-600/30',
           external: true,
           available: false
         }
@@ -310,9 +310,9 @@ export default function LinksPage() {
     
     const content = (
       <div className={`
-        relative group w-full p-6 rounded-2xl transition-all duration-300 transform
-        ${link.bgColor} ${link.borderColor} border-2
-        ${isClickable ? 'hover:scale-105 hover:shadow-2xl cursor-pointer' : 'opacity-60 cursor-not-allowed'}
+        relative group w-full p-6 rounded-2xl transition-all duration-300
+        ${link.bgColor} ${link.borderColor} border-2 backdrop-blur-sm
+        ${isClickable ? 'hover:bg-gray-800 hover:border-purple-500 hover:shadow-xl cursor-pointer' : 'opacity-50 cursor-not-allowed'}
       `}>
         {/* Coming Soon Badge */}
         {!link.available && (
@@ -323,8 +323,8 @@ export default function LinksPage() {
         
         {/* Content */}
         <div className="flex items-start gap-4">
-          <div className={`p-3 rounded-xl bg-white/10 ${link.color}`}>
-            <Icon className="w-6 h-6" />
+          <div className="p-3 rounded-xl bg-gray-900/80 backdrop-blur-sm border border-gray-700/50">
+            <Icon className={`w-6 h-6 ${link.color}`} />
           </div>
           <div className="flex-1">
             <h3 className="heading-4 text-white mb-1 flex items-center gap-2">
@@ -350,14 +350,14 @@ export default function LinksPage() {
               e.stopPropagation()
               handleCopyLink(link.url, link.title)
             }}
-            className="absolute top-4 right-4 p-3 min-w-[44px] min-h-[44px] rounded-lg bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/20 flex items-center justify-center"
-            aria-label={`Copy ${link.title} link to clipboard`}
+            className="absolute top-4 right-4 p-2 min-w-[44px] min-h-[44px] rounded-lg bg-gray-900/50 border border-gray-700/50 hover:bg-gray-900/80 hover:border-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all flex items-center justify-center"
+            aria-label={`Copy ${link.title} link`}
             title={`Copy ${link.title} link`}
           >
             {copiedUrl === link.title ? (
               <Check className="w-4 h-4 text-green-400" />
             ) : (
-              <Copy className="w-4 h-4 text-white" />
+              <Copy className="w-4 h-4 text-gray-400 group-hover:text-white" />
             )}
           </button>
         )}
