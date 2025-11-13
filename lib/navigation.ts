@@ -41,7 +41,7 @@ export const navigation = [
     section: 'Getting Started',
     keywords: ['command', 'terminal', 'co', 'commands'],
     prev: { href: '/vibe-coding', title: 'Vibe Coding Guide' },
-    next: { href: '/prompts', title: 'System Prompts' }
+    next: { href: '/agent', title: 'Agent' }
   },
 
   // Core Concepts
