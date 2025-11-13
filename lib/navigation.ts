@@ -1,7 +1,7 @@
 import {
   Home, Rocket, Terminal, MessageSquare, Code, Gauge, Zap, Shield, Bug,
   GitBranch, FileText, FolderOpen, Sparkles, Calculator, Cloud, BookOpen,
-  Users, Settings, Layers, Brain, MessageCircle, Database, Package, Cpu, Chrome, Camera, Link, Mail, FileCode2, Network, Wifi, Activity
+  Users, Settings, Layers, Brain, MessageCircle, Database, Package, Cpu, Chrome, Camera, Link, Mail, FileCode2, Network, Wifi, Activity, Puzzle
 } from 'lucide-react'
 
 // Simple, flat navigation structure with all metadata in one place
@@ -169,6 +169,16 @@ export const navigation = [
     difficulty: 'NEW',
     keywords: ['events', 'on_events', 'hooks', 'lifecycle', 'monitoring', 'after_llm', 'before_tool', 'after_tool', 'on_error', 'after_user_input', 'before_llm'],
     prev: { href: '/xray', title: '@xray Decorator' },
+    next: { href: '/plugin', title: 'Plugin System' }
+  },
+  {
+    title: 'Plugin System',
+    href: '/plugin',
+    icon: Puzzle,
+    section: 'Core Concepts',
+    difficulty: 'NEW',
+    keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'reflection', 'react', 'image_result_formatter', 'useful_plugins'],
+    prev: { href: '/on_events', title: 'Event System (on_events)' },
     next: { href: '/serve', title: 'Agent Serving' }
   },
 
@@ -180,7 +190,7 @@ export const navigation = [
     section: 'Networking',
     difficulty: 'Essential',
     keywords: ['serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'agent serving', 'ed25519'],
-    prev: { href: '/on_events', title: 'Event System (on_events)' },
+    prev: { href: '/plugin', title: 'Plugin System' },
     next: { href: '/connect', title: 'Connect to Agents' }
   },
   {
