@@ -25,6 +25,6 @@ Allow: /
 Crawl-delay: 0
 
 # Sitemap Location
-Sitemap: https://connectonion.com/sitemap.xml
+Sitemap: https://docs.connectonion.com/sitemap.xml
 
 # ConnectOnion (Connect Onion) - The simplest Python framework for building AI agents
