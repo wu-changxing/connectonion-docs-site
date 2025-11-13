@@ -209,15 +209,54 @@ agent.input("Search for Python and explain it")
             language="python"
           />
 
-          <h3 className="text-xl font-semibold mb-4 mt-8">Using Both Together</h3>
+          <h3 className="text-xl font-semibold mb-4 mt-8">Image Result Formatter Plugin</h3>
+          <p className="text-gray-300 mb-4">
+            Automatically converts base64 image results to proper image message format for vision models:
+          </p>
 
           <CodeWithResult
             code={`from connectonion import Agent
-from connectonion.useful_plugins import reflection, react
+from connectonion.useful_plugins import image_result_formatter
 
-agent = Agent("assistant", tools=[search], plugins=[reflection, react])
+agent = Agent("assistant", tools=[take_screenshot], plugins=[image_result_formatter])
 
-# Now you get both after each tool:
+agent.input("Take a screenshot of the homepage and describe what you see")
+# 🖼️  Formatted tool result as image (image/png)
+# Agent can now see and analyze the actual image, not just base64 text!`}
+            language="python"
+          />
+
+          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mt-4">
+            <p className="text-sm text-white font-semibold mb-2">When to use:</p>
+            <ul className="text-sm text-gray-300 space-y-1">
+              <li>• Tools that return screenshots as base64</li>
+              <li>• Image generation tools</li>
+              <li>• Any tool that returns visual data</li>
+            </ul>
+            <p className="text-sm text-white font-semibold mb-2 mt-4">What it does:</p>
+            <ul className="text-sm text-gray-300 space-y-1">
+              <li>• Detects base64 images in tool results (data URLs or plain base64)</li>
+              <li>• Converts to OpenAI vision API format</li>
+              <li>• Allows multimodal LLMs to see images visually instead of as text</li>
+              <li>• Supports PNG, JPEG, WebP, GIF formats</li>
+            </ul>
+          </div>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Using Multiple Plugins Together</h3>
+
+          <CodeWithResult
+            code={`from connectonion import Agent
+from connectonion.useful_plugins import reflection, react, image_result_formatter
+
+# Combine plugins for powerful agents
+agent = Agent(
+    name="visual_researcher",
+    tools=[take_screenshot, search, analyze],
+    plugins=[image_result_formatter, reflection, react]
+)
+
+# Now you get:
+# 🖼️  Image formatting for screenshots
 # 💭 Reflection: What we learned
 # 🤔 ReAct: What to do next`}
             language="python"
