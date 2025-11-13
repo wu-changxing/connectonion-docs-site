@@ -123,18 +123,123 @@ result = agent.input(
     max_iterations=25
 )`
 
+  const pageContent = `# System Prompts
+
+Learn how to craft effective system prompts that define your agent's personality, behavior, and approach to tasks.
+
+## Recommended: Keep prompts in Markdown files
+
+Store prompts in versioned \`.md\` files. This keeps code clean, enables easy edits and reviews, and works across tools.
+
+### Example Markdown Prompt
+
+\`\`\`markdown
+# Assistant
+You are a helpful, concise assistant. When answering:
+
+- Be direct and use simple language
+- Prefer bullet points over long paragraphs
+- Ask one clarifying question if necessary before acting
+
+Output format:
+- Start with a one-sentence summary
+- Then provide numbered steps if applicable
+\`\`\`
+
+### Loading from Markdown
+
+\`\`\`python
+from connectonion import Agent
+
+agent = Agent(
+    name="assistant",
+    system_prompt="prompts/assistant.md",  # Recommended: Markdown file
+    tools=[...]
+)
+
+print(agent.input("Summarize the key points of our meeting notes."))
+\`\`\`
+
+## Three Ways to Provide Prompts
+
+### 1. Markdown File (Recommended)
+
+\`\`\`python
+agent = Agent(
+    name="expert",
+    system_prompt="prompts/expert.md",
+    tools=[...]
+)
+\`\`\`
+
+### 2. Path Object
+
+\`\`\`python
+from pathlib import Path
+agent = Agent(
+    name="specialist",
+    system_prompt=Path("prompts/specialist.txt"),
+    tools=[...]
+)
+\`\`\`
+
+### 3. Inline String
+
+\`\`\`python
+agent = Agent(
+    name="helper",
+    system_prompt="You are a helpful assistant.",
+    tools=[...]
+)
+\`\`\`
+
+## Folder Structure
+
+\`\`\`
+prompts/
+  assistant.md
+  expert/
+    researcher.md
+\`\`\`
+
+## Browse Example Prompts
+
+Explore ready-to-use prompt templates:
+- Friendly Assistant
+- Math Tutor
+- Code Reviewer
+- Data Analyst
+- Business Strategist
+- Technical Writer
+- Customer Support
+- Security Analyst
+`
 
   return (
     <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
       <div className="max-w-4xl mx-auto">
-      {/* Header with Copy Button */}
-      <div className="flex items-start justify-between mb-8">
-        <div className="flex-1">
-          <h1 className="text-4xl font-bold text-white mb-4">System Prompts</h1>
-          <p className="text-xl text-gray-300 max-w-3xl">
-            Learn how to craft effective system prompts that define your agent's personality, 
-            behavior, and approach to tasks.
-          </p>
+      {/* Header with Breadcrumb and Copy Button */}
+      <div className="mb-10">
+        <nav className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <ArrowRight className="w-4 h-4" />
+          <span className="text-white">System Prompts</span>
+        </nav>
+
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+          <div className="flex-1">
+            <h1 className="text-4xl font-bold text-white mb-4">System Prompts</h1>
+            <p className="text-xl text-gray-300">
+              Learn how to craft effective system prompts that define your agent's personality,
+              behavior, and approach to tasks.
+            </p>
+          </div>
+
+          <CopyMarkdownButton
+            content={pageContent}
+            filename="system-prompts.md"
+            className="flex-shrink-0"
+          />
         </div>
       </div>
 
