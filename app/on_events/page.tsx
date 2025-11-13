@@ -79,7 +79,7 @@ from connectonion.events import (
 \`\`\`python
 def tool_logger(agent):
     trace = agent.current_session['trace'][-1]
-    print(f"🔧 \\{trace['tool_name']}(\\{trace['arguments']})")
+    print(f"🔧 \${trace['tool_name']}(\${trace['arguments']})")
 
 agent = Agent("helper", tools=[search], on_events=[after_tool(tool_logger)])
 \`\`\`
@@ -94,8 +94,8 @@ def track_cost(agent):
     trace = agent.current_session['trace'][-1]
     if trace['type'] == 'llm_call':
         tokens = trace.get('tokens_used', 0)
-        total_cost += tokens * 0.00001  # \\$0.01 per 1K tokens
-        print(f"💰 Total cost: \\${total_cost:.4f}")
+        total_cost += tokens * 0.00001  # \$0.01 per 1K tokens
+        print(f"💰 Total cost: \$\${total_cost:.4f}")
 
 agent = Agent("assistant", tools=[...], on_events=[after_llm(track_cost)])
 \`\`\`
@@ -108,8 +108,8 @@ from connectonion.llm_do import llm_do
 def reflect_on_tool(agent):
     trace = agent.current_session['trace'][-1]
     if trace['type'] == 'tool_execution' and trace['status'] == 'success':
-        reflection = llm_do(f"Tool \\{trace['tool_name']} returned: \\{trace['result'][:200]}. What does this mean?")
-        print(f"💭 Reflection: \\{reflection}")
+        reflection = llm_do(f"Tool \${trace['tool_name']} returned: \${trace['result'][:200]}. What does this mean?")
+        print(f"💭 Reflection: \${reflection}")
 
 agent = Agent("thinker", tools=[...], on_events=[after_tool(reflect_on_tool)])
 \`\`\`
@@ -120,15 +120,15 @@ agent = Agent("thinker", tools=[...], on_events=[after_tool(reflect_on_tool)])
 from connectonion.events import after_user_input, after_llm, after_tool
 
 def log_input(agent):
-    print(f"📝 User asked: \\{agent.current_session.get('user_prompt', '')}")
+    print(f"📝 User asked: \${agent.current_session.get('user_prompt', '')}")
 
 def log_llm(agent):
     trace = agent.current_session['trace'][-1]
-    print(f"🤖 LLM responded: \\{trace.get('content', '')[:100]}...")
+    print(f"🤖 LLM responded: \${trace.get('content', '')[:100]}...")
 
 def log_tool(agent):
     trace = agent.current_session['trace'][-1]
-    print(f"🔧 Tool executed: \\{trace['tool_name']}")
+    print(f"🔧 Tool executed: \${trace['tool_name']}")
 
 agent = Agent(
     "verbose_agent",
