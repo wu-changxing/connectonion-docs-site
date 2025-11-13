@@ -39,132 +39,228 @@ Hook into agent lifecycle to add logging, monitoring, reflection, and custom beh
 
 ## Quick Start
 
-Add event handlers to your agent in 3 simple steps:
-
 \`\`\`python
-from connectonion import Agent
-from connectonion.events import after_tool
+from connectonion import Agent, after_llm
 
-# Step 1: Define event handler
-def log_tool_result(agent):
-    last_trace = agent.current_session['trace'][-1]
-    if last_trace['type'] == 'tool_execution':
-        print(f"✅ Tool: {last_trace['tool_name']}")
-        print(f"📊 Result: {last_trace['result'][:100]}...")
-
-# Step 2: Attach to event
-log_event = after_tool(log_tool_result)
-
-# Step 3: Add to agent
-agent = Agent("assistant", tools=[...], on_events=[log_event])
-\`\`\`
-
-## All Event Hooks
-
-\`\`\`python
-from connectonion.events import (
-    after_user_input,
-    before_llm,
-    after_llm,
-    before_tool,
-    after_tool,
-    on_error
-)
-\`\`\`
-
-## Real-World Examples
-
-### Example 1: Log Every Tool Call
-
-\`\`\`python
-def tool_logger(agent):
-    trace = agent.current_session['trace'][-1]
-    print(f"🔧 \${trace['tool_name']}(\${trace['arguments']})")
-
-agent = Agent("helper", tools=[search], on_events=[after_tool(tool_logger)])
-\`\`\`
-
-### Example 2: Cost Tracking
-
-\`\`\`python
-total_cost = 0
-
-def track_cost(agent):
-    global total_cost
+def log_llm_calls(agent):
+    """Track LLM performance"""
     trace = agent.current_session['trace'][-1]
     if trace['type'] == 'llm_call':
-        tokens = trace.get('tokens_used', 0)
-        total_cost += tokens * 0.00001  # \$0.01 per 1K tokens
-        print(f"💰 Total cost: \$\${total_cost:.4f}")
-
-agent = Agent("assistant", tools=[...], on_events=[after_llm(track_cost)])
-\`\`\`
-
-### Example 3: Reflection After Each Tool
-
-\`\`\`python
-from connectonion.llm_do import llm_do
-
-def reflect_on_tool(agent):
-    trace = agent.current_session['trace'][-1]
-    if trace['type'] == 'tool_execution' and trace['status'] == 'success':
-        reflection = llm_do(f"Tool \${trace['tool_name']} returned: \${trace['result'][:200]}. What does this mean?")
-        print(f"💭 Reflection: \${reflection}")
-
-agent = Agent("thinker", tools=[...], on_events=[after_tool(reflect_on_tool)])
-\`\`\`
-
-## Multiple Events on Same Agent
-
-\`\`\`python
-from connectonion.events import after_user_input, after_llm, after_tool
-
-def log_input(agent):
-    print(f"📝 User asked: \${agent.current_session.get('user_prompt', '')}")
-
-def log_llm(agent):
-    trace = agent.current_session['trace'][-1]
-    print(f"🤖 LLM responded: \${trace.get('content', '')[:100]}...")
-
-def log_tool(agent):
-    trace = agent.current_session['trace'][-1]
-    print(f"🔧 Tool executed: \${trace['tool_name']}")
+        duration = trace['duration_ms']
+        print(f"⚡ LLM call: {duration:.0f}ms")
 
 agent = Agent(
-    "verbose_agent",
-    tools=[...],
-    on_events=[
-        after_user_input(log_input),
-        after_llm(log_llm),
-        after_tool(log_tool)
-    ]
+    "assistant",
+    tools=[search],
+    on_events=[after_llm(log_llm_calls)]
 )
+
+agent.input("Search for Python")
 \`\`\`
 
-## Access Agent State
+**Result:**
+\`\`\`
+⚡ LLM call: 1204ms
+⚡ LLM call: 831ms
+"I found results for Python..."
+\`\`\`
 
-Inside event handlers, access the full agent context:
+## All Event Types
+
+### after_user_input
+
+Fires once per turn, after user input is added.
 
 \`\`\`python
-def detailed_handler(agent):
-    # Current conversation
-    messages = agent.current_session['messages']
+def add_timestamp(agent):
+    from datetime import datetime
+    timestamp = datetime.now().strftime("%H:%M:%S")
+    agent.current_session['messages'].append({
+        'role': 'system',
+        'content': f'Current time: {timestamp}'
+    })
 
-    # Execution trace
-    trace = agent.current_session['trace']
-
-    # User's original prompt
-    user_prompt = agent.current_session.get('user_prompt', '')
-
-    # Agent configuration
-    agent_name = agent.name
-    available_tools = agent.tool_map.keys()
+agent = Agent("assistant", on_events=[
+    after_user_input(add_timestamp)
+])
 \`\`\`
 
-## What's Next
+### after_llm
 
-- **Plugin System**: Package event handlers into reusable plugins
-- **Vibe Coding**: See event patterns in action with visual examples
+Fires after each LLM response (multiple times per turn).
+
+\`\`\`python
+from connectonion import llm_do
+
+def add_reflection(agent):
+    """Add AI-generated reflection after tools execute"""
+    trace = agent.current_session['trace']
+
+    # Find recent tool executions
+    recent_tools = []
+    llm_count = 0
+    for entry in reversed(trace):
+        if entry.get('type') == 'llm_call':
+            llm_count += 1
+            if llm_count >= 2:
+                break
+        elif entry.get('type') == 'tool_execution':
+            recent_tools.append(entry)
+
+    if recent_tools:
+        result = recent_tools[0]['result'][:200]
+        reflection = llm_do(
+            f"Reflect on this result: {result}",
+            model="gpt-4o-mini"
+        )
+        agent.current_session['messages'].append({
+            'role': 'assistant',
+            'content': f"💭 {reflection}"
+        })
+
+agent = Agent("assistant", tools=[search], on_events=[
+    after_llm(add_reflection)
+])
+\`\`\`
+
+### after_tool
+
+Fires after each successful tool execution.
+
+\`\`\`python
+def monitor_performance(agent):
+    """Log slow tool executions"""
+    trace = agent.current_session['trace'][-1]
+    if trace['type'] == 'tool_execution':
+        timing = trace['timing']
+        if timing > 1000:
+            tool_name = trace['tool_name']
+            print(f"⚠️ Slow: {tool_name} took {timing/1000:.1f}s")
+
+agent = Agent("assistant", tools=[search, analyze], on_events=[
+    after_tool(monitor_performance)
+])
+\`\`\`
+
+### on_error
+
+Fires when tool execution fails or tool not found.
+
+\`\`\`python
+def handle_errors(agent):
+    """Custom error handling"""
+    trace = agent.current_session['trace'][-1]
+    if trace.get('status') in ('error', 'not_found'):
+        error = trace.get('error', 'Unknown error')
+        print(f"❌ Error: {error}")
+
+agent = Agent("assistant", tools=[api_call], on_events=[
+    on_error(handle_errors)
+])
+\`\`\`
+
+## Combining Multiple Events
+
+\`\`\`python
+from connectonion import Agent, after_user_input, after_llm, after_tool, on_error
+from datetime import datetime
+
+def log_session_start(agent):
+    print(f"📝 Session started at {datetime.now()}")
+
+def track_llm(agent):
+    trace = agent.current_session['trace'][-1]
+    if trace['type'] == 'llm_call':
+        print(f"⚡ LLM: {trace['duration_ms']:.0f}ms")
+
+def track_tools(agent):
+    trace = agent.current_session['trace'][-1]
+    if trace['type'] == 'tool_execution':
+        print(f"🔧 Tool: {trace['tool_name']}")
+
+def handle_errors(agent):
+    trace = agent.current_session['trace'][-1]
+    print(f"❌ Error: {trace.get('error')}")
+
+agent = Agent(
+    "full_monitoring",
+    tools=[search, analyze],
+    on_events=[
+        after_user_input(log_session_start),
+        after_llm(track_llm),
+        after_tool(track_tools),
+        on_error(handle_errors)
+    ]
+)
+
+agent.input("Search and analyze Python")
+\`\`\`
+
+**Result:**
+\`\`\`
+📝 Session started at 2025-01-04 15:30:42
+⚡ LLM: 1204ms
+🔧 Tool: search
+⚡ LLM: 831ms
+🔧 Tool: analyze
+⚡ LLM: 1142ms
+"Analysis complete..."
+\`\`\`
+
+## Real-World Use Cases
+
+### Performance Monitoring Dashboard
+
+\`\`\`python
+class PerformanceMonitor:
+    def __init__(self):
+        self.metrics = {
+            'llm_calls': 0,
+            'tool_calls': 0,
+            'total_llm_time': 0,
+            'total_tool_time': 0,
+            'errors': 0
+        }
+
+    def track_llm(self, agent):
+        trace = agent.current_session['trace'][-1]
+        if trace['type'] == 'llm_call':
+            self.metrics['llm_calls'] += 1
+            self.metrics['total_llm_time'] += trace['duration_ms']
+
+    def track_tool(self, agent):
+        trace = agent.current_session['trace'][-1]
+        if trace['type'] == 'tool_execution':
+            self.metrics['tool_calls'] += 1
+            self.metrics['total_tool_time'] += trace['timing']
+
+    def track_error(self, agent):
+        self.metrics['errors'] += 1
+
+    def report(self):
+        print(f"LLM calls: {self.metrics['llm_calls']}")
+        print(f"Avg LLM time: {self.metrics['total_llm_time'] / max(1, self.metrics['llm_calls']):.0f}ms")
+        print(f"Tool calls: {self.metrics['tool_calls']}")
+        print(f"Errors: {self.metrics['errors']}")
+
+monitor = PerformanceMonitor()
+agent = Agent("monitored", tools=[search], on_events=[
+    after_llm(monitor.track_llm),
+    after_tool(monitor.track_tool),
+    on_error(monitor.track_error)
+])
+
+agent.input("Complex task...")
+monitor.report()
+\`\`\`
+
+**Result:**
+\`\`\`
+LLM calls: 3
+Avg LLM time: 1245ms
+Tool calls: 2
+Errors: 0
+\`\`\`
 `
 
   return (
@@ -202,80 +298,76 @@ def detailed_handler(agent):
           </div>
         </div>
 
-              {/* Quick Visual: 6 Event Types */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 md:p-8 mb-12">
-                <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
-                  <GitBranch className="text-blue-400 w-5 h-5" />
-                  6 Event Types
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-blue-900/50 border border-blue-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                      <Play className="text-blue-400 w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-200">after_user_input</div>
-                      <div className="text-gray-400 text-xs">Fires once per turn</div>
-                    </div>
-                  </div>
+        {/* 6 Event Types Visual */}
+        <section className="mb-12">
+          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 md:p-8">
+            <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
+              <GitBranch className="text-blue-400 w-5 h-5" />
+              6 Event Types
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-blue-900/50 border border-blue-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <Play className="text-blue-400 w-4 h-4" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">after_user_input</div>
+                  <div className="text-gray-400 text-xs">Fires once per turn</div>
+                </div>
+              </div>
 
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-purple-900/50 border border-purple-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                      <Code className="text-purple-400 w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-200">before_llm</div>
-                      <div className="text-gray-400 text-xs">Before each LLM call</div>
-                    </div>
-                  </div>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-purple-900/50 border border-purple-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <Code className="text-purple-400 w-4 h-4" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">before_llm</div>
+                  <div className="text-gray-400 text-xs">Before each LLM call</div>
+                </div>
+              </div>
 
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-green-900/50 border border-green-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                      <Activity className="text-green-400 w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-200">after_llm</div>
-                      <div className="text-gray-400 text-xs">After each LLM response</div>
-                    </div>
-                  </div>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-green-900/50 border border-green-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <Activity className="text-green-400 w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">after_llm</div>
+                  <div className="text-gray-400 text-xs">After each LLM response</div>
+                </div>
+              </div>
 
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-yellow-900/50 border border-yellow-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                      <Zap className="text-yellow-400 w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-200">before_tool</div>
-                      <div className="text-gray-400 text-xs">Before tool execution</div>
-                    </div>
-                  </div>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-yellow-900/50 border border-yellow-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <Zap className="text-yellow-400 w-4 h-4" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">before_tool</div>
+                  <div className="text-gray-400 text-xs">Before tool execution</div>
+                </div>
+              </div>
 
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-cyan-900/50 border border-cyan-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                      <Timer className="text-cyan-400 w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-200">after_tool</div>
-                      <div className="text-gray-400 text-xs">After successful tool execution</div>
-                    </div>
-                  </div>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-cyan-900/50 border border-cyan-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <Timer className="text-cyan-400 w-4 h-4" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">after_tool</div>
+                  <div className="text-gray-400 text-xs">After successful tool execution</div>
+                </div>
+              </div>
 
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-red-900/50 border border-red-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                      <Layers className="text-red-400 w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-200">on_error</div>
-                      <div className="text-gray-400 text-xs">When tool execution fails</div>
-                    </div>
-                  </div>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-red-900/50 border border-red-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <Layers className="text-red-400 w-4 h-4" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">on_error</div>
+                  <div className="text-gray-400 text-xs">When tool execution fails</div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        {/* Content Navigation - Always visible */}
-        <ContentNavigation />
 
         {/* Main Content */}
         <div className="prose prose-invert max-w-none">
@@ -817,7 +909,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
                 <p className="text-sm text-gray-400">Complete API documentation for the Agent class</p>
               </Link>
 
-              <Link href="/examples" className="block p6 bg-gray-900 border border-gray-700 rounded-lg hover:border-yellow-500 transition-colors">
+              <Link href="/examples" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-yellow-500 transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-gray-100">Examples →</h3>
                 <p className="text-sm text-gray-400">Browse more real-world agent examples</p>
               </Link>
@@ -825,6 +917,9 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
           </section>
 
         </div>
+
+        {/* Content Navigation - Always visible */}
+        <ContentNavigation />
       </div>
     </div>
   )
