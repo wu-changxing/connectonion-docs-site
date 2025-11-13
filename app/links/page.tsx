@@ -13,7 +13,6 @@ import {
   FaInstagram, FaTiktok, FaUsers
 } from 'react-icons/fa'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import QRCode from 'qrcode'
 
@@ -398,12 +397,11 @@ export default function LinksPage() {
           <div className="flex justify-center mb-6">
             <div className="relative">
               <div className="absolute inset-0 bg-purple-500 blur-xl opacity-30"></div>
-              <Image
+              <img
                 src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png"
                 alt="ConnectOnion logo"
                 width={96}
                 height={96}
-                priority
                 className="relative rounded-2xl object-cover shadow-2xl"
               />
             </div>
@@ -461,7 +459,7 @@ export default function LinksPage() {
                       {/* Center logo overlay */}
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="bg-white rounded-xl p-2 shadow-lg">
-                          <Image
+                          <img
                             src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png"
                             alt="ConnectOnion logo overlay on QR code"
                             width={48}
