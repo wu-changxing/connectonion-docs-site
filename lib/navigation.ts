@@ -46,23 +46,23 @@ export const navigation = [
 
   // Core Concepts
   {
-    title: 'System Prompts',
-    href: '/prompts',
-    icon: MessageSquare,
-    section: 'Core Concepts',
-    difficulty: 'Start Here',
-    keywords: ['template', 'prompt', 'system', 'message', 'personality', 'behavior'],
-    prev: { href: '/cli', title: 'CLI Reference' },
-    next: { href: '/agent', title: 'Agent' }
-  },
-  {
     title: 'Agent',
     href: '/agent',
     icon: Users,
     section: 'Core Concepts',
     difficulty: 'Essential',
     keywords: ['agent', 'create', 'orchestrator', 'core', 'llm', 'conversation', 'iteration'],
-    prev: { href: '/prompts', title: 'System Prompts' },
+    prev: { href: '/cli', title: 'CLI Reference' },
+    next: { href: '/prompts', title: 'System Prompts' }
+  },
+  {
+    title: 'System Prompts',
+    href: '/prompts',
+    icon: MessageSquare,
+    section: 'Core Concepts',
+    difficulty: 'Start Here',
+    keywords: ['template', 'prompt', 'system', 'message', 'personality', 'behavior'],
+    prev: { href: '/agent', title: 'Agent' },
     next: { href: '/tools', title: 'Tools' }
   },
   {
