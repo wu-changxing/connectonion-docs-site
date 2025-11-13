@@ -220,7 +220,7 @@ Explore ready-to-use prompt templates:
       <div className="max-w-4xl mx-auto">
       {/* Header with Breadcrumb and Copy Button */}
       <div className="mb-10">
-        <nav className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+        <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <ArrowRight className="w-4 h-4" />
           <span className="text-white">System Prompts</span>
@@ -268,7 +268,7 @@ Explore ready-to-use prompt templates:
               <span className="text-sm text-gray-300 font-mono flex items-center gap-2"><FolderOpen className="w-4 h-4"/>project structure</span>
               <button
                 onClick={() => copyToClipboard(folderTree, 'folderTree')}
-                className="text-gray-400 hover:text-white transition-colors p-1"
+                className="text-gray-300 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'folderTree' ? (
                   <Check className="w-4 h-4 text-green-400" />
@@ -294,7 +294,7 @@ Explore ready-to-use prompt templates:
               <span className="text-sm text-gray-300 font-mono">prompts/assistant.md</span>
               <button
                 onClick={() => copyToClipboard(recommendedMarkdown, 'recommendedMarkdown')}
-                className="text-gray-400 hover:text-white transition-colors p-1"
+                className="text-gray-300 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'recommendedMarkdown' ? (
                   <Check className="w-4 h-4 text-green-400" />
@@ -320,7 +320,7 @@ Explore ready-to-use prompt templates:
               <span className="text-sm text-gray-300 font-mono">load_markdown.py</span>
               <button
                 onClick={() => copyToClipboard(loadFromMarkdown, 'loadFromMarkdown')}
-                className="text-gray-400 hover:text-white transition-colors p-1"
+                className="text-gray-300 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'loadFromMarkdown' ? (
                   <Check className="w-4 h-4 text-green-400" />
@@ -404,7 +404,7 @@ Explore ready-to-use prompt templates:
               <span className="text-sm text-gray-300 font-mono">quick_start.py</span>
               <button
                 onClick={() => copyToClipboard(quickStartCode, 'quick-start')}
-                className="text-gray-400 hover:text-white transition-colors p-1"
+                className="text-gray-300 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'quick-start' ? (
                   <Check className="w-4 h-4 text-green-400" />
@@ -446,7 +446,7 @@ Explore ready-to-use prompt templates:
             <span className="text-sm text-gray-300 font-mono">iterations.py</span>
             <button
               onClick={() => copyToClipboard(iterationCode, 'iterations')}
-              className="text-gray-400 hover:text-white transition-colors p-1"
+              className="text-gray-300 hover:text-white transition-colors p-1"
             >
               {copiedId === 'iterations' ? (
                 <Check className="w-4 h-4 text-green-400" />
@@ -478,7 +478,7 @@ Explore ready-to-use prompt templates:
             { ext: '.yaml', name: 'YAML', desc: 'Structured data with metadata', color: 'text-green-400' },
             { ext: '.json', name: 'JSON', desc: 'Machine-readable with schemas', color: 'text-purple-400' },
             { ext: '.txt', name: 'Plain Text', desc: 'Simple text prompts', color: 'text-yellow-400' },
-            { ext: 'none', name: 'No Extension', desc: 'Any text file works', color: 'text-gray-400' },
+            { ext: 'none', name: 'No Extension', desc: 'Any text file works', color: 'text-gray-300' },
           ].map((format) => (
             <div key={format.ext} className="bg-gray-900 border border-gray-700 rounded-lg p-4 hover:border-gray-600 transition-colors">
               <div className="flex items-center gap-2 mb-2">
@@ -488,7 +488,7 @@ Explore ready-to-use prompt templates:
                 </span>
               </div>
               <h3 className="font-semibold text-white mb-1">{format.name}</h3>
-              <p className="text-gray-400 text-sm">{format.desc}</p>
+              <p className="text-gray-300 text-sm">{format.desc}</p>
             </div>
           ))}
         </div>
@@ -505,9 +505,9 @@ Explore ready-to-use prompt templates:
           >
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-semibold text-white">Prompt Examples</h3>
-              <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
+              <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-blue-400 transition-colors" />
             </div>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-300 text-sm mb-4">
               Explore real-world prompt examples for different roles and domains.
             </p>
             <div className="text-xs text-blue-400">View examples →</div>
@@ -519,9 +519,9 @@ Explore ready-to-use prompt templates:
           >
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-semibold text-white">Examples</h3>
-              <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-400 transition-colors" />
+              <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-green-400 transition-colors" />
             </div>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-300 text-sm mb-4">
               Browse real-world prompt examples for different roles and domains.
             </p>
             <div className="text-xs text-green-400">View examples →</div>

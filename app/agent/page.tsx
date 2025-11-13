@@ -139,7 +139,7 @@ agent.current_session       # dict | None: Runtime state
     <div className="min-h-screen bg-black text-gray-100">
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+        <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
@@ -155,7 +155,7 @@ agent.current_session       # dict | None: Runtime state
             </div>
             <div>
               <h1 className="text-4xl font-bold text-white mb-2">Agent</h1>
-              <p className="text-lg text-gray-400">
+              <p className="text-lg text-gray-300">
                 The heart of ConnectOnion. Give it tools, and it figures out the rest.
               </p>
             </div>
@@ -282,7 +282,7 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
             <p className="text-purple-300 font-semibold mb-2">
               That's the complete API.
             </p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-300 text-sm">
               Now let's dive into each feature below. Jump to any section that interests you!
             </p>
           </div>
@@ -299,27 +299,27 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
               This page provides a quick overview of the Agent class. For comprehensive documentation including:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-4 text-sm">
-              <div className="flex items-center gap-2 text-gray-400">
+              <div className="flex items-center gap-2 text-gray-300">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Creating Agents
               </div>
-              <div className="flex items-center gap-2 text-gray-400">
+              <div className="flex items-center gap-2 text-gray-300">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Managing Tools
               </div>
-              <div className="flex items-center gap-2 text-gray-400">
+              <div className="flex items-center gap-2 text-gray-300">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Multi-Turn Conversations
               </div>
-              <div className="flex items-center gap-2 text-gray-400">
+              <div className="flex items-center gap-2 text-gray-300">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Iteration Control
               </div>
-              <div className="flex items-center gap-2 text-gray-400">
+              <div className="flex items-center gap-2 text-gray-300">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Common Patterns
               </div>
-              <div className="flex items-center gap-2 text-gray-400">
+              <div className="flex items-center gap-2 text-gray-300">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Testing Strategies
               </div>
@@ -342,7 +342,7 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">
                 Tools
               </h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-300">
                 Learn how to create powerful tools for your agents
               </p>
             </Link>
@@ -355,7 +355,7 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">
                 max_iterations
               </h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-300">
                 Control how many tool calls your agent can make
               </p>
             </Link>
@@ -368,7 +368,7 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-green-300 transition-colors">
                 System Prompts
               </h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-300">
                 Give your agent a personality and behavior
               </p>
             </Link>
@@ -381,7 +381,7 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-yellow-300 transition-colors">
                 Debug with @xray
               </h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-300">
                 See what your agent is thinking during execution
               </p>
             </Link>
@@ -423,7 +423,7 @@ agent = Agent(
               </div>
             </div>
 
-            <p className="text-gray-400 mt-6 text-center">
+            <p className="text-gray-300 mt-6 text-center">
               <span className="font-semibold text-white">Both are valid.</span> Start simple, add complexity only when needed.
             </p>
           </div>
@@ -434,7 +434,7 @@ agent = Agent(
           <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-2">
             ConnectOnion: AI Agent = Prompt + Function
           </p>
-          <p className="text-gray-400">
+          <p className="text-gray-300">
             That's it. That's the framework. Now go build something useful.
           </p>
         </div>

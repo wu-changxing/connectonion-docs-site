@@ -14,7 +14,7 @@ export default function NamingIsHardPage() {
           Why We Call It "Address" Instead of "Identity"
         </h1>
         
-        <div className="text-gray-400 mb-8">
+        <div className="text-gray-300 mb-8">
           <time>September 3, 2025</time> • Design Decision
         </div>
         
@@ -64,7 +64,7 @@ export default function NamingIsHardPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
             <h3 className="text-red-400 font-semibold mb-2">❌ With "Identity"</h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-300 text-sm">
               "Generate an identity for the agent"<br/>
               "Verify the agent's identity"<br/>
               "The agent's identity is..."
@@ -74,7 +74,7 @@ export default function NamingIsHardPage() {
           
           <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
             <h3 className="text-green-400 font-semibold mb-2">✅ With "Address"</h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-300 text-sm">
               "Generate an address for the agent"<br/>
               "Send message to this address"<br/>
               "The agent's address is..."
@@ -154,7 +154,7 @@ export default function NamingIsHardPage() {
             We call it an <strong className="text-white">address</strong> because that's what it is: 
             a way to reach an agent. Nothing more, nothing less.
           </p>
-          <p className="text-gray-400">
+          <p className="text-gray-300">
             If we add identity features later (reputation, attestations, trust scores), those will be 
             separate layers built on top of addresses. The address just gets you there. 
             What you find when you arrive is a different question.

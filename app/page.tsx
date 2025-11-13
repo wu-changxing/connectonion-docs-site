@@ -370,7 +370,7 @@ print(result)  # "42 * 17 equals 714"`}
                     <div className="absolute bottom-0 w-full bg-gray-500 rounded transition-all"
                          style={{height: '100%'}} />
                   </div>
-                  <span className="text-xs text-gray-400 font-bold">~50 lines</span>
+                  <span className="text-xs text-gray-300 font-bold">~50 lines</span>
                 </div>
               </div>
               <p className="text-xs text-gray-300 text-center">Same result, way less boilerplate</p>
@@ -963,7 +963,7 @@ Debugging: "Send email to John"
             >
               Learn Interactive Debugging <ArrowRight className="w-5 h-5" />
             </Link>
-            <p className="mt-4 text-sm text-gray-400">
+            <p className="mt-4 text-sm text-gray-300">
               Available in <span className="text-purple-400 font-mono">v0.3.2</span> • Coming soon: Ask AI, View trace, Step mode
             </p>
           </div>

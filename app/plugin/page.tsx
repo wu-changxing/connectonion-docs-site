@@ -209,7 +209,7 @@ agent = Agent("assistant", tools=[search], plugins=[my_plugin])
         {/* Hero Section */}
         <div className="mb-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">Plugins</span>
@@ -270,7 +270,7 @@ agent.input("Search for Python")
             language="python"
           />
 
-          <p className="text-gray-400 mt-4">
+          <p className="text-gray-300 mt-4">
             That's it! Use built-in plugins or create your own.
           </p>
         </section>
@@ -755,7 +755,7 @@ agent = Agent("assistant", tools=[search], plugins=[my_plugin])
 
             <div className="mt-6 text-sm text-gray-300 space-y-2">
               <p><strong className="text-white">on_events vs plugins:</strong></p>
-              <ul className="list-disc list-inside space-y-1 text-gray-400">
+              <ul className="list-disc list-inside space-y-1 text-gray-300">
                 <li><code className="bg-gray-800 px-2 py-1 rounded">on_events=[after_llm(h1), after_tool(h2)]</code> → one event list</li>
                 <li><code className="bg-gray-800 px-2 py-1 rounded">plugins=[plugin1, plugin2]</code> → list of event lists</li>
               </ul>

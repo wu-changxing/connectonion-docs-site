@@ -85,7 +85,7 @@ export default function BlogPage() {
         <div className="mb-12">
           <Link 
             href="/" 
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Docs
@@ -95,7 +95,7 @@ export default function BlogPage() {
             <BookOpen className="w-8 h-8 text-purple-400" />
             <h1 className="text-3xl font-bold text-white">Blog</h1>
           </div>
-          <p className="text-gray-400">
+          <p className="text-gray-300">
             Design decisions and insights from building ConnectOnion
           </p>
         </div>
@@ -144,7 +144,7 @@ export default function BlogPage() {
                       </p>
                       
                       {/* Excerpt */}
-                      <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                      <p className="text-gray-300 text-sm mb-4 line-clamp-2">
                         {post.excerpt}
                       </p>
                       
@@ -177,7 +177,7 @@ export default function BlogPage() {
         {/* Coming Soon */}
         <div className="mt-12 p-8 bg-gray-800/30 rounded-xl border border-gray-700 text-center">
           <h3 className="text-lg font-semibold text-white mb-2">More Posts Coming Soon</h3>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-300 text-sm">
             We're documenting our journey. Stay tuned for more insights.
           </p>
         </div>

@@ -381,16 +381,16 @@ Sometimes the best API decisions are the ones that make developers forget they'r
                 
                 <div className="space-y-4">
                   <div>
-                    <p className="text-sm text-gray-400 mb-1">When you write:</p>
+                    <p className="text-sm text-gray-300 mb-1">When you write:</p>
                     <code className="text-green-300 font-mono">answer = llm_do("What is the meaning of life?")</code>
-                    <p className="text-sm text-gray-400 mt-1">It reads as: "answer equals llm do what is the meaning of life"</p>
+                    <p className="text-sm text-gray-300 mt-1">It reads as: "answer equals llm do what is the meaning of life"</p>
                     <p className="text-sm text-green-400 font-semibold">✓ That's almost a valid English sentence!</p>
                   </div>
                   
                   <div className="pt-4 border-t border-gray-700">
-                    <p className="text-sm text-gray-400 mb-1">Compare to the original:</p>
+                    <p className="text-sm text-gray-300 mb-1">Compare to the original:</p>
                     <code className="text-red-300 font-mono">answer = llm("What is the meaning of life?")</code>
-                    <p className="text-sm text-gray-400 mt-1">Which reads as: "answer equals llm what is the meaning of life"</p>
+                    <p className="text-sm text-gray-300 mt-1">Which reads as: "answer equals llm what is the meaning of life"</p>
                     <p className="text-sm text-red-400 font-semibold">✗ That's not English - it's computerese.</p>
                   </div>
                 </div>
@@ -441,7 +441,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
               </ul>
 
               <div className="border-t border-gray-800 mt-16 pt-8">
-                <p className="text-gray-400 italic text-lg">
+                <p className="text-gray-300 italic text-lg">
                   Remember: If your function name doesn't include a verb, you're naming it wrong. And when in doubt, "do" will do.
                 </p>
               </div>

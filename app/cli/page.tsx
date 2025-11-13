@@ -409,7 +409,7 @@ python --version
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">
         <div className="flex-1">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">CLI Reference</span>
@@ -434,10 +434,10 @@ python --version
           Quick Reference
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-          <div className="font-mono text-blue-300">co create <span className="text-gray-400">→ New project</span></div>
-          <div className="font-mono text-blue-300">co init <span className="text-gray-400">→ Current directory</span></div>
-          <div className="font-mono text-blue-300">co create --ai <span className="text-gray-400">→ With AI features</span></div>
-          <div className="font-mono text-blue-300">co -b "screenshot..." <span className="text-gray-400">→ Browser commands</span></div>
+          <div className="font-mono text-blue-300">co create <span className="text-gray-300">→ New project</span></div>
+          <div className="font-mono text-blue-300">co init <span className="text-gray-300">→ Current directory</span></div>
+          <div className="font-mono text-blue-300">co create --ai <span className="text-gray-300">→ With AI features</span></div>
+          <div className="font-mono text-blue-300">co -b "screenshot..." <span className="text-gray-300">→ Browser commands</span></div>
         </div>
       </div>
 
@@ -706,15 +706,15 @@ Next steps:
           <div className="grid grid-cols-3 gap-4 text-sm">
             <div>
               <span className="font-semibold text-yellow-200">iPhone</span>
-              <p className="text-gray-400">390×844</p>
+              <p className="text-gray-300">390×844</p>
             </div>
             <div>
               <span className="font-semibold text-yellow-200">iPad</span>
-              <p className="text-gray-400">768×1024</p>
+              <p className="text-gray-300">768×1024</p>
             </div>
             <div>
               <span className="font-semibold text-yellow-200">Desktop</span>
-              <p className="text-gray-400">1920×1080 (default)</p>
+              <p className="text-gray-300">1920×1080 (default)</p>
             </div>
           </div>
         </div>
@@ -830,22 +830,22 @@ Generating custom template with AI...
               <tr>
                 <td className="px-4 py-3 text-white font-medium">OpenAI</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">sk-... or sk-proj-...</td>
-                <td className="px-4 py-3 font-mono text-xs text-gray-400">sk-proj-abc123...</td>
+                <td className="px-4 py-3 font-mono text-xs text-gray-300">sk-proj-abc123...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Anthropic</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">sk-ant-...</td>
-                <td className="px-4 py-3 font-mono text-xs text-gray-400">sk-ant-api03-xyz...</td>
+                <td className="px-4 py-3 font-mono text-xs text-gray-300">sk-ant-api03-xyz...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Google</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">AIza...</td>
-                <td className="px-4 py-3 font-mono text-xs text-gray-400">AIzaSyAbc123...</td>
+                <td className="px-4 py-3 font-mono text-xs text-gray-300">AIzaSyAbc123...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Groq</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">gsk_...</td>
-                <td className="px-4 py-3 font-mono text-xs text-gray-400">gsk_abc123...</td>
+                <td className="px-4 py-3 font-mono text-xs text-gray-300">gsk_abc123...</td>
               </tr>
             </tbody>
           </table>
@@ -1066,15 +1066,15 @@ Generating custom template with AI...
             <h3 className="text-lg font-semibold text-white mb-3">API Key Issues</h3>
             <ul className="space-y-2 text-gray-300">
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-gray-400" />
+                <ChevronRight className="w-4 h-4 text-gray-300" />
                 Check key format matches your provider
               </li>
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-gray-400" />
+                <ChevronRight className="w-4 h-4 text-gray-300" />
                 Ensure key is active and has credits
               </li>
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-gray-400" />
+                <ChevronRight className="w-4 h-4 text-gray-300" />
                 Try pasting without quotes or spaces
               </li>
             </ul>

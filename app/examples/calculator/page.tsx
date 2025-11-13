@@ -269,7 +269,7 @@ Build on this foundation for more complex agents that need to handle user input 
               <h3 className="text-xl font-semibold text-white">Basic Calculator</h3>
               <button
                 onClick={() => copyToClipboard(agentCode, 'basic')}
-                className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'basic' ? (
                   <>
@@ -314,7 +314,7 @@ Build on this foundation for more complex agents that need to handle user input 
               <h3 className="text-xl font-semibold text-white">Complete Example with Security</h3>
               <button
                 onClick={() => copyToClipboard(fullExampleCode, 'complete')}
-                className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'complete' ? (
                   <>
@@ -454,7 +454,7 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
                 <Download className="w-4 h-4" />
                 Download Complete Example
               </a>
-              <p className="text-xs text-gray-400 text-center">
+              <p className="text-xs text-gray-300 text-center">
                 Complete calculator with security features and error handling
               </p>
             </div>

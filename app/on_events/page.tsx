@@ -268,7 +268,7 @@ Errors: 0
       <div className="max-w-4xl mx-auto">
         {/* Header with Breadcrumb and Copy Button */}
         <div className="mb-10">
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">Events (on_events)</span>
@@ -312,7 +312,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">after_user_input</div>
-                  <div className="text-gray-400 text-xs">Fires once per turn</div>
+                  <div className="text-gray-300 text-xs">Fires once per turn</div>
                 </div>
               </div>
 
@@ -322,7 +322,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">before_llm</div>
-                  <div className="text-gray-400 text-xs">Before each LLM call</div>
+                  <div className="text-gray-300 text-xs">Before each LLM call</div>
                 </div>
               </div>
 
@@ -332,7 +332,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">after_llm</div>
-                  <div className="text-gray-400 text-xs">After each LLM response</div>
+                  <div className="text-gray-300 text-xs">After each LLM response</div>
                 </div>
               </div>
 
@@ -342,7 +342,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">before_tool</div>
-                  <div className="text-gray-400 text-xs">Before tool execution</div>
+                  <div className="text-gray-300 text-xs">Before tool execution</div>
                 </div>
               </div>
 
@@ -352,7 +352,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">after_tool</div>
-                  <div className="text-gray-400 text-xs">After successful tool execution</div>
+                  <div className="text-gray-300 text-xs">After successful tool execution</div>
                 </div>
               </div>
 
@@ -362,7 +362,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">on_error</div>
-                  <div className="text-gray-400 text-xs">When tool execution fails</div>
+                  <div className="text-gray-300 text-xs">When tool execution fails</div>
                 </div>
               </div>
             </div>
@@ -427,7 +427,7 @@ agent.input("Search for Python")`}
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">after_user_input</h3>
-                    <p className="text-sm text-gray-400">Fires once per turn, after user input is added</p>
+                    <p className="text-sm text-gray-300">Fires once per turn, after user input is added</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -456,7 +456,7 @@ agent = Agent("assistant", on_events=[
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">after_llm</h3>
-                    <p className="text-sm text-gray-400">Fires after each LLM response (multiple times per turn)</p>
+                    <p className="text-sm text-gray-300">Fires after each LLM response (multiple times per turn)</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -506,7 +506,7 @@ agent = Agent("assistant", tools=[search], on_events=[
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">after_tool</h3>
-                    <p className="text-sm text-gray-400">Fires after each successful tool execution</p>
+                    <p className="text-sm text-gray-300">Fires after each successful tool execution</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -536,7 +536,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">on_error</h3>
-                    <p className="text-sm text-gray-400">Fires when tool execution fails or tool not found</p>
+                    <p className="text-sm text-gray-300">Fires when tool execution fails or tool not found</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -816,27 +816,27 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
               <div className="space-y-4 text-sm">
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_user_input(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-400 mt-2">Wraps a function to fire after user input is added to session.</p>
+                  <p className="text-gray-300 mt-2">Wraps a function to fire after user input is added to session.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_llm(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-400 mt-2">Wraps a function to fire before each LLM call.</p>
+                  <p className="text-gray-300 mt-2">Wraps a function to fire before each LLM call.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_llm(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-400 mt-2">Wraps a function to fire after each LLM response.</p>
+                  <p className="text-gray-300 mt-2">Wraps a function to fire after each LLM response.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_tool(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-400 mt-2">Wraps a function to fire before each tool execution.</p>
+                  <p className="text-gray-300 mt-2">Wraps a function to fire before each tool execution.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_tool(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-400 mt-2">Wraps a function to fire after each successful tool execution.</p>
+                  <p className="text-gray-300 mt-2">Wraps a function to fire after each successful tool execution.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_error(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-400 mt-2">Wraps a function to fire when tool execution fails or tool is not found.</p>
+                  <p className="text-gray-300 mt-2">Wraps a function to fire when tool execution fails or tool is not found.</p>
                 </div>
               </div>
             </div>
@@ -846,7 +846,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
               <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded text-sm">
                 Agent(name, tools, on_events: Optional[List[EventHandler]] = None, ...)
               </code>
-              <p className="text-gray-400 mt-4 text-sm">
+              <p className="text-gray-300 mt-4 text-sm">
                 <strong>on_events</strong>: List of event handlers wrapped with event type functions
               </p>
             </div>
@@ -896,22 +896,22 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link href="/xray" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-purple-500 transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-gray-100">@xray Debugging →</h3>
-                <p className="text-sm text-gray-400">See what your agent is thinking with the @xray decorator</p>
+                <p className="text-sm text-gray-300">See what your agent is thinking with the @xray decorator</p>
               </Link>
 
               <Link href="/auto-debug" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-blue-500 transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-gray-100">Auto-Debug →</h3>
-                <p className="text-sm text-gray-400">Interactive debugging with breakpoints and step-through</p>
+                <p className="text-sm text-gray-300">Interactive debugging with breakpoints and step-through</p>
               </Link>
 
               <Link href="/agent" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-green-500 transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-gray-100">Agent Reference →</h3>
-                <p className="text-sm text-gray-400">Complete API documentation for the Agent class</p>
+                <p className="text-sm text-gray-300">Complete API documentation for the Agent class</p>
               </Link>
 
               <Link href="/examples" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-yellow-500 transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-gray-100">Examples →</h3>
-                <p className="text-sm text-gray-400">Browse more real-world agent examples</p>
+                <p className="text-sm text-gray-300">Browse more real-world agent examples</p>
               </Link>
             </div>
           </section>

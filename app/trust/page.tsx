@@ -117,21 +117,21 @@ agent = Agent(
                   <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
                     <span className="text-purple-400">1.</span> Trust Levels (String)
                   </h3>
-                  <p className="text-gray-400 mb-4">Simple predefined levels for common scenarios:</p>
+                  <p className="text-gray-300 mb-4">Simple predefined levels for common scenarios:</p>
                   <div className="space-y-2">
                     <div className="flex items-center gap-3 p-3 bg-gray-800/50 rounded">
                       <span className="font-mono text-green-400">open</span>
-                      <span className="text-gray-400">→</span>
+                      <span className="text-gray-300">→</span>
                       <span className="text-gray-300">Trust everyone (development)</span>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-gray-800/50 rounded">
                       <span className="font-mono text-yellow-400">tested</span>
-                      <span className="text-gray-400">→</span>
+                      <span className="text-gray-300">→</span>
                       <span className="text-gray-300">Test before trusting (default)</span>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-gray-800/50 rounded">
                       <span className="font-mono text-red-400">strict</span>
-                      <span className="text-gray-400">→</span>
+                      <span className="text-gray-300">→</span>
                       <span className="text-gray-300">Verified agents only (production)</span>
                     </div>
                   </div>
@@ -142,7 +142,7 @@ agent = Agent(
                   <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
                     <span className="text-purple-400">2.</span> Trust Rules (Dict)
                   </h3>
-                  <p className="text-gray-400 mb-4">Fine-grained control with custom rules:</p>
+                  <p className="text-gray-300 mb-4">Fine-grained control with custom rules:</p>
                   <CodeWithResult
                     code={`trust_rules = {
     "allow": ["agent1", "agent2"],     # Whitelist
@@ -162,7 +162,7 @@ agent = Agent("secure", trust=trust_rules)`}
                   <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
                     <span className="text-purple-400">3.</span> Trust Functions
                   </h3>
-                  <p className="text-gray-400 mb-4">Dynamic trust evaluation with custom logic:</p>
+                  <p className="text-gray-300 mb-4">Dynamic trust evaluation with custom logic:</p>
                   <CodeWithResult
                     code={`def custom_trust(agent_name: str, context: dict) -> bool:
     """Evaluate trust based on custom logic"""
@@ -190,12 +190,12 @@ agent = Agent("dynamic", trust=custom_trust)`}
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-gray-900/50 rounded-lg p-4">
                     <h4 className="font-semibold text-white mb-2">Outbound Trust</h4>
-                    <p className="text-sm text-gray-400">Who I trust to use</p>
+                    <p className="text-sm text-gray-300">Who I trust to use</p>
                     <code className="text-xs block mt-2 text-green-400">need("service", trust="...")</code>
                   </div>
                   <div className="bg-gray-900/50 rounded-lg p-4">
                     <h4 className="font-semibold text-white mb-2">Inbound Trust</h4>
-                    <p className="text-sm text-gray-400">Who can use me</p>
+                    <p className="text-sm text-gray-300">Who can use me</p>
                     <code className="text-xs block mt-2 text-blue-400">Agent(..., trust="...")</code>
                   </div>
                 </div>
@@ -214,15 +214,15 @@ agent = Agent("dynamic", trust=custom_trust)`}
               <div className="space-y-3">
                 <div className="p-3 bg-gray-800/50 rounded-lg">
                   <p className="text-sm font-medium text-white mb-1">Development?</p>
-                  <p className="text-xs text-gray-400">Use <code className="text-green-400">open</code></p>
+                  <p className="text-xs text-gray-300">Use <code className="text-green-400">open</code></p>
                 </div>
                 <div className="p-3 bg-gray-800/50 rounded-lg">
                   <p className="text-sm font-medium text-white mb-1">Testing/Staging?</p>
-                  <p className="text-xs text-gray-400">Use <code className="text-yellow-400">tested</code></p>
+                  <p className="text-xs text-gray-300">Use <code className="text-yellow-400">tested</code></p>
                 </div>
                 <div className="p-3 bg-gray-800/50 rounded-lg">
                   <p className="text-sm font-medium text-white mb-1">Production?</p>
-                  <p className="text-xs text-gray-400">Use <code className="text-red-400">strict</code></p>
+                  <p className="text-xs text-gray-300">Use <code className="text-red-400">strict</code></p>
                 </div>
               </div>
             </div>

@@ -14,7 +14,7 @@ export default function CLIProgressiveDisclosurePage() {
           Why We Choose Progressive Disclosure Over Configuration Questionnaires
         </h1>
         
-        <div className="text-gray-400 mb-8">
+        <div className="text-gray-300 mb-8">
           <time>September 4, 2025</time> • Design Decision
         </div>
         
@@ -28,7 +28,7 @@ export default function CLIProgressiveDisclosurePage() {
         <h2 className="text-2xl font-semibold text-white mt-12 mb-4">The Problem with Traditional CLIs</h2>
         
         <div className="bg-gray-800 rounded-lg p-6 mb-6">
-          <p className="text-gray-400 mb-4">Typical framework initialization:</p>
+          <p className="text-gray-300 mb-4">Typical framework initialization:</p>
           <ul className="space-y-2 text-gray-300">
             <li>• What's your project description? <span className="text-gray-500">(I don't know, I just started)</span></li>
             <li>• Choose your testing framework? <span className="text-gray-500">(Let me build something first)</span></li>
@@ -91,7 +91,7 @@ export default function CLIProgressiveDisclosurePage() {
             <li>2. <strong className="text-white">API key</strong> - Only if AI enabled, with auto-detection</li>
             <li>3. <strong className="text-white">Template</strong> - With previews so users know what they get</li>
           </ol>
-          <p className="text-gray-400 text-sm mt-4">That's it. Three decisions max.</p>
+          <p className="text-gray-300 text-sm mt-4">That's it. Three decisions max.</p>
         </div>
         
         <p className="text-gray-300 leading-relaxed">
@@ -146,7 +146,7 @@ export default function CLIProgressiveDisclosurePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
             <h3 className="text-red-400 font-semibold mb-2">❌ We Skip</h3>
-            <ul className="space-y-1 text-gray-400 text-sm">
+            <ul className="space-y-1 text-gray-300 text-sm">
               <li>• Project description</li>
               <li>• Author name</li>
               <li>• License type</li>
@@ -158,7 +158,7 @@ export default function CLIProgressiveDisclosurePage() {
           
           <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
             <h3 className="text-green-400 font-semibold mb-2">✅ We Do</h3>
-            <ul className="space-y-1 text-gray-400 text-sm">
+            <ul className="space-y-1 text-gray-300 text-sm">
               <li>• Create working code immediately</li>
               <li>• Use sensible defaults everywhere</li>
               <li>• Show clear next steps</li>
@@ -190,19 +190,19 @@ export default function CLIProgressiveDisclosurePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
               <div className="text-2xl font-bold text-purple-400">30s</div>
-              <p className="text-gray-400 text-sm">to running agent</p>
+              <p className="text-gray-300 text-sm">to running agent</p>
             </div>
             <div>
               <div className="text-2xl font-bold text-purple-400">3</div>
-              <p className="text-gray-400 text-sm">questions max</p>
+              <p className="text-gray-300 text-sm">questions max</p>
             </div>
             <div>
               <div className="text-2xl font-bold text-purple-400">0</div>
-              <p className="text-gray-400 text-sm">required configs</p>
+              <p className="text-gray-300 text-sm">required configs</p>
             </div>
             <div>
               <div className="text-2xl font-bold text-purple-400">1</div>
-              <p className="text-gray-400 text-sm">command to start</p>
+              <p className="text-gray-300 text-sm">command to start</p>
             </div>
           </div>
         </div>
@@ -216,7 +216,7 @@ export default function CLIProgressiveDisclosurePage() {
             <strong className="text-white">RIGHT</strong> time. Everything else should be 
             invisible, automatic, or optional.
           </p>
-          <p className="text-gray-400 mt-4">
+          <p className="text-gray-300 mt-4">
             The best tool is one you forget you're using. That's what we built.
           </p>
         </div>

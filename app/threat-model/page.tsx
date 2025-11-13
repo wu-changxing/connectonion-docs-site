@@ -116,7 +116,7 @@ function ThreatCard({
               {severityLabel}
             </span>
             <div className={`p-2 -mr-1 rounded-full transition-colors ${expanded ? 'bg-gray-700/50' : ''}`}>
-              {expanded ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
+              {expanded ? <ChevronUp className="w-4 h-4 text-gray-300" /> : <ChevronDown className="w-4 h-4 text-gray-300" />}
             </div>
           </div>
         </div>
@@ -231,7 +231,7 @@ export default function ThreatModelPage() {
                 </div>
                 <div className="bg-gray-800/80 rounded-lg px-3 py-2 border border-gray-600 flex-1">
                   <div className="text-sm text-green-400 font-medium">"I solve ANY problem!"</div>
-                  <div className="text-xs text-gray-400 mt-1">"99.9% accurate!"</div>
+                  <div className="text-xs text-gray-300 mt-1">"99.9% accurate!"</div>
                 </div>
               </div>
             </div>
@@ -250,7 +250,7 @@ export default function ThreatModelPage() {
                 </div>
                 <div className="bg-gray-800/80 rounded-lg px-3 py-2 border border-gray-600 flex-1">
                   <div className="text-sm text-red-400 font-mono">2 + 2 = 5</div>
-                  <div className="text-xs text-gray-400 mt-1">Failed basic test</div>
+                  <div className="text-xs text-gray-300 mt-1">Failed basic test</div>
                 </div>
               </div>
             </div>
@@ -300,7 +300,7 @@ export default function ThreatModelPage() {
               </div>
             </div>
             <div className="flex items-center gap-2 mt-3">
-              <span className="text-xs text-gray-400">Stored forever:</span>
+              <span className="text-xs text-gray-300">Stored forever:</span>
               <div className="flex gap-1">
                 {[1, 2, 3].map(i => (
                   <div key={i} className="w-8 h-8 bg-red-900/20 border border-red-500/50 rounded flex items-center justify-center">
@@ -338,7 +338,7 @@ export default function ThreatModelPage() {
               </pre>
             </div>
             <div className="flex flex-wrap items-center gap-2 mt-3">
-              <span className="text-xs text-gray-400">Sends:</span>
+              <span className="text-xs text-gray-300">Sends:</span>
               <span className="bg-red-900/20 border border-red-500/50 rounded px-2 py-1 text-xs text-red-400">1000x</span>
               <span className="bg-red-900/20 border border-red-500/50 rounded px-2 py-1 text-xs text-red-400">GPT-4</span>
             </div>
@@ -352,11 +352,11 @@ export default function ThreatModelPage() {
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-gray-400">Normal:</span>
+                <span className="text-xs text-gray-300">Normal:</span>
                 <span className="text-sm text-green-400 font-semibold">$10/mo</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-gray-400">After attack:</span>
+                <span className="text-xs text-gray-300">After attack:</span>
                 <span className="text-xl text-red-400 font-bold">$10,000</span>
               </div>
               <div className="flex items-end gap-1 justify-center mt-3">
@@ -428,7 +428,7 @@ export default function ThreatModelPage() {
                   </div>
                   <div>
                     <div className="text-xs text-white font-medium">{step.title}</div>
-                    <div className="text-xs text-gray-400">{step.desc}</div>
+                    <div className="text-xs text-gray-300">{step.desc}</div>
                   </div>
                 </div>
               ))}
@@ -459,14 +459,14 @@ export default function ThreatModelPage() {
                 { label: '6 Months', value: '40%', color: 'red', height: 'h-8' }
               ].map(item => (
                 <div key={item.label} className="text-center">
-                  <div className="text-[10px] text-gray-400 mb-1">{item.label}</div>
+                  <div className="text-[10px] text-gray-300 mb-1">{item.label}</div>
                   <div className={`${item.height} bg-${item.color}-900/20 rounded border border-${item.color}-500/50 flex items-center justify-center`}>
                     <span className={`text-xs text-${item.color}-400 font-bold`}>{item.value}</span>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-3 text-center text-[10px] text-gray-400">
+            <div className="mt-3 text-center text-[10px] text-gray-300">
               "Premium" to restore: +$999/mo
             </div>
           </div>
@@ -494,14 +494,14 @@ export default function ThreatModelPage() {
                   <IdCard className="w-4 h-4 text-green-400" />
                   <span className="text-xs text-green-400 font-semibold">OpenAI Assistant</span>
                 </div>
-                <div className="text-[10px] text-gray-400 mt-1">Legitimate</div>
+                <div className="text-[10px] text-gray-300 mt-1">Legitimate</div>
               </div>
               <div className="bg-red-900/20 rounded p-2 border border-red-500/30">
                 <div className="flex items-center gap-2">
                   <IdCard className="w-4 h-4 text-red-400" />
                   <span className="text-xs text-red-400 font-semibold">0penAI Assistant</span>
                 </div>
-                <div className="text-[10px] text-gray-400 mt-1">Notice the zero?</div>
+                <div className="text-[10px] text-gray-300 mt-1">Notice the zero?</div>
               </div>
               <div className="bg-red-900/10 rounded p-2 border border-red-500/20">
                 <div className="text-[10px] text-red-300">Fake asks:</div>
@@ -531,7 +531,7 @@ export default function ThreatModelPage() {
               <div className="bg-cyan-900/20 rounded p-2 border border-cyan-500/30">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-cyan-400 font-semibold">ai-toolkit v2.1.0</span>
-                  <span className="text-[10px] text-gray-400">10M uses</span>
+                  <span className="text-[10px] text-gray-300">10M uses</span>
                 </div>
               </div>
               <div className="text-center text-gray-500 text-xs">↓</div>
@@ -570,7 +570,7 @@ export default function ThreatModelPage() {
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <div className="text-[10px] text-gray-400 mb-2">Questions:</div>
+                <div className="text-[10px] text-gray-300 mb-2">Questions:</div>
                 <div className="space-y-1">
                   {['"Time zone?"', '"Weather?"', '"Currency?"'].map((q, i) => (
                     <div key={i} className="bg-purple-900/10 rounded px-2 py-1 border border-purple-500/20">
@@ -580,7 +580,7 @@ export default function ThreatModelPage() {
                 </div>
               </div>
               <div>
-                <div className="text-[10px] text-gray-400 mb-2">Learned:</div>
+                <div className="text-[10px] text-gray-300 mb-2">Learned:</div>
                 <div className="space-y-1">
                   {['→ Seattle', '→ Online now', '→ Income'].map((l, i) => (
                     <div key={i} className="bg-red-900/10 rounded px-2 py-1 border border-red-500/20">
@@ -731,19 +731,19 @@ export default function ThreatModelPage() {
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div className="text-center p-2">
               <div className="text-xs font-bold text-rose-400 mb-1">CRITICAL (H+H)</div>
-              <div className="text-[10px] text-gray-400">Immediate action</div>
+              <div className="text-[10px] text-gray-300">Immediate action</div>
             </div>
             <div className="text-center p-2">
               <div className="text-xs font-bold text-amber-400 mb-1">HIGH (H+M)</div>
-              <div className="text-[10px] text-gray-400">Priority fix</div>
+              <div className="text-[10px] text-gray-300">Priority fix</div>
             </div>
             <div className="text-center p-2">
               <div className="text-xs font-bold text-cyan-400 mb-1">MONITOR (L+H)</div>
-              <div className="text-[10px] text-gray-400">Plan defense</div>
+              <div className="text-[10px] text-gray-300">Plan defense</div>
             </div>
             <div className="text-center p-2">
               <div className="text-xs font-bold text-purple-400 mb-1">PERSISTENT (P)</div>
-              <div className="text-[10px] text-gray-400">Continuous guard</div>
+              <div className="text-[10px] text-gray-300">Continuous guard</div>
             </div>
           </div>
           

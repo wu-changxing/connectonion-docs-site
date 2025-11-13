@@ -247,7 +247,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                       <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
                         <div className="bg-blue-500 h-full" style={{width: '40%'}}></div>
                       </div>
-                      <span className="text-gray-400 text-sm">40%</span>
+                      <span className="text-gray-300 text-sm">40%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
@@ -256,7 +256,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                       <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
                         <div className="bg-blue-500 h-full" style={{width: '18%'}}></div>
                       </div>
-                      <span className="text-gray-400 text-sm">18%</span>
+                      <span className="text-gray-300 text-sm">18%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
@@ -265,7 +265,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                       <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
                         <div className="bg-blue-500 h-full" style={{width: '15%'}}></div>
                       </div>
-                      <span className="text-gray-400 text-sm">15%</span>
+                      <span className="text-gray-300 text-sm">15%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
@@ -274,7 +274,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                       <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
                         <div className="bg-red-500 h-full" style={{width: '12%'}}></div>
                       </div>
-                      <span className="text-gray-400 text-sm">12%</span>
+                      <span className="text-gray-300 text-sm">12%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
@@ -283,7 +283,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                       <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
                         <div className="bg-blue-500 h-full" style={{width: '8%'}}></div>
                       </div>
-                      <span className="text-gray-400 text-sm">8%</span>
+                      <span className="text-gray-300 text-sm">8%</span>
                     </div>
                   </div>
                 </div>
@@ -394,7 +394,7 @@ Sometimes the best API design decision is the one that makes developers forget t
               <p className="mt-6">Sometimes the best API design decision is the one that makes developers forget they're using an API at all.</p>
 
               <div className="border-t border-gray-800 mt-16 pt-8">
-                <p className="text-gray-400 italic">
+                <p className="text-gray-300 italic">
                   Next time you design an API, ask yourself: am I naming this from the system's perspective or the user's perspective? The answer might transform your user experience.
                 </p>
               </div>

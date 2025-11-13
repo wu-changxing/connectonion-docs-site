@@ -76,7 +76,7 @@ export default function SendEmailPage() {
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Send Email
               </h1>
-              <p className="text-gray-400 mt-2">Send emails with one line of code. No config, no complexity.</p>
+              <p className="text-gray-300 mt-2">Send emails with one line of code. No config, no complexity.</p>
             </div>
           </div>
           <CopyMarkdownButton />
@@ -101,7 +101,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
           </div>
 
           <div className="mb-8">
-            <p className="text-gray-400 mb-6 text-lg">Run it:</p>
+            <p className="text-gray-300 mb-6 text-lg">Run it:</p>
             <CodeWithResult
               code={`>>> send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
               result={`{'success': True, 'message_id': 'msg_123', 'from': '0x1234abcd@mail.openonion.ai'}`}
@@ -135,21 +135,21 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
                 <Shield className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Zero configuration</p>
-                  <p className="text-sm text-gray-400">No API keys to manage</p>
+                  <p className="text-sm text-gray-300">No API keys to manage</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Your own email</p>
-                  <p className="text-sm text-gray-400">Unique address for every agent</p>
+                  <p className="text-sm text-gray-300">Unique address for every agent</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Globe className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Professional delivery</p>
-                  <p className="text-sm text-gray-400">Good reputation & reliability</p>
+                  <p className="text-sm text-gray-300">Good reputation & reliability</p>
                 </div>
               </div>
             </div>
@@ -162,7 +162,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
     """Send an email. Returns success/failure."""`}
               id="function-signature"
             />
-            <p className="text-gray-400 mt-4 text-center">Three parameters. Nothing else.</p>
+            <p className="text-gray-300 mt-4 text-center">Three parameters. Nothing else.</p>
           </div>
         </section>
 
@@ -257,7 +257,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
           <div className="space-y-10 max-w-4xl mx-auto">
             <div>
               <h3 className="text-xl font-semibold mb-4">Check your email address</h3>
-              <p className="text-gray-400 mb-4">
+              <p className="text-gray-300 mb-4">
                 Your email is configured in <code className="bg-gray-800 px-2 py-0.5 rounded">.co/config.toml</code>:
               </p>
               <CodeBlock 
@@ -279,21 +279,21 @@ email_active = false  # Becomes true after 'co auth'`}
                   <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full font-bold">1</span>
                   <div>
                     <p className="font-semibold">Generated</p>
-                    <p className="text-sm text-gray-400">Email address created during <code className="bg-gray-800 px-2 py-0.5 rounded text-xs">co init</code></p>
+                    <p className="text-sm text-gray-300">Email address created during <code className="bg-gray-800 px-2 py-0.5 rounded text-xs">co init</code></p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full font-bold">2</span>
                   <div>
                     <p className="font-semibold">Activation Prompt</p>
-                    <p className="text-sm text-gray-400">You'll be asked to activate your agent's email</p>
+                    <p className="text-sm text-gray-300">You'll be asked to activate your agent's email</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full font-bold">3</span>
                   <div>
                     <p className="font-semibold">Active</p>
-                    <p className="text-sm text-gray-400">Email is fully functional after authentication</p>
+                    <p className="text-sm text-gray-300">Email is fully functional after authentication</p>
                   </div>
                 </div>
               </div>
@@ -304,7 +304,7 @@ email_active = false  # Becomes true after 'co auth'`}
                 <div className="bg-gray-900/50 rounded-lg p-6 border border-gray-700">
                   <p className="font-semibold text-purple-400 mb-3">Option 1: Immediate activation (recommended)</p>
                   <CommandBlock commands={['co init']} />
-                  <pre className="text-xs text-gray-400 mt-4 font-mono bg-gray-900 p-3 rounded flex items-start gap-2">
+                  <pre className="text-xs text-gray-300 mt-4 font-mono bg-gray-900 p-3 rounded flex items-start gap-2">
 <FaEnvelope className="text-purple-400 mt-1 flex-shrink-0" />
 <span>Agent email: 0x1234abcd@mail.openonion.ai (inactive)
 
@@ -324,7 +324,7 @@ Email activated! Your agent can now send emails.</span>
 
           <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-6 border border-purple-500/20 mt-10">
             <h3 className="text-lg font-semibold mb-3">Want a custom name?</h3>
-            <p className="text-gray-400 mb-4">Upgrade to a custom email for $0.99:</p>
+            <p className="text-gray-300 mb-4">Upgrade to a custom email for $0.99:</p>
             <div className="bg-gray-900 rounded-lg p-4 font-mono text-purple-400 space-y-1">
               <div>mybot@mail.openonion.ai</div>
               <div>ai-assistant@mail.openonion.ai</div>
@@ -389,7 +389,7 @@ Email activated! Your agent can now send emails.</span>
 
           <div className="max-w-4xl mx-auto space-y-10">
             <div>
-              <p className="text-gray-400 mb-6 text-lg">Give your agent the ability to send emails:</p>
+              <p className="text-gray-300 mb-6 text-lg">Give your agent the ability to send emails:</p>
               <CodeBlock 
                 code={`from connectonion import Agent, send_email
 
@@ -442,7 +442,7 @@ monitor("Check the system and alert if there are problems")
           <h2 className="text-3xl font-bold mb-10">Complete Example</h2>
 
           <div className="max-w-4xl mx-auto">
-            <p className="text-gray-400 mb-6 text-lg">Here's a real-world example sending different types of emails:</p>
+            <p className="text-gray-300 mb-6 text-lg">Here's a real-world example sending different types of emails:</p>
 
             <CodeBlock 
               code={`from connectonion import send_email
@@ -491,15 +491,15 @@ print(f"Report sent: {result['success']}")`}
               <h3 className="text-lg font-semibold mb-4 text-purple-300">Quotas</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex justify-between">
-                  <span className="text-gray-400">Free tier:</span>
+                  <span className="text-gray-300">Free tier:</span>
                   <span className="font-mono">100 emails/month</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-gray-400">Plus tier:</span>
+                  <span className="text-gray-300">Plus tier:</span>
                   <span className="font-mono">1,000 emails/month</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-gray-400">Pro tier:</span>
+                  <span className="text-gray-300">Pro tier:</span>
                   <span className="font-mono">10,000 emails/month</span>
                 </li>
               </ul>
@@ -507,7 +507,7 @@ print(f"Report sent: {result['success']}")`}
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-purple-300">Rate Limiting</h3>
-              <p className="text-gray-400 text-sm mb-3">Automatic rate limiting prevents abuse:</p>
+              <p className="text-gray-300 text-sm mb-3">Automatic rate limiting prevents abuse:</p>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
                   <span className="text-purple-400">•</span>
@@ -555,11 +555,11 @@ print(f"Report sent: {result['success']}")`}
               <h3 className="text-lg font-semibold mb-4 text-purple-300">From Address</h3>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <span className="text-gray-400">Free tier:</span>
+                  <span className="text-gray-300">Free tier:</span>
                   <div className="font-mono text-xs mt-1 text-purple-400">0x{'{key_prefix}'}@mail.openonion.ai</div>
                 </li>
                 <li>
-                  <span className="text-gray-400">Custom name:</span>
+                  <span className="text-gray-300">Custom name:</span>
                   <div className="font-mono text-xs mt-1 text-purple-400">yourname@mail.openonion.ai</div>
                 </li>
               </ul>
@@ -604,7 +604,7 @@ print(f"Report sent: {result['success']}")`}
             <p className="text-2xl font-semibold text-purple-300 mb-6">
               One function, one purpose: Send an email
             </p>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-300 mb-6">
               No templates to learn. No configuration files. No complex APIs.
             </p>
             <p className="text-gray-300 mb-8">

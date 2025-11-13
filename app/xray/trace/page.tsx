@@ -528,7 +528,7 @@ Works seamlessly with:
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">
         <div className="flex-1">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-400 mb-4 overflow-x-auto">
+          <nav className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-300 mb-4 overflow-x-auto">
             <Link href="/" className="hover:text-white transition-colors whitespace-nowrap">Home</Link>
             <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
             <Link href="/xray" className="hover:text-white transition-colors whitespace-nowrap">@xray</Link>
@@ -568,7 +568,7 @@ Works seamlessly with:
               <div key={i} className="bg-gray-900 border border-gray-700 rounded-lg p-6 text-center hover:border-gray-600 transition-colors">
                 <IconComponent className={`w-8 h-8 ${feature.color} mx-auto mb-3`} />
                 <h3 className="font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-400 text-sm">{feature.desc}</p>
+                <p className="text-gray-300 text-sm">{feature.desc}</p>
               </div>
             )
           })}
@@ -593,12 +593,12 @@ Works seamlessly with:
                   </div>
                   <div className="min-w-0">
                     <h3 className="text-lg sm:text-xl font-bold text-white">{example.title}</h3>
-                    <p className="text-gray-400 text-xs sm:text-sm">{example.description}</p>
+                    <p className="text-gray-300 text-xs sm:text-sm">{example.description}</p>
                   </div>
                 </div>
                 <button
                   onClick={() => copyToClipboard(example.code, id)}
-                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2 self-start sm:self-auto"
+                  className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2 self-start sm:self-auto"
                 >
                   {copiedId === id ? (
                     <>
@@ -768,14 +768,14 @@ Works seamlessly with:
       <nav className="flex justify-between items-center pt-8 border-t border-gray-800">
         <Link 
           href="/xray" 
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
         >
           <ArrowRight className="w-4 h-4 rotate-180" />
           @xray Overview
         </Link>
         <Link 
           href="/examples" 
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
         >
           Complete Examples
           <ArrowRight className="w-4 h-4" />

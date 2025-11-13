@@ -130,7 +130,7 @@ export default function Tutorial001Page() {
         {/* Header Section */}
         <div className="mb-12">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
             <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
@@ -150,7 +150,7 @@ export default function Tutorial001Page() {
                   <BookOpen className="w-4 h-4" />
                   Tutorial 001
                 </span>
-                <span className="text-sm text-gray-400 flex items-center gap-2">
+                <span className="text-sm text-gray-300 flex items-center gap-2">
                   <Timer className="w-4 h-4" />
                   {t.readTime}
                 </span>
@@ -217,7 +217,7 @@ export default function Tutorial001Page() {
               <p className="text-3xl md:text-4xl font-bold text-white mb-4">
                 {t.formula}
               </p>
-              <p className="text-gray-400">
+              <p className="text-gray-300">
                 {t.entireCourse}
               </p>
             </div>
@@ -363,7 +363,7 @@ print(result)`}
                   <Target className="w-5 h-5 text-purple-400" />
                   {t.quickStart}
                 </h3>
-                <p className="text-gray-400">Build your first intelligent agent</p>
+                <p className="text-gray-300">Build your first intelligent agent</p>
                 <div className="mt-4 text-purple-400 flex items-center gap-1">
                   <span className="text-sm">Get started</span>
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -378,7 +378,7 @@ print(result)`}
                   <Code className="w-5 h-5 text-blue-400" />
                   {t.examples}
                 </h3>
-                <p className="text-gray-400">Real-world applications and patterns</p>
+                <p className="text-gray-300">Real-world applications and patterns</p>
                 <div className="mt-4 text-blue-400 flex items-center gap-1">
                   <span className="text-sm">Browse examples</span>
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -294,7 +294,7 @@ export default function LinksPage() {
           description: 'Reach out directly',
           url: 'mailto:contact@connectonion.com',
           icon: Mail,
-          color: 'text-gray-400',
+          color: 'text-gray-300',
           bgColor: 'bg-gray-800/30',
           borderColor: 'border-gray-600/30',
           external: true,
@@ -317,7 +317,7 @@ export default function LinksPage() {
         {/* Coming Soon Badge */}
         {!link.available && (
           <div className="absolute -top-2 -right-2 px-3 py-1 bg-gray-800 border border-gray-600 rounded-full flex items-center gap-1">
-            <span className="text-xs font-medium text-gray-400">🔒 Coming Soon</span>
+            <span className="text-xs font-medium text-gray-300">🔒 Coming Soon</span>
           </div>
         )}
         
@@ -331,7 +331,7 @@ export default function LinksPage() {
               {link.title}
               {link.external && isClickable && (
                 <>
-                  <ExternalLink className="w-4 h-4 text-gray-400" />
+                  <ExternalLink className="w-4 h-4 text-gray-300" />
                   <span className="sr-only">opens in new tab</span>
                 </>
               )}
@@ -357,7 +357,7 @@ export default function LinksPage() {
             {copiedUrl === link.title ? (
               <Check className="w-4 h-4 text-green-400" />
             ) : (
-              <Copy className="w-4 h-4 text-gray-400 group-hover:text-white" />
+              <Copy className="w-4 h-4 text-gray-300 group-hover:text-white" />
             )}
           </button>
         )}
@@ -513,7 +513,7 @@ export default function LinksPage() {
                   {section.title}
                 </h2>
                 {section.description && (
-                  <p className="text-base text-gray-400">{section.description}</p>
+                  <p className="text-base text-gray-300">{section.description}</p>
                 )}
               </div>
               
@@ -528,7 +528,7 @@ export default function LinksPage() {
         
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-gray-700 text-center">
-          <p className="text-gray-400 mb-4">
+          <p className="text-gray-300 mb-4">
             ConnectOnion is open source and community-driven
           </p>
           <div className="flex items-center justify-center gap-2 text-sm text-gray-500">

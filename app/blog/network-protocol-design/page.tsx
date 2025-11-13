@@ -371,7 +371,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                     </svg>
                   </a>
                 </div>
-                <p className="text-sm text-gray-400 italic">
+                <p className="text-sm text-gray-300 italic">
                   The ConnectOnion network protocol is open source and available at{' '}
                   <a href="https://github.com/wu-changxing/connectonion" className="text-purple-400 hover:text-purple-300 hover:underline transition-colors">
                     github.com/wu-changxing/connectonion

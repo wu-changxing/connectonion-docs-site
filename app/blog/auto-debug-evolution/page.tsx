@@ -315,7 +315,7 @@ Press Enter to continue, or explore the menu. No manual required.
           <div className="flex items-center justify-between">
             <Link
               href="/blog"
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Blog</span>
@@ -334,7 +334,7 @@ Press Enter to continue, or explore the menu. No manual required.
               <Bug className="w-8 h-8 text-purple-400" />
             </div>
             <div>
-              <div className="text-sm text-gray-400 mb-1">Design Decision</div>
+              <div className="text-sm text-gray-300 mb-1">Design Decision</div>
               <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
                 Auto-Debug Design Evolution
               </h1>

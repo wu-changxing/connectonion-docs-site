@@ -224,7 +224,7 @@ result = smart_input(agent, "Complex task")  # Auto-adjusts!`,
       <div className="max-w-4xl mx-auto">
         {/* Header with Breadcrumb and Copy Button */}
         <div className="mb-10">
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">max_iterations</span>

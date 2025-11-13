@@ -220,7 +220,7 @@ Sometimes the best technical decisions are the least technical ones.`
                         <XCircle className="inline w-4 h-4 mr-1" />
                         {option.name}
                       </h3>
-                      <p className="text-gray-400 text-sm">{option.reason}</p>
+                      <p className="text-gray-300 text-sm">{option.reason}</p>
                     </div>
                   </div>
                 ))}
@@ -258,7 +258,7 @@ Sometimes the best technical decisions are the least technical ones.`
                     </h3>
                     <p className="text-gray-300 mb-3">{point.description}</p>
                     {point.examples && (
-                      <ul className="list-disc list-inside space-y-1 ml-4 text-gray-400 text-sm">
+                      <ul className="list-disc list-inside space-y-1 ml-4 text-gray-300 text-sm">
                         {point.examples.map((ex, i) => (
                           <li key={i}>{ex}</li>
                         ))}
@@ -272,7 +272,7 @@ Sometimes the best technical decisions are the least technical ones.`
               
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden">
                 <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
-                  <span className="text-sm text-gray-400 font-mono">config.py</span>
+                  <span className="text-sm text-gray-300 font-mono">config.py</span>
                 </div>
                 <pre className="p-4 text-sm overflow-x-auto">
                   <code className="text-purple-300">{`# Instantly understandable
@@ -311,7 +311,7 @@ agent = Agent(
               </ul>
 
               <div className="border-t border-gray-800 mt-16 pt-8">
-                <p className="text-gray-400 italic text-lg">
+                <p className="text-gray-300 italic text-lg">
                   Sometimes the best technical decisions are the least technical ones.
                 </p>
               </div>

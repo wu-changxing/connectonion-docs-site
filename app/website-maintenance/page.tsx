@@ -6,7 +6,7 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 export default function WebsiteMaintenancePage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <Link href="/" className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 mb-8 transition-colors">
+      <Link href="/" className="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 mb-8 transition-colors">
         <ArrowLeft className="mr-2 h-4 w-4" />
         Back to Home
       </Link>
@@ -14,7 +14,7 @@ export default function WebsiteMaintenancePage() {
       <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
         Website Maintenance Guide
       </h1>
-      <p className="text-xl text-gray-600 dark:text-gray-400 mb-12">
+      <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
         Learn how to add new features, pages, and content to the documentation website.
       </p>
 
@@ -52,7 +52,7 @@ export default function WebsiteMaintenancePage() {
         {/* Step 1: Create Tutorial */}
         <section>
           <h2 className="text-2xl font-semibold mb-4">Step 1: Create Tutorial Content</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
             Start by writing your documentation as a markdown file:
           </p>
           <CommandBlock commands={['touch docs-site/public/tutorials/your-feature.md']} />
@@ -83,7 +83,7 @@ Detailed technical documentation.`}</code>
         {/* Step 2: Create Page */}
         <section>
           <h2 className="text-2xl font-semibold mb-4">Step 2: Create Page Component</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
             Create a Next.js page for your feature:
           </p>
           <CommandBlock commands={[
@@ -124,7 +124,7 @@ export default function YourFeaturePage() {
           <div className="space-y-6">
             <div>
               <h3 className="text-lg font-medium mb-3">Add to Sidebar</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-3">
+              <p className="text-gray-600 dark:text-gray-300 mb-3">
                 Edit <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">DocsSidebar.tsx</code>:
               </p>
               <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
@@ -146,7 +146,7 @@ export default function YourFeaturePage() {
 
             <div>
               <h3 className="text-lg font-medium mb-3">Update Search Mapping</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-3">
+              <p className="text-gray-600 dark:text-gray-300 mb-3">
                 Edit <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">markdownLoader.ts</code>:
               </p>
               <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">

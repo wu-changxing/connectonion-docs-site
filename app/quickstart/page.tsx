@@ -93,7 +93,7 @@ pip install connectonion
       <div className="flex items-start justify-between mb-8">
         <div className="flex-1">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">Quick Start</span>

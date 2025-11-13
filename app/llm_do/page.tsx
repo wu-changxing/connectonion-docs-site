@@ -55,7 +55,7 @@ export default function LLMPage() {
     <div className="max-w-5xl mx-auto px-8 py-12 lg:py-12 pt-16 lg:pt-12">
       {/* Header */}
       <div className="mb-10">
-        <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
+        <div className="flex items-center gap-2 text-sm text-gray-300 mb-3">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span>/</span>
           <span className="text-white">LLM Function</span>
@@ -256,31 +256,31 @@ llm_do("Hello", model="claude-3-opus-latest")`}
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">input</code></td>
                       <td className="py-3 px-4 text-gray-300">str</td>
-                      <td className="py-3 px-4 text-gray-400">required</td>
+                      <td className="py-3 px-4 text-gray-300">required</td>
                       <td className="py-3 px-4 text-gray-300">The input text/question</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">output</code></td>
                       <td className="py-3 px-4 text-gray-300">BaseModel</td>
-                      <td className="py-3 px-4 text-gray-400">None</td>
+                      <td className="py-3 px-4 text-gray-300">None</td>
                       <td className="py-3 px-4 text-gray-300">Pydantic model for structured output</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">prompt</code></td>
                       <td className="py-3 px-4 text-gray-300">str|Path</td>
-                      <td className="py-3 px-4 text-gray-400">None</td>
+                      <td className="py-3 px-4 text-gray-300">None</td>
                       <td className="py-3 px-4 text-gray-300">System prompt (string or file path)</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">model</code></td>
                       <td className="py-3 px-4 text-gray-300">str</td>
-                      <td className="py-3 px-4 text-gray-400">"gpt-4o-mini"</td>
+                      <td className="py-3 px-4 text-gray-300">"gpt-4o-mini"</td>
                       <td className="py-3 px-4 text-gray-300">Model to use (supports OpenAI, Gemini, Claude)</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">temperature</code></td>
                       <td className="py-3 px-4 text-gray-300">float</td>
-                      <td className="py-3 px-4 text-gray-400">0.1</td>
+                      <td className="py-3 px-4 text-gray-300">0.1</td>
                       <td className="py-3 px-4 text-gray-300">Randomness (0=deterministic, 2=creative)</td>
                     </tr>
                   </tbody>
@@ -504,15 +504,15 @@ Output didn't match model: 2 validation errors for ComplexModel...`}
               <div className="grid md:grid-cols-3 gap-4">
                 <Link href="/agents" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
                   <h3 className="text-lg font-semibold text-white mb-2">Learn about Agents</h3>
-                  <p className="text-sm text-gray-400">For multi-step workflows</p>
+                  <p className="text-sm text-gray-300">For multi-step workflows</p>
                 </Link>
                 <Link href="/tools" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
                   <h3 className="text-lg font-semibold text-white mb-2">Explore Tools</h3>
-                  <p className="text-sm text-gray-400">For extending agents</p>
+                  <p className="text-sm text-gray-300">For extending agents</p>
                 </Link>
                 <Link href="/xray" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
                   <h3 className="text-lg font-semibold text-white mb-2">See @xray</h3>
-                  <p className="text-sm text-gray-400">For debugging</p>
+                  <p className="text-sm text-gray-300">For debugging</p>
                 </Link>
               </div>
             </section>

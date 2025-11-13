@@ -161,7 +161,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">
           <div className="flex-1">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+            <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ArrowRight className="w-4 h-4" />
               <Link href="/tools" className="hover:text-white transition-colors">Tools</Link>
@@ -331,25 +331,25 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
                   <td className="px-4 py-3 font-mono text-blue-300">iphone</td>
                   <td className="px-4 py-3 text-gray-300">390×844</td>
                   <td className="px-4 py-3 text-gray-300">iPhone 14/15</td>
-                  <td className="px-4 py-3"><Smartphone className="w-4 h-4 text-gray-400" /></td>
+                  <td className="px-4 py-3"><Smartphone className="w-4 h-4 text-gray-300" /></td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-blue-300">android</td>
                   <td className="px-4 py-3 text-gray-300">360×800</td>
                   <td className="px-4 py-3 text-gray-300">Common Android</td>
-                  <td className="px-4 py-3"><Smartphone className="w-4 h-4 text-gray-400" /></td>
+                  <td className="px-4 py-3"><Smartphone className="w-4 h-4 text-gray-300" /></td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-blue-300">ipad</td>
                   <td className="px-4 py-3 text-gray-300">768×1024</td>
                   <td className="px-4 py-3 text-gray-300">iPad</td>
-                  <td className="px-4 py-3"><Tablet className="w-4 h-4 text-gray-400" /></td>
+                  <td className="px-4 py-3"><Tablet className="w-4 h-4 text-gray-300" /></td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-blue-300">desktop</td>
                   <td className="px-4 py-3 text-gray-300">1920×1080</td>
                   <td className="px-4 py-3 text-gray-300">Full HD Desktop</td>
-                  <td className="px-4 py-3"><Monitor className="w-4 h-4 text-gray-400" /></td>
+                  <td className="px-4 py-3"><Monitor className="w-4 h-4 text-gray-300" /></td>
                 </tr>
               </tbody>
             </table>
@@ -486,7 +486,7 @@ done`}
                 <span className="text-blue-300">http://example.com</span>
                 <span className="text-gray-500">→</span>
                 <span className="text-green-300">http://example.com</span>
-                <span className="text-gray-400 text-xs ml-2">(unchanged)</span>
+                <span className="text-gray-300 text-xs ml-2">(unchanged)</span>
               </div>
             </div>
           </div>
@@ -576,22 +576,22 @@ done`}
             <div className="p-6 space-y-6 font-mono text-sm">
               <div>
                 <div className="text-red-400 mb-2">❌ Usage: co -b "screenshot [URL] [save to PATH] [size SIZE]"</div>
-                <div className="text-gray-400">Missing URL in command</div>
+                <div className="text-gray-300">Missing URL in command</div>
               </div>
 
               <div>
                 <div className="text-red-400 mb-2">❌ Browser tools not installed</div>
-                <div className="text-gray-400">Run: pip install playwright && playwright install chromium</div>
+                <div className="text-gray-300">Run: pip install playwright && playwright install chromium</div>
               </div>
 
               <div>
                 <div className="text-red-400 mb-2">❌ Cannot reach http://localhost:3000</div>
-                <div className="text-gray-400">Is your server running?</div>
+                <div className="text-gray-300">Is your server running?</div>
               </div>
 
               <div>
                 <div className="text-red-400 mb-2">❌ Cannot save to /root/test.png (permission denied)</div>
-                <div className="text-gray-400">Check file permissions</div>
+                <div className="text-gray-300">Check file permissions</div>
               </div>
             </div>
           </div>
@@ -657,7 +657,7 @@ done`}
             </ul>
 
             <div className="mt-4 pt-4 border-t border-gray-700">
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 For complex browser automation, use the full ConnectOnion browser agent or Playwright directly.
               </p>
             </div>

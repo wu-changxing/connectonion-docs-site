@@ -181,7 +181,7 @@ ${expectedOutput}
   return (
     <div className="max-w-6xl mx-auto px-8 py-12 lg:py-12 pt-16 lg:pt-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+      <nav className="flex items-center gap-2 text-sm text-gray-300 mb-8">
         <Link href="/" className="hover:text-white transition-colors">Home</Link>
         <ArrowRight className="w-4 h-4" />
         <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
@@ -259,7 +259,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-white">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -306,7 +306,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-white">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -395,7 +395,7 @@ ${expectedOutput}
                 <Download className="w-4 h-4" />
                 Download Prompt File
               </a>
-              <p className="text-xs text-gray-400 text-center">
+              <p className="text-xs text-gray-300 text-center">
                 Essential for cybersecurity and threat analysis systems
               </p>
             </div>
@@ -406,7 +406,7 @@ ${expectedOutput}
       {/* Navigation */}
       <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
         <div className="text-center">
-          <p className="text-sm text-gray-400 mb-1">Previous in series</p>
+          <p className="text-sm text-gray-300 mb-1">Previous in series</p>
           <Link 
             href="/prompts/examples/technical-writer" 
             className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors font-medium"
@@ -416,7 +416,7 @@ ${expectedOutput}
           </Link>
         </div>
         <div className="text-center">
-          <p className="text-sm text-gray-400 mb-1">Next in series</p>
+          <p className="text-sm text-gray-300 mb-1">Next in series</p>
           <Link 
             href="/prompts/examples/business-strategist" 
             className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors font-medium"

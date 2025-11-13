@@ -60,7 +60,7 @@ export default function AutoDebugExceptionPage() {
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
                 Auto Debug Exception
               </h1>
-              <p className="text-gray-400 mt-2">AI debugger for uncaught exceptions with runtime inspection</p>
+              <p className="text-gray-300 mt-2">AI debugger for uncaught exceptions with runtime inspection</p>
             </div>
           </div>
 
@@ -135,7 +135,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <FileCode className="w-8 h-8 text-red-400 mb-4" />
               <h3 className="text-xl font-semibold mb-3">Live Runtime Access</h3>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 The AI isn't just reading your code - it has access to the actual runtime state when the crash occurred.
                 It can execute any Python expression using your variables and see the real values that caused the problem.
               </p>
@@ -144,7 +144,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <Check className="w-8 h-8 text-green-400 mb-4" />
               <h3 className="text-xl font-semibold mb-3">Verified Solutions</h3>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 Every fix is tested with your actual data before being suggested.
                 No more "this might work" - only proven solutions that actually work with your data.
               </p>
@@ -153,7 +153,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <Bug className="w-8 h-8 text-red-400 mb-4" />
               <h3 className="text-xl font-semibold mb-3">Precise Analysis</h3>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 The AI can explore your data structures, check types, validate assumptions,
                 and trace variables through the call stack to find the root cause.
               </p>
@@ -164,42 +164,42 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
         {/* Runtime Inspection Tools */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold mb-10">Runtime Inspection Tools</h2>
-          <p className="text-gray-400 mb-8 text-lg">
+          <p className="text-gray-300 mb-8 text-lg">
             The AI has access to powerful tools for investigating the crashed state:
           </p>
 
           <div className="space-y-4">
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">execute_in_frame(code)</h3>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 Run any Python code in the exception context. Check variables, test expressions, explore the state.
               </p>
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">inspect_object(name)</h3>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 Deep dive into any object - see its type, attributes, methods, and values.
               </p>
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">test_fix(original, fixed)</h3>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 Test a potential fix using the actual runtime data before suggesting it to you.
               </p>
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">validate_assumption(hypothesis)</h3>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 Test hypotheses about what caused the crash by running code in the crashed context.
               </p>
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">trace_variable(var_name)</h3>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 See how a variable's value changed through the call stack leading to the crash.
               </p>
             </div>
@@ -327,7 +327,7 @@ else:
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <span className="text-red-400">3.</span> Debugging Logic Errors with Assert
               </h3>
-              <p className="text-gray-400 mb-4">
+              <p className="text-gray-300 mb-4">
                 For logic errors that don't crash, use <code className="bg-gray-800 px-2 py-0.5 rounded text-red-400">assert</code> to trigger AI debugging:
               </p>
               <CodeBlock
@@ -447,7 +447,7 @@ auto_debug_exception(model="claude-sonnet-4")`}
 
             <div>
               <h3 className="text-xl font-semibold mb-4">Disable Temporarily</h3>
-              <p className="text-gray-400 mb-4">Set environment variable to disable:</p>
+              <p className="text-gray-300 mb-4">Set environment variable to disable:</p>
               <CodeBlock
                 code={`# In your .env file
 CONNECTONION_AUTO_DEBUG=false
@@ -468,7 +468,7 @@ export CONNECTONION_AUTO_DEBUG=false`}
             <p className="text-2xl font-semibold text-red-300 mb-6">
               No more guessing. Get verified solutions.
             </p>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-300 mb-6">
               Traditional debugging tools show you *what* crashed. We show you *why* it crashed and *how* to fix it -
               tested with your actual data.
             </p>

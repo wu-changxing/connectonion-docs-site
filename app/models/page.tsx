@@ -159,7 +159,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <Link href="/" className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 mb-8 transition-colors">
+      <Link href="/" className="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 mb-8 transition-colors">
         <ArrowLeft className="mr-2 h-4 w-4" />
         Back to Home
       </Link>
@@ -169,7 +169,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
             Models
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
+          <p className="text-xl text-gray-600 dark:text-gray-300">
             Use the latest AI models from OpenAI, Google, and Anthropic with a single interface.
           </p>
         </div>
@@ -245,7 +245,7 @@ response = agent.input("Explain quantum computing")`}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               activeProvider === 'openai'
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
           >
             OpenAI
@@ -255,7 +255,7 @@ response = agent.input("Explain quantum computing")`}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               activeProvider === 'google'
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
           >
             Google Gemini
@@ -265,7 +265,7 @@ response = agent.input("Explain quantum computing")`}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               activeProvider === 'anthropic'
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
           >
             Anthropic Claude
@@ -510,7 +510,7 @@ agent = Agent("assistant", model="claude-opus-4.1")`}
       {/* Smart Model Selection */}
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Smart Model Selection</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
+        <p className="text-gray-600 dark:text-gray-300 mb-4">
           Automatically select the best model based on your needs:
         </p>
         <CodeWithResult
@@ -540,7 +540,7 @@ agent = Agent("coder", model=model)`}
       {/* Fallback Chain */}
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Fallback Chain</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
+        <p className="text-gray-600 dark:text-gray-300 mb-4">
           Try multiple models if one fails:
         </p>
         <CodeWithResult
@@ -588,19 +588,19 @@ agent = create_agent_with_fallback("assistant")`}
                 <td className="px-4 py-3"><code className="text-sm">gpt-5</code></td>
                 <td className="px-4 py-3">OpenAI</td>
                 <td className="px-4 py-3">200K</td>
-                <td className="px-4 py-3 text-gray-600 dark:text-gray-400">Best for coding & agentic tasks</td>
+                <td className="px-4 py-3 text-gray-600 dark:text-gray-300">Best for coding & agentic tasks</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm">gemini-2.5-pro</code></td>
                 <td className="px-4 py-3">Google</td>
                 <td className="px-4 py-3">2M</td>
-                <td className="px-4 py-3 text-gray-600 dark:text-gray-400">Multimodal, huge context</td>
+                <td className="px-4 py-3 text-gray-600 dark:text-gray-300">Multimodal, huge context</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm">claude-opus-4.1</code></td>
                 <td className="px-4 py-3">Anthropic</td>
                 <td className="px-4 py-3">200K</td>
-                <td className="px-4 py-3 text-gray-600 dark:text-gray-400">Most capable Claude</td>
+                <td className="px-4 py-3 text-gray-600 dark:text-gray-300">Most capable Claude</td>
               </tr>
             </tbody>
           </table>

@@ -227,7 +227,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-white">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -274,7 +274,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-white">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -363,7 +363,7 @@ ${expectedOutput}
                 <Download className="w-4 h-4" />
                 Download Prompt File
               </a>
-              <p className="text-xs text-gray-400 text-center">
+              <p className="text-xs text-gray-300 text-center">
                 Perfect for automated code review and development workflows
               </p>
             </div>

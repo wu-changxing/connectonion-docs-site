@@ -206,7 +206,7 @@ print(response)`
                 {format.icon}
                 <div>
                   <h3 className="text-lg font-semibold text-white">{format.name}</h3>
-                  <p className="text-sm text-gray-400">{format.description}</p>
+                  <p className="text-sm text-gray-300">{format.description}</p>
                 </div>
                 {format.ext && (
                   <code className="text-sm text-purple-300 bg-purple-900/30 px-2 py-1 rounded">
@@ -224,7 +224,7 @@ print(response)`
                 </span>
                 <button
                   onClick={() => copyToClipboard(getUsageCode(format.key), `usage-${format.key}`)}
-                  className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-colors"
+                  className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-700 transition-colors"
                 >
                   {copiedId === `usage-${format.key}` ? (
                     <Check className="w-4 h-4 text-green-400" />
@@ -256,7 +256,7 @@ print(response)`
             <div>
               <div className="flex items-center justify-between bg-gray-800/30 px-6 py-3">
                 <div className="flex items-center gap-3">
-                  <span className="text-sm text-gray-400 font-mono">
+                  <span className="text-sm text-gray-300 font-mono">
                     {format.key === 'string' 
                       ? 'system_prompt=""" ... """' 
                       : `assistant${format.ext}`}
@@ -267,7 +267,7 @@ print(response)`
                 </div>
                 <button
                   onClick={() => copyToClipboard(samePrompt[format.key as keyof typeof samePrompt], `content-${format.key}`)}
-                  className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-colors"
+                  className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-700 transition-colors"
                 >
                   {copiedId === `content-${format.key}` ? (
                     <Check className="w-4 h-4 text-green-400" />
@@ -304,13 +304,13 @@ print(response)`
         
         <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
           <div className="flex items-center justify-between bg-gray-800 border-b border-gray-700 px-4 py-3">
-            <span className="text-sm text-gray-400 font-mono">Equivalent Usage</span>
+            <span className="text-sm text-gray-300 font-mono">Equivalent Usage</span>
             <button
               onClick={() => copyToClipboard(
                 formats.map(f => `agent = Agent("bot", system_prompt="${f.key === 'string' ? '"""..."""' : `prompts/assistant${f.ext}`}")  # ${f.name}`).join('\n'),
                 'all'
               )}
-              className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-colors"
+              className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-700 transition-colors"
             >
               {copiedId === 'all' ? (
                 <Check className="w-4 h-4 text-green-400" />
@@ -352,22 +352,22 @@ agent = Agent("bot", system_prompt="prompts/assistant")         # No Extension F
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
             <h3 className="font-semibold text-white mb-3">✅ No Vendor Lock-in</h3>
-            <p className="text-gray-400">Use any format your team prefers. Switch formats without changing code.</p>
+            <p className="text-gray-300">Use any format your team prefers. Switch formats without changing code.</p>
           </div>
           
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
             <h3 className="font-semibold text-white mb-3">✅ Future-Proof</h3>
-            <p className="text-gray-400">New formats work automatically. No need to wait for framework updates.</p>
+            <p className="text-gray-300">New formats work automatically. No need to wait for framework updates.</p>
           </div>
           
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
             <h3 className="font-semibold text-white mb-3">✅ Simple</h3>
-            <p className="text-gray-400">No complex parsing or schemas. Just reads the text content.</p>
+            <p className="text-gray-300">No complex parsing or schemas. Just reads the text content.</p>
           </div>
           
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
             <h3 className="font-semibold text-white mb-3">✅ Flexible</h3>
-            <p className="text-gray-400">Team uses YAML? Use YAML. Prefer Markdown? Use Markdown.</p>
+            <p className="text-gray-300">Team uses YAML? Use YAML. Prefer Markdown? Use Markdown.</p>
           </div>
         </div>
       </section>

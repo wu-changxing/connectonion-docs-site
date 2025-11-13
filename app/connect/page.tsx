@@ -20,7 +20,7 @@ export default function ConnectPage() {
         {/* Hero Section */}
         <section className="mb-16">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">Connect to Agents</span>

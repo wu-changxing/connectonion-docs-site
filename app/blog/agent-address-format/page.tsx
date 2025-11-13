@@ -14,7 +14,7 @@ export default function AgentAddressFormatPage() {
           Why We Choose Hex-Encoded Ed25519 Over Ethereum Addresses
         </h1>
         
-        <div className="text-gray-400 mb-8">
+        <div className="text-gray-300 mb-8">
           <time>September 3, 2025</time> • Design Decision
         </div>
         

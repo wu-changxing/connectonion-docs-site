@@ -58,7 +58,7 @@ export default function XrayPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+            <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ArrowRight className="w-4 h-4" />
               <span className="text-white">@xray Debugging</span>
@@ -91,28 +91,28 @@ export default function XrayPage() {
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-green-900/50 border border-green-500 rounded-lg flex items-center justify-center">
                     <Code className="text-green-400 w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <span className="text-gray-400">Your Function</span>
+                  <span className="text-gray-300">Your Function</span>
                 </div>
                 <ArrowRight className="text-gray-500" />
                 <div className="flex flex-col items-center gap-2">
                   <div className="w-12 h-12 bg-purple-900/50 border border-purple-500 rounded-lg flex items-center justify-center">
                     <Bug className="text-purple-400 w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <span className="text-gray-400">@xray decorator</span>
+                  <span className="text-gray-300">@xray decorator</span>
                 </div>
                 <ArrowRight className="text-gray-500" />
                 <div className="flex flex-col items-center gap-2">
                   <div className="w-12 h-12 bg-blue-900/50 border border-blue-500 rounded-lg flex items-center justify-center">
                     <Brain className="text-blue-400 w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <span className="text-gray-400">Agent Context</span>
+                  <span className="text-gray-300">Agent Context</span>
                 </div>
                 <ArrowRight className="text-gray-500" />
                 <div className="flex flex-col items-center gap-2">
                   <div className="w-12 h-12 bg-yellow-900/50 border border-yellow-500 rounded-lg flex items-center justify-center">
                     <Eye className="text-yellow-400 w-6 h-6" />
                   </div>
-                  <span className="text-gray-400">Full Visibility</span>
+                  <span className="text-gray-300">Full Visibility</span>
                 </div>
               </div>
             </div>
@@ -257,17 +257,17 @@ positive`}
               <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 text-center">
                 <Brain className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mx-auto mb-2" />
                 <div className="font-mono text-blue-300">xray.agent</div>
-                <div className="text-gray-400 text-xs mt-1">Agent Instance</div>
+                <div className="text-gray-300 text-xs mt-1">Agent Instance</div>
               </div>
               <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4 text-center">
                 <MessageSquare className="w-8 h-8 text-green-400 mx-auto mb-2" />
                 <div className="font-mono text-green-300">xray.task</div>
-                <div className="text-gray-400 text-xs mt-1">User Request</div>
+                <div className="text-gray-300 text-xs mt-1">User Request</div>
               </div>
               <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 text-center">
                 <History className="w-8 h-8 text-purple-400 mx-auto mb-2" />
                 <div className="font-mono text-purple-300">xray.messages</div>
-                <div className="text-gray-400 text-xs mt-1">Chat History</div>
+                <div className="text-gray-300 text-xs mt-1">Chat History</div>
               </div>
             </div>
           </div>

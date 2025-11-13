@@ -55,7 +55,7 @@ export default function ExamplesPage() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Header */}
         <div className="mb-12">
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">Examples</span>
@@ -82,7 +82,7 @@ export default function ExamplesPage() {
               <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
               <div>
                 <div className="font-semibold">Calculator</div>
-                <div className="text-sm text-gray-400">Learn the basics</div>
+                <div className="text-sm text-gray-300">Learn the basics</div>
               </div>
             </div>
             <ArrowRight className="w-5 h-5 text-gray-500" />
@@ -90,7 +90,7 @@ export default function ExamplesPage() {
               <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">2</div>
               <div>
                 <div className="font-semibold">Browser</div>
-                <div className="text-sm text-gray-400">Advanced automation</div>
+                <div className="text-sm text-gray-300">Advanced automation</div>
               </div>
             </div>
           </div>
@@ -123,7 +123,7 @@ export default function ExamplesPage() {
                     </span>
                   </div>
                 </div>
-                <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
               </div>
               
               <p className="text-gray-300 mb-4">
@@ -131,7 +131,7 @@ export default function ExamplesPage() {
               </p>
               
               <div className="mb-4">
-                <div className="text-sm font-semibold text-gray-400 mb-2">What you'll learn:</div>
+                <div className="text-sm font-semibold text-gray-300 mb-2">What you'll learn:</div>
                 <div className="flex flex-wrap gap-2">
                   {example.concepts.map((concept, i) => (
                     <span
@@ -150,7 +150,7 @@ export default function ExamplesPage() {
                   <span className="text-xs text-gray-500">Code Preview</span>
                   <Play className="w-3 h-3 text-gray-500" />
                 </div>
-                <pre className="text-xs text-gray-400 overflow-x-auto">
+                <pre className="text-xs text-gray-300 overflow-x-auto">
                   <code>{example.preview}</code>
                 </pre>
               </div>

@@ -21,7 +21,7 @@ export default function AutoDebugPage() {
         {/* Hero Section */}
         <section className="mb-16">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">Interactive Debugging</span>
@@ -480,7 +480,7 @@ Agent: "Sorry, no purple shoes under $100 are available."
                   <span>Tools that often fail or have important side effects</span>
                 </li>
               </ul>
-              <p className="text-gray-400 mt-4 text-sm">
+              <p className="text-gray-300 mt-4 text-sm">
                 Skip simple utilities and pure functions. Or use step mode to see everything!
               </p>
             </div>
@@ -500,7 +500,7 @@ Agent: "Sorry, no purple shoes under $100 are available."
 >>> # Unicode/special characters
 >>> result = {"name": "用户名", "emoji": "🎉"}`}
               </div>
-              <p className="text-gray-400 mt-4 text-sm">
+              <p className="text-gray-300 mt-4 text-sm">
                 <strong>Time-travel debugging:</strong> Change one variable, see entire agent behavior change.
               </p>
             </div>

@@ -368,7 +368,7 @@ browser.close()`
       <div className="max-w-5xl mx-auto">
       {/* Header with Breadcrumb and Copy Button */}
       <div className="mb-10">
-        <nav className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+        <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <ArrowRight className="w-4 h-4" />
           <span className="text-white">Tools</span>
@@ -406,7 +406,7 @@ browser.close()`
             className={`px-4 py-2 rounded-lg font-medium transition-all ${
               activeTab === 'function'
                 ? 'bg-blue-600 text-white'
-                : 'bg-gray-800 text-gray-400 hover:text-white'
+                : 'bg-gray-800 text-gray-300 hover:text-white'
             }`}
           >
             <Wrench className="w-4 h-4 inline mr-2" />
@@ -417,7 +417,7 @@ browser.close()`
             className={`px-4 py-2 rounded-lg font-medium transition-all ${
               activeTab === 'class'
                 ? 'bg-purple-600 text-white'
-                : 'bg-gray-800 text-gray-400 hover:text-white'
+                : 'bg-gray-800 text-gray-300 hover:text-white'
             }`}
           >
             <Box className="w-4 h-4 inline mr-2" />

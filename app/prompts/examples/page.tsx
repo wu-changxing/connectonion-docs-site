@@ -99,7 +99,7 @@ export default function PromptsExamplesPage() {
   return (
     <div className="max-w-6xl mx-auto px-8 py-12 lg:py-12 pt-16 lg:pt-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+      <nav className="flex items-center gap-2 text-sm text-gray-300 mb-8">
         <Link href="/" className="hover:text-white transition-colors">Home</Link>
         <ArrowRight className="w-4 h-4" />
         <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
@@ -198,7 +198,7 @@ export default function PromptsExamplesPage() {
 
                   {/* Key Concepts */}
                   <div className="space-y-2">
-                    <p className="text-gray-400 text-xs font-medium uppercase tracking-wide">Key Concepts</p>
+                    <p className="text-gray-300 text-xs font-medium uppercase tracking-wide">Key Concepts</p>
                     <div className="flex flex-wrap gap-2">
                       {example.concepts.map((concept) => (
                         <span 
@@ -247,14 +247,14 @@ export default function PromptsExamplesPage() {
       <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
         <Link 
           href="/prompts" 
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
         >
           <ArrowRight className="w-4 h-4 rotate-180" />
           System Prompts
         </Link>
         <Link 
           href="/prompts/formats" 
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
         >
           Prompt Formats
           <ArrowRight className="w-4 h-4" />
