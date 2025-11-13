@@ -20,38 +20,187 @@ import {
 import CodeWithResult from '../../components/CodeWithResult'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
+import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 
 export default function OnEventsPage() {
+
+  const pageContent = `# Event System (on_events)
+
+Hook into agent lifecycle to add logging, monitoring, reflection, and custom behavior at every step.
+
+## 6 Event Types
+
+- **after_user_input**: Fires once per turn
+- **before_llm**: Before each LLM call
+- **after_llm**: After each LLM response
+- **before_tool**: Before tool execution
+- **after_tool**: After successful tool execution
+- **on_error**: When tool execution fails
+
+## Quick Start
+
+Add event handlers to your agent in 3 simple steps:
+
+\`\`\`python
+from connectonion import Agent
+from connectonion.events import after_tool
+
+# Step 1: Define event handler
+def log_tool_result(agent):
+    last_trace = agent.current_session['trace'][-1]
+    if last_trace['type'] == 'tool_execution':
+        print(f"✅ Tool: {last_trace['tool_name']}")
+        print(f"📊 Result: {last_trace['result'][:100]}...")
+
+# Step 2: Attach to event
+log_event = after_tool(log_tool_result)
+
+# Step 3: Add to agent
+agent = Agent("assistant", tools=[...], on_events=[log_event])
+\`\`\`
+
+## All Event Hooks
+
+\`\`\`python
+from connectonion.events import (
+    after_user_input,
+    before_llm,
+    after_llm,
+    before_tool,
+    after_tool,
+    on_error
+)
+\`\`\`
+
+## Real-World Examples
+
+### Example 1: Log Every Tool Call
+
+\`\`\`python
+def tool_logger(agent):
+    trace = agent.current_session['trace'][-1]
+    print(f"🔧 {trace['tool_name']}({trace['arguments']})")
+
+agent = Agent("helper", tools=[search], on_events=[after_tool(tool_logger)])
+\`\`\`
+
+### Example 2: Cost Tracking
+
+\`\`\`python
+total_cost = 0
+
+def track_cost(agent):
+    global total_cost
+    trace = agent.current_session['trace'][-1]
+    if trace['type'] == 'llm_call':
+        tokens = trace.get('tokens_used', 0)
+        total_cost += tokens * 0.00001  # $0.01 per 1K tokens
+        print(f"💰 Total cost: ${total_cost:.4f}")
+
+agent = Agent("assistant", tools=[...], on_events=[after_llm(track_cost)])
+\`\`\`
+
+### Example 3: Reflection After Each Tool
+
+\`\`\`python
+from connectonion.llm_do import llm_do
+
+def reflect_on_tool(agent):
+    trace = agent.current_session['trace'][-1]
+    if trace['type'] == 'tool_execution' and trace['status'] == 'success':
+        reflection = llm_do(f"Tool {trace['tool_name']} returned: {trace['result'][:200]}. What does this mean?")
+        print(f"💭 Reflection: {reflection}")
+
+agent = Agent("thinker", tools=[...], on_events=[after_tool(reflect_on_tool)])
+\`\`\`
+
+## Multiple Events on Same Agent
+
+\`\`\`python
+from connectonion.events import after_user_input, after_llm, after_tool
+
+def log_input(agent):
+    print(f"📝 User asked: {agent.current_session.get('user_prompt', '')}")
+
+def log_llm(agent):
+    trace = agent.current_session['trace'][-1]
+    print(f"🤖 LLM responded: {trace.get('content', '')[:100]}...")
+
+def log_tool(agent):
+    trace = agent.current_session['trace'][-1]
+    print(f"🔧 Tool executed: {trace['tool_name']}")
+
+agent = Agent(
+    "verbose_agent",
+    tools=[...],
+    on_events=[
+        after_user_input(log_input),
+        after_llm(log_llm),
+        after_tool(log_tool)
+    ]
+)
+\`\`\`
+
+## Access Agent State
+
+Inside event handlers, access the full agent context:
+
+\`\`\`python
+def detailed_handler(agent):
+    # Current conversation
+    messages = agent.current_session['messages']
+
+    # Execution trace
+    trace = agent.current_session['trace']
+
+    # User's original prompt
+    user_prompt = agent.current_session.get('user_prompt', '')
+
+    # Agent configuration
+    agent_name = agent.name
+    available_tools = agent.tool_map.keys()
+\`\`\`
+
+## What's Next
+
+- **Plugin System**: Package event handlers into reusable plugins
+- **Vibe Coding**: See event patterns in action with visual examples
+`
 
   return (
     <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
       <div className="max-w-4xl mx-auto">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden py-12 md:py-20">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-3xl mx-auto">
-              {/* Breadcrumb */}
-              <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-                <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                <ArrowRight className="w-4 h-4" />
-                <span className="text-white">Events (on_events)</span>
-              </nav>
+        {/* Header with Breadcrumb and Copy Button */}
+        <div className="mb-10">
+          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ArrowRight className="w-4 h-4" />
+            <span className="text-white">Events (on_events)</span>
+          </nav>
 
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-3 bg-green-900/20 border border-green-500/30 rounded-full px-4 md:px-6 py-2 md:py-3 mb-6">
-                  <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-green-400" />
-                  <span className="text-xs md:text-sm font-medium">NEW: Event System</span>
-                  <Activity className="w-4 h-4 md:w-5 md:h-5 text-green-300" />
-                </div>
-
-                <h1 className="text-3xl md:text-5xl font-bold mb-4 text-gray-100">
-                  Hook into agent lifecycle
-                </h1>
-
-                <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-                  React to events in your agent's execution flow. Add logging, monitoring, reflection, and custom behavior at every step.
-                </p>
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gradient-to-r from-green-900/30 to-green-800/10 border border-green-500/30 rounded-full">
+                <Sparkles className="w-4 h-4 text-green-400" />
+                <span className="text-xs font-medium text-green-200">NEW</span>
               </div>
+
+              <h1 className="text-4xl font-bold text-white mb-4">
+                Hook into agent lifecycle
+              </h1>
+
+              <p className="text-xl text-gray-300">
+                React to events in your agent's execution flow. Add logging, monitoring, reflection, and custom behavior at every step.
+              </p>
+            </div>
+
+            <CopyMarkdownButton
+              content={pageContent}
+              filename="event-system.md"
+              className="flex-shrink-0"
+            />
+          </div>
+        </div>
 
               {/* Quick Visual: 6 Event Types */}
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 md:p-8 mb-12">
