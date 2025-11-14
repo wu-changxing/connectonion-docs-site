@@ -136,10 +136,10 @@ export default function HomePage() {
       <section className="py-16 md:py-24 px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               8 Lines. That's All You Need.
             </h2>
-            <p className="text-lg text-slate-200 mb-8">
+            <p className="text-lg text-slate-100 mb-8">
               Other frameworks force you to write 50+ lines of boilerplate. ConnectOnion gets you to working code in 8 lines. Simple things should be simple.
             </p>
 
@@ -152,7 +152,7 @@ export default function HomePage() {
 
           {/* Option 1: Functions */}
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-white mb-3">Option 1: Functions (Stateless Tools)</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Option 1: Functions (Stateless Tools)</h3>
             <CodeWithResult
               code={`from connectonion import Agent
 
@@ -179,7 +179,7 @@ print(result)  # "42 * 17 equals 714"`}
 
           {/* Option 2: Class */}
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-white mb-3">Option 2: Class (Stateful Tools with Shared Context)</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Option 2: Class (Stateful Tools with Shared Context)</h3>
             <CodeWithResult
               code={`from connectonion import Agent
 
@@ -241,7 +241,7 @@ agent.input("Show me the history")
               <span className="text-purple-400 text-sm font-mono uppercase tracking-wider">Deploy</span>
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               Deploy in One Line. Scale When You Need It.
             </h2>
             <p className="text-lg text-slate-100">
@@ -342,7 +342,7 @@ Global endpoints active in 12 regions`}
               <span className="text-green-400 text-sm font-mono uppercase tracking-wider">Multi-Agent</span>
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-green-500" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               Connect Agents. Build Networks.
             </h2>
             <p className="text-lg text-slate-100">
@@ -435,18 +435,18 @@ print(result)`}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">See the Difference</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">See the Difference</h2>
             <p className="text-base md:text-lg text-slate-100">Same AI agent, different approach</p>
           </div>
 
           {/* Mobile: Tab Interface */}
           <div className="md:hidden">
             <div className="bg-gradient-to-r from-green-500/10 to-gray-500/10 rounded-lg p-4 mb-4 border border-green-500/20">
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center justify-between mb-4">
                 <span className="text-sm font-semibold text-slate-200">Lines of Code</span>
                 <span className="text-2xl font-bold text-green-400">85% less</span>
               </div>
-              <div className="flex gap-3 h-24 items-end mb-3">
+              <div className="flex gap-4 h-24 items-end mb-4">
                 <div className="flex-1 flex flex-col items-center gap-2">
                   <div className="w-full bg-green-500/20 rounded relative flex-1">
                     <div className="absolute bottom-0 w-full bg-green-500 rounded transition-all"
@@ -898,7 +898,7 @@ print(result)`}
               <span className="text-orange-400 text-sm font-mono uppercase tracking-wider">Plugins</span>
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-orange-500" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               Plugins: Just Functions. No Magic.
             </h2>
             <p className="text-lg text-slate-100">
@@ -968,7 +968,7 @@ agent = Agent("assistant", tools=[search], plugins=[logger])`}
               <span className="text-purple-400 text-sm font-mono uppercase tracking-wider">Interactive Debugging</span>
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               Debug Like Never Before
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -1029,7 +1029,7 @@ Debugging: "Send email to John"
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all">
-              <Bug className="w-8 h-8 text-purple-400 mb-3" />
+              <Bug className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="font-bold text-white text-lg mb-2">@xray Breakpoints</h3>
               <p className="text-sm text-gray-300">
                 Decorate any tool with <code className="text-purple-400 bg-purple-950/50 px-1.5 py-0.5 rounded font-mono text-xs">@xray</code> - agent pauses automatically.
@@ -1037,7 +1037,7 @@ Debugging: "Send email to John"
             </div>
 
             <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all">
-              <Terminal className="w-8 h-8 text-purple-400 mb-3" />
+              <Terminal className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="font-bold text-white text-lg mb-2">Zero Learning Curve</h3>
               <p className="text-sm text-gray-300">
                 Arrow keys or shortcuts. Tips always shown. No docs needed.
@@ -1045,7 +1045,7 @@ Debugging: "Send email to John"
             </div>
 
             <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all">
-              <CheckCircle className="w-8 h-8 text-purple-400 mb-3" />
+              <CheckCircle className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="font-bold text-white text-lg mb-2">Time-Travel Testing</h3>
               <p className="text-sm text-gray-300">
                 Press 'e' for Python REPL. Change variables, watch behavior change.
@@ -1070,32 +1070,32 @@ Debugging: "Send email to John"
       {/* Production Ready */}
       <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-900/20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Production-Ready Out of the Box</h2>
-          <p className="text-lg text-slate-200">Not a prototype tool - built for production from day one</p>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">Production-Ready Out of the Box</h2>
+          <p className="text-lg text-slate-100">Not a prototype tool - built for production from day one</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div className="p-6 bg-gray-800/30 rounded-lg border border-gray-700">
-            <Terminal className="w-8 h-8 text-purple-400 mb-3" />
+          <div className="p-6 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-purple-400/50 hover:bg-gray-800/50 transition-all">
+            <Terminal className="w-8 h-8 text-purple-400 mb-4" />
             <h3 className="font-semibold text-white mb-2">Professional CLI</h3>
-            <div className="bg-black/50 rounded-lg p-3 mb-3 font-mono text-sm">
+            <div className="bg-black/50 rounded-lg p-4 mb-4 font-mono text-sm">
               <span className="text-green-400">$ co init</span>
               <div className="text-gray-500 mt-1">✓ Ready in 5 seconds</div>
             </div>
             <p className="text-sm text-slate-100">Project templates, environment management, best practices built-in</p>
           </div>
 
-          <div className="p-6 bg-gray-800/30 rounded-lg border border-gray-700">
-            <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
+          <div className="p-6 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-green-400/50 hover:bg-gray-800/50 transition-all">
+            <CheckCircle className="w-8 h-8 text-green-400 mb-4" />
             <h3 className="font-semibold text-white mb-2">Auto Logging</h3>
-            <p className="text-sm text-slate-100 mb-3">
+            <p className="text-sm text-slate-100 mb-4">
               Every interaction logged to <code className="text-purple-300 bg-gray-900/50 px-1.5 py-0.5 rounded">.co/logs/</code>
             </p>
             <p className="text-xs text-slate-200">Full conversation, tool calls, timing, model info - no custom code needed</p>
           </div>
 
-          <div className="p-6 bg-gray-800/30 rounded-lg border border-gray-700">
-            <Sparkles className="w-8 h-8 text-blue-400 mb-3" />
+          <div className="p-6 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-blue-400/50 hover:bg-gray-800/50 transition-all">
+            <Sparkles className="w-8 h-8 text-blue-400 mb-4" />
             <h3 className="font-semibold text-white mb-2">Multi-LLM Support</h3>
             <div className="space-y-1 text-xs font-mono">
               <div className="text-slate-200">model="gpt-4o"</div>
@@ -1116,17 +1116,17 @@ Debugging: "Send email to John"
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               Vibe Coding with Claude Code
             </h2>
-            <p className="text-base md:text-lg text-slate-200 mb-6 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-slate-100 mb-6 max-w-2xl mx-auto">
               Let AI write your agents. Simple patterns, minimal abstractions, comprehensive examples.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
             <div className="text-center group">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-600/20 to-purple-600/10 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-600/20 to-purple-600/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-xl font-bold text-purple-400">1</span>
               </div>
               <h3 className="font-bold text-white mb-1 text-sm md:text-base">Copy Documentation</h3>
@@ -1134,7 +1134,7 @@ Debugging: "Send email to John"
             </div>
 
             <div className="text-center group">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-blue-600/10 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-blue-600/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-xl font-bold text-blue-400">2</span>
               </div>
               <h3 className="font-bold text-white mb-1 text-sm md:text-base">Paste to Your AI</h3>
@@ -1142,7 +1142,7 @@ Debugging: "Send email to John"
             </div>
 
             <div className="text-center group">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-600/20 to-green-600/10 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-600/20 to-green-600/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-xl font-bold text-green-400">3</span>
               </div>
               <h3 className="font-bold text-white mb-1 text-sm md:text-base">Start Building</h3>
@@ -1166,10 +1166,10 @@ Debugging: "Send email to John"
       {/* Community */}
       <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-900/20">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 text-center">
             Truly Open, Truly Community
           </h2>
-          <p className="text-lg text-slate-200 mb-8 text-center">
+          <p className="text-lg text-slate-100 mb-8 text-center">
             MIT-licensed and community-driven. Framework decisions made by users, not a product roadmap.
           </p>
 
@@ -1181,7 +1181,7 @@ Debugging: "Send email to John"
               className="p-6 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-colors"
               aria-label="Join ConnectOnion Discord community"
             >
-              <FaDiscord className="w-10 h-10 text-purple-400 mb-3 mx-auto" />
+              <FaDiscord className="w-10 h-10 text-purple-400 mb-4 mx-auto" />
               <h3 className="font-semibold text-white mb-1 text-center">Discord</h3>
               <p className="text-sm text-slate-100 text-center">Direct access to creators • &lt; 4hr response time</p>
             </a>
@@ -1193,7 +1193,7 @@ Debugging: "Send email to John"
               className="p-6 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-colors"
               aria-label="View ConnectOnion on GitHub"
             >
-              <FaGithub className="w-10 h-10 text-blue-400 mb-3 mx-auto" />
+              <FaGithub className="w-10 h-10 text-blue-400 mb-4 mx-auto" />
               <h3 className="font-semibold text-white mb-1 text-center">GitHub</h3>
               <p className="text-sm text-slate-100 text-center">Star & contribute • Shape the framework</p>
             </a>
@@ -1204,8 +1204,8 @@ Debugging: "Send email to John"
       {/* Final CTA */}
       <section className="py-16 md:py-24 px-4 md:px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Start?</h2>
-          <p className="text-base md:text-lg text-slate-200 mb-6 md:mb-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">Ready to Start?</h2>
+          <p className="text-base md:text-lg text-slate-100 mb-6 md:mb-8">
             Build, deploy, and get discovered - all from your laptop
           </p>
 
