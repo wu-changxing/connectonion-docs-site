@@ -63,172 +63,6 @@ research_agent = Agent(
 ### Quick Override for One Task
 
 \`\`\`python
-# Normal agent
-agent = Agent("helper", tools=[...])  # Default 10
-
-# But this ONE task is complex:
-result = agent.input(
-    "Do something really complex",
-    max_iterations=30  # Just for this task!
-)
-\`\`\`
-
-## Real Examples
-
-### Simple Calculator Bot
-
-\`\`\`python
-def calculate(expression: str) -> float:
-    return eval(expression)  # Simple math
-
-# Calculator rarely needs many attempts
-calc_bot = Agent(
-    "calculator",
-    tools=[calculate],
-    max_iterations=3  # Math is simple, 3 attempts is plenty
-)
-
-# This works fine with just 1 iteration:
-result = calc_bot.input("What's 15 * 8?")
-print(result)  # "The answer is 120"
-\`\`\`
-
-## Cool Tricks & Advanced Patterns
-
-### Auto-Retry with Higher Limit
-
-\`\`\`python
-def smart_input(agent, prompt, max_retries=3):
-    """Automatically increases iterations if task fails."""
-    limits = [10, 25, 50]  # Try these limits in order
-
-    for limit in limits:
-        result = agent.input(prompt, max_iterations=limit)
-        if "Maximum iterations" not in result:
-            return result  # Success!
-
-    return "Task too complex even with 50 iterations"
-
-# Use it:
-agent = Agent("smart", tools=[...])
-result = smart_input(agent, "Complex task")  # Auto-adjusts!
-\`\`\`
-
-## Quick Reference
-
-| What You're Doing | Iterations | Example |
-|-------------------|------------|---------|
-| Simple Q&A | 3-5 | "What's the weather?" |
-| Calculations | 5-10 | "Calculate my taxes" |
-| Multi-step tasks | 10-20 | "Search and summarize" |
-| Complex workflows | 20-40 | "Analyze all data and generate report" |
-| Research projects | 30-50 | "Research topic from multiple sources" |
-
-## The One-Minute Summary
-
-1. Most agents are fine with default \`max_iterations=10\`
-2. Simple bots can use 5, complex ones need 20-30
-3. Override per-task when needed: \`agent.input(prompt, max_iterations=X)\`
-4. If you see "Maximum iterations reached", just increase the limit
-5. Advanced: Build smart agents that adjust limits automatically
-
-That's it! You now know everything about iteration control. Start simple, adjust when needed!
-`;
-
-  const examples = {
-    basic: `from connectonion import Agent
-
-# Default: 10 iterations (works for most tasks!)
-agent = Agent("my_bot", tools=[search, calculate])
-
-# That's it! Just use it:
-result = agent.input("What's 2+2?")  # Uses 1 iteration
-result = agent.input("Search for Python tutorials")  # Uses 1-2 iterations`,
-
-    complex: `# Complex tasks need more iterations
-research_agent = Agent(
-    "researcher",
-    tools=[search, analyze, summarize],
-    max_iterations=25  # I need more attempts for complex research
-)`,
-
-    override: `# Normal agent
-agent = Agent("helper", tools=[...])  # Default 10
-
-# But this ONE task is complex:
-result = agent.input(
-    "Do something really complex",
-    max_iterations=30  # Just for this task!
-)`,
-
-    calculator: `def calculate(expression: str) -> float:
-    return eval(expression)  # Simple math
-
-# Calculator rarely needs many attempts
-calc_bot = Agent(
-    "calculator",
-    tools=[calculate],
-    max_iterations=3  # Math is simple, 3 attempts is plenty
-)
-
-# This works fine with just 1 iteration:
-result = calc_bot.input("What's 15 * 8?")
-print(result)  # "The answer is 120"`,
-
-    autoRetry: `def smart_input(agent, prompt, max_retries=3):
-    """Automatically increases iterations if task fails."""
-    limits = [10, 25, 50]  # Try these limits in order
-    
-    for limit in limits:
-        result = agent.input(prompt, max_iterations=limit)
-        if "Maximum iterations" not in result:
-            return result  # Success!
-    
-    return "Task too complex even with 50 iterations"
-
-# Use it:
-agent = Agent("smart", tools=[...])
-result = smart_input(agent, "Complex task")  # Auto-adjusts!`,
-
-    selfAdjusting: `class SelfAdjustingAgent:
-    """Agent that learns optimal iterations from history."""
-    
-    def __init__(self, name, tools):
-        self.agent = Agent(name, tools, max_iterations=10)
-        self.task_history = {}
-    
-    def input(self, prompt):
-        # Start with learned limit or default
-        task_type = self._classify_task(prompt)
-        max_iter = self.task_history.get(task_type, 10)
-        
-        # Try with current limit
-        result = self.agent.input(prompt, max_iterations=max_iter)
-        
-        # If failed, increase and retry
-        while "Maximum iterations" in result and max_iter < 50:
-            max_iter += 10
-            print(f"Increasing to {max_iter} iterations...")
-            result = self.agent.input(prompt, max_iterations=max_iter)
-        
-        # Remember what worked
-        if "Maximum iterations" not in result:
-            self.task_history[task_type] = max_iter
-            print(f"Learned: {task_type} tasks need {max_iter} iterations")
-        
-        return result`
-  };
-
-  return (
-    <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
-      <div className="max-w-4xl mx-auto">
-        {/* Header with Breadcrumb and Copy Button */}
-        <div className="mb-10">
-          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ArrowRight className="w-4 h-4" />
-            <span className="text-white">max_iterations</span>
-          </nav>
 
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
             <div className="flex-1">
@@ -241,8 +75,8 @@ result = smart_input(agent, "Complex task")  # Auto-adjusts!`,
             </div>
 
             <CopyMarkdownButton
-              content={pageContent}
-              filename="max-iterations-guide.md"
+              markdownPath="/max-iterations/max-iterations.md"
+              filename="max-iterations.md"
               className="flex-shrink-0"
             />
           </div>
@@ -277,9 +111,9 @@ result = smart_input(agent, "Complex task")  # Auto-adjusts!`,
                 showLineNumbers={true}
               >
 {`# Your agent tries to complete the task
-# Iteration 1: "I need to search for info" → calls search tool
-# Iteration 2: "Now I'll calculate something" → calls calculate tool
-# Iteration 3: "Let me save the result" → calls save tool
+# Iteration 1: "I need to search for info" -> calls search tool
+# Iteration 2: "Now I'll calculate something" -> calls calculate tool
+# Iteration 3: "Let me save the result" -> calls save tool
 # Done! Task completed in 3 iterations`}
               </SyntaxHighlighter>
             </div>
