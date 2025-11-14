@@ -1,137 +1,52 @@
 /**
- * @purpose ConnectOnion landing page - showcases framework simplicity, code examples, and vibe coding workflow
+ * @purpose ConnectOnion landing page - Deploy agents from laptop, discover globally
  * @llm-note
- *   Dependencies: imports from [react, lucide-react, react-icons/fa, framer-motion, next/link, react-syntax-highlighter] | imports [utils/copyAllDocs, components/CommandBlock, components/CodeWithResult, components/CopyMarkdownButton, components/ContentNavigation]
- *   Data flow: renders 9 sections (Hero → Philosophy → Equation → Example → Comparison → Vibe Coding → Production Features → Agent Collaboration → Community → CTA) | manages state for {copyAllStatus, activeComparison, copiedId}
- *   State/Effects: copyAllDocs() writes full docs to clipboard | tab switching between code comparisons | 2s timeout for copy feedback | no external API calls
+ *   Dependencies: imports from [react, lucide-react, react-icons/fa, next/link, react-syntax-highlighter] | imports [components/CommandBlock, components/CodeWithResult, components/CopyMarkdownButton, components/ContentNavigation]
+ *   Data flow: renders sections (Hero → Problem → Solution → Deploy → Discover → Code → Debug → Production → Vibe Coding → Community → CTA) | manages state for {activeComparison}
+ *   State/Effects: tab switching between code comparisons | no external API calls
  *   Integration: Next.js page component (app/page.tsx) | uses "use client" for interactivity | links to /quickstart, /auto-debug, Discord, GitHub
- *   Performance: lazy loads framer-motion animations | syntax highlighter for code comparison section | responsive clamp() typography | mobile-first breakpoints (md:, xl:)
- *   UX: "Vibe Coding" button copies all docs for AI assistants | 8 lines vs 50 lines code comparison | agent collaboration demo with serve() and connect() | production-ready features (CLI, debugging, logging)
+ *   Performance: syntax highlighter for code comparison section | responsive clamp() typography | mobile-first breakpoints (md:, xl:)
+ *   UX: Deploy from laptop → Discover automatically → Build in 8 lines | agent.serve() and use() examples | behavioral proof ranking
  */
-/*
-  @date: 2025-01-01
-
-  DESIGN ISSUES TO FIX:
-  
-  1. **Mobile Experience Issues** (Priority: HIGH)
-     - Hero section min-height too tall on mobile (85vh cuts off content)
-     - Font sizes don't scale smoothly between breakpoints
-     - CTAs stack poorly on mobile with inconsistent spacing
-     - Fix: Use clamp() for fluid typography, reduce mobile hero height to 70vh
-  
-  2. **Visual Hierarchy Problems** (Priority: HIGH)
-     - Too many competing visual elements (gradients, glows, animations)
-     - Multiple gradient overlays create muddy appearance
-     - Inconsistent button styles across sections
-     - Fix: Simplify to 1-2 gradient effects, establish clear button hierarchy
-  
-  3. **Content Accessibility** (Priority: MEDIUM)
-     - Low contrast on gray-400 text (WCAG AA fail)
-     - No focus indicators on interactive elements
-     - Missing aria-labels on icon-only buttons
-     - Fix: Use gray-300 minimum, add focus-visible styles, add proper labels
-  
-  4. **Information Architecture** (Priority: MEDIUM)
-     - "Vibe Coding" section unclear - needs better introduction
-     - Code comparison section hard to scan on mobile
-     - Missing clear value proposition above the fold
-     - Fix: Add explanation text, use tabs for code comparison, strengthen headline
-  
-  5. **Performance Concerns** (Priority: LOW)
-     - Large Prism syntax highlighter loaded for small code snippets
-     - Multiple blur effects may cause rendering issues on low-end devices
-     - Fix: Consider lighter syntax highlighting, reduce blur layers
-*/
 
 'use client'
 
 import { useState } from 'react'
-import { Terminal, Play, ArrowRight, BookOpen, Code, Zap, Clock, Users, Activity, CheckCircle, AlertCircle, Copy, Check, Sparkles, Rocket, FileCode, Package, GitBranch, Bug } from 'lucide-react'
-import { FaEdit, FaWrench, FaRobot, FaLaptop, FaRocket, FaComments, FaBullseye, FaSearch, FaChartBar, FaStar, FaDiscord, FaGithub } from 'react-icons/fa'
-import { motion } from 'framer-motion'
+import { Terminal, ArrowRight, CheckCircle, Check, Sparkles, Rocket, Bug, Globe, Zap, Search as SearchIcon } from 'lucide-react'
+import { FaEdit, FaWrench, FaRobot, FaStar, FaDiscord, FaGithub } from 'react-icons/fa'
 import Link from 'next/link'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { copyAllDocsToClipboard } from '../utils/copyAllDocs'
 import { CommandBlock } from '../components/CommandBlock'
 import CodeWithResult from '../components/CodeWithResult'
 import { CopyMarkdownButton } from '../components/CopyMarkdownButton'
 import { ContentNavigation } from '../components/ContentNavigation'
 
 export default function HomePage() {
-  const [isRunning, setIsRunning] = useState(false)
-  const [terminalOutput, setTerminalOutput] = useState<string[]>([])
-  const [currentStep, setCurrentStep] = useState(1)
-  const [activeExample, setActiveExample] = useState<'basic' | 'real' | 'production'>('basic')
-  const [copyAllStatus, setCopyAllStatus] = useState<'idle' | 'copying' | 'done'>('idle')
-  const [copiedId, setCopiedId] = useState<string | null>(null)
   const [activeComparison, setActiveComparison] = useState<'connectonion' | 'other'>('connectonion')
-
-  const runQuickstart = async () => {
-    setIsRunning(true)
-    setTerminalOutput([])
-    
-    const steps = [
-      '$ pip install connectonion',
-      'Collecting connectonion...',
-      'Successfully installed connectonion-0.1.9',
-      '$ python quickstart.py',
-      'Agent: "assistant" initialized with 1 tool',
-      'User: "What is 42 * 17?"',
-      'Tool: calculate("42 * 17") → "714"',
-      'Agent: "The result is 714."',
-      '✓ Complete in 0.23s'
-    ]
-    
-    for (let i = 0; i < steps.length; i++) {
-      await new Promise(resolve => setTimeout(resolve, i < 3 ? 800 : 600))
-      setTerminalOutput(prev => [...prev, steps[i]])
-    }
-    
-    setIsRunning(false)
-  }
-
-  const copyAllDocs = async () => {
-    try {
-      setCopyAllStatus('copying')
-      const ok = await copyAllDocsToClipboard()
-      setCopyAllStatus(ok ? 'done' : 'idle')
-      setTimeout(() => setCopyAllStatus('idle'), 2000)
-    } catch {
-      setCopyAllStatus('idle')
-    }
-  }
-
-  const copyToClipboard = (text: string, id: string) => {
-    navigator.clipboard.writeText(text)
-    setCopiedId(id)
-    setTimeout(() => setCopiedId(null), 2000)
-  }
 
   return (
     <main className="">
-      {/* Hero Section - Clean Hierarchy */}
+      {/* Hero Section */}
       <section className="flex items-center justify-center px-4 md:px-6 pt-16 pb-12 md:pt-24 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 via-transparent to-transparent" />
 
         <div className="max-w-3xl mx-auto text-center relative z-10">
-          {/* LEVEL 1: Title + Value Prop */}
-          <h1 className="font-bold text-white mb-4" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)' }}>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             ConnectOnion
           </h1>
-          <p className="text-gray-100 mb-10 leading-relaxed" style={{ fontSize: 'clamp(1.25rem, 3vw, 2rem)' }}>
-            Build AI agents in <span className="text-green-400 font-bold">8 lines</span>, not 50
+
+          <p className="text-xl md:text-2xl lg:text-3xl text-slate-50 mb-10 leading-relaxed">
+            Building multi-agent collaboration, <span className="text-green-400 font-bold">never been so easy</span>
           </p>
 
-          {/* LEVEL 2: Install Command (Star of the Show) */}
           <div className="mb-6 max-w-2xl mx-auto">
             <div className="bg-black/60 backdrop-blur-sm border-2 border-purple-500/30 rounded-xl p-2 hover:border-purple-500/60 transition-all shadow-2xl hover:shadow-purple-500/20">
               <CommandBlock commands={['pip install connectonion']} />
             </div>
-            <p className="text-gray-300 text-sm mt-3 mb-10">Copy and run to get started in 30 seconds</p>
+            <p className="text-slate-300 text-sm mt-3 mb-10">No AWS. No domain names. Just code.</p>
           </div>
 
-          {/* LEVEL 3: Supporting Links */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
             <a
               href="/quickstart"
@@ -159,8 +74,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust Indicators Section - LEVEL 5 */}
-      <section className="py-12 md:py-16 px-4 md:px-6 border-t border-gray-800/50 bg-gray-900/20">
+      {/* Trust Indicators */}
+      <section className="py-16 md:py-24 px-4 md:px-6 border-t border-gray-800/50 bg-gray-900/20">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-6">
             <a href="https://connectonion.com" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center">
@@ -181,182 +96,356 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      
-      {/* Framework Status Callout */}
-      <section className="py-12 md:py-16 px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
-            <div className="flex items-start gap-3">
-              <Rocket className="w-5 h-5 text-blue-300 mt-1 flex-shrink-0" />
-              <div>
-                <p className="font-semibold text-blue-100 mb-3">Framework Status (v0.3.2 - Production Ready)</p>
-                <div className="grid md:grid-cols-2 gap-3 text-sm">
-                  <div className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-green-400 mt-0.5" />
-                    <span className="text-gray-100"><strong>Stable:</strong> Core agent, tools, LLM integration, CLI, auto-logging</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <Sparkles className="w-4 h-4 text-yellow-400 mt-0.5" />
-                    <span className="text-gray-100"><strong>New:</strong> Interactive debugging (@xray), Python REPL, breakpoints</span>
-                  </div>
-                </div>
-              </div>
+
+      {/* Philosophy Section */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-gray-900/40 to-transparent relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-transparent" />
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
+            Our Philosophy
+          </h2>
+
+          <div className="text-2xl md:text-4xl font-bold mb-12 leading-relaxed">
+            <span className="text-purple-400">Keep simple things simple</span>
+            <span className="text-gray-400 mx-3">,</span>
+            <span className="text-green-400">make complicated things possible</span>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 text-left">
+            <div className="bg-gradient-to-br from-purple-900/20 to-purple-900/5 rounded-xl p-6 md:p-8 border border-purple-500/30">
+              <h3 className="text-xl md:text-2xl font-bold text-purple-400 mb-4">Keep Simple Things Simple</h3>
+              <p className="text-slate-200 leading-relaxed">
+                Building a basic agent should take 8 lines, not 50. No boilerplate, no framework inheritance, no config files.
+                Just a prompt and some functions. If you need simple, you get simple.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-green-900/20 to-green-900/5 rounded-xl p-6 md:p-8 border border-green-500/30">
+              <h3 className="text-xl md:text-2xl font-bold text-green-400 mb-4">Make Complicated Things Possible</h3>
+              <p className="text-slate-200 leading-relaxed">
+                When you need production features - multi-agent networks, plugin systems, interactive debugging, trust levels -
+                they're all there. Full power when you need it, invisible when you don't.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 2: Philosophy - Core Belief */}
-      <section className="min-h-[90vh] md:min-h-screen flex items-center justify-center px-6 bg-gray-900/10 py-16">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <div className="h-px w-8 bg-gradient-to-r from-transparent to-purple-500" />
-            <span className="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-gray-100">ConnectOnion Philosophy</span>
-            <div className="h-px w-8 bg-gradient-to-l from-transparent to-purple-500" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-            <span className="bg-gradient-to-r from-green-300 via-emerald-300 to-green-400 bg-clip-text text-transparent">
-              Keep simple things simple
-            </span>
-          </h2>
-          <h3 className="text-2xl md:text-3xl font-semibold text-white">
-            <span className="bg-gradient-to-r from-purple-300 via-violet-300 to-blue-300 bg-clip-text text-transparent">
-              Make complicated things possible
-            </span>
-          </h3>
-        </div>
-      </section>
+      {/* Build a Single Agent */}
+      <section className="py-16 md:py-24 px-4 md:px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              8 Lines. That's All You Need.
+            </h2>
+            <p className="text-lg text-slate-200 mb-8">
+              Other frameworks force you to write 50+ lines of boilerplate. ConnectOnion gets you to working code in 8 lines. Simple things should be simple.
+            </p>
 
-      {/* Section 3: The Equation - Show don't tell */}
-
-      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">How It Works</h2>
-            <p className="text-base md:text-lg text-gray-100">It's just this simple:</p>
-          </div>
-          
-          {/* Responsive Equation */}
-          <div className="bg-gray-800/50 rounded-xl p-6 md:p-8 border border-gray-700">
-            {/* Text equation - responsive */}
-            <div className="text-center mb-6 md:mb-8">
+            <div className="bg-gray-800/50 rounded-xl p-6 md:p-8 border border-gray-700 mb-8">
               <code className="text-lg md:text-2xl font-mono text-white block">
-                <span className="block md:inline">Agent =</span>
-                <span className="block md:inline md:ml-2">Markdown + Functions</span>
+                Agent = Prompt (Markdown) + Tools (Functions or Class)
               </code>
             </div>
-            
-            {/* Mobile: Vertical flow */}
-            <div className="md:hidden space-y-4">
-              <div className="flex items-center justify-between bg-gray-900/30 rounded-lg p-4">
-                <div className="flex items-center gap-3">
-                  <FaEdit className="text-2xl text-gray-300" />
-                  <div>
-                    <div className="font-semibold text-white">Markdown</div>
-                    <div className="text-xs text-gray-500">your prompt</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="text-center text-lg text-gray-600">+</div>
-              
-              <div className="flex items-center justify-between bg-gray-900/30 rounded-lg p-4">
-                <div className="flex items-center gap-3">
-                  <FaWrench className="text-2xl text-gray-300" />
-                  <div>
-                    <div className="font-semibold text-white">Functions</div>
-                    <div className="text-xs text-gray-500">your tools</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="text-center text-lg text-gray-600">=</div>
-              
-              <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-500/30">
-                <div className="flex items-center justify-center gap-3">
-                  <FaRobot className="text-2xl text-gray-300" />
-                  <div>
-                    <div className="font-semibold text-white">Agent</div>
-                    <div className="text-xs text-purple-400">AI assistant</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Desktop: Horizontal flow */}
-            <div className="hidden md:grid grid-cols-5 gap-2 items-center">
-              <div className="text-center">
-                <FaEdit className="text-4xl mb-2 text-gray-300" />
-                <div className="font-semibold text-white">Markdown</div>
-                <div className="text-xs text-gray-500">prompt</div>
-              </div>
-              
-              <div className="text-center text-2xl text-gray-600">+</div>
-              
-              <div className="text-center">
-                <FaWrench className="text-4xl mb-2 text-gray-300" />
-                <div className="font-semibold text-white">Functions</div>
-                <div className="text-xs text-gray-500">tools</div>
-              </div>
-              
-              <div className="text-center text-2xl text-gray-600">=</div>
-              
-              <div className="text-center p-4 bg-purple-900/20 rounded-lg border border-purple-500/30">
-                <FaRobot className="text-4xl mb-2 text-gray-300" />
-                <div className="font-semibold text-white">Agent</div>
-                <div className="text-xs text-purple-400">AI</div>
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
-      
-      {/* Section 4: Code Example - Cleaner */}
-      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6 bg-gray-900/20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Complete Example</h2>
-            <p className="text-lg text-gray-100">This is all the code you need:</p>
-          </div>
-          
-          <CodeWithResult 
-            code={`from connectonion import Agent
 
-# 1. Write your prompt
-prompt = "You are a helpful assistant"
+          {/* Option 1: Functions */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-white mb-3">Option 1: Functions (Stateless Tools)</h3>
+            <CodeWithResult
+              code={`from connectonion import Agent
 
-# 2. Define your function  
+# Pure Python functions
 def calculate(expression: str) -> str:
+    """Evaluate a mathematical expression"""
     return str(eval(expression))
 
-# 3. Create agent
-agent = Agent(prompt, tools=[calculate])
+def search(query: str) -> str:
+    """Search for information"""
+    return search_results
 
-# That's it! Use it:
+# Agent = Prompt + Functions
+agent = Agent("You are a helpful assistant", tools=[calculate, search])
+
 result = agent.input("What's 42 * 17?")
 print(result)  # "42 * 17 equals 714"`}
-            result={`42 * 17 equals 714`}
-          />
+              result={`42 * 17 equals 714`}
+            />
+            <p className="text-gray-300 mt-4 text-center">
+              <strong>When to use:</strong> Stateless operations, no shared context needed
+            </p>
+          </div>
+
+          {/* Option 2: Class */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-white mb-3">Option 2: Class (Stateful Tools with Shared Context)</h3>
+            <CodeWithResult
+              code={`from connectonion import Agent
+
+class Calculator:
+    def __init__(self):
+        self.history = []  # Shared context across tool calls
+
+    def calculate(self, expression: str) -> str:
+        """Evaluate a mathematical expression"""
+        result = str(eval(expression))
+        self.history.append(f"{expression} = {result}")
+        return result
+
+    def get_history(self) -> str:
+        """Get calculation history"""
+        return "\\n".join(self.history)
+
+calc = Calculator()
+
+# Agent = Prompt + Class (uses all public methods)
+agent = Agent("You are a helpful assistant", tools=calc)
+
+agent.input("What's 42 * 17?")
+agent.input("Show me the history")
+# History persists across calls!`}
+              result=""
+            />
+            <p className="text-gray-300 mt-4 text-center">
+              <strong>When to use:</strong> Need shared state/context between tool calls (database connections, conversation history, etc.)
+            </p>
+          </div>
+
+          {/* Summary */}
+          <div className="bg-gray-800/30 rounded-xl p-6 md:p-8 border border-gray-700">
+            <h4 className="text-xl font-bold text-white mb-4">What Just Happened:</h4>
+            <ul className="space-y-2 text-slate-200">
+              <li><strong className="text-green-400">Functions:</strong> Pure Python functions → Automatic tool schema</li>
+              <li><strong className="text-green-400">Class:</strong> Public methods → Automatic tools with shared context (instance state)</li>
+              <li><strong className="text-green-400">Prompt:</strong> Plain markdown string</li>
+              <li>No boilerplate, no framework inheritance, no config files</li>
+            </ul>
+            <div className="mt-6 pt-6 border-t border-gray-700">
+              <p className="text-slate-200">
+                <strong className="text-white">Philosophy:</strong><br/>
+                <span className="text-green-400">Keep simple things simple</span> - 8 lines for basic agents<br/>
+                <span className="text-purple-400">Make complicated things possible</span> - Full production features available
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Section 5: See the Difference - Comparison */}
-      <section className="py-16 px-6 bg-gray-900/20">
+      {/* Deploy - Natural Scaling Path */}
+      <section className="py-16 md:py-24 px-4 md:px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-6">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-purple-500" />
+              <span className="text-purple-400 text-sm font-mono uppercase tracking-wider">Deploy</span>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              Deploy in One Line. Scale When You Need It.
+            </h2>
+            <p className="text-lg text-slate-200">
+              Start on your laptop. Move to VPS when you grow. No premature infrastructure.
+            </p>
+          </div>
+
+          <div className="space-y-8 mb-12 max-w-4xl mx-auto">
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-4">Deploy from Your Laptop</h3>
+              <CodeWithResult
+                code={`from connectonion import Agent
+
+def translate(text: str) -> str:
+    """Translate text between languages"""
+    return translation_result
+
+agent = Agent("You are a translator", tools=[translate])
+
+# One line to deploy
+agent.serve()`}
+                result={`🟢 Agent Online
+Public Key: 0x3d4017c3e892b7f1a5e4d3c2b1a0f9e8d7c6b5a4
+
+Running on: Your MacBook Pro
+Globally accessible via P2P network
+
+Debug: https://oo.openonion.ai/debug/0x3d4017c3e892b7f1
+Protocol: co://0x3d4017c3e892b7f1a5e4d3c2b1a0f9e8d7c6b5a4
+
+[Waiting for connections...]`}
+              />
+            </div>
+          </div>
+
+          {/* Natural Scaling Path */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">Natural Scaling Path</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gradient-to-br from-green-800/30 to-green-900/30 rounded-xl p-6 border border-green-500/30">
+                <div className="text-3xl font-bold text-green-400 mb-2">0-100 users</div>
+                <h4 className="font-bold text-white mb-2">Your Laptop</h4>
+                <p className="text-sm text-slate-200 mb-4">
+                  Development and initial users. Run locally with agent.serve()
+                </p>
+                <div className="text-2xl font-bold text-white">$0/month</div>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-800/30 to-blue-900/30 rounded-xl p-6 border border-blue-500/30">
+                <div className="text-3xl font-bold text-blue-400 mb-2">100-1000 users</div>
+                <h4 className="font-bold text-white mb-2">Your Own VPS</h4>
+                <p className="text-sm text-slate-200 mb-4">
+                  Deploy to any VPS. Same code, better uptime.
+                </p>
+                <div className="text-2xl font-bold text-white">$5-10/month</div>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-800/30 to-purple-900/30 rounded-xl p-6 border border-purple-500/30">
+                <div className="text-3xl font-bold text-purple-400 mb-2">1000+ users</div>
+                <h4 className="font-bold text-white mb-2">OpenOnion Cloud</h4>
+                <p className="text-sm text-slate-200 mb-4">
+                  Auto-scaling, global CDN, monitoring
+                </p>
+                <div className="text-sm font-semibold text-purple-300 bg-purple-900/50 px-3 py-1 rounded-full inline-block">
+                  Coming Soon
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Coming Soon: One-Command Deploy */}
+          <div className="bg-purple-950/30 border border-purple-500/30 rounded-xl p-8 text-center">
+            <h4 className="text-xl font-bold text-white mb-4">Coming Soon: One-Command Deploy</h4>
+            <CodeWithResult
+              code={`co deploy --openonion`}
+              result={`🚀 Deploying to OpenOnion Cloud...
+✓ Building agent
+✓ Uploading to global CDN
+✓ Configuring auto-scaling
+✓ Setting up monitoring
+
+🟢 Agent deployed: https://0x3d4017c3e892.openonion.ai
+Global endpoints active in 12 regions`}
+            />
+            <p className="text-gray-300 mt-4">
+              One command to deploy globally. Focus on your agent, not infrastructure.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Multi-Agent Collaboration */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-900/20">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-6">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-green-500" />
+              <span className="text-green-400 text-sm font-mono uppercase tracking-wider">Multi-Agent</span>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-green-500" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              Connect Agents. Build Networks.
+            </h2>
+            <p className="text-lg text-slate-200">
+              Agents can connect to each other directly. Just like the internet, but for AI.
+            </p>
+          </div>
+
+          {/* Current: Connect to Known Agents */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-white mb-4">Current: Connect to Known Agents</h3>
+            <CodeWithResult
+              code={`from connectonion import connect
+
+# Connect using agent address
+translator = connect("0x3d4017c3e892b7f1a5e4d3c2b1a0f9e8d7c6b5a4")
+
+# Use it like any function
+result = translator.input("Translate 'Hello' to Spanish")
+print(result)`}
+              result={`"Hola"`}
+            />
+            <p className="text-gray-300 mt-4 text-center">
+              If you know the agent address, you can connect to it directly.
+            </p>
+          </div>
+
+          {/* Coming Soon: Semantic Discovery */}
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-4">
+              <h3 className="text-2xl font-bold text-white">Coming Soon: Semantic Discovery</h3>
+              <span className="text-sm font-semibold text-purple-300 bg-purple-900/50 px-3 py-1 rounded-full">
+                Coming Soon
+              </span>
+            </div>
+            <CodeWithResult
+              code={`from connectonion import use
+
+# Discover agents by capability (not implemented yet)
+translator = use("translate to Spanish", trust="tested")
+
+# ConnectOnion will find the best agent for this capability
+result = translator.input("Hello")
+print(result)`}
+              result=""
+            />
+            <p className="text-gray-300 mt-4 text-center">
+              Soon you'll be able to discover agents by what they do, not just who they are.
+            </p>
+          </div>
+
+          {/* Trust Levels */}
+          <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-xl p-6 md:p-8 border border-blue-500/30">
+            <h3 className="text-xl font-bold text-white mb-4">Trust Levels</h3>
+            <p className="text-slate-200 mb-6">
+              Control what your agent can do. Simple strings based on risk:
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-green-900/30 rounded-lg p-4 border border-green-500/30">
+                <div className="text-lg font-bold text-green-400 mb-2">trust="open"</div>
+                <p className="text-sm text-slate-200">
+                  Development mode. No restrictions. Fast iteration.
+                </p>
+              </div>
+              <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/30">
+                <div className="text-lg font-bold text-blue-400 mb-2">trust="tested"</div>
+                <p className="text-sm text-slate-200">
+                  Production mode. Only verified agents with good track records.
+                </p>
+              </div>
+              <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-500/30">
+                <div className="text-lg font-bold text-purple-400 mb-2">trust="strict"</div>
+                <p className="text-sm text-slate-200">
+                  High-stakes. Financial transactions, critical operations.
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 pt-6 border-t border-gray-700">
+              <p className="text-slate-200 text-sm">
+                <strong className="text-white">Smart Defaults:</strong><br/>
+                • Development/localhost → <code className="text-green-400">trust="open"</code><br/>
+                • Test files → <code className="text-blue-400">trust="tested"</code><br/>
+                • Production → <code className="text-purple-400">trust="strict"</code>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Code Comparison - 8 vs 50 lines */}
+      <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">See the Difference</h2>
-            <p className="text-base md:text-lg text-gray-100">Same AI agent, different approach</p>
+            <p className="text-base md:text-lg text-slate-100">Same AI agent, different approach</p>
           </div>
-          
-          {/* Mobile: Visual Summary + Tab Interface */}
+
+          {/* Mobile: Tab Interface */}
           <div className="md:hidden">
-            {/* Visual Comparison Summary */}
             <div className="bg-gradient-to-r from-green-500/10 to-gray-500/10 rounded-lg p-4 mb-4 border border-green-500/20">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-semibold text-gray-200">Lines of Code</span>
+                <span className="text-sm font-semibold text-slate-200">Lines of Code</span>
                 <span className="text-2xl font-bold text-green-400">85% less</span>
               </div>
-              {/* Visual bar chart */}
               <div className="flex gap-3 h-24 items-end mb-3">
                 <div className="flex-1 flex flex-col items-center gap-2">
                   <div className="w-full bg-green-500/20 rounded relative flex-1">
@@ -373,10 +462,8 @@ print(result)  # "42 * 17 equals 714"`}
                   <span className="text-xs text-gray-300 font-bold">~50 lines</span>
                 </div>
               </div>
-              <p className="text-xs text-gray-300 text-center">Same result, way less boilerplate</p>
             </div>
 
-            {/* Tab Buttons */}
             <div className="flex gap-2 mb-4">
               <button
                 onClick={() => setActiveComparison('connectonion')}
@@ -403,13 +490,12 @@ print(result)  # "42 * 17 equals 714"`}
                 <span className="block text-xs mt-1">~50 lines</span>
               </button>
             </div>
-            
-            {/* Tab Content */}
+
             {activeComparison === 'connectonion' ? (
               <div className="bg-gray-900/50 rounded-lg border border-green-500/30 overflow-hidden">
                 <div className="p-3">
-                  <SyntaxHighlighter 
-                    language="python" 
+                  <SyntaxHighlighter
+                    language="python"
                     style={monokai}
                     customStyle={{
                       background: 'transparent',
@@ -425,7 +511,7 @@ print(result)  # "42 * 17 equals 714"`}
 def calculate(expression: str) -> str:
     return str(eval(expression))
 
-agent = Agent("You are a helpful assistant", 
+agent = Agent("You are a helpful assistant",
               tools=[calculate])
 
 result = agent.input("What's 42 * 17?")
@@ -436,8 +522,8 @@ print(result)`}
             ) : (
               <div className="bg-gray-900/50 rounded-lg border border-gray-700 overflow-hidden">
                 <div className="p-3">
-                  <SyntaxHighlighter 
-                    language="python" 
+                  <SyntaxHighlighter
+                    language="python"
                     style={monokai}
                     customStyle={{
                       background: 'transparent',
@@ -519,10 +605,9 @@ print(result["output"])`}
               </div>
             )}
           </div>
-          
-          {/* Desktop: Grid Layout (unchanged) */}
+
+          {/* Desktop: Grid Layout */}
           <div className="hidden md:grid grid-cols-2 gap-6 md:gap-8">
-            {/* Other Frameworks */}
             <div className="order-2 md:order-1">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-lg font-semibold text-gray-300">Other Frameworks</h3>
@@ -530,8 +615,8 @@ print(result["output"])`}
               </div>
               <div className="bg-gray-900/50 rounded-lg border border-gray-700 overflow-hidden">
                 <div className="p-4 overflow-x-auto">
-                  <SyntaxHighlighter 
-                    language="python" 
+                  <SyntaxHighlighter
+                    language="python"
                     style={monokai}
                     customStyle={{
                       background: 'transparent',
@@ -612,8 +697,7 @@ print(result["output"])`}
                 </div>
               </div>
             </div>
-            
-            {/* ConnectOnion */}
+
             <div className="order-1 md:order-2">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-lg font-semibold text-green-400">ConnectOnion</h3>
@@ -623,8 +707,8 @@ print(result["output"])`}
               </div>
               <div className="bg-gray-900/50 rounded-lg border border-green-500/30 overflow-hidden">
                 <div className="p-4 overflow-x-auto">
-                  <SyntaxHighlighter 
-                    language="python" 
+                  <SyntaxHighlighter
+                    language="python"
                     style={monokai}
                     customStyle={{
                       background: 'transparent',
@@ -640,7 +724,7 @@ print(result["output"])`}
 def calculate(expression: str) -> str:
     return str(eval(expression))
 
-agent = Agent("You are a helpful assistant", 
+agent = Agent("You are a helpful assistant",
               tools=[calculate])
 
 result = agent.input("What's 42 * 17?")
@@ -650,204 +734,232 @@ print(result)`}
               </div>
             </div>
           </div>
-          
-          {/* Big Callout */}
+
           <div className="mt-8 md:mt-12 text-center">
             <div className="inline-block bg-gradient-to-r from-green-500/10 to-purple-500/10 rounded-lg px-6 py-4 border border-green-500/20">
               <p className="text-2xl md:text-3xl font-bold text-white mb-1">
                 Same result, <span className="text-green-400">85% less code</span>
               </p>
-              <p className="text-sm md:text-base text-gray-100">
+              <p className="text-sm md:text-base text-slate-100">
                 No boilerplate. No complexity. Just agents.
               </p>
             </div>
           </div>
         </div>
       </section>
-      
-      {/* Section 6: Vibe Coding with Claude Code */}
-      <section id="vibe-coding" className="py-20 px-6 relative overflow-hidden">
 
-        <div className="max-w-5xl mx-auto relative">
-          {/* Header with better typography */}
+      {/* How We Think Different */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-purple-900/10 via-gray-900/20 to-transparent">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-6">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-purple-500" />
-              <span className="text-purple-400 text-sm font-mono uppercase tracking-wider">AI-Powered Development</span>
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
+              It's Not Just Less Code. It's Different Thinking.
+            </h2>
+            <p className="text-lg md:text-xl text-slate-200">
+              Other frameworks optimize for enterprise architecture. We optimize for <span className="text-green-400 font-semibold">getting shit done</span>.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Other Frameworks */}
+            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-600/50">
+              <h3 className="text-2xl font-bold text-gray-300 mb-6">Other Frameworks Think:</h3>
+              <div className="space-y-6">
+                <div>
+                  <div className="text-red-400 font-semibold mb-2">❌ Abstract Everything</div>
+                  <p className="text-gray-300 text-sm">
+                    "Create base classes, interfaces, factories. You might need them someday."
+                  </p>
+                </div>
+                <div>
+                  <div className="text-red-400 font-semibold mb-2">❌ Configuration Over Code</div>
+                  <p className="text-gray-300 text-sm">
+                    "Write YAML configs, JSON schemas, setup files. Separate concerns."
+                  </p>
+                </div>
+                <div>
+                  <div className="text-red-400 font-semibold mb-2">❌ Framework Lock-in</div>
+                  <p className="text-gray-300 text-sm">
+                    "Inherit from our classes. Use our patterns. Your code belongs to the framework."
+                  </p>
+                </div>
+                <div>
+                  <div className="text-red-400 font-semibold mb-2">❌ Enterprise-First</div>
+                  <p className="text-gray-300 text-sm">
+                    "Built for teams of 50+. Scales to complexity you'll never need."
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              Vibe Coding with Claude Code
-            </h2>
-            <p className="text-base md:text-lg text-gray-200 mb-6 max-w-2xl mx-auto">
-              Install the Claude Code plugin and let AI write your ConnectOnion agents for you.
-            </p>
-
-            {/* Claude Code Highlight */}
-            <div className="max-w-md mx-auto mb-8">
-              <div className="group relative">
-                <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-2xl group-hover:bg-purple-600/30 transition-all" />
-                <div className="relative bg-gradient-to-br from-gray-900/60 to-gray-900/80 backdrop-blur-sm border-2 border-purple-500/40 rounded-2xl p-8 hover:border-purple-500/60 transition-all">
-                  <FaRobot className="text-5xl mb-4 text-purple-300 mx-auto" />
-                  <div className="text-2xl font-bold text-purple-200 mb-2">Claude Code</div>
-                  <div className="text-gray-300 text-sm">Official Anthropic Plugin</div>
+            {/* ConnectOnion */}
+            <div className="bg-gradient-to-br from-green-900/30 to-purple-900/30 rounded-xl p-6 border border-green-500/50">
+              <h3 className="text-2xl font-bold text-green-400 mb-6">ConnectOnion Thinks:</h3>
+              <div className="space-y-6">
+                <div>
+                  <div className="text-green-400 font-semibold mb-2">✓ Functions Are Enough</div>
+                  <p className="text-slate-200 text-sm">
+                    "Write normal Python functions. We'll make them agent tools. No inheritance."
+                  </p>
+                </div>
+                <div>
+                  <div className="text-green-400 font-semibold mb-2">✓ Code Over Configuration</div>
+                  <p className="text-slate-200 text-sm">
+                    "Prompts are markdown strings. Tools are functions. No config files."
+                  </p>
+                </div>
+                <div>
+                  <div className="text-green-400 font-semibold mb-2">✓ Your Code, Your Way</div>
+                  <p className="text-slate-200 text-sm">
+                    "No framework inheritance. No special classes. Just import Agent and go."
+                  </p>
+                </div>
+                <div>
+                  <div className="text-green-400 font-semibold mb-2">✓ Solo-Developer-First</div>
+                  <p className="text-slate-200 text-sm">
+                    "Built for one person building fast. Scales up when you need it."
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* The Big CTA - Install Plugin */}
-          <div className="text-center mb-16">
-            <Link
-              href="/vibe-coding"
-              className="px-8 py-4 md:px-10 md:py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg md:text-xl rounded-xl shadow-xl transition-all inline-flex items-center gap-3"
-            >
-              <Sparkles className="w-6 h-6" />
-              <span>Install Claude Code Plugin</span>
-              <ArrowRight className="w-6 h-6" />
-            </Link>
+          {/* Feature Comparison Table */}
+          <div className="bg-gray-900/50 rounded-xl border border-gray-700 overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-gray-700">
+                    <th className="text-left p-4 text-gray-300 font-semibold">Feature</th>
+                    <th className="text-center p-4 text-gray-300 font-semibold">Other Frameworks</th>
+                    <th className="text-center p-4 text-green-400 font-semibold">ConnectOnion</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm">
+                  <tr className="border-b border-gray-800">
+                    <td className="p-4 text-white font-medium">Define a tool</td>
+                    <td className="p-4 text-gray-300 text-center">Inherit Tool class, define schema, implement _run()</td>
+                    <td className="p-4 text-green-400 text-center font-semibold">Write a function</td>
+                  </tr>
+                  <tr className="border-b border-gray-800 bg-gray-900/30">
+                    <td className="p-4 text-white font-medium">Set system prompt</td>
+                    <td className="p-4 text-gray-300 text-center">PromptTemplate, SystemMessage, config files</td>
+                    <td className="p-4 text-green-400 text-center font-semibold">Pass a string</td>
+                  </tr>
+                  <tr className="border-b border-gray-800">
+                    <td className="p-4 text-white font-medium">Deploy to production</td>
+                    <td className="p-4 text-gray-300 text-center">EC2, Docker, K8s, load balancers, DNS</td>
+                    <td className="p-4 text-green-400 text-center font-semibold">agent.serve()</td>
+                  </tr>
+                  <tr className="border-b border-gray-800 bg-gray-900/30">
+                    <td className="p-4 text-white font-medium">Connect agents</td>
+                    <td className="p-4 text-gray-300 text-center">Build API endpoints, manage authentication, handle requests</td>
+                    <td className="p-4 text-green-400 text-center font-semibold">connect("0x...")</td>
+                  </tr>
+                  <tr className="border-b border-gray-800">
+                    <td className="p-4 text-white font-medium">Debug agent behavior</td>
+                    <td className="p-4 text-gray-300 text-center">Read logs, add print statements, guess</td>
+                    <td className="p-4 text-green-400 text-center font-semibold">@xray decorator</td>
+                  </tr>
+                  <tr className="border-b border-gray-800 bg-gray-900/30">
+                    <td className="p-4 text-white font-medium">Add plugins/extensions</td>
+                    <td className="p-4 text-gray-300 text-center">Implement plugin interface, register handlers, config</td>
+                    <td className="p-4 text-green-400 text-center font-semibold">Pass a function</td>
+                  </tr>
+                  <tr className="bg-gray-900/30">
+                    <td className="p-4 text-white font-medium">Lines to basic agent</td>
+                    <td className="p-4 text-red-400 text-center font-bold text-lg">~50 lines</td>
+                    <td className="p-4 text-green-400 text-center font-bold text-lg">8 lines</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-            <p className="text-sm text-gray-300 mt-4 font-mono">
-              Free plugin • 2-minute setup • Start coding with AI
-            </p>
-          </div>
-          
-          {/* Process Steps - Clean and Simple */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="text-center group">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-600/20 to-purple-600/10 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <span className="text-xl font-bold text-purple-400">1</span>
-              </div>
-              <h3 className="font-bold text-white mb-1 text-sm md:text-base">Copy Documentation</h3>
-              <p className="text-sm text-gray-100">Click the button above</p>
+          <div className="mt-12 text-center">
+            <div className="inline-block bg-gradient-to-r from-purple-500/10 to-green-500/10 rounded-xl px-8 py-6 border border-purple-500/30">
+              <p className="text-xl md:text-2xl font-bold text-white mb-2">
+                The Real Difference?
+              </p>
+              <p className="text-lg text-slate-200">
+                We trust you to write good code. They assume you need hand-holding.
+              </p>
             </div>
-            
-            <div className="text-center group">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-blue-600/10 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <span className="text-xl font-bold text-blue-400">2</span>
-              </div>
-              <h3 className="font-bold text-white mb-1 text-sm md:text-base">Paste to Your AI</h3>
-              <p className="text-sm text-gray-100">Any AI coding assistant</p>
-            </div>
-            
-            <div className="text-center group">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-600/20 to-green-600/10 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <span className="text-xl font-bold text-green-400">3</span>
-              </div>
-              <h3 className="font-bold text-white mb-1 text-sm md:text-base">Start Building</h3>
-              <p className="text-sm text-gray-100">AI writes perfect code</p>
-            </div>
-          </div>
-          
-          {/* Bottom tagline */}
-          <div className="text-center mt-12">
-            <p className="text-gray-500 text-sm">
-              Direct access to the authors on Discord • Shape the framework with us
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Section 7: Start Simple, Ship Production-Ready */}
-      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6 bg-gray-900/20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Start Simple, Ship Production-Ready</h2>
-          <p className="text-lg text-gray-200">Zero setup complexity, full production capabilities</p>
-        </div>
-
-        {/* Key features in clean grid */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-          <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
-            <FaBullseye className="text-2xl mb-2 text-gray-300" />
-            <h3 className="font-semibold text-white mb-1">Zero Setup</h3>
-            <p className="text-sm text-gray-100">Functions become tools instantly</p>
-          </div>
-          
-          <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
-            <FaSearch className="text-2xl mb-2 text-gray-300" />
-            <h3 className="font-semibold text-white mb-1">Debug Mode</h3>
-            <p className="text-sm text-gray-100">@xray shows everything</p>
-          </div>
-          
-          <div className="p-5 bg-gray-800/30 rounded-lg border border-gray-700">
-            <FaChartBar className="text-2xl mb-2 text-gray-300" />
-            <h3 className="font-semibold text-white mb-1">Auto Logging</h3>
-            <p className="text-sm text-gray-100">Every interaction logged to .co/logs/</p>
-          </div>
-        </div>
-
-        {/* Detailed production features */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* CLI Tools */}
-          <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
-            <div className="flex items-center gap-3 mb-4">
-              <Terminal className="w-5 h-5 text-purple-400" />
-              <h3 className="text-lg font-bold text-white">Professional CLI</h3>
+      {/* Plugin System */}
+      <section className="py-16 md:py-24 px-4 md:px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-6">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-orange-500" />
+              <span className="text-orange-400 text-sm font-mono uppercase tracking-wider">Plugins</span>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-orange-500" />
             </div>
-            <div className="bg-black/50 rounded-lg p-4 mb-4 font-mono text-sm">
-              <span className="text-green-400">$ co init</span>
-              <div className="text-gray-500 mt-1">✓ Project ready in 5 seconds</div>
-            </div>
-            <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2 text-gray-100">
-                <CheckCircle className="w-4 h-4 text-green-400" />
-                Project templates
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              Plugins: Just Functions. No Magic.
+            </h2>
+            <p className="text-lg text-slate-200">
+              A plugin is a list of functions. Each function gets the agent as a parameter. Change everything.
+            </p>
+          </div>
+
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-white mb-4 text-center">The Concept</h3>
+            <CodeWithResult
+              code={`from connectonion import after_tool
+
+# A plugin is just a function
+# The function receives the agent as a parameter
+def log_tool(agent):
+    """Log every tool call"""
+    trace = agent.current_session['trace'][-1]
+    print(f"✓ {trace['tool_name']} completed")
+
+# Plugin = list of (when, function)
+logger = [after_tool(log_tool)]
+
+# Use it
+agent = Agent("assistant", tools=[search], plugins=[logger])`}
+              result=""
+            />
+          </div>
+
+          <div className="bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-xl p-6 md:p-8 border border-orange-500/30">
+            <h3 className="text-xl font-bold text-white mb-4">How It Works</h3>
+            <ul className="space-y-3 text-slate-200">
+              <li className="flex items-start gap-3">
+                <span className="text-orange-400 text-lg">•</span>
+                <span><strong className="text-white">A plugin is a list of events</strong><br/>
+                Each event = when to call + what function to call</span>
               </li>
-              <li className="flex items-center gap-2 text-gray-100">
-                <CheckCircle className="w-4 h-4 text-green-400" />
-                Environment management
+              <li className="flex items-start gap-3">
+                <span className="text-orange-400 text-lg">•</span>
+                <span><strong className="text-white">The function gets the agent</strong><br/>
+                You have access to everything: session data, tools, prompts, state</span>
               </li>
-              <li className="flex items-center gap-2 text-gray-100">
-                <CheckCircle className="w-4 h-4 text-green-400" />
-                Best practices built-in
+              <li className="flex items-start gap-3">
+                <span className="text-orange-400 text-lg">•</span>
+                <span><strong className="text-white">You can change everything</strong><br/>
+                Modify behavior, add logging, inject tools, transform outputs</span>
               </li>
             </ul>
-          </div>
-
-          {/* Interactive Debugging - NEW */}
-          <div className="bg-gradient-to-br from-purple-900/50 to-purple-800/30 rounded-xl p-6 border border-purple-500/50">
-            <div className="flex items-center gap-3 mb-4">
-              <Bug className="w-5 h-5 text-purple-300" />
-              <h3 className="text-lg font-bold text-white">Interactive Debugging</h3>
-              <span className="text-xs bg-purple-500/30 text-purple-200 px-2 py-1 rounded-full">NEW</span>
+            <div className="mt-6 pt-6 border-t border-gray-700">
+              <p className="text-slate-200 text-sm">
+                <strong className="text-white">Available Events:</strong><br/>
+                <code className="text-orange-400">before_tool</code>, <code className="text-orange-400">after_tool</code>,
+                <code className="text-orange-400">before_llm</code>, <code className="text-orange-400">after_llm</code>
+              </p>
             </div>
-            <div className="bg-black/50 rounded-lg p-4 mb-4 font-mono text-xs leading-relaxed">
-              <span className="text-purple-400">agent.auto_debug()</span>
-              <div className="text-gray-500 mt-2">🔍 Breakpoint hit!</div>
-              <div className="text-blue-300 mt-1">&gt; Press 'c' to continue</div>
-              <div className="text-green-300">&gt; Press 'e' to edit variables</div>
-            </div>
-            <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2 text-gray-100">
-                <CheckCircle className="w-4 h-4 text-green-400" />
-                Pause at breakpoints
-              </li>
-              <li className="flex items-center gap-2 text-gray-100">
-                <CheckCircle className="w-4 h-4 text-green-400" />
-                Python REPL access
-              </li>
-              <li className="flex items-center gap-2 text-gray-100">
-                <CheckCircle className="w-4 h-4 text-green-400" />
-                Test "what if" scenarios
-              </li>
-            </ul>
-            <Link
-              href="/auto-debug"
-              className="mt-4 inline-flex items-center gap-2 text-purple-300 hover:text-purple-200 transition-colors text-sm"
-            >
-              Learn more <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* Section 8: Agents That Debug Themselves */}
-      <section className="py-20 px-6 bg-gradient-to-b from-purple-950/30 via-purple-950/10 to-transparent relative overflow-hidden">
-        {/* Decorative elements */}
+      {/* Debug Section */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-purple-950/30 via-purple-950/10 to-transparent relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
-        <div className="absolute top-20 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-1/4 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl" />
 
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="text-center mb-16">
@@ -857,14 +969,13 @@ print(result)`}
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              Agents That Debug <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600">Themselves</span>
+              Debug Like Never Before
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Pause at breakpoints, inspect variables, test edge cases - all in real-time
+              LangChain gives you logs. ConnectOnion gives you a debugger.
             </p>
           </div>
 
-          {/* Main Example */}
           <div className="mb-16">
             <CodeWithResult
               code={`from connectonion import Agent
@@ -916,206 +1027,163 @@ Debugging: "Send email to John"
             />
           </div>
 
-          {/* Key Features Grid */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all hover:shadow-lg hover:shadow-purple-500/10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-600/30 to-purple-700/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Bug className="w-6 h-6 text-purple-400" />
-                </div>
-                <h3 className="font-bold text-white text-lg">@xray Breakpoints</h3>
-              </div>
-              <p className="text-sm text-gray-300 leading-relaxed">
-                Decorate any tool with <code className="text-purple-400 bg-purple-950/50 px-1.5 py-0.5 rounded font-mono text-xs">@xray</code> - agent pauses automatically. Inspect variables, context, and full execution state.
+            <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all">
+              <Bug className="w-8 h-8 text-purple-400 mb-3" />
+              <h3 className="font-bold text-white text-lg mb-2">@xray Breakpoints</h3>
+              <p className="text-sm text-gray-300">
+                Decorate any tool with <code className="text-purple-400 bg-purple-950/50 px-1.5 py-0.5 rounded font-mono text-xs">@xray</code> - agent pauses automatically.
               </p>
             </div>
 
-            <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all hover:shadow-lg hover:shadow-purple-500/10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-600/30 to-purple-700/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Terminal className="w-6 h-6 text-purple-400" />
-                </div>
-                <h3 className="font-bold text-white text-lg">Zero Learning Curve</h3>
-              </div>
-              <p className="text-sm text-gray-300 leading-relaxed">
-                Arrow keys or shortcuts (<kbd className="bg-gray-700 px-1.5 py-0.5 rounded text-xs">c</kbd>/<kbd className="bg-gray-700 px-1.5 py-0.5 rounded text-xs">e</kbd>/<kbd className="bg-gray-700 px-1.5 py-0.5 rounded text-xs">q</kbd>). Tips always shown. No docs needed.
+            <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all">
+              <Terminal className="w-8 h-8 text-purple-400 mb-3" />
+              <h3 className="font-bold text-white text-lg mb-2">Zero Learning Curve</h3>
+              <p className="text-sm text-gray-300">
+                Arrow keys or shortcuts. Tips always shown. No docs needed.
               </p>
             </div>
 
-            <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all hover:shadow-lg hover:shadow-purple-500/10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-600/30 to-purple-700/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <CheckCircle className="w-6 h-6 text-purple-400" />
-                </div>
-                <h3 className="font-bold text-white text-lg">Time-Travel Testing</h3>
-              </div>
-              <p className="text-sm text-gray-300 leading-relaxed">
-                Press <kbd className="bg-gray-700 px-1.5 py-0.5 rounded text-xs">e</kbd> for Python REPL. Change one variable, watch entire agent behavior change. Test edge cases instantly.
+            <div className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all">
+              <CheckCircle className="w-8 h-8 text-purple-400 mb-3" />
+              <h3 className="font-bold text-white text-lg mb-2">Time-Travel Testing</h3>
+              <p className="text-sm text-gray-300">
+                Press 'e' for Python REPL. Change variables, watch behavior change.
               </p>
             </div>
           </div>
 
-          {/* CTA with additional info */}
           <div className="text-center">
             <Link
               href="/auto-debug"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white rounded-xl transition-all font-semibold shadow-lg shadow-purple-600/30 hover:shadow-purple-500/40 hover:scale-105"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white rounded-xl transition-all font-semibold shadow-lg"
             >
               Learn Interactive Debugging <ArrowRight className="w-5 h-5" />
             </Link>
             <p className="mt-4 text-sm text-gray-300">
-              Available in <span className="text-purple-400 font-mono">v0.3.2</span> • Coming soon: Ask AI, View trace, Step mode
+              Available in <span className="text-purple-400 font-mono">v0.3.2</span>
             </p>
           </div>
         </div>
       </section>
 
-      {/* Section 9: Agent Collaboration */}
-      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6">
-        <div className="max-w-5xl mx-auto">
+      {/* Production Ready */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-900/20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Production-Ready Out of the Box</h2>
+          <p className="text-lg text-slate-200">Not a prototype tool - built for production from day one</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="p-6 bg-gray-800/30 rounded-lg border border-gray-700">
+            <Terminal className="w-8 h-8 text-purple-400 mb-3" />
+            <h3 className="font-semibold text-white mb-2">Professional CLI</h3>
+            <div className="bg-black/50 rounded-lg p-3 mb-3 font-mono text-sm">
+              <span className="text-green-400">$ co init</span>
+              <div className="text-gray-500 mt-1">✓ Ready in 5 seconds</div>
+            </div>
+            <p className="text-sm text-slate-100">Project templates, environment management, best practices built-in</p>
+          </div>
+
+          <div className="p-6 bg-gray-800/30 rounded-lg border border-gray-700">
+            <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
+            <h3 className="font-semibold text-white mb-2">Auto Logging</h3>
+            <p className="text-sm text-slate-100 mb-3">
+              Every interaction logged to <code className="text-purple-300 bg-gray-900/50 px-1.5 py-0.5 rounded">.co/logs/</code>
+            </p>
+            <p className="text-xs text-slate-200">Full conversation, tool calls, timing, model info - no custom code needed</p>
+          </div>
+
+          <div className="p-6 bg-gray-800/30 rounded-lg border border-gray-700">
+            <Sparkles className="w-8 h-8 text-blue-400 mb-3" />
+            <h3 className="font-semibold text-white mb-2">Multi-LLM Support</h3>
+            <div className="space-y-1 text-xs font-mono">
+              <div className="text-slate-200">model="gpt-4o"</div>
+              <div className="text-slate-200">model="claude-opus-4"</div>
+              <div className="text-slate-200">model="gemini-2.0-flash"</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vibe Coding */}
+      <section className="py-16 md:py-24 px-4 md:px-6 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto relative">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-6">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-500" />
-              <span className="text-blue-400 text-sm font-mono uppercase tracking-wider">Multi-Agent Systems</span>
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-500" />
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-purple-500" />
+              <span className="text-purple-400 text-sm font-mono uppercase tracking-wider">AI-Powered Development</span>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Agents That Work Together</h2>
-            <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-              One line to serve. One line to connect. That's all you need.
+
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              Vibe Coding with Claude Code
+            </h2>
+            <p className="text-base md:text-lg text-slate-200 mb-6 max-w-2xl mx-auto">
+              Let AI write your agents. Simple patterns, minimal abstractions, comprehensive examples.
             </p>
           </div>
 
-          {/* Code Example - Vertical Layout for better mobile/tablet experience */}
-          <div className="space-y-8 mb-12 max-w-4xl mx-auto">
-            {/* Step 1: Serve an Agent */}
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <span className="text-xl font-bold text-purple-400">1</span>
-                </div>
-                <h3 className="text-xl font-semibold text-white">Serve an Agent</h3>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+            <div className="text-center group">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-600/20 to-purple-600/10 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                <span className="text-xl font-bold text-purple-400">1</span>
               </div>
-              <CodeWithResult
-                code={`from connectonion import Agent
-
-def translate(text: str) -> str:
-    return translation_result
-
-agent = Agent(
-    "You are a translator",
-    tools=[translate]
-)
-
-# Make it available to others
-agent.serve()`}
-                result={`🟢 Agent Online
-Public Key: 0x3d4017c3...
-
-Debug: https://oo.openonion.ai/...
-Protocol: co://0x3d4017c3...
-
-[Waiting for connections...]`}
-              />
+              <h3 className="font-bold text-white mb-1 text-sm md:text-base">Copy Documentation</h3>
+              <p className="text-sm text-slate-100">Click the button on any docs page</p>
             </div>
 
-            {/* Step 2: Connect to It */}
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <span className="text-xl font-bold text-blue-400">2</span>
-                </div>
-                <h3 className="text-xl font-semibold text-white">Connect to It</h3>
+            <div className="text-center group">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-blue-600/10 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                <span className="text-xl font-bold text-blue-400">2</span>
               </div>
-              <CodeWithResult
-                code={`from connectonion import connect
+              <h3 className="font-bold text-white mb-1 text-sm md:text-base">Paste to Your AI</h3>
+              <p className="text-sm text-slate-100">Claude Code, Cursor, or any assistant</p>
+            </div>
 
-# Connect using public key
-translator = connect(
-    "0x3d4017c3..."
-)
-
-# Use it like any function
-result = translator.input(
-    "Translate 'Hello' to Spanish"
-)
-
-print(result)`}
-                result={`"Hola"`}
-              />
+            <div className="text-center group">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-600/20 to-green-600/10 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                <span className="text-xl font-bold text-green-400">3</span>
+              </div>
+              <h3 className="font-bold text-white mb-1 text-sm md:text-base">Start Building</h3>
+              <p className="text-sm text-slate-100">AI writes perfect code</p>
             </div>
           </div>
 
-          {/* Key Features */}
-          <div className="grid md:grid-cols-3 gap-4 mb-12">
-            <div className="bg-gray-800/30 rounded-lg p-5 border border-gray-700">
-              <div className="flex items-center gap-2 mb-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <h4 className="font-semibold text-white">Zero Config</h4>
-              </div>
-              <p className="text-sm text-gray-100">Public key is auto-generated</p>
-            </div>
-
-            <div className="bg-gray-800/30 rounded-lg p-5 border border-gray-700">
-              <div className="flex items-center gap-2 mb-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <h4 className="font-semibold text-white">Web Debugger</h4>
-              </div>
-              <p className="text-sm text-gray-100">Test agents in browser instantly</p>
-            </div>
-
-            <div className="bg-gray-800/30 rounded-lg p-5 border border-gray-700">
-              <div className="flex items-center gap-2 mb-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <h4 className="font-semibold text-white">Long Tasks</h4>
-              </div>
-              <p className="text-sm text-gray-100">Built for 20+ minute operations</p>
-            </div>
-          </div>
-
-          {/* What You Get */}
-          <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-xl p-6 border border-blue-500/30">
-            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-blue-400" />
-              What You Get
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <div className="flex items-start gap-2">
-                <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-100"><strong>Ed25519 Identity:</strong> Cryptographic public key as address</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-100"><strong>Auto Relay:</strong> NAT traversal handled automatically</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-100"><strong>Signed Messages:</strong> All communication verified</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-100"><strong>Protocol URL:</strong> co:// links open debug interface</span>
-              </div>
-            </div>
+          <div className="text-center">
+            <Link
+              href="/vibe-coding"
+              className="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg rounded-xl shadow-xl transition-all inline-flex items-center gap-3"
+            >
+              <Sparkles className="w-6 h-6" />
+              <span>Learn Vibe Coding</span>
+              <ArrowRight className="w-6 h-6" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Section 10: Join the Community */}
-      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6 bg-gray-900/20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Join the Community</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+      {/* Community */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-900/20">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
+            Truly Open, Truly Community
+          </h2>
+          <p className="text-lg text-slate-200 mb-8 text-center">
+            MIT-licensed and community-driven. Framework decisions made by users, not a product roadmap.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
             <a
               href="https://discord.gg/4xfD9k8AUF"
               target="_blank"
               rel="noopener noreferrer"
               className="p-6 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-colors"
-              aria-label="Join ConnectOnion Discord community - Get help and share ideas"
+              aria-label="Join ConnectOnion Discord community"
             >
               <FaDiscord className="w-10 h-10 text-purple-400 mb-3 mx-auto" />
-              <h3 className="font-semibold text-white mb-1">Discord</h3>
-              <p className="text-sm text-gray-100">Get help & share ideas</p>
+              <h3 className="font-semibold text-white mb-1 text-center">Discord</h3>
+              <p className="text-sm text-slate-100 text-center">Direct access to creators • {'< '}4hr response time</p>
             </a>
 
             <a
@@ -1123,27 +1191,37 @@ print(result)`}
               target="_blank"
               rel="noopener noreferrer"
               className="p-6 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-colors"
-              aria-label="View ConnectOnion on GitHub - Star and contribute to the project"
+              aria-label="View ConnectOnion on GitHub"
             >
               <FaGithub className="w-10 h-10 text-blue-400 mb-3 mx-auto" />
-              <h3 className="font-semibold text-white mb-1">GitHub</h3>
-              <p className="text-sm text-gray-100">Star & contribute</p>
+              <h3 className="font-semibold text-white mb-1 text-center">GitHub</h3>
+              <p className="text-sm text-slate-100 text-center">Star & contribute • Shape the framework</p>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Section 11: Final CTA - Simplified */}
-      <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6">
+      {/* Final CTA */}
+      <section className="py-16 md:py-24 px-4 md:px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Start?</h2>
-          <p className="text-base md:text-lg text-gray-200 mb-6 md:mb-8">
-            Build your first agent today
+          <p className="text-base md:text-lg text-slate-200 mb-6 md:mb-8">
+            Build, deploy, and get discovered - all from your laptop
           </p>
 
-          <CommandBlock commands={['pip install connectonion']} />
+          <div className="mb-6">
+            <CommandBlock commands={['pip install connectonion']} />
+          </div>
 
-          <div className="mt-4 md:mt-6">
+          <CodeWithResult
+            code={`from connectonion import Agent
+
+agent = Agent("You are helpful", tools=[your_function])
+agent.serve()  # Deploy from laptop, globally accessible`}
+            result=""
+          />
+
+          <div className="mt-6">
             <Link
               href="/quickstart"
               className="text-sm text-gray-500 hover:text-white transition-colors"
@@ -1151,12 +1229,19 @@ print(result)`}
               View Documentation →
             </Link>
           </div>
+
+          <p className="mt-4 text-sm text-gray-300">
+            60 seconds to your first agent. No AWS. No marketing. Just code.
+          </p>
         </div>
       </section>
 
       {/* Navigation */}
       <section className="px-4 md:px-8 pb-12">
         <div className="max-w-6xl mx-auto">
+          <div className="mb-8">
+            <CopyMarkdownButton markdownPath="/home.md" filename="home.md" />
+          </div>
           <ContentNavigation />
         </div>
       </section>

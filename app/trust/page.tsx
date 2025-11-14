@@ -1,44 +1,10 @@
-/*
-  DESIGN ISSUES TO FIX:
-  
-  1. **Missing Core Components** (Priority: HIGH)
-     - No breadcrumb navigation like other pages
-     - Missing copy-all-content button (CLAUDE.md requirement)
-     - No page header structure matching other docs
-     - Fix: Add breadcrumb, CopyMarkdownButton, standardize header
-  
-  2. **Information Architecture** (Priority: HIGH)
-     - Trust levels buried in nested cards
-     - No visual hierarchy between trust forms
-     - Missing quick reference or cheat sheet
-     - Fix: Create trust level comparison table, visual decision tree, quick ref card
-  
-  3. **Code Examples** (Priority: MEDIUM)
-     - Examples don't show real-world scenarios
-     - Missing error cases and edge cases
-     - No progression from simple to complex
-     - Fix: Add realistic examples, show error handling, progressive complexity
-  
-  4. **Visual Design** (Priority: MEDIUM)
-     - Trust level colors (green/yellow/red) not accessible
-     - Grid layout doesn't work on tablet sizes
-     - Sidebar content hidden on mobile
-     - Fix: Use accessible color palette, responsive grid, mobile-first sidebar
-  
-  5. **Navigation Flow** (Priority: LOW)
-     - No clear next steps after reading
-     - Missing links to related concepts
-     - No integration with PageNavigation component
-     - Fix: Add "What's next" section, cross-link to related docs, add navigation
-*/
-
 'use client'
 
 import CodeWithResult from '../../components/CodeWithResult'
-import { Shield, Users, Code, Zap, CheckCircle, TrendingUp, AlertCircle, BookOpen } from 'lucide-react'
+import { Shield, Users, Code, Zap, CheckCircle, AlertCircle, BookOpen, FileText, Bot } from 'lucide-react'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
-
+import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 
 export default function TrustPage() {
   return (
@@ -57,10 +23,11 @@ export default function TrustPage() {
                 Flexible, bidirectional trust configuration for agent interactions
               </p>
             </div>
+            <CopyMarkdownButton />
           </div>
 
           {/* Why Trust Blog Link */}
-          <Link 
+          <Link
             href="/blog/trust-keyword"
             className="inline-flex items-center gap-2 mt-6 px-4 py-2 bg-purple-900/30 border border-purple-800 rounded-lg hover:bg-purple-900/50 transition-colors group"
           >
@@ -74,11 +41,12 @@ export default function TrustPage() {
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Quick Start */}
-          <div className="lg:col-span-2 space-y-8">
+          {/* Main Content Column */}
+          <div className="lg:col-span-2 space-y-12">
+            {/* Quick Start */}
             <section>
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <Zap className="w-6 h-6 text-yellow-400" />
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <Zap className="w-7 h-7 text-yellow-400" />
                 Quick Start
               </h2>
               <CodeWithResult
@@ -95,109 +63,294 @@ agent = Agent(
     tools=[process_data],
     trust="strict"  # Who can use my services
 )`}
-                fileName="trust_config.py"
-                result={`>>> translator = need("translate", trust="strict")
->>> print(translator)
-<Agent: translate (strict trust)>
-
->>> agent = Agent(name="my_service", tools=[process_data], trust="strict")
->>> print(f"Agent {agent.name} configured with strict trust policy")`}
+                result=""
               />
             </section>
 
-            {/* Three Forms */}
+            {/* Three Forms of Trust */}
             <section>
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <Code className="w-6 h-6 text-blue-400" />
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <Code className="w-7 h-7 text-blue-400" />
                 Three Forms of Trust
               </h2>
-              <div className="space-y-4">
-                {/* Trust Levels */}
-                <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <span className="text-purple-400">1.</span> Trust Levels (String)
+
+              {/* 1. Trust Levels */}
+              <div className="mb-8">
+                <div className="bg-gradient-to-br from-green-900/20 to-green-900/5 border border-green-800/50 rounded-lg p-6 mb-4">
+                  <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                    <span className="text-green-400">1.</span> Trust Levels (String)
                   </h3>
                   <p className="text-gray-300 mb-4">Simple predefined levels for common scenarios:</p>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3 p-3 bg-gray-800/50 rounded">
-                      <span className="font-mono text-green-400">open</span>
-                      <span className="text-gray-300">→</span>
-                      <span className="text-gray-300">Trust everyone (development)</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 bg-gray-800/50 rounded">
-                      <span className="font-mono text-yellow-400">tested</span>
-                      <span className="text-gray-300">→</span>
-                      <span className="text-gray-300">Test before trusting (default)</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 bg-gray-800/50 rounded">
-                      <span className="font-mono text-red-400">strict</span>
-                      <span className="text-gray-300">→</span>
-                      <span className="text-gray-300">Verified agents only (production)</span>
-                    </div>
-                  </div>
                 </div>
+                <CodeWithResult
+                  code={`# Development - trust everyone
+agent = need("service", trust="open")
 
-                {/* Trust Rules */}
-                <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <span className="text-purple-400">2.</span> Trust Rules (Dict)
+# Default - test before trusting
+agent = need("service", trust="tested")
+
+# Production - only verified/whitelisted
+agent = need("service", trust="strict")`}
+                  result=""
+                />
+              </div>
+
+              {/* 2. Trust Policy */}
+              <div className="mb-8">
+                <div className="bg-gradient-to-br from-blue-900/20 to-blue-900/5 border border-blue-800/50 rounded-lg p-6 mb-4">
+                  <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                    <FileText className="w-5 h-5 text-blue-400" />
+                    <span className="text-blue-400">2.</span> Trust Policy (Natural Language)
                   </h3>
-                  <p className="text-gray-300 mb-4">Fine-grained control with custom rules:</p>
-                  <CodeWithResult
-                    code={`trust_rules = {
-    "allow": ["agent1", "agent2"],     # Whitelist
-    "deny": ["untrusted_agent"],       # Blacklist  
-    "require_auth": True,               # Authentication
-    "test_timeout": 30,                 # Test duration
-    "max_interactions": 100             # Rate limiting
-}
-
-agent = Agent("secure", trust=trust_rules)`}
-                    fileName="custom_trust.py"
-                  />
+                  <p className="text-gray-300 mb-2">Express complex requirements in plain English:</p>
                 </div>
+                <CodeWithResult
+                  code={`# Inline policy
+translator = need("translate", trust="""
+    I trust agents that:
+    - Pass capability tests
+    - Respond within 500ms
+    - Are on my whitelist OR from local network
+""")
 
-                {/* Trust Functions */}
-                <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <span className="text-purple-400">3.</span> Trust Functions
+# From file
+translator = need("translate", trust="./trust_policy.md")`}
+                  result=""
+                />
+                <div className="mt-4 bg-gray-900 border border-gray-800 rounded-lg p-4">
+                  <p className="text-sm text-gray-300 mb-2 font-semibold">Example trust policy file:</p>
+                  <pre className="text-xs text-gray-400 overflow-x-auto"><code>{`# My Trust Requirements
+
+I trust agents that meet ALL of these criteria:
+- Successfully translate "Hello" to "Hola"
+- Respond in less than 1 second
+- Have processed at least 10 requests successfully
+
+I immediately reject agents that:
+- Fail basic capability tests
+- Take longer than 5 seconds
+- Are on my blacklist`}</code></pre>
+                </div>
+              </div>
+
+              {/* 3. Trust Agent */}
+              <div className="mb-8">
+                <div className="bg-gradient-to-br from-purple-900/20 to-purple-900/5 border border-purple-800/50 rounded-lg p-6 mb-4">
+                  <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                    <Bot className="w-5 h-5 text-purple-400" />
+                    <span className="text-purple-400">3.</span> Trust Agent
                   </h3>
-                  <p className="text-gray-300 mb-4">Dynamic trust evaluation with custom logic:</p>
-                  <CodeWithResult
-                    code={`def custom_trust(agent_name: str, context: dict) -> bool:
-    """Evaluate trust based on custom logic"""
-    if context.get("environment") == "production":
-        return agent_name in VERIFIED_AGENTS
-    return True  # Open in development
-
-agent = Agent("dynamic", trust=custom_trust)`}
-                    fileName="dynamic_trust.py"
-                  />
+                  <p className="text-gray-300 mb-2">For maximum control, use a custom trust agent:</p>
                 </div>
+                <CodeWithResult
+                  code={`# Create a trust agent with verification tools
+trust_agent = Agent(
+    name="my_guardian",
+    tools=[
+        check_whitelist,
+        verify_capability,
+        measure_response_time,
+        check_reputation
+    ],
+    system_prompt="""
+        You verify other agents before allowing interaction.
+        Be strict with payment processors, relaxed with read-only services.
+    """
+)
+
+# Use it for your agent
+my_agent = Agent(
+    name="my_service",
+    tools=[process_payment],
+    trust=trust_agent  # My guardian protects me
+)
+
+# And for discovering services
+payment = need("payment processor", trust=trust_agent)`}
+                  result=""
+                />
               </div>
             </section>
 
             {/* Bidirectional Trust */}
             <section>
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <Users className="w-6 h-6 text-green-400" />
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <Users className="w-7 h-7 text-green-400" />
                 Bidirectional Trust
               </h2>
-              <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 border border-green-800/50 rounded-lg p-6">
+              <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 border border-green-800/50 rounded-lg p-6 mb-4">
                 <p className="text-gray-300 mb-4">
-                  Trust works both ways in ConnectOnion:
+                  The same <code className="text-purple-400 bg-gray-900 px-2 py-1 rounded">trust</code> parameter works in both directions:
                 </p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="bg-gray-900/50 rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">Outbound Trust</h4>
-                    <p className="text-sm text-gray-300">Who I trust to use</p>
-                    <code className="text-xs block mt-2 text-green-400">need("service", trust="...")</code>
-                  </div>
-                  <div className="bg-gray-900/50 rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">Inbound Trust</h4>
-                    <p className="text-sm text-gray-300">Who can use me</p>
-                    <code className="text-xs block mt-2 text-blue-400">Agent(..., trust="...")</code>
-                  </div>
+              </div>
+              <CodeWithResult
+                code={`# As a SERVICE provider (who can use me?)
+alice_agent = Agent(
+    name="alice_translator",
+    tools=[translate],
+    trust="tested"  # Users must pass my tests
+)
+
+# As a SERVICE consumer (who do I trust?)
+translator = need("translate", trust="strict")  # I only use verified services
+
+# Both trust requirements must be satisfied for interaction!`}
+                result=""
+              />
+
+              <div className="mt-6 bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+                <h4 className="text-lg font-semibold text-white mb-4">Trust Flow Example</h4>
+                <CodeWithResult
+                  code={`# Alice creates a translation service
+alice = Agent(
+    name="alice_translator",
+    tools=[translate],
+    trust="tested"  # Test users before serving them
+)
+share(alice)
+
+# Bob looks for a translator
+translator = need(
+    "translate to Spanish",
+    trust="strict"  # Bob only uses verified services
+)
+
+# What happens:
+# 1. Bob's trust agent evaluates Alice (strict check)
+# 2. Alice's trust agent evaluates Bob (test required)
+# 3. Both must approve for connection to succeed`}
+                  result=""
+                />
+              </div>
+            </section>
+
+            {/* Environment-Based Defaults */}
+            <section>
+              <h2 className="text-3xl font-bold text-white mb-6">Environment-Based Defaults</h2>
+              <p className="text-gray-300 mb-4">ConnectOnion automatically adjusts trust based on environment:</p>
+              <CodeWithResult
+                code={`# No trust parameter needed - auto-detected!
+translator = need("translate")
+
+# In development (localhost, Jupyter)
+# → Defaults to trust="open"
+
+# In test files (test_*.py)
+# → Defaults to trust="tested"
+
+# In production
+# → Defaults to trust="strict"
+
+# Override when needed
+translator = need("translate", trust="open")  # Force open even in production`}
+                result=""
+              />
+            </section>
+
+            {/* Common Patterns */}
+            <section>
+              <h2 className="text-3xl font-bold text-white mb-6">Common Patterns</h2>
+
+              <div className="space-y-6">
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-3">Development Mode</h4>
+                  <CodeWithResult
+                    code={`# Trust everyone for rapid development
+connectonion.set_default_trust("open")`}
+                    result=""
+                  />
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-3">Production Mode</h4>
+                  <CodeWithResult
+                    code={`# Strict verification for production
+payment = need("payment processor", trust="strict")
+sensitive = need("data processor", trust="strict")`}
+                    result=""
+                  />
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-3">Mixed Trust</h4>
+                  <CodeWithResult
+                    code={`# Different trust for different services
+scraper = need("web scraper", trust="open")      # Low risk
+analyzer = need("analyze data", trust="tested")   # Medium risk
+payment = need("process payment", trust="strict") # High risk`}
+                    result=""
+                  />
+                </div>
+              </div>
+            </section>
+
+            {/* Security Best Practices */}
+            <section>
+              <h2 className="text-3xl font-bold text-white mb-6">Security Best Practices</h2>
+              <div className="bg-red-900/20 border border-red-800 rounded-lg p-6">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold text-white">Production = Strict:</span>
+                      <span className="text-gray-300"> Always use <code className="text-red-400 bg-gray-900 px-2 py-1 rounded">trust="strict"</code> in production</span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold text-white">Test Sensitive Operations:</span>
+                      <span className="text-gray-300"> Payment, data modification, etc.</span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold text-white">Whitelist Critical Services:</span>
+                      <span className="text-gray-300"> Manually verify and whitelist</span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold text-white">Monitor Trust Decisions:</span>
+                      <span className="text-gray-300"> Log all trust evaluations</span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold text-white">Regular Audits:</span>
+                      <span className="text-gray-300"> Review whitelist and trust policies</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            {/* FAQ */}
+            <section>
+              <h2 className="text-3xl font-bold text-white mb-6">FAQ</h2>
+              <div className="space-y-4">
+                <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
+                  <p className="font-semibold text-white mb-2">Q: What's the default trust level?</p>
+                  <p className="text-gray-300 text-sm">A: <code className="text-yellow-400 bg-gray-950 px-2 py-1 rounded">"tested"</code> - agents are tested before first use</p>
+                </div>
+                <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
+                  <p className="font-semibold text-white mb-2">Q: Can I change trust after agent creation?</p>
+                  <p className="text-gray-300 text-sm">A: Yes: <code className="text-purple-400 bg-gray-950 px-2 py-1 rounded">agent.trust = new_trust_agent</code></p>
+                </div>
+                <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
+                  <p className="font-semibold text-white mb-2">Q: How do trust agents communicate?</p>
+                  <p className="text-gray-300 text-sm">A: They're regular ConnectOnion agents - they talk naturally</p>
+                </div>
+                <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
+                  <p className="font-semibold text-white mb-2">Q: What if both agents have strict trust?</p>
+                  <p className="text-gray-300 text-sm">A: Both requirements must be met - most restrictive wins</p>
+                </div>
+                <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
+                  <p className="font-semibold text-white mb-2">Q: Can I disable trust completely?</p>
+                  <p className="text-gray-300 text-sm">A: Yes: <code className="text-green-400 bg-gray-950 px-2 py-1 rounded">trust="open"</code> accepts everyone without checks</p>
                 </div>
               </div>
             </section>
@@ -206,58 +359,38 @@ agent = Agent("dynamic", trust=custom_trust)`}
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Trust Decision Helper */}
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 sticky top-6">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <Shield className="w-5 h-5 text-purple-400" />
                 Choose Your Trust Level
               </h3>
               <div className="space-y-3">
-                <div className="p-3 bg-gray-800/50 rounded-lg">
+                <div className="p-3 bg-green-900/20 border border-green-800 rounded-lg">
                   <p className="text-sm font-medium text-white mb-1">Development?</p>
-                  <p className="text-xs text-gray-300">Use <code className="text-green-400">open</code></p>
+                  <code className="text-xs text-green-400">trust="open"</code>
+                  <p className="text-xs text-gray-400 mt-1">Trust everyone, iterate fast</p>
                 </div>
-                <div className="p-3 bg-gray-800/50 rounded-lg">
+                <div className="p-3 bg-yellow-900/20 border border-yellow-800 rounded-lg">
                   <p className="text-sm font-medium text-white mb-1">Testing/Staging?</p>
-                  <p className="text-xs text-gray-300">Use <code className="text-yellow-400">tested</code></p>
+                  <code className="text-xs text-yellow-400">trust="tested"</code>
+                  <p className="text-xs text-gray-400 mt-1">Test before trusting (default)</p>
                 </div>
-                <div className="p-3 bg-gray-800/50 rounded-lg">
+                <div className="p-3 bg-red-900/20 border border-red-800 rounded-lg">
                   <p className="text-sm font-medium text-white mb-1">Production?</p>
-                  <p className="text-xs text-gray-300">Use <code className="text-red-400">strict</code></p>
+                  <code className="text-xs text-red-400">trust="strict"</code>
+                  <p className="text-xs text-gray-400 mt-1">Verified agents only</p>
                 </div>
               </div>
-            </div>
-
-            {/* Common Patterns */}
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">Common Patterns</h3>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-400 mt-0.5" />
-                  <span className="text-gray-300">Progressive trust elevation</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-400 mt-0.5" />
-                  <span className="text-gray-300">Environment-based trust</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-400 mt-0.5" />
-                  <span className="text-gray-300">Mutual authentication</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-400 mt-0.5" />
-                  <span className="text-gray-300">Rate limiting & quotas</span>
-                </li>
-              </ul>
             </div>
 
             {/* Warning */}
             <div className="bg-yellow-900/20 border border-yellow-800 rounded-lg p-4">
               <div className="flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-yellow-400 mt-0.5" />
+                <AlertCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm font-medium text-yellow-200 mb-1">Security Note</p>
                   <p className="text-xs text-yellow-300/80">
-                    Always use <code>strict</code> trust in production environments to prevent unauthorized access.
+                    Always use <code className="bg-yellow-950 px-1.5 py-0.5 rounded">trust="strict"</code> in production environments to prevent unauthorized access.
                   </p>
                 </div>
               </div>
@@ -266,7 +399,9 @@ agent = Agent("dynamic", trust=custom_trust)`}
         </div>
 
         {/* Navigation */}
-        <ContentNavigation />
+        <div className="mt-16">
+          <ContentNavigation />
+        </div>
       </div>
     </div>
   )
