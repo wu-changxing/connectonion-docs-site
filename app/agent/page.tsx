@@ -32,109 +32,6 @@ export default function AgentDocsPage() {
     setTimeout(() => setCopiedId(null), 2000)
   }
 
-  const pageContent = `# Agent
-
-The heart of ConnectOnion. Give it tools, and it figures out the rest.
-
-## Quick Start (60 Seconds)
-
-\`\`\`python
-from connectonion import Agent
-
-# Define what your agent can do
-def calculate(expression: str) -> str:
-    """Do math calculations."""
-    return str(eval(expression))
-
-# Create agent
-agent = Agent("math_bot", tools=[calculate])
-
-# Use it
-result = agent.input("What is 42 * 17?")
-\`\`\`
-
-**Output:**
-\`\`\`
-To calculate 42 * 17, I'll use the calculator tool.
-The result is 714.
-\`\`\`
-
-**That's it.** Your first AI agent in 5 lines.
-
-## What Agent Can Do - Full API Overview
-
-After that simple example, here's **everything** an Agent can do:
-
-### Creating an Agent
-
-\`\`\`python
-Agent(
-    name="my_bot",                        # Required: agent identifier
-    tools=[func1, func2],                 # Optional: functions agent can call
-    system_prompt="You are helpful",      # Optional: personality/behavior
-    model="o4-mini",                      # Optional: LLM model (OpenAI/Claude/Gemini)
-    max_iterations=10,                    # Optional: how many tool calls allowed
-    api_key="sk-...",                     # Optional: override environment variable
-    llm=custom_llm,                       # Optional: bring your own LLM instance
-    trust="tested",                       # Optional: security verification
-    log=True                              # Optional: logging configuration
-)
-\`\`\`
-
-### Using Your Agent
-
-\`\`\`python
-# Give it a task
-result = agent.input("Do something")
-
-# Override iterations for complex tasks
-result = agent.input("Complex task", max_iterations=20)
-
-# Execute a tool directly (for testing)
-result = agent.execute_tool("tool_name", {"arg": "value"})
-\`\`\`
-
-### Managing Tools
-
-\`\`\`python
-# Add tools after creation
-agent.add_tool(new_function)
-
-# Remove tools
-agent.remove_tool("function_name")
-
-# See what tools are available
-tools = agent.list_tools()
-\`\`\`
-
-### Conversations & State
-
-\`\`\`python
-# Multi-turn conversations work automatically
-agent.input("What is 10 + 5?")       # Turn 1: "15"
-agent.input("Multiply that by 2")    # Turn 2: "30" (remembers context)
-
-# Start fresh
-agent.reset_conversation()
-
-# Access internal state (advanced)
-session = agent.current_session      # Messages, trace, turn count
-\`\`\`
-
-### Attributes You Can Access
-
-\`\`\`python
-agent.name                  # str: Agent identifier
-agent.tools                 # List[Callable]: All available tools
-agent.tool_map              # Dict[str, Callable]: Fast tool lookup
-agent.system_prompt         # str: Agent's personality
-agent.max_iterations        # int: Default iteration limit
-agent.current_session       # dict | None: Runtime state
-\`\`\`
-
-**That's the complete API.** Now let's dive into each feature.
-`
-
   return (
     <div className="min-h-screen bg-black text-gray-100">
       <div className="max-w-4xl mx-auto px-6 py-12">
@@ -160,7 +57,7 @@ agent.current_session       # dict | None: Runtime state
               </p>
             </div>
           </div>
-          <CopyMarkdownButton content={pageContent} filename="agent.md" />
+          <CopyMarkdownButton markdownPath="/agent/agent.md" filename="agent.md" />
         </div>
 
         {/* Quick Start Section */}
@@ -288,6 +185,137 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
           </div>
         </section>
 
+        {/* max_iterations Section */}
+        <section className="mb-16" id="max-iterations">
+          <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+            <RefreshCw className="w-8 h-8 text-purple-400" />
+            max_iterations
+          </h2>
+
+          <div className="flex items-start gap-3 mb-8 p-4 bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg">
+            <Zap className="text-purple-400 w-5 h-5 flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-purple-200">
+              <strong className="text-purple-100">Quick Facts:</strong>{' '}
+              Default is 10 iterations (works for most tasks!). Fully customizable per-agent or per-task.
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            {/* What Are Iterations */}
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-4">What Are Iterations?</h3>
+              <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6 mb-6">
+                <p className="text-gray-200 mb-4">
+                  Think of iterations as "attempts" - how many times your agent can use tools to complete a task.
+                </p>
+                <CodeWithResult
+                  code={`# Your agent tries to complete the task
+# Iteration 1: "I need to search for info" -> calls search tool
+# Iteration 2: "Now I'll calculate something" -> calls calculate tool
+# Iteration 3: "Let me save the result" -> calls save tool
+# Done! Task completed in 3 iterations`}
+                  result=""
+                />
+              </div>
+            </div>
+
+            {/* The Basics */}
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-4">The Basics (90% of cases)</h3>
+              <CodeWithResult
+                code={`from connectonion import Agent
+
+# Default: 10 iterations (works for most tasks!)
+agent = Agent("my_bot", tools=[search, calculate])
+
+# That's it! Just use it:
+result = agent.input("What's 2+2?")  # Uses 1 iteration
+result = agent.input("Search for Python tutorials")  # Uses 1-2 iterations`}
+                result=""
+              />
+            </div>
+
+            {/* When You Need More Power */}
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-4">When You Need More Power</h3>
+              <CodeWithResult
+                code={`# Complex tasks need more iterations
+research_agent = Agent(
+    "researcher",
+    tools=[search, analyze, summarize],
+    max_iterations=25  # I need more attempts for complex research
+)`}
+                result=""
+              />
+            </div>
+
+            {/* Quick Override */}
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-4">Quick Override for One Task</h3>
+              <CodeWithResult
+                code={`# Override max_iterations for a specific task
+agent = Agent("assistant", tools=[search])  # Default: 10
+
+# Most tasks use default
+result = agent.input("Simple question")
+
+# But this one needs more
+result = agent.input(
+    "Complex multi-step task",
+    max_iterations=30  # Override just for this task
+)`}
+                result=""
+              />
+            </div>
+
+            {/* When to Adjust */}
+            <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+              <h3 className="text-xl font-bold text-white mb-4">When to Adjust max_iterations</h3>
+              <div className="space-y-4 text-gray-200">
+                <div>
+                  <strong className="text-green-400">Increase it when:</strong>
+                  <ul className="list-disc list-inside ml-4 mt-2 space-y-1 text-sm">
+                    <li>Your agent runs complex, multi-step workflows</li>
+                    <li>Tasks require multiple tool calls (research, analysis, etc.)</li>
+                    <li>You see "reached max iterations" in logs</li>
+                  </ul>
+                </div>
+                <div>
+                  <strong className="text-red-400">Decrease it when:</strong>
+                  <ul className="list-disc list-inside ml-4 mt-2 space-y-1 text-sm">
+                    <li>Agent loops unnecessarily (calls same tool repeatedly)</li>
+                    <li>You want faster failures for debugging</li>
+                    <li>Simple tasks that should complete quickly</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Best Practices */}
+            <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6">
+              <h3 className="text-xl font-bold text-white mb-4">Best Practices</h3>
+              <ul className="space-y-3 text-gray-200">
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span><strong>Start with default (10)</strong> - it works for most use cases</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span><strong>Monitor your logs</strong> - check how many iterations tasks actually use</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span><strong>Set per-agent</strong> for specialized agents (researcher=25, calculator=5)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span><strong>Override per-task</strong> when you know a specific task needs more/less</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Full Documentation Note */}
         <section className="mb-16">
           <div className="p-6 bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-xl border border-purple-500/30">
@@ -347,8 +375,8 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
               </p>
             </Link>
 
-            <Link
-              href="/max-iterations"
+            <a
+              href="#max-iterations"
               className="p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/30 hover:border-purple-500/60 transition-all group"
             >
               <RefreshCw className="w-8 h-8 text-purple-400 mb-3" />
@@ -358,7 +386,7 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
               <p className="text-sm text-gray-300">
                 Control how many tool calls your agent can make
               </p>
-            </Link>
+            </a>
 
             <Link
               href="/prompts"

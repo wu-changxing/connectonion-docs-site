@@ -1,18 +1,23 @@
 /**
- * @purpose Side-by-side code and output display component for interactive examples
+ * @purpose Vertical code and output display component for interactive examples
  * @llm-note
  *   Dependencies: imports from [react, lucide-react, react-syntax-highlighter] | imported by [app/page.tsx, app/quickstart/page.tsx, app/agent/page.tsx, +8 more]
- *   Data flow: receives {code: string, result?: string, language?: string} → syntax highlights code via Prism → colorizes REPL output → two-column grid (stacks mobile)
+ *   Data flow: receives {code: string, result?: string, language?: string} → syntax highlights code via Prism → colorizes REPL output → vertical stack (code on top, output below)
  *   State/Effects: manages copied state (2s timeout) | writes to clipboard | no external API calls
  *   Integration: exposes CodeWithResult component | supports python/typescript/javascript syntax | Python REPL formatting (>>>, ..., colored outputs)
  *   Performance: uses react-syntax-highlighter with monokai theme | inline REPL colorization (regex pattern matching) | responsive clamp() font sizing
- *   UX: 44px copy button | xl:grid-cols-2 breakpoint (1280px) | interactive status indicator | language icons (Python/TS/JS)
+ *   UX: 44px copy button | vertical layout for full-width code display | interactive status indicator | language icons (Python/TS/JS)
  */
 /*
   DESIGN IMPROVEMENTS IMPLEMENTED:
 
+  ✓ Layout
+    - Vertical stacked layout (code top, output bottom) for full-width code display
+    - No horizontal scrolling for typical code lines
+    - Consistent layout across all screen sizes
+    - Better readability for longer code examples
+
   ✓ Mobile Responsiveness
-    - Changed breakpoint from lg (1024px) to xl (1280px) for two-column layout
     - Improved font sizes with responsive scaling (0.8125rem on mobile, 0.875rem on desktop)
     - Better padding on mobile (p-4) and desktop (p-6)
     - Touch-friendly copy buttons (44x44px minimum)
@@ -153,7 +158,7 @@ export default function CodeWithResult({
 
   return (
     <div className={`bg-gray-900 rounded-lg overflow-hidden shadow-xl shadow-black/50 border border-gray-800 ${className}`}>
-      <div className="grid grid-cols-1 xl:grid-cols-2 divide-y xl:divide-y-0 xl:divide-x divide-gray-800">
+      <div className="flex flex-col divide-y divide-gray-800">
         {/* Code Section */}
         <div className="relative">
           <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">

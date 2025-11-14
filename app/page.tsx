@@ -44,19 +44,19 @@ export default function HomePage() {
             <div className="bg-black/60 backdrop-blur-sm border-2 border-purple-500/30 rounded-xl p-2 hover:border-purple-500/60 transition-all shadow-2xl hover:shadow-purple-500/20">
               <CommandBlock commands={['pip install connectonion']} />
             </div>
-            <p className="text-slate-300 text-sm mt-3 mb-10">No AWS. No domain names. Just code.</p>
+            <p className="text-slate-100 text-sm mt-3 mb-10">No AWS. No domain names. Just code.</p>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
             <a
               href="/quickstart"
-              className="inline-flex items-center justify-center min-h-[48px] px-4 text-gray-300 hover:text-white transition-colors"
+              className="inline-flex items-center justify-center min-h-[48px] px-6 text-slate-100 hover:text-white transition-colors"
             >
               Quick Start →
             </a>
             <a
               href="https://github.com/wu-changxing/connectonion"
-              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-4 text-gray-300 hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 text-slate-100 hover:text-white transition-colors"
               aria-label="View ConnectOnion on GitHub"
             >
               <FaGithub className="w-4 h-4" />
@@ -64,7 +64,7 @@ export default function HomePage() {
             </a>
             <a
               href="https://discord.gg/4xfD9k8AUF"
-              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-4 text-gray-300 hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 text-slate-100 hover:text-white transition-colors"
               aria-label="Join ConnectOnion Discord community"
             >
               <FaDiscord className="w-4 h-4" />
@@ -115,7 +115,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-8 text-left">
             <div className="bg-gradient-to-br from-purple-900/20 to-purple-900/5 rounded-xl p-6 md:p-8 border border-purple-500/30">
               <h3 className="text-xl md:text-2xl font-bold text-purple-400 mb-4">Keep Simple Things Simple</h3>
-              <p className="text-slate-200 leading-relaxed">
+              <p className="text-slate-100 leading-relaxed">
                 Building a basic agent should take 8 lines, not 50. No boilerplate, no framework inheritance, no config files.
                 Just a prompt and some functions. If you need simple, you get simple.
               </p>
@@ -123,7 +123,7 @@ export default function HomePage() {
 
             <div className="bg-gradient-to-br from-green-900/20 to-green-900/5 rounded-xl p-6 md:p-8 border border-green-500/30">
               <h3 className="text-xl md:text-2xl font-bold text-green-400 mb-4">Make Complicated Things Possible</h3>
-              <p className="text-slate-200 leading-relaxed">
+              <p className="text-slate-100 leading-relaxed">
                 When you need production features - multi-agent networks, plugin systems, interactive debugging, trust levels -
                 they're all there. Full power when you need it, invisible when you don't.
               </p>
@@ -222,7 +222,7 @@ agent.input("Show me the history")
               <li>No boilerplate, no framework inheritance, no config files</li>
             </ul>
             <div className="mt-6 pt-6 border-t border-gray-700">
-              <p className="text-slate-200">
+              <p className="text-slate-100">
                 <strong className="text-white">Philosophy:</strong><br/>
                 <span className="text-green-400">Keep simple things simple</span> - 8 lines for basic agents<br/>
                 <span className="text-purple-400">Make complicated things possible</span> - Full production features available
@@ -244,7 +244,7 @@ agent.input("Show me the history")
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
               Deploy in One Line. Scale When You Need It.
             </h2>
-            <p className="text-lg text-slate-200">
+            <p className="text-lg text-slate-100">
               Start on your laptop. Move to VPS when you grow. No premature infrastructure.
             </p>
           </div>
@@ -345,7 +345,7 @@ Global endpoints active in 12 regions`}
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
               Connect Agents. Build Networks.
             </h2>
-            <p className="text-lg text-slate-200">
+            <p className="text-lg text-slate-100">
               Agents can connect to each other directly. Just like the internet, but for AI.
             </p>
           </div>
@@ -402,19 +402,19 @@ print(result)`}
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-green-900/30 rounded-lg p-4 border border-green-500/30">
                 <div className="text-lg font-bold text-green-400 mb-2">trust="open"</div>
-                <p className="text-sm text-slate-200">
+                <p className="text-sm text-slate-100">
                   Development mode. No restrictions. Fast iteration.
                 </p>
               </div>
               <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/30">
                 <div className="text-lg font-bold text-blue-400 mb-2">trust="tested"</div>
-                <p className="text-sm text-slate-200">
+                <p className="text-sm text-slate-100">
                   Production mode. Only verified agents with good track records.
                 </p>
               </div>
               <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-500/30">
                 <div className="text-lg font-bold text-purple-400 mb-2">trust="strict"</div>
-                <p className="text-sm text-slate-200">
+                <p className="text-sm text-slate-100">
                   High-stakes. Financial transactions, critical operations.
                 </p>
               </div>
@@ -881,7 +881,7 @@ print(result)`}
               <p className="text-xl md:text-2xl font-bold text-white mb-2">
                 The Real Difference?
               </p>
-              <p className="text-lg text-slate-200">
+              <p className="text-lg text-slate-100">
                 We trust you to write good code. They assume you need hand-holding.
               </p>
             </div>
@@ -901,7 +901,7 @@ print(result)`}
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
               Plugins: Just Functions. No Magic.
             </h2>
-            <p className="text-lg text-slate-200">
+            <p className="text-lg text-slate-100">
               A plugin is a list of functions. Each function gets the agent as a parameter. Change everything.
             </p>
           </div>
@@ -1183,7 +1183,7 @@ Debugging: "Send email to John"
             >
               <FaDiscord className="w-10 h-10 text-purple-400 mb-3 mx-auto" />
               <h3 className="font-semibold text-white mb-1 text-center">Discord</h3>
-              <p className="text-sm text-slate-100 text-center">Direct access to creators • {'< '}4hr response time</p>
+              <p className="text-sm text-slate-100 text-center">Direct access to creators • &lt; 4hr response time</p>
             </a>
 
             <a
