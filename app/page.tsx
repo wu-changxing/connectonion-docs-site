@@ -436,7 +436,7 @@ print(result)`}
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">See the Difference</h2>
-            <p className="text-base md:text-lg text-slate-100">Same AI agent, different approach</p>
+            <p className="text-lg text-slate-100">Same AI agent, different approach</p>
           </div>
 
           {/* Mobile: Tab Interface */}
@@ -740,7 +740,7 @@ print(result)`}
               <p className="text-2xl md:text-3xl font-bold text-white mb-1">
                 Same result, <span className="text-green-400">85% less code</span>
               </p>
-              <p className="text-sm md:text-base text-slate-100">
+              <p className="text-sm text-slate-100">
                 No boilerplate. No complexity. Just agents.
               </p>
             </div>
@@ -1119,7 +1119,7 @@ Debugging: "Send email to John"
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               Vibe Coding with Claude Code
             </h2>
-            <p className="text-base md:text-lg text-slate-100 mb-6 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-100 mb-6 max-w-2xl mx-auto">
               Let AI write your agents. Simple patterns, minimal abstractions, comprehensive examples.
             </p>
           </div>
@@ -1129,7 +1129,7 @@ Debugging: "Send email to John"
               <div className="w-12 h-12 bg-gradient-to-br from-purple-600/20 to-purple-600/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-xl font-bold text-purple-400">1</span>
               </div>
-              <h3 className="font-bold text-white mb-1 text-sm md:text-base">Copy Documentation</h3>
+              <h3 className="font-bold text-white mb-1 text-sm">Copy Documentation</h3>
               <p className="text-sm text-slate-100">Click the button on any docs page</p>
             </div>
 
@@ -1137,7 +1137,7 @@ Debugging: "Send email to John"
               <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-blue-600/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-xl font-bold text-blue-400">2</span>
               </div>
-              <h3 className="font-bold text-white mb-1 text-sm md:text-base">Paste to Your AI</h3>
+              <h3 className="font-bold text-white mb-1 text-sm">Paste to Your AI</h3>
               <p className="text-sm text-slate-100">Claude Code, Cursor, or any assistant</p>
             </div>
 
@@ -1145,7 +1145,7 @@ Debugging: "Send email to John"
               <div className="w-12 h-12 bg-gradient-to-br from-green-600/20 to-green-600/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-xl font-bold text-green-400">3</span>
               </div>
-              <h3 className="font-bold text-white mb-1 text-sm md:text-base">Start Building</h3>
+              <h3 className="font-bold text-white mb-1 text-sm">Start Building</h3>
               <p className="text-sm text-slate-100">AI writes perfect code</p>
             </div>
           </div>
@@ -1205,7 +1205,7 @@ Debugging: "Send email to John"
       <section className="py-16 md:py-24 px-4 md:px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">Ready to Start?</h2>
-          <p className="text-base md:text-lg text-slate-100 mb-6 md:mb-8">
+          <p className="text-lg text-slate-100 mb-6 md:mb-8">
             Build, deploy, and get discovered - all from your laptop
           </p>
 
