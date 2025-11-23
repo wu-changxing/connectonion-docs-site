@@ -227,11 +227,11 @@ export function DocsSidebar() {
   }
 
   return (
-    <div className="w-[75vw] max-w-sm sm:w-64 lg:w-72 xl:w-80 bg-gray-900 border-r border-gray-700/50 flex flex-col h-screen sticky top-0 z-40">
+    <div className="w-full sm:w-64 lg:w-72 xl:w-80 bg-gray-900 border-r border-gray-700/50 flex flex-col h-screen sticky top-0 z-40">
       {/* Header */}
       <div className="p-4 border-b border-gray-700/50">
         <Link href="/" className="flex items-center gap-3 group">
-          <img src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png" alt="ConnectOnion" className="w-8 h-8 rounded-lg object-cover" />
+          <img src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png" alt="ConnectOnion Logo" className="w-8 h-8 rounded-lg object-cover" />
           <div>
             <div className="text-lg font-bold text-white">ConnectOnion</div>
             <div className="text-sm text-gray-300">Documentation</div>
@@ -242,11 +242,13 @@ export function DocsSidebar() {
       {/* Search */}
       <div className="p-4 pb-2 bg-gray-800/30">
         <div className="relative group">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 transition-colors group-focus-within:text-purple-400" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 transition-colors group-focus-within:text-purple-400" aria-hidden="true" />
           <input
             ref={searchInputRef}
             type="text"
             placeholder="Search docs..."
+            aria-label="Search documentation"
+            aria-describedby="search-hint"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-8 py-2.5 bg-gray-800/50 border border-gray-600 rounded-lg text-gray-100 placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all text-sm font-normal"
@@ -270,7 +272,7 @@ export function DocsSidebar() {
         </div>
         
         {!searchQuery && (
-          <div className="mt-1.5 text-[11px] text-gray-500">
+          <div id="search-hint" className="mt-1.5 text-[11px] text-gray-500">
             Search everything • Typo-tolerant • Smart matching
           </div>
         )}
@@ -292,21 +294,22 @@ export function DocsSidebar() {
         <button
           onClick={handleCopyAllDocs}
           disabled={copyStatus === 'copying'}
-          className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-purple-600/80 to-pink-600/80 hover:from-purple-600 hover:to-pink-600 disabled:from-gray-600 disabled:to-gray-700 rounded-lg text-white font-medium text-sm transition-all transform hover:scale-[1.02] shadow-lg shadow-purple-500/20"
+          className="w-full min-h-[44px] flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-purple-600/80 to-pink-600/80 hover:from-purple-600 hover:to-pink-600 disabled:from-gray-600 disabled:to-gray-700 rounded-lg text-white font-medium text-sm transition-all transform hover:scale-[1.02] shadow-lg shadow-purple-500/20"
+          aria-label={copyStatus === 'copying' ? 'Copying all documentation' : copyStatus === 'success' ? 'All documentation copied to clipboard' : 'Copy all documentation to clipboard'}
         >
           {copyStatus === 'copying' ? (
             <>
-              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" aria-hidden="true" />
               <span>Copying...</span>
             </>
           ) : copyStatus === 'success' ? (
             <>
-              <Check className="w-4 h-4" />
+              <Check className="w-4 h-4" aria-hidden="true" />
               <span>Copied to Clipboard!</span>
             </>
           ) : (
             <>
-              <Copy className="w-4 h-4" />
+              <Copy className="w-4 h-4" aria-hidden="true" />
               <span>Copy All Docs</span>
             </>
           )}
@@ -427,16 +430,16 @@ export function DocsSidebar() {
                           className="absolute right-2 top-1/2 -translate-y-1/2
                                      opacity-0 group-hover:opacity-100
                                      transition-opacity duration-200
-                                     p-1.5 rounded-md hover:bg-gray-600/50
+                                     min-h-[44px] min-w-[44px] p-2 rounded-md hover:bg-gray-600/50
                                      hidden lg:block"
-                          title="Copy page as markdown"
+                          aria-label={`Copy ${item.title} as markdown`}
                         >
                           {itemCopyStatus === 'loading' && copiedPath === item.href ? (
-                            <Loader2 className="w-4 h-4 text-gray-400 animate-spin" />
+                            <Loader2 className="w-4 h-4 text-gray-400 animate-spin" aria-hidden="true" />
                           ) : itemCopyStatus === 'success' && copiedPath === item.href ? (
-                            <Check className="w-4 h-4 text-green-400" />
+                            <Check className="w-4 h-4 text-green-400" aria-hidden="true" />
                           ) : (
-                            <Copy className="w-4 h-4 text-gray-400 hover:text-white" />
+                            <Copy className="w-4 h-4 text-gray-400 hover:text-white" aria-hidden="true" />
                           )}
                         </button>
                       )}
@@ -489,7 +492,7 @@ export function DocsSidebar() {
           </a>
           <div className="flex items-center gap-2 px-2">
             <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-            <span className="text-xs text-gray-400">v0.1.9</span>
+            <span className="text-xs text-gray-400">v0.4.3</span>
           </div>
         </div>
       </div>

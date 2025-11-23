@@ -44,7 +44,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, Cpu, Zap, Globe, Brain, DollarSign, Eye, Layers, AlertTriangle } from 'lucide-react'
+import { ArrowRight, Cpu, Zap, Globe, Brain, DollarSign, Eye, Layers, AlertTriangle, Users } from 'lucide-react'
 import CodeWithResult from '../../components/CodeWithResult'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -159,26 +159,36 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <Link href="/" className="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 mb-8 transition-colors">
-        <ArrowLeft className="mr-2 h-4 w-4" />
-        Back to Home
-      </Link>
-      
-      <div className="flex items-start justify-between mb-12">
-        <div>
-          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-            Models
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            Use the latest AI models from OpenAI, Google, and Anthropic with a single interface.
-          </p>
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+        <Link href="/" className="hover:text-purple-400 transition-colors">
+          Docs
+        </Link>
+        <ArrowRight className="w-4 h-4" />
+        <span className="text-white">Models</span>
+      </div>
+
+      {/* Header */}
+      <div className="mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+          <div className="flex items-center gap-3">
+            <div className="p-3 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-xl border border-blue-500/30">
+              <Brain className="w-8 h-8 text-blue-400" />
+            </div>
+            <div>
+              <h1 className="heading-1">Models</h1>
+              <p className="text-lg text-gray-300">
+                Use the latest AI models from OpenAI, Google, and Anthropic with a single interface.
+              </p>
+            </div>
+          </div>
+          <CopyMarkdownButton markdownPath="/models/models.md" filename="models.md" className="flex-shrink-0" />
         </div>
-        <CopyMarkdownButton content={markdownContent} filename="models.md" />
       </div>
 
       {/* Quick Start */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-6">Quick Start (60 Seconds)</h2>
+        <h2 className="heading-2">Quick Start (60 Seconds)</h2>
 
         {/* Managed Keys Path */}
         <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-xl border border-purple-500/30 mb-6">
@@ -235,9 +245,70 @@ response = agent.input("Explain quantum computing")`}
         </div>
       </section>
 
+      {/* Default Models */}
+      <section className="mb-12">
+        <h2 className="heading-2">Default Models</h2>
+        <p className="text-gray-600 dark:text-gray-300 mb-4">
+          When you don't specify a model, ConnectOnion uses these optimized defaults:
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 p-6 rounded-xl border border-green-500/30">
+            <h3 className="text-lg font-semibold mb-3 flex items-center text-white">
+              <Users className="mr-2 h-5 w-5 text-green-400" />
+              Agent Default
+            </h3>
+            <p className="text-sm text-gray-300 mb-3">
+              For <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">Agent()</code> class
+            </p>
+            <CodeWithResult
+              code={`# Default: co/gemini-2.5-pro
+agent = Agent("assistant")  # Uses co/gemini-2.5-pro
+
+# Same as:
+agent = Agent("assistant", model="co/gemini-2.5-pro")`}
+              result=""
+            />
+            <p className="text-xs text-green-400 mt-3">
+              Best for agentic tasks with tool calling and complex reasoning
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-yellow-900/20 to-orange-900/20 p-6 rounded-xl border border-yellow-500/30">
+            <h3 className="text-lg font-semibold mb-3 flex items-center text-white">
+              <Zap className="mr-2 h-5 w-5 text-yellow-400" />
+              llm_do Default
+            </h3>
+            <p className="text-sm text-gray-300 mb-3">
+              For <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">llm_do()</code> function
+            </p>
+            <CodeWithResult
+              code={`from connectonion import llm_do
+
+# Default: co/gemini-2.5-flash
+result = llm_do("Summarize this text...")
+
+# Same as:
+result = llm_do("...", model="co/gemini-2.5-flash")`}
+              result=""
+            />
+            <p className="text-xs text-yellow-400 mt-3">
+              Fast and cost-effective for simple LLM calls
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-4">
+          <p className="text-sm text-blue-300">
+            <strong>Note:</strong> Default models require authentication with <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code>.
+            To use your own API keys without the <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co/</code> prefix, set <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">GEMINI_API_KEY</code> environment variable.
+          </p>
+        </div>
+      </section>
+
       {/* Provider Tabs */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-6">Available Models</h2>
+        <h2 className="heading-2">Available Models</h2>
         
         <div className="flex gap-2 mb-6">
           <button
@@ -324,7 +395,11 @@ response = agent.input("Explain quantum computing")`}
               <div className="space-y-3">
                 <div className="flex items-start">
                   <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.5-pro</code>
-                  <span className="text-gray-300">Enhanced reasoning, supports audio/video/PDF (2M tokens)</span>
+                  <span className="text-gray-300">Enhanced reasoning, supports audio/video/PDF (2M tokens) - <strong className="text-green-400">Agent default</strong></span>
+                </div>
+                <div className="flex items-start">
+                  <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.5-flash</code>
+                  <span className="text-gray-300">Fast and cost-effective reasoning (1M tokens) - <strong className="text-yellow-400">llm_do default</strong></span>
                 </div>
               </div>
             </div>
@@ -389,7 +464,7 @@ response = agent.input("Explain quantum computing")`}
 
       {/* Model Selection Guide */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-6">Model Selection Guide</h2>
+        <h2 className="heading-2">Model Selection Guide</h2>
         
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
@@ -444,7 +519,7 @@ response = agent.input("Explain quantum computing")`}
 
       {/* Two Ways to Use Models */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-6">Two Ways to Use Models</h2>
+        <h2 className="heading-2">Two Ways to Use Models</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Managed Keys */}
@@ -509,7 +584,7 @@ agent = Agent("assistant", model="claude-opus-4.1")`}
 
       {/* Smart Model Selection */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Smart Model Selection</h2>
+        <h2 className="heading-2">Smart Model Selection</h2>
         <p className="text-gray-600 dark:text-gray-300 mb-4">
           Automatically select the best model based on your needs:
         </p>
@@ -539,7 +614,7 @@ agent = Agent("coder", model=model)`}
 
       {/* Fallback Chain */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Fallback Chain</h2>
+        <h2 className="heading-2">Fallback Chain</h2>
         <p className="text-gray-600 dark:text-gray-300 mb-4">
           Try multiple models if one fails:
         </p>
@@ -571,7 +646,7 @@ agent = create_agent_with_fallback("assistant")`}
 
       {/* Comparison Table */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-6">Model Comparison</h2>
+        <h2 className="heading-2">Model Comparison</h2>
         
         <div className="overflow-x-auto">
           <table className="w-full border border-gray-200 dark:border-gray-700">
