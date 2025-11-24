@@ -536,7 +536,7 @@ Works seamlessly with:
             <span className="text-white whitespace-nowrap">trace()</span>
           </nav>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 flex items-center gap-3">
+          <h1 className="h1 sm: lg:"heading-1>
             <Eye className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 flex-shrink-0" />
             <span>xray.trace()</span>
           </h1>
@@ -554,7 +554,7 @@ Works seamlessly with:
 
       {/* Key Features */}
       <section className="mb-12 sm:mb-16">
-        <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Key Features</h2>
+        <h2 className="h2text-xl sm:"heading-2>Key Features</h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
@@ -577,7 +577,7 @@ Works seamlessly with:
 
       {/* Progressive Examples */}
       <section className="mb-12 sm:mb-16">
-        <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Progressive Examples</h2>
+        <h2 className="h2text-xl sm:"heading-2>Progressive Examples</h2>
         <p className="text-gray-300 mb-8">
           Learn xray.trace() from simple to advanced with these progressive examples. Each builds on the previous concepts.
         </p>
@@ -703,7 +703,7 @@ Works seamlessly with:
 
       {/* Visual Format Reference */}
       <section className="mb-12 sm:mb-16">
-        <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Visual Format Reference</h2>
+        <h2 className="h2text-xl sm:"heading-2>Visual Format Reference</h2>
         
         <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 sm:p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">

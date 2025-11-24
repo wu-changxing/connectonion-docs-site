@@ -177,7 +177,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
           <article className="prose prose-invert max-w-none">
             <div className="mb-8 flex justify-between items-start">
               <div>
-                <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+                <h1 className="heading-1">
                   Designing the ConnectOnion Network Protocol: From Complexity to Clarity
                 </h1>
                 <p className="text-gray-300 text-lg">December 2024</p>
@@ -190,7 +190,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 When we set out to design a network protocol for AI agents to collaborate, we started with grand ambitions and complex architectures. Through iterative refinement and hard lessons, we arrived at something much simpler and more powerful. This is the story of how we got there.
               </p>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Initial Vision: Too Much, Too Soon</h2>
+              <h2 className="heading-2">The Initial Vision: Too Much, Too Soon</h2>
               <p>We began by studying existing protocols - MCP (Model Context Protocol), gRPC, and various P2P systems. Our first designs were ambitious:</p>
               <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
                 <li>Complex identity systems with cryptographic proofs</li>
@@ -200,7 +200,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               </ul>
               <p>It felt comprehensive. It also felt wrong.</p>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">The First Breakthrough: Public Keys Are Just Addresses</h2>
+              <h2 className="heading-2">The First Breakthrough: Public Keys Are Just Addresses</h2>
               <p>The pivotal moment came when we realized we were overthinking identity. Public keys don't need to represent identity or trust - they're just addresses, like phone numbers or IP addresses.</p>
               <p>This insight simplified everything:</p>
               <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
@@ -210,7 +210,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 <li>Just addresses for routing messages</li>
               </ul>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">Messages Over Sessions: Why Email Got It Right</h2>
+              <h2 className="heading-2">Messages Over Sessions: Why Email Got It Right</h2>
               <p>We initially assumed we needed session-based connections like HTTP or gRPC. But AI agents don't work like web browsers - they handle hundreds of parallel tasks, each potentially taking minutes or hours to complete.</p>
               <p>The solution? Message-based architecture, like email:</p>
               
@@ -223,7 +223,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
 
               <p>Each message carries its own correlation ID. No sessions to manage. No connection state. Just messages flowing between agents.</p>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Two-Layer Revelation: Transparency AND Privacy</h2>
+              <h2 className="heading-2">The Two-Layer Revelation: Transparency AND Privacy</h2>
               <p>Organizations need transparency to audit AI agent behavior. But actual work needs privacy. We struggled with this tension until we realized: separate them into two layers.</p>
               
               <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -248,7 +248,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
 
               <p>This gives organizations the oversight they need without compromising the privacy of actual work.</p>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">Relay Servers: Just a Lookup Service</h2>
+              <h2 className="heading-2">Relay Servers: Just a Lookup Service</h2>
               <p>We went through several iterations on relay servers:</p>
               <ol className="list-decimal list-inside space-y-3 ml-4 text-gray-300">
                 <li><strong>First design</strong>: Full proxy servers (too centralized)</li>
@@ -258,7 +258,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               <p className="mt-4">The relay just stores current IP addresses for public keys. When an agent's IP changes, it updates the relay. When another agent needs to connect, it asks the relay for the current IP, then connects directly.</p>
               <p>No data flows through the relay. It's just a phone book that updates when people move.</p>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">Transport Layer: Meet Users Where They Are</h2>
+              <h2 className="heading-2">Transport Layer: Meet Users Where They Are</h2>
               <p>We learned that TCP on custom ports gets blocked by corporate firewalls. Our solution:</p>
               <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
                 <li><strong>WebSocket</strong> for agent ↔ relay (works everywhere)</li>
@@ -267,7 +267,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               </ul>
               <p>Agents try multiple transports until one works. Simple, pragmatic, effective.</p>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Simplicity Principle</h2>
+              <h2 className="heading-2">The Simplicity Principle</h2>
               <p>Throughout this journey, we kept returning to one principle: <strong>keep simple things simple, make complicated things possible</strong>.</p>
               <p>Our final protocol reflects this:</p>
               <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
@@ -275,7 +275,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 <li><strong>Possible</strong>: Scale to billions, work through NAT, maintain privacy</li>
               </ul>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">Key Design Decisions</h2>
+              <h2 className="heading-2">Key Design Decisions</h2>
               
               <div className="space-y-6">
                 <div>
@@ -299,7 +299,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 </div>
               </div>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">What We Didn't Build (And Why)</h2>
+              <h2 className="heading-2">What We Didn't Build (And Why)</h2>
               <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
                 <li><strong>Blockchain</strong>: Adds complexity without solving our actual problems</li>
                 <li><strong>Consensus protocols</strong>: We don't need global agreement</li>
@@ -308,7 +308,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 <li><strong>Reputation systems</strong>: Local behavioral tracking is sufficient</li>
               </ul>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Result: Boring Technology That Works</h2>
+              <h2 className="heading-2">The Result: Boring Technology That Works</h2>
               <p>Our final protocol is almost boring in its simplicity:</p>
               <ol className="list-decimal list-inside space-y-3 ml-4 text-gray-300">
                 <li>Agents announce their capabilities and IP addresses</li>
@@ -318,7 +318,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               </ol>
               <p className="mt-4">No magic. No breakthrough cryptography. Just proven patterns assembled thoughtfully.</p>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">Lessons Learned</h2>
+              <h2 className="heading-2">Lessons Learned</h2>
               <ol className="list-decimal list-inside space-y-3 ml-4 text-gray-300">
                 <li><strong>Start with the user experience, work backwards to the protocol</strong></li>
                 <li><strong>Question every assumption</strong> - Do we really need sessions? Identity? Consensus?</li>
@@ -327,7 +327,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 <li><strong>Design for the common case</strong> - Direct connections when possible, relays when necessary</li>
               </ol>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">Looking Forward</h2>
+              <h2 className="heading-2">Looking Forward</h2>
               <p>The protocol will evolve, but the principles remain:</p>
               <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
                 <li>Keep it simple</li>
@@ -345,7 +345,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 <p className="font-medium text-purple-200">We chose simplicity not because we couldn't build something complex, but because we learned that simple systems are the ones that survive and scale.</p>
               </div>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">The ConnectOnion Way</h2>
+              <h2 className="heading-2">The ConnectOnion Way</h2>
               <p>Our network protocol embodies the ConnectOnion philosophy:</p>
               <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
                 <li><strong>Simple by default</strong> - Basic operations are trivial</li>

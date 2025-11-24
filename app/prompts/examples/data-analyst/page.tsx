@@ -161,7 +161,7 @@ ${expectedOutput}
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <Database className="w-8 h-8 text-cyan-400" />
-                <h1 className="text-4xl font-bold text-white">Data Analysis Expert</h1>
+                <h1 className="heading-1">Data Analysis Expert</h1>
                 <span className="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-medium">
                   Advanced
                 </span>

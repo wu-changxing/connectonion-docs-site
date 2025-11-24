@@ -2,12 +2,12 @@
 
 import Link from 'next/link'
 import { Mail, Inbox, Check, Eye, EyeOff, ArrowRight, Zap, Shield, Clock } from 'lucide-react'
-import { CommandBlock } from '../../components/CommandBlock'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
-import { ContentNavigation } from '../../components/ContentNavigation'
-import CodeWithResult from '../../components/CodeWithResult'
+import { CommandBlock } from '../../../components/CommandBlock'
+import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
+import { ContentNavigation } from '../../../components/ContentNavigation'
+import CodeWithResult from '../../../components/CodeWithResult'
 
-export default function GetEmailsPage() {
+export default function ReceiveEmailsPage() {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24">
@@ -17,7 +17,11 @@ export default function GetEmailsPage() {
             Docs
           </Link>
           <ArrowRight className="w-4 h-4" />
-          <span className="text-white">Get Emails</span>
+          <Link href="/agent-emails" className="hover:text-purple-400 transition-colors">
+            Agent Emails
+          </Link>
+          <ArrowRight className="w-4 h-4" />
+          <span className="text-white">Receive</span>
         </div>
 
         {/* Header */}
@@ -28,13 +32,13 @@ export default function GetEmailsPage() {
                 <Inbox className="w-8 h-8 text-blue-400" />
               </div>
               <div>
-                <h1 className="heading-1">Get Emails</h1>
+                <h1 className="heading-1">Receive Emails</h1>
                 <p className="text-lg text-slate-100">
                   Check your inbox with one line. Process emails safely. Keep it simple.
                 </p>
               </div>
             </div>
-            <CopyMarkdownButton markdownPath="/get-emails.md" filename="get-emails.md" className="flex-shrink-0" />
+            <CopyMarkdownButton markdownPath="/agent-emails/receive.md" filename="receive-emails.md" className="flex-shrink-0" />
           </div>
         </div>
 

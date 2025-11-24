@@ -46,23 +46,25 @@ export default function AgentDocsPage() {
 
         {/* Header */}
         <div className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-xl border border-purple-500/30">
-              <Users className="w-8 h-8 text-purple-400" />
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-xl border border-purple-500/30">
+                <Users className="w-8 h-8 text-purple-400" />
+              </div>
+              <div>
+                <h1 className="heading-1">Agent</h1>
+                <p className="text-lg text-gray-300">
+                  The heart of ConnectOnion. Give it tools, and it figures out the rest.
+                </p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-4xl font-bold text-white mb-2">Agent</h1>
-              <p className="text-lg text-gray-300">
-                The heart of ConnectOnion. Give it tools, and it figures out the rest.
-              </p>
-            </div>
+            <CopyMarkdownButton markdownPath="/agent/agent.md" filename="agent.md" className="flex-shrink-0" />
           </div>
-          <CopyMarkdownButton markdownPath="/agent/agent.md" filename="agent.md" />
         </div>
 
         {/* Quick Start Section */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+          <h2 className="heading-2">
             <Rocket className="w-6 h-6 text-purple-400" />
             Quick Start (60 Seconds)
           </h2>
@@ -94,7 +96,7 @@ The result is 714.`}
 
         {/* Full API Overview */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+          <h2 className="heading-2">
             <Code className="w-6 h-6 text-purple-400" />
             What Agent Can Do - Full API Overview
           </h2>
@@ -113,7 +115,6 @@ The result is 714.`}
     tools=[func1, func2],                 # Optional: functions agent can call
     system_prompt="You are helpful",      # Optional: personality/behavior
     model="o4-mini",                      # Optional: LLM model
-    max_iterations=10,                    # Optional: iteration limit
     api_key="sk-...",                     # Optional: override env var
     llm=custom_llm,                       # Optional: custom LLM instance
     trust="tested",                       # Optional: security verification
@@ -130,9 +131,6 @@ The result is 714.`}
               <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
                 <pre className="text-sm"><code className="text-gray-300">{`# Give it a task
 result = agent.input("Do something")
-
-# Override iterations for complex tasks
-result = agent.input("Complex task", max_iterations=20)
 
 # Execute a tool directly (for testing)
 result = agent.execute_tool("tool_name", {"arg": "value"})`}</code></pre>
@@ -170,7 +168,6 @@ session = agent.current_session    # Access internal state`}</code></pre>
 agent.tools               # List[Callable]: All tools
 agent.tool_map            # Dict: Fast tool lookup
 agent.system_prompt       # str: Personality
-agent.max_iterations      # int: Iteration limit
 agent.current_session     # dict | None: Runtime state`}</code></pre>
             </div>
           </div>
@@ -187,7 +184,7 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
 
         {/* max_iterations Section */}
         <section className="mb-16" id="max-iterations">
-          <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+          <h2 className="heading-2">
             <RefreshCw className="w-8 h-8 text-purple-400" />
             max_iterations
           </h2>
@@ -203,7 +200,7 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
           <div className="space-y-8">
             {/* What Are Iterations */}
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">What Are Iterations?</h3>
+              <h3 className="heading-3">What Are Iterations?</h3>
               <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6 mb-6">
                 <p className="text-gray-200 mb-4">
                   Think of iterations as "attempts" - how many times your agent can use tools to complete a task.
@@ -221,7 +218,7 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
 
             {/* The Basics */}
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">The Basics (90% of cases)</h3>
+              <h3 className="heading-3">The Basics (90% of cases)</h3>
               <CodeWithResult
                 code={`from connectonion import Agent
 
@@ -237,7 +234,7 @@ result = agent.input("Search for Python tutorials")  # Uses 1-2 iterations`}
 
             {/* When You Need More Power */}
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">When You Need More Power</h3>
+              <h3 className="heading-3">When You Need More Power</h3>
               <CodeWithResult
                 code={`# Complex tasks need more iterations
 research_agent = Agent(
@@ -251,7 +248,7 @@ research_agent = Agent(
 
             {/* Quick Override */}
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">Quick Override for One Task</h3>
+              <h3 className="heading-3">Quick Override for One Task</h3>
               <CodeWithResult
                 code={`# Override max_iterations for a specific task
 agent = Agent("assistant", tools=[search])  # Default: 10
@@ -319,7 +316,7 @@ result = agent.input(
         {/* Full Documentation Note */}
         <section className="mb-16">
           <div className="p-6 bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-xl border border-purple-500/30">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+            <h2 className="heading-2">
               <Code className="w-6 h-6 text-purple-400" />
               Complete Documentation
             </h2>
@@ -360,7 +357,7 @@ result = agent.input(
 
         {/* Learn More Section */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">Learn More</h2>
+          <h2 className="heading-2">Learn More</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Link
               href="/tools"
@@ -419,7 +416,7 @@ result = agent.input(
         {/* Philosophy */}
         <section className="mb-16">
           <div className="p-8 bg-gradient-to-br from-purple-900/10 to-blue-900/10 rounded-xl border border-purple-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">Philosophy</h2>
+            <h2 className="heading-2">Philosophy</h2>
             <p className="text-xl text-purple-300 font-semibold mb-6">
               "Keep simple things simple, make complicated things possible"
             </p>

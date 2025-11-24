@@ -201,7 +201,7 @@ ${expectedOutput}
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <Shield className="w-8 h-8 text-red-400" />
-                <h1 className="text-4xl font-bold text-white">Security Analyst</h1>
+                <h1 className="heading-1">Security Analyst</h1>
                 <span className="px-3 py-1 bg-red-900/50 text-red-300 rounded-full text-sm font-medium">
                   Expert
                 </span>

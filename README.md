@@ -61,7 +61,7 @@ pip install connectonion
 ```bash
 # Clone and run locally
 git clone https://github.com/wu-changxing/connectonion.git
-cd connectonion/docs-site
+cd docs-site
 npm install
 npm run dev
 ```

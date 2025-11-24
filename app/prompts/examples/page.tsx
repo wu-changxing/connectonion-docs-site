@@ -109,7 +109,7 @@ export default function PromptsExamplesPage() {
 
       {/* Header */}
       <div className="mb-16">
-        <h1 className="text-4xl font-bold text-white mb-4">Progressive Prompt Examples</h1>
+        <h1 className="heading-1">Progressive Prompt Examples</h1>
         <p className="text-xl text-gray-300 max-w-3xl">
           Master system prompt design through 8 carefully crafted examples, progressing from simple conversational agents 
           to complex professional roles. Each example demonstrates advanced techniques and real-world applications.
@@ -118,7 +118,7 @@ export default function PromptsExamplesPage() {
 
       {/* Learning Path Overview */}
       <div className="mb-16 p-8 bg-gradient-to-r from-green-900/20 to-red-900/20 border border-green-500/30 rounded-xl">
-        <h2 className="text-2xl font-bold text-white mb-6">🎯 Prompt Design Learning Path</h2>
+        <h2 className="heading-2">🎯 Prompt Design Learning Path</h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-4 bg-green-600 rounded-full flex items-center justify-center">
@@ -224,7 +224,7 @@ export default function PromptsExamplesPage() {
 
       {/* Why Progressive Learning */}
       <div className="mt-16 p-8 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/30 rounded-xl">
-        <h2 className="text-2xl font-bold text-white mb-6">💡 Why Progressive Learning?</h2>
+        <h2 className="heading-2">💡 Why Progressive Learning?</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div>
             <h3 className="text-lg font-semibold text-white mb-3">Building Complexity</h3>

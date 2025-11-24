@@ -1,27 +1,43 @@
-import { ArrowLeft, FileText, Code, Search, GitBranch, CheckCircle, AlertCircle } from 'lucide-react'
+import { ArrowRight, FileText, Code, Search, GitBranch, CheckCircle, AlertCircle, Settings, RefreshCw, Database, Globe, Shield, Clock } from 'lucide-react'
 import Link from 'next/link'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
+import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 
 export default function WebsiteMaintenancePage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <Link href="/" className="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 mb-8 transition-colors">
-        <ArrowLeft className="mr-2 h-4 w-4" />
-        Back to Home
-      </Link>
-      
-      <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-        Website Maintenance Guide
-      </h1>
-      <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
-        Learn how to add new features, pages, and content to the documentation website.
-      </p>
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+        <Link href="/" className="hover:text-purple-400 transition-colors">
+          Docs
+        </Link>
+        <ArrowRight className="w-4 h-4" />
+        <span className="text-white">Website Maintenance</span>
+      </div>
+
+      {/* Header */}
+      <div className="mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+          <div className="flex items-center gap-3">
+            <div className="p-3 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl border border-blue-500/30">
+              <Settings className="w-8 h-8 text-blue-400" />
+            </div>
+            <div>
+              <h1 className="heading-1">Website Maintenance</h1>
+              <p className="text-lg text-gray-300">
+                Procedures for updating and maintaining the ConnectOnion documentation site.
+              </p>
+            </div>
+          </div>
+          <CopyMarkdownButton markdownPath="/website-maintenance/website-maintenance.md" filename="website-maintenance.md" className="flex-shrink-0" />
+        </div>
+      </div>
 
       <div className="space-y-12">
         {/* Overview */}
         <section>
-          <h2 className="text-2xl font-semibold mb-4 flex items-center">
+          <h2 className="heading-2">
             <FileText className="mr-2 h-6 w-6 text-blue-500" />
             Three-Step Process
           </h2>
@@ -51,7 +67,7 @@ export default function WebsiteMaintenancePage() {
 
         {/* Step 1: Create Tutorial */}
         <section>
-          <h2 className="text-2xl font-semibold mb-4">Step 1: Create Tutorial Content</h2>
+          <h2 className="heading-2">Step 1: Create Tutorial Content</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
             Start by writing your documentation as a markdown file:
           </p>
@@ -82,7 +98,7 @@ Detailed technical documentation.`}</code>
 
         {/* Step 2: Create Page */}
         <section>
-          <h2 className="text-2xl font-semibold mb-4">Step 2: Create Page Component</h2>
+          <h2 className="heading-2">Step 2: Create Page Component</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
             Create a Next.js page for your feature:
           </p>
@@ -105,7 +121,7 @@ export default function YourFeaturePage() {
         Back to Home
       </Link>
       
-      <h1 className="text-4xl font-bold mb-8">
+      <h1 className="heading-1">
         Your Feature
       </h1>
       
@@ -119,7 +135,7 @@ export default function YourFeaturePage() {
 
         {/* Step 3: Update Navigation */}
         <section>
-          <h2 className="text-2xl font-semibold mb-4">Step 3: Update Navigation</h2>
+          <h2 className="heading-2">Step 3: Update Navigation</h2>
           
           <div className="space-y-6">
             <div>
@@ -164,7 +180,7 @@ export default function YourFeaturePage() {
 
         {/* Testing */}
         <section>
-          <h2 className="text-2xl font-semibold mb-4 flex items-center">
+          <h2 className="heading-2">
             <Code className="mr-2 h-6 w-6 text-green-500" />
             Testing Your Changes
           </h2>
@@ -193,7 +209,7 @@ export default function YourFeaturePage() {
 
         {/* Quick Reference */}
         <section>
-          <h2 className="text-2xl font-semibold mb-4 flex items-center">
+          <h2 className="heading-2">
             <GitBranch className="mr-2 h-6 w-6 text-purple-500" />
             Directory Structure
           </h2>
@@ -215,7 +231,7 @@ export default function YourFeaturePage() {
 
         {/* Final Checklist */}
         <section className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-green-200 dark:border-gray-700">
-          <h2 className="text-2xl font-semibold mb-4 flex items-center">
+          <h2 className="heading-2">
             <CheckCircle className="mr-2 h-6 w-6 text-green-500" />
             Final Checklist
           </h2>

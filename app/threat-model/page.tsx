@@ -2,7 +2,9 @@
 
 import { useEffect, useState, useRef, useCallback } from 'react'
 import { ShieldAlert, AlertTriangle, Link as LinkIcon, Zap, Scale, Layers, CheckCircle2, Shield, Database, DollarSign, Users, Bug, Gauge, IdCard, PackageSearch, Eye, PlugZap, ArrowRight, Filter, AlertCircle, Lock, Activity, TrendingUp, ChevronDown, ChevronUp, Menu, X, ArrowUp } from 'lucide-react'
+import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
+import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 
 function Section({ id, title, children, icon }: { id: string; title: string; children: React.ReactNode; icon?: React.ReactNode }) {
   return (
@@ -707,22 +709,31 @@ export default function ThreatModelPage() {
         </div>
       )}
 
-      {/* Hero */}
-      <div className="mb-6 sm:mb-10 relative overflow-hidden rounded-lg sm:rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950 p-4 sm:p-6 lg:p-8">
-        <svg aria-hidden="true" className="pointer-events-none absolute -top-16 -right-16 h-48 sm:h-64 w-48 sm:w-64 opacity-20 -z-10" viewBox="0 0 200 200">
-          <defs>
-            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stopColor="#A78BFA" />
-              <stop offset="100%" stopColor="#22D3EE" />
-            </linearGradient>
-          </defs>
-          <circle cx="100" cy="100" r="90" fill="url(#g)" />
-        </svg>
-        <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-          <ShieldAlert className="w-5 h-5 sm:w-6 sm:h-6 text-purple-300" />
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Threat Model</h1>
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+        <Link href="/" className="hover:text-purple-400 transition-colors">
+          Docs
+        </Link>
+        <ArrowRight className="w-4 h-4" />
+        <span className="text-white">Threat Model</span>
+      </div>
+
+      {/* Header */}
+      <div className="mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+          <div className="flex items-center gap-3">
+            <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
+              <ShieldAlert className="w-8 h-8 text-purple-400" />
+            </div>
+            <div>
+              <h1 className="heading-1">Threat Model</h1>
+              <p className="text-lg text-gray-300">
+                Practical risks and copy-paste playbooks. No clicks, just read and apply.
+              </p>
+            </div>
+          </div>
+          <CopyMarkdownButton markdownPath="/threat-model.md" filename="threat-model.md" className="flex-shrink-0" />
         </div>
-        <p className="text-gray-300 text-sm sm:text-base max-w-2xl">Practical risks and copy-paste playbooks. No clicks, just read and apply.</p>
       </div>
 
       {/* Severity Guide and Filters */}

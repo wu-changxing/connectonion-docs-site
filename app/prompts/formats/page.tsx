@@ -178,7 +178,7 @@ print(response)`
       {/* Header */}
       <header className="mb-16">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h1 className="heading-1">
             File Format Support
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8">
@@ -300,7 +300,7 @@ print(response)`
 
       {/* Summary */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 text-center">All Create the Same Agent</h2>
+        <h2 className="heading-2">All Create the Same Agent</h2>
         
         <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
           <div className="flex items-center justify-between bg-gray-800 border-b border-gray-700 px-4 py-3">
@@ -347,7 +347,7 @@ agent = Agent("bot", system_prompt="prompts/assistant")         # No Extension F
 
       {/* Benefits */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-8 text-center">Why This Matters</h2>
+        <h2 className="heading-2">Why This Matters</h2>
         
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">

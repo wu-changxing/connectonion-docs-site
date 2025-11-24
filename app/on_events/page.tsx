@@ -281,7 +281,7 @@ Errors: 0
                 <span className="text-xs font-medium text-green-200">NEW</span>
               </div>
 
-              <h1 className="text-4xl font-bold text-white mb-4">
+              <h1 className="heading-1">
                 Hook into agent lifecycle
               </h1>
 
@@ -374,7 +374,7 @@ Errors: 0
 
           {/* Quick Start */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-100">Quick Start</h2>
+            <h2 className="heading-2">Quick Start</h2>
 
             <p className="text-gray-300 mb-6">
               Add event handlers to your agent in 3 simple steps:
@@ -412,7 +412,7 @@ agent.input("Search for Python")`}
 
           {/* Basic Usage - All 6 Events */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-100">All Event Types</h2>
+            <h2 className="heading-2">All Event Types</h2>
 
             <p className="text-gray-300 mb-6">
               Here's when each event fires and what you can do with it:
@@ -564,7 +564,7 @@ agent = Agent("assistant", tools=[api_call], on_events=[
 
           {/* Advanced Pattern: Multiple Events */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-100">Combining Multiple Events</h2>
+            <h2 className="heading-2">Combining Multiple Events</h2>
 
             <p className="text-gray-300 mb-6">
               Use multiple event handlers together for comprehensive monitoring and control:
@@ -616,7 +616,7 @@ agent.input("Search and analyze Python")`}
 
           {/* Key Concepts */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-100">Key Concepts</h2>
+            <h2 className="heading-2">Key Concepts</h2>
 
             <div className="space-y-6">
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
@@ -687,7 +687,7 @@ agent.input("test")  # Raises RuntimeError`}
 
           {/* Real-World Examples */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-100">Real-World Use Cases</h2>
+            <h2 className="heading-2">Real-World Use Cases</h2>
 
             <div className="space-y-8">
               <div>
@@ -809,7 +809,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
 
           {/* API Reference */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-100">API Reference</h2>
+            <h2 className="heading-2">API Reference</h2>
 
             <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-4 text-gray-100">Event Wrapper Functions</h3>
@@ -854,7 +854,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
 
           {/* Best Practices */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-100">Best Practices</h2>
+            <h2 className="heading-2">Best Practices</h2>
 
             <div className="space-y-4">
               <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
@@ -891,7 +891,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
 
           {/* Next Steps */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-100">Next Steps</h2>
+            <h2 className="heading-2">Next Steps</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link href="/xray" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-purple-500 transition-colors">

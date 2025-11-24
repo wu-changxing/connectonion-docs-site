@@ -10,7 +10,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Copy, Check, Code, Download, Play, Terminal, Lightbulb, Shield, AlertTriangle } from 'lucide-react'
+import { Copy, Check, Code, Download, Play, Terminal, Lightbulb, Shield, AlertTriangle, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 import { FaShieldAlt, FaBolt, FaWrench, FaBullseye } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -193,33 +194,39 @@ Build on this foundation for more complex agents that need to handle user input 
     <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-12 lg:py-12 pt-16 lg:pt-12">
       {/* Navigation */}
 
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+        <Link href="/" className="hover:text-purple-400 transition-colors">
+          Docs
+        </Link>
+        <ArrowRight className="w-4 h-4" />
+        <Link href="/examples" className="hover:text-purple-400 transition-colors">
+          Examples
+        </Link>
+        <ArrowRight className="w-4 h-4" />
+        <span className="text-white">Calculator Agent</span>
+      </div>
+
       {/* Header */}
-      <div className="flex items-start justify-between mb-12">
-        <div className="flex-1">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">2</span>
+      <div className="mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+          <div className="flex items-center gap-3">
+            <div className="p-3 bg-gradient-to-br from-blue-600/20 to-indigo-600/20 rounded-xl border border-blue-500/30">
+              <Code className="w-8 h-8 text-blue-400" />
             </div>
             <div>
-              <div className="flex items-center gap-3 mb-2">
-                <Code className="w-8 h-8 text-blue-400" />
-                <h1 className="text-4xl font-bold text-white">Basic Calculator Agent</h1>
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm font-medium">
-                  Beginner
-                </span>
-              </div>
-              <p className="text-xl text-gray-300">
+              <h1 className="heading-1">Calculator Agent</h1>
+              <p className="text-lg text-gray-300">
                 Learn input validation, error handling, and security best practices by building a safe math calculator.
               </p>
             </div>
           </div>
+          <CopyMarkdownButton 
+            content={markdownContent}
+            filename="calculator-agent.md"
+            className="flex-shrink-0"
+          />
         </div>
-        
-        <CopyMarkdownButton 
-          content={markdownContent}
-          filename="calculator-agent.md"
-          className="ml-8 flex-shrink-0"
-        />
       </div>
 
       {/* Key Concepts */}

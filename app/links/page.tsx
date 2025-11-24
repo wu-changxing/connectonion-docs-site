@@ -5,7 +5,7 @@ import {
   Package, BookOpen, Newspaper, Mail,
   Globe, ExternalLink,
   Copy, Check, Share2, QrCode, Link as LinkIcon, Heart,
-  Sparkles, Code, FileText, HelpCircle
+  Sparkles, Code, FileText, HelpCircle, ArrowRight
 } from 'lucide-react'
 import {
   FaRocket, FaComments, FaBook, FaMobile, FaHandshake,
@@ -14,6 +14,7 @@ import {
 } from 'react-icons/fa'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
+import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import QRCode from 'qrcode'
 
 interface LinkItem {
@@ -40,7 +41,6 @@ export default function LinksPage() {
   const [qrCodeDataUrl, setQrCodeDataUrl] = useState<string>('')
 
   useEffect(() => {
-    // Generate QR code for the links page URL
     const generateQRCode = async () => {
       try {
         const url = 'https://docs.connectonion.com/links'
@@ -48,10 +48,10 @@ export default function LinksPage() {
           width: 256,
           margin: 1,
           color: {
-            dark: '#6B46C1', // Purple color matching the theme
+            dark: '#6B46C1',
             light: '#FFFFFF'
           },
-          errorCorrectionLevel: 'H', // High error correction for logo overlay
+          errorCorrectionLevel: 'H',
         })
         setQrCodeDataUrl(dataUrl)
       } catch (err) {
@@ -308,23 +308,21 @@ export default function LinksPage() {
     const Icon = link.icon
     const isClickable = link.available && link.url !== '#'
     
+    const cardClasses = "relative group w-full p-6 rounded-2xl transition-all duration-300 " +
+      link.bgColor + " " + link.borderColor + " border-2 backdrop-blur-sm " +
+      (isClickable ? "hover:bg-gray-800 hover:border-purple-500 hover:shadow-xl cursor-pointer" : "opacity-50 cursor-not-allowed")
+
     const content = (
-      <div className={`
-        relative group w-full p-6 rounded-2xl transition-all duration-300
-        ${link.bgColor} ${link.borderColor} border-2 backdrop-blur-sm
-        ${isClickable ? 'hover:bg-gray-800 hover:border-purple-500 hover:shadow-xl cursor-pointer' : 'opacity-50 cursor-not-allowed'}
-      `}>
-        {/* Coming Soon Badge */}
+      <div className={cardClasses}>
         {!link.available && (
           <div className="absolute -top-2 -right-2 px-3 py-1 bg-gray-800 border border-gray-600 rounded-full flex items-center gap-1">
             <span className="text-xs font-medium text-gray-300">🔒 Coming Soon</span>
           </div>
         )}
         
-        {/* Content */}
         <div className="flex items-start gap-4">
           <div className="p-3 rounded-xl bg-gray-900/80 backdrop-blur-sm border border-gray-700/50">
-            <Icon className={`w-6 h-6 ${link.color}`} />
+            <Icon className={"w-6 h-6 " + link.color} />
           </div>
           <div className="flex-1">
             <h3 className="heading-4 text-white mb-1 flex items-center gap-2">
@@ -342,7 +340,6 @@ export default function LinksPage() {
           </div>
         </div>
         
-        {/* Copy button */}
         {isClickable && (
           <button
             onClick={(e) => {
@@ -351,8 +348,8 @@ export default function LinksPage() {
               handleCopyLink(link.url, link.title)
             }}
             className="absolute top-4 right-4 p-2 min-w-[44px] min-h-[44px] rounded-lg bg-gray-900/50 border border-gray-700/50 hover:bg-gray-900/80 hover:border-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all flex items-center justify-center"
-            aria-label={`Copy ${link.title} link`}
-            title={`Copy ${link.title} link`}
+            aria-label={"Copy " + link.title + " link"}
+            title={"Copy " + link.title + " link"}
           >
             {copiedUrl === link.title ? (
               <Check className="w-4 h-4 text-green-400" />
@@ -391,32 +388,31 @@ export default function LinksPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-purple-900/10 to-gray-900">
       <div className="max-w-6xl mx-auto px-6 py-12">
-        {/* Header */}
-        <div className="text-center mb-12">
-          {/* Logo */}
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-purple-500 blur-xl opacity-30"></div>
-              <img
-                src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png"
-                alt="ConnectOnion logo"
-                width={96}
-                height={96}
-                className="relative rounded-2xl object-cover shadow-2xl"
-              />
+        <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+          <Link href="/" className="hover:text-purple-400 transition-colors">
+            Docs
+          </Link>
+          <ArrowRight className="w-4 h-4" />
+          <span className="text-white">Links</span>
+        </div>
+
+        <div className="mb-12">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
+                <LinkIcon className="w-8 h-8 text-purple-400" />
+              </div>
+              <div>
+                <h1 className="heading-1">ConnectOnion Links</h1>
+                <p className="text-lg text-gray-300">
+                  All our platforms and resources in one place. Build AI agents with simple, powerful Python code.
+                </p>
+              </div>
             </div>
+            <CopyMarkdownButton markdownPath="/links.md" filename="links.md" className="flex-shrink-0" />
           </div>
+        </div>
           
-          {/* Title and Description */}
-          <h1 className="heading-1 text-white mb-4 flex items-center justify-center gap-3">
-            <LinkIcon className="w-8 h-8 text-purple-400" />
-            ConnectOnion Links
-          </h1>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-            All our platforms and resources in one place. Build AI agents with simple, powerful Python code.
-          </p>
-          
-          {/* Action Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={handleSharePage}
@@ -437,18 +433,13 @@ export default function LinksPage() {
             </button>
           </div>
           
-          {/* QR Code Display */}
           {showQR && qrCodeDataUrl && (
             <div className="mt-8 inline-block animate-fadeIn">
-              {/* Outer glow container */}
               <div className="relative">
-                {/* Animated gradient background */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-3xl blur-xl opacity-60 animate-pulse"></div>
                 
-                {/* Main QR code container */}
                 <div className="relative bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 p-1 rounded-3xl shadow-2xl">
                   <div className="bg-white rounded-2xl p-6">
-                    {/* QR Code with logo overlay */}
                     <div className="relative">
                       <img 
                         src={qrCodeDataUrl}
@@ -456,7 +447,6 @@ export default function LinksPage() {
                         className="w-64 h-64 rounded-lg"
                       />
                       
-                      {/* Center logo overlay */}
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="bg-white rounded-xl p-2 shadow-lg">
                           <img
@@ -470,7 +460,6 @@ export default function LinksPage() {
                       </div>
                     </div>
                     
-                    {/* Text and icons */}
                     <div className="mt-4 text-center">
                       <div className="flex items-center justify-center gap-2 mb-2">
                         <QrCode className="w-5 h-5 text-purple-600" />
@@ -494,7 +483,6 @@ export default function LinksPage() {
                   </div>
                 </div>
                 
-                {/* Decorative corners */}
                 <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-purple-400 rounded-tl-lg"></div>
                 <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-purple-400 rounded-tr-lg"></div>
                 <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-purple-400 rounded-bl-lg"></div>
@@ -502,14 +490,12 @@ export default function LinksPage() {
               </div>
             </div>
           )}
-        </div>
         
-        {/* Links Sections */}
-        <div className="space-y-12">
+        <div className="space-y-12 mt-12">
           {linkSections.map((section, idx) => (
             <div key={idx}>
               <div className="mb-6">
-                <h2 className="heading-3 text-white mb-2">
+                <h2 className="heading-2">
                   {section.title}
                 </h2>
                 {section.description && (
@@ -526,7 +512,6 @@ export default function LinksPage() {
           ))}
         </div>
         
-        {/* Footer */}
         <div className="mt-16 pt-8 border-t border-gray-700 text-center">
           <p className="text-gray-300 mb-4">
             ConnectOnion is open source and community-driven
@@ -544,7 +529,6 @@ export default function LinksPage() {
           </div>
         </div>
         
-        {/* Navigation */}
         <ContentNavigation />
       </div>
     </div>

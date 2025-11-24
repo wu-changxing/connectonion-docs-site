@@ -20,28 +20,31 @@ export default function ConnectPage() {
         {/* Hero Section */}
         <section className="mb-16">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+            <Link href="/" className="hover:text-purple-400 transition-colors">
+              Docs
+            </Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">Connect to Agents</span>
-          </nav>
+          </div>
 
-          <div className="mb-8">
-            <div className="inline-flex items-center gap-3 bg-blue-900/20 border border-blue-500/30 rounded-full px-6 py-3 mb-6">
-              <Network className="w-5 h-5 text-blue-400" />
-              <span className="text-sm font-medium">Use Remote Agents</span>
-              <Globe className="w-5 h-5 text-blue-300" />
+          {/* Header */}
+          <div className="mb-12">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+              <div className="flex items-center gap-3">
+                <div className="p-3 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-xl border border-blue-500/30">
+                  <Network className="w-8 h-8 text-blue-400" />
+                </div>
+                <div>
+                  <h1 className="heading-1">Connect to Agents</h1>
+                  <p className="text-lg text-gray-300">
+                    Use any agent, anywhere, as if local. Create a proxy to a remote agent with the same interface.
+                  </p>
+                </div>
+              </div>
+              <CopyMarkdownButton markdownPath="/connect.md" filename="connect.md" className="flex-shrink-0" />
             </div>
-
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-100">
-              Use Any Agent, Anywhere, As If Local
-            </h1>
-
-            <p className="text-xl text-gray-300 max-w-3xl mb-6">
-              Call <code className="bg-gray-800 px-2 py-1 rounded">connect(address)</code> to create a proxy to a remote agent. Same interface as local agents, works across networks.
-            </p>
-
-            <CopyMarkdownButton />
           </div>
 
           {/* Key Benefit */}
@@ -54,7 +57,7 @@ export default function ConnectPage() {
 
         {/* 60-Second Quick Start */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="heading-2">
             <Zap className="w-8 h-8 text-yellow-400" />
             60-Second Quick Start
           </h2>
@@ -103,7 +106,7 @@ library reference, and language specifications.`}
 
         {/* Complete Example */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8">Complete Example: Two Terminals</h2>
+          <h2 className="heading-2">Complete Example: Two Terminals</h2>
 
           <div className="space-y-8">
             <div>
@@ -170,7 +173,7 @@ Weather in Seattle: Sunny, 72°F`}
 
         {/* Common Patterns */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="heading-2">
             <Layers className="w-8 h-8 text-purple-400" />
             Common Patterns
           </h2>
@@ -259,7 +262,7 @@ result3 = get_agent().input("Task 3")`}
 
         {/* Multi-Turn Conversations */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-2">
+          <h2 className="heading-2">
             <Users className="w-8 h-8 text-cyan-400" />
             Multi-Turn Conversations
           </h2>
@@ -287,7 +290,7 @@ The result is 300`}
 
         {/* Real-World Example */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-2">
+          <h2 className="heading-2">
             <Cpu className="w-8 h-8 text-orange-400" />
             Real-World: Distributed Workflow
           </h2>
@@ -331,7 +334,7 @@ print(result)`}
 
         {/* Configuration */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-2">
+          <h2 className="heading-2">
             <RefreshCw className="w-8 h-8 text-indigo-400" />
             Configuration
           </h2>
@@ -374,7 +377,7 @@ agent = connect("0x7a8f...", relay_url=relay_url)`}
 
         {/* Comparison */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8">Local vs Remote Agents</h2>
+          <h2 className="heading-2">Local vs Remote Agents</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
@@ -435,7 +438,7 @@ result = agent.input("task")`}
         {/* CTA Section */}
         <section className="mb-20">
           <div className="bg-blue-950/30 rounded-2xl p-10 border border-blue-400/30 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Use Remote Agents?</h2>
+            <h2 className="heading-2">Ready to Use Remote Agents?</h2>
             <p className="text-xl text-gray-300 mb-8">
               Just call <code className="bg-gray-800 px-3 py-1.5 rounded">connect(address)</code> and start building distributed workflows!
             </p>

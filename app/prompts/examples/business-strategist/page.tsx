@@ -237,7 +237,7 @@ ${expectedOutput}
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <TrendingUp className="w-8 h-8 text-pink-400" />
-                <h1 className="text-4xl font-bold text-white">Business Strategist</h1>
+                <h1 className="heading-1">Business Strategist</h1>
                 <span className="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-sm font-medium">
                   Expert
                 </span>

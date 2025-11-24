@@ -209,7 +209,7 @@ Sometimes the best API design decision is the one that makes developers forget t
           <article className="prose prose-invert max-w-none">
             <div className="mb-8 flex justify-between items-start">
               <div>
-                <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4">
+                <h1 className="heading-1">
                   Why We Chose `input()` Over `run()`
                 </h1>
                 <p className="text-gray-300 text-lg">December 2024 • Design Decision #001</p>
@@ -226,7 +226,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                 When designing ConnectOnion's API, we faced a crucial decision: what should we call the primary method for interacting with an agent? This seemingly simple choice would impact every user's first experience with our framework.
               </p>
 
-              <h2 className="text-3xl font-bold text-blue-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Problem with `run()`</h2>
+              <h2 className="heading-2">The Problem with `run()`</h2>
               <p>We initially followed industry convention with <code className="bg-gray-800/50 text-blue-300 px-2 py-1 rounded font-mono text-sm">agent.run(prompt)</code>. It seemed logical - agents "run" tasks, right? But user feedback revealed a critical issue:</p>
               
               <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-6 my-6">
@@ -235,7 +235,7 @@ Sometimes the best API design decision is the one that makes developers forget t
 
               <p>Users had to mentally translate their intent ("I want to ask the agent something") into technical terminology ("I need to run the agent"). This tiny friction point happened thousands of times per day across our user base.</p>
 
-              <h2 className="text-3xl font-bold text-blue-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Research Process</h2>
+              <h2 className="heading-2">The Research Process</h2>
               <p>We studied how new users approached our API without reading documentation:</p>
 
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-8">
@@ -292,7 +292,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                 </p>
               </div>
 
-              <h2 className="text-3xl font-bold text-blue-400 mt-12 mb-6 pb-2 border-b border-gray-800">The "Mom Test"</h2>
+              <h2 className="heading-2">The "Mom Test"</h2>
               <p>We applied a simple heuristic: <strong>Could a non-technical person guess what this does?</strong></p>
 
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6 relative group">
@@ -304,7 +304,7 @@ Sometimes the best API design decision is the one that makes developers forget t
 
               <p>"Input" passed the mom test. "Run" and "invoke" didn't.</p>
 
-              <h2 className="text-3xl font-bold text-blue-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Deeper Principle</h2>
+              <h2 className="heading-2">The Deeper Principle</h2>
               
               <div className="bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-500/20 rounded-xl p-6 my-8">
                 <p className="text-blue-200 font-semibold text-lg mb-4">
@@ -319,7 +319,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                 </pre>
               </div>
 
-              <h2 className="text-3xl font-bold text-blue-400 mt-12 mb-6 pb-2 border-b border-gray-800">Measuring Success</h2>
+              <h2 className="heading-2">Measuring Success</h2>
               
               <div className="grid md:grid-cols-2 gap-6 my-8">
                 <div className="bg-gradient-to-br from-green-900/20 to-transparent border border-green-500/20 rounded-xl p-6">
@@ -340,7 +340,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                 </div>
               </div>
 
-              <h2 className="text-3xl font-bold text-blue-400 mt-12 mb-6 pb-2 border-b border-gray-800">Lessons Learned</h2>
+              <h2 className="heading-2">Lessons Learned</h2>
               
               <div className="space-y-4">
                 <div className="flex gap-4">
@@ -380,7 +380,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                 </div>
               </div>
 
-              <h2 className="text-3xl font-bold text-blue-400 mt-12 mb-6 pb-2 border-b border-gray-800">The ConnectOnion Way</h2>
+              <h2 className="heading-2">The ConnectOnion Way</h2>
               
               <p>This decision embodies our philosophy:</p>
               <ul className="list-disc list-inside space-y-2 ml-4 text-gray-300">

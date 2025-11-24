@@ -40,7 +40,7 @@
 */
 import { useState } from 'react'
 import Link from 'next/link'
-import CopyButton from '../../components/CopyButton'
+import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import CodeWithResult from '../../components/CodeWithResult'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { CommandBlock } from '../../components/CommandBlock'
@@ -60,21 +60,22 @@ export default function LLMPage() {
           <span>/</span>
           <span className="text-white">LLM Function</span>
         </div>
-        <div className="flex justify-between items-start">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div>
-            <h1 className="text-4xl font-bold text-white mb-3 flex items-center gap-3">
+            <h1 className="heading-1">
               <Zap className="w-7 h-7 text-blue-400" /> One-shot LLM Calls
             </h1>
             <p className="text-gray-300 max-w-2xl">
               Make direct LLM calls with optional structured output. Supports OpenAI, Google Gemini, and Anthropic models through a unified interface.
             </p>
           </div>
+          <CopyMarkdownButton markdownPath="/llm_do/llm_do.md" filename="llm_do.md" className="flex-shrink-0" />
         </div>
       </div>
 
             {/* Quick Start Section */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-green-400 mb-4">Quick Start</h2>
+              <h2 className="heading-2">Quick Start</h2>
               
               <CodeWithResult 
                 code={`from connectonion import llm_do
@@ -99,7 +100,7 @@ answer = llm_do("What's 2+2?", model="claude-3-5-haiku-20241022")`}
 
             {/* With Structured Output */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-green-400 mb-4">With Structured Output</h2>
+              <h2 className="heading-2">With Structured Output</h2>
               
               <CodeWithResult 
                 code={`from pydantic import BaseModel
@@ -128,7 +129,7 @@ print(result.keywords)`}
 
             {/* Real Examples */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-green-400 mb-6">Real Examples</h2>
+              <h2 className="heading-2">Real Examples</h2>
               
               <div className="space-y-8">
                 {/* Extract Data from Text */}
@@ -210,7 +211,7 @@ agent = Agent("support", tools=[analyze_feedback])`}
 
             {/* Supported Models */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-green-400 mb-4">Supported Models</h2>
+              <h2 className="heading-2">Supported Models</h2>
               
               <CodeWithResult 
                 code={`# OpenAI models
@@ -240,7 +241,7 @@ llm_do("Hello", model="claude-3-opus-latest")`}
 
             {/* Parameters Table */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-green-400 mb-4">Parameters</h2>
+              <h2 className="heading-2">Parameters</h2>
               
               <div className="table-wrapper">
                 <table className="min-w-full border-collapse">
@@ -290,7 +291,7 @@ llm_do("Hello", model="claude-3-opus-latest")`}
 
             {/* What You Get */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-green-400 mb-6">What You Get</h2>
+              <h2 className="heading-2">What You Get</h2>
               
               <div className="grid md:grid-cols-2 gap-4">
                 {[
@@ -310,7 +311,7 @@ llm_do("Hello", model="claude-3-opus-latest")`}
 
             {/* Common Patterns */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-green-400 mb-6">Common Patterns</h2>
+              <h2 className="heading-2">Common Patterns</h2>
               
               <div className="space-y-6">
                 {/* Data Extraction */}
@@ -389,7 +390,7 @@ False`}
 
             {/* Tips */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-green-400 mb-4">Tips</h2>
+              <h2 className="heading-2">Tips</h2>
               
               <div className="bg-gray-900 rounded-lg p-6">
                 <ol className="space-y-3">
@@ -415,7 +416,7 @@ False`}
 
             {/* Comparison with Agent */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-green-400 mb-4">Comparison with Agent</h2>
+              <h2 className="heading-2">Comparison with Agent</h2>
               
               <div className="table-wrapper">
                 <table className="min-w-full border-collapse">
@@ -476,7 +477,7 @@ I'll help you find the population and calculate the density. Let me search for t
 
             {/* Error Handling */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-green-400 mb-4">Error Handling</h2>
+              <h2 className="heading-2">Error Handling</h2>
               
               <CodeWithResult 
                 code={`from connectonion import llm_do
@@ -499,7 +500,7 @@ Output didn't match model: 2 validation errors for ComplexModel...`}
 
             {/* Next Steps */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-green-400 mb-4">Next Steps</h2>
+              <h2 className="heading-2">Next Steps</h2>
               
               <div className="grid md:grid-cols-3 gap-4">
                 <Link href="/agents" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">

@@ -10,7 +10,7 @@ export default function AgentAddressFormatPage() {
       </Link>
       
       <article className="prose prose-invert max-w-none">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+        <h1 className="heading-1">
           Why We Choose Hex-Encoded Ed25519 Over Ethereum Addresses
         </h1>
         
@@ -25,14 +25,14 @@ export default function AgentAddressFormatPage() {
           </p>
         </div>
 
-        <h2 className="text-2xl font-semibold text-white mt-12 mb-4">The Address Format Dilemma</h2>
+        <h2 className="heading-2">The Address Format Dilemma</h2>
         
         <p className="text-gray-300 leading-relaxed">
           Every network needs addresses. TCP/IP has IP addresses. Ethereum has wallet addresses. 
           ConnectOnion agents need their own addressing scheme. The question: what format serves both humans and machines?
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Why Not Ethereum Format?</h2>
+        <h2 className="heading-2">Why Not Ethereum Format?</h2>
         
         <p className="text-gray-300 leading-relaxed mb-4">
           Ethereum addresses (20 bytes, checksummed) are familiar to crypto developers. But using them creates confusion:
@@ -44,7 +44,7 @@ export default function AgentAddressFormatPage() {
           <li>• Checksumming adds complexity without real benefit for agents</li>
         </ul>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Why Not Base58 (Bitcoin/Solana)?</h2>
+        <h2 className="heading-2">Why Not Base58 (Bitcoin/Solana)?</h2>
         
         <p className="text-gray-300 leading-relaxed mb-4">
           Base58 is human-friendly - no confusing characters like 0/O or l/1. But:
@@ -56,7 +56,7 @@ export default function AgentAddressFormatPage() {
           <li>• Not native to any programming language</li>
         </ul>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Why Ed25519?</h2>
+        <h2 className="heading-2">Why Ed25519?</h2>
         
         <div className="bg-gray-800 rounded-lg p-6 mb-6">
           <h3 className="text-lg font-semibold text-purple-400 mb-3">Performance</h3>
@@ -85,7 +85,7 @@ export default function AgentAddressFormatPage() {
           </p>
         </div>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Our Format: Honest and Fast</h2>
+        <h2 className="heading-2">Our Format: Honest and Fast</h2>
         
         <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4 font-mono text-sm mb-6">
           <span className="text-purple-400">0x</span><span className="text-gray-300">2b9def...7a3fdf</span>
@@ -97,7 +97,7 @@ export default function AgentAddressFormatPage() {
           • <strong className="text-white">66 total chars:</strong> Fixed length, easy to validate
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Developer Experience</h2>
+        <h2 className="heading-2">Developer Experience</h2>
         
         <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-6">
           <span className="text-gray-500"># Generate</span><br/>
@@ -112,7 +112,7 @@ export default function AgentAddressFormatPage() {
           No special libraries. No base conversions. No checksums. Just hex encoding that every language supports natively.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Visual Truncation</h2>
+        <h2 className="heading-2">Visual Truncation</h2>
         
         <p className="text-gray-300 leading-relaxed mb-4">
           For display, we show: <code className="bg-gray-800 px-2 py-1 rounded">0x2b9d...3fdf</code>
@@ -122,7 +122,7 @@ export default function AgentAddressFormatPage() {
           First 6 chars + last 4 chars = enough visual distinction for humans while keeping displays clean.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">The Philosophy</h2>
+        <h2 className="heading-2">The Philosophy</h2>
         
         <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-500/20">
           <p className="text-lg text-gray-300 leading-relaxed m-0">

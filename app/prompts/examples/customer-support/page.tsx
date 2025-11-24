@@ -122,7 +122,7 @@ ${expectedOutput}
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <User className="w-8 h-8 text-orange-400" />
-                <h1 className="text-4xl font-bold text-white">Customer Support Agent</h1>
+                <h1 className="heading-1">Customer Support Agent</h1>
                 <span className="px-3 py-1 bg-orange-900/50 text-orange-300 rounded-full text-sm font-medium">
                   Intermediate
                 </span>

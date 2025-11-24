@@ -13,17 +13,17 @@ export default function TrustPage() {
       <div className="relative overflow-hidden bg-gradient-to-b from-purple-900/20 to-gray-950">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px]" />
         <div className="relative max-w-6xl mx-auto px-8 py-16">
-          <div className="flex items-start justify-between gap-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div>
               <div className="text-sm text-purple-400 font-medium mb-3">Core Feature</div>
-              <h1 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+              <h1 className="heading-1">
                 Trust in ConnectOnion
               </h1>
               <p className="text-xl text-gray-300 max-w-3xl">
                 Flexible, bidirectional trust configuration for agent interactions
               </p>
             </div>
-            <CopyMarkdownButton />
+            <CopyMarkdownButton markdownPath="/trust/trust.md" filename="trust.md" className="flex-shrink-0" />
           </div>
 
           {/* Why Trust Blog Link */}
@@ -45,7 +45,7 @@ export default function TrustPage() {
           <div className="lg:col-span-2 space-y-12">
             {/* Quick Start */}
             <section>
-              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <h2 className="heading-2">
                 <Zap className="w-7 h-7 text-yellow-400" />
                 Quick Start
               </h2>
@@ -69,7 +69,7 @@ agent = Agent(
 
             {/* Three Forms of Trust */}
             <section>
-              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <h2 className="heading-2">
                 <Code className="w-7 h-7 text-blue-400" />
                 Three Forms of Trust
               </h2>
@@ -174,7 +174,7 @@ payment = need("payment processor", trust=trust_agent)`}
 
             {/* Bidirectional Trust */}
             <section>
-              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <h2 className="heading-2">
                 <Users className="w-7 h-7 text-green-400" />
                 Bidirectional Trust
               </h2>
@@ -226,7 +226,7 @@ translator = need(
 
             {/* Environment-Based Defaults */}
             <section>
-              <h2 className="text-3xl font-bold text-white mb-6">Environment-Based Defaults</h2>
+              <h2 className="heading-2">Environment-Based Defaults</h2>
               <p className="text-gray-300 mb-4">ConnectOnion automatically adjusts trust based on environment:</p>
               <CodeWithResult
                 code={`# No trust parameter needed - auto-detected!
@@ -249,7 +249,7 @@ translator = need("translate", trust="open")  # Force open even in production`}
 
             {/* Common Patterns */}
             <section>
-              <h2 className="text-3xl font-bold text-white mb-6">Common Patterns</h2>
+              <h2 className="heading-2">Common Patterns</h2>
 
               <div className="space-y-6">
                 <div>
@@ -286,7 +286,7 @@ payment = need("process payment", trust="strict") # High risk`}
 
             {/* Security Best Practices */}
             <section>
-              <h2 className="text-3xl font-bold text-white mb-6">Security Best Practices</h2>
+              <h2 className="heading-2">Security Best Practices</h2>
               <div className="bg-red-900/20 border border-red-800 rounded-lg p-6">
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
@@ -330,7 +330,7 @@ payment = need("process payment", trust="strict") # High risk`}
 
             {/* FAQ */}
             <section>
-              <h2 className="text-3xl font-bold text-white mb-6">FAQ</h2>
+              <h2 className="heading-2">FAQ</h2>
               <div className="space-y-4">
                 <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
                   <p className="font-semibold text-white mb-2">Q: What's the default trust level?</p>

@@ -57,7 +57,7 @@ export default function AutoDebugExceptionPage() {
               <Bug className="w-8 h-8 text-red-400" />
             </div>
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+              <h1 className="heading-1">
                 Auto Debug Exception
               </h1>
               <p className="text-gray-300 mt-2">AI debugger for uncaught exceptions with runtime inspection</p>
@@ -85,7 +85,7 @@ export default function AutoDebugExceptionPage() {
         <section className="mb-20">
           <div className="flex items-center gap-3 mb-8">
             <Zap className="w-6 h-6 text-yellow-400" />
-            <h2 className="text-3xl font-bold">Quick Start</h2>
+            <h2 className="heading-2">Quick Start</h2>
             <span className="text-sm text-gray-500 bg-gray-800 px-3 py-1 rounded-full">30 seconds to AI debugging</span>
           </div>
 
@@ -129,7 +129,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
 
         {/* What Makes This Special */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-10">What Makes This Special</h2>
+          <h2 className="heading-2">What Makes This Special</h2>
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
@@ -163,7 +163,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
 
         {/* Runtime Inspection Tools */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-10">Runtime Inspection Tools</h2>
+          <h2 className="heading-2">Runtime Inspection Tools</h2>
           <p className="text-gray-300 mb-8 text-lg">
             The AI has access to powerful tools for investigating the crashed state:
           </p>
@@ -208,12 +208,12 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
 
         {/* Real Examples */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-10">Real-World Examples</h2>
+          <h2 className="heading-2">Real-World Examples</h2>
 
           <div className="space-y-12">
             {/* Example 1: Division by Zero */}
             <div>
-              <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+              <h3 className="heading-3">
                 <span className="text-red-400">1.</span> Empty Collection Crash
               </h3>
               <CodeBlock
@@ -271,7 +271,7 @@ result = calculate_metrics([])  # 💥 Multiple issues!`}
 
             {/* Example 2: KeyError */}
             <div>
-              <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+              <h3 className="heading-3">
                 <span className="text-red-400">2.</span> Nested Dictionary Access
               </h3>
               <CodeBlock
@@ -324,7 +324,7 @@ else:
 
             {/* Example 3: Logic Error with Assert */}
             <div>
-              <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+              <h3 className="heading-3">
                 <span className="text-red-400">3.</span> Debugging Logic Errors with Assert
               </h3>
               <p className="text-gray-300 mb-4">
@@ -362,7 +362,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
 
         {/* What It Debugs */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-10">What It Debugs</h2>
+          <h2 className="heading-2">What It Debugs</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6">
@@ -427,7 +427,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
 
         {/* Configuration */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-10">Configuration</h2>
+          <h2 className="heading-2">Configuration</h2>
 
           <div className="space-y-8">
             <div>
@@ -464,7 +464,7 @@ export CONNECTONION_AUTO_DEBUG=false`}
         {/* Philosophy */}
         <section className="mb-20">
           <div className="bg-gradient-to-br from-red-500/10 via-orange-500/10 to-red-500/10 rounded-2xl p-10 border border-red-500/20">
-            <h2 className="text-3xl font-bold mb-6">Philosophy</h2>
+            <h2 className="heading-2">Philosophy</h2>
             <p className="text-2xl font-semibold text-red-300 mb-6">
               No more guessing. Get verified solutions.
             </p>

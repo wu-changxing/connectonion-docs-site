@@ -10,7 +10,7 @@ export default function NamingIsHardPage() {
       </Link>
       
       <article className="prose prose-invert max-w-none">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+        <h1 className="heading-1">
           Why We Call It "Address" Instead of "Identity"
         </h1>
         
@@ -25,7 +25,7 @@ export default function NamingIsHardPage() {
           </p>
         </div>
 
-        <h2 className="text-2xl font-semibold text-white mt-12 mb-4">The Identity Trap</h2>
+        <h2 className="heading-2">The Identity Trap</h2>
         
         <p className="text-gray-300 leading-relaxed mb-4">
           "Identity" sounds sophisticated. It implies persistence, uniqueness, authenticity. But it also carries baggage:
@@ -42,7 +42,7 @@ export default function NamingIsHardPage() {
           JWT tokens, claims, scopes. They expect bureaucracy.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">The Beauty of "Address"</h2>
+        <h2 className="heading-2">The Beauty of "Address"</h2>
         
         <p className="text-gray-300 leading-relaxed mb-4">
           Everyone understands addresses. Your house has one. Your email has one. Your server has one. 
@@ -59,7 +59,7 @@ export default function NamingIsHardPage() {
           </ul>
         </div>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">The Mental Model Test</h2>
+        <h2 className="heading-2">The Mental Model Test</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
@@ -83,7 +83,7 @@ export default function NamingIsHardPage() {
           </div>
         </div>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Prior Art Supports "Address"</h2>
+        <h2 className="heading-2">Prior Art Supports "Address"</h2>
         
         <div className="space-y-4 mb-8">
           <div className="bg-gray-800 rounded-lg p-4">
@@ -108,7 +108,7 @@ export default function NamingIsHardPage() {
           The pattern is clear: networks use addresses for routing, not identities for authentication.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">The Code Tells the Truth</h2>
+        <h2 className="heading-2">The Code Tells the Truth</h2>
         
         <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-6">
           <span className="text-gray-500"># What we generate</span><br/>
@@ -128,7 +128,7 @@ export default function NamingIsHardPage() {
           That's an address, not an identity.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">When We Almost Used "Identity"</h2>
+        <h2 className="heading-2">When We Almost Used "Identity"</h2>
         
         <p className="text-gray-300 leading-relaxed mb-4">
           For 48 hours, our code used <code className="bg-gray-800 px-2 py-1 rounded">agent_identity</code>. 
@@ -147,7 +147,7 @@ export default function NamingIsHardPage() {
           digital identity systems.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">The Final Decision</h2>
+        <h2 className="heading-2">The Final Decision</h2>
         
         <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-500/20">
           <p className="text-lg text-gray-300 leading-relaxed mb-4">

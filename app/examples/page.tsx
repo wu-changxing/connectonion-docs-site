@@ -53,22 +53,31 @@ export default function ExamplesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
       <div className="max-w-7xl mx-auto px-6 py-12">
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+          <Link href="/" className="hover:text-purple-400 transition-colors">
+            Docs
+          </Link>
+          <ArrowRight className="w-4 h-4" />
+          <span className="text-white">Examples</span>
+        </div>
+
         {/* Header */}
         <div className="mb-12">
-          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ArrowRight className="w-4 h-4" />
-            <span className="text-white">Examples</span>
-          </nav>
-          
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-4xl font-bold">Agent Building Examples</h1>
-            <CopyMarkdownButton />
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-xl border border-blue-500/30">
+                <Code className="w-8 h-8 text-blue-400" />
+              </div>
+              <div>
+                <h1 className="heading-1">Examples</h1>
+                <p className="text-lg text-gray-300">
+                  Master ConnectOnion through practical examples, from simple fundamentals to advanced automation.
+                </p>
+              </div>
+            </div>
+            <CopyMarkdownButton markdownPath="/examples.md" filename="examples.md" className="flex-shrink-0" />
           </div>
-          
-          <p className="text-xl text-gray-300">
-            Master ConnectOnion through practical examples, from simple fundamentals to advanced automation
-          </p>
         </div>
 
         {/* Progressive Learning Path */}
@@ -160,7 +169,7 @@ export default function ExamplesPage() {
 
         {/* Call to Action */}
         <div className="text-center py-8 px-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-500/20">
-          <h2 className="text-2xl font-bold mb-4">Ready to Build Your First Agent?</h2>
+          <h2 className="heading-2">Ready to Build Your First Agent?</h2>
           <p className="text-gray-300 mb-6">
             Start with the Calculator example to learn the fundamentals, then advance to Browser automation
           </p>

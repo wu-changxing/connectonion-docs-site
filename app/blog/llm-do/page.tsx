@@ -298,7 +298,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
           <article className="prose prose-invert max-w-none">
             <div className="mb-8 flex justify-between items-start">
               <div>
-                <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-4">
+                <h1 className="heading-1">
                   Why We Chose `llm_do()` Over `llm()`
                 </h1>
                 <p className="text-gray-300 text-lg">December 2024 • Design Decision #002</p>
@@ -315,7 +315,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
                 After introducing one-shot LLM calls to ConnectOnion, we initially named the function <code className="bg-gray-800/50 text-green-300 px-2 py-1 rounded font-mono text-sm">llm()</code>. It seemed perfect - short, clear, obvious. But we quickly discovered a fundamental problem that forced us to reconsider.
               </p>
 
-              <h2 className="text-3xl font-bold text-green-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Problem: Functions Should Be Verbs</h2>
+              <h2 className="heading-2">The Problem: Functions Should Be Verbs</h2>
               
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6 relative group">
                 <CopyButton text={codeExample1} />
@@ -333,7 +333,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
                 </p>
               </div>
 
-              <h2 className="text-3xl font-bold text-green-400 mt-12 mb-6 pb-2 border-b border-gray-800">Why "Do" Is Perfect</h2>
+              <h2 className="heading-2">Why "Do" Is Perfect</h2>
               
               <p className="mb-4">"Do" is unique among English verbs - it's the universal action word that works for any task:</p>
 
@@ -350,7 +350,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
                 </p>
               </div>
 
-              <h2 className="text-3xl font-bold text-green-400 mt-12 mb-6 pb-2 border-b border-gray-800">Structured Output Advantage</h2>
+              <h2 className="heading-2">Structured Output Advantage</h2>
 
               <p>The verb form made the structured output API more intuitive:</p>
 
@@ -361,7 +361,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
                 </pre>
               </div>
 
-              <h2 className="text-3xl font-bold text-green-400 mt-12 mb-6 pb-2 border-b border-gray-800">Measuring Developer Response</h2>
+              <h2 className="heading-2">Measuring Developer Response</h2>
               
               <div className="grid md:grid-cols-2 gap-6 my-8">
                 <div className="bg-gradient-to-br from-emerald-900/20 to-transparent border border-emerald-500/20 rounded-xl p-6">
@@ -374,7 +374,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
                 </div>
               </div>
 
-              <h2 className="text-3xl font-bold text-green-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Philosophy</h2>
+              <h2 className="heading-2">The Philosophy</h2>
               
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-8">
                 <p className="text-lg mb-4">This decision reflects a core belief: <strong className="text-green-300">code should read like natural language</strong>.</p>
@@ -396,7 +396,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
                 </div>
               </div>
 
-              <h2 className="text-3xl font-bold text-green-400 mt-12 mb-6 pb-2 border-b border-gray-800">Lessons Learned</h2>
+              <h2 className="heading-2">Lessons Learned</h2>
               
               <div className="space-y-4">
                 <div className="flex gap-4">
@@ -429,7 +429,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
                 </div>
               </div>
 
-              <h2 className="text-3xl font-bold text-green-400 mt-12 mb-6 pb-2 border-b border-gray-800">The ConnectOnion Way</h2>
+              <h2 className="heading-2">The ConnectOnion Way</h2>
               
               <p>This naming decision embodies our principles:</p>
               <ul className="list-disc list-inside space-y-2 ml-4 text-gray-300">

@@ -20,28 +20,31 @@ export default function ServePage() {
         {/* Hero Section */}
         <section className="mb-16">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+            <Link href="/" className="hover:text-purple-400 transition-colors">
+              Docs
+            </Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">Agent Serving</span>
-          </nav>
+          </div>
 
-          <div className="mb-8">
-            <div className="inline-flex items-center gap-3 bg-emerald-900/20 border border-emerald-500/30 rounded-full px-6 py-3 mb-6">
-              <Wifi className="w-5 h-5 text-emerald-400" />
-              <span className="text-sm font-medium">Make Agents Network-Accessible</span>
-              <Globe className="w-5 h-5 text-emerald-300" />
+          {/* Header */}
+          <div className="mb-12">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+              <div className="flex items-center gap-3">
+                <div className="p-3 bg-gradient-to-br from-emerald-600/20 to-cyan-600/20 rounded-xl border border-emerald-500/30">
+                  <Wifi className="w-8 h-8 text-emerald-400" />
+                </div>
+                <div>
+                  <h1 className="heading-1">Agent Serving</h1>
+                  <p className="text-lg text-gray-300">
+                    Make your agent accessible from anywhere. One line of code, cryptographic identity, zero configuration.
+                  </p>
+                </div>
+              </div>
+              <CopyMarkdownButton markdownPath="/serve.md" filename="serve.md" className="flex-shrink-0" />
             </div>
-
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-100">
-              Share Your AI Agents Over the Network
-            </h1>
-
-            <p className="text-xl text-gray-300 max-w-3xl mb-6">
-              Call <code className="bg-gray-800 px-2 py-1 rounded">agent.serve()</code> to make your agent accessible from anywhere. One line of code, cryptographic identity, zero configuration.
-            </p>
-
-            <CopyMarkdownButton />
           </div>
 
           {/* Key Benefit */}
@@ -54,7 +57,7 @@ export default function ServePage() {
 
         {/* 60-Second Quick Start */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="heading-2">
             <Zap className="w-8 h-8 text-yellow-400" />
             60-Second Quick Start
           </h2>
@@ -106,7 +109,7 @@ Waiting for connections...`}
 
         {/* Testing Your Agent */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8">Testing Your Served Agent</h2>
+          <h2 className="heading-2">Testing Your Served Agent</h2>
 
           <p className="text-gray-300 mb-6 text-lg">
             From another Python script, connect using the agent's address:
@@ -135,7 +138,7 @@ print(result)`}
 
         {/* Message Flow */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="heading-2">
             <Network className="w-8 h-8 text-cyan-400" />
             How It Works
           </h2>
@@ -192,7 +195,7 @@ print(result)`}
 
         {/* Configuration */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="heading-2">
             <Layers className="w-8 h-8 text-purple-400" />
             Configuration
           </h2>
@@ -235,7 +238,7 @@ agent.serve(relay_url=relay_url)`}
 
         {/* Security */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="heading-2">
             <Shield className="w-8 h-8 text-amber-400" />
             Security
           </h2>
@@ -284,7 +287,7 @@ verify_key.verify(signature)  # Raises if invalid`}
 
         {/* Complete Example */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8">Complete Example</h2>
+          <h2 className="heading-2">Complete Example</h2>
 
           <CodeWithResult
             code={`from connectonion import Agent
@@ -330,7 +333,7 @@ Waiting for connections...`}
         {/* CTA Section */}
         <section className="mb-20">
           <div className="bg-emerald-950/30 rounded-2xl p-10 border border-emerald-400/30 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Share Your Agents?</h2>
+            <h2 className="heading-2">Ready to Share Your Agents?</h2>
             <p className="text-xl text-gray-300 mb-8">
               Just call <code className="bg-gray-800 px-3 py-1.5 rounded">agent.serve()</code> and your agent goes live!
             </p>

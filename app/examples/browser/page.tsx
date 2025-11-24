@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { Chrome, Play, Terminal, Camera, Globe, Search, ArrowRight, Code, Shield, Zap, Download } from 'lucide-react'
+import Link from 'next/link'
 import { CommandBlock } from '../../../components/CommandBlock'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { ContentNavigation } from '../../../components/ContentNavigation'
@@ -9,19 +10,37 @@ import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 
 export default function BrowserAutomationExample() {
   return (
-    <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-12 lg:py-12 pt-16 lg:pt-12">
-      {/* Header with Copy Button */}
-      <div className="flex items-start justify-between mb-8">
-        <div className="flex-1">
-          <div className="flex items-center gap-3 mb-4">
-            <Chrome className="w-8 h-8 text-purple-400" />
-            <h1 className="text-3xl md:text-4xl font-bold text-white">Browser Automation</h1>
+    <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
+      <div className="max-w-6xl mx-auto">
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+        <Link href="/" className="hover:text-purple-400 transition-colors">
+          Docs
+        </Link>
+        <ArrowRight className="w-4 h-4" />
+        <Link href="/examples" className="hover:text-purple-400 transition-colors">
+          Examples
+        </Link>
+        <ArrowRight className="w-4 h-4" />
+        <span className="text-white">Browser Automation</span>
+      </div>
+
+      {/* Header */}
+      <div className="mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+          <div className="flex items-center gap-3">
+            <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
+              <Chrome className="w-8 h-8 text-purple-400" />
+            </div>
+            <div>
+              <h1 className="heading-1 text-3xl md:text-4xl font-bold text-white mb-2">Browser Automation</h1>
+              <p className="text-lg text-gray-300">
+                Control web browsers with natural language commands using Playwright.
+              </p>
+            </div>
           </div>
-          <p className="text-lg md:text-xl text-gray-300">
-            Control web browsers with natural language commands using Playwright
-          </p>
+          <CopyMarkdownButton markdownPath="/examples/browser.md" filename="browser.md" className="flex-shrink-0" />
         </div>
-        <CopyMarkdownButton />
       </div>
 
       {/* What You'll Learn */}
@@ -52,7 +71,7 @@ export default function BrowserAutomationExample() {
 
       {/* Quick Start */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+        <h2 className="heading-2">
           <Zap className="w-6 h-6 text-yellow-400" />
           Quick Start
         </h2>
@@ -87,7 +106,7 @@ Search completed successfully`}
 
       {/* Full Implementation */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+        <h2 className="heading-2">
           <Code className="w-6 h-6 text-green-400" />
           Complete Browser Agent
         </h2>
@@ -215,7 +234,7 @@ if __name__ == "__main__":
 
       {/* Interactive Demo */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+        <h2 className="heading-2">
           <Play className="w-6 h-6 text-orange-400" />
           Interactive Demo Script
         </h2>
@@ -310,7 +329,7 @@ Demo complete! Check out:
 
       {/* Common Use Cases */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+        <h2 className="heading-2">
           <Search className="w-6 h-6 text-blue-400" />
           Common Use Cases
         </h2>
@@ -373,7 +392,7 @@ Form submitted successfully`}
 
       {/* Installation */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+        <h2 className="heading-2">
           <Download className="w-6 h-6 text-green-400" />
           Installation
         </h2>
@@ -420,7 +439,7 @@ Form submitted successfully`}
 
       {/* Next Steps */}
       <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-lg p-8 text-center mb-12">
-        <h2 className="text-2xl font-bold mb-4">Ready to Automate the Web?</h2>
+        <h2 className="heading-2">Ready to Automate the Web?</h2>
         <p className="text-gray-300 mb-6">
           Start building your own browser automation agents with ConnectOnion
         </p>
@@ -444,6 +463,7 @@ Form submitted successfully`}
 
       {/* Navigation */}
       <ContentNavigation />
+      </div>
     </div>
   )
 }

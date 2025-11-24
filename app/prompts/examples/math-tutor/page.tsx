@@ -120,7 +120,7 @@ ${expectedOutput}
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <Code className="w-8 h-8 text-blue-400" />
-                <h1 className="text-4xl font-bold text-white">Math Tutor</h1>
+                <h1 className="heading-1">Math Tutor</h1>
                 <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm font-medium">
                   Beginner
                 </span>

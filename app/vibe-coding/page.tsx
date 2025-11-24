@@ -114,7 +114,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
               <FileCode2 className="w-10 h-10 text-purple-400" />
             </div>
             <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-purple-500 bg-clip-text text-transparent mb-4">
+              <h1 className="heading-1">
                 Vibe-Coding Support
               </h1>
               <p className="text-gray-200 text-lg md:text-xl">Build AI Agents Correctly with Claude Code Plugin</p>
@@ -142,7 +142,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                 <Terminal className="w-4 h-4 text-purple-400" />
                 <span className="text-sm font-medium text-purple-300">Documentation-Grounded Development</span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
+              <h2 className="heading-2">
                 Build ConnectOnion Agents <span className="text-purple-400">The Right Way</span>
               </h2>
               <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
@@ -190,7 +190,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                 <Terminal className="w-8 h-8 text-purple-400" />
               </div>
               <div>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-purple-300">Claude Code Plugin</h2>
+                <h2 className="heading-2">Claude Code Plugin</h2>
                 <p className="text-gray-200 text-base md:text-lg">Code review & agent builder directly in Claude Code</p>
               </div>
             </div>

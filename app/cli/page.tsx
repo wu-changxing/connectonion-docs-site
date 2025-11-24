@@ -63,344 +63,6 @@ export default function CLIPage() {
     setTimeout(() => setCopiedId(null), 2000)
   }
 
-  const pageContent = `# ConnectOnion CLI Reference
-
-The ConnectOnion CLI provides commands to quickly scaffold and manage AI agent projects.
-
-## Installation
-
-\`\`\`bash
-pip install connectonion
-\`\`\`
-
-This provides two equivalent commands:
-- \`co\` (short form)
-- \`connectonion\` (full form)
-
-## Getting Help
-
-The ConnectOnion CLI has a **three-level help system** that makes it easy to find what you need:
-
-### Level 1: Quick Overview
-\`\`\`bash
-co
-\`\`\`
-Shows a brief, scannable overview with:
-- Common commands and usage examples
-- Quick links to documentation
-- Guidance on getting more detailed help
-
-**When to use:** You need a quick refresher or want to see available commands.
-
-### Level 2: Detailed Help
-\`\`\`bash
-co --help
-\`\`\`
-Shows complete help with:
-- All available commands
-- All command-line options
-- Real usage examples
-- Links to documentation
-
-**When to use:** You want to see all available options or need examples.
-
-### Level 3: Command-Specific Help
-\`\`\`bash
-co <command> --help
-\`\`\`
-Examples:
-\`\`\`bash
-co init --help
-co create --help
-co auth --help
-\`\`\`
-
-Shows detailed help for a specific command including:
-- All options for that command
-- Multiple usage examples
-- List of files that will be created
-- Direct link to command documentation
-
-**When to use:** You're about to run a command and want to know all the options.
-
-## Commands Overview
-
-ConnectOnion provides two main commands for project creation:
-
-- **\`co create [name]\`** - Creates a new project directory
-- **\`co init\`** - Initializes the current directory
-
-Both commands share the same interactive flow:
-1. AI feature toggle (Yes/No)
-2. API key input (with auto-detection)
-3. Template selection
-
-## Core Commands
-
-### co create [name]
-
-Create a new ConnectOnion project in a new directory.
-
-#### Basic Usage
-
-\`\`\`bash
-# Interactive mode (prompts for project name)
-co create
-
-# With project name (skips name prompt)
-co create my-agent
-
-# With all options (no interaction)
-co create my-agent --ai --key sk-proj-xxx --template minimal
-\`\`\`
-
-#### Options
-
-- \`[name]\`: Optional project name (creates directory)
-- \`--ai/--no-ai\`: Enable or disable AI features
-- \`--key\`: API key for AI provider (auto-detects provider)
-- \`--template\`: Choose template (\`minimal\`, \`web-research\`, \`custom\`)
-- \`--description\`: Description for custom template (requires AI)
-- \`--yes, -y\`: Skip all prompts, use defaults
-
-### co init
-
-Initialize a ConnectOnion project in the current directory.
-
-#### Basic Usage
-
-\`\`\`bash
-# Initialize current directory interactively
-co init
-
-# Skip prompts with options
-co init --no-ai --template minimal
-\`\`\`
-
-#### Options
-
-Same as \`co create\`, except no \`[name]\` parameter (uses current directory name).
-
-## Templates
-
-### Minimal
-Basic agent structure with essential components:
-- Simple agent.py with basic tools
-- Minimal dependencies
-- Quick start configuration
-
-### Web Research
-Advanced template for data analysis and web scraping:
-- Web scraping tools
-- Data extraction utilities
-- Browser automation support
-- API integration examples
-
-### Custom (AI-only)
-Only available when AI is enabled. Generates a complete custom template based on your description.
-
-## API Key Detection
-
-The CLI automatically detects your API provider from the key format:
-
-| Provider | Key Format | Example |
-|----------|------------|---------|
-| OpenAI | \`sk-...\` or \`sk-proj-...\` | \`sk-proj-abc123...\` |
-| Anthropic | \`sk-ant-...\` | \`sk-ant-api03-xyz...\` |
-| Google | \`AIza...\` | \`AIzaSyAbc123...\` |
-| Groq | \`gsk_...\` | \`gsk_abc123...\` |
-
-## What Gets Created
-
-### Project Structure
-
-\`\`\`
-my-agent/
-├── agent.py           # Main agent implementation
-├── tools/             # Custom tools directory (if applicable)
-├── prompts/           # System prompts (for AI-enabled projects)
-├── .env               # Environment configuration (API keys)
-├── .co/               # ConnectOnion metadata
-│   ├── config.toml    # Project configuration
-│   ├── keys/          # Agent cryptographic keys
-│   │   ├── agent.key  # Private signing key
-│   │   ├── recovery.txt # 12-word recovery phrase
-│   │   └── DO_NOT_SHARE # Security warning
-│   └── docs/
-│       └── co-vibecoding-principles-docs-contexts-all-in-one.md # Complete VibeCoding & framework docs
-├── README.md          # Project documentation
-└── .gitignore        # Git ignore rules (if in git repo)
-\`\`\`
-
-### Agent Identity
-
-Every project automatically gets:
-- **Ed25519 cryptographic keys** for agent identity
-- **Unique address** (hex-encoded public key)
-- **12-word recovery phrase** for key restoration
-- Keys are stored in \`.co/keys/\` and auto-added to \`.gitignore\`
-
-## Quick Command Reference
-
-| Command | Description |
-|---------|-------------|
-| \`co create\` | Create new project (interactive) |
-| \`co create my-agent\` | Create with name |
-| \`co init\` | Initialize current directory |
-| \`co create --no-ai\` | Create without AI features |
-| \`co create --ai --template custom\` | Create custom AI template |
-| \`co --version\` | Show version |
-| \`co --help\` | Show help |
-| \`co <command> --help\` | Get help for specific command |
-
-## Authentication & Account Management
-
-### co auth
-
-Authenticate with OpenOnion for managed LLM keys (allows using \`co/\` models).
-
-\`\`\`bash
-co auth
-\`\`\`
-
-**What it does:**
-1. Loads your agent's keys from \`.co/keys/\`
-2. Signs an authentication message
-3. Authenticates directly with the backend
-4. Saves the token for future use
-
-**When to use:**
-- You want to use managed LLM keys (no need to provide your own API keys)
-- You want to use \`co/\` models like \`co/gpt-4o-mini\`, \`co/claude-sonnet-4\`
-
-### co status
-
-Check your account balance and usage.
-
-\`\`\`bash
-co status
-\`\`\`
-
-**Shows:**
-- Current balance
-- Usage statistics
-- Account information
-
-**Note:** Does not require re-authentication. Uses saved token from \`co auth\`.
-
-### co reset
-
-Reset your account and create a new one.
-
-\`\`\`bash
-co reset
-\`\`\`
-
-**⚠️ WARNING:** This will delete all your data and create a new account. You will lose your balance and transaction history.
-
-**When to use:**
-- You want to start fresh with a new account
-- You lost access to your keys and need a new identity
-
-### co doctor
-
-Run comprehensive diagnostics on your ConnectOnion installation.
-
-\`\`\`bash
-co doctor
-\`\`\`
-
-**What it checks:**
-- **System Info:** ConnectOnion version, Python version, virtual environment status, command location
-- **Configuration:** Config files, keys directory, API keys, agent identity
-- **Connectivity:** Backend reachability, authentication status, network connectivity
-
-**When to use:**
-- \`co\` command not found
-- API key problems
-- Authentication failures
-- Network connectivity issues
-- General troubleshooting
-
-**Common issues it detects:**
-- Missing \`co\` command in PATH
-- Python version incompatibility
-- Missing or invalid API keys
-- Authentication failures
-- Incorrect file permissions
-
-## Browser Features
-
-### Browser Commands
-
-Use the \`-b\` flag for browser automation with natural language:
-
-\`\`\`bash
-# Take a screenshot
-co -b "screenshot example.com save to screenshot.png"
-
-# Screenshot with device preset
-co -b "screenshot example.com save to mobile.png size iPhone"
-\`\`\`
-
-### Device Presets
-
-- iPhone: 390x844
-- iPad: 768x1024
-- Desktop: 1920x1080 (default)
-
-## Best Practices
-
-1. **Choose the right command**:
-   - Use \`co create\` when starting a new project
-   - Use \`co init\` when adding to an existing directory
-
-2. **API Key Security**:
-   - Never commit \`.env\` files
-   - Store API keys securely
-   - Use environment variables in production
-
-3. **Template Selection**:
-   - Start with Minimal for learning
-   - Use Web Research for data projects
-   - Choose Custom (with AI) for specific needs
-
-4. **Agent Keys**:
-   - Never share \`.co/keys/\` directory
-   - Backup your recovery phrase
-   - Keys are automatically generated and protected
-
-## Troubleshooting
-
-### Command Not Found
-
-If \`co\` command is not found after installation:
-\`\`\`bash
-# Use full command
-python -m connectonion.cli.main create
-
-# Or reinstall
-pip uninstall connectonion
-pip install connectonion
-\`\`\`
-
-### Permission Denied
-
-Ensure you have write permissions in the target directory.
-
-### API Key Issues
-
-- Check key format matches your provider
-- Ensure key is active and has credits
-- Try pasting without quotes or spaces
-
-### Python Version
-
-ConnectOnion requires Python 3.8+:
-\`\`\`bash
-python --version
-\`\`\`
-`
 
   return (
     <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
@@ -415,14 +77,14 @@ python --version
             <span className="text-white">CLI Reference</span>
           </nav>
           
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">CLI Reference</h1>
+          <h1 className="h1 md:"heading-1>CLI Reference</h1>
           <p className="text-lg md:text-xl text-gray-300">
             Quickly scaffold and manage ConnectOnion agent projects with the CLI.
           </p>
         </div>
-        <CopyMarkdownButton 
-          content={pageContent}
-          filename="cli-reference.md"
+        <CopyMarkdownButton
+          markdownPath="/cli/cli.md"
+          filename="cli.md"
           className="flex-shrink-0"
         />
       </div>
@@ -443,7 +105,7 @@ python --version
 
       {/* Installation */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <Package className="w-6 h-6 text-blue-400" />
           Installation
         </h2>
@@ -466,7 +128,7 @@ python --version
 
       {/* Commands Overview */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <Terminal className="w-6 h-6 text-green-400" />
           Commands Overview
         </h2>
@@ -518,7 +180,7 @@ python --version
 
       {/* co create Command */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <Sparkles className="w-6 h-6 text-green-400" />
           co create [name]
         </h2>
@@ -629,7 +291,7 @@ Next steps:
 
       {/* co init Command */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <Folder className="w-6 h-6 text-purple-400" />
           co init
         </h2>
@@ -665,7 +327,7 @@ Next steps:
 
       {/* Browser Features */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <Zap className="w-6 h-6 text-yellow-400" />
           Browser Features
         </h2>
@@ -722,7 +384,7 @@ Next steps:
 
       {/* Templates */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <Code className="w-6 h-6 text-purple-400" />
           Templates
         </h2>
@@ -808,7 +470,7 @@ Generating custom template with AI...
 
       {/* API Key Detection */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <Key className="w-6 h-6 text-orange-400" />
           API Key Detection
         </h2>
@@ -860,7 +522,7 @@ Generating custom template with AI...
 
       {/* What Gets Created */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <FileText className="w-6 h-6 text-blue-400" />
           What Gets Created
         </h2>
@@ -962,7 +624,7 @@ Generating custom template with AI...
 
       {/* Examples */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6">Examples</h2>
+        <h2 className="heading-2">Examples</h2>
 
         <div className="space-y-4">
           <CommandBlock 
@@ -992,7 +654,7 @@ Generating custom template with AI...
 
       {/* Best Practices */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6">Best Practices</h2>
+        <h2 className="heading-2">Best Practices</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
@@ -1032,7 +694,7 @@ Generating custom template with AI...
 
       {/* Troubleshooting */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6">Troubleshooting</h2>
+        <h2 className="heading-2">Troubleshooting</h2>
 
         <div className="space-y-6">
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">

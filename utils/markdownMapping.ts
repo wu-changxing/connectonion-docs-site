@@ -18,8 +18,9 @@ const routeToMarkdownMap: Record<string, string> = {
   '/logging': '/tutorials/log.md',
   
   // Useful Tools
-  '/send-email': '/tutorials/send-email.md',
-  '/get-emails': '/get-emails.md',
+  '/agent-emails': '/agent-emails.md',
+  '/agent-emails/send': '/agent-emails/send.md',
+  '/agent-emails/receive': '/agent-emails/receive.md',
   '/gmail': '/gmail.md',
   '/web-fetch': '/web-fetch.md',
   '/memory': '/memory.md',

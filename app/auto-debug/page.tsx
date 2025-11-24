@@ -21,29 +21,31 @@ export default function AutoDebugPage() {
         {/* Hero Section */}
         <section className="mb-16">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+            <Link href="/" className="hover:text-purple-400 transition-colors">
+              Docs
+            </Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">Interactive Debugging</span>
-          </nav>
+          </div>
 
-          <div className="mb-8">
-            <div className="inline-flex items-center gap-3 bg-purple-900/20 border border-purple-500/30 rounded-full px-6 py-3 mb-6">
-              <Bug className="w-5 h-5 text-purple-400" />
-              <span className="text-sm font-medium">Debug Agents Interactively</span>
-              <Eye className="w-5 h-5 text-purple-300" />
+          {/* Header */}
+          <div className="mb-12">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+              <div className="flex items-center gap-3 flex-1 min-w-0">
+                <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30 flex-shrink-0">
+                  <Bug className="w-8 h-8 text-purple-400" />
+                </div>
+                <div className="min-w-0">
+                  <h1 className="heading-1 truncate">Interactive Debugging</h1>
+                  <p className="text-lg text-gray-300">
+                    Debug your AI agents like code. Pause at breakpoints, inspect state, modify variables, and explore "what if" scenarios.
+                  </p>
+                </div>
+              </div>
+              <CopyMarkdownButton markdownPath="/auto-debug.md" filename="auto-debug.md" className="flex-shrink-0" />
             </div>
-
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-100">
-              Debug Your AI Agents Like Code
-            </h1>
-
-            <p className="text-xl text-gray-300 max-w-3xl mb-6">
-              Pause at breakpoints, inspect state, modify variables, and explore "what if" scenarios.
-              Just like debugging regular code, but for AI agents.
-            </p>
-
-            <CopyMarkdownButton />
           </div>
 
           {/* Feature Status */}
@@ -76,7 +78,7 @@ export default function AutoDebugPage() {
 
         {/* 60-Second Quick Start */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="heading-2">
             <Zap className="w-8 h-8 text-yellow-400" />
             60-Second Quick Start
           </h2>
@@ -148,7 +150,7 @@ What do you want to do?
 
         {/* The Interactive Menu */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="heading-2">
             <Terminal className="w-8 h-8 text-purple-400" />
             The Interactive Menu
           </h2>
@@ -212,7 +214,7 @@ What do you want to do?
 
         {/* Available Features */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8">Available Features</h2>
+          <h2 className="heading-2">Available Features</h2>
 
           <div className="space-y-8">
             {/* Continue Execution */}
@@ -221,7 +223,7 @@ What do you want to do?
                 <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
                   <Check className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold">Continue Execution</h3>
+                <h3 className="heading-3">Continue Execution</h3>
                 <span className="text-sm bg-green-900/30 text-green-400 border border-green-500/30 px-3 py-1 rounded-full">✅ Available</span>
               </div>
 
@@ -247,7 +249,7 @@ What do you want to do?
                 <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
                   <Code className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold">Edit Variables (Python REPL)</h3>
+                <h3 className="heading-3">Edit Variables (Python REPL)</h3>
                 <span className="text-sm bg-green-900/30 text-green-400 border border-green-500/30 px-3 py-1 rounded-full">✅ Available</span>
               </div>
 
@@ -298,7 +300,7 @@ Available variables: query, result, tool_args
                 <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
                   <Brain className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold">Ask AI for Help</h3>
+                <h3 className="heading-3">Ask AI for Help</h3>
                 <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
@@ -340,7 +342,7 @@ ai> /continue [Resume execution]`}
                 <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
                   <BarChart3 className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold">View Execution Trace</h3>
+                <h3 className="heading-3">View Execution Trace</h3>
                 <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
@@ -367,7 +369,7 @@ Total: 323ms • 2 steps • 1 iteration`}
                 <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
                   <RefreshCw className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold">Toggle Step Mode</h3>
+                <h3 className="heading-3">Toggle Step Mode</h3>
                 <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
@@ -395,7 +397,7 @@ Total: 323ms • 2 steps • 1 iteration`}
 
         {/* Real-World Example */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8">Complete User Journey</h2>
+          <h2 className="heading-2">Complete User Journey</h2>
 
           <p className="text-gray-300 mb-6 text-lg">
             Let's walk through a full debugging session:
@@ -460,7 +462,7 @@ Agent: "Sorry, no purple shoes under $100 are available."
 
         {/* Best Practices */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8">Best Practices</h2>
+          <h2 className="heading-2">Best Practices</h2>
 
           <div className="space-y-6">
             <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
@@ -525,7 +527,7 @@ agent.auto_debug(step=True)
 
         {/* When to Use */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8">When to Use</h2>
+          <h2 className="heading-2">When to Use</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6">
@@ -586,7 +588,7 @@ agent.auto_debug(step=True)
 
         {/* FAQ */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+          <h2 className="heading-2">Frequently Asked Questions</h2>
 
           <div className="space-y-4">
             {[
@@ -622,7 +624,7 @@ agent.auto_debug(step=True)
         {/* CTA Section */}
         <section className="mb-20">
           <div className="bg-purple-950/30 rounded-2xl p-10 border border-purple-400/30 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Debug Like a Pro?</h2>
+            <h2 className="heading-2">Ready to Debug Like a Pro?</h2>
             <p className="text-xl text-gray-300 mb-8">
               Just call <code className="bg-gray-800 px-3 py-1.5 rounded">agent.auto_debug()</code> and explore!
             </p>

@@ -45,7 +45,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Copy, Check, FileText, Play, ArrowRight, Info, AlertTriangle, FolderOpen, BookOpen, Lightbulb, Target } from 'lucide-react'
+import { Copy, Check, FileText, Play, ArrowRight, Info, AlertTriangle, FolderOpen, BookOpen, Lightbulb, Target, MessageSquare } from 'lucide-react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
@@ -218,28 +218,30 @@ Explore ready-to-use prompt templates:
   return (
     <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
       <div className="max-w-4xl mx-auto">
-      {/* Header with Breadcrumb and Copy Button */}
-      <div className="mb-10">
-        <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
-          <Link href="/" className="hover:text-white transition-colors">Home</Link>
-          <ArrowRight className="w-4 h-4" />
-          <span className="text-white">System Prompts</span>
-        </nav>
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+        <Link href="/" className="hover:text-purple-400 transition-colors">
+          Docs
+        </Link>
+        <ArrowRight className="w-4 h-4" />
+        <span className="text-white">System Prompts</span>
+      </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-          <div className="flex-1">
-            <h1 className="text-4xl font-bold text-white mb-4">System Prompts</h1>
-            <p className="text-xl text-gray-300">
-              Learn how to craft effective system prompts that define your agent's personality,
-              behavior, and approach to tasks.
-            </p>
+      {/* Header */}
+      <div className="mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+          <div className="flex items-center gap-3">
+            <div className="p-3 bg-gradient-to-br from-green-600/20 to-teal-600/20 rounded-xl border border-green-500/30">
+              <MessageSquare className="w-8 h-8 text-green-400" />
+            </div>
+            <div>
+              <h1 className="heading-1">System Prompts</h1>
+              <p className="text-lg text-gray-300">
+                Define your agent's personality, behavior, and approach to tasks.
+              </p>
+            </div>
           </div>
-
-          <CopyMarkdownButton
-            content={pageContent}
-            filename="system-prompts.md"
-            className="flex-shrink-0"
-          />
+          <CopyMarkdownButton markdownPath="/prompts/prompts.md" filename="prompts.md" className="flex-shrink-0" />
         </div>
       </div>
 
@@ -354,7 +356,7 @@ Explore ready-to-use prompt templates:
 
       {/* Quick Start */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6">Quick Start</h2>
+        <h2 className="heading-2">Quick Start</h2>
         
         <p className="text-gray-300 mb-8">
           ConnectOnion offers three ways to provide system prompts. We recommend Markdown files.
@@ -436,7 +438,7 @@ Explore ready-to-use prompt templates:
 
       {/* Iteration Control */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6">Iteration Control (max_iterations)</h2>
+        <h2 className="heading-2">Iteration Control (max_iterations)</h2>
         <p className="text-gray-300 mb-6">
           You can set a default iteration limit on the agent, and still override it for specific tasks.
         </p>
@@ -470,7 +472,7 @@ Explore ready-to-use prompt templates:
 
       {/* Supported Formats */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6">Supported File Formats</h2>
+        <h2 className="heading-2">Supported File Formats</h2>
         
         <div className="grid grid-cols-1 gap-4">
           {[
@@ -496,7 +498,7 @@ Explore ready-to-use prompt templates:
 
       {/* What's Next */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6">What's Next</h2>
+        <h2 className="heading-2">What's Next</h2>
         
         <div className="grid md:grid-cols-2 gap-6">
           <Link 

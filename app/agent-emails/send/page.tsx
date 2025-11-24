@@ -6,9 +6,9 @@ import { Mail, Send, Check, Copy, AlertCircle, Zap, Shield, Globe, Clock, ArrowR
 import { FaStar, FaCheckCircle, FaEnvelope } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { CommandBlock } from '../../components/CommandBlock'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
-import { ContentNavigation } from '../../components/ContentNavigation'
+import { CommandBlock } from '../../../components/CommandBlock'
+import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
+import { ContentNavigation } from '../../../components/ContentNavigation'
 
 export default function SendEmailPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -74,7 +74,11 @@ export default function SendEmailPage() {
             Docs
           </Link>
           <ArrowRight className="w-4 h-4" />
-          <span className="text-white">Send Email</span>
+          <Link href="/agent-emails" className="hover:text-purple-400 transition-colors">
+            Agent Emails
+          </Link>
+          <ArrowRight className="w-4 h-4" />
+          <span className="text-white">Send</span>
         </div>
 
         {/* Header */}
@@ -91,7 +95,7 @@ export default function SendEmailPage() {
                 </p>
               </div>
             </div>
-            <CopyMarkdownButton markdownPath="/send-email.md" filename="send-email.md" className="flex-shrink-0" />
+            <CopyMarkdownButton markdownPath="/agent-emails/send.md" filename="send-email.md" className="flex-shrink-0" />
           </div>
         </div>
 

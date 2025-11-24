@@ -10,7 +10,7 @@ export default function CLIProgressiveDisclosurePage() {
       </Link>
       
       <article className="prose prose-invert max-w-none">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+        <h1 className="heading-1">
           Why We Choose Progressive Disclosure Over Configuration Questionnaires
         </h1>
         
@@ -25,7 +25,7 @@ export default function CLIProgressiveDisclosurePage() {
           </p>
         </div>
 
-        <h2 className="text-2xl font-semibold text-white mt-12 mb-4">The Problem with Traditional CLIs</h2>
+        <h2 className="heading-2">The Problem with Traditional CLIs</h2>
         
         <div className="bg-gray-800 rounded-lg p-6 mb-6">
           <p className="text-gray-300 mb-4">Typical framework initialization:</p>
@@ -41,7 +41,7 @@ export default function CLIProgressiveDisclosurePage() {
           This approach assumes users know everything upfront. Reality: they don't, and they shouldn't have to.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Our Philosophy: Progressive Disclosure</h2>
+        <h2 className="heading-2">Our Philosophy: Progressive Disclosure</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4 text-center">
@@ -58,7 +58,7 @@ export default function CLIProgressiveDisclosurePage() {
           </div>
         </div>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">The Two-Command Strategy</h2>
+        <h2 className="heading-2">The Two-Command Strategy</h2>
         
         <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-6">
           <span className="text-gray-500"># Outside a project</span><br/>
@@ -82,7 +82,7 @@ export default function CLIProgressiveDisclosurePage() {
           and for good reason.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Minimal Questions, Maximum Intelligence</h2>
+        <h2 className="heading-2">Minimal Questions, Maximum Intelligence</h2>
         
         <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-6 mb-6">
           <p className="text-purple-400 font-semibold mb-2">Our setup asks only what matters RIGHT NOW:</p>
@@ -99,7 +99,7 @@ export default function CLIProgressiveDisclosurePage() {
           Yeoman generators (often 15+ questions).
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Smart API Key Detection</h2>
+        <h2 className="heading-2">Smart API Key Detection</h2>
         
         <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-6">
           <span className="text-blue-400">if</span> api_key.startswith(<span className="text-green-400">'sk-proj-'</span>):<br/>
@@ -114,7 +114,7 @@ export default function CLIProgressiveDisclosurePage() {
           The key format already tells us the provider. Why make users answer what we can infer?
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Template Preview, Not Template Guessing</h2>
+        <h2 className="heading-2">Template Preview, Not Template Guessing</h2>
         
         <div className="bg-gray-800 rounded-lg p-6 mb-6">
           <pre className="text-sm text-gray-300">
@@ -128,7 +128,7 @@ export default function CLIProgressiveDisclosurePage() {
           Users shouldn't have to guess. Show them, let them choose, move on.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Silent Excellence</h2>
+        <h2 className="heading-2">Silent Excellence</h2>
         
         <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-6">
           <span className="text-gray-500"># This happens silently during init</span><br/>
@@ -141,7 +141,7 @@ export default function CLIProgressiveDisclosurePage() {
           99% of users don't care about Ed25519 vs secp256k1. The 1% who do can read the docs.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">What We Don't Ask</h2>
+        <h2 className="heading-2">What We Don't Ask</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
@@ -167,7 +167,7 @@ export default function CLIProgressiveDisclosurePage() {
           </div>
         </div>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Beautiful by Default</h2>
+        <h2 className="heading-2">Beautiful by Default</h2>
         
         <div className="bg-gray-800 rounded-lg p-6 mb-6">
           <p className="text-gray-300 mb-4">We use colors and emojis for <strong className="text-white">clarity</strong>, not decoration:</p>
@@ -184,7 +184,7 @@ export default function CLIProgressiveDisclosurePage() {
           no ASCII art or unnecessary flair.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Results: User Delight</h2>
+        <h2 className="heading-2">Results: User Delight</h2>
         
         <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-500/20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
@@ -207,7 +207,7 @@ export default function CLIProgressiveDisclosurePage() {
           </div>
         </div>
 
-        <h2 className="text-2xl font-semibold text-white mt-12 mb-4">Conclusion</h2>
+        <h2 className="heading-2">Conclusion</h2>
         
         <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-6">
           <p className="text-lg text-gray-300 leading-relaxed m-0">

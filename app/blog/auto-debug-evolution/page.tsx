@@ -335,7 +335,7 @@ Press Enter to continue, or explore the menu. No manual required.
             </div>
             <div>
               <div className="text-sm text-gray-300 mb-1">Design Decision</div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+              <h1 className="heading-1">
                 Auto-Debug Design Evolution
               </h1>
             </div>
@@ -350,7 +350,7 @@ Press Enter to continue, or explore the menu. No manual required.
 
         {/* The Problem */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+          <h2 className="heading-2">
             <Terminal className="w-6 h-6 text-blue-400" />
             The Problem: Debugging AI Agents in the Dark
           </h2>
@@ -373,7 +373,7 @@ agent.input("Send email to John")
 
         {/* Iteration 1 */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">
+          <h2 className="heading-2">
             Iteration 1: The Complex Four-Mode System ❌
           </h2>
           <p className="text-gray-300 mb-4">
@@ -397,7 +397,7 @@ agent.input("Send email to John")
 
         {/* Iteration 2 */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">
+          <h2 className="heading-2">
             Iteration 2: Prefix-Based Mode Switching ❌
           </h2>
           <p className="text-gray-300 mb-4">
@@ -421,7 +421,7 @@ agent.input("Send email to John")
 
         {/* Iteration 3 */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">
+          <h2 className="heading-2">
             Iteration 3: Mode Indicators with Prompts 🟡
           </h2>
           <p className="text-gray-300 mb-4">
@@ -446,7 +446,7 @@ agent.input("Send email to John")
         {/* The Breakthrough */}
         <section className="mb-12">
           <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-lg p-6 mb-6">
-            <h2 className="text-2xl font-bold text-white mb-3 flex items-center gap-2">
+            <h2 className="heading-2">
               <Zap className="w-6 h-6 text-yellow-400" />
               The Breakthrough Question
             </h2>
@@ -479,7 +479,7 @@ agent.input("Send email to John")
 
         {/* Final Design */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+          <h2 className="heading-2">
             <MenuIcon className="w-6 h-6 text-green-400" />
             Iteration 4: Agent-First Menu ✅
           </h2>
@@ -507,7 +507,7 @@ agent.input("Send email to John")
 
         {/* Key Lessons */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className="heading-2">
             Key Lessons from Five Iterations
           </h2>
           <div className="space-y-4">
@@ -547,7 +547,7 @@ agent.input("Send email to John")
         {/* Try It */}
         <section className="mb-12">
           <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-white mb-4">Try It Yourself</h2>
+            <h2 className="heading-2">Try It Yourself</h2>
             <div className="bg-black/50 rounded-lg p-6 mb-4">
               <CopyButton text={codeUsage} />
               <pre className="text-sm text-gray-300">

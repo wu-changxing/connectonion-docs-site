@@ -47,6 +47,7 @@ import { FaBullseye, FaRocket, FaSearch, FaChartBar, FaShieldAlt } from 'react-i
 import CodeWithResult from '../../components/CodeWithResult'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
+import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 
 export default function XrayPage() {
 
@@ -58,26 +59,31 @@ export default function XrayPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+              <Link href="/" className="hover:text-purple-400 transition-colors">
+                Docs
+              </Link>
               <ArrowRight className="w-4 h-4" />
               <span className="text-white">@xray Debugging</span>
-            </nav>
+            </div>
 
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-3 bg-purple-900/20 border border-purple-500/30 rounded-full px-4 md:px-6 py-2 md:py-3 mb-6">
-                <Bug className="w-4 h-4 md:w-5 md:h-5 text-purple-400" />
-                <span className="text-xs md:text-sm font-medium">Debug with @xray</span>
-                <Eye className="w-4 h-4 md:w-5 md:h-5 text-purple-300" />
+            {/* Header */}
+            <div className="mb-12">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
+                    <Bug className="w-8 h-8 text-purple-400" />
+                  </div>
+                  <div>
+                    <h1 className="heading-1">@xray Debugging</h1>
+                    <p className="text-lg text-gray-300">
+                      See what your AI agent is thinking. Add one decorator and unlock debugging superpowers.
+                    </p>
+                  </div>
+                </div>
+                <CopyMarkdownButton markdownPath="/xray/xray.md" filename="xray.md" className="flex-shrink-0" />
               </div>
-              
-              <h1 className="text-3xl md:text-5xl font-bold mb-4 text-gray-100">
-                See what your AI agent is thinking
-              </h1>
-                
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-                  Add one decorator and unlock debugging superpowers. No more black box AI.
-                </p>
             </div>
             
             {/* Visual Flow Diagram - Mobile Responsive */}
@@ -123,7 +129,7 @@ export default function XrayPage() {
       {/* Examples Section */}
       <section className="container mx-auto px-6 py-16">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="heading-2">
             <Activity className="w-8 h-8 text-purple-400" />
             Examples
           </h2>
@@ -131,7 +137,7 @@ export default function XrayPage() {
           <div className="space-y-12">
             {/* Basic Usage */}
             <div>
-              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
+              <h3 className="heading-3">
                 <Eye className="w-6 h-6 text-green-400" />
                 Basic Usage
               </h3>
@@ -162,7 +168,7 @@ Processed: sample data`}
 
             {/* Execution Trace */}
             <div>
-              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
+              <h3 className="heading-3">
                 <Timer className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
                 Execution Trace
               </h3>
@@ -198,7 +204,7 @@ Analysis complete`}
 
             {/* IDE Debug */}
             <div>
-              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
+              <h3 className="heading-3">
                 <Bug className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
                 IDE Debug
               </h3>
@@ -240,7 +246,7 @@ positive`}
       {/* What You Can Access Section */}
       <section className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="heading-2">
             <Braces className="w-8 h-8 text-purple-400" />
             What You Can Access
           </h2>
@@ -306,7 +312,7 @@ positive`}
       {/* Use Cases Section */}
       <section className="container mx-auto px-6 py-16">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="heading-2">
             <Zap className="w-8 h-8 text-purple-400" />
             Practical Use Cases
           </h2>
@@ -381,7 +387,7 @@ Order ABC123 processed`}
       {/* Tips Section */}
       <section className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Pro Tips</h2>
+          <h2 className="heading-2">Pro Tips</h2>
           
           <div className="space-y-4">
             {[
@@ -416,7 +422,7 @@ Order ABC123 processed`}
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl font-bold mb-8">Ready to debug like a pro?</h2>
+          <h2 className="heading-2">Ready to debug like a pro?</h2>
           
           <div className="flex flex-wrap justify-center gap-4">
             {['Getting Started', 'Examples', 'API Reference'].map((item) => (

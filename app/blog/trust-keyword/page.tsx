@@ -177,7 +177,7 @@ Sometimes the best technical decisions are the least technical ones.`
           <article className="prose prose-invert max-w-none">
             <div className="mb-8 flex justify-between items-start">
               <div>
-                <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+                <h1 className="heading-1">
                   Why We Chose "Trust"
                 </h1>
                 <p className="text-gray-300 text-lg">December 2024 • Design Decision #003</p>
@@ -194,7 +194,7 @@ Sometimes the best technical decisions are the least technical ones.`
                 When designing ConnectOnion's agent-to-agent authentication system, we faced a crucial decision: what should we call the parameter that controls how agents verify each other? After evaluating 15+ options and extensive discussion, we settled on <code className="bg-gray-800/50 text-purple-300 px-2 py-1 rounded font-mono text-sm">trust</code>. Here's why.
               </p>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Challenge: Finding a Bidirectional Word</h2>
+              <h2 className="heading-2">The Challenge: Finding a Bidirectional Word</h2>
               
               <p>Our authentication system needed a keyword that works in two directions:</p>
               <ol className="list-decimal list-inside space-y-2 ml-4 text-gray-300">
@@ -203,7 +203,7 @@ Sometimes the best technical decisions are the least technical ones.`
               </ol>
               <p className="mt-4">Most security terms only work in one direction. We needed something that naturally flows both ways.</p>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">Options We Considered</h2>
+              <h2 className="heading-2">Options We Considered</h2>
               
               <div className="space-y-6">
                 {[
@@ -226,7 +226,7 @@ Sometimes the best technical decisions are the least technical ones.`
                 ))}
               </div>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">Why "Trust" Won</h2>
+              <h2 className="heading-2">Why "Trust" Won</h2>
               
               <div className="space-y-6">
                 {[
@@ -268,7 +268,7 @@ Sometimes the best technical decisions are the least technical ones.`
                 ))}
               </div>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">Clear Configuration</h2>
+              <h2 className="heading-2">Clear Configuration</h2>
               
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden">
                 <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
@@ -285,7 +285,7 @@ agent = Agent(name="helper", mode="dev")         # Mode of what?`}</code>
                 </pre>
               </div>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Unix Philosophy Connection</h2>
+              <h2 className="heading-2">The Unix Philosophy Connection</h2>
               
               <p>Just as Unix uses simple, composable commands, we use simple trust levels that combine with prompts for complex behavior:</p>
               
@@ -300,7 +300,7 @@ agent = Agent(
                 </pre>
               </div>
 
-              <h2 className="text-3xl font-bold text-purple-400 mt-12 mb-6 pb-2 border-b border-gray-800">The Bigger Picture</h2>
+              <h2 className="heading-2">The Bigger Picture</h2>
               
               <p>Choosing "trust" reflects ConnectOnion's philosophy:</p>
               <ul className="list-disc list-inside space-y-2 ml-4 text-gray-300">

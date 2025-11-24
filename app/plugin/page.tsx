@@ -222,7 +222,7 @@ agent = Agent("assistant", tools=[search], plugins=[my_plugin])
                 <span className="text-xs font-medium text-purple-200">NEW</span>
               </div>
 
-              <h1 className="text-4xl font-bold text-white mb-4">
+              <h1 className="heading-1">
                 Reusable Event Bundles
               </h1>
 
@@ -251,7 +251,7 @@ agent = Agent("assistant", tools=[search], plugins=[my_plugin])
 
         {/* Quick Start */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <h2 className="heading-2">
             <Play className="text-purple-400 w-7 h-7" />
             Quick Start (60 seconds)
           </h2>
@@ -277,7 +277,7 @@ agent.input("Search for Python")
 
         {/* What is a Plugin */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className="heading-2">
             What is a Plugin?
           </h2>
 
@@ -313,7 +313,7 @@ agent = Agent("assistant", tools=[search], plugins=[reflection, logger])
 
         {/* Plugin vs on_events */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className="heading-2">
             Plugin vs on_events
           </h2>
 
@@ -344,7 +344,7 @@ agent = Agent(
 
         {/* Built-in Plugins */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className="heading-2">
             Built-in Plugins (useful_plugins)
           </h2>
 
@@ -442,7 +442,7 @@ agent = Agent(
 
         {/* Writing Custom Plugins */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className="heading-2">
             Writing Custom Plugins
           </h2>
 
@@ -579,7 +579,7 @@ reflection = [after_tool(_add_reflection)]`}
 
         {/* Quick Custom Plugin Example */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className="heading-2">
             Quick Custom Plugin Example
           </h2>
 
@@ -605,7 +605,7 @@ agent = Agent("assistant", tools=[search], plugins=[logger])`}
 
         {/* Example: Reflection Plugin */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className="heading-2">
             Example: Reflection Plugin
           </h2>
 
@@ -647,7 +647,7 @@ agent.input("Search for Python")
 
         {/* Example: Todo Plugin */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className="heading-2">
             Example: Todo Plugin
           </h2>
 
@@ -712,7 +712,7 @@ agent.input("Research Python and summarize")
 
         {/* Reusing Plugins */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className="heading-2">
             Reusing Plugins
           </h2>
 
@@ -736,7 +736,7 @@ analyst = Agent("analyst", tools=[calculate], plugins=[logger])
 
         {/* Summary */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className="heading-2">
             Summary
           </h2>
 
@@ -765,7 +765,7 @@ agent = Agent("assistant", tools=[search], plugins=[my_plugin])
 
         {/* What's Next */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
+          <h2 className="heading-2">
             <ArrowRight className="text-purple-400 w-6 h-6" />
             What's Next?
           </h2>

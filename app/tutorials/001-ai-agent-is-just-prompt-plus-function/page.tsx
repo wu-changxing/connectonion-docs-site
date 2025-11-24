@@ -156,7 +156,7 @@ export default function Tutorial001Page() {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <h1 className="heading-1">
                 {t.title}
               </h1>
 
@@ -186,7 +186,7 @@ export default function Tutorial001Page() {
 
           {/* Section 1: The Truth */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+            <h2 className="heading-2">
               <AlertTriangle className="w-6 h-6 text-orange-500" />
               {t.truth}
             </h2>
@@ -225,7 +225,7 @@ export default function Tutorial001Page() {
 
           {/* Section 2: Why I Built This */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            <h2 className="heading-2">
               {t.whyBuilt}
             </h2>
 
@@ -251,7 +251,7 @@ export default function Tutorial001Page() {
 
           {/* Section 3: Code Comparison - Stacked Vertically */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+            <h2 className="heading-2">
               {t.seeDifference}
             </h2>
 
@@ -293,7 +293,7 @@ The weather in San Francisco is sunny, 72°F"
 
           {/* Section 4: Get Started */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
+            <h2 className="heading-2">
               {t.getStarted}
             </h2>
 
@@ -328,7 +328,7 @@ print(result)`}
 
           {/* Section 5: What You'll Learn */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            <h2 className="heading-2">
               {t.whatYouLearn}
             </h2>
 
@@ -350,7 +350,7 @@ print(result)`}
 
           {/* Call to Action */}
           <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
+            <h2 className="heading-2">
               {t.nextSteps}
             </h2>
 

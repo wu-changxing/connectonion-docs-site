@@ -39,8 +39,9 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, Rocket, Package, Network, Shield, Brain, CheckCircle2, Clock, AlertCircle } from 'lucide-react'
+import { ArrowRight, Rocket, Package, Network, Shield, Brain, CheckCircle2, Clock, AlertCircle } from 'lucide-react'
 import { ContentNavigation } from '../../components/ContentNavigation'
+import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 
 export default function RoadmapPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
@@ -222,28 +223,36 @@ export default function RoadmapPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-purple-900/10 to-gray-900">
       <div className="max-w-4xl mx-auto px-6 py-12">
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+          <Link href="/" className="hover:text-purple-400 transition-colors">
+            Docs
+          </Link>
+          <ArrowRight className="w-4 h-4" />
+          <span className="text-white">Roadmap</span>
+        </div>
+
         {/* Header */}
         <div className="mb-12">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Docs
-          </Link>
-          
-          <div className="flex items-center gap-3 mb-4">
-            <Rocket className="w-8 h-8 text-purple-400" />
-            <h1 className="text-3xl font-bold text-white">
-              Roadmap
-            </h1>
-            <span className="px-2 py-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs font-semibold rounded-full">
-              v0.0.6
-            </span>
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
+                <Rocket className="w-8 h-8 text-purple-400" />
+              </div>
+              <div>
+                <div className="flex items-center gap-3">
+                  <h1 className="heading-1">Roadmap</h1>
+                  <span className="px-2 py-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs font-semibold rounded-full">
+                    v0.0.6
+                  </span>
+                </div>
+                <p className="text-lg text-gray-300">
+                  Track our progress from v0.0.1 to v1.0 and beyond.
+                </p>
+              </div>
+            </div>
+            <CopyMarkdownButton markdownPath="/roadmap.md" filename="roadmap.md" className="flex-shrink-0" />
           </div>
-          <p className="text-gray-300">
-            Track our progress from v0.0.1 to v1.0 and beyond
-          </p>
         </div>
 
         {/* Category Filters */}

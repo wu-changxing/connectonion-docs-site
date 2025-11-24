@@ -169,14 +169,14 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
               <span className="text-white">Browser Screenshots</span>
             </nav>
             
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Browser Screenshots</h1>
+            <h1 className="h1 md:"heading-1>Browser Screenshots</h1>
             <p className="text-lg md:text-xl text-gray-300">
               Quick browser screenshots for debugging web applications
             </p>
           </div>
-          <CopyMarkdownButton 
-            content={pageContent}
-            filename="browser-screenshots.md"
+          <CopyMarkdownButton
+            markdownPath="/tools/browser/browser.md"
+            filename="browser.md"
             className="flex-shrink-0"
           />
         </div>
@@ -215,7 +215,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 
         {/* Command Format */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <h2 className="heading-2">
             <Terminal className="w-6 h-6 text-green-400" />
             Command Format
           </h2>
@@ -243,7 +243,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 
         {/* Examples Grid */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">Examples</h2>
+          <h2 className="heading-2">Examples</h2>
 
           <div className="grid gap-6">
             {/* Basic Screenshots */}
@@ -311,7 +311,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 
         {/* Device Presets Table */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <h2 className="heading-2">
             <Layers className="w-6 h-6 text-purple-400" />
             Device Presets
           </h2>
@@ -358,7 +358,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 
         {/* Complete Examples */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <h2 className="heading-2">
             <Zap className="w-6 h-6 text-yellow-400" />
             Complete Examples
           </h2>
@@ -387,7 +387,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 
         {/* Use Cases */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">Use Cases</h2>
+          <h2 className="heading-2">Use Cases</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Debug Development */}
@@ -461,7 +461,7 @@ done`}
 
         {/* URL Handling */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">URL Handling</h2>
+          <h2 className="heading-2">URL Handling</h2>
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
             <p className="text-gray-300 mb-4">The command intelligently handles URLs:</p>
@@ -494,7 +494,7 @@ done`}
 
         {/* Installation */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">Installation</h2>
+          <h2 className="heading-2">Installation</h2>
 
           <div className="space-y-6">
             <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-6">
@@ -520,7 +520,7 @@ done`}
 
         {/* Framework Examples */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">Framework Examples</h2>
+          <h2 className="heading-2">Framework Examples</h2>
 
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
@@ -567,7 +567,7 @@ done`}
 
         {/* Error Messages */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <h2 className="heading-2">
             <AlertCircle className="w-6 h-6 text-red-400" />
             Common Error Messages
           </h2>
@@ -599,7 +599,7 @@ done`}
 
         {/* Tips */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">Tips</h2>
+          <h2 className="heading-2">Tips</h2>
 
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-4">
@@ -634,7 +634,7 @@ done`}
 
         {/* Limitations */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">Limitations</h2>
+          <h2 className="heading-2">Limitations</h2>
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
             <ul className="space-y-3 text-gray-300">

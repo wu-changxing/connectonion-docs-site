@@ -81,26 +81,37 @@ export const navigation = [
     href: '/memory',
     icon: Brain,
     section: 'Useful Tools',
+    difficulty: 'New',
     keywords: ['memory', 'storage', 'persistence', 'remember', 'database', 'rag'],
     prev: { href: '/tools', title: 'Tools' },
-    next: { href: '/send-email', title: 'Send Email' }
+    next: { href: '/agent-emails', title: 'Agent Emails' }
+  },
+  {
+    title: 'Agent Emails',
+    href: '/agent-emails',
+    icon: Mail,
+    section: 'Useful Tools',
+    difficulty: 'New',
+    keywords: ['email', 'send', 'receive', 'mail', 'notification', 'inbox', 'imap'],
+    prev: { href: '/memory', title: 'Memory' },
+    next: { href: '/agent-emails/send', title: 'Send Email' }
   },
   {
     title: 'Send Email',
-    href: '/send-email',
+    href: '/agent-emails/send',
     icon: Mail,
     section: 'Useful Tools',
     keywords: ['email', 'send', 'mail', 'notification', 'alert', 'message', 'smtp'],
-    prev: { href: '/memory', title: 'Memory' },
-    next: { href: '/get-emails', title: 'Get Emails' }
+    prev: { href: '/agent-emails', title: 'Agent Emails' },
+    next: { href: '/agent-emails/receive', title: 'Receive Emails' }
   },
   {
-    title: 'Get Emails',
-    href: '/get-emails',
+    title: 'Receive Emails',
+    href: '/agent-emails/receive',
     icon: Inbox,
     section: 'Useful Tools',
-    keywords: ['email', 'get', 'inbox', 'imap', 'read', 'fetch', 'mail'],
-    prev: { href: '/send-email', title: 'Send Email' },
+    keywords: ['email', 'get', 'inbox', 'imap', 'read', 'fetch', 'mail', 'receive'],
+    prev: { href: '/agent-emails/send', title: 'Send Email' },
     next: { href: '/gmail', title: 'Gmail' }
   },
   {
@@ -108,8 +119,9 @@ export const navigation = [
     href: '/gmail',
     icon: Mail,
     section: 'Useful Tools',
+    difficulty: 'New',
     keywords: ['gmail', 'google', 'email', 'inbox', 'oauth', 'labels', 'archive', 'crm', 'contacts'],
-    prev: { href: '/get-emails', title: 'Get Emails' },
+    prev: { href: '/agent-emails/receive', title: 'Receive Emails' },
     next: { href: '/google-integration', title: 'Google Integration' }
   },
   {
@@ -117,6 +129,7 @@ export const navigation = [
     href: '/google-integration',
     icon: Calendar,
     section: 'Useful Tools',
+    difficulty: 'New',
     keywords: ['google', 'gmail', 'calendar', 'oauth', 'integration', 'schedule', 'meeting'],
     prev: { href: '/gmail', title: 'Gmail' },
     next: { href: '/web-fetch', title: 'WebFetch' }
@@ -126,6 +139,7 @@ export const navigation = [
     href: '/web-fetch',
     icon: Globe,
     section: 'Useful Tools',
+    difficulty: 'New',
     keywords: ['web', 'fetch', 'scrape', 'html', 'parse', 'http', 'research', 'analyze'],
     prev: { href: '/google-integration', title: 'Google Integration' },
     next: { href: '/auto-debug', title: 'Interactive Debugging' }

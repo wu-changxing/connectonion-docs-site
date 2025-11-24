@@ -58,6 +58,7 @@ import { CommandBlock } from '../../components/CommandBlock'
 import CodeWithResult from '../../components/CodeWithResult'
 import { FileTree } from '../../components/FileTree'
 import { ContentNavigation } from '../../components/ContentNavigation'
+import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 
 export default function QuickStartPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -68,41 +69,26 @@ export default function QuickStartPage() {
     setTimeout(() => setCopiedId(null), 2000)
   }
 
-  // Function to copy the entire page markdown content
-  const copyPageContent = async () => {
-    // This would be the markdown content for the page
-    const markdownContent = `# Quick Start Guide
-
-Get up and running with ConnectOnion in under 2 minutes.
-
-## Installation
-\`\`\`bash
-pip install connectonion
-\`\`\`
-
-## Create Your First Agent
-...` // Add full content here
-    
-    await navigator.clipboard.writeText(markdownContent)
-  }
-
   return (
     <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
       <div className="max-w-4xl mx-auto">
       {/* Header with Copy Button */}
-      <div className="flex items-start justify-between mb-8">
-        <div className="flex-1">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ArrowRight className="w-4 h-4" />
-            <span className="text-white">Quick Start</span>
-          </nav>
-          
-          <h1 className="text-4xl font-bold text-white mb-4">Quick Start Guide</h1>
-          <p className="text-xl text-gray-300">
-            Get up and running with ConnectOnion in under 2 minutes.
-          </p>
+      <div className="mb-8">
+        {/* Breadcrumb */}
+        <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
+          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <ArrowRight className="w-4 h-4" />
+          <span className="text-white">Quick Start</span>
+        </nav>
+        
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+          <div className="flex-1">
+            <h1 className="heading-1">Quick Start Guide</h1>
+            <p className="text-xl text-gray-300">
+              Get up and running with ConnectOnion in under 2 minutes.
+            </p>
+          </div>
+          <CopyMarkdownButton markdownPath="/quickstart/quickstart.md" filename="quickstart.md" className="flex-shrink-0" />
         </div>
       </div>
 
@@ -116,7 +102,7 @@ pip install connectonion
 
       {/* Installation */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">1</div>
           Install ConnectOnion
         </h2>
@@ -128,7 +114,7 @@ pip install connectonion
 
       {/* Create Agent */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">2</div>
           Create Your First Agent
         </h2>
@@ -202,7 +188,7 @@ pip install connectonion
 
       {/* Run Your Agent */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold">3</div>
           Run Your Agent
         </h2>
@@ -220,7 +206,7 @@ pip install connectonion
 
       {/* Customize */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">4</div>
           Customize Your Agent
         </h2>
@@ -335,7 +321,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
 
       {/* Playwright Template */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <div className="w-8 h-8 bg-yellow-600 rounded-lg flex items-center justify-center text-white font-bold">5</div>
           Alternative: Playwright Web Automation
         </h2>
@@ -397,7 +383,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
 
       {/* Custom Tool Example */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">6</div>
           Create a Custom Tool Agent
         </h2>
@@ -445,7 +431,7 @@ The answer is 739.`}
 
       {/* Debugging with @xray */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center text-white font-bold">7</div>
           Debugging with @xray
         </h2>
@@ -483,7 +469,7 @@ The result is 80.`}
 
       {/* Interactive Debugging */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <h2 className="heading-2">
           <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold">8</div>
           Interactive Debugging
         </h2>
@@ -575,7 +561,7 @@ What do you want to do?
 
       {/* Next Steps */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
+        <h2 className="heading-2">
           <FaBullseye className="text-blue-400" />
           <span>What's Next?</span>
         </h2>
