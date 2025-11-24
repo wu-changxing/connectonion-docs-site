@@ -1,0 +1,405 @@
+'use client'
+
+import Link from 'next/link'
+import { Brain, Save, Search, Database, ArrowRight, FileText, FolderOpen, Lightbulb } from 'lucide-react'
+import { CommandBlock } from '../../components/CommandBlock'
+import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
+import { ContentNavigation } from '../../components/ContentNavigation'
+import CodeWithResult from '../../components/CodeWithResult'
+
+export default function MemoryPage() {
+  return (
+    <div className="min-h-screen bg-gray-950 text-white">
+      <div className="max-w-5xl mx-auto px-6 md:px-8 py-12">
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+          <Link href="/" className="hover:text-purple-400 transition-colors">
+            Docs
+          </Link>
+          <ArrowRight className="w-4 h-4" />
+          <span className="text-white">Memory</span>
+        </div>
+
+        {/* Header */}
+        <div className="mb-12">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-gradient-to-br from-amber-600/20 to-orange-600/20 rounded-xl border border-amber-500/30">
+                <Brain className="w-8 h-8 text-amber-400" />
+              </div>
+              <div>
+                <h1 className="heading-1">Memory System</h1>
+                <p className="text-lg text-gray-300">
+                  Give your agents persistent memory using markdown-based storage.
+                </p>
+              </div>
+            </div>
+            <CopyMarkdownButton markdownPath="/memory.md" filename="memory.md" className="flex-shrink-0" />
+          </div>
+        </div>
+
+        {/* Quick Start */}
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <Lightbulb className="w-6 h-6 text-yellow-400" />
+            <h2 className="heading-2">Quick Start</h2>
+          </div>
+
+          <CodeWithResult 
+            code={`from connectonion import Agent, Memory
+
+memory = Memory()
+agent = Agent(
+    name="assistant",
+    system_prompt="You are a helpful assistant with memory.",
+    tools=[memory]
+)
+
+# Agent can now remember things
+agent.input("Remember that Alice prefers email communication")
+agent.input("What do I know about Alice?")`}
+            language="python"
+            fileName="quickstart.py"
+          />
+        </section>
+
+        {/* What is Memory? */}
+        <section className="mb-20">
+          <h2 className="heading-2">What is Memory?</h2>
+          
+          <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-8 mb-8">
+            <p className="text-lg text-gray-300 mb-6">
+              Memory is a simple, file-based storage system that lets your agents:
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="flex items-start gap-3">
+                <Save className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Persistent Storage</p>
+                  <p className="text-sm text-gray-400">Save information across sessions</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Database className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Key-Value Retrieval</p>
+                  <p className="text-sm text-gray-400">Retrieve information by specific keys</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Search className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Regex Search</p>
+                  <p className="text-sm text-gray-400">Search across all memories with patterns</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <FileText className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Markdown Format</p>
+                  <p className="text-sm text-gray-400">Organize knowledge in human-readable format</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
+            <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-blue-400">
+              <FolderOpen className="w-5 h-5" />
+              Storage Strategy
+            </h3>
+            <p className="text-gray-300">
+              Memories start in a single <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">memory.md</code> file. When the file exceeds 3000 lines, it automatically splits into a directory structure with separate <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.md</code> files per memory key.
+            </p>
+          </div>
+        </section>
+
+        {/* Installation */}
+        <section className="mb-20">
+          <h2 className="heading-2">Installation</h2>
+          <p className="text-gray-300 mb-4">Memory is included in ConnectOnion:</p>
+          <CommandBlock commands={['pip install connectonion']} />
+        </section>
+
+        {/* Basic Usage */}
+        <section className="mb-20">
+          <h2 className="heading-2">Basic Usage</h2>
+
+          <div className="space-y-12">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Creating a Memory Instance</h3>
+              <CodeWithResult 
+                code={`from connectonion import Memory
+
+# Default (creates memory.md)
+memory = Memory()
+
+# Custom file path
+memory = Memory(memory_file="agent_knowledge.md")
+
+# Legacy: directory structure (creates directory immediately)
+memory = Memory(memory_dir="agent_knowledge")`}
+                language="python"
+                fileName="init_memory.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Adding Memory to an Agent</h3>
+              <CodeWithResult 
+                code={`from connectonion import Agent, Memory
+
+memory = Memory()
+agent = Agent("assistant", tools=[memory])`}
+                language="python"
+                fileName="agent_with_memory.py"
+              />
+              <div className="mt-6 bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+                <p className="text-gray-300 mb-4">Now your agent has access to 4 memory methods:</p>
+                <ul className="space-y-2 text-sm font-mono text-gray-300">
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-400">write_memory(key, content)</span>
+                    <span className="text-gray-500">- Save or update information</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-400">read_memory(key)</span>
+                    <span className="text-gray-500">- Retrieve information</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-400">list_memories()</span>
+                    <span className="text-gray-500">- Show all stored memories</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-400">search_memory(pattern)</span>
+                    <span className="text-gray-500">- Search with regex</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Memory Methods */}
+        <section className="mb-20">
+          <h2 className="heading-2">Memory Methods</h2>
+
+          <div className="space-y-12">
+            <div>
+              <h3 className="text-xl font-semibold mb-4 text-purple-300 font-mono">write_memory</h3>
+              <p className="text-gray-300 mb-4">Save information to memory:</p>
+              <CodeWithResult 
+                code={`memory.write_memory("alice-notes", "Alice prefers email\\nAlice works at TechCorp")
+# Returns: "Memory saved: alice-notes"`}
+                language="python"
+                fileName="write.py"
+              />
+              <div className="mt-4 text-sm text-gray-400">
+                <strong>Keys are sanitized:</strong> Only alphanumeric, hyphens, and underscores allowed. Converted to lowercase.
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4 text-purple-300 font-mono">read_memory</h3>
+              <p className="text-gray-300 mb-4">Retrieve saved information:</p>
+              <CodeWithResult 
+                code={`memory.read_memory("alice-notes")
+# Returns:
+# Memory: alice-notes
+#
+# Alice prefers email
+# Alice works at TechCorp`}
+                language="python"
+                fileName="read.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4 text-purple-300 font-mono">list_memories</h3>
+              <p className="text-gray-300 mb-4">Show all stored memories:</p>
+              <CodeWithResult 
+                code={`memory.list_memories()
+# Returns:
+# Stored Memories (3):
+# 1. alice-notes (85 bytes)
+# 2. bob-notes (62 bytes)
+# 3. project-x (120 bytes)`}
+                language="python"
+                fileName="list.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4 text-purple-300 font-mono">search_memory</h3>
+              <p className="text-gray-300 mb-4">Search across all memories using regex:</p>
+              <CodeWithResult 
+                code={`# Simple text search (case-sensitive by default)
+memory.search_memory("email")
+
+# Case-insensitive search with (?i) flag
+memory.search_memory("(?i)email")
+
+# Regex patterns
+memory.search_memory(r"\\w+@\\w+\\.\\w+")  # Find email addresses
+memory.search_memory(r"Project [A-Z]")  # Find project names`}
+                language="python"
+                fileName="search.py"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Examples */}
+        <section className="mb-20">
+          <h2 className="heading-2">Examples</h2>
+
+          <div className="space-y-12">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Example 1: Customer Notes</h3>
+              <CodeWithResult 
+                code={`from connectonion import Agent, Memory
+
+memory = Memory(memory_dir="customer_notes")
+agent = Agent(
+    name="sales-assistant",
+    system_prompt="You help track customer information.",
+    tools=[memory]
+)
+
+# Save customer info
+agent.input("Remember that Alice from TechCorp is interested in our API product and prefers email contact")
+
+# Later, recall the information
+agent.input("What do I know about Alice?")
+# Agent will use read_memory() to retrieve Alice's info`}
+                language="python"
+                fileName="customer_notes.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Example 2: Project Tracker</h3>
+              <CodeWithResult 
+                code={`from connectonion import Agent, Memory
+
+memory = Memory(memory_dir="projects")
+agent = Agent(
+    name="project-manager",
+    system_prompt="You track project status and notes.",
+    tools=[memory]
+)
+
+# Save project updates
+agent.input("Remember: Project Alpha is 80% complete, needs final testing")
+agent.input("Remember: Project Beta is blocked, waiting on API keys")
+
+# Search for blocked projects
+agent.input("Which projects are blocked?")
+# Agent will use search_memory("blocked") to find relevant projects`}
+                language="python"
+                fileName="project_tracker.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Example 3: Research Assistant</h3>
+              <CodeWithResult 
+                code={`from connectonion import Agent, Memory
+
+def web_search(query: str) -> str:
+    """Search the web for information."""
+    # Your search implementation
+    return f"Results for {query}"
+
+memory = Memory(memory_dir="research")
+agent = Agent(
+    name="researcher",
+    system_prompt="You research topics and save key findings.",
+    tools=[web_search, memory]
+)
+
+# Research and save
+agent.input("Research the history of Python programming and save key points")
+# Agent will search, then use write_memory() to save findings
+
+# Later, recall research
+agent.input("What did I learn about Python's history?")`}
+                language="python"
+                fileName="research_assistant.py"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* File Format */}
+        <section className="mb-20">
+          <h2 className="heading-2">File Format</h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Single File (Default)</h3>
+              <p className="text-gray-300 mb-4">Memories start in a single <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">memory.md</code> file using section headers:</p>
+              <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-sm text-gray-300">
+                <div className="text-purple-400 font-bold">## alice-notes</div>
+                <div className="mt-2">Alice prefers email communication<br/>Works at TechCorp</div>
+                <div className="text-purple-400 font-bold mt-4">## bob-notes</div>
+                <div className="mt-2">Bob from Marketing<br/>Prefers phone calls</div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Auto-Split to Directory</h3>
+              <p className="text-gray-300 mb-4">When <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">memory.md</code> exceeds 3000 lines, it automatically migrates:</p>
+              <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-sm text-gray-300">
+                <div>memory/</div>
+                <div className="pl-4">├── alice-notes.md</div>
+                <div className="pl-4">├── bob-notes.md</div>
+                <div className="pl-4">└── project-x.md</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Best Practices */}
+        <section className="mb-20">
+          <h2 className="heading-2">Best Practices</h2>
+          
+          <div className="space-y-6">
+            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+              <h3 className="font-semibold text-purple-300 mb-2">1. Use Descriptive Keys</h3>
+              <CodeWithResult 
+                code={`# Good
+memory.write_memory("alice-techcorp-contact-info", content)
+
+# Bad
+memory.write_memory("note1", content)`}
+                language="python"
+                fileName="keys.py"
+              />
+            </div>
+
+            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+              <h3 className="font-semibold text-purple-300 mb-2">2. Structure Your Content</h3>
+              <p className="text-gray-300 mb-2">Use markdown formatting for better organization:</p>
+              <CodeWithResult 
+                code={`content = """# Alice - TechCorp
+
+## Contact Info
+- Email: alice@techcorp.com
+
+## Projects
+- Interested in API product
+"""
+memory.write_memory("alice-techcorp", content)`}
+                language="python"
+                fileName="structure.py"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Navigation */}
+        <ContentNavigation />
+      </div>
+    </div>
+  )
+}
