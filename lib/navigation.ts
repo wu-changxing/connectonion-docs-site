@@ -1,7 +1,7 @@
 import {
   Home, Rocket, Terminal, MessageSquare, Code, Gauge, Zap, Shield, Bug,
   GitBranch, FileText, FolderOpen, Sparkles, Calculator, Cloud, BookOpen,
-  Users, Settings, Layers, Brain, MessageCircle, Database, Package, Cpu, Chrome, Camera, Link, Mail, FileCode2, Network, Wifi, Activity, Puzzle
+  Users, Settings, Layers, Brain, MessageCircle, Database, Package, Cpu, Chrome, Camera, Link, Mail, FileCode2, Network, Wifi, Activity, Puzzle, Calendar, Inbox, Globe
 } from 'lucide-react'
 
 // Simple, flat navigation structure with all metadata in one place
@@ -71,18 +71,63 @@ export const navigation = [
     icon: Code,
     section: 'Core Concepts',
     keywords: ['function', 'utility', 'actions', 'capabilities', 'tools'],
-    prev: { href: '/agent', title: 'Agent' },
+    prev: { href: '/prompts', title: 'System Prompts' },
+    next: { href: '/memory', title: 'Memory' }
+  },
+
+  // Useful Tools
+  {
+    title: 'Memory',
+    href: '/memory',
+    icon: Brain,
+    section: 'Useful Tools',
+    keywords: ['memory', 'storage', 'persistence', 'remember', 'database', 'rag'],
+    prev: { href: '/tools', title: 'Tools' },
     next: { href: '/send-email', title: 'Send Email' }
   },
-  
-  // Useful Tools
   {
     title: 'Send Email',
     href: '/send-email',
     icon: Mail,
     section: 'Useful Tools',
     keywords: ['email', 'send', 'mail', 'notification', 'alert', 'message', 'smtp'],
-    prev: { href: '/tools', title: 'Tools' },
+    prev: { href: '/memory', title: 'Memory' },
+    next: { href: '/get-emails', title: 'Get Emails' }
+  },
+  {
+    title: 'Get Emails',
+    href: '/get-emails',
+    icon: Inbox,
+    section: 'Useful Tools',
+    keywords: ['email', 'get', 'inbox', 'imap', 'read', 'fetch', 'mail'],
+    prev: { href: '/send-email', title: 'Send Email' },
+    next: { href: '/gmail', title: 'Gmail' }
+  },
+  {
+    title: 'Gmail',
+    href: '/gmail',
+    icon: Mail,
+    section: 'Useful Tools',
+    keywords: ['gmail', 'google', 'email', 'inbox', 'oauth', 'labels', 'archive', 'crm', 'contacts'],
+    prev: { href: '/get-emails', title: 'Get Emails' },
+    next: { href: '/google-integration', title: 'Google Integration' }
+  },
+  {
+    title: 'Google Integration',
+    href: '/google-integration',
+    icon: Calendar,
+    section: 'Useful Tools',
+    keywords: ['google', 'gmail', 'calendar', 'oauth', 'integration', 'schedule', 'meeting'],
+    prev: { href: '/gmail', title: 'Gmail' },
+    next: { href: '/web-fetch', title: 'WebFetch' }
+  },
+  {
+    title: 'WebFetch',
+    href: '/web-fetch',
+    icon: Globe,
+    section: 'Useful Tools',
+    keywords: ['web', 'fetch', 'scrape', 'html', 'parse', 'http', 'research', 'analyze'],
+    prev: { href: '/google-integration', title: 'Google Integration' },
     next: { href: '/auto-debug', title: 'Interactive Debugging' }
   },
 
@@ -94,7 +139,7 @@ export const navigation = [
     section: 'Debugging',
     difficulty: 'Essential',
     keywords: ['debug', 'auto_debug', 'interactive', 'breakpoint', 'xray', 'inspect', 'pause', 'repl', 'python', 'variables', 'state', 'agent debugging', 'llm debugging'],
-    prev: { href: '/send-email', title: 'Send Email' },
+    prev: { href: '/web-fetch', title: 'WebFetch' },
     next: { href: '/auto-debug-exception', title: 'Auto Debug Exception' }
   },
   {
@@ -113,16 +158,25 @@ export const navigation = [
     section: 'Debugging',
     keywords: ['browser', 'screenshot', 'debug', 'capture', 'viewport', 'playwright', 'test', 'responsive'],
     prev: { href: '/auto-debug-exception', title: 'Auto Debug Exception' },
+    next: { href: '/logging', title: 'Logging' }
+  },
+  {
+    title: 'Logging',
+    href: '/logging',
+    icon: FileText,
+    section: 'Debugging',
+    keywords: ['logging', 'log', 'file', 'output', 'debug', 'audit', 'record', 'trace', 'monitor', 'activity'],
+    prev: { href: '/tools/browser', title: 'Browser Screenshots' },
     next: { href: '/models', title: 'Models' }
   },
-  
+
   {
     title: 'Models',
     href: '/models',
     icon: Cpu,
     section: 'Core Concepts',
     keywords: ['model', 'gpt', 'gemini', 'claude', 'anthropic', 'openai', 'google', 'llm', 'ai'],
-    prev: { href: '/tools/browser', title: 'Browser Screenshots' },
+    prev: { href: '/logging', title: 'Logging' },
     next: { href: '/max-iterations', title: 'max_iterations' }
   },
   {
@@ -385,7 +439,7 @@ export const navigation = [
     prev: { href: '/blog/input-method', title: 'Why `input()` Over `run()`' },
     next: { href: '/links', title: 'All Links' }
   },
-  
+
   // Links
   {
     title: 'All Links',

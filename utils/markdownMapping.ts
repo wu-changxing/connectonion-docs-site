@@ -15,9 +15,15 @@ const routeToMarkdownMap: Record<string, string> = {
   '/llm_do': '/tutorials/llm_do.md',
   '/trust': '/tutorials/trust.md',
   '/xray': '/tutorials/xray.md',
+  '/logging': '/tutorials/log.md',
   
   // Useful Tools
   '/send-email': '/tutorials/send-email.md',
+  '/get-emails': '/get-emails.md',
+  '/gmail': '/gmail.md',
+  '/web-fetch': '/web-fetch.md',
+  '/memory': '/memory.md',
+  '/google-integration': '/google-integration.md',
   
   // Advanced Features
   '/xray/trace': '/tutorials/xray.md', // Uses same xray.md for now
