@@ -11,9 +11,9 @@ import CodeWithResult from '../../components/CodeWithResult'
 export default function GoogleIntegrationPage() {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 py-12">
+      <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+        <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
@@ -30,7 +30,7 @@ export default function GoogleIntegrationPage() {
               </div>
               <div>
                 <h1 className="heading-1">Google Integration</h1>
-                <p className="text-lg text-gray-300">
+                <p className="text-lg text-slate-100">
                   Send emails via Gmail and read calendar events from your AI agents. 30-second setup.
                 </p>
               </div>
@@ -40,7 +40,7 @@ export default function GoogleIntegrationPage() {
         </div>
 
         {/* Quick Start */}
-        <section className="mb-20">
+        <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <Zap className="w-6 h-6 text-yellow-400" />
             <h2 className="heading-2">Quick Start</h2>
@@ -51,7 +51,7 @@ export default function GoogleIntegrationPage() {
             
             <div className="mt-8 space-y-4">
               <h3 className="text-lg font-semibold text-white">What happens:</h3>
-              <ol className="list-decimal list-inside space-y-2 text-gray-300 ml-2">
+              <ol className="list-decimal list-inside space-y-2 text-slate-100 ml-2">
                 <li>Opens browser to Google OAuth consent screen</li>
                 <li>You authorize Gmail Send + Calendar Read permissions</li>
                 <li>Credentials saved to <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> (both local and global <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code>)</li>
@@ -69,21 +69,21 @@ export default function GoogleIntegrationPage() {
         </section>
 
         {/* Prerequisites */}
-        <section className="mb-20">
+        <section className="mb-16">
           <h2 className="heading-2">Prerequisites</h2>
-          <p className="text-gray-300 mb-6">
+          <p className="text-slate-100 mb-6">
             Before running <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth google</code>, you must authenticate with OpenOnion:
           </p>
           <CommandBlock commands={['co auth']} />
-          <p className="text-gray-300 mt-4">
+          <p className="text-slate-100 mt-4">
             This creates your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code> which is required for Google OAuth to work.
           </p>
         </section>
 
         {/* What Gets Saved */}
-        <section className="mb-20">
+        <section className="mb-16">
           <h2 className="heading-2">What Gets Saved</h2>
-          <p className="text-gray-300 mb-6">
+          <p className="text-slate-100 mb-6">
             After successful authentication, your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> file contains:
           </p>
 
@@ -103,7 +103,7 @@ GOOGLE_EMAIL=your.email@gmail.com`}
               <Lock className="w-5 h-5 text-purple-400" />
               Security notes
             </h3>
-            <ul className="space-y-2 text-gray-300">
+            <ul className="space-y-2 text-slate-100">
               <li className="flex items-start gap-2">
                 <span className="text-purple-400">•</span>
                 <span>Credentials are saved to both local <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> and <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></span>
@@ -125,9 +125,9 @@ GOOGLE_EMAIL=your.email@gmail.com`}
         </section>
 
         {/* Permissions Requested */}
-        <section className="mb-20">
+        <section className="mb-16">
           <h2 className="heading-2">Permissions Requested</h2>
-          <p className="text-gray-300 mb-6">
+          <p className="text-slate-100 mb-6">
             When you run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth google</code>, we request these Google scopes:
           </p>
 
@@ -140,7 +140,7 @@ GOOGLE_EMAIL=your.email@gmail.com`}
                   <th className="py-3 px-4 font-semibold text-white">What agents can do</th>
                 </tr>
               </thead>
-              <tbody className="text-gray-300">
+              <tbody className="text-slate-100">
                 <tr className="border-b border-gray-800">
                   <td className="py-3 px-4 font-mono text-sm text-purple-400">gmail.send</td>
                   <td className="py-3 px-4">Send emails on your behalf</td>
@@ -165,8 +165,8 @@ GOOGLE_EMAIL=your.email@gmail.com`}
               <Shield className="w-5 h-5" />
               Privacy First
             </h3>
-            <p className="text-gray-300 mb-4">We only request the minimum permissions needed. We cannot:</p>
-            <ul className="space-y-2 text-gray-300">
+            <p className="text-slate-100 mb-4">We only request the minimum permissions needed. We cannot:</p>
+            <ul className="space-y-2 text-slate-100">
               <li className="flex items-start gap-2">
                 <span className="text-red-400">✕</span>
                 <span>Read your inbox (use built-in <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">get_emails()</code> for that)</span>
@@ -184,13 +184,13 @@ GOOGLE_EMAIL=your.email@gmail.com`}
         </section>
 
         {/* Using Google OAuth in Agents */}
-        <section className="mb-20">
+        <section className="mb-16">
           <h2 className="heading-2">Using Google OAuth in Agents</h2>
-          <p className="text-gray-300 mb-8">Once authenticated, your agents can use Google-powered tools:</p>
+          <p className="text-slate-100 mb-8">Once authenticated, your agents can use Google-powered tools:</p>
 
           <div className="space-y-12">
             <div>
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+              <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <Mail className="w-5 h-5 text-purple-400" />
                 Send Email via Gmail
               </h3>
@@ -214,7 +214,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+              <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-purple-400" />
                 Read Calendar Events
               </h3>
@@ -278,9 +278,9 @@ agent.input("What's on my calendar this week?")`}
         </section>
 
         {/* Complete Example */}
-        <section className="mb-20">
+        <section className="mb-16">
           <h2 className="heading-2">Complete Example: Scheduling Agent</h2>
-          <p className="text-gray-300 mb-6">
+          <p className="text-slate-100 mb-6">
             Here's a full agent that can check your calendar and send meeting invites:
           </p>
 
@@ -383,26 +383,26 @@ for tomorrow at 2pm. Subject: Q4 Planning Discussion
         </section>
 
         {/* Troubleshooting */}
-        <section className="mb-20">
+        <section className="mb-16">
           <h2 className="heading-2">Troubleshooting</h2>
 
           <div className="space-y-8">
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-3 text-red-400">"Not authenticated with OpenOnion"</h3>
-              <p className="text-gray-300 mb-3">You need to run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
+              <p className="text-slate-100 mb-3">You need to run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
               <CommandBlock commands={['co auth', 'co auth google']} />
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-3 text-yellow-400">Authorization Timeout</h3>
-              <p className="text-gray-300 mb-3">If the browser window doesn't complete authorization within 5 minutes:</p>
+              <p className="text-slate-100 mb-3">If the browser window doesn't complete authorization within 5 minutes:</p>
               <CommandBlock commands={['co auth google']} />
               <p className="text-sm text-gray-400 mt-2">The command polls the backend every 2 seconds waiting for your authorization.</p>
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-3 text-blue-400">Credentials Not Working</h3>
-              <p className="text-gray-300 mb-3">Check if credentials are properly saved:</p>
+              <p className="text-slate-100 mb-3">Check if credentials are properly saved:</p>
               <CodeWithResult 
                 code={`# Check local .env
 cat .env | grep GOOGLE_
@@ -412,7 +412,7 @@ cat ~/.co/keys.env | grep GOOGLE_`}
                 language="bash"
                 fileName="terminal"
               />
-              <p className="text-gray-300 mt-4 mb-2">If credentials exist but don't work, re-authenticate:</p>
+              <p className="text-slate-100 mt-4 mb-2">If credentials exist but don't work, re-authenticate:</p>
               <CommandBlock commands={['co auth google']} />
             </div>
           </div>

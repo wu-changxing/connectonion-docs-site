@@ -179,7 +179,7 @@ export default function LoggingPage() {
         {copiedCode === id ? (
           <Check className="w-4 h-4 text-green-400" />
         ) : (
-          <Copy className="w-4 h-4 text-gray-300" />
+          <Copy className="w-4 h-4 text-slate-100" />
         )}
       </button>
       <SyntaxHighlighter
@@ -201,7 +201,7 @@ export default function LoggingPage() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 py-12">
+      <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24">
         {/* Header */}
         <div className="mb-16">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
@@ -211,7 +211,7 @@ export default function LoggingPage() {
               </div>
               <div>
                 <h1 className="heading-1">Logging</h1>
-                <p className="text-gray-300 mt-2">Save agent activity to files with the <code className="bg-gray-800 px-2 py-0.5 rounded text-sm">log</code> parameter.</p>
+                <p className="text-slate-100 mt-2">Save agent activity to files with the <code className="bg-gray-800 px-2 py-0.5 rounded text-sm">log</code> parameter.</p>
               </div>
             </div>
             <CopyMarkdownButton content={pageContent} filename="logging.md" className="flex-shrink-0" />
@@ -219,7 +219,7 @@ export default function LoggingPage() {
         </div>
 
         {/* Quick Start */}
-        <section className="mb-20">
+        <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <Play className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Quick Start</h2>
@@ -229,7 +229,7 @@ export default function LoggingPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
               <div>
                 <h3 className="text-xl font-semibold text-white mb-2">Enable Logging</h3>
-                <p className="text-gray-300">The simplest way to keep a record of your agent's activity.</p>
+                <p className="text-slate-100">The simplest way to keep a record of your agent's activity.</p>
               </div>
               <div className="flex items-center gap-2 text-sm text-purple-300 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
                 <Check className="w-4 h-4" />
@@ -248,15 +248,15 @@ export default function LoggingPage() {
             </div>
           </div>
 
-          <h3 className="text-lg font-semibold mb-6 text-gray-300">Logging Modes</h3>
+          <h3 className="text-lg font-semibold mb-6 text-slate-100">Logging Modes</h3>
           <div className="overflow-hidden rounded-xl border border-gray-700 bg-gray-900/50 backdrop-blur">
             <table className="w-full text-left text-sm">
               <thead>
                 <tr className="border-b border-gray-700 bg-gray-800/50">
-                  <th className="p-4 font-medium text-gray-300">Mode</th>
-                  <th className="p-4 font-medium text-gray-300">Code</th>
-                  <th className="p-4 font-medium text-gray-300">File Location</th>
-                  <th className="p-4 font-medium text-gray-300">Use Case</th>
+                  <th className="p-4 font-medium text-slate-100">Mode</th>
+                  <th className="p-4 font-medium text-slate-100">Code</th>
+                  <th className="p-4 font-medium text-slate-100">File Location</th>
+                  <th className="p-4 font-medium text-slate-100">Use Case</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700/50">
@@ -270,7 +270,7 @@ export default function LoggingPage() {
                   <td className="p-4 text-purple-300 font-medium">Standard</td>
                   <td className="p-4 font-mono text-purple-300">log=True</td>
                   <td className="p-4 font-mono text-gray-400">.co/logs/&lt;name&gt;.log</td>
-                  <td className="p-4 text-gray-300">Production, audit trails</td>
+                  <td className="p-4 text-slate-100">Production, audit trails</td>
                 </tr>
                 <tr className="hover:bg-gray-800/30 transition-colors">
                   <td className="p-4 text-white font-medium">Custom</td>
@@ -284,14 +284,14 @@ export default function LoggingPage() {
         </section>
 
         {/* Log Format */}
-        <section className="mb-20">
+        <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <Terminal className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Log Format</h2>
           </div>
 
           <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6 mb-6">
-            <p className="text-gray-300 mb-4">Logs include timestamps, user input, LLM calls, tool executions, and results:</p>
+            <p className="text-slate-100 mb-4">Logs include timestamps, user input, LLM calls, tool executions, and results:</p>
             <CodeBlock
               code={`[2025-09-25 10:32:14.123] INPUT: Generate a Python function
 [2025-09-25 10:32:14.127] LLM_REQUEST: model=gpt-4 messages=2
@@ -308,7 +308,7 @@ export default function LoggingPage() {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-purple-300">What's Logged</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-2 text-sm text-slate-100">
                 <li className="flex items-start gap-2">
                   <span className="text-purple-400">•</span>
                   <span>User input</span>
@@ -334,7 +334,7 @@ export default function LoggingPage() {
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-purple-300">Benefits</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-2 text-sm text-slate-100">
                 <li className="flex items-start gap-2">
                   <span className="text-green-400">✓</span>
                   <span>Audit trail for compliance</span>
@@ -357,7 +357,7 @@ export default function LoggingPage() {
         </section>
 
         {/* View Logs */}
-        <section className="mb-20">
+        <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <Eye className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">View Logs</h2>
@@ -365,50 +365,50 @@ export default function LoggingPage() {
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-gray-300">Watch in real-time</h3>
+              <h3 className="text-lg font-semibold mb-4 text-slate-100">Watch in real-time</h3>
               <CommandBlock commands={['tail -f assistant.log']} />
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-gray-300">Search for errors</h3>
+              <h3 className="text-lg font-semibold mb-4 text-slate-100">Search for errors</h3>
               <CommandBlock commands={['grep ERROR assistant.log']} />
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-gray-300">See all tool calls</h3>
+              <h3 className="text-lg font-semibold mb-4 text-slate-100">See all tool calls</h3>
               <CommandBlock commands={['grep TOOL assistant.log']} />
             </div>
           </div>
         </section>
 
         {/* Environment Variable */}
-        <section className="mb-20">
+        <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <Terminal className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Environment Variable</h2>
           </div>
 
           <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6 mb-6">
-            <p className="text-gray-300 mb-4">Set log file via environment variable:</p>
+            <p className="text-slate-100 mb-4">Set log file via environment variable:</p>
             <CommandBlock commands={['CONNECTONION_LOG=debug.log python agent.py']} />
           </div>
 
           <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-6 border border-purple-500/20">
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-slate-100">
               <span className="text-purple-300 font-semibold">Priority order:</span> Environment variable → <code className="bg-gray-800 px-2 py-0.5 rounded">log</code> parameter → default (no logging)
             </p>
           </div>
         </section>
 
         {/* Auto Rotation */}
-        <section className="mb-20">
+        <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <RotateCcw className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Auto Rotation</h2>
           </div>
 
           <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6 mb-6">
-            <p className="text-gray-300 mb-4">Logs automatically rotate when they exceed 10MB:</p>
+            <p className="text-slate-100 mb-4">Logs automatically rotate when they exceed 10MB:</p>
             <CodeBlock
               code={`assistant.log           # Current
 assistant_20250925.log  # Rotated`}
@@ -420,7 +420,7 @@ assistant_20250925.log  # Rotated`}
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-purple-300">How It Works</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-2 text-sm text-slate-100">
                 <li className="flex items-start gap-2">
                   <span className="text-purple-400">1.</span>
                   <span>Log file reaches 10MB</span>
@@ -442,7 +442,7 @@ assistant_20250925.log  # Rotated`}
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-purple-300">Why 10MB?</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-2 text-sm text-slate-100">
                 <li className="flex items-start gap-2">
                   <span className="text-green-400">✓</span>
                   <span>Small enough to open quickly</span>
@@ -461,7 +461,7 @@ assistant_20250925.log  # Rotated`}
         </section>
 
         {/* Git Ignore */}
-        <section className="mb-20">
+        <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <FolderOpen className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Git Ignore</h2>
@@ -496,27 +496,27 @@ assistant_20250925.log  # Rotated`}
         </section>
 
         {/* Default Location */}
-        <section className="mb-20">
+        <section className="mb-16">
           <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-10 border border-purple-500/20">
             <h2 className="heading-2">Default Location</h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-slate-100 mb-6">
               When using <code className="bg-gray-800 px-3 py-1.5 rounded text-purple-400">log=True</code>, logs are saved to:
             </p>
             <div className="bg-gray-900 rounded-lg p-4 font-mono text-purple-400 text-center mb-6">
               .co/logs/{'{'}'agent_name'{'}'}.log
             </div>
-            <p className="text-gray-300">
+            <p className="text-slate-100">
               This provides automatic audit trails for all your agents in one organized location.
             </p>
           </div>
         </section>
 
         {/* Complete Example */}
-        <section className="mb-20">
+        <section className="mb-16">
           <h2 className="heading-2">Complete Example</h2>
 
           <div className="max-w-4xl mx-auto space-y-6">
-            <p className="text-gray-300 text-lg">Full logging setup with multiple agents:</p>
+            <p className="text-slate-100 text-lg">Full logging setup with multiple agents:</p>
 
             <CodeBlock
               code={`from connectonion import Agent
@@ -550,7 +550,7 @@ env_agent = Agent("env_assistant")  # Uses all_agents.log`}
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-purple-300">Best Practices</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-2 text-sm text-slate-100">
                 <li className="flex items-start gap-2">
                   <span className="text-purple-400">•</span>
                   <span>Use <code className="bg-gray-800 px-2 py-0.5 rounded">log=True</code> in production for audit trails</span>
@@ -577,13 +577,13 @@ env_agent = Agent("env_assistant")  # Uses all_agents.log`}
         </section>
 
         {/* Philosophy */}
-        <section className="mb-20">
+        <section className="mb-16">
           <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-10 border border-purple-500/20">
             <h2 className="heading-2">Philosophy</h2>
             <p className="text-xl font-semibold text-purple-300 mb-6">
               Use <code className="bg-gray-800 px-3 py-1.5 rounded text-purple-400">log=True</code> when you need persistent records.
             </p>
-            <p className="text-gray-300">
+            <p className="text-slate-100">
               That's it. Simple, automatic, and always there when you need it.
             </p>
           </div>
