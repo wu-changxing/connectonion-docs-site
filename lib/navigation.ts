@@ -191,15 +191,6 @@ export const navigation = [
     section: 'Core Concepts',
     keywords: ['model', 'gpt', 'gemini', 'claude', 'anthropic', 'openai', 'google', 'llm', 'ai'],
     prev: { href: '/logging', title: 'Logging' },
-    next: { href: '/max-iterations', title: 'max_iterations' }
-  },
-  {
-    title: 'max_iterations',
-    href: '/max-iterations',
-    icon: Gauge,
-    section: 'Core Concepts',
-    keywords: ['loop', 'limit', 'iteration', 'control', 'safety'],
-    prev: { href: '/models', title: 'Models' },
     next: { href: '/llm_do', title: 'LLM Function' }
   },
   {
@@ -208,7 +199,7 @@ export const navigation = [
     icon: Zap,
     section: 'Core Concepts',
     keywords: ['ai', 'model', 'openai', 'language', 'llm_do', 'direct', 'gemini', 'anthropic', 'claude'],
-    prev: { href: '/max-iterations', title: 'max_iterations' },
+    prev: { href: '/models', title: 'Models' },
     next: { href: '/trust', title: 'Trust Parameter' }
   },
   {
