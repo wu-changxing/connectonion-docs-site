@@ -204,12 +204,12 @@ agent = Agent("assistant", tools=[search], plugins=[my_plugin])
 
 
   return (
-    <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
+    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
         {/* Hero Section */}
-        <div className="mb-10">
+        <div className="mb-12">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
+          <nav className="flex items-center gap-2 text-sm text-slate-100 mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">Plugins</span>
@@ -226,7 +226,7 @@ agent = Agent("assistant", tools=[search], plugins=[my_plugin])
                 Reusable Event Bundles
               </h1>
 
-              <p className="text-xl text-gray-300">
+              <p className="text-xl text-slate-100">
                 Package event handlers into reusable plugins. A plugin is just an event list you can use across multiple agents.
               </p>
             </div>
@@ -270,7 +270,7 @@ agent.input("Search for Python")
             language="python"
           />
 
-          <p className="text-gray-300 mt-4">
+          <p className="text-slate-100 mt-4">
             That's it! Use built-in plugins or create your own.
           </p>
         </section>
@@ -281,7 +281,7 @@ agent.input("Search for Python")
             What is a Plugin?
           </h2>
 
-          <p className="text-gray-300 mb-6">
+          <p className="text-slate-100 mb-6">
             A plugin is an event list:
           </p>
 
@@ -348,12 +348,12 @@ agent = Agent(
             Built-in Plugins (useful_plugins)
           </h2>
 
-          <p className="text-gray-300 mb-6">
+          <p className="text-slate-100 mb-6">
             ConnectOnion provides ready-to-use plugins that you can import and use immediately.
           </p>
 
           <h3 className="text-xl font-semibold mb-4">Reflection Plugin</h3>
-          <p className="text-gray-300 mb-4">
+          <p className="text-slate-100 mb-4">
             Reflects on tool execution results to generate insights:
           </p>
 
@@ -370,7 +370,7 @@ agent.input("Search for Python")
           />
 
           <h3 className="text-xl font-semibold mb-4 mt-8">ReAct Plugin</h3>
-          <p className="text-gray-300 mb-4">
+          <p className="text-slate-100 mb-4">
             Uses ReAct-style reasoning to plan next steps:
           </p>
 
@@ -387,7 +387,7 @@ agent.input("Search for Python and explain it")
           />
 
           <h3 className="text-xl font-semibold mb-4 mt-8">Image Result Formatter Plugin</h3>
-          <p className="text-gray-300 mb-4">
+          <p className="text-slate-100 mb-4">
             Automatically converts base64 image results to proper image message format for vision models:
           </p>
 
@@ -446,7 +446,7 @@ agent = Agent(
             Writing Custom Plugins
           </h2>
 
-          <p className="text-gray-300 mb-6">
+          <p className="text-slate-100 mb-6">
             Learn by example - here's how the reflection plugin is implemented:
           </p>
 
@@ -565,7 +565,7 @@ reflection = [after_tool(_add_reflection)]`}
             language="python"
           />
 
-          <p className="text-gray-300 mt-4">
+          <p className="text-slate-100 mt-4">
             <strong>That's it!</strong> A plugin is just an event list.
           </p>
 
@@ -583,7 +583,7 @@ reflection = [after_tool(_add_reflection)]`}
             Quick Custom Plugin Example
           </h2>
 
-          <p className="text-gray-300 mb-4">
+          <p className="text-slate-100 mb-4">
             Build a simple plugin in 3 lines:
           </p>
 
@@ -716,7 +716,7 @@ agent.input("Research Python and summarize")
             Reusing Plugins
           </h2>
 
-          <p className="text-gray-300 mb-6">
+          <p className="text-slate-100 mb-6">
             Use the same plugin across multiple agents:
           </p>
 
@@ -753,9 +753,9 @@ agent = Agent("assistant", tools=[search], plugins=[my_plugin])
               language="python"
             />
 
-            <div className="mt-6 text-sm text-gray-300 space-y-2">
+            <div className="mt-6 text-sm text-slate-100 space-y-2">
               <p><strong className="text-white">on_events vs plugins:</strong></p>
-              <ul className="list-disc list-inside space-y-1 text-gray-300">
+              <ul className="list-disc list-inside space-y-1 text-slate-100">
                 <li><code className="bg-gray-800 px-2 py-1 rounded">on_events=[after_llm(h1), after_tool(h2)]</code> → one event list</li>
                 <li><code className="bg-gray-800 px-2 py-1 rounded">plugins=[plugin1, plugin2]</code> → list of event lists</li>
               </ul>

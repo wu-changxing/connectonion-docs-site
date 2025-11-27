@@ -523,12 +523,12 @@ Works seamlessly with:
 `
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 pt-16 lg:pt-12">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Header with Copy Button */}
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">
         <div className="flex-1">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-300 mb-4 overflow-x-auto">
+          <nav className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-slate-100 mb-4 overflow-x-auto">
             <Link href="/" className="hover:text-white transition-colors whitespace-nowrap">Home</Link>
             <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
             <Link href="/xray" className="hover:text-white transition-colors whitespace-nowrap">@xray</Link>
@@ -540,7 +540,7 @@ Works seamlessly with:
             <Eye className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 flex-shrink-0" />
             <span>xray.trace()</span>
           </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-100 max-w-3xl">
             Visual execution tracing for ConnectOnion agents. See exactly what happened during agent execution with timing, inputs, outputs, and errors.
           </p>
         </div>
@@ -566,9 +566,9 @@ Works seamlessly with:
             const IconComponent = feature.icon
             return (
               <div key={i} className="bg-gray-900 border border-gray-700 rounded-lg p-6 text-center hover:border-gray-600 transition-colors">
-                <IconComponent className={`w-8 h-8 ${feature.color} mx-auto mb-3`} />
+                <IconComponent className={`w-8 h-8 ${feature.color} mx-auto mb-4`} />
                 <h3 className="font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-300 text-sm">{feature.desc}</p>
+                <p className="text-slate-100 text-sm">{feature.desc}</p>
               </div>
             )
           })}
@@ -578,7 +578,7 @@ Works seamlessly with:
       {/* Progressive Examples */}
       <section className="mb-12 sm:mb-16">
         <h2 className="h2text-xl sm:"heading-2>Progressive Examples</h2>
-        <p className="text-gray-300 mb-8">
+        <p className="text-slate-100 mb-8">
           Learn xray.trace() from simple to advanced with these progressive examples. Each builds on the previous concepts.
         </p>
         
@@ -593,12 +593,12 @@ Works seamlessly with:
                   </div>
                   <div className="min-w-0">
                     <h3 className="text-lg sm:text-xl font-bold text-white">{example.title}</h3>
-                    <p className="text-gray-300 text-xs sm:text-sm">{example.description}</p>
+                    <p className="text-slate-100 text-xs sm:text-sm">{example.description}</p>
                   </div>
                 </div>
                 <button
                   onClick={() => copyToClipboard(example.code, id)}
-                  className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2 self-start sm:self-auto"
+                  className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2 self-start sm:self-auto"
                 >
                   {copiedId === id ? (
                     <>
@@ -619,7 +619,7 @@ Works seamlessly with:
                 <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
                   <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-700 bg-gray-800">
                     <Play className="w-4 h-4 text-blue-400" />
-                    <span className="text-sm font-medium text-gray-300">Python Code</span>
+                    <span className="text-sm font-medium text-slate-100">Python Code</span>
                   </div>
                   
                   <div className="overflow-x-auto max-h-[400px] sm:max-h-[500px] lg:max-h-[600px]">
@@ -652,7 +652,7 @@ Works seamlessly with:
                 <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
                   <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-700 bg-gray-800">
                     <Terminal className="w-4 h-4 text-green-400" />
-                    <span className="text-sm font-medium text-gray-300">Trace Output</span>
+                    <span className="text-sm font-medium text-slate-100">Trace Output</span>
                   </div>
                   
                   <div className="p-2 sm:p-4">
@@ -708,55 +708,55 @@ Works seamlessly with:
         <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 sm:p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             <div>
-              <h4 className="font-semibold text-white mb-3">Status Indicators</h4>
+              <h4 className="font-semibold text-white mb-4">Status Indicators</h4>
               <div className="space-y-2 font-mono text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
                   <span className="text-green-400">•</span>
-                  <span className="text-gray-300">Successful execution</span>
+                  <span className="text-slate-100">Successful execution</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-red-400">ERROR</span>
-                  <span className="text-gray-300">Failed execution</span>
+                  <span className="text-slate-100">Failed execution</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-400">...</span>
-                  <span className="text-gray-300">Pending/in-progress</span>
+                  <span className="text-slate-100">Pending/in-progress</span>
                 </div>
               </div>
             </div>
             
             <div>
-              <h4 className="font-semibold text-white mb-3">Data Flow</h4>
+              <h4 className="font-semibold text-white mb-4">Data Flow</h4>
               <div className="space-y-2 font-mono text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
                   <span className="text-blue-400">IN  →</span>
-                  <span className="text-gray-300">Input parameters</span>
+                  <span className="text-slate-100">Input parameters</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-green-400">OUT ←</span>
-                  <span className="text-gray-300">Return values</span>
+                  <span className="text-slate-100">Return values</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-red-400">ERR ✗</span>
-                  <span className="text-gray-300">Error messages</span>
+                  <span className="text-slate-100">Error messages</span>
                 </div>
               </div>
             </div>
             
             <div>
-              <h4 className="font-semibold text-white mb-3">Timing Display</h4>
+              <h4 className="font-semibold text-white mb-4">Timing Display</h4>
               <div className="space-y-2 font-mono text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
                   <span className="text-cyan-400">0.03ms</span>
-                  <span className="text-gray-300">Sub-millisecond</span>
+                  <span className="text-slate-100">Sub-millisecond</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-cyan-400">45ms</span>
-                  <span className="text-gray-300">Typical operations</span>
+                  <span className="text-slate-100">Typical operations</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-cyan-400">2.3s</span>
-                  <span className="text-gray-300">Longer operations</span>
+                  <span className="text-slate-100">Longer operations</span>
                 </div>
               </div>
             </div>
@@ -768,14 +768,14 @@ Works seamlessly with:
       <nav className="flex justify-between items-center pt-8 border-t border-gray-800">
         <Link 
           href="/xray" 
-          className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
         >
           <ArrowRight className="w-4 h-4 rotate-180" />
           @xray Overview
         </Link>
         <Link 
           href="/examples" 
-          className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
         >
           Complete Examples
           <ArrowRight className="w-4 h-4" />

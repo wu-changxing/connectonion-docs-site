@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import CopyButton from '../../../components/CopyButton'
+import CodeWithResult from '../../../components/CodeWithResult'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 
@@ -180,7 +180,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 <h1 className="heading-1">
                   Designing the ConnectOnion Network Protocol: From Complexity to Clarity
                 </h1>
-                <p className="text-gray-300 text-lg">December 2024</p>
+                <p className="text-slate-100 text-lg">December 2024</p>
               </div>
               <CopyMarkdownButton content={fullContent} />
             </div>
@@ -192,7 +192,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
 
               <h2 className="heading-2">The Initial Vision: Too Much, Too Soon</h2>
               <p>We began by studying existing protocols - MCP (Model Context Protocol), gRPC, and various P2P systems. Our first designs were ambitious:</p>
-              <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
+              <ul className="list-disc list-inside space-y-3 ml-4 text-slate-100">
                 <li>Complex identity systems with cryptographic proofs</li>
                 <li>Multiple message types for every possible scenario</li>
                 <li>Sophisticated trust models with reputation scores</li>
@@ -203,7 +203,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               <h2 className="heading-2">The First Breakthrough: Public Keys Are Just Addresses</h2>
               <p>The pivotal moment came when we realized we were overthinking identity. Public keys don't need to represent identity or trust - they're just addresses, like phone numbers or IP addresses.</p>
               <p>This insight simplified everything:</p>
-              <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
+              <ul className="list-disc list-inside space-y-3 ml-4 text-slate-100">
                 <li>No complex PKI infrastructure needed</li>
                 <li>No identity verification protocols</li>
                 <li>No certificate authorities</li>
@@ -214,12 +214,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               <p>We initially assumed we needed session-based connections like HTTP or gRPC. But AI agents don't work like web browsers - they handle hundreds of parallel tasks, each potentially taking minutes or hours to complete.</p>
               <p>The solution? Message-based architecture, like email:</p>
               
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6 relative group">
-                <CopyButton text={codeExample1} />
-                <pre className="text-sm overflow-x-auto font-mono">
-                  <code className="text-purple-300">{codeExample1}</code>
-                </pre>
-              </div>
+              <CodeWithResult code={codeExample1} language="python" className="my-6" />
 
               <p>Each message carries its own correlation ID. No sessions to manage. No connection state. Just messages flowing between agents.</p>
 
@@ -250,7 +245,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
 
               <h2 className="heading-2">Relay Servers: Just a Lookup Service</h2>
               <p>We went through several iterations on relay servers:</p>
-              <ol className="list-decimal list-inside space-y-3 ml-4 text-gray-300">
+              <ol className="list-decimal list-inside space-y-3 ml-4 text-slate-100">
                 <li><strong>First design</strong>: Full proxy servers (too centralized)</li>
                 <li><strong>Second design</strong>: Complex NAT traversal with STUN/TURN (too complicated)</li>
                 <li><strong>Final design</strong>: Simple lookup service</li>
@@ -260,7 +255,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
 
               <h2 className="heading-2">Transport Layer: Meet Users Where They Are</h2>
               <p>We learned that TCP on custom ports gets blocked by corporate firewalls. Our solution:</p>
-              <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
+              <ul className="list-disc list-inside space-y-3 ml-4 text-slate-100">
                 <li><strong>WebSocket</strong> for agent ↔ relay (works everywhere)</li>
                 <li><strong>TCP/UDP</strong> for agent ↔ agent (performance)</li>
                 <li><strong>HTTP/HTTPS</strong> as fallback (when TCP is blocked)</li>
@@ -270,7 +265,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               <h2 className="heading-2">The Simplicity Principle</h2>
               <p>Throughout this journey, we kept returning to one principle: <strong>keep simple things simple, make complicated things possible</strong>.</p>
               <p>Our final protocol reflects this:</p>
-              <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
+              <ul className="list-disc list-inside space-y-3 ml-4 text-slate-100">
                 <li><strong>Simple</strong>: Agents announce themselves, find others, exchange messages</li>
                 <li><strong>Possible</strong>: Scale to billions, work through NAT, maintain privacy</li>
               </ul>
@@ -279,28 +274,28 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-purple-300 mb-3">1. ANNOUNCE = Heartbeat = Discovery</h3>
+                  <h3 className="text-xl font-semibold text-purple-300 mb-4">1. ANNOUNCE = Heartbeat = Discovery</h3>
                   <p>We started with separate HEARTBEAT and ANNOUNCE messages. Then realized: they're the same thing. One message type, multiple purposes.</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-semibold text-purple-300 mb-3">2. Behavioral Trust Over Cryptographic Trust</h3>
+                  <h3 className="text-xl font-semibold text-purple-300 mb-4">2. Behavioral Trust Over Cryptographic Trust</h3>
                   <p>We don't verify identities. We verify behavior. If an agent successfully completes tasks, it becomes a "contact". Trust through proven work, not certificates.</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-semibold text-purple-300 mb-3">3. Developer-Controlled Broadcasting</h3>
+                  <h3 className="text-xl font-semibold text-purple-300 mb-4">3. Developer-Controlled Broadcasting</h3>
                   <p>Agents only announce when developers explicitly call <code className="bg-gray-800/50 text-purple-300 px-2 py-1 rounded font-mono text-sm">announce()</code>. No hidden network activity, no automatic broadcasts. Developers stay in control.</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-semibold text-purple-300 mb-3">4. No Global State</h3>
+                  <h3 className="text-xl font-semibold text-purple-300 mb-4">4. No Global State</h3>
                   <p>Each agent only knows its local neighborhood. No global directory, no consensus required. The network scales infinitely because there's nothing global to coordinate.</p>
                 </div>
               </div>
 
               <h2 className="heading-2">What We Didn't Build (And Why)</h2>
-              <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
+              <ul className="list-disc list-inside space-y-3 ml-4 text-slate-100">
                 <li><strong>Blockchain</strong>: Adds complexity without solving our actual problems</li>
                 <li><strong>Consensus protocols</strong>: We don't need global agreement</li>
                 <li><strong>Complex PKI</strong>: Public keys are just addresses, not identities</li>
@@ -310,7 +305,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
 
               <h2 className="heading-2">The Result: Boring Technology That Works</h2>
               <p>Our final protocol is almost boring in its simplicity:</p>
-              <ol className="list-decimal list-inside space-y-3 ml-4 text-gray-300">
+              <ol className="list-decimal list-inside space-y-3 ml-4 text-slate-100">
                 <li>Agents announce their capabilities and IP addresses</li>
                 <li>Other agents discover them through broadcasts or queries</li>
                 <li>Agents exchange messages directly (or via relay if needed)</li>
@@ -319,7 +314,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               <p className="mt-4">No magic. No breakthrough cryptography. Just proven patterns assembled thoughtfully.</p>
 
               <h2 className="heading-2">Lessons Learned</h2>
-              <ol className="list-decimal list-inside space-y-3 ml-4 text-gray-300">
+              <ol className="list-decimal list-inside space-y-3 ml-4 text-slate-100">
                 <li><strong>Start with the user experience, work backwards to the protocol</strong></li>
                 <li><strong>Question every assumption</strong> - Do we really need sessions? Identity? Consensus?</li>
                 <li><strong>Embrace "boring" solutions</strong> - They're boring because they work</li>
@@ -329,7 +324,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
 
               <h2 className="heading-2">Looking Forward</h2>
               <p>The protocol will evolve, but the principles remain:</p>
-              <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
+              <ul className="list-disc list-inside space-y-3 ml-4 text-slate-100">
                 <li>Keep it simple</li>
                 <li>Make it work</li>
                 <li>Don't add complexity without clear benefit</li>
@@ -347,7 +342,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
 
               <h2 className="heading-2">The ConnectOnion Way</h2>
               <p>Our network protocol embodies the ConnectOnion philosophy:</p>
-              <ul className="list-disc list-inside space-y-3 ml-4 text-gray-300">
+              <ul className="list-disc list-inside space-y-3 ml-4 text-slate-100">
                 <li><strong>Simple by default</strong> - Basic operations are trivial</li>
                 <li><strong>Powerful when needed</strong> - Complex scenarios are possible</li>
                 <li><strong>Transparent where it matters</strong> - Public discovery for auditing</li>
@@ -359,8 +354,8 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
 
               <div className="border-t border-gray-800 mt-16 pt-8">
                 <div className="bg-gradient-to-r from-purple-900/10 to-pink-900/10 border border-purple-500/20 rounded-lg p-6 mb-6">
-                  <h3 className="text-lg font-bold text-purple-300 mb-3">📖 Complete Technical Specification</h3>
-                  <p className="text-gray-300 mb-3">
+                  <h3 className="text-lg font-bold text-purple-300 mb-4">📖 Complete Technical Specification</h3>
+                  <p className="text-slate-100 mb-4">
                     This article covers the design philosophy and evolution of our network protocol. For the complete technical specification including message formats, data structures, and implementation details, see:
                   </p>
                   <a href="https://github.com/connectonion/connectonion/blob/main/docs/design-decisions/004-designing-agent-network-protocol.md" 
@@ -371,7 +366,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                     </svg>
                   </a>
                 </div>
-                <p className="text-sm text-gray-300 italic">
+                <p className="text-sm text-slate-100 italic">
                   The ConnectOnion network protocol is open source and available at{' '}
                   <a href="https://github.com/wu-changxing/connectonion" className="text-purple-400 hover:text-purple-300 hover:underline transition-colors">
                     github.com/wu-changxing/connectonion

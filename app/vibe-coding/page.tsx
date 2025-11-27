@@ -106,7 +106,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       <style jsx>{gradientStyle}</style>
-      <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-20">
+      <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-16 md:py-24">
         {/* Header */}
         <div className="mb-20 md:mb-24">
           <div className="flex items-center gap-4 mb-6">
@@ -135,7 +135,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
         </div>
 
         {/* Hero Section */}
-        <section className="mb-24 md:mb-32 lg:mb-40">
+        <section className="mb-24 md:mb-42 lg:mb-40">
           <div className="bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl p-6 md:p-8 lg:p-10 border border-purple-500/20 mb-12">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 rounded-full border border-purple-500/30 mb-6">
@@ -183,7 +183,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
         </section>
 
         {/* Claude Code Plugin - Installation */}
-        <section className="mb-24 md:mb-32 lg:mb-40">
+        <section className="mb-24 md:mb-42 lg:mb-40">
           <div className="relative bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl p-6 md:p-8 lg:p-10 border border-purple-500/30 overflow-hidden">
             <div className="flex items-center gap-4 mb-6">
               <div className="p-3 bg-purple-500/20 rounded-xl border border-purple-500/30">
@@ -197,14 +197,14 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div className="bg-gray-900/60 rounded-xl p-4 border border-gray-700">
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center gap-2 mb-4">
                   <Check className="w-5 h-5 text-purple-400" />
                   <h3 className="font-semibold">Documentation-Grounded</h3>
                 </div>
                 <p className="text-sm text-gray-200">Every recommendation based on actual ConnectOnion docs. No hallucinations.</p>
               </div>
               <div className="bg-gray-900/60 rounded-xl p-4 border border-gray-700">
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center gap-2 mb-4">
                   <Zap className="w-5 h-5 text-purple-400" />
                   <h3 className="font-semibold">Two Powerful Commands</h3>
                 </div>
@@ -213,7 +213,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
             </div>
 
             <div className="bg-gray-900/80 rounded-xl p-6 border border-gray-800 mb-4">
-              <p className="text-sm text-gray-200 mb-3 font-semibold">Quick Install:</p>
+              <p className="text-sm text-gray-200 mb-4 font-semibold">Quick Install:</p>
               <div className="space-y-2">
                 <div className="bg-gray-800 rounded-lg p-3 font-mono text-sm flex items-center justify-between">
                   <div>

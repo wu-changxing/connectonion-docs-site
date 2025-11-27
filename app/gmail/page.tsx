@@ -83,7 +83,7 @@ agent.input("Find emails from alice@example.com")`}
               <div className="space-y-6">
                 <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-6">
                   <h4 className="font-semibold text-blue-300 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
-                  <p className="text-slate-100 text-sm mb-3">Read emails from inbox</p>
+                  <p className="text-slate-100 text-sm mb-4">Read emails from inbox</p>
                   <ul className="text-sm text-slate-100 space-y-1">
                     <li><code className="bg-gray-800 px-1 rounded">last</code> - Number of emails (default: 10)</li>
                     <li><code className="bg-gray-800 px-1 rounded">unread</code> - Only unread emails (default: False)</li>
@@ -121,7 +121,7 @@ agent.input("Find emails from alice@example.com")`}
 
               <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-6">
                 <h4 className="font-semibold text-green-300 font-mono mb-2">search_emails(query, max_results=10)</h4>
-                <p className="text-slate-100 text-sm mb-3">Search using Gmail query syntax</p>
+                <p className="text-slate-100 text-sm mb-4">Search using Gmail query syntax</p>
                 <div className="bg-gray-800 rounded-lg p-4">
                   <p className="text-sm text-slate-100 mb-2">Example queries:</p>
                   <ul className="text-sm text-slate-100 space-y-1 font-mono">

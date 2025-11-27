@@ -143,6 +143,9 @@ pre {
   line-height: 1.35;
   font-weight: 700;
   letter-spacing: -0.025em;
+  margin-bottom: 1.5rem; /* 24px - mb-6 equivalent */
+  color: white;
+  text-align: center;
 }
 @media (min-width: 640px) {
   .heading-2 {
@@ -163,6 +166,8 @@ pre {
   line-height: 1.4;
   font-weight: 600;
   letter-spacing: -0.02em;
+  margin-bottom: 1rem; /* 16px - mb-4 equivalent */
+  color: white;
 }
 @media (min-width: 640px) {
   .heading-3 {
@@ -270,14 +275,17 @@ pre {
 /* Button base with proper touch targets */
 .btn {
   padding: 0.625rem 1rem;
-  min-height: 44px;
-  min-width: 44px;
+  min-height: 48px; /* 48px for Android compliance */
+  min-width: 48px;
   border-radius: 0.5rem;
   font-weight: 500;
   transition: all 200ms;
   touch-action: manipulation;
   outline: 2px solid transparent;
   outline-offset: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:focus {
@@ -553,8 +561,8 @@ pre {
 
 /* Mobile-optimized touch targets */
 .touch-target {
-  min-height: 44px;
-  min-width: 44px;
+  min-height: 48px;
+  min-width: 48px;
 }
 
 /* Mobile padding utilities */

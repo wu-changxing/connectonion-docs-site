@@ -264,11 +264,11 @@ Errors: 0
 `
 
   return (
-    <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
+    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
         {/* Header with Breadcrumb and Copy Button */}
-        <div className="mb-10">
-          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
+        <div className="mb-12">
+          <nav className="flex items-center gap-2 text-sm text-slate-100 mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">Events (on_events)</span>
@@ -285,7 +285,7 @@ Errors: 0
                 Hook into agent lifecycle
               </h1>
 
-              <p className="text-xl text-gray-300">
+              <p className="text-xl text-slate-100">
                 React to events in your agent's execution flow. Add logging, monitoring, reflection, and custom behavior at every step.
               </p>
             </div>
@@ -312,7 +312,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">after_user_input</div>
-                  <div className="text-gray-300 text-xs">Fires once per turn</div>
+                  <div className="text-slate-100 text-xs">Fires once per turn</div>
                 </div>
               </div>
 
@@ -322,7 +322,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">before_llm</div>
-                  <div className="text-gray-300 text-xs">Before each LLM call</div>
+                  <div className="text-slate-100 text-xs">Before each LLM call</div>
                 </div>
               </div>
 
@@ -332,7 +332,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">after_llm</div>
-                  <div className="text-gray-300 text-xs">After each LLM response</div>
+                  <div className="text-slate-100 text-xs">After each LLM response</div>
                 </div>
               </div>
 
@@ -342,7 +342,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">before_tool</div>
-                  <div className="text-gray-300 text-xs">Before tool execution</div>
+                  <div className="text-slate-100 text-xs">Before tool execution</div>
                 </div>
               </div>
 
@@ -352,7 +352,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">after_tool</div>
-                  <div className="text-gray-300 text-xs">After successful tool execution</div>
+                  <div className="text-slate-100 text-xs">After successful tool execution</div>
                 </div>
               </div>
 
@@ -362,7 +362,7 @@ Errors: 0
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">on_error</div>
-                  <div className="text-gray-300 text-xs">When tool execution fails</div>
+                  <div className="text-slate-100 text-xs">When tool execution fails</div>
                 </div>
               </div>
             </div>
@@ -376,7 +376,7 @@ Errors: 0
           <section className="mb-16">
             <h2 className="heading-2">Quick Start</h2>
 
-            <p className="text-gray-300 mb-6">
+            <p className="text-slate-100 mb-6">
               Add event handlers to your agent in 3 simple steps:
             </p>
 
@@ -404,7 +404,7 @@ agent.input("Search for Python")`}
             />
 
             <div className="bg-blue-900/20 border-l-4 border-blue-500 p-4 my-6 rounded-r">
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-slate-100">
                 <strong className="text-blue-400">Tip:</strong> Event handlers receive the <code className="text-blue-300 bg-blue-950/50 px-1 rounded">agent</code> instance, giving you full access to <code className="text-blue-300 bg-blue-950/50 px-1 rounded">current_session</code>, messages, trace, and more.
               </p>
             </div>
@@ -414,7 +414,7 @@ agent.input("Search for Python")`}
           <section className="mb-16">
             <h2 className="heading-2">All Event Types</h2>
 
-            <p className="text-gray-300 mb-6">
+            <p className="text-slate-100 mb-6">
               Here's when each event fires and what you can do with it:
             </p>
 
@@ -427,7 +427,7 @@ agent.input("Search for Python")`}
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">after_user_input</h3>
-                    <p className="text-sm text-gray-300">Fires once per turn, after user input is added</p>
+                    <p className="text-sm text-slate-100">Fires once per turn, after user input is added</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -456,7 +456,7 @@ agent = Agent("assistant", on_events=[
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">after_llm</h3>
-                    <p className="text-sm text-gray-300">Fires after each LLM response (multiple times per turn)</p>
+                    <p className="text-sm text-slate-100">Fires after each LLM response (multiple times per turn)</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -506,7 +506,7 @@ agent = Agent("assistant", tools=[search], on_events=[
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">after_tool</h3>
-                    <p className="text-sm text-gray-300">Fires after each successful tool execution</p>
+                    <p className="text-sm text-slate-100">Fires after each successful tool execution</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -536,7 +536,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">on_error</h3>
-                    <p className="text-sm text-gray-300">Fires when tool execution fails or tool not found</p>
+                    <p className="text-sm text-slate-100">Fires when tool execution fails or tool not found</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -566,7 +566,7 @@ agent = Agent("assistant", tools=[api_call], on_events=[
           <section className="mb-16">
             <h2 className="heading-2">Combining Multiple Events</h2>
 
-            <p className="text-gray-300 mb-6">
+            <p className="text-slate-100 mb-6">
               Use multiple event handlers together for comprehensive monitoring and control:
             </p>
 
@@ -620,8 +620,8 @@ agent.input("Search and analyze Python")`}
 
             <div className="space-y-6">
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-3 text-gray-100">Event Handler Signature</h3>
-                <p className="text-gray-300 mb-3">
+                <h3 className="text-lg font-semibold mb-4 text-gray-100">Event Handler Signature</h3>
+                <p className="text-slate-100 mb-4">
                   All event handlers receive the agent instance:
                 </p>
                 <CodeWithResult
@@ -646,25 +646,25 @@ agent.input("Search and analyze Python")`}
               </div>
 
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-3 text-gray-100">Message Injection Timing</h3>
-                <p className="text-gray-300 mb-3">
+                <h3 className="text-lg font-semibold mb-4 text-gray-100">Message Injection Timing</h3>
+                <p className="text-slate-100 mb-4">
                   <strong className="text-white">Important:</strong> Use <code className="text-blue-300 bg-blue-950/50 px-1 rounded">after_llm</code> to inject messages after tool execution:
                 </p>
                 <div className="bg-red-900/20 border-l-4 border-red-500 p-4 mb-4 rounded-r">
-                  <p className="text-sm text-gray-300">
+                  <p className="text-sm text-slate-100">
                     <strong className="text-red-400">❌ Don't use after_tool:</strong> Injecting messages during tool execution breaks the OpenAI message sequence (assistant → tool results)
                   </p>
                 </div>
                 <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
-                  <p className="text-sm text-gray-300">
+                  <p className="text-sm text-slate-100">
                     <strong className="text-green-400">✅ Use after_llm:</strong> Fires after all tool results are added to messages, safe for injection
                   </p>
                 </div>
               </div>
 
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-3 text-gray-100">Error Handling</h3>
-                <p className="text-gray-300 mb-3">
+                <h3 className="text-lg font-semibold mb-4 text-gray-100">Error Handling</h3>
+                <p className="text-slate-100 mb-4">
                   Event handlers follow fail-fast principle:
                 </p>
                 <CodeWithResult
@@ -816,27 +816,27 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
               <div className="space-y-4 text-sm">
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_user_input(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-300 mt-2">Wraps a function to fire after user input is added to session.</p>
+                  <p className="text-slate-100 mt-2">Wraps a function to fire after user input is added to session.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_llm(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-300 mt-2">Wraps a function to fire before each LLM call.</p>
+                  <p className="text-slate-100 mt-2">Wraps a function to fire before each LLM call.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_llm(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-300 mt-2">Wraps a function to fire after each LLM response.</p>
+                  <p className="text-slate-100 mt-2">Wraps a function to fire after each LLM response.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_tool(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-300 mt-2">Wraps a function to fire before each tool execution.</p>
+                  <p className="text-slate-100 mt-2">Wraps a function to fire before each tool execution.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_tool(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-300 mt-2">Wraps a function to fire after each successful tool execution.</p>
+                  <p className="text-slate-100 mt-2">Wraps a function to fire after each successful tool execution.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_error(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-300 mt-2">Wraps a function to fire when tool execution fails or tool is not found.</p>
+                  <p className="text-slate-100 mt-2">Wraps a function to fire when tool execution fails or tool is not found.</p>
                 </div>
               </div>
             </div>
@@ -846,7 +846,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
               <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded text-sm">
                 Agent(name, tools, on_events: Optional[List[EventHandler]] = None, ...)
               </code>
-              <p className="text-gray-300 mt-4 text-sm">
+              <p className="text-slate-100 mt-4 text-sm">
                 <strong>on_events</strong>: List of event handlers wrapped with event type functions
               </p>
             </div>
@@ -858,31 +858,31 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
 
             <div className="space-y-4">
               <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-slate-100">
                   <strong className="text-green-400">✅ Keep handlers simple:</strong> Each event handler should do one thing well. Compose multiple handlers for complex behavior.
                 </p>
               </div>
 
               <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-slate-100">
                   <strong className="text-green-400">✅ Use after_llm for message injection:</strong> This is the safe time to inject context after tool execution completes.
                 </p>
               </div>
 
               <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-slate-100">
                   <strong className="text-green-400">✅ Handle exceptions internally:</strong> If your event handler can fail, catch exceptions to prevent stopping the agent.
                 </p>
               </div>
 
               <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r">
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-slate-100">
                   <strong className="text-red-400">❌ Don't inject during tool execution:</strong> Using after_tool to inject messages breaks the tool calling message sequence.
                 </p>
               </div>
 
               <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r">
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-slate-100">
                   <strong className="text-red-400">❌ Don't do heavy computation:</strong> Event handlers run synchronously and block agent execution. Keep them fast.
                 </p>
               </div>
@@ -896,22 +896,22 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link href="/xray" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-purple-500 transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-gray-100">@xray Debugging →</h3>
-                <p className="text-sm text-gray-300">See what your agent is thinking with the @xray decorator</p>
+                <p className="text-sm text-slate-100">See what your agent is thinking with the @xray decorator</p>
               </Link>
 
               <Link href="/auto-debug" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-blue-500 transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-gray-100">Auto-Debug →</h3>
-                <p className="text-sm text-gray-300">Interactive debugging with breakpoints and step-through</p>
+                <p className="text-sm text-slate-100">Interactive debugging with breakpoints and step-through</p>
               </Link>
 
               <Link href="/agent" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-green-500 transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-gray-100">Agent Reference →</h3>
-                <p className="text-sm text-gray-300">Complete API documentation for the Agent class</p>
+                <p className="text-sm text-slate-100">Complete API documentation for the Agent class</p>
               </Link>
 
               <Link href="/examples" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-yellow-500 transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-gray-100">Examples →</h3>
-                <p className="text-sm text-gray-300">Browse more real-world agent examples</p>
+                <p className="text-sm text-slate-100">Browse more real-world agent examples</p>
               </Link>
             </div>
           </section>

@@ -156,7 +156,7 @@ ${expectedOutput}
 *This is example 4 of 8 in the Progressive Prompt Examples series. Previous: [Customer Support](/prompts/examples/customer-support) | Next: [Data Analyst](/prompts/examples/data-analyst)*`
 
   return (
-    <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-12 lg:py-12 pt-16 lg:pt-12">
+    <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Navigation */}
 
       {/* Header */}
@@ -174,7 +174,7 @@ ${expectedOutput}
                   Advanced
                 </span>
               </div>
-              <p className="text-xl text-gray-300">
+              <p className="text-xl text-slate-100">
                 Master systematic code review methodology with prioritized feedback and technical expertise.
               </p>
             </div>
@@ -227,7 +227,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-white">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -274,7 +274,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-white">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -338,15 +338,15 @@ ${expectedOutput}
             <div className="space-y-4 text-sm">
               <div>
                 <h4 className="font-semibold text-purple-400 mb-2">🎯 Systematic Analysis</h4>
-                <p className="text-gray-300">5 focus areas ensure no important aspects are missed during review.</p>
+                <p className="text-slate-100">5 focus areas ensure no important aspects are missed during review.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-purple-400 mb-2">🚦 Priority System</h4>
-                <p className="text-gray-300">Color-coded severity levels help developers prioritize their fixes effectively.</p>
+                <p className="text-slate-100">Color-coded severity levels help developers prioritize their fixes effectively.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-purple-400 mb-2">💡 Solution-Oriented</h4>
-                <p className="text-gray-300">Provides concrete code examples and actionable improvement suggestions.</p>
+                <p className="text-slate-100">Provides concrete code examples and actionable improvement suggestions.</p>
               </div>
             </div>
           </div>
@@ -363,7 +363,7 @@ ${expectedOutput}
                 <Download className="w-4 h-4" />
                 Download Prompt File
               </a>
-              <p className="text-xs text-gray-300 text-center">
+              <p className="text-xs text-slate-100 text-center">
                 Perfect for automated code review and development workflows
               </p>
             </div>

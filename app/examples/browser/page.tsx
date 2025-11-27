@@ -10,10 +10,10 @@ import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 
 export default function BrowserAutomationExample() {
   return (
-    <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
+    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
       <div className="max-w-6xl mx-auto">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+      <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
@@ -34,7 +34,7 @@ export default function BrowserAutomationExample() {
             </div>
             <div>
               <h1 className="heading-1 text-3xl md:text-4xl font-bold text-white mb-2">Browser Automation</h1>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-slate-100">
                 Control web browsers with natural language commands using Playwright.
               </p>
             </div>
@@ -52,19 +52,19 @@ export default function BrowserAutomationExample() {
         <div className="grid md:grid-cols-2 gap-3">
           <div className="flex items-start gap-2">
             <ArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-            <span className="text-gray-300">Navigate websites and interact with elements</span>
+            <span className="text-slate-100">Navigate websites and interact with elements</span>
           </div>
           <div className="flex items-start gap-2">
             <ArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-            <span className="text-gray-300">Take screenshots (full page or viewport)</span>
+            <span className="text-slate-100">Take screenshots (full page or viewport)</span>
           </div>
           <div className="flex items-start gap-2">
             <ArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-            <span className="text-gray-300">Extract content and scrape data</span>
+            <span className="text-slate-100">Extract content and scrape data</span>
           </div>
           <div className="flex items-start gap-2">
             <ArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-            <span className="text-gray-300">Control browser with natural language</span>
+            <span className="text-slate-100">Control browser with natural language</span>
           </div>
         </div>
       </div>
@@ -336,7 +336,7 @@ Demo complete! Check out:
         
         <div className="grid gap-4">
           <div className="bg-gray-800/50 p-6 rounded-lg">
-            <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+            <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
               <Camera className="w-5 h-5 text-blue-400" />
               Website Monitoring
             </h3>
@@ -353,7 +353,7 @@ Status: All systems operational ✅`}
           </div>
 
           <div className="bg-gray-800/50 p-6 rounded-lg">
-            <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+            <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
               <Globe className="w-5 h-5 text-green-400" />
               Data Extraction
             </h3>
@@ -370,7 +370,7 @@ Data saved to products.json`}
           </div>
 
           <div className="bg-gray-800/50 p-6 rounded-lg">
-            <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+            <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
               <Terminal className="w-5 h-5 text-purple-400" />
               Form Automation
             </h3>
@@ -413,7 +413,7 @@ Form submitted successfully`}
           <Shield className="w-5 h-5 text-blue-400" />
           Pro Tips
         </h2>
-        <ul className="space-y-2 text-gray-300">
+        <ul className="space-y-2 text-slate-100">
           <li className="flex items-start gap-2">
             <span className="text-blue-400">•</span>
             <span>Use headless mode for production to save resources</span>
@@ -440,7 +440,7 @@ Form submitted successfully`}
       {/* Next Steps */}
       <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-lg p-8 text-center mb-12">
         <h2 className="heading-2">Ready to Automate the Web?</h2>
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           Start building your own browser automation agents with ConnectOnion
         </p>
         <div className="flex gap-4 justify-center">

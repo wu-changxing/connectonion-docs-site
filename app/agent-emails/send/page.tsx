@@ -138,7 +138,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
         <section className="mb-16">
           <h2 className="heading-2">Core Concept</h2>
           
-          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-8 mb-10">
+          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-8 mb-12">
             <h3 className="text-2xl font-semibold mb-6 text-purple-300">What you get:</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-start gap-3">
@@ -246,7 +246,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
         <section className="mb-16">
           <h2 className="heading-2">Your Email Address</h2>
 
-          <div className="bg-gradient-to-r from-purple-500/5 to-pink-500/5 border border-purple-500/20 rounded-xl p-8 mb-10">
+          <div className="bg-gradient-to-r from-purple-500/5 to-pink-500/5 border border-purple-500/20 rounded-xl p-8 mb-12">
             <p className="mb-6 text-lg">Every agent automatically gets an email address:</p>
             <div className="bg-gray-900 rounded-lg p-6 font-mono text-purple-400 text-xl text-center mb-8">
               0x1234abcd@mail.openonion.ai
@@ -319,7 +319,7 @@ email_active = false  # Becomes true after 'co auth'`}
               
               <div className="space-y-6">
                 <div className="bg-gray-900/50 rounded-lg p-6 border border-gray-700">
-                  <p className="font-semibold text-purple-400 mb-3">Option 1: Immediate activation (recommended)</p>
+                  <p className="font-semibold text-purple-400 mb-4">Option 1: Immediate activation (recommended)</p>
                   <CommandBlock commands={['co init']} />
                   <pre className="text-xs text-slate-100 mt-4 font-mono bg-gray-900 p-3 rounded flex items-start gap-2">
 <FaEnvelope className="text-purple-400 mt-1 flex-shrink-0" />
@@ -332,7 +332,7 @@ Email activated! Your agent can now send emails.</span>
                 </div>
 
                 <div className="bg-gray-900/50 rounded-lg p-6 border border-gray-700">
-                  <p className="font-semibold text-purple-400 mb-3">Option 2: Activate later</p>
+                  <p className="font-semibold text-purple-400 mb-4">Option 2: Activate later</p>
                   <CommandBlock commands={['co auth']} />
                 </div>
               </div>
@@ -340,7 +340,7 @@ Email activated! Your agent can now send emails.</span>
           </div>
 
           <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-6 border border-purple-500/20 mt-10">
-            <h3 className="text-lg font-semibold mb-3">Want a custom name?</h3>
+            <h3 className="text-lg font-semibold mb-4">Want a custom name?</h3>
             <p className="text-slate-100 mb-4">Upgrade to a custom email for $0.99:</p>
             <div className="bg-gray-900 rounded-lg p-4 font-mono text-purple-400 space-y-1">
               <div>mybot@mail.openonion.ai</div>
@@ -503,7 +503,7 @@ print(f"Report sent: {result['success']}")`}
         <section className="mb-16">
           <h2 className="heading-2">The Details</h2>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-10">
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-purple-300">Quotas</h3>
               <ul className="space-y-3 text-sm">
@@ -524,7 +524,7 @@ print(f"Report sent: {result['success']}")`}
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-purple-300">Rate Limiting</h3>
-              <p className="text-slate-100 text-sm mb-3">Automatic rate limiting prevents abuse:</p>
+              <p className="text-slate-100 text-sm mb-4">Automatic rate limiting prevents abuse:</p>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
                   <span className="text-purple-400">•</span>

@@ -14,7 +14,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Sparkles, Code2, Zap, GitBranch } from 'lucide-react'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
-import CopyButton from '../../../components/CopyButton'
+import CodeWithResult from '../../../components/CodeWithResult'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 
 export default function LLMDoBlogPost() {
@@ -301,13 +301,13 @@ Sometimes the best API decisions are the ones that make developers forget they'r
                 <h1 className="heading-1">
                   Why We Chose `llm_do()` Over `llm()`
                 </h1>
-                <p className="text-gray-300 text-lg">December 2024 • Design Decision #002</p>
+                <p className="text-slate-100 text-lg">December 2024 • Design Decision #002</p>
               </div>
               <CopyMarkdownButton content={fullContent} />
             </div>
 
             <div className="mt-8 space-y-6 text-gray-200">
-              <p className="text-lg leading-relaxed text-gray-300 italic">
+              <p className="text-lg leading-relaxed text-slate-100 italic">
                 Functions need verbs, and "do" is the ultimate action word
               </p>
 
@@ -317,12 +317,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
 
               <h2 className="heading-2">The Problem: Functions Should Be Verbs</h2>
               
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6 relative group">
-                <CopyButton text={codeExample1} />
-                <pre className="text-sm overflow-x-auto font-mono">
-                  <code className="text-green-300">{codeExample1}</code>
-                </pre>
-              </div>
+              <CodeWithResult code={codeExample1} language="python" className="my-6" />
 
               <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-6 my-6">
                 <p className="text-red-200 font-semibold">
@@ -337,12 +332,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
               
               <p className="mb-4">"Do" is unique among English verbs - it's the universal action word that works for any task:</p>
 
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6 relative group">
-                <CopyButton text={codeExample2} />
-                <pre className="text-sm overflow-x-auto font-mono">
-                  <code className="text-green-300">{codeExample2}</code>
-                </pre>
-              </div>
+              <CodeWithResult code={codeExample2} language="python" className="my-6" />
 
               <div className="bg-gradient-to-br from-green-900/20 to-transparent border border-green-500/20 rounded-xl p-6 my-8">
                 <p className="text-green-200 font-semibold text-lg">
@@ -354,12 +344,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
 
               <p>The verb form made the structured output API more intuitive:</p>
 
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6 relative group">
-                <CopyButton text={codeExample3} />
-                <pre className="text-sm overflow-x-auto font-mono">
-                  <code className="text-green-300">{codeExample3}</code>
-                </pre>
-              </div>
+              <CodeWithResult code={codeExample3} language="python" className="my-6" />
 
               <h2 className="heading-2">Measuring Developer Response</h2>
               
@@ -381,16 +366,16 @@ Sometimes the best API decisions are the ones that make developers forget they'r
                 
                 <div className="space-y-4">
                   <div>
-                    <p className="text-sm text-gray-300 mb-1">When you write:</p>
+                    <p className="text-sm text-slate-100 mb-1">When you write:</p>
                     <code className="text-green-300 font-mono">answer = llm_do("What is the meaning of life?")</code>
-                    <p className="text-sm text-gray-300 mt-1">It reads as: "answer equals llm do what is the meaning of life"</p>
+                    <p className="text-sm text-slate-100 mt-1">It reads as: "answer equals llm do what is the meaning of life"</p>
                     <p className="text-sm text-green-400 font-semibold">✓ That's almost a valid English sentence!</p>
                   </div>
                   
                   <div className="pt-4 border-t border-gray-700">
-                    <p className="text-sm text-gray-300 mb-1">Compare to the original:</p>
+                    <p className="text-sm text-slate-100 mb-1">Compare to the original:</p>
                     <code className="text-red-300 font-mono">answer = llm("What is the meaning of life?")</code>
-                    <p className="text-sm text-gray-300 mt-1">Which reads as: "answer equals llm what is the meaning of life"</p>
+                    <p className="text-sm text-slate-100 mt-1">Which reads as: "answer equals llm what is the meaning of life"</p>
                     <p className="text-sm text-red-400 font-semibold">✗ That's not English - it's computerese.</p>
                   </div>
                 </div>
@@ -403,28 +388,28 @@ Sometimes the best API decisions are the ones that make developers forget they'r
                   <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">1</div>
                   <div>
                     <h3 className="text-lg font-semibold text-green-300 mb-1">Functions Are Actions</h3>
-                    <p className="text-gray-300">If it does something, name it with a verb. No exceptions.</p>
+                    <p className="text-slate-100">If it does something, name it with a verb. No exceptions.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">2</div>
                   <div>
                     <h3 className="text-lg font-semibold text-green-300 mb-1">"Do" Is the Ultimate Verb</h3>
-                    <p className="text-gray-300">When you need a verb that works for any action, "do" is unbeatable.</p>
+                    <p className="text-slate-100">When you need a verb that works for any action, "do" is unbeatable.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">3</div>
                   <div>
                     <h3 className="text-lg font-semibold text-green-300 mb-1">Readability {'>'} Brevity</h3>
-                    <p className="text-gray-300">Three extra characters is a small price for natural reading.</p>
+                    <p className="text-slate-100">Three extra characters is a small price for natural reading.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">4</div>
                   <div>
                     <h3 className="text-lg font-semibold text-green-300 mb-1">Test by Reading Aloud</h3>
-                    <p className="text-gray-300">If it sounds wrong when spoken, it's wrong in code.</p>
+                    <p className="text-slate-100">If it sounds wrong when spoken, it's wrong in code.</p>
                   </div>
                 </div>
               </div>
@@ -432,7 +417,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
               <h2 className="heading-2">The ConnectOnion Way</h2>
               
               <p>This naming decision embodies our principles:</p>
-              <ul className="list-disc list-inside space-y-2 ml-4 text-gray-300">
+              <ul className="list-disc list-inside space-y-2 ml-4 text-slate-100">
                 <li><strong>Clarity over cleverness</strong></li>
                 <li><strong>Natural language over jargon</strong></li>
                 <li><strong>Verbs for functions, nouns for objects</strong></li>
@@ -441,7 +426,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
               </ul>
 
               <div className="border-t border-gray-800 mt-16 pt-8">
-                <p className="text-gray-300 italic text-lg">
+                <p className="text-slate-100 italic text-lg">
                   Remember: If your function name doesn't include a verb, you're naming it wrong. And when in doubt, "do" will do.
                 </p>
               </div>

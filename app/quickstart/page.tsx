@@ -70,12 +70,12 @@ export default function QuickStartPage() {
   }
 
   return (
-    <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
+    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
       {/* Header with Copy Button */}
       <div className="mb-8">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
+        <nav className="flex items-center gap-2 text-sm text-slate-100 mb-4">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <ArrowRight className="w-4 h-4" />
           <span className="text-white">Quick Start</span>
@@ -84,7 +84,7 @@ export default function QuickStartPage() {
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
           <div className="flex-1">
             <h1 className="heading-1">Quick Start Guide</h1>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-slate-100">
               Get up and running with ConnectOnion in under 2 minutes.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function QuickStartPage() {
           Create Your First Agent
         </h2>
 
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           Create a new agent project with automatic setup:
         </p>
 
@@ -199,7 +199,7 @@ export default function QuickStartPage() {
           />
         </div>
 
-        <p className="text-gray-300 mb-4">
+        <p className="text-slate-100 mb-4">
           Your agent is ready to use! The minimal template includes example tools to get you started.
         </p>
       </section>
@@ -211,7 +211,7 @@ export default function QuickStartPage() {
           Customize Your Agent
         </h2>
         
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           Your meta-agent can help you build ConnectOnion projects:
         </p>
 
@@ -326,7 +326,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
           Alternative: Playwright Web Automation
         </h2>
 
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           For web automation tasks, use the Playwright template:
         </p>
 
@@ -388,7 +388,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
           Create a Custom Tool Agent
         </h2>
         
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           You can also create agents from scratch with custom tools:
         </p>
 
@@ -436,7 +436,7 @@ The answer is 739.`}
           Debugging with @xray
         </h2>
 
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           Use the @xray decorator to see what your agent is thinking:
         </p>
 
@@ -474,7 +474,7 @@ The result is 80.`}
           Interactive Debugging
         </h2>
 
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           Debug your agents interactively - pause at breakpoints, inspect state, and test "what if" scenarios:
         </p>
 

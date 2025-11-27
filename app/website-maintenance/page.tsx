@@ -8,7 +8,7 @@ export default function WebsiteMaintenancePage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+      <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
@@ -25,7 +25,7 @@ export default function WebsiteMaintenancePage() {
             </div>
             <div>
               <h1 className="heading-1">Website Maintenance</h1>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-slate-100">
                 Procedures for updating and maintaining the ConnectOnion documentation site.
               </p>
             </div>
@@ -68,13 +68,13 @@ export default function WebsiteMaintenancePage() {
         {/* Step 1: Create Tutorial */}
         <section>
           <h2 className="heading-2">Step 1: Create Tutorial Content</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
+          <p className="text-gray-600 dark:text-slate-100 mb-4">
             Start by writing your documentation as a markdown file:
           </p>
           <CommandBlock commands={['touch docs-site/public/tutorials/your-feature.md']} />
           
           <div className="mt-6">
-            <h3 className="text-lg font-medium mb-3">Markdown Structure</h3>
+            <h3 className="text-lg font-medium mb-4">Markdown Structure</h3>
             <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto">
               <code>{`# Feature Title
 
@@ -99,7 +99,7 @@ Detailed technical documentation.`}</code>
         {/* Step 2: Create Page */}
         <section>
           <h2 className="heading-2">Step 2: Create Page Component</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
+          <p className="text-gray-600 dark:text-slate-100 mb-4">
             Create a Next.js page for your feature:
           </p>
           <CommandBlock commands={[
@@ -108,7 +108,7 @@ Detailed technical documentation.`}</code>
           ]} />
           
           <div className="mt-6">
-            <h3 className="text-lg font-medium mb-3">Page Template</h3>
+            <h3 className="text-lg font-medium mb-4">Page Template</h3>
             <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
               <code>{`import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
@@ -139,8 +139,8 @@ export default function YourFeaturePage() {
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-medium mb-3">Add to Sidebar</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-3">
+              <h3 className="text-lg font-medium mb-4">Add to Sidebar</h3>
+              <p className="text-gray-600 dark:text-slate-100 mb-4">
                 Edit <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">DocsSidebar.tsx</code>:
               </p>
               <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
@@ -161,8 +161,8 @@ export default function YourFeaturePage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-medium mb-3">Update Search Mapping</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-3">
+              <h3 className="text-lg font-medium mb-4">Update Search Mapping</h3>
+              <p className="text-gray-600 dark:text-slate-100 mb-4">
                 Edit <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">markdownLoader.ts</code>:
               </p>
               <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">

@@ -80,12 +80,12 @@ const blogPosts = [
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-purple-900/10 to-gray-900">
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         {/* Header */}
         <div className="mb-12">
           <Link 
             href="/" 
-            className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-slate-100 hover:text-white transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Docs
@@ -95,7 +95,7 @@ export default function BlogPage() {
             <BookOpen className="w-8 h-8 text-purple-400" />
             <h1 className="text-3xl font-bold text-white">Blog</h1>
           </div>
-          <p className="text-gray-300">
+          <p className="text-slate-100">
             Design decisions and insights from building ConnectOnion
           </p>
         </div>
@@ -139,12 +139,12 @@ export default function BlogPage() {
                       </h2>
                       
                       {/* Subtitle */}
-                      <p className="text-gray-300 mb-3">
+                      <p className="text-slate-100 mb-4">
                         {post.subtitle}
                       </p>
                       
                       {/* Excerpt */}
-                      <p className="text-gray-300 text-sm mb-4 line-clamp-2">
+                      <p className="text-slate-100 text-sm mb-4 line-clamp-2">
                         {post.excerpt}
                       </p>
                       
@@ -154,7 +154,7 @@ export default function BlogPage() {
                           {post.tags.map((tag) => (
                             <span 
                               key={tag}
-                              className="px-2 py-1 bg-gray-700/50 rounded-md text-xs text-gray-300"
+                              className="px-2 py-1 bg-gray-700/50 rounded-md text-xs text-slate-100"
                             >
                               {tag}
                             </span>
@@ -177,7 +177,7 @@ export default function BlogPage() {
         {/* Coming Soon */}
         <div className="mt-12 p-8 bg-gray-800/30 rounded-xl border border-gray-700 text-center">
           <h3 className="text-lg font-semibold text-white mb-2">More Posts Coming Soon</h3>
-          <p className="text-gray-300 text-sm">
+          <p className="text-slate-100 text-sm">
             We're documenting our journey. Stay tuned for more insights.
           </p>
         </div>

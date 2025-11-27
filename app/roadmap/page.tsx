@@ -197,7 +197,7 @@ export default function RoadmapPage() {
       case 'in-progress':
         return <Clock className="w-4 h-4 text-yellow-400" />
       case 'planned':
-        return <AlertCircle className="w-4 h-4 text-gray-300" />
+        return <AlertCircle className="w-4 h-4 text-slate-100" />
       default:
         return null
     }
@@ -222,9 +222,9 @@ export default function RoadmapPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-purple-900/10 to-gray-900">
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+        <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
@@ -246,7 +246,7 @@ export default function RoadmapPage() {
                     v0.0.6
                   </span>
                 </div>
-                <p className="text-lg text-gray-300">
+                <p className="text-lg text-slate-100">
                   Track our progress from v0.0.1 to v1.0 and beyond.
                 </p>
               </div>
@@ -262,7 +262,7 @@ export default function RoadmapPage() {
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
               !selectedCategory 
                 ? 'bg-purple-600 text-white' 
-                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                : 'bg-gray-800 text-slate-100 hover:bg-gray-700'
             }`}
           >
             All
@@ -276,7 +276,7 @@ export default function RoadmapPage() {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                   selectedCategory === category.id
                     ? 'bg-purple-600 text-white'
-                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                    : 'bg-gray-800 text-slate-100 hover:bg-gray-700'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -309,12 +309,12 @@ export default function RoadmapPage() {
                       key={index}
                       className="p-4 md:p-5 bg-gray-800/50 rounded-xl border border-gray-700 hover:border-purple-500/30 transition-all"
                     >
-                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                         <div className="flex items-start gap-3">
                           {getStatusIcon(feature.status)}
                           <div className="flex-1 min-w-0">
                             <h3 className="text-white font-medium mb-1 break-words">{feature.title}</h3>
-                            <p className="text-gray-300 text-sm break-words">{feature.description}</p>
+                            <p className="text-slate-100 text-sm break-words">{feature.description}</p>
                           </div>
                         </div>
                         <span className="text-xs text-purple-400 font-medium whitespace-nowrap ml-7 sm:ml-0">{feature.targetDate}</span>
@@ -324,7 +324,7 @@ export default function RoadmapPage() {
                       <div className="mt-3">
                         <div className="flex justify-between text-xs mb-2">
                           <span className="text-gray-500">Progress</span>
-                          <span className="text-gray-300">{feature.progress}%</span>
+                          <span className="text-slate-100">{feature.progress}%</span>
                         </div>
                         <div className="w-full bg-gray-700 rounded-full h-2 md:h-1.5">
                           <div
@@ -346,27 +346,27 @@ export default function RoadmapPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
               <div className="text-2xl font-bold text-green-400">8</div>
-              <div className="text-xs text-gray-300">Completed</div>
+              <div className="text-xs text-slate-100">Completed</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-yellow-400">5</div>
-              <div className="text-xs text-gray-300">In Progress</div>
+              <div className="text-xs text-slate-100">In Progress</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-gray-300">7</div>
-              <div className="text-xs text-gray-300">Planned</div>
+              <div className="text-2xl font-bold text-slate-100">7</div>
+              <div className="text-xs text-slate-100">Planned</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-purple-400">Sep 2025</div>
-              <div className="text-xs text-gray-300">Current Month</div>
+              <div className="text-xs text-slate-100">Current Month</div>
             </div>
           </div>
         </div>
 
         {/* Call to Action */}
         <div className="mt-8 p-6 md:p-8 bg-gray-800/30 rounded-xl border border-gray-700 text-center">
-          <h2 className="text-lg font-semibold text-white mb-3">Want to Shape Our Roadmap?</h2>
-          <p className="text-gray-300 text-sm mb-6 max-w-xl mx-auto">
+          <h2 className="text-lg font-semibold text-white mb-4">Want to Shape Our Roadmap?</h2>
+          <p className="text-slate-100 text-sm mb-6 max-w-xl mx-auto">
             We're building ConnectOnion with our community. Your feedback helps prioritize features.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 max-w-md mx-auto">

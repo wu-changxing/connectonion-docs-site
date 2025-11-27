@@ -216,10 +216,10 @@ Explore ready-to-use prompt templates:
 `
 
   return (
-    <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
+    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+      <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
@@ -236,7 +236,7 @@ Explore ready-to-use prompt templates:
             </div>
             <div>
               <h1 className="heading-1">System Prompts</h1>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-slate-100">
                 Define your agent's personality, behavior, and approach to tasks.
               </p>
             </div>
@@ -252,10 +252,10 @@ Explore ready-to-use prompt templates:
             <Info className="w-5 h-5 text-emerald-400 mt-0.5" />
             <div>
               <h2 className="text-xl font-semibold text-white mb-2">Recommended: Keep prompts in Markdown files</h2>
-              <p className="text-gray-300 text-sm mb-3">
+              <p className="text-slate-100 text-sm mb-4">
                 Store prompts in versioned <code className="bg-black/30 px-1 py-0.5 rounded">.md</code> files. This keeps code clean, enables easy edits and reviews, and works across tools.
               </p>
-              <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
+              <ul className="list-disc list-inside text-slate-100 text-sm space-y-1">
                 <li>Readable and diff-friendly</li>
                 <li>Reusable across multiple agents</li>
                 <li>Simple to test and iterate</li>
@@ -267,10 +267,10 @@ Explore ready-to-use prompt templates:
         <div className="grid grid-cols-1 gap-6">
           <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
             <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
-              <span className="text-sm text-gray-300 font-mono flex items-center gap-2"><FolderOpen className="w-4 h-4"/>project structure</span>
+              <span className="text-sm text-slate-100 font-mono flex items-center gap-2"><FolderOpen className="w-4 h-4"/>project structure</span>
               <button
                 onClick={() => copyToClipboard(folderTree, 'folderTree')}
-                className="text-gray-300 hover:text-white transition-colors p-1"
+                className="text-slate-100 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'folderTree' ? (
                   <Check className="w-4 h-4 text-green-400" />
@@ -293,10 +293,10 @@ Explore ready-to-use prompt templates:
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700 bg-gray-800">
-              <span className="text-sm text-gray-300 font-mono">prompts/assistant.md</span>
+              <span className="text-sm text-slate-100 font-mono">prompts/assistant.md</span>
               <button
                 onClick={() => copyToClipboard(recommendedMarkdown, 'recommendedMarkdown')}
-                className="text-gray-300 hover:text-white transition-colors p-1"
+                className="text-slate-100 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'recommendedMarkdown' ? (
                   <Check className="w-4 h-4 text-green-400" />
@@ -319,10 +319,10 @@ Explore ready-to-use prompt templates:
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700 bg-gray-800">
-              <span className="text-sm text-gray-300 font-mono">load_markdown.py</span>
+              <span className="text-sm text-slate-100 font-mono">load_markdown.py</span>
               <button
                 onClick={() => copyToClipboard(loadFromMarkdown, 'loadFromMarkdown')}
-                className="text-gray-300 hover:text-white transition-colors p-1"
+                className="text-slate-100 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'loadFromMarkdown' ? (
                   <Check className="w-4 h-4 text-green-400" />
@@ -347,7 +347,7 @@ Explore ready-to-use prompt templates:
         <div className="bg-gradient-to-b from-rose-900/30 to-rose-800/10 border border-rose-500/30 rounded-xl p-5 mt-6">
           <div className="flex items-start gap-3">
             <AlertTriangle className="w-5 h-5 text-rose-400 mt-0.5" />
-            <p className="text-gray-300 text-sm">
+            <p className="text-slate-100 text-sm">
               Avoid embedding large prompt strings directly in code. It makes diffs noisy and complicates collaboration. Prefer <code className="bg-black/30 px-1 py-0.5 rounded">.md</code> files and reference them from your agent.
             </p>
           </div>
@@ -358,7 +358,7 @@ Explore ready-to-use prompt templates:
       <section className="mb-16">
         <h2 className="heading-2">Quick Start</h2>
         
-        <p className="text-gray-300 mb-8">
+        <p className="text-slate-100 mb-8">
           ConnectOnion offers three ways to provide system prompts. We recommend Markdown files.
         </p>
 
@@ -370,7 +370,7 @@ Explore ready-to-use prompt templates:
               </div>
               <div>
                 <h4 className="font-semibold text-green-400 mb-2">Markdown File (Recommended)</h4>
-                <p className="text-gray-300 text-sm">
+                <p className="text-slate-100 text-sm">
                   Store prompts in <code className="bg-black/30 px-1 py-0.5 rounded">prompts/*.md</code> and reference by path. Best for collaboration, reviews, and reuse.
                 </p>
               </div>
@@ -382,7 +382,7 @@ Explore ready-to-use prompt templates:
               </div>
               <div>
                 <h4 className="font-semibold text-blue-400 mb-2">Path Object</h4>
-                <p className="text-gray-300 text-sm">
+                <p className="text-slate-100 text-sm">
                   Use <code className="bg-black/30 px-1 py-0.5 rounded">pathlib.Path</code> when you need explicit file existence checks.
                 </p>
               </div>
@@ -394,7 +394,7 @@ Explore ready-to-use prompt templates:
               </div>
               <div>
                 <h4 className="font-semibold text-purple-400 mb-2">Direct String (for quick demos)</h4>
-                <p className="text-gray-300 text-sm">
+                <p className="text-slate-100 text-sm">
                   Acceptable for tiny demos or notebooks, but keep production prompts in Markdown files.
                 </p>
               </div>
@@ -403,10 +403,10 @@ Explore ready-to-use prompt templates:
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700">
-              <span className="text-sm text-gray-300 font-mono">quick_start.py</span>
+              <span className="text-sm text-slate-100 font-mono">quick_start.py</span>
               <button
                 onClick={() => copyToClipboard(quickStartCode, 'quick-start')}
-                className="text-gray-300 hover:text-white transition-colors p-1"
+                className="text-slate-100 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'quick-start' ? (
                   <Check className="w-4 h-4 text-green-400" />
@@ -439,16 +439,16 @@ Explore ready-to-use prompt templates:
       {/* Iteration Control */}
       <section className="mb-16">
         <h2 className="heading-2">Iteration Control (max_iterations)</h2>
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           You can set a default iteration limit on the agent, and still override it for specific tasks.
         </p>
 
         <div className="bg-gray-900 border border-gray-700 rounded-lg">
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700">
-            <span className="text-sm text-gray-300 font-mono">iterations.py</span>
+            <span className="text-sm text-slate-100 font-mono">iterations.py</span>
             <button
               onClick={() => copyToClipboard(iterationCode, 'iterations')}
-              className="text-gray-300 hover:text-white transition-colors p-1"
+              className="text-slate-100 hover:text-white transition-colors p-1"
             >
               {copiedId === 'iterations' ? (
                 <Check className="w-4 h-4 text-green-400" />
@@ -480,7 +480,7 @@ Explore ready-to-use prompt templates:
             { ext: '.yaml', name: 'YAML', desc: 'Structured data with metadata', color: 'text-green-400' },
             { ext: '.json', name: 'JSON', desc: 'Machine-readable with schemas', color: 'text-purple-400' },
             { ext: '.txt', name: 'Plain Text', desc: 'Simple text prompts', color: 'text-yellow-400' },
-            { ext: 'none', name: 'No Extension', desc: 'Any text file works', color: 'text-gray-300' },
+            { ext: 'none', name: 'No Extension', desc: 'Any text file works', color: 'text-slate-100' },
           ].map((format) => (
             <div key={format.ext} className="bg-gray-900 border border-gray-700 rounded-lg p-4 hover:border-gray-600 transition-colors">
               <div className="flex items-center gap-2 mb-2">
@@ -490,7 +490,7 @@ Explore ready-to-use prompt templates:
                 </span>
               </div>
               <h3 className="font-semibold text-white mb-1">{format.name}</h3>
-              <p className="text-gray-300 text-sm">{format.desc}</p>
+              <p className="text-slate-100 text-sm">{format.desc}</p>
             </div>
           ))}
         </div>
@@ -505,11 +505,11 @@ Explore ready-to-use prompt templates:
             href="/prompts/examples" 
             className="group bg-gray-900 border border-gray-700 rounded-lg p-6 hover:border-blue-500/50 transition-all"
           >
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-white">Prompt Examples</h3>
-              <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-blue-400 transition-colors" />
+              <ArrowRight className="w-5 h-5 text-slate-100 group-hover:text-blue-400 transition-colors" />
             </div>
-            <p className="text-gray-300 text-sm mb-4">
+            <p className="text-slate-100 text-sm mb-4">
               Explore real-world prompt examples for different roles and domains.
             </p>
             <div className="text-xs text-blue-400">View examples →</div>
@@ -519,11 +519,11 @@ Explore ready-to-use prompt templates:
             href="/prompts/examples" 
             className="group bg-gray-900 border border-gray-700 rounded-lg p-6 hover:border-green-500/50 transition-all"
           >
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-white">Examples</h3>
-              <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-green-400 transition-colors" />
+              <ArrowRight className="w-5 h-5 text-slate-100 group-hover:text-green-400 transition-colors" />
             </div>
-            <p className="text-gray-300 text-sm mb-4">
+            <p className="text-slate-100 text-sm mb-4">
               Browse real-world prompt examples for different roles and domains.
             </p>
             <div className="text-xs text-green-400">View examples →</div>

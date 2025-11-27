@@ -180,13 +180,13 @@ Sometimes the best technical decisions are the least technical ones.`
                 <h1 className="heading-1">
                   Why We Chose "Trust"
                 </h1>
-                <p className="text-gray-300 text-lg">December 2024 • Design Decision #003</p>
+                <p className="text-slate-100 text-lg">December 2024 • Design Decision #003</p>
               </div>
               <CopyMarkdownButton content={blogContent} />
             </div>
 
             <div className="mt-8 space-y-6 text-gray-200">
-              <p className="text-lg leading-relaxed text-gray-300 italic">
+              <p className="text-lg leading-relaxed text-slate-100 italic">
                 The Story Behind ConnectOnion's Authentication Keyword
               </p>
 
@@ -197,7 +197,7 @@ Sometimes the best technical decisions are the least technical ones.`
               <h2 className="heading-2">The Challenge: Finding a Bidirectional Word</h2>
               
               <p>Our authentication system needed a keyword that works in two directions:</p>
-              <ol className="list-decimal list-inside space-y-2 ml-4 text-gray-300">
+              <ol className="list-decimal list-inside space-y-2 ml-4 text-slate-100">
                 <li><strong>As a service provider</strong>: "Who can use my services?"</li>
                 <li><strong>As a service consumer</strong>: "Which services do I trust?"</li>
               </ol>
@@ -220,7 +220,7 @@ Sometimes the best technical decisions are the least technical ones.`
                         <XCircle className="inline w-4 h-4 mr-1" />
                         {option.name}
                       </h3>
-                      <p className="text-gray-300 text-sm">{option.reason}</p>
+                      <p className="text-slate-100 text-sm">{option.reason}</p>
                     </div>
                   </div>
                 ))}
@@ -256,9 +256,9 @@ Sometimes the best technical decisions are the least technical ones.`
                       <CheckCircle className="w-5 h-5 text-green-400" />
                       {point.title}
                     </h3>
-                    <p className="text-gray-300 mb-3">{point.description}</p>
+                    <p className="text-slate-100 mb-4">{point.description}</p>
                     {point.examples && (
-                      <ul className="list-disc list-inside space-y-1 ml-4 text-gray-300 text-sm">
+                      <ul className="list-disc list-inside space-y-1 ml-4 text-slate-100 text-sm">
                         {point.examples.map((ex, i) => (
                           <li key={i}>{ex}</li>
                         ))}
@@ -272,7 +272,7 @@ Sometimes the best technical decisions are the least technical ones.`
               
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden">
                 <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
-                  <span className="text-sm text-gray-300 font-mono">config.py</span>
+                  <span className="text-sm text-slate-100 font-mono">config.py</span>
                 </div>
                 <pre className="p-4 text-sm overflow-x-auto">
                   <code className="text-purple-300">{`# Instantly understandable
@@ -303,7 +303,7 @@ agent = Agent(
               <h2 className="heading-2">The Bigger Picture</h2>
               
               <p>Choosing "trust" reflects ConnectOnion's philosophy:</p>
-              <ul className="list-disc list-inside space-y-2 ml-4 text-gray-300">
+              <ul className="list-disc list-inside space-y-2 ml-4 text-slate-100">
                 <li><strong>Human-first design</strong>: Use words people understand</li>
                 <li><strong>Progressive enhancement</strong>: Start simple, add complexity through composition</li>
                 <li><strong>Behavioral over cryptographic</strong>: Actions matter more than certificates</li>
@@ -311,7 +311,7 @@ agent = Agent(
               </ul>
 
               <div className="border-t border-gray-800 mt-16 pt-8">
-                <p className="text-gray-300 italic text-lg">
+                <p className="text-slate-100 italic text-lg">
                   Sometimes the best technical decisions are the least technical ones.
                 </p>
               </div>

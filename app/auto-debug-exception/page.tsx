@@ -27,7 +27,7 @@ export default function AutoDebugExceptionPage() {
         {copiedCode === id ? (
           <Check className="w-4 h-4 text-green-400" />
         ) : (
-          <Copy className="w-4 h-4 text-gray-300" />
+          <Copy className="w-4 h-4 text-slate-100" />
         )}
       </button>
       <SyntaxHighlighter
@@ -49,7 +49,7 @@ export default function AutoDebugExceptionPage() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 py-12">
+      <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24">
         {/* Header */}
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-6">
@@ -60,7 +60,7 @@ export default function AutoDebugExceptionPage() {
               <h1 className="heading-1">
                 Auto Debug Exception
               </h1>
-              <p className="text-gray-300 mt-2">AI debugger for uncaught exceptions with runtime inspection</p>
+              <p className="text-slate-100 mt-2">AI debugger for uncaught exceptions with runtime inspection</p>
             </div>
           </div>
 
@@ -70,7 +70,7 @@ export default function AutoDebugExceptionPage() {
               <AlertTriangle className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
               <div>
                 <p className="font-semibold text-yellow-400 mb-2">Debugs ONLY uncaught exceptions</p>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-slate-100">
                   This feature only works for uncaught exceptions - crashes, raised exceptions, and failed assertions.
                   For logic errors that don't crash, use <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">raise</code> or <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">assert</code> to convert them to exceptions.
                 </p>
@@ -134,8 +134,8 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <FileCode className="w-8 h-8 text-red-400 mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Live Runtime Access</h3>
-              <p className="text-gray-300 text-sm">
+              <h3 className="text-xl font-semibold mb-4">Live Runtime Access</h3>
+              <p className="text-slate-100 text-sm">
                 The AI isn't just reading your code - it has access to the actual runtime state when the crash occurred.
                 It can execute any Python expression using your variables and see the real values that caused the problem.
               </p>
@@ -143,8 +143,8 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <Check className="w-8 h-8 text-green-400 mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Verified Solutions</h3>
-              <p className="text-gray-300 text-sm">
+              <h3 className="text-xl font-semibold mb-4">Verified Solutions</h3>
+              <p className="text-slate-100 text-sm">
                 Every fix is tested with your actual data before being suggested.
                 No more "this might work" - only proven solutions that actually work with your data.
               </p>
@@ -152,8 +152,8 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
               <Bug className="w-8 h-8 text-red-400 mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Precise Analysis</h3>
-              <p className="text-gray-300 text-sm">
+              <h3 className="text-xl font-semibold mb-4">Precise Analysis</h3>
+              <p className="text-slate-100 text-sm">
                 The AI can explore your data structures, check types, validate assumptions,
                 and trace variables through the call stack to find the root cause.
               </p>
@@ -164,42 +164,42 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
         {/* Runtime Inspection Tools */}
         <section className="mb-20">
           <h2 className="heading-2">Runtime Inspection Tools</h2>
-          <p className="text-gray-300 mb-8 text-lg">
+          <p className="text-slate-100 mb-8 text-lg">
             The AI has access to powerful tools for investigating the crashed state:
           </p>
 
           <div className="space-y-4">
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">execute_in_frame(code)</h3>
-              <p className="text-gray-300 text-sm">
+              <p className="text-slate-100 text-sm">
                 Run any Python code in the exception context. Check variables, test expressions, explore the state.
               </p>
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">inspect_object(name)</h3>
-              <p className="text-gray-300 text-sm">
+              <p className="text-slate-100 text-sm">
                 Deep dive into any object - see its type, attributes, methods, and values.
               </p>
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">test_fix(original, fixed)</h3>
-              <p className="text-gray-300 text-sm">
+              <p className="text-slate-100 text-sm">
                 Test a potential fix using the actual runtime data before suggesting it to you.
               </p>
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">validate_assumption(hypothesis)</h3>
-              <p className="text-gray-300 text-sm">
+              <p className="text-slate-100 text-sm">
                 Test hypotheses about what caused the crash by running code in the crashed context.
               </p>
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">trace_variable(var_name)</h3>
-              <p className="text-gray-300 text-sm">
+              <p className="text-slate-100 text-sm">
                 See how a variable's value changed through the call stack leading to the crash.
               </p>
             </div>
@@ -236,7 +236,7 @@ result = calculate_metrics([])  # 💥 Multiple issues!`}
                 <div className="space-y-4 text-sm">
                   <div>
                     <p className="font-semibold text-purple-400 mb-2">What I found:</p>
-                    <ul className="space-y-1 text-gray-300 font-mono text-xs">
+                    <ul className="space-y-1 text-slate-100 font-mono text-xs">
                       <li>• Executed: len(scores) → 0</li>
                       <li>• Executed: sum(scores) → 0</li>
                       <li>• The division 0/0 causes ZeroDivisionError</li>
@@ -245,7 +245,7 @@ result = calculate_metrics([])  # 💥 Multiple issues!`}
                   </div>
                   <div>
                     <p className="font-semibold text-purple-400 mb-2">Why it failed:</p>
-                    <p className="text-gray-300">Empty list causes division by zero and max()/min() to fail</p>
+                    <p className="text-slate-100">Empty list causes division by zero and max()/min() to fail</p>
                   </div>
                   <div>
                     <p className="font-semibold text-green-400 mb-2">Verified fix (tested with your data):</p>
@@ -298,7 +298,7 @@ theme = response['data']['user']['settings']['theme']  # 💥 KeyError!`}
                 <div className="space-y-4 text-sm">
                   <div>
                     <p className="font-semibold text-purple-400 mb-2">What I found:</p>
-                    <ul className="space-y-1 text-gray-300 font-mono text-xs">
+                    <ul className="space-y-1 text-slate-100 font-mono text-xs">
                       <li>• Executed: response['data']['user'].keys() → ['profile']</li>
                       <li>• Missing key: 'settings' not in user dict</li>
                       <li>• Available: only 'profile' exists</li>
@@ -327,7 +327,7 @@ else:
               <h3 className="heading-3">
                 <span className="text-red-400">3.</span> Debugging Logic Errors with Assert
               </h3>
-              <p className="text-gray-300 mb-4">
+              <p className="text-slate-100 mb-4">
                 For logic errors that don't crash, use <code className="bg-gray-800 px-2 py-0.5 rounded text-red-400">assert</code> to trigger AI debugging:
               </p>
               <CodeBlock
@@ -351,7 +351,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
 
               <div className="mt-6 bg-blue-500/10 border border-blue-500/30 rounded-lg p-6">
                 <p className="font-semibold text-blue-300 mb-2">💡 Pro Tip:</p>
-                <p className="text-gray-300 text-sm">
+                <p className="text-slate-100 text-sm">
                   Use <code className="bg-gray-800 px-2 py-0.5 rounded">assert</code> statements to catch logic errors and wrong AI outputs.
                   When an assertion fails, auto_debug_exception kicks in with full runtime access to help you understand what went wrong.
                 </p>
@@ -418,7 +418,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
 
           <div className="mt-8 bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-6">
             <p className="font-semibold text-yellow-400 mb-2">Solution:</p>
-            <p className="text-gray-300 text-sm">
+            <p className="text-slate-100 text-sm">
               To debug logic errors, convert them to exceptions using <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">raise</code> or <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">assert</code>.
               This triggers auto_debug_exception and gives you AI analysis with runtime inspection.
             </p>
@@ -447,7 +447,7 @@ auto_debug_exception(model="claude-sonnet-4")`}
 
             <div>
               <h3 className="text-xl font-semibold mb-4">Disable Temporarily</h3>
-              <p className="text-gray-300 mb-4">Set environment variable to disable:</p>
+              <p className="text-slate-100 mb-4">Set environment variable to disable:</p>
               <CodeBlock
                 code={`# In your .env file
 CONNECTONION_AUTO_DEBUG=false
@@ -468,11 +468,11 @@ export CONNECTONION_AUTO_DEBUG=false`}
             <p className="text-2xl font-semibold text-red-300 mb-6">
               No more guessing. Get verified solutions.
             </p>
-            <p className="text-gray-300 mb-6">
+            <p className="text-slate-100 mb-6">
               Traditional debugging tools show you *what* crashed. We show you *why* it crashed and *how* to fix it -
               tested with your actual data.
             </p>
-            <p className="text-gray-300 mb-8">
+            <p className="text-slate-100 mb-8">
               The AI has live access to your program's runtime state. It can execute code, inspect objects, and test fixes
               before suggesting them. Every solution is verified to work with your data.
             </p>

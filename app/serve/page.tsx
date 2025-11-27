@@ -15,13 +15,13 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 
 export default function ServePage() {
   return (
-    <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
+    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
       <div className="max-w-6xl mx-auto">
         {/* Hero Section */}
         <section className="mb-16">
           {/* Breadcrumb */}
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+          <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
             <Link href="/" className="hover:text-purple-400 transition-colors">
               Docs
             </Link>
@@ -38,7 +38,7 @@ export default function ServePage() {
                 </div>
                 <div>
                   <h1 className="heading-1">Agent Serving</h1>
-                  <p className="text-lg text-gray-300">
+                  <p className="text-lg text-slate-100">
                     Make your agent accessible from anywhere. One line of code, cryptographic identity, zero configuration.
                   </p>
                 </div>
@@ -62,7 +62,7 @@ export default function ServePage() {
             60-Second Quick Start
           </h2>
 
-          <p className="text-gray-300 mb-6 text-lg">
+          <p className="text-slate-100 mb-6 text-lg">
             Create an agent and call <code className="bg-gray-800 px-2 py-1 rounded">.serve()</code> - that's it:
           </p>
 
@@ -85,8 +85,8 @@ Waiting for connections...`}
           />
 
           <div className="mt-6 bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-blue-100 mb-3">What Just Happened?</h3>
-            <div className="space-y-2 text-gray-300">
+            <h3 className="text-lg font-semibold text-blue-100 mb-4">What Just Happened?</h3>
+            <div className="space-y-2 text-slate-100">
               <div className="flex items-start gap-2">
                 <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Generated Ed25519 keys</strong> → Saved to <code className="bg-gray-800 px-2 py-1 rounded">.co/keys/helper/</code></span>
@@ -111,7 +111,7 @@ Waiting for connections...`}
         <section className="mb-20">
           <h2 className="heading-2">Testing Your Served Agent</h2>
 
-          <p className="text-gray-300 mb-6 text-lg">
+          <p className="text-slate-100 mb-6 text-lg">
             From another Python script, connect using the agent's address:
           </p>
 
@@ -144,7 +144,7 @@ print(result)`}
           </h2>
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mb-6">
-            <div className="font-mono text-sm text-gray-300 whitespace-pre">
+            <div className="font-mono text-sm text-slate-100 whitespace-pre">
 {`Client                  Relay Server              Your Agent
   |                          |                          |
   |--- INPUT message ------->|                          |
@@ -160,11 +160,11 @@ print(result)`}
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-blue-100 mb-3 flex items-center gap-2">
+              <h3 className="text-xl font-semibold text-blue-100 mb-4 flex items-center gap-2">
                 <Terminal className="w-5 h-5" />
                 INPUT Message
               </h3>
-              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-gray-300">
+              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-slate-100">
 {`{
   "type": "INPUT",
   "from": "0xclient...",
@@ -174,11 +174,11 @@ print(result)`}
             </div>
 
             <div className="bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-emerald-100 mb-3 flex items-center gap-2">
+              <h3 className="text-xl font-semibold text-emerald-100 mb-4 flex items-center gap-2">
                 <Code className="w-5 h-5" />
                 OUTPUT Message
               </h3>
-              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-gray-300">
+              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-slate-100">
 {`{
   "type": "OUTPUT",
   "to": "0xclient...",
@@ -188,7 +188,7 @@ print(result)`}
             </div>
           </div>
 
-          <p className="mt-6 text-gray-300 text-sm">
+          <p className="mt-6 text-slate-100 text-sm">
             All messages are automatically signed with your agent's private key and verified by the relay.
           </p>
         </section>
@@ -202,7 +202,7 @@ print(result)`}
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold mb-3">Default Relay (Production)</h3>
+              <h3 className="text-xl font-semibold mb-4">Default Relay (Production)</h3>
               <CodeWithResult
                 code={`# Uses wss://oo.openonion.ai/ws/announce by default
 agent.serve()`}
@@ -211,7 +211,7 @@ agent.serve()`}
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-3">Custom Relay (Development)</h3>
+              <h3 className="text-xl font-semibold mb-4">Custom Relay (Development)</h3>
               <CodeWithResult
                 code={`# Connect to local relay server
 agent.serve(relay_url="ws://localhost:8000/ws/announce")`}
@@ -220,7 +220,7 @@ agent.serve(relay_url="ws://localhost:8000/ws/announce")`}
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-3">Environment-Based</h3>
+              <h3 className="text-xl font-semibold mb-4">Environment-Based</h3>
               <CodeWithResult
                 code={`import os
 
@@ -245,14 +245,14 @@ agent.serve(relay_url=relay_url)`}
 
           <div className="space-y-6">
             <div className="bg-amber-950/50 border border-amber-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-amber-100 mb-3 flex items-center gap-2">
+              <h3 className="text-xl font-semibold text-amber-100 mb-4 flex items-center gap-2">
                 <Key className="w-5 h-5" />
                 Ed25519 Cryptography
               </h3>
-              <p className="text-gray-300 mb-4">
+              <p className="text-slate-100 mb-4">
                 Every message is signed with your agent's private key. The relay verifies signatures to ensure authenticity.
               </p>
-              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-gray-300">
+              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-slate-100">
 {`# Automatic signing
 message = {"type": "OUTPUT", "result": "..."}
 signature = signing_key.sign(json.dumps(message))
@@ -263,11 +263,11 @@ verify_key.verify(signature)  # Raises if invalid`}
             </div>
 
             <div className="bg-red-950/50 border border-red-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-red-100 mb-3">Key Storage</h3>
-              <p className="text-gray-300 mb-4">
+              <h3 className="text-xl font-semibold text-red-100 mb-4">Key Storage</h3>
+              <p className="text-slate-100 mb-4">
                 Keys are stored in <code className="bg-gray-800 px-2 py-1 rounded">.co/keys/{'{agent_name}'}/':</code>
               </p>
-              <ul className="space-y-2 text-gray-300 mb-4">
+              <ul className="space-y-2 text-slate-100 mb-4">
                 <li className="flex items-start gap-2">
                   <span className="text-red-400 font-bold">•</span>
                   <span><code className="bg-gray-800 px-2 py-1 rounded">private_key.pem</code> - Keep this secret! Never commit to git.</span>
@@ -277,7 +277,7 @@ verify_key.verify(signature)  # Raises if invalid`}
                   <span><code className="bg-gray-800 px-2 py-1 rounded">public_key.pem</code> - Your agent's address, safe to share.</span>
                 </li>
               </ul>
-              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-gray-300">
+              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-slate-100">
 {`# Add to .gitignore
 .co/`}
               </div>
@@ -334,7 +334,7 @@ Waiting for connections...`}
         <section className="mb-20">
           <div className="bg-emerald-950/30 rounded-2xl p-10 border border-emerald-400/30 text-center">
             <h2 className="heading-2">Ready to Share Your Agents?</h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-slate-100 mb-8">
               Just call <code className="bg-gray-800 px-3 py-1.5 rounded">agent.serve()</code> and your agent goes live!
             </p>
             <div className="flex flex-wrap justify-center gap-4">

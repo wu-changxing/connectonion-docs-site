@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Terminal, Brain, Users, Code2 } from 'lucide-react'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
-import CopyButton from '../../../components/CopyButton'
+import CodeWithResult from '../../../components/CodeWithResult'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 
 export default function InputMethodBlogPost() {
@@ -212,13 +212,13 @@ Sometimes the best API design decision is the one that makes developers forget t
                 <h1 className="heading-1">
                   Why We Chose `input()` Over `run()`
                 </h1>
-                <p className="text-gray-300 text-lg">December 2024 • Design Decision #001</p>
+                <p className="text-slate-100 text-lg">December 2024 • Design Decision #001</p>
               </div>
               <CopyMarkdownButton content={fullContent} />
             </div>
 
             <div className="mt-8 space-y-6 text-gray-200">
-              <p className="text-lg leading-relaxed text-gray-300 italic">
+              <p className="text-lg leading-relaxed text-slate-100 italic">
                 The power of aligning with user mental models
               </p>
 
@@ -242,48 +242,48 @@ Sometimes the best API design decision is the one that makes developers forget t
                 <h3 className="text-xl font-semibold text-blue-300 mb-4">First Attempts by New Users:</h3>
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-300">agent.input()</span>
+                    <span className="text-slate-100">agent.input()</span>
                     <div className="flex items-center gap-2">
                       <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
                         <div className="bg-blue-500 h-full" style={{width: '40%'}}></div>
                       </div>
-                      <span className="text-gray-300 text-sm">40%</span>
+                      <span className="text-slate-100 text-sm">40%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-300">agent.ask()</span>
+                    <span className="text-slate-100">agent.ask()</span>
                     <div className="flex items-center gap-2">
                       <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
                         <div className="bg-blue-500 h-full" style={{width: '18%'}}></div>
                       </div>
-                      <span className="text-gray-300 text-sm">18%</span>
+                      <span className="text-slate-100 text-sm">18%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-300">agent.chat()</span>
+                    <span className="text-slate-100">agent.chat()</span>
                     <div className="flex items-center gap-2">
                       <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
                         <div className="bg-blue-500 h-full" style={{width: '15%'}}></div>
                       </div>
-                      <span className="text-gray-300 text-sm">15%</span>
+                      <span className="text-slate-100 text-sm">15%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-300">agent.run()</span>
+                    <span className="text-slate-100">agent.run()</span>
                     <div className="flex items-center gap-2">
                       <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
                         <div className="bg-red-500 h-full" style={{width: '12%'}}></div>
                       </div>
-                      <span className="text-gray-300 text-sm">12%</span>
+                      <span className="text-slate-100 text-sm">12%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-300">agent.process()</span>
+                    <span className="text-slate-100">agent.process()</span>
                     <div className="flex items-center gap-2">
                       <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
                         <div className="bg-blue-500 h-full" style={{width: '8%'}}></div>
                       </div>
-                      <span className="text-gray-300 text-sm">8%</span>
+                      <span className="text-slate-100 text-sm">8%</span>
                     </div>
                   </div>
                 </div>
@@ -295,12 +295,7 @@ Sometimes the best API design decision is the one that makes developers forget t
               <h2 className="heading-2">The "Mom Test"</h2>
               <p>We applied a simple heuristic: <strong>Could a non-technical person guess what this does?</strong></p>
 
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6 relative group">
-                <CopyButton text={codeExample1} />
-                <pre className="text-sm overflow-x-auto font-mono">
-                  <code className="text-blue-300">{codeExample1}</code>
-                </pre>
-              </div>
+              <CodeWithResult code={codeExample1} language="python" className="my-6" />
 
               <p>"Input" passed the mom test. "Run" and "invoke" didn't.</p>
 
@@ -312,12 +307,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                 </p>
               </div>
 
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6 relative group">
-                <CopyButton text={codeExample2} />
-                <pre className="text-sm overflow-x-auto font-mono">
-                  <code className="text-blue-300">{codeExample2}</code>
-                </pre>
-              </div>
+              <CodeWithResult code={codeExample2} language="python" className="my-6" />
 
               <h2 className="heading-2">Measuring Success</h2>
               
@@ -347,35 +337,35 @@ Sometimes the best API design decision is the one that makes developers forget t
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">1</div>
                   <div>
                     <h3 className="text-lg font-semibold text-blue-300 mb-1">Challenge Industry Conventions</h3>
-                    <p className="text-gray-300">Just because everyone uses `run()` doesn't mean it's right. Question everything.</p>
+                    <p className="text-slate-100">Just because everyone uses `run()` doesn't mean it's right. Question everything.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">2</div>
                   <div>
                     <h3 className="text-lg font-semibold text-blue-300 mb-1">Data Beats Opinion</h3>
-                    <p className="text-gray-300">We had strong opinions about `run()`. Our users' behavior proved us wrong.</p>
+                    <p className="text-slate-100">We had strong opinions about `run()`. Our users' behavior proved us wrong.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">3</div>
                   <div>
                     <h3 className="text-lg font-semibold text-blue-300 mb-1">Small Words, Big Impact</h3>
-                    <p className="text-gray-300">A three-letter change (`run` → `input`) transformed our user experience.</p>
+                    <p className="text-slate-100">A three-letter change (`run` → `input`) transformed our user experience.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">4</div>
                   <div>
                     <h3 className="text-lg font-semibold text-blue-300 mb-1">Design for Mental Models</h3>
-                    <p className="text-gray-300">Align with how users think, not how systems work.</p>
+                    <p className="text-slate-100">Align with how users think, not how systems work.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">5</div>
                   <div>
                     <h3 className="text-lg font-semibold text-blue-300 mb-1">The Best API Needs No Documentation</h3>
-                    <p className="text-gray-300">When users guess correctly, you've found the right name.</p>
+                    <p className="text-slate-100">When users guess correctly, you've found the right name.</p>
                   </div>
                 </div>
               </div>
@@ -383,7 +373,7 @@ Sometimes the best API design decision is the one that makes developers forget t
               <h2 className="heading-2">The ConnectOnion Way</h2>
               
               <p>This decision embodies our philosophy:</p>
-              <ul className="list-disc list-inside space-y-2 ml-4 text-gray-300">
+              <ul className="list-disc list-inside space-y-2 ml-4 text-slate-100">
                 <li><strong>Simple things should feel simple</strong></li>
                 <li><strong>APIs should match mental models</strong></li>
                 <li><strong>User experience trumps technical accuracy</strong></li>
@@ -394,7 +384,7 @@ Sometimes the best API design decision is the one that makes developers forget t
               <p className="mt-6">Sometimes the best API design decision is the one that makes developers forget they're using an API at all.</p>
 
               <div className="border-t border-gray-800 mt-16 pt-8">
-                <p className="text-gray-300 italic">
+                <p className="text-slate-100 italic">
                   Next time you design an API, ask yourself: am I naming this from the system's perspective or the user's perspective? The answer might transform your user experience.
                 </p>
               </div>

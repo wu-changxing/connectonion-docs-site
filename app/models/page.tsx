@@ -160,7 +160,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+      <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
@@ -177,7 +177,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
             </div>
             <div>
               <h1 className="heading-1">Models</h1>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-slate-100">
                 Use the latest AI models from OpenAI, Google, and Anthropic with a single interface.
               </p>
             </div>
@@ -192,11 +192,11 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 
         {/* Managed Keys Path */}
         <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-xl border border-purple-500/30 mb-6">
-          <h3 className="text-xl font-semibold mb-3 flex items-center text-white">
+          <h3 className="text-xl font-semibold mb-4 flex items-center text-white">
             <Zap className="mr-2 h-5 w-5 text-purple-400" />
             Easiest Way: Use Managed Keys
           </h3>
-          <p className="text-gray-300 mb-4">
+          <p className="text-slate-100 mb-4">
             No API key setup required! Authenticate once and get 100K free tokens to start.
           </p>
 
@@ -222,11 +222,11 @@ response = agent.input("Explain quantum computing")`}
 
         {/* Own Keys Path */}
         <div className="bg-gray-900 border border-gray-700 p-6 rounded-xl">
-          <h3 className="text-xl font-semibold mb-3 flex items-center text-white">
+          <h3 className="text-xl font-semibold mb-4 flex items-center text-white">
             <Globe className="mr-2 h-5 w-5 text-blue-400" />
             Alternative: Bring Your Own Keys
           </h3>
-          <p className="text-gray-300 mb-4">
+          <p className="text-slate-100 mb-4">
             For production or high-volume usage, use your own API keys for direct billing.
           </p>
 
@@ -248,17 +248,17 @@ response = agent.input("Explain quantum computing")`}
       {/* Default Models */}
       <section className="mb-12">
         <h2 className="heading-2">Default Models</h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">
+        <p className="text-gray-600 dark:text-slate-100 mb-4">
           When you don't specify a model, ConnectOnion uses these optimized defaults:
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 p-6 rounded-xl border border-green-500/30">
-            <h3 className="text-lg font-semibold mb-3 flex items-center text-white">
+            <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
               <Users className="mr-2 h-5 w-5 text-green-400" />
               Agent Default
             </h3>
-            <p className="text-sm text-gray-300 mb-3">
+            <p className="text-sm text-slate-100 mb-4">
               For <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">Agent()</code> class
             </p>
             <CodeWithResult
@@ -275,11 +275,11 @@ agent = Agent("assistant", model="co/gemini-2.5-pro")`}
           </div>
 
           <div className="bg-gradient-to-br from-yellow-900/20 to-orange-900/20 p-6 rounded-xl border border-yellow-500/30">
-            <h3 className="text-lg font-semibold mb-3 flex items-center text-white">
+            <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
               <Zap className="mr-2 h-5 w-5 text-yellow-400" />
               llm_do Default
             </h3>
-            <p className="text-sm text-gray-300 mb-3">
+            <p className="text-sm text-slate-100 mb-4">
               For <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">llm_do()</code> function
             </p>
             <CodeWithResult
@@ -316,7 +316,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               activeProvider === 'openai'
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-slate-100 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
           >
             OpenAI
@@ -326,7 +326,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               activeProvider === 'google'
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-slate-100 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
           >
             Google Gemini
@@ -336,7 +336,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               activeProvider === 'anthropic'
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-slate-100 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
           >
             Anthropic Claude
@@ -353,15 +353,15 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               <div className="space-y-3">
                 <div className="flex items-start">
                   <code className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-sm mr-3 font-mono">gpt-5</code>
-                  <span className="text-gray-300">Best for coding and agentic tasks across domains</span>
+                  <span className="text-slate-100">Best for coding and agentic tasks across domains</span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-sm mr-3 font-mono">gpt-5-mini</code>
-                  <span className="text-gray-300">Faster, cost-efficient version for well-defined tasks</span>
+                  <span className="text-slate-100">Faster, cost-efficient version for well-defined tasks</span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-sm mr-3 font-mono">gpt-5-nano</code>
-                  <span className="text-gray-300">Fastest, most cost-efficient version</span>
+                  <span className="text-slate-100">Fastest, most cost-efficient version</span>
                 </div>
               </div>
             </div>
@@ -374,11 +374,11 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               <div className="space-y-3">
                 <div className="flex items-start">
                   <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">o1</code>
-                  <span className="text-gray-300">Advanced reasoning and problem solving</span>
+                  <span className="text-slate-100">Advanced reasoning and problem solving</span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">o1-mini</code>
-                  <span className="text-gray-300">Fast reasoning, cost-effective</span>
+                  <span className="text-slate-100">Fast reasoning, cost-effective</span>
                 </div>
               </div>
             </div>
@@ -395,11 +395,11 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               <div className="space-y-3">
                 <div className="flex items-start">
                   <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.5-pro</code>
-                  <span className="text-gray-300">Enhanced reasoning, supports audio/video/PDF (2M tokens) - <strong className="text-green-400">Agent default</strong></span>
+                  <span className="text-slate-100">Enhanced reasoning, supports audio/video/PDF (2M tokens) - <strong className="text-green-400">Agent default</strong></span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.5-flash</code>
-                  <span className="text-gray-300">Fast and cost-effective reasoning (1M tokens) - <strong className="text-yellow-400">llm_do default</strong></span>
+                  <span className="text-slate-100">Fast and cost-effective reasoning (1M tokens) - <strong className="text-yellow-400">llm_do default</strong></span>
                 </div>
               </div>
             </div>
@@ -412,11 +412,11 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               <div className="space-y-3">
                 <div className="flex items-start">
                   <code className="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-1.5-pro</code>
-                  <span className="text-gray-300">2M token context window</span>
+                  <span className="text-slate-100">2M token context window</span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-1.5-flash</code>
-                  <span className="text-gray-300">Fast and versatile (1M tokens)</span>
+                  <span className="text-slate-100">Fast and versatile (1M tokens)</span>
                 </div>
               </div>
             </div>
@@ -433,11 +433,11 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               <div className="space-y-3">
                 <div className="flex items-start">
                   <code className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4.1</code>
-                  <span className="text-gray-300">Latest and most capable (200K tokens)</span>
+                  <span className="text-slate-100">Latest and most capable (200K tokens)</span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4</code>
-                  <span className="text-gray-300">Previous flagship model</span>
+                  <span className="text-slate-100">Previous flagship model</span>
                 </div>
               </div>
             </div>
@@ -450,11 +450,11 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               <div className="space-y-3">
                 <div className="flex items-start">
                   <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-3-5-sonnet</code>
-                  <span className="text-gray-300">Excellent at coding</span>
+                  <span className="text-slate-100">Excellent at coding</span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-3-5-haiku</code>
-                  <span className="text-gray-300">Fast and cost-effective</span>
+                  <span className="text-slate-100">Fast and cost-effective</span>
                 </div>
               </div>
             </div>
@@ -468,7 +468,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
         
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-            <h3 className="font-semibold mb-3 flex items-center text-white">
+            <h3 className="font-semibold mb-4 flex items-center text-white">
               <Cpu className="mr-2 h-5 w-5 text-blue-400" />
               Best for Coding
             </h3>
@@ -480,7 +480,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           </div>
 
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-            <h3 className="font-semibold mb-3 flex items-center text-white">
+            <h3 className="font-semibold mb-4 flex items-center text-white">
               <Zap className="mr-2 h-5 w-5 text-yellow-400" />
               Fast Responses
             </h3>
@@ -492,7 +492,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           </div>
 
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-            <h3 className="font-semibold mb-3 flex items-center text-white">
+            <h3 className="font-semibold mb-4 flex items-center text-white">
               <DollarSign className="mr-2 h-5 w-5 text-green-400" />
               Cost-Optimized
             </h3>
@@ -504,7 +504,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           </div>
 
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-            <h3 className="font-semibold mb-3 flex items-center text-white">
+            <h3 className="font-semibold mb-4 flex items-center text-white">
               <Eye className="mr-2 h-5 w-5 text-purple-400" />
               Multimodal
             </h3>
@@ -524,14 +524,14 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
         <div className="grid md:grid-cols-2 gap-6">
           {/* Managed Keys */}
           <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-xl border border-purple-500/30">
-            <h3 className="text-lg font-semibold mb-3 flex items-center text-white">
+            <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
               <Zap className="mr-2 h-5 w-5 text-purple-400" />
               Option 1: Managed Keys
             </h3>
-            <p className="text-sm text-gray-300 mb-3">
+            <p className="text-sm text-slate-100 mb-4">
               Recommended for getting started
             </p>
-            <div className="mb-3">
+            <div className="mb-4">
               <CommandBlock commands={['co auth']} />
             </div>
             <CodeWithResult
@@ -541,7 +541,7 @@ agent = Agent("assistant", model="co/gemini-2.5-pro")
 agent = Agent("assistant", model="co/claude-opus-4.1")`}
               result=""
             />
-            <div className="mt-4 space-y-2 text-sm text-gray-300">
+            <div className="mt-4 space-y-2 text-sm text-slate-100">
               <p>✓ 100K free tokens to start</p>
               <p>✓ Access to all providers</p>
               <p>✓ No API key management</p>
@@ -550,14 +550,14 @@ agent = Agent("assistant", model="co/claude-opus-4.1")`}
 
           {/* Own Keys */}
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-xl">
-            <h3 className="text-lg font-semibold mb-3 flex items-center text-white">
+            <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
               <Globe className="mr-2 h-5 w-5 text-blue-400" />
               Option 2: Your Own Keys
             </h3>
-            <p className="text-sm text-gray-300 mb-3">
+            <p className="text-sm text-slate-100 mb-4">
               For production or high-volume usage
             </p>
-            <div className="mb-3">
+            <div className="mb-4">
               <CommandBlock
                 commands={[
                   'export OPENAI_API_KEY="sk-..."',
@@ -573,7 +573,7 @@ agent = Agent("assistant", model="gemini-2.5-pro")
 agent = Agent("assistant", model="claude-opus-4.1")`}
               result=""
             />
-            <div className="mt-4 space-y-2 text-sm text-gray-300">
+            <div className="mt-4 space-y-2 text-sm text-slate-100">
               <p>✓ Production deployments</p>
               <p>✓ Direct billing</p>
               <p>✓ Existing infrastructure</p>
@@ -585,7 +585,7 @@ agent = Agent("assistant", model="claude-opus-4.1")`}
       {/* Smart Model Selection */}
       <section className="mb-12">
         <h2 className="heading-2">Smart Model Selection</h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">
+        <p className="text-gray-600 dark:text-slate-100 mb-4">
           Automatically select the best model based on your needs:
         </p>
         <CodeWithResult
@@ -615,7 +615,7 @@ agent = Agent("coder", model=model)`}
       {/* Fallback Chain */}
       <section className="mb-12">
         <h2 className="heading-2">Fallback Chain</h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">
+        <p className="text-gray-600 dark:text-slate-100 mb-4">
           Try multiple models if one fails:
         </p>
         <CodeWithResult
@@ -663,19 +663,19 @@ agent = create_agent_with_fallback("assistant")`}
                 <td className="px-4 py-3"><code className="text-sm">gpt-5</code></td>
                 <td className="px-4 py-3">OpenAI</td>
                 <td className="px-4 py-3">200K</td>
-                <td className="px-4 py-3 text-gray-600 dark:text-gray-300">Best for coding & agentic tasks</td>
+                <td className="px-4 py-3 text-gray-600 dark:text-slate-100">Best for coding & agentic tasks</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm">gemini-2.5-pro</code></td>
                 <td className="px-4 py-3">Google</td>
                 <td className="px-4 py-3">2M</td>
-                <td className="px-4 py-3 text-gray-600 dark:text-gray-300">Multimodal, huge context</td>
+                <td className="px-4 py-3 text-gray-600 dark:text-slate-100">Multimodal, huge context</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm">claude-opus-4.1</code></td>
                 <td className="px-4 py-3">Anthropic</td>
                 <td className="px-4 py-3">200K</td>
-                <td className="px-4 py-3 text-gray-600 dark:text-gray-300">Most capable Claude</td>
+                <td className="px-4 py-3 text-gray-600 dark:text-slate-100">Most capable Claude</td>
               </tr>
             </tbody>
           </table>
@@ -688,7 +688,7 @@ agent = create_agent_with_fallback("assistant")`}
           <Zap className="mr-2 h-5 w-5 text-purple-400" />
           Key Benefits
         </h3>
-        <ul className="space-y-2 text-sm text-gray-300">
+        <ul className="space-y-2 text-sm text-slate-100">
           <li>• <strong>Get started in 60 seconds</strong> with managed keys (co auth)</li>
           <li>• <strong>100K free tokens</strong> + bonus credits for starring our repo</li>
           <li>• <strong>Same code works everywhere</strong> - just change the model name or add/remove co/ prefix</li>

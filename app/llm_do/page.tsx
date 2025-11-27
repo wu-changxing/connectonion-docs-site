@@ -52,10 +52,10 @@ export default function LLMPage() {
 
 
   return (
-    <div className="max-w-5xl mx-auto px-8 py-12 lg:py-12 pt-16 lg:pt-12">
+    <div className="max-w-5xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Header */}
-      <div className="mb-10">
-        <div className="flex items-center gap-2 text-sm text-gray-300 mb-3">
+      <div className="mb-12">
+        <div className="flex items-center gap-2 text-sm text-slate-100 mb-4">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span>/</span>
           <span className="text-white">LLM Function</span>
@@ -65,7 +65,7 @@ export default function LLMPage() {
             <h1 className="heading-1">
               <Zap className="w-7 h-7 text-blue-400" /> One-shot LLM Calls
             </h1>
-            <p className="text-gray-300 max-w-2xl">
+            <p className="text-slate-100 max-w-2xl">
               Make direct LLM calls with optional structured output. Supports OpenAI, Google Gemini, and Anthropic models through a unified interface.
             </p>
           </div>
@@ -95,7 +95,7 @@ answer = llm_do("What's 2+2?", model="claude-3-5-haiku-20241022")`}
                 className="mb-6"
               />
               
-              <p className="text-gray-300">That's it! One function for any LLM task across multiple providers.</p>
+              <p className="text-slate-100">That's it! One function for any LLM task across multiple providers.</p>
             </section>
 
             {/* With Structured Output */}
@@ -134,7 +134,7 @@ print(result.keywords)`}
               <div className="space-y-8">
                 {/* Extract Data from Text */}
                 <div>
-                  <h3 className="text-xl font-semibold text-green-400 mb-3">Extract Data from Text</h3>
+                  <h3 className="text-xl font-semibold text-green-400 mb-4">Extract Data from Text</h3>
                   <CodeWithResult 
                     code={`from pydantic import BaseModel
 
@@ -159,7 +159,7 @@ print(invoice.total_amount)`}
 
                 {/* Use Custom Prompts */}
                 <div>
-                  <h3 className="text-xl font-semibold text-green-400 mb-3">Use Custom Prompts</h3>
+                  <h3 className="text-xl font-semibold text-green-400 mb-4">Use Custom Prompts</h3>
                   <CodeWithResult 
                     code={`# With prompt file
 summary = llm_do(
@@ -181,7 +181,7 @@ Hola mundo`}
 
                 {/* Quick Analysis Tool */}
                 <div>
-                  <h3 className="text-xl font-semibold text-green-400 mb-3">Quick Analysis Tool</h3>
+                  <h3 className="text-xl font-semibold text-green-400 mb-4">Quick Analysis Tool</h3>
                   <CodeWithResult 
                     code={`def analyze_feedback(text: str) -> str:
     """Analyze customer feedback with structured output."""
@@ -256,33 +256,33 @@ llm_do("Hello", model="claude-3-opus-latest")`}
                   <tbody>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">input</code></td>
-                      <td className="py-3 px-4 text-gray-300">str</td>
-                      <td className="py-3 px-4 text-gray-300">required</td>
-                      <td className="py-3 px-4 text-gray-300">The input text/question</td>
+                      <td className="py-3 px-4 text-slate-100">str</td>
+                      <td className="py-3 px-4 text-slate-100">required</td>
+                      <td className="py-3 px-4 text-slate-100">The input text/question</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">output</code></td>
-                      <td className="py-3 px-4 text-gray-300">BaseModel</td>
-                      <td className="py-3 px-4 text-gray-300">None</td>
-                      <td className="py-3 px-4 text-gray-300">Pydantic model for structured output</td>
+                      <td className="py-3 px-4 text-slate-100">BaseModel</td>
+                      <td className="py-3 px-4 text-slate-100">None</td>
+                      <td className="py-3 px-4 text-slate-100">Pydantic model for structured output</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">prompt</code></td>
-                      <td className="py-3 px-4 text-gray-300">str|Path</td>
-                      <td className="py-3 px-4 text-gray-300">None</td>
-                      <td className="py-3 px-4 text-gray-300">System prompt (string or file path)</td>
+                      <td className="py-3 px-4 text-slate-100">str|Path</td>
+                      <td className="py-3 px-4 text-slate-100">None</td>
+                      <td className="py-3 px-4 text-slate-100">System prompt (string or file path)</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">model</code></td>
-                      <td className="py-3 px-4 text-gray-300">str</td>
-                      <td className="py-3 px-4 text-gray-300">"gpt-4o-mini"</td>
-                      <td className="py-3 px-4 text-gray-300">Model to use (supports OpenAI, Gemini, Claude)</td>
+                      <td className="py-3 px-4 text-slate-100">str</td>
+                      <td className="py-3 px-4 text-slate-100">"gpt-4o-mini"</td>
+                      <td className="py-3 px-4 text-slate-100">Model to use (supports OpenAI, Gemini, Claude)</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">temperature</code></td>
-                      <td className="py-3 px-4 text-gray-300">float</td>
-                      <td className="py-3 px-4 text-gray-300">0.1</td>
-                      <td className="py-3 px-4 text-gray-300">Randomness (0=deterministic, 2=creative)</td>
+                      <td className="py-3 px-4 text-slate-100">float</td>
+                      <td className="py-3 px-4 text-slate-100">0.1</td>
+                      <td className="py-3 px-4 text-slate-100">Randomness (0=deterministic, 2=creative)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -303,7 +303,7 @@ llm_do("Hello", model="claude-3-opus-latest")`}
                 ].map((item, i) => (
                   <div key={i} className="bg-gray-900 rounded-lg p-4 flex items-start gap-3">
                     <span className="text-2xl">{item.icon}</span>
-                    <span className="text-gray-300">{item.text}</span>
+                    <span className="text-slate-100">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -316,7 +316,7 @@ llm_do("Hello", model="claude-3-opus-latest")`}
               <div className="space-y-6">
                 {/* Data Extraction */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-3">Data Extraction</h3>
+                  <h3 className="text-lg font-semibold text-green-400 mb-4">Data Extraction</h3>
                   <CodeWithResult 
                     code={`from pydantic import BaseModel
 
@@ -341,7 +341,7 @@ Job: software engineer`}
 
                 {/* Quick Decisions */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-3">Quick Decisions</h3>
+                  <h3 className="text-lg font-semibold text-green-400 mb-4">Quick Decisions</h3>
                   <CodeWithResult 
                     code={`is_urgent = llm_do("Customer says: My server is down!")
 if "urgent" in is_urgent.lower():
@@ -355,7 +355,7 @@ This appears to be an urgent issue that requires immediate attention.`}
 
                 {/* Format Conversion */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-3">Format Conversion</h3>
+                  <h3 className="text-lg font-semibold text-green-400 mb-4">Format Conversion</h3>
                   <CodeWithResult 
                     code={`class JSONData(BaseModel):
     data: dict
@@ -370,7 +370,7 @@ print(json_result.data)`}
 
                 {/* Validation */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-3">Validation</h3>
+                  <h3 className="text-lg font-semibold text-green-400 mb-4">Validation</h3>
                   <CodeWithResult 
                     code={`def validate_input(user_text: str) -> bool:
     result = llm_do(
@@ -396,19 +396,19 @@ False`}
                 <ol className="space-y-3">
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">1.</span>
-                    <span className="text-gray-300"><strong>Use low temperature (0-0.3) for consistent results</strong></span>
+                    <span className="text-slate-100"><strong>Use low temperature (0-0.3) for consistent results</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">2.</span>
-                    <span className="text-gray-300"><strong>Provide examples in your prompt for better accuracy</strong></span>
+                    <span className="text-slate-100"><strong>Provide examples in your prompt for better accuracy</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">3.</span>
-                    <span className="text-gray-300"><strong>Use Pydantic models for anything structured</strong></span>
+                    <span className="text-slate-100"><strong>Use Pydantic models for anything structured</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">4.</span>
-                    <span className="text-gray-300"><strong>Cache prompts in files for reusability</strong></span>
+                    <span className="text-slate-100"><strong>Cache prompts in files for reusability</strong></span>
                   </li>
                 </ol>
               </div>
@@ -429,29 +429,29 @@ False`}
                   </thead>
                   <tbody>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-gray-300">Purpose</td>
-                      <td className="py-3 px-4 text-gray-300">One-shot calls</td>
-                      <td className="py-3 px-4 text-gray-300">Multi-step workflows</td>
+                      <td className="py-3 px-4 text-slate-100">Purpose</td>
+                      <td className="py-3 px-4 text-slate-100">One-shot calls</td>
+                      <td className="py-3 px-4 text-slate-100">Multi-step workflows</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-gray-300">Tools</td>
-                      <td className="py-3 px-4 text-gray-300">No</td>
-                      <td className="py-3 px-4 text-gray-300">Yes</td>
+                      <td className="py-3 px-4 text-slate-100">Tools</td>
+                      <td className="py-3 px-4 text-slate-100">No</td>
+                      <td className="py-3 px-4 text-slate-100">Yes</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-gray-300">Iterations</td>
-                      <td className="py-3 px-4 text-gray-300">Always 1</td>
-                      <td className="py-3 px-4 text-gray-300">Up to max_iterations</td>
+                      <td className="py-3 px-4 text-slate-100">Iterations</td>
+                      <td className="py-3 px-4 text-slate-100">Always 1</td>
+                      <td className="py-3 px-4 text-slate-100">Up to max_iterations</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-gray-300">State</td>
-                      <td className="py-3 px-4 text-gray-300">Stateless</td>
-                      <td className="py-3 px-4 text-gray-300">Maintains history</td>
+                      <td className="py-3 px-4 text-slate-100">State</td>
+                      <td className="py-3 px-4 text-slate-100">Stateless</td>
+                      <td className="py-3 px-4 text-slate-100">Maintains history</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-gray-300">Best for</td>
-                      <td className="py-3 px-4 text-gray-300">Quick tasks</td>
-                      <td className="py-3 px-4 text-gray-300">Complex automation</td>
+                      <td className="py-3 px-4 text-slate-100">Best for</td>
+                      <td className="py-3 px-4 text-slate-100">Quick tasks</td>
+                      <td className="py-3 px-4 text-slate-100">Complex automation</td>
                     </tr>
                   </tbody>
                 </table>
@@ -505,15 +505,15 @@ Output didn't match model: 2 validation errors for ComplexModel...`}
               <div className="grid md:grid-cols-3 gap-4">
                 <Link href="/agents" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
                   <h3 className="text-lg font-semibold text-white mb-2">Learn about Agents</h3>
-                  <p className="text-sm text-gray-300">For multi-step workflows</p>
+                  <p className="text-sm text-slate-100">For multi-step workflows</p>
                 </Link>
                 <Link href="/tools" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
                   <h3 className="text-lg font-semibold text-white mb-2">Explore Tools</h3>
-                  <p className="text-sm text-gray-300">For extending agents</p>
+                  <p className="text-sm text-slate-100">For extending agents</p>
                 </Link>
                 <Link href="/xray" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
                   <h3 className="text-lg font-semibold text-white mb-2">See @xray</h3>
-                  <p className="text-sm text-gray-300">For debugging</p>
+                  <p className="text-sm text-slate-100">For debugging</p>
                 </Link>
               </div>
             </section>

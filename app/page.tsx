@@ -36,7 +36,7 @@ export default function HomePage() {
             ConnectOnion
           </h1>
 
-          <p className="text-xl md:text-2xl lg:text-3xl text-slate-200 mb-10 leading-relaxed">
+          <p className="text-xl md:text-2xl lg:text-3xl text-slate-200 mb-12 leading-relaxed">
             Building multi-agent collaboration, <span className="text-gradient-accent font-bold">never been so easy</span>
           </p>
 
@@ -44,7 +44,7 @@ export default function HomePage() {
             <div className="bg-black/60 backdrop-blur-sm border-2 border-purple-500/30 rounded-xl p-2 hover:border-purple-500/60 transition-all shadow-2xl hover:shadow-purple-500/20">
               <CommandBlock commands={['pip install connectonion']} />
             </div>
-            <p className="text-slate-200 text-sm mt-3 mb-10">No AWS. No domain names. Just code.</p>
+            <p className="text-slate-200 text-sm mt-3 mb-12">No AWS. No domain names. Just code.</p>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
@@ -172,7 +172,7 @@ result = agent.input("What's 42 * 17?")
 print(result)  # "42 * 17 equals 714"`}
               result={`42 * 17 equals 714`}
             />
-            <p className="text-gray-300 mt-4 text-center">
+            <p className="text-slate-100 mt-4 text-center">
               <strong>When to use:</strong> Stateless operations, no shared context needed
             </p>
           </div>
@@ -207,7 +207,7 @@ agent.input("Show me the history")
 # History persists across calls!`}
               result=""
             />
-            <p className="text-gray-300 mt-4 text-center">
+            <p className="text-slate-100 mt-4 text-center">
               <strong>When to use:</strong> Need shared state/context between tool calls (database connections, conversation history, etc.)
             </p>
           </div>
@@ -326,7 +326,7 @@ Protocol: co://0x3d4017c3e892b7f1a5e4d3c2b1a0f9e8d7c6b5a4
 🟢 Agent deployed: https://0x3d4017c3e892.openonion.ai
 Global endpoints active in 12 regions`}
             />
-            <p className="text-gray-300 mt-4">
+            <p className="text-slate-100 mt-4">
               One command to deploy globally. Focus on your agent, not infrastructure.
             </p>
           </div>
@@ -364,7 +364,7 @@ result = translator.input("Translate 'Hello' to Spanish")
 print(result)`}
               result={`"Hola"`}
             />
-            <p className="text-gray-300 mt-4 text-center">
+            <p className="text-slate-100 mt-4 text-center">
               If you know the agent address, you can connect to it directly.
             </p>
           </div>
@@ -388,7 +388,7 @@ result = translator.input("Hello")
 print(result)`}
               result=""
             />
-            <p className="text-gray-300 mt-4 text-center">
+            <p className="text-slate-100 mt-4 text-center">
               Soon you'll be able to discover agents by what they do, not just who they are.
             </p>
           </div>
@@ -432,7 +432,7 @@ print(result)`}
       </section>
 
       {/* Code Comparison - 8 vs 50 lines */}
-      <section className="py-16 px-6">
+      <section className="py-16 md:py-24 px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="heading-2">See the Difference</h2>
@@ -459,7 +459,7 @@ print(result)`}
                     <div className="absolute bottom-0 w-full bg-gray-500 rounded transition-all"
                          style={{height: '100%'}} />
                   </div>
-                  <span className="text-xs text-gray-300 font-bold">~50 lines</span>
+                  <span className="text-xs text-slate-100 font-bold">~50 lines</span>
                 </div>
               </div>
             </div>
@@ -470,7 +470,7 @@ print(result)`}
                 className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all min-h-[48px] ${
                   activeComparison === 'connectonion'
                     ? 'bg-green-600 text-white shadow-lg scale-105'
-                    : 'bg-gray-800 text-gray-300 hover:text-white'
+                    : 'bg-gray-800 text-slate-100 hover:text-white'
                 }`}
               >
                 ConnectOnion
@@ -483,7 +483,7 @@ print(result)`}
                 className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all min-h-[48px] ${
                   activeComparison === 'other'
                     ? 'bg-gray-700 text-white shadow-lg scale-105'
-                    : 'bg-gray-800 text-gray-300 hover:text-white'
+                    : 'bg-gray-800 text-slate-100 hover:text-white'
                 }`}
               >
                 Other Frameworks
@@ -610,7 +610,7 @@ print(result["output"])`}
           <div className="hidden md:grid grid-cols-2 gap-6 md:gap-8">
             <div className="order-2 md:order-1">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-gray-300">Other Frameworks</h3>
+                <h3 className="text-lg font-semibold text-slate-100">Other Frameworks</h3>
                 <span className="text-sm text-red-400 font-mono">~50 lines</span>
               </div>
               <div className="bg-gray-900/50 rounded-lg border border-gray-700 overflow-hidden">
@@ -767,25 +767,25 @@ print(result)`}
               <div className="space-y-6">
                 <div>
                   <div className="text-red-400 font-semibold mb-2">❌ Abstract Everything</div>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-slate-100 text-sm">
                     "Create base classes, interfaces, factories. You might need them someday."
                   </p>
                 </div>
                 <div>
                   <div className="text-red-400 font-semibold mb-2">❌ Configuration Over Code</div>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-slate-100 text-sm">
                     "Write YAML configs, JSON schemas, setup files. Separate concerns."
                   </p>
                 </div>
                 <div>
                   <div className="text-red-400 font-semibold mb-2">❌ Framework Lock-in</div>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-slate-100 text-sm">
                     "Inherit from our classes. Use our patterns. Your code belongs to the framework."
                   </p>
                 </div>
                 <div>
                   <div className="text-red-400 font-semibold mb-2">❌ Enterprise-First</div>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-slate-100 text-sm">
                     "Built for teams of 50+. Scales to complexity you'll never need."
                   </p>
                 </div>
@@ -830,40 +830,40 @@ print(result)`}
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-700">
-                    <th className="text-left p-4 text-gray-300 font-semibold">Feature</th>
-                    <th className="text-center p-4 text-gray-300 font-semibold">Other Frameworks</th>
+                    <th className="text-left p-4 text-slate-100 font-semibold">Feature</th>
+                    <th className="text-center p-4 text-slate-100 font-semibold">Other Frameworks</th>
                     <th className="text-center p-4 text-green-400 font-semibold">ConnectOnion</th>
                   </tr>
                 </thead>
                 <tbody className="text-sm">
                   <tr className="border-b border-gray-800">
                     <td className="p-4 text-white font-medium">Define a tool</td>
-                    <td className="p-4 text-gray-300 text-center">Inherit Tool class, define schema, implement _run()</td>
+                    <td className="p-4 text-slate-100 text-center">Inherit Tool class, define schema, implement _run()</td>
                     <td className="p-4 text-green-400 text-center font-semibold">Write a function</td>
                   </tr>
                   <tr className="border-b border-gray-800 bg-gray-900/30">
                     <td className="p-4 text-white font-medium">Set system prompt</td>
-                    <td className="p-4 text-gray-300 text-center">PromptTemplate, SystemMessage, config files</td>
+                    <td className="p-4 text-slate-100 text-center">PromptTemplate, SystemMessage, config files</td>
                     <td className="p-4 text-green-400 text-center font-semibold">Pass a string</td>
                   </tr>
                   <tr className="border-b border-gray-800">
                     <td className="p-4 text-white font-medium">Deploy to production</td>
-                    <td className="p-4 text-gray-300 text-center">EC2, Docker, K8s, load balancers, DNS</td>
+                    <td className="p-4 text-slate-100 text-center">EC2, Docker, K8s, load balancers, DNS</td>
                     <td className="p-4 text-green-400 text-center font-semibold">agent.serve()</td>
                   </tr>
                   <tr className="border-b border-gray-800 bg-gray-900/30">
                     <td className="p-4 text-white font-medium">Connect agents</td>
-                    <td className="p-4 text-gray-300 text-center">Build API endpoints, manage authentication, handle requests</td>
+                    <td className="p-4 text-slate-100 text-center">Build API endpoints, manage authentication, handle requests</td>
                     <td className="p-4 text-green-400 text-center font-semibold">connect("0x...")</td>
                   </tr>
                   <tr className="border-b border-gray-800">
                     <td className="p-4 text-white font-medium">Debug agent behavior</td>
-                    <td className="p-4 text-gray-300 text-center">Read logs, add print statements, guess</td>
+                    <td className="p-4 text-slate-100 text-center">Read logs, add print statements, guess</td>
                     <td className="p-4 text-green-400 text-center font-semibold">@xray decorator</td>
                   </tr>
                   <tr className="border-b border-gray-800 bg-gray-900/30">
                     <td className="p-4 text-white font-medium">Add plugins/extensions</td>
-                    <td className="p-4 text-gray-300 text-center">Implement plugin interface, register handlers, config</td>
+                    <td className="p-4 text-slate-100 text-center">Implement plugin interface, register handlers, config</td>
                     <td className="p-4 text-green-400 text-center font-semibold">Pass a function</td>
                   </tr>
                   <tr className="bg-gray-900/30">
@@ -971,7 +971,7 @@ agent = Agent("assistant", tools=[search], plugins=[logger])`}
             <h2 className="heading-2">
               Debug Like Never Before
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-100 max-w-2xl mx-auto">
               LangChain gives you logs. ConnectOnion gives you a debugger.
             </p>
           </div>
@@ -1031,7 +1031,7 @@ Debugging: "Send email to John"
             <div className="card-interactive p-6">
               <Bug className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="font-bold text-white text-lg mb-2">@xray Breakpoints</h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-slate-100">
                 Decorate any tool with <code className="text-purple-400 bg-purple-950/50 px-1.5 py-0.5 rounded font-mono text-xs">@xray</code> - agent pauses automatically.
               </p>
             </div>
@@ -1039,7 +1039,7 @@ Debugging: "Send email to John"
             <div className="card-interactive p-6">
               <Terminal className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="font-bold text-white text-lg mb-2">Zero Learning Curve</h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-slate-100">
                 Arrow keys or shortcuts. Tips always shown. No docs needed.
               </p>
             </div>
@@ -1047,7 +1047,7 @@ Debugging: "Send email to John"
             <div className="card-interactive p-6">
               <CheckCircle className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="font-bold text-white text-lg mb-2">Time-Travel Testing</h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-slate-100">
                 Press 'e' for Python REPL. Change variables, watch behavior change.
               </p>
             </div>
@@ -1060,7 +1060,7 @@ Debugging: "Send email to John"
             >
               Learn Interactive Debugging <ArrowRight className="w-5 h-5" />
             </Link>
-            <p className="mt-4 text-sm text-gray-300">
+            <p className="mt-4 text-sm text-slate-100">
               Available in <span className="text-purple-400 font-mono">v0.3.2</span>
             </p>
           </div>
@@ -1230,7 +1230,7 @@ agent.serve()  # Deploy from laptop, globally accessible`}
             </Link>
           </div>
 
-          <p className="mt-4 text-sm text-gray-300">
+          <p className="mt-4 text-sm text-slate-100">
             60 seconds to your first agent. No AWS. No marketing. Just code.
           </p>
         </div>

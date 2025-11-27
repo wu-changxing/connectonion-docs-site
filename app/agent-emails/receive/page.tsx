@@ -252,7 +252,7 @@ agent.input("Check my inbox and summarize what's there")`}
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
-              <h3 className="font-semibold mb-3 text-blue-300">get_emails (IMAP)</h3>
+              <h3 className="font-semibold mb-4 text-blue-300">get_emails (IMAP)</h3>
               <ul className="space-y-2 text-sm text-slate-100">
                 <li>Simple functions</li>
                 <li>Works with any email provider</li>
@@ -262,7 +262,7 @@ agent.input("Check my inbox and summarize what's there")`}
               </ul>
             </div>
             <div className="bg-green-900/20 border border-green-500/30 rounded-xl p-6">
-              <h3 className="font-semibold mb-3 text-green-300">Gmail (OAuth)</h3>
+              <h3 className="font-semibold mb-4 text-green-300">Gmail (OAuth)</h3>
               <ul className="space-y-2 text-sm text-slate-100">
                 <li>Full Gmail class with many methods</li>
                 <li>Gmail-specific features (labels, archive, star)</li>

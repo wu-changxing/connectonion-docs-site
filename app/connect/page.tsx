@@ -15,13 +15,13 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 
 export default function ConnectPage() {
   return (
-    <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
+    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
       <div className="max-w-6xl mx-auto">
         {/* Hero Section */}
         <section className="mb-16">
           {/* Breadcrumb */}
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+          <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
             <Link href="/" className="hover:text-purple-400 transition-colors">
               Docs
             </Link>
@@ -38,7 +38,7 @@ export default function ConnectPage() {
                 </div>
                 <div>
                   <h1 className="heading-1">Connect to Agents</h1>
-                  <p className="text-lg text-gray-300">
+                  <p className="text-lg text-slate-100">
                     Use any agent, anywhere, as if local. Create a proxy to a remote agent with the same interface.
                   </p>
                 </div>
@@ -62,7 +62,7 @@ export default function ConnectPage() {
             60-Second Quick Start
           </h2>
 
-          <p className="text-gray-300 mb-6 text-lg">
+          <p className="text-slate-100 mb-6 text-lg">
             Connect to a remote agent with one function call:
           </p>
 
@@ -82,8 +82,8 @@ library reference, and language specifications.`}
           />
 
           <div className="mt-6 bg-green-950/50 border border-green-400/40 rounded-lg p-6">
-            <p className="text-lg font-semibold text-green-100 mb-3">What Just Happened?</p>
-            <div className="space-y-2 text-gray-300">
+            <p className="text-lg font-semibold text-green-100 mb-4">What Just Happened?</p>
+            <div className="space-y-2 text-slate-100">
               <div className="flex items-start gap-2">
                 <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Created proxy agent</strong> → Acts like a local Agent instance</span>
@@ -181,7 +181,7 @@ Weather in Seattle: Sunny, 72°F`}
           <div className="space-y-8">
             <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-purple-100 mb-4">1. Connect to Multiple Agents</h3>
-              <p className="text-gray-300 mb-4">
+              <p className="text-slate-100 mb-4">
                 Build workflows with specialized remote agents:
               </p>
               <CodeWithResult
@@ -204,7 +204,7 @@ print(final)`}
 
             <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-blue-100 mb-4">2. Retry on Connection Failure</h3>
-              <p className="text-gray-300 mb-4">
+              <p className="text-slate-100 mb-4">
                 Handle network failures gracefully:
               </p>
               <CodeWithResult
@@ -229,7 +229,7 @@ agent = connect_with_retry("0x7a8f...")`}
 
             <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-green-100 mb-4">3. Agent Pool (Load Balancing)</h3>
-              <p className="text-gray-300 mb-4">
+              <p className="text-slate-100 mb-4">
                 Distribute load across multiple identical agents:
               </p>
               <CodeWithResult
@@ -267,7 +267,7 @@ result3 = get_agent().input("Task 3")`}
             Multi-Turn Conversations
           </h2>
 
-          <p className="text-gray-300 mb-6 text-lg">
+          <p className="text-slate-100 mb-6 text-lg">
             Remote agents maintain conversation state across multiple <code className="bg-gray-800 px-2 py-1 rounded">input()</code> calls:
           </p>
 
@@ -295,7 +295,7 @@ The result is 300`}
             Real-World: Distributed Workflow
           </h2>
 
-          <p className="text-gray-300 mb-6 text-lg">
+          <p className="text-slate-100 mb-6 text-lg">
             Local orchestrator using remote specialized agents:
           </p>
 
@@ -341,7 +341,7 @@ print(result)`}
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold mb-3">Default Relay (Production)</h3>
+              <h3 className="text-xl font-semibold mb-4">Default Relay (Production)</h3>
               <CodeWithResult
                 code={`# Uses wss://oo.openonion.ai/ws/announce by default
 agent = connect("0x7a8f...")`}
@@ -350,7 +350,7 @@ agent = connect("0x7a8f...")`}
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-3">Local Relay (Development)</h3>
+              <h3 className="text-xl font-semibold mb-4">Local Relay (Development)</h3>
               <CodeWithResult
                 code={`# Connect to local relay server
 agent = connect("0x7a8f...", relay_url="ws://localhost:8000/ws/announce")`}
@@ -359,7 +359,7 @@ agent = connect("0x7a8f...", relay_url="ws://localhost:8000/ws/announce")`}
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-3">Environment-Based</h3>
+              <h3 className="text-xl font-semibold mb-4">Environment-Based</h3>
               <CodeWithResult
                 code={`import os
 
@@ -439,7 +439,7 @@ result = agent.input("task")`}
         <section className="mb-20">
           <div className="bg-blue-950/30 rounded-2xl p-10 border border-blue-400/30 text-center">
             <h2 className="heading-2">Ready to Use Remote Agents?</h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-slate-100 mb-8">
               Just call <code className="bg-gray-800 px-3 py-1.5 rounded">connect(address)</code> and start building distributed workflows!
             </p>
             <div className="flex flex-wrap justify-center gap-4">

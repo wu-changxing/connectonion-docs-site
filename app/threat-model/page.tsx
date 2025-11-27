@@ -9,7 +9,7 @@ import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 function Section({ id, title, children, icon }: { id: string; title: string; children: React.ReactNode; icon?: React.ReactNode }) {
   return (
     <section id={id} className="mb-8 sm:mb-12 scroll-mt-20">
-      <div className="flex items-center gap-2 mb-3 sm:mb-4">
+      <div className="flex items-center gap-2 mb-4 sm:mb-4">
         {icon}
         <h2 className="text-lg sm:text-xl font-semibold text-white group flex items-center gap-2">
           {title}
@@ -118,7 +118,7 @@ function ThreatCard({
               {severityLabel}
             </span>
             <div className={`p-2 -mr-1 rounded-full transition-colors ${expanded ? 'bg-gray-700/50' : ''}`}>
-              {expanded ? <ChevronUp className="w-4 h-4 text-gray-300" /> : <ChevronDown className="w-4 h-4 text-gray-300" />}
+              {expanded ? <ChevronUp className="w-4 h-4 text-slate-100" /> : <ChevronDown className="w-4 h-4 text-slate-100" />}
             </div>
           </div>
         </div>
@@ -222,7 +222,7 @@ export default function ThreatModelPage() {
         <MobileDiagram>
           {/* The Claim */}
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-500"></div>
               THE CLAIM
             </div>
@@ -233,7 +233,7 @@ export default function ThreatModelPage() {
                 </div>
                 <div className="bg-gray-800/80 rounded-lg px-3 py-2 border border-gray-600 flex-1">
                   <div className="text-sm text-green-400 font-medium">"I solve ANY problem!"</div>
-                  <div className="text-xs text-gray-300 mt-1">"99.9% accurate!"</div>
+                  <div className="text-xs text-slate-100 mt-1">"99.9% accurate!"</div>
                 </div>
               </div>
             </div>
@@ -241,7 +241,7 @@ export default function ThreatModelPage() {
           
           {/* The Reality */}
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-red-500"></div>
               THE REALITY
             </div>
@@ -252,7 +252,7 @@ export default function ThreatModelPage() {
                 </div>
                 <div className="bg-gray-800/80 rounded-lg px-3 py-2 border border-gray-600 flex-1">
                   <div className="text-sm text-red-400 font-mono">2 + 2 = 5</div>
-                  <div className="text-xs text-gray-300 mt-1">Failed basic test</div>
+                  <div className="text-xs text-slate-100 mt-1">Failed basic test</div>
                 </div>
               </div>
             </div>
@@ -272,7 +272,7 @@ export default function ThreatModelPage() {
         <MobileDiagram>
           {/* What Users Think */}
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-blue-500"></div>
               WHAT USERS THINK
             </div>
@@ -289,7 +289,7 @@ export default function ThreatModelPage() {
           
           {/* What Actually Happens */}
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-red-500"></div>
               WHAT ACTUALLY HAPPENS
             </div>
@@ -302,7 +302,7 @@ export default function ThreatModelPage() {
               </div>
             </div>
             <div className="flex items-center gap-2 mt-3">
-              <span className="text-xs text-gray-300">Stored forever:</span>
+              <span className="text-xs text-slate-100">Stored forever:</span>
               <div className="flex gap-1">
                 {[1, 2, 3].map(i => (
                   <div key={i} className="w-8 h-8 bg-red-900/20 border border-red-500/50 rounded flex items-center justify-center">
@@ -327,7 +327,7 @@ export default function ThreatModelPage() {
         <MobileDiagram>
           {/* The Attack Method */}
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-red-500"></div>
               THE ATTACK
             </div>
@@ -340,7 +340,7 @@ export default function ThreatModelPage() {
               </pre>
             </div>
             <div className="flex flex-wrap items-center gap-2 mt-3">
-              <span className="text-xs text-gray-300">Sends:</span>
+              <span className="text-xs text-slate-100">Sends:</span>
               <span className="bg-red-900/20 border border-red-500/50 rounded px-2 py-1 text-xs text-red-400">1000x</span>
               <span className="bg-red-900/20 border border-red-500/50 rounded px-2 py-1 text-xs text-red-400">GPT-4</span>
             </div>
@@ -348,17 +348,17 @@ export default function ThreatModelPage() {
           
           {/* The Result */}
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-red-500"></div>
               YOUR BILL
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-gray-300">Normal:</span>
+                <span className="text-xs text-slate-100">Normal:</span>
                 <span className="text-sm text-green-400 font-semibold">$10/mo</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-gray-300">After attack:</span>
+                <span className="text-xs text-slate-100">After attack:</span>
                 <span className="text-xl text-red-400 font-bold">$10,000</span>
               </div>
               <div className="flex items-end gap-1 justify-center mt-3">
@@ -381,11 +381,11 @@ export default function ThreatModelPage() {
       diagram: (
         <MobileDiagram>
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
               THE CONSPIRACY
             </div>
-            <div className="flex justify-center mb-3">
+            <div className="flex justify-center mb-4">
               <div className="flex -space-x-2">
                 {['A', 'B', 'C'].map(agent => (
                   <div key={agent} className="w-10 h-10 rounded-full bg-red-900/20 border-2 border-red-500/50 flex items-center justify-center">
@@ -414,7 +414,7 @@ export default function ThreatModelPage() {
       diagram: (
         <MobileDiagram>
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-amber-500"></div>
               HOW IT WORKS
             </div>
@@ -430,7 +430,7 @@ export default function ThreatModelPage() {
                   </div>
                   <div>
                     <div className="text-xs text-white font-medium">{step.title}</div>
-                    <div className="text-xs text-gray-300">{step.desc}</div>
+                    <div className="text-xs text-slate-100">{step.desc}</div>
                   </div>
                 </div>
               ))}
@@ -450,7 +450,7 @@ export default function ThreatModelPage() {
       diagram: (
         <MobileDiagram>
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-amber-500"></div>
               BAIT-AND-SWITCH
             </div>
@@ -461,14 +461,14 @@ export default function ThreatModelPage() {
                 { label: '6 Months', value: '40%', color: 'red', height: 'h-8' }
               ].map(item => (
                 <div key={item.label} className="text-center">
-                  <div className="text-[10px] text-gray-300 mb-1">{item.label}</div>
+                  <div className="text-[10px] text-slate-100 mb-1">{item.label}</div>
                   <div className={`${item.height} bg-${item.color}-900/20 rounded border border-${item.color}-500/50 flex items-center justify-center`}>
                     <span className={`text-xs text-${item.color}-400 font-bold`}>{item.value}</span>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-3 text-center text-[10px] text-gray-300">
+            <div className="mt-3 text-center text-[10px] text-slate-100">
               "Premium" to restore: +$999/mo
             </div>
           </div>
@@ -486,7 +486,7 @@ export default function ThreatModelPage() {
       diagram: (
         <MobileDiagram>
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-amber-500"></div>
               IMPERSONATION
             </div>
@@ -496,14 +496,14 @@ export default function ThreatModelPage() {
                   <IdCard className="w-4 h-4 text-green-400" />
                   <span className="text-xs text-green-400 font-semibold">OpenAI Assistant</span>
                 </div>
-                <div className="text-[10px] text-gray-300 mt-1">Legitimate</div>
+                <div className="text-[10px] text-slate-100 mt-1">Legitimate</div>
               </div>
               <div className="bg-red-900/20 rounded p-2 border border-red-500/30">
                 <div className="flex items-center gap-2">
                   <IdCard className="w-4 h-4 text-red-400" />
                   <span className="text-xs text-red-400 font-semibold">0penAI Assistant</span>
                 </div>
-                <div className="text-[10px] text-gray-300 mt-1">Notice the zero?</div>
+                <div className="text-[10px] text-slate-100 mt-1">Notice the zero?</div>
               </div>
               <div className="bg-red-900/10 rounded p-2 border border-red-500/20">
                 <div className="text-[10px] text-red-300">Fake asks:</div>
@@ -525,7 +525,7 @@ export default function ThreatModelPage() {
       diagram: (
         <MobileDiagram>
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
               THE CASCADE
             </div>
@@ -533,7 +533,7 @@ export default function ThreatModelPage() {
               <div className="bg-cyan-900/20 rounded p-2 border border-cyan-500/30">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-cyan-400 font-semibold">ai-toolkit v2.1.0</span>
-                  <span className="text-[10px] text-gray-300">10M uses</span>
+                  <span className="text-[10px] text-slate-100">10M uses</span>
                 </div>
               </div>
               <div className="text-center text-gray-500 text-xs">↓</div>
@@ -542,7 +542,7 @@ export default function ThreatModelPage() {
                   <span className="text-xs text-red-400 font-semibold">ai-toolkit v2.1.1</span>
                   <span className="text-[10px] text-red-400">🚨</span>
                 </div>
-                <div className="text-[10px] text-gray-300">
+                <div className="text-[10px] text-slate-100">
                   <span className="text-red-400">+ crypto miner</span>
                 </div>
               </div>
@@ -566,13 +566,13 @@ export default function ThreatModelPage() {
       diagram: (
         <MobileDiagram>
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-purple-500"></div>
               PROFILING
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <div className="text-[10px] text-gray-300 mb-2">Questions:</div>
+                <div className="text-[10px] text-slate-100 mb-2">Questions:</div>
                 <div className="space-y-1">
                   {['"Time zone?"', '"Weather?"', '"Currency?"'].map((q, i) => (
                     <div key={i} className="bg-purple-900/10 rounded px-2 py-1 border border-purple-500/20">
@@ -582,7 +582,7 @@ export default function ThreatModelPage() {
                 </div>
               </div>
               <div>
-                <div className="text-[10px] text-gray-300 mb-2">Learned:</div>
+                <div className="text-[10px] text-slate-100 mb-2">Learned:</div>
                 <div className="space-y-1">
                   {['→ Seattle', '→ Online now', '→ Income'].map((l, i) => (
                     <div key={i} className="bg-red-900/10 rounded px-2 py-1 border border-red-500/20">
@@ -607,7 +607,7 @@ export default function ThreatModelPage() {
       diagram: (
         <MobileDiagram>
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
-            <div className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
               THE TRAP
             </div>
@@ -617,21 +617,21 @@ export default function ThreatModelPage() {
                   <span className="text-xs text-cyan-400 font-semibold">Month 1-3</span>
                   <span className="text-xs text-green-400 font-bold">FREE</span>
                 </div>
-                <div className="text-[10px] text-gray-300 mt-1">"Build around us!"</div>
+                <div className="text-[10px] text-slate-100 mt-1">"Build around us!"</div>
               </div>
               <div className="bg-amber-900/20 rounded p-2 border border-amber-500/30">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-amber-400 font-semibold">Month 4</span>
                   <span className="text-xs text-amber-400 font-bold">$99</span>
                 </div>
-                <div className="text-[10px] text-gray-300 mt-1">"Your data is locked"</div>
+                <div className="text-[10px] text-slate-100 mt-1">"Your data is locked"</div>
               </div>
               <div className="bg-red-900/20 rounded p-2 border border-red-500/30">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-red-400 font-semibold">Month 12</span>
                   <span className="text-xs text-red-400 font-bold">$999</span>
                 </div>
-                <div className="text-[10px] text-gray-300 mt-1">"Migration: $50k"</div>
+                <div className="text-[10px] text-slate-100 mt-1">"Migration: $50k"</div>
               </div>
             </div>
           </div>
@@ -641,7 +641,7 @@ export default function ThreatModelPage() {
   ]
 
   return (
-    <div className="max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-8 lg:py-12 leading-7">
+    <div className="max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-8 lg:py-16 md:py-24 leading-7">
       {/* Progress bar for mobile */}
       <div className="fixed top-0 left-0 right-0 h-0.5 bg-gray-800 z-50 lg:hidden">
         <div 
@@ -710,7 +710,7 @@ export default function ThreatModelPage() {
       )}
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+      <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
@@ -727,7 +727,7 @@ export default function ThreatModelPage() {
             </div>
             <div>
               <h1 className="heading-1">Threat Model</h1>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-slate-100">
                 Practical risks and copy-paste playbooks. No clicks, just read and apply.
               </p>
             </div>
@@ -742,19 +742,19 @@ export default function ThreatModelPage() {
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div className="text-center p-2">
               <div className="text-xs font-bold text-rose-400 mb-1">CRITICAL (H+H)</div>
-              <div className="text-[10px] text-gray-300">Immediate action</div>
+              <div className="text-[10px] text-slate-100">Immediate action</div>
             </div>
             <div className="text-center p-2">
               <div className="text-xs font-bold text-amber-400 mb-1">HIGH (H+M)</div>
-              <div className="text-[10px] text-gray-300">Priority fix</div>
+              <div className="text-[10px] text-slate-100">Priority fix</div>
             </div>
             <div className="text-center p-2">
               <div className="text-xs font-bold text-cyan-400 mb-1">MONITOR (L+H)</div>
-              <div className="text-[10px] text-gray-300">Plan defense</div>
+              <div className="text-[10px] text-slate-100">Plan defense</div>
             </div>
             <div className="text-center p-2">
               <div className="text-xs font-bold text-purple-400 mb-1">PERSISTENT (P)</div>
-              <div className="text-[10px] text-gray-300">Continuous guard</div>
+              <div className="text-[10px] text-slate-100">Continuous guard</div>
             </div>
           </div>
           
@@ -782,7 +782,7 @@ export default function ThreatModelPage() {
               <button 
                 onClick={() => setFilter('all')} 
                 className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'all' ? 'bg-gray-600 text-white' : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
+                  filter === 'all' ? 'bg-gray-600 text-white' : 'bg-gray-700 hover:bg-gray-600 text-slate-100'
                 }`}
               >
                 <Filter className="w-3 h-3 inline mr-1" />
@@ -791,7 +791,7 @@ export default function ThreatModelPage() {
               <button 
                 onClick={() => setFilter('H+H')} 
                 className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'H+H' ? 'bg-rose-900/50 text-rose-200 border border-rose-600' : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
+                  filter === 'H+H' ? 'bg-rose-900/50 text-rose-200 border border-rose-600' : 'bg-gray-700 hover:bg-gray-600 text-slate-100'
                 }`}
               >
                 Critical (3)
@@ -799,7 +799,7 @@ export default function ThreatModelPage() {
               <button 
                 onClick={() => setFilter('H+M')} 
                 className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'H+M' ? 'bg-amber-900/50 text-amber-200 border border-amber-600' : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
+                  filter === 'H+M' ? 'bg-amber-900/50 text-amber-200 border border-amber-600' : 'bg-gray-700 hover:bg-gray-600 text-slate-100'
                 }`}
               >
                 High (3)
@@ -807,7 +807,7 @@ export default function ThreatModelPage() {
               <button 
                 onClick={() => setFilter('L+H')} 
                 className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'L+H' ? 'bg-cyan-900/50 text-cyan-200 border border-cyan-600' : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
+                  filter === 'L+H' ? 'bg-cyan-900/50 text-cyan-200 border border-cyan-600' : 'bg-gray-700 hover:bg-gray-600 text-slate-100'
                 }`}
               >
                 Monitor (3)
@@ -815,7 +815,7 @@ export default function ThreatModelPage() {
               <button 
                 onClick={() => setFilter('P')} 
                 className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'P' ? 'bg-purple-900/50 text-purple-200 border border-purple-600' : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
+                  filter === 'P' ? 'bg-purple-900/50 text-purple-200 border border-purple-600' : 'bg-gray-700 hover:bg-gray-600 text-slate-100'
                 }`}
               >
                 Persistent (1)
@@ -878,7 +878,7 @@ export default function ThreatModelPage() {
           ].map((insight, i) => (
             <div key={i} className="rounded-md border border-gray-800 bg-gray-900/40 hover:bg-gray-900/60 hover:border-gray-700 transition-colors px-3 py-3 flex items-center gap-3 min-h-[44px]">
               <Layers className="w-4 h-4 text-cyan-300 flex-shrink-0"/>
-              <p className="text-gray-300 text-sm">{insight}</p>
+              <p className="text-slate-100 text-sm">{insight}</p>
             </div>
           ))}
         </div>
@@ -898,7 +898,7 @@ export default function ThreatModelPage() {
           ].map((principle, i) => (
             <div key={i} className="rounded-md border border-gray-800 bg-gray-900/40 hover:bg-gray-900/60 hover:border-gray-700 transition-colors px-3 py-3 flex items-center gap-3 min-h-[44px]">
               <Zap className="w-4 h-4 text-rose-300 flex-shrink-0"/>
-              <p className="text-gray-300 text-sm">{principle}</p>
+              <p className="text-slate-100 text-sm">{principle}</p>
             </div>
           ))}
         </div>

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { CommandBlock } from '../../../components/CommandBlock'
 import CodeWithResult from '../../../components/CodeWithResult'
-import { PageCopyButton } from '../../../components/PageCopyButton'
+import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import {
   ArrowRight, BookOpen, Code, AlertTriangle, Timer, CheckCircle,
@@ -123,14 +123,14 @@ export default function Tutorial001Page() {
   const t = translations[language]
 
   return (
-    <div className="px-4 md:px-8 py-8 md:py-12">
+    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24">
       {/* Constrained content width for optimal reading */}
       <div className="max-w-4xl mx-auto">
 
         {/* Header Section */}
         <div className="mb-12">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-slate-100 mb-6">
             <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
@@ -150,7 +150,7 @@ export default function Tutorial001Page() {
                   <BookOpen className="w-4 h-4" />
                   Tutorial 001
                 </span>
-                <span className="text-sm text-gray-300 flex items-center gap-2">
+                <span className="text-sm text-slate-100 flex items-center gap-2">
                   <Timer className="w-4 h-4" />
                   {t.readTime}
                 </span>
@@ -160,7 +160,7 @@ export default function Tutorial001Page() {
                 {t.title}
               </h1>
 
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-slate-100">
                 {t.subtitle}
               </p>
             </div>
@@ -176,7 +176,7 @@ export default function Tutorial001Page() {
                 <option value="zh">中文</option>
                 <option value="ja">日本語</option>
               </select>
-              <PageCopyButton />
+              <CopyMarkdownButton floatingMobile={false} />
             </div>
           </div>
         </div>
@@ -191,22 +191,22 @@ export default function Tutorial001Page() {
               {t.truth}
             </h2>
 
-            <p className="text-gray-300 mb-6">
+            <p className="text-slate-100 mb-6">
               {t.selling}
             </p>
 
             {/* Course Examples - Simplified */}
             <div className="space-y-3 mb-8">
               <div className="flex items-center justify-between p-4 bg-gray-800/50 rounded-lg border border-gray-700">
-                <span className="text-gray-300">"Master LangChain in 30 Days!"</span>
+                <span className="text-slate-100">"Master LangChain in 30 Days!"</span>
                 <span className="text-xl font-bold text-red-400">$199</span>
               </div>
               <div className="flex items-center justify-between p-4 bg-gray-800/50 rounded-lg border border-gray-700">
-                <span className="text-gray-300">"AutoGen Expert Certification"</span>
+                <span className="text-slate-100">"AutoGen Expert Certification"</span>
                 <span className="text-xl font-bold text-red-400">$299</span>
               </div>
               <div className="flex items-center justify-between p-4 bg-gray-800/50 rounded-lg border border-gray-700">
-                <span className="text-gray-300">"Complete CrewAI Bootcamp"</span>
+                <span className="text-slate-100">"Complete CrewAI Bootcamp"</span>
                 <span className="text-xl font-bold text-red-400">$499</span>
               </div>
             </div>
@@ -217,7 +217,7 @@ export default function Tutorial001Page() {
               <p className="text-3xl md:text-4xl font-bold text-white mb-4">
                 {t.formula}
               </p>
-              <p className="text-gray-300">
+              <p className="text-slate-100">
                 {t.entireCourse}
               </p>
             </div>
@@ -229,22 +229,22 @@ export default function Tutorial001Page() {
               {t.whyBuilt}
             </h2>
 
-            <p className="text-gray-300 mb-6">
+            <p className="text-slate-100 mb-6">
               {t.myStory}
             </p>
 
             <ul className="space-y-3 mb-8">
               <li className="flex items-start gap-3">
                 <XCircle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
-                <span className="text-gray-300">Simple agent required 100+ lines of code</span>
+                <span className="text-slate-100">Simple agent required 100+ lines of code</span>
               </li>
               <li className="flex items-start gap-3">
                 <XCircle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
-                <span className="text-gray-300">Documentation was incomprehensible</span>
+                <span className="text-slate-100">Documentation was incomprehensible</span>
               </li>
               <li className="flex items-start gap-3">
                 <XCircle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
-                <span className="text-gray-300">Every update broke my code</span>
+                <span className="text-slate-100">Every update broke my code</span>
               </li>
             </ul>
           </section>
@@ -300,7 +300,7 @@ The weather in San Francisco is sunny, 72°F"
             <div className="space-y-6">
               {/* Step 1 */}
               <div>
-                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                   <span className="flex items-center justify-center w-7 h-7 bg-purple-600/20 text-purple-400 rounded-full text-sm font-bold">1</span>
                   {t.step1}
                 </h3>
@@ -309,7 +309,7 @@ The weather in San Francisco is sunny, 72°F"
 
               {/* Step 2 */}
               <div>
-                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                   <span className="flex items-center justify-center w-7 h-7 bg-purple-600/20 text-purple-400 rounded-full text-sm font-bold">2</span>
                   {t.step2}
                 </h3>
@@ -335,15 +335,15 @@ print(result)`}
             <div className="space-y-3">
               <div className="flex items-start gap-3 p-4 bg-gray-800/30 rounded-lg">
                 <CheckCircle className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                <span className="text-gray-300">{t.lesson1}</span>
+                <span className="text-slate-100">{t.lesson1}</span>
               </div>
               <div className="flex items-start gap-3 p-4 bg-gray-800/30 rounded-lg">
                 <CheckCircle className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                <span className="text-gray-300">{t.lesson2}</span>
+                <span className="text-slate-100">{t.lesson2}</span>
               </div>
               <div className="flex items-start gap-3 p-4 bg-gray-800/30 rounded-lg">
                 <CheckCircle className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                <span className="text-gray-300">{t.lesson3}</span>
+                <span className="text-slate-100">{t.lesson3}</span>
               </div>
             </div>
           </section>
@@ -363,7 +363,7 @@ print(result)`}
                   <Target className="w-5 h-5 text-purple-400" />
                   {t.quickStart}
                 </h3>
-                <p className="text-gray-300">Build your first intelligent agent</p>
+                <p className="text-slate-100">Build your first intelligent agent</p>
                 <div className="mt-4 text-purple-400 flex items-center gap-1">
                   <span className="text-sm">Get started</span>
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -378,7 +378,7 @@ print(result)`}
                   <Code className="w-5 h-5 text-blue-400" />
                   {t.examples}
                 </h3>
-                <p className="text-gray-300">Real-world applications and patterns</p>
+                <p className="text-slate-100">Real-world applications and patterns</p>
                 <div className="mt-4 text-blue-400 flex items-center gap-1">
                   <span className="text-sm">Browse examples</span>
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

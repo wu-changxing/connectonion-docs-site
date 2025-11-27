@@ -120,7 +120,7 @@ mark_unread(email_id)                # Mark as unread`}
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-purple-900/20 border border-purple-500/30 rounded-xl p-6">
-              <h3 className="font-semibold mb-3 text-purple-300">Agent Emails (This page)</h3>
+              <h3 className="font-semibold mb-4 text-purple-300">Agent Emails (This page)</h3>
               <ul className="space-y-2 text-sm text-slate-100">
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
@@ -141,7 +141,7 @@ mark_unread(email_id)                # Mark as unread`}
               </ul>
             </div>
             <div className="bg-green-900/20 border border-green-500/30 rounded-xl p-6">
-              <h3 className="font-semibold mb-3 text-green-300">Gmail (OAuth)</h3>
+              <h3 className="font-semibold mb-4 text-green-300">Gmail (OAuth)</h3>
               <ul className="space-y-2 text-sm text-slate-100">
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />

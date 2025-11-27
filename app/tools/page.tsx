@@ -179,7 +179,7 @@ print(browser.list_tabs())
 browser.close()`
 
   return (
-    <div className="px-6 sm:px-8 md:px-12 py-8 md:py-12 lg:py-16">
+    <div className="px-6 sm:px-8 md:px-12 py-8 md:py-16 md:py-24 lg:py-16">
       <div className="max-w-5xl mx-auto">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-gray-200 mb-8">
@@ -276,7 +276,7 @@ Based on my search, here are some excellent Python tutorials for you:
       {/* Function Tools */}
       <section className="mb-14">
         <h2 className="heading-2"><Code className="w-5 h-5 text-blue-400"/>Function Tools</h2>
-        <p className="text-gray-300 mb-4">Use Python type hints as your interface. Keep signatures explicit and return structures when needed.</p>
+        <p className="text-slate-100 mb-4">Use Python type hints as your interface. Keep signatures explicit and return structures when needed.</p>
         <div className="grid grid-cols-1 gap-6">
           <CodeWithResult 
             code={functionTool}
@@ -325,7 +325,7 @@ I'll search for the top 3 results about vector databases.
         <h2 className="heading-2"><Settings className="w-5 h-5 text-amber-400"/>Class Instance vs Individual Methods</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-green-400 mb-3 flex items-center gap-2">
+            <h3 className="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
               <FaCheckCircle className="inline-flex w-5 h-5 text-green-400" />
               Recommended: Class Instance
             </h3>
@@ -345,7 +345,7 @@ agent = Agent("browser_agent", tools=[browser])`}
             />
           </div>
           <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-red-400 mb-3 flex items-center gap-2">
+            <h3 className="text-lg font-semibold text-red-400 mb-4 flex items-center gap-2">
               <FaTimes className="inline-flex w-5 h-5 text-red-400" />
               Verbose: Individual Methods
             </h3>

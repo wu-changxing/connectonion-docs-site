@@ -100,9 +100,9 @@ ${expectedOutput}
 *This is example 3 of 8 in the Progressive Prompt Examples series. Previous: [Math Tutor](/prompts/examples/math-tutor) | Next: [Code Reviewer](/prompts/examples/code-reviewer)*`
 
   return (
-    <div className="max-w-6xl mx-auto px-8 py-12 lg:py-12 pt-16 lg:pt-12">
+    <div className="max-w-6xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+      <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-white transition-colors">Home</Link>
         <ArrowRight className="w-4 h-4" />
         <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
@@ -127,7 +127,7 @@ ${expectedOutput}
                   Intermediate
                 </span>
               </div>
-              <p className="text-xl text-gray-300">
+              <p className="text-xl text-slate-100">
                 Learn professional frameworks and structured problem-solving with this empathetic support specialist.
               </p>
             </div>
@@ -180,7 +180,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-white">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -227,7 +227,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-white">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -291,15 +291,15 @@ ${expectedOutput}
             <div className="space-y-4 text-sm">
               <div>
                 <h4 className="font-semibold text-orange-400 mb-2">🏗️ Structured Framework</h4>
-                <p className="text-gray-300">5-step response process ensures consistent, professional service quality.</p>
+                <p className="text-slate-100">5-step response process ensures consistent, professional service quality.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-orange-400 mb-2">⚡ Escalation Triggers</h4>
-                <p className="text-gray-300">Clear rules prevent issues from escalating unnecessarily while catching serious problems.</p>
+                <p className="text-slate-100">Clear rules prevent issues from escalating unnecessarily while catching serious problems.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-orange-400 mb-2">📝 Good vs Bad Examples</h4>
-                <p className="text-gray-300">Shows contrasting approaches to demonstrate effective communication patterns.</p>
+                <p className="text-slate-100">Shows contrasting approaches to demonstrate effective communication patterns.</p>
               </div>
             </div>
           </div>
@@ -316,7 +316,7 @@ ${expectedOutput}
                 <Download className="w-4 h-4" />
                 Download Prompt File
               </a>
-              <p className="text-xs text-gray-300 text-center">
+              <p className="text-xs text-slate-100 text-center">
                 Ideal for customer service and support applications
               </p>
             </div>
@@ -327,20 +327,20 @@ ${expectedOutput}
       {/* Navigation */}
       <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
         <div className="text-center">
-          <p className="text-sm text-gray-300 mb-1">Previous in series</p>
+          <p className="text-sm text-slate-100 mb-1">Previous in series</p>
           <Link 
             href="/prompts/examples/math-tutor" 
-            className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors font-medium"
+            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
           >
             <ArrowLeft className="w-4 h-4" />
             2. Math Tutor
           </Link>
         </div>
         <div className="text-center">
-          <p className="text-sm text-gray-300 mb-1">Next in series</p>
+          <p className="text-sm text-slate-100 mb-1">Next in series</p>
           <Link 
             href="/prompts/examples/code-reviewer" 
-            className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors font-medium"
+            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
           >
             4. Code Reviewer
             <ArrowRight className="w-4 h-4" />

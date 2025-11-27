@@ -191,11 +191,11 @@ This example demonstrates important security practices:
 Build on this foundation for more complex agents that need to handle user input safely!`
 
   return (
-    <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-12 lg:py-12 pt-16 lg:pt-12">
+    <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Navigation */}
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+      <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
@@ -216,7 +216,7 @@ Build on this foundation for more complex agents that need to handle user input 
             </div>
             <div>
               <h1 className="heading-1">Calculator Agent</h1>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-slate-100">
                 Learn input validation, error handling, and security best practices by building a safe math calculator.
               </p>
             </div>
@@ -237,28 +237,28 @@ Build on this foundation for more complex agents that need to handle user input 
         </h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
-            <div className="w-12 h-12 mx-auto mb-3 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
               <Shield className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-white font-semibold mb-1">Input Validation</h3>
             <p className="text-blue-200 text-sm">Secure input filtering and validation</p>
           </div>
           <div className="text-center">
-            <div className="w-12 h-12 mx-auto mb-3 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
               <AlertTriangle className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-white font-semibold mb-1">Error Handling</h3>
             <p className="text-blue-200 text-sm">Graceful error management and feedback</p>
           </div>
           <div className="text-center">
-            <div className="w-12 h-12 mx-auto mb-3 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
               <Code className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-white font-semibold mb-1">Multiple Tools</h3>
             <p className="text-blue-200 text-sm">Integrating several tools in one agent</p>
           </div>
           <div className="text-center">
-            <div className="w-12 h-12 mx-auto mb-3 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
               <Terminal className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-white font-semibold mb-1">System Prompts</h3>
@@ -276,7 +276,7 @@ Build on this foundation for more complex agents that need to handle user input 
               <h3 className="text-xl font-semibold text-white">Basic Calculator</h3>
               <button
                 onClick={() => copyToClipboard(agentCode, 'basic')}
-                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'basic' ? (
                   <>
@@ -321,7 +321,7 @@ Build on this foundation for more complex agents that need to handle user input 
               <h3 className="text-xl font-semibold text-white">Complete Example with Security</h3>
               <button
                 onClick={() => copyToClipboard(fullExampleCode, 'complete')}
-                className="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'complete' ? (
                   <>
@@ -408,18 +408,18 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
                   <FaShieldAlt className="w-4 h-4" />
                   <span>Input Validation</span>
                 </h4>
-                <p className="text-gray-300">Only allows safe mathematical characters (0-9, +, -, *, /, (, ), ., space).</p>
+                <p className="text-slate-100">Only allows safe mathematical characters (0-9, +, -, *, /, (, ), ., space).</p>
               </div>
               <div>
                 <h4 className="font-semibold text-blue-400 mb-2 flex items-center gap-2">
                   <FaBolt className="w-4 h-4" />
                   <span>Safe Evaluation</span>
                 </h4>
-                <p className="text-gray-300">Pre-filters input before using eval() to prevent code injection.</p>
+                <p className="text-slate-100">Pre-filters input before using eval() to prevent code injection.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-blue-400 mb-2">🚨 Error Handling</h4>
-                <p className="text-gray-300">Catches division by zero, syntax errors, and invalid operations gracefully.</p>
+                <p className="text-slate-100">Catches division by zero, syntax errors, and invalid operations gracefully.</p>
               </div>
             </div>
           </div>
@@ -461,7 +461,7 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
                 <Download className="w-4 h-4" />
                 Download Complete Example
               </a>
-              <p className="text-xs text-gray-300 text-center">
+              <p className="text-xs text-slate-100 text-center">
                 Complete calculator with security features and error handling
               </p>
             </div>

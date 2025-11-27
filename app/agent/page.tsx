@@ -34,9 +34,9 @@ export default function AgentDocsPage() {
 
   return (
     <div className="min-h-screen bg-black text-gray-100">
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+        <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
@@ -53,7 +53,7 @@ export default function AgentDocsPage() {
               </div>
               <div>
                 <h1 className="heading-1">Agent</h1>
-                <p className="text-lg text-gray-300">
+                <p className="text-lg text-slate-100">
                   The heart of ConnectOnion. Give it tools, and it figures out the rest.
                 </p>
               </div>
@@ -101,7 +101,7 @@ The result is 714.`}
             What Agent Can Do - Full API Overview
           </h2>
 
-          <p className="text-gray-300 mb-6">
+          <p className="text-slate-100 mb-6">
             After that simple example, here's <span className="text-purple-400 font-semibold">everything</span> an Agent can do:
           </p>
 
@@ -110,7 +110,7 @@ The result is 714.`}
             <h3 className="text-xl font-semibold text-white mb-4">Creating an Agent</h3>
             <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
               <pre className="text-sm overflow-x-auto">
-                <code className="text-gray-300">{`Agent(
+                <code className="text-slate-100">{`Agent(
     name="my_bot",                        # Required: agent identifier
     tools=[func1, func2],                 # Optional: functions agent can call
     system_prompt="You are helpful",      # Optional: personality/behavior
@@ -129,7 +129,7 @@ The result is 714.`}
             <h3 className="text-xl font-semibold text-white mb-4">Using Your Agent</h3>
             <div className="grid grid-cols-1 gap-4">
               <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-                <pre className="text-sm"><code className="text-gray-300">{`# Give it a task
+                <pre className="text-sm"><code className="text-slate-100">{`# Give it a task
 result = agent.input("Do something")
 
 # Execute a tool directly (for testing)
@@ -142,7 +142,7 @@ result = agent.execute_tool("tool_name", {"arg": "value"})`}</code></pre>
           <div className="mb-8">
             <h3 className="text-xl font-semibold text-white mb-4">Managing Tools</h3>
             <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-              <pre className="text-sm"><code className="text-gray-300">{`agent.add_tool(new_function)    # Add tools after creation
+              <pre className="text-sm"><code className="text-slate-100">{`agent.add_tool(new_function)    # Add tools after creation
 agent.remove_tool("name")       # Remove tools
 agent.list_tools()              # See available tools`}</code></pre>
             </div>
@@ -152,7 +152,7 @@ agent.list_tools()              # See available tools`}</code></pre>
           <div className="mb-8">
             <h3 className="text-xl font-semibold text-white mb-4">Conversations & State</h3>
             <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-              <pre className="text-sm"><code className="text-gray-300">{`agent.input("What is 10 + 5?")     # Turn 1: "15"
+              <pre className="text-sm"><code className="text-slate-100">{`agent.input("What is 10 + 5?")     # Turn 1: "15"
 agent.input("Multiply that by 2")  # Turn 2: "30" (remembers!)
 
 agent.reset_conversation()         # Start fresh
@@ -164,7 +164,7 @@ session = agent.current_session    # Access internal state`}</code></pre>
           <div className="mb-8">
             <h3 className="text-xl font-semibold text-white mb-4">Attributes You Can Access</h3>
             <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-              <pre className="text-sm"><code className="text-gray-300">{`agent.name                # str: Agent identifier
+              <pre className="text-sm"><code className="text-slate-100">{`agent.name                # str: Agent identifier
 agent.tools               # List[Callable]: All tools
 agent.tool_map            # Dict: Fast tool lookup
 agent.system_prompt       # str: Personality
@@ -176,7 +176,7 @@ agent.current_session     # dict | None: Runtime state`}</code></pre>
             <p className="text-purple-300 font-semibold mb-2">
               That's the complete API.
             </p>
-            <p className="text-gray-300 text-sm">
+            <p className="text-slate-100 text-sm">
               Now let's dive into each feature below. Jump to any section that interests you!
             </p>
           </div>
@@ -320,31 +320,31 @@ result = agent.input(
               <Code className="w-6 h-6 text-purple-400" />
               Complete Documentation
             </h2>
-            <p className="text-gray-300 mb-4">
+            <p className="text-slate-100 mb-4">
               This page provides a quick overview of the Agent class. For comprehensive documentation including:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-4 text-sm">
-              <div className="flex items-center gap-2 text-gray-300">
+              <div className="flex items-center gap-2 text-slate-100">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Creating Agents
               </div>
-              <div className="flex items-center gap-2 text-gray-300">
+              <div className="flex items-center gap-2 text-slate-100">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Managing Tools
               </div>
-              <div className="flex items-center gap-2 text-gray-300">
+              <div className="flex items-center gap-2 text-slate-100">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Multi-Turn Conversations
               </div>
-              <div className="flex items-center gap-2 text-gray-300">
+              <div className="flex items-center gap-2 text-slate-100">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Iteration Control
               </div>
-              <div className="flex items-center gap-2 text-gray-300">
+              <div className="flex items-center gap-2 text-slate-100">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Common Patterns
               </div>
-              <div className="flex items-center gap-2 text-gray-300">
+              <div className="flex items-center gap-2 text-slate-100">
                 <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                 Testing Strategies
               </div>
@@ -363,11 +363,11 @@ result = agent.input(
               href="/tools"
               className="p-6 bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-lg border border-blue-500/30 hover:border-blue-500/60 transition-all group"
             >
-              <Code className="w-8 h-8 text-blue-400 mb-3" />
+              <Code className="w-8 h-8 text-blue-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">
                 Tools
               </h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-slate-100">
                 Learn how to create powerful tools for your agents
               </p>
             </Link>
@@ -376,11 +376,11 @@ result = agent.input(
               href="#max-iterations"
               className="p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/30 hover:border-purple-500/60 transition-all group"
             >
-              <RefreshCw className="w-8 h-8 text-purple-400 mb-3" />
+              <RefreshCw className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">
                 max_iterations
               </h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-slate-100">
                 Control how many tool calls your agent can make
               </p>
             </a>
@@ -389,11 +389,11 @@ result = agent.input(
               href="/prompts"
               className="p-6 bg-gradient-to-br from-green-900/20 to-teal-900/20 rounded-lg border border-green-500/30 hover:border-green-500/60 transition-all group"
             >
-              <Settings className="w-8 h-8 text-green-400 mb-3" />
+              <Settings className="w-8 h-8 text-green-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-green-300 transition-colors">
                 System Prompts
               </h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-slate-100">
                 Give your agent a personality and behavior
               </p>
             </Link>
@@ -402,11 +402,11 @@ result = agent.input(
               href="/xray"
               className="p-6 bg-gradient-to-br from-yellow-900/20 to-orange-900/20 rounded-lg border border-yellow-500/30 hover:border-yellow-500/60 transition-all group"
             >
-              <Zap className="w-8 h-8 text-yellow-400 mb-3" />
+              <Zap className="w-8 h-8 text-yellow-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-yellow-300 transition-colors">
                 Debug with @xray
               </h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-slate-100">
                 See what your agent is thinking during execution
               </p>
             </Link>
@@ -423,17 +423,17 @@ result = agent.input(
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-white mb-3">Simple Case</h3>
+                <h3 className="text-lg font-semibold text-white mb-4">Simple Case</h3>
                 <div className="bg-black/50 rounded-lg p-4 border border-gray-800">
-                  <pre className="text-sm"><code className="text-gray-300">{`agent = Agent("bot", tools=[search])
+                  <pre className="text-sm"><code className="text-slate-100">{`agent = Agent("bot", tools=[search])
 agent.input("Find Python docs")`}</code></pre>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-white mb-3">Complex Case</h3>
+                <h3 className="text-lg font-semibold text-white mb-4">Complex Case</h3>
                 <div className="bg-black/50 rounded-lg p-4 border border-gray-800">
-                  <pre className="text-sm"><code className="text-gray-300">{`trust_agent = Agent("verifier", ...)
+                  <pre className="text-sm"><code className="text-slate-100">{`trust_agent = Agent("verifier", ...)
 
 agent = Agent(
     name="production",
@@ -448,7 +448,7 @@ agent = Agent(
               </div>
             </div>
 
-            <p className="text-gray-300 mt-6 text-center">
+            <p className="text-slate-100 mt-6 text-center">
               <span className="font-semibold text-white">Both are valid.</span> Start simple, add complexity only when needed.
             </p>
           </div>
@@ -459,7 +459,7 @@ agent = Agent(
           <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-2">
             ConnectOnion: AI Agent = Prompt + Function
           </p>
-          <p className="text-gray-300">
+          <p className="text-slate-100">
             That's it. That's the framework. Now go build something useful.
           </p>
         </div>

@@ -388,21 +388,21 @@ for tomorrow at 2pm. Subject: Q4 Planning Discussion
 
           <div className="space-y-8">
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-3 text-red-400">"Not authenticated with OpenOnion"</h3>
-              <p className="text-slate-100 mb-3">You need to run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
+              <h3 className="text-lg font-semibold mb-4 text-red-400">"Not authenticated with OpenOnion"</h3>
+              <p className="text-slate-100 mb-4">You need to run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
               <CommandBlock commands={['co auth', 'co auth google']} />
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-3 text-yellow-400">Authorization Timeout</h3>
-              <p className="text-slate-100 mb-3">If the browser window doesn't complete authorization within 5 minutes:</p>
+              <h3 className="text-lg font-semibold mb-4 text-yellow-400">Authorization Timeout</h3>
+              <p className="text-slate-100 mb-4">If the browser window doesn't complete authorization within 5 minutes:</p>
               <CommandBlock commands={['co auth google']} />
               <p className="text-sm text-gray-400 mt-2">The command polls the backend every 2 seconds waiting for your authorization.</p>
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-3 text-blue-400">Credentials Not Working</h3>
-              <p className="text-slate-100 mb-3">Check if credentials are properly saved:</p>
+              <h3 className="text-lg font-semibold mb-4 text-blue-400">Credentials Not Working</h3>
+              <p className="text-slate-100 mb-4">Check if credentials are properly saved:</p>
               <CodeWithResult 
                 code={`# Check local .env
 cat .env | grep GOOGLE_

@@ -97,9 +97,9 @@ const examples = [
 
 export default function PromptsExamplesPage() {
   return (
-    <div className="max-w-6xl mx-auto px-8 py-12 lg:py-12 pt-16 lg:pt-12">
+    <div className="max-w-6xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+      <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-white transition-colors">Home</Link>
         <ArrowRight className="w-4 h-4" />
         <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
@@ -110,7 +110,7 @@ export default function PromptsExamplesPage() {
       {/* Header */}
       <div className="mb-16">
         <h1 className="heading-1">Progressive Prompt Examples</h1>
-        <p className="text-xl text-gray-300 max-w-3xl">
+        <p className="text-xl text-slate-100 max-w-3xl">
           Master system prompt design through 8 carefully crafted examples, progressing from simple conversational agents 
           to complex professional roles. Each example demonstrates advanced techniques and real-world applications.
         </p>
@@ -177,7 +177,7 @@ export default function PromptsExamplesPage() {
 
                 <div className="flex-1 min-w-0">
                   {/* Header */}
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-3 mb-4">
                     <IconComponent className={`w-6 h-6 ${example.color}`} />
                     <h3 className="text-xl font-bold text-white group-hover:text-white/90">
                       {example.title}
@@ -192,18 +192,18 @@ export default function PromptsExamplesPage() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                  <p className="text-slate-100 mb-4 text-sm leading-relaxed">
                     {example.description}
                   </p>
 
                   {/* Key Concepts */}
                   <div className="space-y-2">
-                    <p className="text-gray-300 text-xs font-medium uppercase tracking-wide">Key Concepts</p>
+                    <p className="text-slate-100 text-xs font-medium uppercase tracking-wide">Key Concepts</p>
                     <div className="flex flex-wrap gap-2">
                       {example.concepts.map((concept) => (
                         <span 
                           key={concept}
-                          className="px-2 py-1 bg-gray-800 text-gray-300 rounded text-xs"
+                          className="px-2 py-1 bg-gray-800 text-slate-100 rounded text-xs"
                         >
                           {concept}
                         </span>
@@ -227,15 +227,15 @@ export default function PromptsExamplesPage() {
         <h2 className="heading-2">💡 Why Progressive Learning?</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-lg font-semibold text-white mb-3">Building Complexity</h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <h3 className="text-lg font-semibold text-white mb-4">Building Complexity</h3>
+            <p className="text-slate-100 text-sm leading-relaxed">
               Each example introduces new prompt engineering concepts while building on previous knowledge. 
               Start with basic personality definition, then add structured responses, professional frameworks, and finally complex decision-making processes.
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-3">Real-World Applications</h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <h3 className="text-lg font-semibold text-white mb-4">Real-World Applications</h3>
+            <p className="text-slate-100 text-sm leading-relaxed">
               Every prompt is designed for actual business use cases. From customer support to security analysis, 
               these examples solve real problems and can be immediately deployed in production environments.
             </p>
@@ -247,14 +247,14 @@ export default function PromptsExamplesPage() {
       <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
         <Link 
           href="/prompts" 
-          className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
         >
           <ArrowRight className="w-4 h-4 rotate-180" />
           System Prompts
         </Link>
         <Link 
           href="/prompts/formats" 
-          className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
         >
           Prompt Formats
           <ArrowRight className="w-4 h-4" />

@@ -69,7 +69,7 @@ agent.input("Get contact info from acme.com")`}
                 <Globe className="w-4 h-4" />
                 fetch(url)
               </h3>
-              <p className="text-slate-100 text-sm mb-3">HTTP GET request, returns raw HTML</p>
+              <p className="text-slate-100 text-sm mb-4">HTTP GET request, returns raw HTML</p>
               <CodeWithResult
                 code={`html = web.fetch("https://example.com")
 # Returns raw HTML string`}
@@ -83,7 +83,7 @@ agent.input("Get contact info from acme.com")`}
                 <FileText className="w-4 h-4" />
                 strip_tags(html, max_chars=10000)
               </h3>
-              <p className="text-slate-100 text-sm mb-3">Strip HTML tags, returns body text only</p>
+              <p className="text-slate-100 text-sm mb-4">Strip HTML tags, returns body text only</p>
               <CodeWithResult
                 code={`html = web.fetch("https://example.com")
 text = web.strip_tags(html)
@@ -138,7 +138,7 @@ text = web.strip_tags(html)
                 <Brain className="w-4 h-4" />
                 analyze_page(url)
               </h3>
-              <p className="text-slate-100 text-sm mb-3">Use LLM to understand what a page/company does</p>
+              <p className="text-slate-100 text-sm mb-4">Use LLM to understand what a page/company does</p>
               <CodeWithResult
                 code={`result = web.analyze_page("https://stripe.com")
 # Returns: "Stripe is a payment processing platform that..."}`}
@@ -152,7 +152,7 @@ text = web.strip_tags(html)
                 <Search className="w-4 h-4" />
                 get_contact_info(url)
               </h3>
-              <p className="text-slate-100 text-sm mb-3">Extract contact information (email, phone, address) using LLM</p>
+              <p className="text-slate-100 text-sm mb-4">Extract contact information (email, phone, address) using LLM</p>
               <CodeWithResult
                 code={`info = web.get_contact_info("https://acme.com")
 # Returns: {

@@ -294,7 +294,7 @@ export default function LinksPage() {
           description: 'Reach out directly',
           url: 'mailto:contact@connectonion.com',
           icon: Mail,
-          color: 'text-gray-300',
+          color: 'text-slate-100',
           bgColor: 'bg-gray-800/30',
           borderColor: 'border-gray-600/30',
           external: true,
@@ -316,7 +316,7 @@ export default function LinksPage() {
       <div className={cardClasses}>
         {!link.available && (
           <div className="absolute -top-2 -right-2 px-3 py-1 bg-gray-800 border border-gray-600 rounded-full flex items-center gap-1">
-            <span className="text-xs font-medium text-gray-300">🔒 Coming Soon</span>
+            <span className="text-xs font-medium text-slate-100">🔒 Coming Soon</span>
           </div>
         )}
         
@@ -329,13 +329,13 @@ export default function LinksPage() {
               {link.title}
               {link.external && isClickable && (
                 <>
-                  <ExternalLink className="w-4 h-4 text-gray-300" />
+                  <ExternalLink className="w-4 h-4 text-slate-100" />
                   <span className="sr-only">opens in new tab</span>
                 </>
               )}
             </h3>
             {link.description && (
-              <p className="text-sm text-gray-300">{link.description}</p>
+              <p className="text-sm text-slate-100">{link.description}</p>
             )}
           </div>
         </div>
@@ -354,7 +354,7 @@ export default function LinksPage() {
             {copiedUrl === link.title ? (
               <Check className="w-4 h-4 text-green-400" />
             ) : (
-              <Copy className="w-4 h-4 text-gray-300 group-hover:text-white" />
+              <Copy className="w-4 h-4 text-slate-100 group-hover:text-white" />
             )}
           </button>
         )}
@@ -387,8 +387,8 @@ export default function LinksPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-purple-900/10 to-gray-900">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="flex items-center gap-2 text-sm text-gray-300 mb-8">
+      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
@@ -404,7 +404,7 @@ export default function LinksPage() {
               </div>
               <div>
                 <h1 className="heading-1">ConnectOnion Links</h1>
-                <p className="text-lg text-gray-300">
+                <p className="text-lg text-slate-100">
                   All our platforms and resources in one place. Build AI agents with simple, powerful Python code.
                 </p>
               </div>
@@ -473,7 +473,7 @@ export default function LinksPage() {
                           <Sparkles className="w-3 h-3" />
                           <span>Quick Access</span>
                         </div>
-                        <div className="text-gray-300">•</div>
+                        <div className="text-slate-100">•</div>
                         <div className="flex items-center gap-1 text-xs text-gray-500">
                           <LinkIcon className="w-3 h-3" />
                           <span>All Links</span>
@@ -499,7 +499,7 @@ export default function LinksPage() {
                   {section.title}
                 </h2>
                 {section.description && (
-                  <p className="text-base text-gray-300">{section.description}</p>
+                  <p className="text-base text-slate-100">{section.description}</p>
                 )}
               </div>
               
@@ -513,7 +513,7 @@ export default function LinksPage() {
         </div>
         
         <div className="mt-16 pt-8 border-t border-gray-700 text-center">
-          <p className="text-gray-300 mb-4">
+          <p className="text-slate-100 mb-4">
             ConnectOnion is open source and community-driven
           </p>
           <div className="flex items-center justify-center gap-2 text-sm text-gray-500">

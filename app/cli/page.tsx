@@ -65,20 +65,20 @@ export default function CLIPage() {
 
 
   return (
-    <div className="px-4 md:px-8 py-8 md:py-12 lg:py-12">
+    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
       {/* Header with Copy Button */}
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">
         <div className="flex-1">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-300 mb-4">
+          <nav className="flex items-center gap-2 text-sm text-slate-100 mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ArrowRight className="w-4 h-4" />
             <span className="text-white">CLI Reference</span>
           </nav>
           
           <h1 className="h1 md:"heading-1>CLI Reference</h1>
-          <p className="text-lg md:text-xl text-gray-300">
+          <p className="text-lg md:text-xl text-slate-100">
             Quickly scaffold and manage ConnectOnion agent projects with the CLI.
           </p>
         </div>
@@ -91,15 +91,15 @@ export default function CLIPage() {
       
       {/* Quick Command Cheat Sheet */}
       <div className="mb-12 p-4 bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/30 rounded-lg">
-        <h2 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
+        <h2 className="text-base font-semibold text-white mb-4 flex items-center gap-2">
           <BookOpen className="w-4 h-4 text-blue-400" />
           Quick Reference
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-          <div className="font-mono text-blue-300">co create <span className="text-gray-300">→ New project</span></div>
-          <div className="font-mono text-blue-300">co init <span className="text-gray-300">→ Current directory</span></div>
-          <div className="font-mono text-blue-300">co create --ai <span className="text-gray-300">→ With AI features</span></div>
-          <div className="font-mono text-blue-300">co -b "screenshot..." <span className="text-gray-300">→ Browser commands</span></div>
+          <div className="font-mono text-blue-300">co create <span className="text-slate-100">→ New project</span></div>
+          <div className="font-mono text-blue-300">co init <span className="text-slate-100">→ Current directory</span></div>
+          <div className="font-mono text-blue-300">co create --ai <span className="text-slate-100">→ With AI features</span></div>
+          <div className="font-mono text-blue-300">co -b "screenshot..." <span className="text-slate-100">→ Browser commands</span></div>
         </div>
       </div>
 
@@ -110,7 +110,7 @@ export default function CLIPage() {
           Installation
         </h2>
         
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           The CLI is automatically installed when you install ConnectOnion:
         </p>
 
@@ -133,35 +133,35 @@ export default function CLIPage() {
           Commands Overview
         </h2>
 
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           ConnectOnion provides two main commands for project creation:
         </p>
 
         <div className="grid md:grid-cols-2 gap-4 mb-8">
           <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-4">
               <Sparkles className="w-5 h-5 text-green-400" />
               <h3 className="text-lg font-semibold text-white">co create [name]</h3>
             </div>
-            <p className="text-gray-300 text-sm">
+            <p className="text-slate-100 text-sm">
               Creates a new project directory with all necessary files
             </p>
           </div>
 
           <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-4">
               <Folder className="w-5 h-5 text-purple-400" />
               <h3 className="text-lg font-semibold text-white">co init</h3>
             </div>
-            <p className="text-gray-300 text-sm">
+            <p className="text-slate-100 text-sm">
               Initializes the current directory as a ConnectOnion project
             </p>
           </div>
         </div>
 
         <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-          <p className="text-gray-300 mb-4">Both commands share the same interactive flow:</p>
-          <ol className="space-y-2 text-gray-300">
+          <p className="text-slate-100 mb-4">Both commands share the same interactive flow:</p>
+          <ol className="space-y-2 text-slate-100">
             <li className="flex items-center gap-3">
               <span className="flex-shrink-0 w-6 h-6 bg-blue-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-300">1</span>
               <span>AI feature toggle (Yes/No)</span>
@@ -185,7 +185,7 @@ export default function CLIPage() {
           co create [name]
         </h2>
         
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           Create a new ConnectOnion project in a new directory.
         </p>
 
@@ -219,26 +219,26 @@ export default function CLIPage() {
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-800 border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-gray-300 font-medium">Option</th>
-                  <th className="text-left px-4 py-3 text-gray-300 font-medium">Description</th>
+                  <th className="text-left px-4 py-3 text-slate-100 font-medium">Option</th>
+                  <th className="text-left px-4 py-3 text-slate-100 font-medium">Description</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">[name]</td>
-                  <td className="px-4 py-3 text-gray-300">Optional project name (creates directory)</td>
+                  <td className="px-4 py-3 text-slate-100">Optional project name (creates directory)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">--ai/--no-ai</td>
-                  <td className="px-4 py-3 text-gray-300">Enable or disable AI features</td>
+                  <td className="px-4 py-3 text-slate-100">Enable or disable AI features</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">--key</td>
-                  <td className="px-4 py-3 text-gray-300">API key for AI provider (auto-detects provider)</td>
+                  <td className="px-4 py-3 text-slate-100">API key for AI provider (auto-detects provider)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">--template</td>
-                  <td className="px-4 py-3 text-gray-300">
+                  <td className="px-4 py-3 text-slate-100">
                     Choose template: <code className="bg-gray-800 px-2 py-1 rounded text-xs">minimal</code>, 
                     <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">web-research</code>, 
                     <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">custom</code>
@@ -246,11 +246,11 @@ export default function CLIPage() {
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">--description</td>
-                  <td className="px-4 py-3 text-gray-300">Description for custom template (requires AI)</td>
+                  <td className="px-4 py-3 text-slate-100">Description for custom template (requires AI)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">--yes, -y</td>
-                  <td className="px-4 py-3 text-gray-300">Skip all prompts, use defaults</td>
+                  <td className="px-4 py-3 text-slate-100">Skip all prompts, use defaults</td>
                 </tr>
               </tbody>
             </table>
@@ -263,10 +263,10 @@ export default function CLIPage() {
           
           <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
             <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
-              <span className="text-sm text-gray-300 font-mono">Terminal Output</span>
+              <span className="text-sm text-slate-100 font-mono">Terminal Output</span>
             </div>
             <div className="p-6">
-              <pre className="text-sm text-gray-300 font-mono">
+              <pre className="text-sm text-slate-100 font-mono">
 {`$ co create
 
 ✔ Project name: … my-agent
@@ -296,7 +296,7 @@ Next steps:
           co init
         </h2>
         
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           Initialize a ConnectOnion project in the current directory.
         </p>
 
@@ -332,7 +332,7 @@ Next steps:
           Browser Features
         </h2>
 
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           Guide the browser to do something using natural language commands. Use <code className="bg-gray-800 px-2 py-1 rounded">-b</code> (short for browser) or the full <code className="bg-gray-800 px-2 py-1 rounded">browser</code> subcommand:
         </p>
 
@@ -368,15 +368,15 @@ Next steps:
           <div className="grid grid-cols-3 gap-4 text-sm">
             <div>
               <span className="font-semibold text-yellow-200">iPhone</span>
-              <p className="text-gray-300">390×844</p>
+              <p className="text-slate-100">390×844</p>
             </div>
             <div>
               <span className="font-semibold text-yellow-200">iPad</span>
-              <p className="text-gray-300">768×1024</p>
+              <p className="text-slate-100">768×1024</p>
             </div>
             <div>
               <span className="font-semibold text-yellow-200">Desktop</span>
-              <p className="text-gray-300">1920×1080 (default)</p>
+              <p className="text-slate-100">1920×1080 (default)</p>
             </div>
           </div>
         </div>
@@ -392,14 +392,14 @@ Next steps:
         <div className="space-y-6">
           {/* Minimal Template */}
           <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
               Minimal
             </h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-slate-100 mb-4">
               Basic agent structure with essential components:
             </p>
-            <ul className="space-y-2 text-gray-300 text-sm">
+            <ul className="space-y-2 text-slate-100 text-sm">
               <li className="flex items-center gap-2">
                 <ChevronRight className="w-4 h-4 text-blue-400" />
                 Simple agent.py with basic tools
@@ -417,14 +417,14 @@ Next steps:
 
           {/* Web Research Template */}
           <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full"></div>
               Web Research
             </h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-slate-100 mb-4">
               Advanced template for data analysis and web scraping:
             </p>
-            <ul className="space-y-2 text-gray-300 text-sm">
+            <ul className="space-y-2 text-slate-100 text-sm">
               <li className="flex items-center gap-2">
                 <ChevronRight className="w-4 h-4 text-green-400" />
                 Web scraping tools
@@ -446,15 +446,15 @@ Next steps:
 
           {/* Custom Template */}
           <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
               Custom (AI-only)
             </h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-slate-100 mb-4">
               Only available when AI is enabled. Generates a complete custom template based on your description:
             </p>
             <div className="bg-black/30 rounded-lg p-4">
-              <pre className="text-sm text-gray-300 font-mono">
+              <pre className="text-sm text-slate-100 font-mono">
 {`✔ Choose template: Custom
 ✔ Describe what you want to build: … 
   I need an agent that monitors GitHub repos and 
@@ -475,7 +475,7 @@ Generating custom template with AI...
           API Key Detection
         </h2>
 
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-100 mb-6">
           The CLI automatically detects your API provider from the key format:
         </p>
 
@@ -483,31 +483,31 @@ Generating custom template with AI...
           <table className="w-full">
             <thead>
               <tr className="bg-gray-800 border-b border-gray-700">
-                <th className="text-left px-4 py-3 text-gray-300 font-medium">Provider</th>
-                <th className="text-left px-4 py-3 text-gray-300 font-medium">Key Format</th>
-                <th className="text-left px-4 py-3 text-gray-300 font-medium">Example</th>
+                <th className="text-left px-4 py-3 text-slate-100 font-medium">Provider</th>
+                <th className="text-left px-4 py-3 text-slate-100 font-medium">Key Format</th>
+                <th className="text-left px-4 py-3 text-slate-100 font-medium">Example</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-700">
               <tr>
                 <td className="px-4 py-3 text-white font-medium">OpenAI</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">sk-... or sk-proj-...</td>
-                <td className="px-4 py-3 font-mono text-xs text-gray-300">sk-proj-abc123...</td>
+                <td className="px-4 py-3 font-mono text-xs text-slate-100">sk-proj-abc123...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Anthropic</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">sk-ant-...</td>
-                <td className="px-4 py-3 font-mono text-xs text-gray-300">sk-ant-api03-xyz...</td>
+                <td className="px-4 py-3 font-mono text-xs text-slate-100">sk-ant-api03-xyz...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Google</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">AIza...</td>
-                <td className="px-4 py-3 font-mono text-xs text-gray-300">AIzaSyAbc123...</td>
+                <td className="px-4 py-3 font-mono text-xs text-slate-100">AIzaSyAbc123...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Groq</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">gsk_...</td>
-                <td className="px-4 py-3 font-mono text-xs text-gray-300">gsk_abc123...</td>
+                <td className="px-4 py-3 font-mono text-xs text-slate-100">gsk_abc123...</td>
               </tr>
             </tbody>
           </table>
@@ -590,10 +590,10 @@ Generating custom template with AI...
             <Shield className="w-5 h-5 text-purple-400" />
             Agent Identity
           </h3>
-          <p className="text-gray-300 mb-4">
+          <p className="text-slate-100 mb-4">
             Every project automatically gets:
           </p>
-          <ul className="space-y-2 text-gray-300">
+          <ul className="space-y-2 text-slate-100">
             <li className="flex items-start gap-2">
               <Key className="w-4 h-4 text-purple-400 mt-0.5" />
               <div>
@@ -658,34 +658,34 @@ Generating custom template with AI...
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
-            <Terminal className="w-8 h-8 text-purple-400 mb-3" />
+            <Terminal className="w-8 h-8 text-purple-400 mb-4" />
             <h3 className="text-lg font-semibold text-white mb-2">Choose the Right Command</h3>
-            <p className="text-gray-300 text-sm">
+            <p className="text-slate-100 text-sm">
               Use <code className="bg-black/30 px-2 py-1 rounded">co create</code> for new projects, 
               <code className="bg-black/30 px-2 py-1 rounded ml-1">co init</code> for existing directories.
             </p>
           </div>
 
           <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
-            <Key className="w-8 h-8 text-green-400 mb-3" />
+            <Key className="w-8 h-8 text-green-400 mb-4" />
             <h3 className="text-lg font-semibold text-white mb-2">API Key Security</h3>
-            <p className="text-gray-300 text-sm">
+            <p className="text-slate-100 text-sm">
               Never commit <code className="bg-black/30 px-2 py-1 rounded">.env</code> files. Store API keys securely.
             </p>
           </div>
 
           <div className="bg-gradient-to-b from-orange-900/20 to-orange-800/10 border border-orange-500/30 rounded-lg p-6">
-            <Code className="w-8 h-8 text-orange-400 mb-3" />
+            <Code className="w-8 h-8 text-orange-400 mb-4" />
             <h3 className="text-lg font-semibold text-white mb-2">Template Selection</h3>
-            <p className="text-gray-300 text-sm">
+            <p className="text-slate-100 text-sm">
               Start with Minimal for learning. Use Custom (with AI) for specific needs.
             </p>
           </div>
 
           <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-6">
-            <Shield className="w-8 h-8 text-blue-400 mb-3" />
+            <Shield className="w-8 h-8 text-blue-400 mb-4" />
             <h3 className="text-lg font-semibold text-white mb-2">Agent Keys</h3>
-            <p className="text-gray-300 text-sm">
+            <p className="text-slate-100 text-sm">
               Never share <code className="bg-black/30 px-2 py-1 rounded">.co/keys/</code> directory. Backup your recovery phrase.
             </p>
           </div>
@@ -698,8 +698,8 @@ Generating custom template with AI...
 
         <div className="space-y-6">
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-3">Command Not Found</h3>
-            <p className="text-gray-300 mb-4">
+            <h3 className="text-lg font-semibold text-white mb-4">Command Not Found</h3>
+            <p className="text-slate-100 mb-4">
               If <code className="bg-gray-800 px-2 py-1 rounded">co</code> command is not found after installation:
             </p>
             <CommandBlock 
@@ -715,8 +715,8 @@ Generating custom template with AI...
           </div>
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-3">Python Version</h3>
-            <p className="text-gray-300 mb-4">
+            <h3 className="text-lg font-semibold text-white mb-4">Python Version</h3>
+            <p className="text-slate-100 mb-4">
               ConnectOnion requires Python 3.8 or higher. Check your version:
             </p>
             <CommandBlock 
@@ -725,18 +725,18 @@ Generating custom template with AI...
           </div>
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-3">API Key Issues</h3>
-            <ul className="space-y-2 text-gray-300">
+            <h3 className="text-lg font-semibold text-white mb-4">API Key Issues</h3>
+            <ul className="space-y-2 text-slate-100">
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-gray-300" />
+                <ChevronRight className="w-4 h-4 text-slate-100" />
                 Check key format matches your provider
               </li>
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-gray-300" />
+                <ChevronRight className="w-4 h-4 text-slate-100" />
                 Ensure key is active and has credits
               </li>
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-gray-300" />
+                <ChevronRight className="w-4 h-4 text-slate-100" />
                 Try pasting without quotes or spaces
               </li>
             </ul>
