@@ -165,8 +165,9 @@ session = agent.current_session    # Access internal state`}</code></pre>
             <h3 className="text-xl font-semibold text-white mb-4">Attributes You Can Access</h3>
             <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
               <pre className="text-sm"><code className="text-slate-100">{`agent.name                # str: Agent identifier
-agent.tools               # List[Callable]: All tools
-agent.tool_map            # Dict: Fast tool lookup
+agent.tools               # ToolRegistry: All tools
+agent.tools.names()       # list[str]: Tool names
+agent.tools.get("name")   # Tool: Get by name
 agent.system_prompt       # str: Personality
 agent.current_session     # dict | None: Runtime state`}</code></pre>
             </div>

@@ -28,7 +28,7 @@ export default function OnEventsPage() {
 
 Hook into agent lifecycle to add logging, monitoring, reflection, and custom behavior at every step.
 
-## 6 Event Types
+## 7 Event Types
 
 - **after_user_input**: Fires once per turn
 - **before_llm**: Before each LLM call
@@ -36,6 +36,7 @@ Hook into agent lifecycle to add logging, monitoring, reflection, and custom beh
 - **before_tool**: Before tool execution
 - **after_tool**: After successful tool execution
 - **on_error**: When tool execution fails
+- **on_complete**: Fires once after agent finishes task
 
 ## Quick Start
 
@@ -64,6 +65,28 @@ agent.input("Search for Python")
 ⚡ LLM call: 831ms
 "I found results for Python..."
 \`\`\`
+
+**Group multiple handlers:**
+
+\`\`\`python
+def check_shell(agent):
+    ...
+
+def check_email(agent):
+    ...
+
+agent = Agent(
+    "assistant",
+    on_events=[
+        before_tool(check_shell, check_email),  # group handlers for same event
+    ]
+)
+\`\`\`
+
+> **Note: Decorator Syntax**
+> You can also use \`@before_tool\` decorator instead of \`before_tool(fn)\`.
+> We recommend wrapper style because it's easier for LLMs to understand.
+> But if you prefer decorators, they work too.
 
 ## All Event Types
 
@@ -298,12 +321,12 @@ Errors: 0
           </div>
         </div>
 
-        {/* 6 Event Types Visual */}
+        {/* 7 Event Types Visual */}
         <section className="mb-12">
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 md:p-8">
             <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
               <GitBranch className="text-blue-400 w-5 h-5" />
-              6 Event Types
+              7 Event Types
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-3">
@@ -365,6 +388,16 @@ Errors: 0
                   <div className="text-slate-100 text-xs">When tool execution fails</div>
                 </div>
               </div>
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-emerald-900/50 border border-emerald-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <Clock className="text-emerald-400 w-4 h-4" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">on_complete</div>
+                  <div className="text-slate-100 text-xs">After agent finishes task</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -406,6 +439,38 @@ agent.input("Search for Python")`}
             <div className="bg-blue-900/20 border-l-4 border-blue-500 p-4 my-6 rounded-r">
               <p className="text-sm text-slate-100">
                 <strong className="text-blue-400">Tip:</strong> Event handlers receive the <code className="text-blue-300 bg-blue-950/50 px-1 rounded">agent</code> instance, giving you full access to <code className="text-blue-300 bg-blue-950/50 px-1 rounded">current_session</code>, messages, trace, and more.
+              </p>
+            </div>
+
+            <h3 className="text-lg font-semibold mb-4 text-gray-100">Group multiple handlers</h3>
+            <p className="text-slate-100 mb-4">
+              You can pass multiple handlers to the same event type:
+            </p>
+
+            <CodeWithResult
+              code={`def check_shell(agent):
+    ...
+
+def check_email(agent):
+    ...
+
+agent = Agent(
+    "assistant",
+    on_events=[
+        before_tool(check_shell, check_email),  # group handlers for same event
+    ]
+)`}
+              result={`# Both handlers fire before each tool execution
+# Cleaner than listing them separately`}
+              language="python"
+            />
+
+            <div className="bg-gray-800/50 border border-gray-700 p-4 my-6 rounded-lg">
+              <p className="text-sm text-slate-100">
+                <strong className="text-gray-300">Note: Decorator Syntax</strong><br/>
+                You can also use <code className="text-blue-300 bg-blue-950/50 px-1 rounded">@before_tool</code> decorator instead of <code className="text-blue-300 bg-blue-950/50 px-1 rounded">before_tool(fn)</code>.
+                We recommend wrapper style because it's easier for LLMs to understand when reading your code.
+                But if you prefer decorators, they work too.
               </p>
             </div>
           </section>
@@ -559,6 +624,37 @@ agent = Agent("assistant", tools=[api_call], on_events=[
                   language="python"
                 />
               </div>
+
+              {/* on_complete */}
+              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-emerald-900/50 border border-emerald-500 rounded flex items-center justify-center">
+                    <Clock className="text-emerald-400 w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-100">on_complete</h3>
+                    <p className="text-sm text-slate-100">Fires once after agent finishes task</p>
+                  </div>
+                </div>
+                <CodeWithResult
+                  code={`def log_completion(agent):
+    """Log task completion with stats"""
+    trace = agent.current_session['trace']
+
+    llm_calls = sum(1 for t in trace if t['type'] == 'llm_call')
+    tool_calls = sum(1 for t in trace if t['type'] == 'tool_execution')
+    errors = sum(1 for t in trace if t.get('status') == 'error')
+
+    print(f"✅ Task complete: {llm_calls} LLM calls, {tool_calls} tools, {errors} errors")
+
+agent = Agent("assistant", tools=[search], on_events=[
+    on_complete(log_completion)
+])`}
+                  result={`✅ Task complete: 2 LLM calls, 1 tools, 0 errors
+# Useful for: metrics, cleanup, notifications, logging`}
+                  language="python"
+                />
+              </div>
             </div>
           </section>
 
@@ -571,7 +667,7 @@ agent = Agent("assistant", tools=[api_call], on_events=[
             </p>
 
             <CodeWithResult
-              code={`from connectonion import Agent, after_user_input, after_llm, after_tool, on_error
+              code={`from connectonion import Agent, after_user_input, after_llm, after_tool, on_error, on_complete
 from datetime import datetime
 
 def log_session_start(agent):
@@ -591,6 +687,9 @@ def handle_errors(agent):
     trace = agent.current_session['trace'][-1]
     print(f"❌ Error: {trace.get('error')}")
 
+def log_completion(agent):
+    print(f"✅ Task complete")
+
 agent = Agent(
     "full_monitoring",
     tools=[search, analyze],
@@ -598,7 +697,8 @@ agent = Agent(
         after_user_input(log_session_start),
         after_llm(track_llm),
         after_tool(track_tools),
-        on_error(handle_errors)
+        on_error(handle_errors),
+        on_complete(log_completion)
     ]
 )
 
@@ -609,6 +709,7 @@ agent.input("Search and analyze Python")`}
 ⚡ LLM: 831ms
 🔧 Tool: analyze
 ⚡ LLM: 1142ms
+✅ Task complete
 "Analysis complete..."`}
               language="python"
             />
@@ -837,6 +938,10 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_error(func: Callable[[Agent], None]) → EventHandler</code>
                   <p className="text-slate-100 mt-2">Wraps a function to fire when tool execution fails or tool is not found.</p>
+                </div>
+                <div>
+                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_complete(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-slate-100 mt-2">Wraps a function to fire once after agent completes the task.</p>
                 </div>
               </div>
             </div>
