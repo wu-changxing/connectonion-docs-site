@@ -97,6 +97,124 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Why ConnectOnion - Key Features */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-transparent via-green-900/5 to-transparent">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-6">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-green-500" />
+              <span className="text-green-400 text-sm font-mono uppercase tracking-wider">Zero Friction</span>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-green-500" />
+            </div>
+            <h2 className="heading-2">
+              Start Building in <span className="text-green-400">60 Seconds</span>
+            </h2>
+            <p className="text-lg text-slate-200">
+              No API keys. No credit cards. No waiting. Just <code className="text-green-400 bg-green-950/30 px-2 py-0.5 rounded">pip install</code> and go.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {/* Free Credits */}
+            <div className="card-interactive bg-gradient-to-br from-green-900/40 to-green-900/10 rounded-xl p-6 border-2 border-green-500/50 relative overflow-hidden">
+              <div className="absolute top-3 right-3">
+                <span className="bg-green-500 text-black text-xs font-bold px-2 py-1 rounded-full animate-pulse">FREE</span>
+              </div>
+              <div className="text-4xl mb-4">🎁</div>
+              <h3 className="text-xl font-bold text-white mb-3">Free Credits Included</h3>
+              <p className="text-slate-200 text-sm mb-4">
+                <strong className="text-green-400">No API key needed.</strong> Get started immediately with free credits for GPT-4o, Claude, and Gemini.
+              </p>
+              <div className="bg-black/40 rounded-lg p-3 font-mono text-sm border border-green-500/20">
+                <span className="text-green-400">model=</span>
+                <span className="text-yellow-300">"co/gemini-2.5-pro"</span>
+              </div>
+              <p className="text-xs text-slate-100 mt-3">
+                Check balance: <code className="text-green-400 bg-black/30 px-1.5 py-0.5 rounded">co status</code>
+              </p>
+            </div>
+
+            {/* Built-in Tools */}
+            <div className="card-interactive bg-gradient-to-br from-blue-900/30 to-blue-900/10 rounded-xl p-6 border border-blue-500/30">
+              <div className="text-4xl mb-4">🧰</div>
+              <h3 className="text-xl font-bold text-white mb-3">Batteries Included</h3>
+              <p className="text-slate-200 text-sm mb-4">
+                <strong className="text-blue-400">Ready-to-use integrations.</strong> No extra setup. No OAuth headaches.
+              </p>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center gap-2">
+                  <span className="text-blue-400">📧</span>
+                  <span className="text-slate-200">Gmail - Read, send, search</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-blue-400">📅</span>
+                  <span className="text-slate-200">Calendar - Create events</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-blue-400">🌐</span>
+                  <span className="text-slate-200">WebFetch - Fetch pages</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-blue-400">💾</span>
+                  <span className="text-slate-200">Memory - Key-value store</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Human Approval */}
+            <div className="card-interactive bg-gradient-to-br from-purple-900/30 to-purple-900/10 rounded-xl p-6 border border-purple-500/30">
+              <div className="text-4xl mb-4">🛡️</div>
+              <h3 className="text-xl font-bold text-white mb-3">Human-in-the-Loop</h3>
+              <p className="text-slate-200 text-sm mb-4">
+                <strong className="text-purple-400">Stay in control.</strong> Agent pauses and asks before sensitive actions.
+              </p>
+              <div className="bg-black/30 rounded-lg p-3 font-mono text-xs">
+                <div className="text-slate-100">plugins=[</div>
+                <div className="text-purple-400 pl-4">gmail_plugin,</div>
+                <div className="text-purple-400 pl-4">calendar_plugin</div>
+                <div className="text-slate-100">]</div>
+              </div>
+              <p className="text-xs text-slate-100 mt-3">
+                Never sends emails without your approval
+              </p>
+            </div>
+          </div>
+
+          {/* Quick Example */}
+          <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 rounded-xl p-6 md:p-8 border border-gray-700">
+            <div className="flex items-center gap-3 mb-4">
+              <Rocket className="w-6 h-6 text-green-400" />
+              <h4 className="text-lg font-bold text-white">Real Email Agent in 10 Lines</h4>
+            </div>
+            <CodeWithResult
+              code={`from connectonion import Agent, Gmail, GoogleCalendar
+from connectonion.useful_plugins import gmail_plugin
+
+gmail = Gmail()
+calendar = GoogleCalendar()
+
+agent = Agent(
+    "You are an email assistant",
+    tools=[gmail, calendar],
+    plugins=[gmail_plugin]  # Asks before sending
+)
+
+agent.input("Check my inbox and summarize today's emails")`}
+              result={`📧 Inbox Summary (Today):
+
+1. Meeting request from Sarah - Project review at 3pm
+2. Newsletter from TechCrunch - AI startup funding news
+3. Invoice from AWS - $127.43 due Dec 15
+
+Action needed: 1 meeting to confirm, 1 invoice to review`}
+            />
+            <p className="text-center text-slate-100 text-sm mt-4">
+              This is a <strong className="text-green-400">real, working agent</strong>. Not a demo. Not a mockup.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Philosophy Section */}
       <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-gray-900/40 to-transparent relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-transparent" />
