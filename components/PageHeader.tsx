@@ -1,20 +1,23 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, LucideIcon } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { CopyMarkdownButton } from './CopyMarkdownButton'
-import { ReactNode } from 'react'
+import { ReactNode, ComponentType } from 'react'
 
 interface BreadcrumbItem {
   label: string
   href?: string
 }
 
+// Accept both Lucide icons and react-icons
+type IconComponent = ComponentType<{ className?: string }>
+
 interface PageHeaderProps {
   // Breadcrumb navigation
   breadcrumbs: BreadcrumbItem[]
-  // Page icon
-  icon: LucideIcon
+  // Page icon (Lucide or react-icons)
+  icon: IconComponent
   iconColor?: string // e.g., "text-purple-400"
   iconBgFrom?: string // e.g., "from-purple-600/20"
   iconBgTo?: string // e.g., "to-pink-600/20"
