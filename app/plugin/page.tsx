@@ -12,8 +12,13 @@
 'use client'
 
 import {
-  Package, ArrowRight, Layers, Code, Sparkles, Play
-} from 'lucide-react'
+  HiOutlineCube,
+  HiOutlineArrowRight,
+  HiOutlineCodeBracket,
+  HiOutlineSparkles,
+  HiOutlinePlay
+} from 'react-icons/hi2'
+import { VscLayers } from 'react-icons/vsc'
 import CodeWithResult from '../../components/CodeWithResult'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -28,7 +33,7 @@ export default function PluginPage() {
             { label: 'Docs', href: '/' },
             { label: 'Plugin System' }
           ]}
-          icon={Package}
+          icon={HiOutlineCube}
           iconColor="text-purple-400"
           iconBgFrom="from-purple-600/20"
           iconBgTo="to-pink-600/20"
@@ -42,7 +47,7 @@ export default function PluginPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <Play className="text-purple-400 w-7 h-7" />
+            <HiOutlinePlay className="text-purple-400 w-7 h-7" />
             Quick Start
           </h2>
 
@@ -123,22 +128,22 @@ agent = Agent("a", plugins=[re_act, logger])`}
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">re_act</td>
                   <td className="px-4 py-3 text-slate-300">Planning + reflection (ReAct pattern)</td>
-                  <td className="px-4 py-3"><Link href="/re_act" className="text-purple-400 hover:underline">re_act</Link></td>
+                  <td className="px-4 py-3"><Link href="/useful_plugins#re_act" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">eval</td>
                   <td className="px-4 py-3 text-slate-300">Task evaluation for debugging</td>
-                  <td className="px-4 py-3"><Link href="/eval" className="text-purple-400 hover:underline">eval</Link></td>
+                  <td className="px-4 py-3"><Link href="/useful_plugins#eval" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">image_result_formatter</td>
                   <td className="px-4 py-3 text-slate-300">Format images for vision models</td>
-                  <td className="px-4 py-3"><Link href="/image_result_formatter" className="text-purple-400 hover:underline">image_result_formatter</Link></td>
+                  <td className="px-4 py-3"><Link href="/useful_plugins#image_result_formatter" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">shell_approval</td>
                   <td className="px-4 py-3 text-slate-300">Approve shell commands before execution</td>
-                  <td className="px-4 py-3"><Link href="/shell_approval" className="text-purple-400 hover:underline">shell_approval</Link></td>
+                  <td className="px-4 py-3"><Link href="/useful_plugins#shell_approval" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
               </tbody>
             </table>
@@ -203,7 +208,7 @@ writer = Agent("writer", tools=[generate], plugins=[logger])`}
         {/* What's Next */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <ArrowRight className="text-purple-400 w-6 h-6" />
+            <HiOutlineArrowRight className="text-purple-400 w-6 h-6" />
             Next Steps
           </h2>
 
@@ -213,7 +218,7 @@ writer = Agent("writer", tools=[generate], plugins=[logger])`}
               className="group bg-gradient-to-r from-purple-900/20 to-purple-800/20 border border-purple-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all"
             >
               <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
-                <Layers className="text-white w-6 h-6" />
+                <VscLayers className="text-white w-6 h-6" />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">
                 Events
@@ -228,7 +233,7 @@ writer = Agent("writer", tools=[generate], plugins=[logger])`}
               className="group bg-gradient-to-r from-blue-900/20 to-blue-800/20 border border-blue-500/30 rounded-xl p-6 hover:border-blue-400/50 transition-all"
             >
               <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                <Code className="text-white w-6 h-6" />
+                <HiOutlineCodeBracket className="text-white w-6 h-6" />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">
                 llm_do
@@ -243,7 +248,7 @@ writer = Agent("writer", tools=[generate], plugins=[logger])`}
               className="group bg-gradient-to-r from-green-900/20 to-green-800/20 border border-green-500/30 rounded-xl p-6 hover:border-green-400/50 transition-all"
             >
               <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4">
-                <Sparkles className="text-white w-6 h-6" />
+                <HiOutlineSparkles className="text-white w-6 h-6" />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">
                 Examples
