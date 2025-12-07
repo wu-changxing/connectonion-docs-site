@@ -6,7 +6,7 @@
 
 'use client'
 
-import { Upload, ArrowRight, Zap, Server, Cloud, Shield, Check, Terminal, Code, Layers, Globe, Package, Settings } from 'lucide-react'
+import { HiOutlineArrowUpTray, HiOutlineArrowRight, HiOutlineBolt, HiOutlineServer, HiOutlineCloud, HiOutlineShieldCheck, HiOutlineCheck, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineSquare3Stack3D, HiOutlineGlobeAlt, HiOutlineCube, HiOutlineCog6Tooth } from 'react-icons/hi2'
 import Link from 'next/link'
 import CodeWithResult from '../../components/CodeWithResult'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -22,7 +22,7 @@ export default function DeployPage() {
             { label: 'Getting Started', href: '/' },
             { label: 'Deploy' },
           ]}
-          icon={Upload}
+          icon={HiOutlineArrowUpTray}
           iconColor="text-blue-400"
           iconBgFrom="from-blue-600/20"
           iconBgTo="to-purple-600/20"
@@ -44,7 +44,7 @@ export default function DeployPage() {
         {/* 60-Second Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Zap className="w-8 h-8 text-yellow-400" />
+            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
             60-Second Quick Start
           </h2>
 
@@ -76,19 +76,19 @@ Done! Run 'cd my-agent && co deploy' to deploy.`}
             <h3 className="text-lg font-semibold text-emerald-100 mb-4">What Gets Created?</h3>
             <div className="space-y-2 text-slate-100">
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>agent.py</strong> - Your agent with tools and system prompt</span>
               </div>
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Dockerfile</strong> - Production-ready container configuration</span>
               </div>
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>requirements.txt</strong> - All dependencies pinned</span>
               </div>
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>.env.example</strong> - Environment variable template</span>
               </div>
             </div>
@@ -98,7 +98,7 @@ Done! Run 'cd my-agent && co deploy' to deploy.`}
         {/* Docker Deployment */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Package className="w-8 h-8 text-cyan-400" />
+            <HiOutlineCube className="w-8 h-8 text-cyan-400" />
             Docker Deployment
           </h2>
 
@@ -178,7 +178,7 @@ Agent serving at: 0x3d4017c3e843895a...`}
         {/* GCP Cloud Run */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Cloud className="w-8 h-8 text-blue-400" />
+            <HiOutlineCloud className="w-8 h-8 text-blue-400" />
             Deploy to Google Cloud Run
           </h2>
 
@@ -234,7 +234,7 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
         {/* AWS Deployment */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Server className="w-8 h-8 text-orange-400" />
+            <HiOutlineServer className="w-8 h-8 text-orange-400" />
             Deploy to AWS
           </h2>
 
@@ -245,7 +245,7 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-orange-100 mb-4 flex items-center gap-2">
-                <Server className="w-5 h-5" />
+                <HiOutlineServer className="w-5 h-5" />
                 EC2 / Lightsail
               </h3>
               <p className="text-slate-100 mb-4">
@@ -253,15 +253,15 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
               </p>
               <ul className="space-y-2 text-slate-100 text-sm">
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Full control over environment</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Predictable pricing</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Easy SSH access</span>
                 </li>
               </ul>
@@ -269,7 +269,7 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
 
             <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-purple-100 mb-4 flex items-center gap-2">
-                <Layers className="w-5 h-5" />
+                <HiOutlineSquare3Stack3D className="w-5 h-5" />
                 ECS / Fargate
               </h3>
               <p className="text-slate-100 mb-4">
@@ -277,15 +277,15 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
               </p>
               <ul className="space-y-2 text-slate-100 text-sm">
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Auto-scaling built in</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Load balancing</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Rolling deployments</span>
                 </li>
               </ul>
@@ -315,7 +315,7 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
         {/* Environment Variables */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Settings className="w-8 h-8 text-gray-400" />
+            <HiOutlineCog6Tooth className="w-8 h-8 text-gray-400" />
             Environment Variables
           </h2>
 
@@ -370,7 +370,7 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
         {/* Best Practices */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Shield className="w-8 h-8 text-green-400" />
+            <HiOutlineShieldCheck className="w-8 h-8 text-green-400" />
             Best Practices
           </h2>
 
@@ -379,19 +379,19 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
               <h3 className="text-lg font-semibold text-green-100 mb-4">Security</h3>
               <ul className="space-y-2 text-slate-100">
                 <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5" />
                   <span>Use secret managers for API keys</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5" />
                   <span>Never commit <code className="bg-gray-800 px-1 rounded">.co/</code> or <code className="bg-gray-800 px-1 rounded">.env</code></span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5" />
                   <span>Use non-root container users</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5" />
                   <span>Enable HTTPS for all endpoints</span>
                 </li>
               </ul>
@@ -401,19 +401,19 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
               <h3 className="text-lg font-semibold text-blue-100 mb-4">Reliability</h3>
               <ul className="space-y-2 text-slate-100">
                 <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-blue-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-blue-400 mt-0.5" />
                   <span>Add health checks to containers</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-blue-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-blue-400 mt-0.5" />
                   <span>Set up automatic restarts</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-blue-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-blue-400 mt-0.5" />
                   <span>Configure logging and monitoring</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-blue-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-blue-400 mt-0.5" />
                   <span>Use persistent volumes for keys</span>
                 </li>
               </ul>
@@ -433,14 +433,14 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
                 href="/serve"
                 className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
-                <Globe className="w-5 h-5" />
+                <HiOutlineGlobeAlt className="w-5 h-5" />
                 Agent Serving
               </Link>
               <Link
                 href="/connect"
                 className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
-                <Code className="w-5 h-5" />
+                <HiOutlineCodeBracket className="w-5 h-5" />
                 Connect to Agents
               </Link>
             </div>

@@ -1,4 +1,4 @@
-import { ArrowRight, FileText, Code, Search, GitBranch, CheckCircle, AlertCircle, Settings, RefreshCw, Database, Globe, Shield, Clock } from 'lucide-react'
+import { HiOutlineArrowRight, HiOutlineDocumentText, HiOutlineCodeBracket, HiOutlineMagnifyingGlass, HiOutlineCheckCircle, HiOutlineExclamationCircle, HiOutlineCog6Tooth, HiOutlineArrowPath, HiOutlineCircleStack, HiOutlineGlobeAlt, HiOutlineShieldCheck, HiOutlineClock } from 'react-icons/hi2'
 import Link from 'next/link'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -12,7 +12,7 @@ export default function WebsiteMaintenancePage() {
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <span className="text-white">Website Maintenance</span>
       </div>
 
@@ -21,7 +21,7 @@ export default function WebsiteMaintenancePage() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl border border-blue-500/30">
-              <Settings className="w-8 h-8 text-blue-400" />
+              <HiOutlineCog6Tooth className="w-8 h-8 text-blue-400" />
             </div>
             <div>
               <h1 className="heading-1">Website Maintenance</h1>
@@ -38,7 +38,7 @@ export default function WebsiteMaintenancePage() {
         {/* Overview */}
         <section>
           <h2 className="heading-2">
-            <FileText className="mr-2 h-6 w-6 text-blue-500" />
+            <HiOutlineDocumentText className="mr-2 h-6 w-6 text-blue-500" />
             Three-Step Process
           </h2>
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-blue-200 dark:border-gray-700">
@@ -110,14 +110,14 @@ Detailed technical documentation.`}</code>
           <div className="mt-6">
             <h3 className="text-lg font-medium mb-4">Page Template</h3>
             <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
-              <code>{`import { ArrowLeft } from 'lucide-react'
+              <code>{`import { HiOutlineArrowLeft } from 'react-icons/hi2'
 import Link from 'next/link'
 
 export default function YourFeaturePage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Link href="/" className="inline-flex items-center mb-8">
-        <ArrowLeft className="mr-2 h-4 w-4" />
+        <HiOutlineArrowLeft className="mr-2 h-4 w-4" />
         Back to Home
       </Link>
       
@@ -181,7 +181,7 @@ export default function YourFeaturePage() {
         {/* Testing */}
         <section>
           <h2 className="heading-2">
-            <Code className="mr-2 h-6 w-6 text-green-500" />
+            <HiOutlineCodeBracket className="mr-2 h-6 w-6 text-green-500" />
             Testing Your Changes
           </h2>
           
@@ -193,7 +193,7 @@ export default function YourFeaturePage() {
             
             <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800">
               <h3 className="font-medium mb-2 flex items-center">
-                <AlertCircle className="mr-2 h-5 w-5 text-yellow-600" />
+                <HiOutlineExclamationCircle className="mr-2 h-5 w-5 text-yellow-600" />
                 Test Checklist
               </h3>
               <ul className="space-y-1 text-sm">
@@ -210,7 +210,7 @@ export default function YourFeaturePage() {
         {/* Quick Reference */}
         <section>
           <h2 className="heading-2">
-            <GitBranch className="mr-2 h-6 w-6 text-purple-500" />
+            <HiOutlineCodeBracket className="mr-2 h-6 w-6 text-purple-500" />
             Directory Structure
           </h2>
           
@@ -232,7 +232,7 @@ export default function YourFeaturePage() {
         {/* Final Checklist */}
         <section className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-green-200 dark:border-gray-700">
           <h2 className="heading-2">
-            <CheckCircle className="mr-2 h-6 w-6 text-green-500" />
+            <HiOutlineCheckCircle className="mr-2 h-6 w-6 text-green-500" />
             Final Checklist
           </h2>
           

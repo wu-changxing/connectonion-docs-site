@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Heart } from 'lucide-react'
+import { HiOutlineHeart } from 'react-icons/hi2'
 import { FaDiscord, FaGithub } from 'react-icons/fa'
 
 export default function Footer() {
@@ -58,7 +58,7 @@ export default function Footer() {
               <span>© {currentYear}</span>
               <span className="hidden sm:inline text-gray-700">·</span>
               <span className="hidden sm:flex items-center gap-1">
-                Built with <Heart className="w-4 h-4 text-red-500 fill-current" />
+                Built with <HiOutlineHeart className="w-4 h-4 text-red-500 fill-current" />
               </span>
             </div>
 

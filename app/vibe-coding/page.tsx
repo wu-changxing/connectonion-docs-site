@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { FileCode2, Copy, Check, Sparkles, ArrowRight, Zap, BookOpen, Mouse, Rocket, Code, Terminal, Download, ChevronRight, Target } from 'lucide-react'
+import { HiOutlineDocumentText, HiOutlineClipboard, HiOutlineCheck, HiOutlineSparkles, HiOutlineArrowRight, HiOutlineBolt, HiOutlineBookOpen, HiOutlineCursorArrowRays, HiOutlineRocketLaunch, HiOutlineCodeBracket, HiOutlineCommandLine, HiOutlineArrowDownTray, HiOutlineChevronRight, HiOutlineViewfinderCircle } from 'react-icons/hi2'
 import { FaBullseye, FaRocket, FaEnvelope, FaLightbulb, FaGift } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -81,9 +81,9 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
         aria-label="Copy code"
       >
         {copiedCode === id ? (
-          <Check className="w-4 h-4 text-purple-400" />
+          <HiOutlineCheck className="w-4 h-4 text-purple-400" />
         ) : (
-          <Copy className="w-4 h-4 text-gray-200" />
+          <HiOutlineClipboard className="w-4 h-4 text-gray-200" />
         )}
       </button>
       <SyntaxHighlighter 
@@ -113,7 +113,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
             { label: 'Getting Started', href: '/' },
             { label: 'Vibe-Coding Support' },
           ]}
-          icon={FileCode2}
+          icon={HiOutlineCodeBracket}
           iconColor="text-purple-400"
           iconBgFrom="from-purple-600/20"
           iconBgTo="to-pink-600/20"
@@ -129,7 +129,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
           <div className="bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl p-6 md:p-8 lg:p-10 border border-purple-500/20 mb-12">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 rounded-full border border-purple-500/30 mb-6">
-                <Terminal className="w-4 h-4 text-purple-400" />
+                <HiOutlineCommandLine className="w-4 h-4 text-purple-400" />
                 <span className="text-sm font-medium text-purple-300">Documentation-Grounded Development</span>
               </div>
               <h2 className="heading-2">
@@ -143,7 +143,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
             <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
               <div className="flex items-center gap-3 bg-gray-900/50 hover:bg-gray-900/70 rounded-lg p-4 border border-gray-700 hover:border-purple-500/50 transition-all cursor-pointer">
                 <div className="bg-purple-500/20 p-2 rounded-lg">
-                  <Terminal className="w-5 h-5 text-purple-400" />
+                  <HiOutlineCommandLine className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
                   <p className="font-semibold">1. Install Plugin</p>
@@ -152,7 +152,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
               </div>
               <div className="flex items-center gap-3 bg-gray-900/50 hover:bg-gray-900/70 rounded-lg p-4 border border-gray-700 hover:border-purple-500/50 transition-all">
                 <div className="bg-purple-500/20 p-2 rounded-lg">
-                  <Check className="w-5 h-5 text-purple-400" />
+                  <HiOutlineCheck className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
                   <p className="font-semibold">2. Review or Build</p>
@@ -161,7 +161,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
               </div>
               <div className="flex items-center gap-3 bg-gray-900/50 hover:bg-gray-900/70 rounded-lg p-4 border border-gray-700 hover:border-purple-500/50 transition-all">
                 <div className="bg-purple-500/20 p-2 rounded-lg">
-                  <Rocket className="w-5 h-5 text-purple-400" />
+                  <HiOutlineRocketLaunch className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
                   <p className="font-semibold">3. Ship</p>
@@ -177,7 +177,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
           <div className="relative bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl p-6 md:p-8 lg:p-10 border border-purple-500/30 overflow-hidden">
             <div className="flex items-center gap-4 mb-6">
               <div className="p-3 bg-purple-500/20 rounded-xl border border-purple-500/30">
-                <Terminal className="w-8 h-8 text-purple-400" />
+                <HiOutlineCommandLine className="w-8 h-8 text-purple-400" />
               </div>
               <div>
                 <h2 className="heading-2">Claude Code Plugin</h2>
@@ -188,14 +188,14 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div className="bg-gray-900/60 rounded-xl p-4 border border-gray-700">
                 <div className="flex items-center gap-2 mb-4">
-                  <Check className="w-5 h-5 text-purple-400" />
+                  <HiOutlineCheck className="w-5 h-5 text-purple-400" />
                   <h3 className="font-semibold">Documentation-Grounded</h3>
                 </div>
                 <p className="text-sm text-gray-200">Every recommendation based on actual ConnectOnion docs. No hallucinations.</p>
               </div>
               <div className="bg-gray-900/60 rounded-xl p-4 border border-gray-700">
                 <div className="flex items-center gap-2 mb-4">
-                  <Zap className="w-5 h-5 text-purple-400" />
+                  <HiOutlineBolt className="w-5 h-5 text-purple-400" />
                   <h3 className="font-semibold">Two Powerful Commands</h3>
                 </div>
                 <p className="text-sm text-gray-200"><code className="bg-gray-800 px-1 rounded">/co-review</code> for code review & <code className="bg-gray-800 px-1 rounded">/co-build</code> for agent builder</p>
@@ -215,9 +215,9 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                     className="p-2.5 min-w-[44px] min-h-[44px] bg-gray-700 hover:bg-gray-600 active:bg-gray-500 focus-visible:outline-2 focus-visible:outline-purple-400 focus-visible:outline-offset-2 rounded transition-all"
                   >
                     {copiedCode === 'plugin-marketplace' ? (
-                      <Check className="w-3.5 h-3.5 text-purple-400" />
+                      <HiOutlineCheck className="w-3.5 h-3.5 text-purple-400" />
                     ) : (
-                      <Copy className="w-3.5 h-3.5 text-gray-200" />
+                      <HiOutlineClipboard className="w-3.5 h-3.5 text-gray-200" />
                     )}
                   </button>
                 </div>
@@ -231,9 +231,9 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                     className="p-2.5 min-w-[44px] min-h-[44px] bg-gray-700 hover:bg-gray-600 active:bg-gray-500 focus-visible:outline-2 focus-visible:outline-purple-400 focus-visible:outline-offset-2 rounded transition-all"
                   >
                     {copiedCode === 'plugin-install' ? (
-                      <Check className="w-3.5 h-3.5 text-purple-400" />
+                      <HiOutlineCheck className="w-3.5 h-3.5 text-purple-400" />
                     ) : (
-                      <Copy className="w-3.5 h-3.5 text-gray-200" />
+                      <HiOutlineClipboard className="w-3.5 h-3.5 text-gray-200" />
                     )}
                   </button>
                 </div>
@@ -247,9 +247,9 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/40 rounded-lg transition-all text-sm font-medium text-purple-300"
               >
-                <Code className="w-4 h-4" />
+                <HiOutlineCodeBracket className="w-4 h-4" />
                 <span>View on GitHub</span>
-                <ChevronRight className="w-3.5 h-3.5" />
+                <HiOutlineChevronRight className="w-3.5 h-3.5" />
               </a>
               <button
                 onClick={() => {
@@ -258,7 +258,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                 }}
                 className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-lg transition-all text-sm"
               >
-                <BookOpen className="w-4 h-4" />
+                <HiOutlineBookOpen className="w-4 h-4" />
                 <span>See Examples</span>
               </button>
             </div>

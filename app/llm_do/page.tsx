@@ -42,7 +42,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import CodeWithResult from '../../components/CodeWithResult'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import { Zap } from 'lucide-react'
+import { HiOutlineBolt } from 'react-icons/hi2'
 import { FaCheckCircle } from 'react-icons/fa'
 import { PageHeader } from '../../components/PageHeader'
 
@@ -57,7 +57,7 @@ export default function LLMPage() {
           { label: 'Docs', href: '/' },
           { label: 'LLM Function' }
         ]}
-        icon={Zap}
+        icon={HiOutlineBolt}
         iconColor="text-blue-400"
         iconBgFrom="from-blue-600/20"
         iconBgTo="to-purple-600/20"

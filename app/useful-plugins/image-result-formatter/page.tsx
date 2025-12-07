@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Image, ArrowRight, Eye, Camera, Sparkles } from 'lucide-react'
+import { HiOutlinePhoto, HiOutlineArrowRight, HiOutlineEye, HiOutlineCamera, HiOutlineSparkles } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -17,7 +17,7 @@ export default function ImageResultFormatterPage() {
             { label: 'Useful Plugins', href: '/useful-plugins' },
             { label: 'image_result_formatter' },
           ]}
-          icon={Image}
+          icon={HiOutlinePhoto}
           iconColor="text-green-400"
           iconBgFrom="from-green-600/20"
           iconBgTo="to-emerald-600/20"
@@ -37,14 +37,14 @@ export default function ImageResultFormatterPage() {
           <div className="space-y-4">
             <div className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Eye className="w-5 h-5 text-green-400" />
+                <HiOutlineEye className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">Detects base64 images</h3>
               </div>
               <p className="text-sm text-slate-100">Recognizes data URLs (<code>data:image/png;base64,...</code>) and plain base64 strings.</p>
             </div>
             <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Sparkles className="w-5 h-5 text-blue-400" />
+                <HiOutlineSparkles className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">Converts to vision format</h3>
               </div>
               <p className="text-sm text-slate-100">Transforms the tool result into OpenAI vision API format so the LLM can see the image visually.</p>
@@ -182,15 +182,15 @@ def _format_image_result(agent):
           <h2 className="heading-2">Use Cases</h2>
           <ul className="space-y-2 text-slate-100">
             <li className="flex items-start gap-2">
-              <Camera className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCamera className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <span><strong>Screenshots:</strong> Browser automation tools that capture pages</span>
             </li>
             <li className="flex items-start gap-2">
-              <Camera className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCamera className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <span><strong>Image generation:</strong> Tools that create images (charts, diagrams)</span>
             </li>
             <li className="flex items-start gap-2">
-              <Camera className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCamera className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <span><strong>Visual analysis:</strong> Any tool returning visual data for LLM interpretation</span>
             </li>
           </ul>

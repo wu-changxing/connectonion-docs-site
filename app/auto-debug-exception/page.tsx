@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Bug, Zap, Check, Copy, AlertTriangle, FileCode } from 'lucide-react'
+import { HiOutlineBugAnt, HiOutlineBolt, HiOutlineCheck, HiOutlineClipboard, HiOutlineExclamationTriangle, HiOutlineCodeBracket } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -24,9 +24,9 @@ export default function AutoDebugExceptionPage() {
         aria-label="Copy code"
       >
         {copiedCode === id ? (
-          <Check className="w-4 h-4 text-green-400" />
+          <HiOutlineCheck className="w-4 h-4 text-green-400" />
         ) : (
-          <Copy className="w-4 h-4 text-slate-100" />
+          <HiOutlineClipboard className="w-4 h-4 text-slate-100" />
         )}
       </button>
       <SyntaxHighlighter
@@ -54,7 +54,7 @@ export default function AutoDebugExceptionPage() {
             { label: 'Docs', href: '/' },
             { label: 'Auto Debug Exception' }
           ]}
-          icon={Bug}
+          icon={HiOutlineBugAnt}
           iconColor="text-red-400"
           iconBgFrom="from-red-500/20"
           iconBgTo="to-orange-500/20"
@@ -68,7 +68,7 @@ export default function AutoDebugExceptionPage() {
         {/* Important Notice */}
         <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-6 mb-16">
           <div className="flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
+            <HiOutlineExclamationTriangle className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
             <div>
               <p className="font-semibold text-yellow-400 mb-2">Debugs ONLY uncaught exceptions</p>
               <p className="text-sm text-slate-100">
@@ -82,7 +82,7 @@ export default function AutoDebugExceptionPage() {
         {/* Quick Start */}
         <section className="mb-20">
           <div className="flex items-center gap-3 mb-8">
-            <Zap className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
             <h2 className="heading-2">Quick Start</h2>
             <span className="text-sm text-gray-500 bg-gray-800 px-3 py-1 rounded-full">30 seconds to AI debugging</span>
           </div>
@@ -131,7 +131,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <FileCode className="w-8 h-8 text-red-400 mb-4" />
+              <HiOutlineCodeBracket className="w-8 h-8 text-red-400 mb-4" />
               <h3 className="text-xl font-semibold mb-4">Live Runtime Access</h3>
               <p className="text-slate-100 text-sm">
                 The AI isn't just reading your code - it has access to the actual runtime state when the crash occurred.
@@ -140,7 +140,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
             </div>
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <Check className="w-8 h-8 text-green-400 mb-4" />
+              <HiOutlineCheck className="w-8 h-8 text-green-400 mb-4" />
               <h3 className="text-xl font-semibold mb-4">Verified Solutions</h3>
               <p className="text-slate-100 text-sm">
                 Every fix is tested with your actual data before being suggested.
@@ -149,7 +149,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
             </div>
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <Bug className="w-8 h-8 text-red-400 mb-4" />
+              <HiOutlineBugAnt className="w-8 h-8 text-red-400 mb-4" />
               <h3 className="text-xl font-semibold mb-4">Precise Analysis</h3>
               <p className="text-slate-100 text-sm">
                 The AI can explore your data structures, check types, validate assumptions,
@@ -365,7 +365,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-4 text-green-400 flex items-center gap-2">
-                <Check className="w-5 h-5" />
+                <HiOutlineCheck className="w-5 h-5" />
                 Debugs These
               </h3>
               <ul className="space-y-2 text-sm">
@@ -390,7 +390,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
 
             <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-4 text-red-400 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5" />
+                <HiOutlineExclamationTriangle className="w-5 h-5" />
                 Doesn't Debug These
               </h3>
               <ul className="space-y-2 text-sm">

@@ -18,7 +18,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import { Copy, Check, Users, Rocket, ArrowRight, Zap, Code, Settings, RefreshCw, Play } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineUsers, HiOutlineRocketLaunch, HiOutlineArrowRight, HiOutlineBolt, HiOutlineCodeBracket, HiOutlineCog6Tooth, HiOutlineArrowPath, HiOutlinePlay } from 'react-icons/hi2'
 import CodeWithResult from '../../components/CodeWithResult'
 import { CommandBlock } from '../../components/CommandBlock'
 import { PageHeader } from '../../components/PageHeader'
@@ -40,7 +40,7 @@ export default function AgentDocsPage() {
             { label: 'Docs', href: '/' },
             { label: 'Agent' }
           ]}
-          icon={Users}
+          icon={HiOutlineUsers}
           iconColor="text-purple-400"
           iconBgFrom="from-purple-600/20"
           iconBgTo="to-blue-600/20"
@@ -54,7 +54,7 @@ export default function AgentDocsPage() {
         {/* Quick Start Section */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <Rocket className="w-6 h-6 text-purple-400" />
+            <HiOutlineRocketLaunch className="w-6 h-6 text-purple-400" />
             Quick Start (60 Seconds)
           </h2>
 
@@ -86,7 +86,7 @@ The result is 714.`}
         {/* Full API Overview */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <Code className="w-6 h-6 text-purple-400" />
+            <HiOutlineCodeBracket className="w-6 h-6 text-purple-400" />
             What Agent Can Do - Full API Overview
           </h2>
 
@@ -181,12 +181,12 @@ agent.current_session     # dict | None: Runtime state`}
         {/* max_iterations Section */}
         <section className="mb-16" id="max-iterations">
           <h2 className="heading-2">
-            <RefreshCw className="w-8 h-8 text-purple-400" />
+            <HiOutlineArrowPath className="w-8 h-8 text-purple-400" />
             max_iterations
           </h2>
 
           <div className="flex items-start gap-3 mb-8 p-4 bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg">
-            <Zap className="text-purple-400 w-5 h-5 flex-shrink-0 mt-0.5" />
+            <HiOutlineBolt className="text-purple-400 w-5 h-5 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-purple-200">
               <strong className="text-purple-100">Quick Facts:</strong>{' '}
               Default is 10 iterations (works for most tasks!). Fully customizable per-agent or per-task.
@@ -313,7 +313,7 @@ result = agent.input(
         <section className="mb-16">
           <div className="p-6 bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-xl border border-purple-500/30">
             <h2 className="heading-2">
-              <Code className="w-6 h-6 text-purple-400" />
+              <HiOutlineCodeBracket className="w-6 h-6 text-purple-400" />
               Complete Documentation
             </h2>
             <p className="text-slate-100 mb-4">
@@ -359,7 +359,7 @@ result = agent.input(
               href="/tools"
               className="p-6 bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-lg border border-blue-500/30 hover:border-blue-500/60 transition-all group"
             >
-              <Code className="w-8 h-8 text-blue-400 mb-4" />
+              <HiOutlineCodeBracket className="w-8 h-8 text-blue-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">
                 Tools
               </h3>
@@ -372,7 +372,7 @@ result = agent.input(
               href="#max-iterations"
               className="p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/30 hover:border-purple-500/60 transition-all group"
             >
-              <RefreshCw className="w-8 h-8 text-purple-400 mb-4" />
+              <HiOutlineArrowPath className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">
                 max_iterations
               </h3>
@@ -385,7 +385,7 @@ result = agent.input(
               href="/prompts"
               className="p-6 bg-gradient-to-br from-green-900/20 to-teal-900/20 rounded-lg border border-green-500/30 hover:border-green-500/60 transition-all group"
             >
-              <Settings className="w-8 h-8 text-green-400 mb-4" />
+              <HiOutlineCog6Tooth className="w-8 h-8 text-green-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-green-300 transition-colors">
                 System Prompts
               </h3>
@@ -398,7 +398,7 @@ result = agent.input(
               href="/xray"
               className="p-6 bg-gradient-to-br from-yellow-900/20 to-orange-900/20 rounded-lg border border-yellow-500/30 hover:border-yellow-500/60 transition-all group"
             >
-              <Zap className="w-8 h-8 text-yellow-400 mb-4" />
+              <HiOutlineBolt className="w-8 h-8 text-yellow-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-yellow-300 transition-colors">
                 Debug with @xray
               </h3>

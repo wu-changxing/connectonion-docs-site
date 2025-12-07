@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Mail, ArrowRight, CheckCircle, Users, Send } from 'lucide-react'
+import { HiOutlineEnvelope, HiOutlineArrowRight, HiOutlineCheckCircle, HiOutlineUsers, HiOutlinePaperAirplane } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -17,7 +17,7 @@ export default function GmailPluginPage() {
             { label: 'Useful Plugins', href: '/useful-plugins' },
             { label: 'gmail_plugin' },
           ]}
-          icon={Mail}
+          icon={HiOutlineEnvelope}
           iconColor="text-red-400"
           iconBgFrom="from-red-600/20"
           iconBgTo="to-pink-600/20"
@@ -37,14 +37,14 @@ export default function GmailPluginPage() {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 bg-red-900/20 border border-red-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <CheckCircle className="w-5 h-5 text-red-400" />
+                <HiOutlineCheckCircle className="w-5 h-5 text-red-400" />
                 <h3 className="font-semibold">Email Approval (before_each_tool)</h3>
               </div>
               <p className="text-sm text-slate-100">Shows a preview and asks for confirmation before sending any email.</p>
             </div>
             <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Users className="w-5 h-5 text-blue-400" />
+                <HiOutlineUsers className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">CRM Sync (after_each_tool)</h3>
               </div>
               <p className="text-sm text-slate-100">After sending, updates contact's <code>last_contact</code> date in the CRM.</p>
@@ -91,21 +91,21 @@ CRM updated: john@example.com`}
           <h3 className="heading-3">For New Emails</h3>
           <div className="space-y-3 mb-6">
             <div className="p-3 bg-gray-800/50 rounded-lg flex items-start gap-3">
-              <Send className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlinePaperAirplane className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-white">Yes, send it</strong>
                 <p className="text-sm text-slate-100">Send this specific email</p>
               </div>
             </div>
             <div className="p-3 bg-gray-800/50 rounded-lg flex items-start gap-3">
-              <Send className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+              <HiOutlinePaperAirplane className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-white">Auto approve emails to '{'{recipient}'}'</strong>
                 <p className="text-sm text-slate-100">Auto-approve all emails to this recipient for this session</p>
               </div>
             </div>
             <div className="p-3 bg-gray-800/50 rounded-lg flex items-start gap-3">
-              <Send className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+              <HiOutlinePaperAirplane className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-white">Auto approve all emails this session</strong>
                 <p className="text-sm text-slate-100">Skip approval for all emails (use with caution)</p>

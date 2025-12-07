@@ -1,6 +1,6 @@
 'use client'
 
-import { ListTodo } from 'lucide-react'
+import { HiOutlineClipboardDocumentList } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { PageHeader } from '../../../components/PageHeader'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -15,7 +15,7 @@ export default function TodoListPage() {
             { label: 'Useful Tools', href: '/useful-tools' },
             { label: 'Todo List' }
           ]}
-          icon={ListTodo}
+          icon={HiOutlineClipboardDocumentList}
           iconColor="text-yellow-400"
           iconBgFrom="from-yellow-600/20"
           iconBgTo="to-orange-600/20"

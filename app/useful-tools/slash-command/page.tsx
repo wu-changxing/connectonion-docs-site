@@ -1,6 +1,6 @@
 'use client'
 
-import { Code } from 'lucide-react'
+import { HiOutlineCodeBracket } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { PageHeader } from '../../../components/PageHeader'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -15,7 +15,7 @@ export default function SlashCommandPage() {
             { label: 'Useful Tools', href: '/useful-tools' },
             { label: 'Slash Command' }
           ]}
-          icon={Code}
+          icon={HiOutlineCodeBracket}
           iconColor="text-pink-400"
           iconBgFrom="from-pink-600/20"
           iconBgTo="to-purple-600/20"

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Menu, X, Copy, Check } from 'lucide-react'
+import { HiOutlineBars3, HiOutlineXMark, HiOutlineClipboard, HiOutlineCheck } from 'react-icons/hi2'
 import { FaDiscord, FaGithub } from 'react-icons/fa'
 import Link from 'next/link'
 
@@ -52,7 +52,7 @@ export default function MobileNavHeader({ onCopyMarkdown, hasCopyContent = false
                 }`}
                 aria-label={copied ? "Copied!" : "Copy page content"}
               >
-                {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
+                {copied ? <HiOutlineCheck className="w-5 h-5" /> : <HiOutlineClipboard className="w-5 h-5" />}
               </button>
             )}
 
@@ -62,7 +62,7 @@ export default function MobileNavHeader({ onCopyMarkdown, hasCopyContent = false
               className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMenuOpen ? <HiOutlineXMark className="w-5 h-5" /> : <HiOutlineBars3 className="w-5 h-5" />}
             </button>
           </div>
         </div>

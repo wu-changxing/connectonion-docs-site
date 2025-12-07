@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Brain, Save, Search, Database, ArrowRight, FileText, FolderOpen, Lightbulb } from 'lucide-react'
+import { HiOutlineCpuChip, HiOutlineBookmark, HiOutlineMagnifyingGlass, HiOutlineCircleStack, HiOutlineArrowRight, HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineLightBulb } from 'react-icons/hi2'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import CodeWithResult from '../../components/CodeWithResult'
@@ -16,7 +16,7 @@ export default function MemoryPage() {
             { label: 'Docs', href: '/' },
             { label: 'Memory' }
           ]}
-          icon={Brain}
+          icon={HiOutlineCpuChip}
           iconColor="text-amber-400"
           iconBgFrom="from-amber-600/20"
           iconBgTo="to-orange-600/20"
@@ -30,7 +30,7 @@ export default function MemoryPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Lightbulb className="w-6 h-6 text-yellow-400" />
+            <HiOutlineLightBulb className="w-6 h-6 text-yellow-400" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -62,28 +62,28 @@ agent.input("What do I know about Alice?")`}
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-start gap-3">
-                <Save className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineBookmark className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Persistent Storage</p>
                   <p className="text-sm text-slate-200">Save information across sessions</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Database className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineCircleStack className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Key-Value Retrieval</p>
                   <p className="text-sm text-slate-200">Retrieve information by specific keys</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Search className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineMagnifyingGlass className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Regex Search</p>
                   <p className="text-sm text-slate-200">Search across all memories with patterns</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <FileText className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineDocumentText className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Markdown Format</p>
                   <p className="text-sm text-slate-200">Organize knowledge in human-readable format</p>
@@ -94,7 +94,7 @@ agent.input("What do I know about Alice?")`}
 
           <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-blue-400">
-              <FolderOpen className="w-5 h-5" />
+              <HiOutlineFolderOpen className="w-5 h-5" />
               Storage Strategy
             </h3>
             <p className="text-slate-100">

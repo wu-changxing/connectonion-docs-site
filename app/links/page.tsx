@@ -1,12 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import {
-  Package, BookOpen, Newspaper, Mail,
-  Globe, ExternalLink,
-  Copy, Check, Share2, QrCode, Link as LinkIcon, Heart,
-  Sparkles, Code, FileText, HelpCircle, ArrowRight
-} from 'lucide-react'
+import { HiOutlineCube, HiOutlineBookOpen, HiOutlineEnvelope, HiOutlineGlobeAlt, HiOutlineArrowTopRightOnSquare, HiOutlineClipboard, HiOutlineCheck, HiOutlineShare, HiOutlineLink as LinkIcon, HiOutlineHeart, HiOutlineSparkles, HiOutlineCodeBracket, HiOutlineDocumentText, HiOutlineArrowRight, HiOutlineQrCode } from 'react-icons/hi2'
 import {
   FaRocket, FaComments, FaBook, FaMobile, FaHandshake,
   FaGithub, FaDiscord, FaTwitter, FaYoutube, FaLinkedin,
@@ -106,7 +101,7 @@ export default function LinksPage() {
           title: 'PyPI Package',
           description: 'Install via pip',
           url: 'https://pypi.org/project/connectonion/',
-          icon: Package,
+          icon: HiOutlineCube,
           color: 'text-purple-400',
           bgColor: 'bg-gray-800/50',
           borderColor: 'border-purple-500/30',
@@ -117,7 +112,7 @@ export default function LinksPage() {
           title: 'Documentation',
           description: 'Complete guides and API reference',
           url: 'https://docs.connectonion.com',
-          icon: BookOpen,
+          icon: HiOutlineBookOpen,
           color: 'text-purple-400',
           bgColor: 'bg-gray-800/50',
           borderColor: 'border-purple-500/30',
@@ -238,7 +233,7 @@ export default function LinksPage() {
           title: 'Blog',
           description: 'Design decisions and insights',
           url: 'https://docs.connectonion.com/blog',
-          icon: Newspaper,
+          icon: HiOutlineDocumentText,
           color: 'text-purple-400',
           bgColor: 'bg-gray-800/50',
           borderColor: 'border-purple-500/30',
@@ -249,7 +244,7 @@ export default function LinksPage() {
           title: 'Examples',
           description: 'Sample projects and tutorials',
           url: 'https://docs.connectonion.com/examples',
-          icon: Code,
+          icon: HiOutlineCodeBracket,
           color: 'text-purple-400',
           bgColor: 'bg-gray-800/50',
           borderColor: 'border-purple-500/30',
@@ -260,7 +255,7 @@ export default function LinksPage() {
           title: 'API Reference',
           description: 'Technical documentation',
           url: 'https://docs.connectonion.com/tools',
-          icon: FileText,
+          icon: HiOutlineDocumentText,
           color: 'text-purple-400',
           bgColor: 'bg-gray-800/50',
           borderColor: 'border-purple-500/30',
@@ -282,7 +277,7 @@ export default function LinksPage() {
           title: 'Report Issues',
           description: 'Bug reports and feature requests',
           url: 'https://github.com/wu-changxing/connectonion/issues',
-          icon: HelpCircle,
+          icon: HiOutlineSparkles,
           color: 'text-purple-400',
           bgColor: 'bg-gray-800/50',
           borderColor: 'border-purple-500/30',
@@ -293,7 +288,7 @@ export default function LinksPage() {
           title: 'Email Contact',
           description: 'Reach out directly',
           url: 'mailto:contact@connectonion.com',
-          icon: Mail,
+          icon: HiOutlineEnvelope,
           color: 'text-slate-100',
           bgColor: 'bg-gray-800/30',
           borderColor: 'border-gray-600/30',
@@ -329,7 +324,7 @@ export default function LinksPage() {
               {link.title}
               {link.external && isClickable && (
                 <>
-                  <ExternalLink className="w-4 h-4 text-slate-100" />
+                  <HiOutlineArrowTopRightOnSquare className="w-4 h-4 text-slate-100" />
                   <span className="sr-only">opens in new tab</span>
                 </>
               )}
@@ -352,9 +347,9 @@ export default function LinksPage() {
             title={"Copy " + link.title + " link"}
           >
             {copiedUrl === link.title ? (
-              <Check className="w-4 h-4 text-green-400" />
+              <HiOutlineCheck className="w-4 h-4 text-green-400" />
             ) : (
-              <Copy className="w-4 h-4 text-slate-100 group-hover:text-white" />
+              <HiOutlineClipboard className="w-4 h-4 text-slate-100 group-hover:text-white" />
             )}
           </button>
         )}
@@ -392,7 +387,7 @@ export default function LinksPage() {
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
-          <ArrowRight className="w-4 h-4" />
+          <HiOutlineArrowRight className="w-4 h-4" />
           <span className="text-white">Links</span>
         </div>
 
@@ -419,7 +414,7 @@ export default function LinksPage() {
               className="flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors font-medium min-h-[44px]"
               aria-label="Share this page via system share menu or copy link"
             >
-              <Share2 className="w-5 h-5" />
+              <HiOutlineShare className="w-5 h-5" />
               Share Page
             </button>
             <button
@@ -428,7 +423,7 @@ export default function LinksPage() {
               aria-expanded={showQR}
               aria-label={showQR ? "Hide QR code" : "Show QR code for this page"}
             >
-              <QrCode className="w-5 h-5" />
+              <HiOutlineQrCode className="w-5 h-5" />
               QR Code
             </button>
           </div>
@@ -462,7 +457,7 @@ export default function LinksPage() {
                     
                     <div className="mt-4 text-center">
                       <div className="flex items-center justify-center gap-2 mb-2">
-                        <QrCode className="w-5 h-5 text-purple-600" />
+                        <HiOutlineQrCode className="w-5 h-5 text-purple-600" />
                         <p className="text-lg font-semibold text-gray-800">Scan to Connect</p>
                       </div>
                       <p className="text-sm text-gray-600">
@@ -470,7 +465,7 @@ export default function LinksPage() {
                       </p>
                       <div className="mt-3 flex items-center justify-center gap-3">
                         <div className="flex items-center gap-1 text-xs text-gray-500">
-                          <Sparkles className="w-3 h-3" />
+                          <HiOutlineSparkles className="w-3 h-3" />
                           <span>Quick Access</span>
                         </div>
                         <div className="text-slate-100">•</div>
@@ -518,11 +513,11 @@ export default function LinksPage() {
           </p>
           <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
             <span>Made with</span>
-            <Heart className="w-4 h-4 text-red-500 fill-current" />
+            <HiOutlineHeart className="w-4 h-4 text-red-500 fill-current" />
             <span>by the ConnectOnion team</span>
           </div>
           <div className="mt-4 flex items-center justify-center gap-2">
-            <Sparkles className="w-4 h-4 text-purple-400" />
+            <HiOutlineSparkles className="w-4 h-4 text-purple-400" />
             <span className="text-sm text-purple-400">
               Add your link? Contact us on Discord!
             </span>

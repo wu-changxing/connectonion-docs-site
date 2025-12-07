@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
-import { ArrowLeft, CheckCircle, XCircle, TrendingUp, Users, Shield, Code, MessageSquare, Lightbulb } from 'lucide-react'
+import { HiOutlineArrowLeft, HiOutlineCheckCircle, HiOutlineXCircle, HiOutlineArrowTrendingUp, HiOutlineUsers, HiOutlineShieldCheck, HiOutlineCodeBracket, HiOutlineChatBubbleOvalLeft, HiOutlineLightBulb } from 'react-icons/hi2'
 import Link from 'next/link'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 export default function TrustKeywordBlogPost() {
@@ -217,7 +217,7 @@ Sometimes the best technical decisions are the least technical ones.`
                     <div className="text-2xl">{option.icon}</div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-red-400 mb-1">
-                        <XCircle className="inline w-4 h-4 mr-1" />
+                        <HiOutlineXCircle className="inline w-4 h-4 mr-1" />
                         {option.name}
                       </h3>
                       <p className="text-slate-100 text-sm">{option.reason}</p>
@@ -253,7 +253,7 @@ Sometimes the best technical decisions are the least technical ones.`
                 ].map((point, idx) => (
                   <div key={idx} className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-xl p-6">
                     <h3 className="text-xl font-semibold text-purple-300 mb-2 flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-400" />
+                      <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
                       {point.title}
                     </h3>
                     <p className="text-slate-100 mb-4">{point.description}</p>

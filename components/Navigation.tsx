@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { Menu, X, ExternalLink, Zap, FileText, Terminal, Copy, Check, Download } from 'lucide-react'
+import { HiOutlineBars3, HiOutlineXMark, HiOutlineArrowTopRightOnSquare, HiOutlineBolt, HiOutlineDocumentText, HiOutlineCommandLine, HiOutlineClipboard, HiOutlineCheck, HiOutlineArrowDownTray } from 'react-icons/hi2'
 import { FaDiscord, FaGithub } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -80,7 +80,7 @@ export default function Navigation({ markdownContent, markdownPath, filename = '
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg">
-                <Zap className="w-4 h-4 text-white" />
+                <HiOutlineBolt className="w-4 h-4 text-white" />
               </div>
               <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-300" />
             </div>
@@ -91,19 +91,19 @@ export default function Navigation({ markdownContent, markdownPath, filename = '
           
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            <NavLink href="/quickstart" icon={<FileText className="w-4 h-4" />}>
+            <NavLink href="/quickstart" icon={<HiOutlineDocumentText className="w-4 h-4" />}>
               Docs
             </NavLink>
-            <NavLink href="/cli" icon={<Terminal className="w-4 h-4" />}>
+            <NavLink href="/cli" icon={<HiOutlineCommandLine className="w-4 h-4" />}>
               CLI
             </NavLink>
-            <NavLink href="/xray" icon={<Zap className="w-4 h-4" />}>
+            <NavLink href="/xray" icon={<HiOutlineBolt className="w-4 h-4" />}>
               @xray
             </NavLink>
             <NavLink href="https://github.com/wu-changxing/connectonion" icon={<FaGithub className="w-4 h-4" />} external>
               GitHub
             </NavLink>
-            <NavLink href="https://pypi.org/project/connectonion/" icon={<ExternalLink className="w-4 h-4" />} external>
+            <NavLink href="https://pypi.org/project/connectonion/" icon={<HiOutlineArrowTopRightOnSquare className="w-4 h-4" />} external>
               PyPI
             </NavLink>
             <NavLink href="https://discord.gg/4xfD9k8AUF" icon={<FaDiscord className="w-4 h-4" />} external>
@@ -135,7 +135,7 @@ export default function Navigation({ markdownContent, markdownPath, filename = '
                 }`}
                 aria-label={copied ? "Copied!" : "Copy page as markdown"}
               >
-                {copied ? <Check className="w-5 h-5" aria-hidden="true" /> : <Copy className="w-5 h-5" aria-hidden="true" />}
+                {copied ? <HiOutlineCheck className="w-5 h-5" aria-hidden="true" /> : <HiOutlineClipboard className="w-5 h-5" aria-hidden="true" />}
               </button>
             )}
             
@@ -147,7 +147,7 @@ export default function Navigation({ markdownContent, markdownPath, filename = '
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
             >
-              {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
+              {isOpen ? <HiOutlineXMark className="w-6 h-6" aria-hidden="true" /> : <HiOutlineBars3 className="w-6 h-6" aria-hidden="true" />}
             </button>
           </div>
         </div>

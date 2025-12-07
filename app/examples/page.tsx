@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Calculator, Chrome, ArrowRight, Code, Play } from 'lucide-react'
+import { HiOutlineCalculator, HiOutlineArrowRight, HiOutlineCodeBracket, HiOutlinePlay } from 'react-icons/hi2'
+import { FaChrome } from 'react-icons/fa'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
@@ -11,7 +12,7 @@ const examples = [
     id: 'calculator',
     title: 'Calculator Agent',
     description: 'Learn the fundamentals with a simple math calculator that demonstrates tool creation, input validation, and error handling',
-    icon: Calculator,
+    icon: HiOutlineCalculator,
     color: 'text-blue-400',
     bgColor: 'bg-blue-900/20',
     borderColor: 'border-blue-500/30',
@@ -34,7 +35,7 @@ const examples = [
     id: 'browser',
     title: 'Browser Automation',
     description: 'Control web browsers with natural language using Playwright integration for screenshots, scraping, and automation',
-    icon: Chrome,
+    icon: FaChrome,
     color: 'text-purple-400',
     bgColor: 'bg-purple-900/20',
     borderColor: 'border-purple-500/30',
@@ -58,7 +59,7 @@ export default function ExamplesPage() {
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
-          <ArrowRight className="w-4 h-4" />
+          <HiOutlineArrowRight className="w-4 h-4" />
           <span className="text-white">Examples</span>
         </div>
 
@@ -67,7 +68,7 @@ export default function ExamplesPage() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
               <div className="p-3 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-xl border border-blue-500/30">
-                <Code className="w-8 h-8 text-blue-400" />
+                <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
               </div>
               <div>
                 <h1 className="heading-1">Examples</h1>
@@ -83,7 +84,7 @@ export default function ExamplesPage() {
         {/* Progressive Learning Path */}
         <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-500/20">
           <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-            <Code className="w-5 h-5 text-blue-400" />
+            <HiOutlineCodeBracket className="w-5 h-5 text-blue-400" />
             Progressive Learning Path
           </h2>
           <div className="flex items-center gap-4">
@@ -94,7 +95,7 @@ export default function ExamplesPage() {
                 <div className="text-sm text-slate-100">Learn the basics</div>
               </div>
             </div>
-            <ArrowRight className="w-5 h-5 text-gray-500" />
+            <HiOutlineArrowRight className="w-5 h-5 text-gray-500" />
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">2</div>
               <div>
@@ -132,7 +133,7 @@ export default function ExamplesPage() {
                     </span>
                   </div>
                 </div>
-                <ArrowRight className="w-5 h-5 text-slate-100 group-hover:text-white transition-colors" />
+                <HiOutlineArrowRight className="w-5 h-5 text-slate-100 group-hover:text-white transition-colors" />
               </div>
               
               <p className="text-slate-100 mb-4">
@@ -157,7 +158,7 @@ export default function ExamplesPage() {
               <div className="bg-gray-900 rounded p-3 overflow-hidden">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-gray-500">Code Preview</span>
-                  <Play className="w-3 h-3 text-gray-500" />
+                  <HiOutlinePlay className="w-3 h-3 text-gray-500" />
                 </div>
                 <pre className="text-xs text-slate-100 overflow-x-auto">
                   <code>{example.preview}</code>
@@ -178,7 +179,7 @@ export default function ExamplesPage() {
             className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             Start with Calculator
-            <ArrowRight className="w-5 h-5" />
+            <HiOutlineArrowRight className="w-5 h-5" />
           </Link>
         </div>
 

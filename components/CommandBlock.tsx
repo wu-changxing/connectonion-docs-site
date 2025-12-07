@@ -33,7 +33,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Copy, Check } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck } from 'react-icons/hi2'
 
 interface CommandBlockProps {
   title?: string
@@ -135,9 +135,9 @@ export function CommandBlock({ title, commands, id }: CommandBlockProps) {
           aria-label={copied ? 'Copied to clipboard' : 'Copy all commands'}
         >
           {copied ? (
-            <Check className="w-5 h-5 text-green-400" />
+            <HiOutlineCheck className="w-5 h-5 text-green-400" />
           ) : (
-            <Copy className="w-5 h-5" />
+            <HiOutlineClipboard className="w-5 h-5" />
           )}
         </button>
       </div>

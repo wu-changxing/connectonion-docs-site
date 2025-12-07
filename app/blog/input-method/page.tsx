@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Terminal, Brain, Users, Code2 } from 'lucide-react'
+import { HiOutlineArrowLeft, HiOutlineArrowRight, HiOutlineCommandLine, HiOutlineCpuChip, HiOutlineUsers, HiOutlineCodeBracket } from 'react-icons/hi2'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { ContentNavigation } from '../../../components/ContentNavigation'

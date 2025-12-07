@@ -6,7 +6,7 @@
 
 'use client'
 
-import { Wifi, Zap, Key, Shield, Network, Check, Terminal, Code, Layers } from 'lucide-react'
+import { HiOutlineWifi, HiOutlineBolt, HiOutlineKey, HiOutlineShieldCheck, HiOutlineServerStack, HiOutlineCheck, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineSquare3Stack3D } from 'react-icons/hi2'
 import Link from 'next/link'
 import CodeWithResult from '../../components/CodeWithResult'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -23,7 +23,7 @@ export default function ServePage() {
               { label: 'Docs', href: '/' },
               { label: 'Agent Serving' }
             ]}
-            icon={Wifi}
+            icon={HiOutlineWifi}
             iconColor="text-emerald-400"
             iconBgFrom="from-emerald-600/20"
             iconBgTo="to-cyan-600/20"
@@ -45,7 +45,7 @@ export default function ServePage() {
         {/* 60-Second Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Zap className="w-8 h-8 text-yellow-400" />
+            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
             60-Second Quick Start
           </h2>
 
@@ -75,19 +75,19 @@ Waiting for connections...`}
             <h3 className="text-lg font-semibold text-blue-100 mb-4">What Just Happened?</h3>
             <div className="space-y-2 text-slate-100">
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Generated Ed25519 keys</strong> → Saved to <code className="bg-gray-800 px-2 py-1 rounded">.co/keys/helper/</code></span>
               </div>
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Connected to relay</strong> → WebSocket at <code className="bg-gray-800 px-2 py-1 rounded">wss://oo.openonion.ai/ws/announce</code></span>
               </div>
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Announced presence</strong> → Published public key to relay</span>
               </div>
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Started listening</strong> → Waiting for INPUT messages</span>
               </div>
             </div>
@@ -126,7 +126,7 @@ print(result)`}
         {/* Message Flow */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Network className="w-8 h-8 text-cyan-400" />
+            <HiOutlineServerStack className="w-8 h-8 text-cyan-400" />
             How It Works
           </h2>
 
@@ -148,7 +148,7 @@ print(result)`}
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-blue-100 mb-4 flex items-center gap-2">
-                <Terminal className="w-5 h-5" />
+                <HiOutlineCommandLine className="w-5 h-5" />
                 INPUT Message
               </h3>
               <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-slate-100">
@@ -162,7 +162,7 @@ print(result)`}
 
             <div className="bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-emerald-100 mb-4 flex items-center gap-2">
-                <Code className="w-5 h-5" />
+                <HiOutlineCodeBracket className="w-5 h-5" />
                 OUTPUT Message
               </h3>
               <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-slate-100">
@@ -183,7 +183,7 @@ print(result)`}
         {/* Configuration */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Layers className="w-8 h-8 text-purple-400" />
+            <HiOutlineSquare3Stack3D className="w-8 h-8 text-purple-400" />
             Configuration
           </h2>
 
@@ -226,14 +226,14 @@ agent.serve(relay_url=relay_url)`}
         {/* Security */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Shield className="w-8 h-8 text-amber-400" />
+            <HiOutlineShieldCheck className="w-8 h-8 text-amber-400" />
             Security
           </h2>
 
           <div className="space-y-6">
             <div className="bg-amber-950/50 border border-amber-400/40 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-amber-100 mb-4 flex items-center gap-2">
-                <Key className="w-5 h-5" />
+                <HiOutlineKey className="w-5 h-5" />
                 Ed25519 Cryptography
               </h3>
               <p className="text-slate-100 mb-4">
@@ -329,14 +329,14 @@ Waiting for connections...`}
                 href="/connect"
                 className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
-                <Network className="w-5 h-5" />
+                <HiOutlineServerStack className="w-5 h-5" />
                 Connect to Agents
               </Link>
               <Link
                 href="/agent"
                 className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
-                <Code className="w-5 h-5" />
+                <HiOutlineCodeBracket className="w-5 h-5" />
                 Learn About Agents
               </Link>
             </div>

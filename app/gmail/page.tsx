@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Inbox, Search, Tag, Archive, Star, Users, BarChart3, ArrowRight, Zap } from 'lucide-react'
+import { HiOutlineEnvelope, HiOutlineInbox, HiOutlineMagnifyingGlass, HiOutlineArchiveBox, HiOutlineUsers, HiOutlineChartBar, HiOutlineArrowRight, HiOutlineBolt, HiOutlineTag } from 'react-icons/hi2'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import CodeWithResult from '../../components/CodeWithResult'
@@ -16,7 +16,7 @@ export default function GmailPage() {
             { label: 'Docs', href: '/' },
             { label: 'Gmail' }
           ]}
-          icon={Mail}
+          icon={HiOutlineEnvelope}
           iconColor="text-red-400"
           iconBgFrom="from-red-600/20"
           iconBgTo="to-orange-600/20"
@@ -30,7 +30,7 @@ export default function GmailPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Zap className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -65,7 +65,7 @@ agent.input("Find emails from alice@example.com")`}
             {/* Reading */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <Inbox className="w-5 h-5 text-blue-400" />
+                <HiOutlineInbox className="w-5 h-5 text-blue-400" />
                 Reading Emails
               </h3>
 
@@ -104,7 +104,7 @@ agent.input("Find emails from alice@example.com")`}
             {/* Search */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <Search className="w-5 h-5 text-green-400" />
+                <HiOutlineMagnifyingGlass className="w-5 h-5 text-green-400" />
                 Search
               </h3>
 
@@ -126,7 +126,7 @@ agent.input("Find emails from alice@example.com")`}
             {/* Actions */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <Archive className="w-5 h-5 text-purple-400" />
+                <HiOutlineArchiveBox className="w-5 h-5 text-purple-400" />
                 Actions
               </h3>
 
@@ -153,7 +153,7 @@ agent.input("Find emails from alice@example.com")`}
             {/* Labels */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <Tag className="w-5 h-5 text-yellow-400" />
+                <HiOutlineTag className="w-5 h-5 text-yellow-400" />
                 Labels
               </h3>
 
@@ -176,7 +176,7 @@ agent.input("Find emails from alice@example.com")`}
             {/* Stats */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <BarChart3 className="w-5 h-5 text-cyan-400" />
+                <HiOutlineChartBar className="w-5 h-5 text-cyan-400" />
                 Stats
               </h3>
 
@@ -189,7 +189,7 @@ agent.input("Find emails from alice@example.com")`}
             {/* CRM */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <Users className="w-5 h-5 text-pink-400" />
+                <HiOutlineUsers className="w-5 h-5 text-pink-400" />
                 CRM Features
               </h3>
 

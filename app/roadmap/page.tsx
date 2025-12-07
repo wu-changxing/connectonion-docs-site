@@ -38,7 +38,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Rocket, Package, Network, Shield, Brain, CheckCircle2, Clock, AlertCircle } from 'lucide-react'
+import { HiOutlineRocketLaunch, HiOutlineCube, HiOutlineServerStack, HiOutlineShieldCheck, HiOutlineCpuChip, HiOutlineCheckCircle, HiOutlineClock, HiOutlineExclamationCircle } from 'react-icons/hi2'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
 
@@ -46,10 +46,10 @@ export default function RoadmapPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
   const categories = [
-    { id: 'core', name: 'Core', icon: Package },
-    { id: 'trust', name: 'Trust', icon: Shield },
-    { id: 'intelligence', name: 'AI', icon: Brain },
-    { id: 'platform', name: 'Platform', icon: Network },
+    { id: 'core', name: 'Core', icon: HiOutlineCube },
+    { id: 'trust', name: 'Trust', icon: HiOutlineShieldCheck },
+    { id: 'intelligence', name: 'AI', icon: HiOutlineCpuChip },
+    { id: 'platform', name: 'Platform', icon: HiOutlineServerStack },
   ]
 
   const features = {
@@ -192,11 +192,11 @@ export default function RoadmapPage() {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'completed':
-        return <CheckCircle2 className="w-4 h-4 text-green-400" />
+        return <HiOutlineCheckCircle className="w-4 h-4 text-green-400" />
       case 'in-progress':
-        return <Clock className="w-4 h-4 text-yellow-400" />
+        return <HiOutlineClock className="w-4 h-4 text-yellow-400" />
       case 'planned':
-        return <AlertCircle className="w-4 h-4 text-slate-100" />
+        return <HiOutlineExclamationCircle className="w-4 h-4 text-slate-100" />
       default:
         return null
     }
@@ -227,7 +227,7 @@ export default function RoadmapPage() {
             { label: 'Docs', href: '/' },
             { label: 'Roadmap' }
           ]}
-          icon={Rocket}
+          icon={HiOutlineRocketLaunch}
           iconColor="text-purple-400"
           iconBgFrom="from-purple-600/20"
           iconBgTo="to-pink-600/20"

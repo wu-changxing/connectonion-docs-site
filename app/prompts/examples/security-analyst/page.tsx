@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Copy, Check, Shield, ArrowRight, ArrowLeft, Download, Lightbulb, MessageSquare, AlertTriangle, Lock } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineShieldCheck, HiOutlineArrowRight, HiOutlineArrowLeft, HiOutlineArrowDownTray, HiOutlineLightBulb, HiOutlineChatBubbleOvalLeft, HiOutlineExclamationTriangle, HiOutlineLockClosed } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
@@ -183,11 +183,11 @@ ${expectedOutput}
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-white transition-colors">Home</Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <Link href="/prompts/examples" className="hover:text-white transition-colors">Examples</Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <span className="text-white">Security Analyst</span>
       </nav>
 
@@ -200,7 +200,7 @@ ${expectedOutput}
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <Shield className="w-8 h-8 text-red-400" />
+                <HiOutlineShieldCheck className="w-8 h-8 text-red-400" />
                 <h1 className="heading-1">Security Analyst</h1>
                 <span className="px-3 py-1 bg-red-900/50 text-red-300 rounded-full text-sm font-medium">
                   Expert
@@ -223,26 +223,26 @@ ${expectedOutput}
       {/* Key Concepts */}
       <div className="mb-12 p-6 bg-red-900/20 border border-red-500/30 rounded-xl">
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <Lightbulb className="w-6 h-6 text-red-400" />
+          <HiOutlineLightBulb className="w-6 h-6 text-red-400" />
           Key Learning Concepts
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
+            <HiOutlineExclamationTriangle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-white font-semibold mb-1">Threat Analysis Framework</h3>
               <p className="text-red-200 text-sm">Systematic 3-step process for comprehensive threat evaluation</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <Lock className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
+            <HiOutlineLockClosed className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-white font-semibold mb-1">Risk Classification</h3>
               <p className="text-red-200 text-sm">Impact vs. Likelihood matrix for prioritizing security issues</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <MessageSquare className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
+            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-white font-semibold mb-1">Communication Protocols</h3>
               <p className="text-red-200 text-sm">Executive and technical formats for different audience needs</p>
@@ -263,12 +263,12 @@ ${expectedOutput}
               >
                 {copiedId === 'prompt' ? (
                   <>
-                    <Check className="w-4 h-4 text-green-400" />
+                    <HiOutlineCheck className="w-4 h-4 text-green-400" />
                     <span className="text-green-400 text-sm">Copied!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4" />
+                    <HiOutlineClipboard className="w-4 h-4" />
                     <span className="text-sm">Copy</span>
                   </>
                 )}
@@ -310,12 +310,12 @@ ${expectedOutput}
               >
                 {copiedId === 'usage' ? (
                   <>
-                    <Check className="w-4 h-4 text-green-400" />
+                    <HiOutlineCheck className="w-4 h-4 text-green-400" />
                     <span className="text-green-400 text-sm">Copied!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4" />
+                    <HiOutlineClipboard className="w-4 h-4" />
                     <span className="text-sm">Copy</span>
                   </>
                 )}
@@ -351,7 +351,7 @@ ${expectedOutput}
           {/* Expected Output */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
-              <MessageSquare className="w-5 h-5 text-red-400" />
+              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-red-400" />
               <h3 className="text-xl font-semibold text-white">Expected Output</h3>
             </div>
             
@@ -392,7 +392,7 @@ ${expectedOutput}
                 download="security_analyst.md"
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-red-600 hover:bg-red-700 rounded-lg text-white transition-colors font-medium"
               >
-                <Download className="w-4 h-4" />
+                <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File
               </a>
               <p className="text-xs text-slate-100 text-center">
@@ -411,7 +411,7 @@ ${expectedOutput}
             href="/prompts/examples/technical-writer" 
             className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <HiOutlineArrowLeft className="w-4 h-4" />
             6. Technical Writer
           </Link>
         </div>
@@ -422,7 +422,7 @@ ${expectedOutput}
             className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
           >
             8. Business Strategist
-            <ArrowRight className="w-4 h-4" />
+            <HiOutlineArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </nav>

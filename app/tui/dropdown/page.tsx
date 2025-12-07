@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { ChevronDown, FileText, User } from 'lucide-react'
+import { HiOutlineChevronDown, HiOutlineDocumentText, HiOutlineUser } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -17,7 +17,7 @@ export default function DropdownPage() {
             { label: 'TUI', href: '/tui' },
             { label: 'Dropdown' },
           ]}
-          icon={ChevronDown}
+          icon={HiOutlineChevronDown}
           iconColor="text-green-400"
           iconBgFrom="from-green-600/20"
           iconBgTo="to-emerald-600/20"

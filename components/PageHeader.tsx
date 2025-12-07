@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { HiOutlineArrowRight } from 'react-icons/hi2'
 import { CopyMarkdownButton } from './CopyMarkdownButton'
 import { ReactNode, ComponentType } from 'react'
 
@@ -51,7 +51,7 @@ export function PageHeader({
       <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         {breadcrumbs.map((crumb, index) => (
           <span key={index} className="flex items-center gap-2">
-            {index > 0 && <ArrowRight className="w-4 h-4" />}
+            {index > 0 && <HiOutlineArrowRight className="w-4 h-4" />}
             {crumb.href ? (
               <Link href={crumb.href} className="hover:text-purple-400 transition-colors">
                 {crumb.label}

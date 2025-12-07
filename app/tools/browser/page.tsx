@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Terminal, ArrowRight, Camera, Smartphone, Tablet, Monitor, AlertCircle, Zap, Copy, Check, FileText, Bug, Layers, Clock } from 'lucide-react'
+import { HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineCamera, HiOutlineDevicePhoneMobile, HiOutlineDeviceTablet, HiOutlineComputerDesktop, HiOutlineExclamationCircle, HiOutlineBolt, HiOutlineClipboard, HiOutlineCheck, HiOutlineDocumentText, HiOutlineBugAnt, HiOutlineSquare3Stack3D, HiOutlineClock } from 'react-icons/hi2'
 import Link from 'next/link'
 import { CommandBlock } from '../../../components/CommandBlock'
 import { ContentNavigation } from '../../../components/ContentNavigation'
@@ -163,9 +163,9 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-slate-100 mb-4">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <ArrowRight className="w-4 h-4" />
+              <HiOutlineArrowRight className="w-4 h-4" />
               <Link href="/tools" className="hover:text-white transition-colors">Tools</Link>
-              <ArrowRight className="w-4 h-4" />
+              <HiOutlineArrowRight className="w-4 h-4" />
               <span className="text-white">Browser Screenshots</span>
             </nav>
             
@@ -184,7 +184,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
         {/* Quick Start Card */}
         <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/30 rounded-lg">
           <div className="flex items-center gap-3 mb-4">
-            <Camera className="w-6 h-6 text-blue-400" />
+            <HiOutlineCamera className="w-6 h-6 text-blue-400" />
             <h2 className="text-xl font-semibold text-white">Quick Start</h2>
           </div>
           <p className="text-slate-100 mb-4">
@@ -195,19 +195,19 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
           />
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-4 gap-4 text-sm">
             <div className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-yellow-400" />
+              <HiOutlineBolt className="w-4 h-4 text-yellow-400" />
               <span className="text-slate-100">Instant capture</span>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-green-400" />
+              <HiOutlineClock className="w-4 h-4 text-green-400" />
               <span className="text-slate-100">Auto timestamp</span>
             </div>
             <div className="flex items-center gap-2">
-              <Layers className="w-4 h-4 text-purple-400" />
+              <HiOutlineSquare3Stack3D className="w-4 h-4 text-purple-400" />
               <span className="text-slate-100">Device presets</span>
             </div>
             <div className="flex items-center gap-2">
-              <FileText className="w-4 h-4 text-orange-400" />
+              <HiOutlineDocumentText className="w-4 h-4 text-orange-400" />
               <span className="text-slate-100">PNG format</span>
             </div>
           </div>
@@ -216,7 +216,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
         {/* Command Format */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <Terminal className="w-6 h-6 text-green-400" />
+            <HiOutlineCommandLine className="w-6 h-6 text-green-400" />
             Command Format
           </h2>
 
@@ -249,7 +249,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             {/* Basic Screenshots */}
             <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <Camera className="w-5 h-5 text-green-400" />
+                <HiOutlineCamera className="w-5 h-5 text-green-400" />
                 Basic Screenshots
               </h3>
               <CommandBlock 
@@ -269,7 +269,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             {/* Save Locations */}
             <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-blue-400" />
+                <HiOutlineDocumentText className="w-5 h-5 text-blue-400" />
                 Save to Specific Path
               </h3>
               <CommandBlock 
@@ -289,7 +289,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             {/* Device Sizes */}
             <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <Smartphone className="w-5 h-5 text-purple-400" />
+                <HiOutlineDevicePhoneMobile className="w-5 h-5 text-purple-400" />
                 Device Sizes
               </h3>
               <CommandBlock 
@@ -312,7 +312,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
         {/* Device Presets Table */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <Layers className="w-6 h-6 text-purple-400" />
+            <HiOutlineSquare3Stack3D className="w-6 h-6 text-purple-400" />
             Device Presets
           </h2>
 
@@ -331,25 +331,25 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
                   <td className="px-4 py-3 font-mono text-blue-300">iphone</td>
                   <td className="px-4 py-3 text-slate-100">390×844</td>
                   <td className="px-4 py-3 text-slate-100">iPhone 14/15</td>
-                  <td className="px-4 py-3"><Smartphone className="w-4 h-4 text-slate-100" /></td>
+                  <td className="px-4 py-3"><HiOutlineDevicePhoneMobile className="w-4 h-4 text-slate-100" /></td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-blue-300">android</td>
                   <td className="px-4 py-3 text-slate-100">360×800</td>
                   <td className="px-4 py-3 text-slate-100">Common Android</td>
-                  <td className="px-4 py-3"><Smartphone className="w-4 h-4 text-slate-100" /></td>
+                  <td className="px-4 py-3"><HiOutlineDevicePhoneMobile className="w-4 h-4 text-slate-100" /></td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-blue-300">ipad</td>
                   <td className="px-4 py-3 text-slate-100">768×1024</td>
                   <td className="px-4 py-3 text-slate-100">iPad</td>
-                  <td className="px-4 py-3"><Tablet className="w-4 h-4 text-slate-100" /></td>
+                  <td className="px-4 py-3"><HiOutlineDeviceTablet className="w-4 h-4 text-slate-100" /></td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-blue-300">desktop</td>
                   <td className="px-4 py-3 text-slate-100">1920×1080</td>
                   <td className="px-4 py-3 text-slate-100">Full HD Desktop</td>
-                  <td className="px-4 py-3"><Monitor className="w-4 h-4 text-slate-100" /></td>
+                  <td className="px-4 py-3"><HiOutlineComputerDesktop className="w-4 h-4 text-slate-100" /></td>
                 </tr>
               </tbody>
             </table>
@@ -359,7 +359,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
         {/* Complete Examples */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <Zap className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
             Complete Examples
           </h2>
 
@@ -392,7 +392,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
           <div className="grid md:grid-cols-2 gap-6">
             {/* Debug Development */}
             <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
-              <Bug className="w-8 h-8 text-green-400 mb-4" />
+              <HiOutlineBugAnt className="w-8 h-8 text-green-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2">Debug Local Development</h3>
               <p className="text-slate-100 text-sm mb-4">
                 Quick visual checks during development
@@ -410,7 +410,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 
             {/* Document Bugs */}
             <div className="bg-gradient-to-b from-red-900/20 to-red-800/10 border border-red-500/30 rounded-lg p-6">
-              <AlertCircle className="w-8 h-8 text-red-400 mb-4" />
+              <HiOutlineExclamationCircle className="w-8 h-8 text-red-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2">Document Bugs</h3>
               <p className="text-slate-100 text-sm mb-4">
                 Capture visual proof of issues
@@ -428,7 +428,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 
             {/* Test Responsive */}
             <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
-              <Layers className="w-8 h-8 text-purple-400 mb-4" />
+              <HiOutlineSquare3Stack3D className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2">Test Responsive Design</h3>
               <p className="text-slate-100 text-sm mb-4">
                 Verify layouts across devices
@@ -444,7 +444,7 @@ done`}
 
             {/* CI/CD Integration */}
             <div className="bg-gradient-to-b from-orange-900/20 to-orange-800/10 border border-orange-500/30 rounded-lg p-6">
-              <Zap className="w-8 h-8 text-orange-400 mb-4" />
+              <HiOutlineBolt className="w-8 h-8 text-orange-400 mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2">CI/CD Integration</h3>
               <p className="text-slate-100 text-sm mb-4">
                 Automated visual testing
@@ -568,7 +568,7 @@ done`}
         {/* Error Messages */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <AlertCircle className="w-6 h-6 text-red-400" />
+            <HiOutlineExclamationCircle className="w-6 h-6 text-red-400" />
             Common Error Messages
           </h2>
 

@@ -49,7 +49,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Play, Terminal, ArrowRight, Zap, FileText, Clock, Code, Wrench, Copy, Check, Bug } from 'lucide-react'
+import { HiOutlinePlay, HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineBolt, HiOutlineDocumentText, HiOutlineClock, HiOutlineCodeBracket, HiOutlineWrench, HiOutlineClipboard, HiOutlineCheck, HiOutlineBugAnt } from 'react-icons/hi2'
 import { FaSearch, FaBullseye } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -77,7 +77,7 @@ export default function QuickStartPage() {
             { label: 'Docs', href: '/' },
             { label: 'Quick Start' }
           ]}
-          icon={Play}
+          icon={HiOutlinePlay}
           iconColor="text-green-400"
           iconBgFrom="from-green-600/20"
           iconBgTo="to-emerald-600/20"
@@ -90,7 +90,7 @@ export default function QuickStartPage() {
 
         {/* Time Estimate */}
         <div className="flex items-center gap-2 mb-12 p-4 bg-gradient-to-b from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-lg">
-          <Clock className="w-5 h-5 text-blue-400" />
+          <HiOutlineClock className="w-5 h-5 text-blue-400" />
           <span className="text-blue-200">
             <strong>Estimated time:</strong> 2 minutes to first working agent
           </span>
@@ -549,7 +549,7 @@ What do you want to do?
               className="text-purple-300 hover:text-purple-200 transition-colors flex items-center gap-2 text-sm"
             >
               Learn more about interactive debugging
-              <ArrowRight className="w-4 h-4" />
+              <HiOutlineArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -569,9 +569,9 @@ What do you want to do?
           >
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center">
-                <Bug className="w-6 h-6 text-white" />
+                <HiOutlineBugAnt className="w-6 h-6 text-white" />
               </div>
-              <ArrowRight className="w-5 h-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
+              <HiOutlineArrowRight className="w-5 h-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
             </div>
             <h3 className="text-xl font-semibold text-white mb-2">Interactive Debugging</h3>
             <p className="text-purple-100 text-sm">
@@ -585,9 +585,9 @@ What do you want to do?
           >
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-pink-600 rounded-xl flex items-center justify-center">
-                <FileText className="w-6 h-6 text-white" />
+                <HiOutlineDocumentText className="w-6 h-6 text-white" />
               </div>
-              <ArrowRight className="w-5 h-5 text-pink-400 group-hover:translate-x-1 transition-transform" />
+              <HiOutlineArrowRight className="w-5 h-5 text-pink-400 group-hover:translate-x-1 transition-transform" />
             </div>
             <h3 className="text-xl font-semibold text-white mb-2">Master System Prompts</h3>
             <p className="text-pink-100 text-sm">
@@ -601,9 +601,9 @@ What do you want to do?
           >
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center">
-                <Zap className="w-6 h-6 text-white" />
+                <HiOutlineBolt className="w-6 h-6 text-white" />
               </div>
-              <ArrowRight className="w-5 h-5 text-green-400 group-hover:translate-x-1 transition-transform" />
+              <HiOutlineArrowRight className="w-5 h-5 text-green-400 group-hover:translate-x-1 transition-transform" />
             </div>
             <h3 className="text-xl font-semibold text-white mb-2">Deep Dive into @xray</h3>
             <p className="text-green-100 text-sm">
@@ -617,9 +617,9 @@ What do you want to do?
           >
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-                <Code className="w-6 h-6 text-white" />
+                <HiOutlineCodeBracket className="w-6 h-6 text-white" />
               </div>
-              <ArrowRight className="w-5 h-5 text-blue-400 group-hover:translate-x-1 transition-transform" />
+              <HiOutlineArrowRight className="w-5 h-5 text-blue-400 group-hover:translate-x-1 transition-transform" />
             </div>
             <h3 className="text-xl font-semibold text-white mb-2">Real-World Examples</h3>
             <p className="text-blue-100 text-sm">
@@ -633,9 +633,9 @@ What do you want to do?
           >
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center">
-                <Wrench className="w-6 h-6 text-white" />
+                <HiOutlineWrench className="w-6 h-6 text-white" />
               </div>
-              <ArrowRight className="w-5 h-5 text-orange-400 group-hover:translate-x-1 transition-transform" />
+              <HiOutlineArrowRight className="w-5 h-5 text-orange-400 group-hover:translate-x-1 transition-transform" />
             </div>
             <h3 className="text-xl font-semibold text-white mb-2">Build Custom Tools</h3>
             <p className="text-orange-100 text-sm">

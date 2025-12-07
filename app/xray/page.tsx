@@ -1,11 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import {
-  Zap, ArrowRight, Activity, Bug, Eye, Code,
-  Brain, MessageSquare, History, RefreshCw, Braces, GitBranch, Timer,
-  Layers, BarChart3
-} from 'lucide-react'
+import { HiOutlineBolt, HiOutlineArrowRight, HiOutlineChartBar, HiOutlineBugAnt, HiOutlineEye, HiOutlineCodeBracket, HiOutlineCpuChip, HiOutlineChatBubbleOvalLeft, HiOutlineArrowPath, HiOutlineSquare3Stack3D, HiOutlineClock } from 'react-icons/hi2'
 import { FaRocket, FaSearch, FaChartBar, FaShieldAlt } from 'react-icons/fa'
 import CodeWithResult from '../../components/CodeWithResult'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -21,7 +17,7 @@ export default function XrayPage() {
             { label: 'Docs', href: '/' },
             { label: '@xray Debugging' }
           ]}
-          icon={Bug}
+          icon={HiOutlineBugAnt}
           iconColor="text-purple-400"
           iconBgFrom="from-purple-600/20"
           iconBgTo="to-pink-600/20"
@@ -36,34 +32,34 @@ export default function XrayPage() {
         <section className="mb-16">
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 md:p-8">
             <h3 className="text-base md:text-lg font-semibold mb-4 md:mb-6 flex items-center gap-2">
-              <GitBranch className="text-blue-400 w-4 h-4 md:w-5 md:h-5" />
+              <HiOutlineCodeBracket className="text-blue-400 w-4 h-4 md:w-5 md:h-5" />
               How @xray works
             </h3>
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs md:text-sm">
               <div className="flex flex-col items-center gap-2">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-green-900/50 border border-green-500 rounded-lg flex items-center justify-center">
-                  <Code className="text-green-400 w-5 h-5 md:w-6 md:h-6" />
+                  <HiOutlineCodeBracket className="text-green-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-slate-100">Your Function</span>
               </div>
-              <ArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
+              <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-900/50 border border-purple-500 rounded-lg flex items-center justify-center">
-                  <Bug className="text-purple-400 w-5 h-5 md:w-6 md:h-6" />
+                  <HiOutlineBugAnt className="text-purple-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-slate-100">@xray decorator</span>
               </div>
-              <ArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
+              <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-900/50 border border-blue-500 rounded-lg flex items-center justify-center">
-                  <Brain className="text-blue-400 w-5 h-5 md:w-6 md:h-6" />
+                  <HiOutlineCpuChip className="text-blue-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-slate-100">Agent Context</span>
               </div>
-              <ArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
+              <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-900/50 border border-yellow-500 rounded-lg flex items-center justify-center">
-                  <Eye className="text-yellow-400 w-5 h-5 md:w-6 md:h-6" />
+                  <HiOutlineEye className="text-yellow-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-slate-100">Full Visibility</span>
               </div>
@@ -74,7 +70,7 @@ export default function XrayPage() {
         {/* Examples Section */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <Activity className="w-6 h-6 text-purple-400" />
+            <HiOutlineChartBar className="w-6 h-6 text-purple-400" />
             Examples
           </h2>
 
@@ -82,7 +78,7 @@ export default function XrayPage() {
             {/* Basic Usage */}
             <div>
               <h3 className="heading-3">
-                <Eye className="w-6 h-6 text-green-400" />
+                <HiOutlineEye className="w-6 h-6 text-green-400" />
                 Basic Usage
               </h3>
               <p className="text-slate-100 mb-6">
@@ -113,7 +109,7 @@ Processed: sample data`}
             {/* Execution Trace */}
             <div>
               <h3 className="heading-3">
-                <Timer className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
+                <HiOutlineClock className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
                 Execution Trace
               </h3>
               <p className="text-slate-100 mb-6">
@@ -149,7 +145,7 @@ Analysis complete`}
             {/* IDE Debug */}
             <div>
               <h3 className="heading-3">
-                <Bug className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
+                <HiOutlineBugAnt className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
                 IDE Debug
               </h3>
               <p className="text-slate-100 mb-6">
@@ -189,7 +185,7 @@ positive`}
         {/* What You Can Access Section */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <Braces className="w-6 h-6 text-purple-400" />
+            <HiOutlineCodeBracket className="w-6 h-6 text-purple-400" />
             What You Can Access
           </h2>
 
@@ -197,23 +193,23 @@ positive`}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mb-8">
             <div className="text-center mb-6">
               <h3 className="text-lg font-semibold flex items-center justify-center gap-2">
-                <Braces className="text-blue-400" />
+                <HiOutlineCodeBracket className="text-blue-400" />
                 xray context object
               </h3>
             </div>
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 text-center">
-                <Brain className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mx-auto mb-2" />
+                <HiOutlineCpuChip className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mx-auto mb-2" />
                 <div className="font-mono text-blue-300">xray.agent</div>
                 <div className="text-slate-100 text-xs mt-1">Agent Instance</div>
               </div>
               <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4 text-center">
-                <MessageSquare className="w-8 h-8 text-green-400 mx-auto mb-2" />
+                <HiOutlineChatBubbleOvalLeft className="w-8 h-8 text-green-400 mx-auto mb-2" />
                 <div className="font-mono text-green-300">xray.task</div>
                 <div className="text-slate-100 text-xs mt-1">User Request</div>
               </div>
               <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 text-center">
-                <History className="w-8 h-8 text-purple-400 mx-auto mb-2" />
+                <HiOutlineClock className="w-8 h-8 text-purple-400 mx-auto mb-2" />
                 <div className="font-mono text-purple-300">xray.messages</div>
                 <div className="text-slate-100 text-xs mt-1">Chat History</div>
               </div>
@@ -222,12 +218,12 @@ positive`}
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { name: 'xray.agent', desc: 'The Agent instance calling this tool', icon: Brain, color: 'text-blue-400' },
-              { name: 'xray.task', desc: 'Original request from user', icon: MessageSquare, color: 'text-green-400' },
-              { name: 'xray.messages', desc: 'Full conversation history', icon: History, color: 'text-purple-400' },
-              { name: 'xray.iteration', desc: 'Which round of tool calls (1-10)', icon: RefreshCw, color: 'text-yellow-400' },
-              { name: 'xray.previous_tools', desc: 'Tools called before this one', icon: Layers, color: 'text-cyan-400' },
-              { name: 'xray.trace()', desc: 'Visual execution trace', icon: BarChart3, color: 'text-pink-400' }
+              { name: 'xray.agent', desc: 'The Agent instance calling this tool', icon: HiOutlineCpuChip, color: 'text-blue-400' },
+              { name: 'xray.task', desc: 'Original request from user', icon: HiOutlineChatBubbleOvalLeft, color: 'text-green-400' },
+              { name: 'xray.messages', desc: 'Full conversation history', icon: HiOutlineClock, color: 'text-purple-400' },
+              { name: 'xray.iteration', desc: 'Which round of tool calls (1-10)', icon: HiOutlineArrowPath, color: 'text-yellow-400' },
+              { name: 'xray.previous_tools', desc: 'Tools called before this one', icon: HiOutlineSquare3Stack3D, color: 'text-cyan-400' },
+              { name: 'xray.trace()', desc: 'Visual execution trace', icon: HiOutlineChartBar, color: 'text-pink-400' }
             ].map((item) => {
               const IconComponent = item.icon;
               return (
@@ -253,7 +249,7 @@ positive`}
         {/* Use Cases Section */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <Zap className="w-6 h-6 text-purple-400" />
+            <HiOutlineBolt className="w-6 h-6 text-purple-400" />
             Practical Use Cases
           </h2>
 
@@ -370,7 +366,7 @@ Order ABC123 processed`}
                   className="glass-subtle hover:glass rounded-lg px-6 py-3 flex items-center gap-2 transition-all duration-300"
                 >
                   {item}
-                  <ArrowRight className="w-4 h-4" />
+                  <HiOutlineArrowRight className="w-4 h-4" />
                 </motion.button>
               ))}
             </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { FileText, Check, Copy, Play, Eye, Terminal, FolderOpen, Database } from 'lucide-react'
+import { HiOutlineDocumentText, HiOutlineCheck, HiOutlineClipboard, HiOutlinePlay, HiOutlineEye, HiOutlineCommandLine, HiOutlineFolderOpen, HiOutlineCircleStack } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { CommandBlock } from '../../components/CommandBlock'
@@ -25,9 +25,9 @@ export default function LoggingPage() {
         aria-label="Copy code"
       >
         {copiedCode === id ? (
-          <Check className="w-4 h-4 text-green-400" />
+          <HiOutlineCheck className="w-4 h-4 text-green-400" />
         ) : (
-          <Copy className="w-4 h-4 text-slate-100" />
+          <HiOutlineClipboard className="w-4 h-4 text-slate-100" />
         )}
       </button>
       <SyntaxHighlighter
@@ -55,7 +55,7 @@ export default function LoggingPage() {
             { label: 'Docs', href: '/' },
             { label: 'Logging' }
           ]}
-          icon={FileText}
+          icon={HiOutlineDocumentText}
           iconColor="text-purple-400"
           iconBgFrom="from-purple-500/20"
           iconBgTo="to-pink-500/20"
@@ -69,7 +69,7 @@ export default function LoggingPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Play className="w-6 h-6 text-purple-400" />
+            <HiOutlinePlay className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -94,7 +94,7 @@ agent = Agent("assistant", log="debug.log")`}
         {/* Logging Modes */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Terminal className="w-6 h-6 text-purple-400" />
+            <HiOutlineCommandLine className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Logging Modes</h2>
           </div>
 
@@ -151,7 +151,7 @@ agent = Agent("assistant", log="debug.log")`}
         {/* Log Locations */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <FolderOpen className="w-6 h-6 text-purple-400" />
+            <HiOutlineFolderOpen className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Log Locations</h2>
           </div>
 
@@ -171,7 +171,7 @@ agent = Agent("assistant", log="debug.log")`}
         {/* Plain Text Format */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Terminal className="w-6 h-6 text-purple-400" />
+            <HiOutlineCommandLine className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Plain Text Format (.co/logs/)</h2>
           </div>
 
@@ -196,7 +196,7 @@ Session started: 2024-12-02 10:32:14
         {/* Session YAML Format */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Database className="w-6 h-6 text-purple-400" />
+            <HiOutlineCircleStack className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Session YAML Format (.co/sessions/)</h2>
           </div>
 
@@ -242,7 +242,7 @@ turns:
         {/* View Logs */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Eye className="w-6 h-6 text-purple-400" />
+            <HiOutlineEye className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">View Logs</h2>
           </div>
 
@@ -272,7 +272,7 @@ turns:
         {/* Environment Variable */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Terminal className="w-6 h-6 text-purple-400" />
+            <HiOutlineCommandLine className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Environment Variable</h2>
           </div>
 
@@ -285,14 +285,14 @@ turns:
         {/* Git Ignore */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <FolderOpen className="w-6 h-6 text-purple-400" />
+            <HiOutlineFolderOpen className="w-6 h-6 text-purple-400" />
             <h2 className="heading-2">Git Ignore</h2>
           </div>
 
           <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-6">
             <div className="flex items-start gap-4">
               <div className="p-2 bg-yellow-500/20 rounded-lg shrink-0">
-                <Eye className="w-5 h-5 text-yellow-400" />
+                <HiOutlineEye className="w-5 h-5 text-yellow-400" />
               </div>
               <div className="space-y-4 w-full">
                 <div>

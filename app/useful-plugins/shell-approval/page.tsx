@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Shield, ArrowRight, Terminal, CheckCircle, XCircle } from 'lucide-react'
+import { HiOutlineShieldCheck, HiOutlineArrowRight, HiOutlineCommandLine, HiOutlineCheckCircle, HiOutlineXCircle } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -17,7 +17,7 @@ export default function ShellApprovalPage() {
             { label: 'Useful Plugins', href: '/useful-plugins' },
             { label: 'shell_approval' },
           ]}
-          icon={Shield}
+          icon={HiOutlineShieldCheck}
           iconColor="text-orange-400"
           iconBgFrom="from-orange-600/20"
           iconBgTo="to-red-600/20"
@@ -37,14 +37,14 @@ export default function ShellApprovalPage() {
           <div className="space-y-4">
             <div className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
+                <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">Auto-approves safe commands</h3>
               </div>
               <p className="text-sm text-slate-100">Read-only commands like <code>ls</code>, <code>cat</code>, <code>git status</code> execute without prompts.</p>
             </div>
             <div className="p-4 bg-orange-900/20 border border-orange-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <XCircle className="w-5 h-5 text-orange-400" />
+                <HiOutlineXCircle className="w-5 h-5 text-orange-400" />
                 <h3 className="font-semibold">Asks approval for other commands</h3>
               </div>
               <p className="text-sm text-slate-100">Commands that modify files, install packages, or have side effects require user confirmation.</p>

@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Layout } from 'lucide-react'
+import { HiOutlineRectangleGroup } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { PageHeader } from '../../../components/PageHeader'
@@ -16,7 +16,7 @@ export default function FooterPage() {
             { label: 'TUI', href: '/tui' },
             { label: 'Footer' },
           ]}
-          icon={Layout}
+          icon={HiOutlineRectangleGroup}
           iconColor="text-orange-400"
           iconBgFrom="from-orange-600/20"
           iconBgTo="to-yellow-600/20"

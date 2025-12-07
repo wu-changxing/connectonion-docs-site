@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { ChevronDown, Keyboard } from 'lucide-react'
+import { HiOutlineChevronDown, HiOutlineCommandLine } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { PageHeader } from '../../../components/PageHeader'
@@ -16,7 +16,7 @@ export default function PickPage() {
             { label: 'TUI', href: '/tui' },
             { label: 'pick' },
           ]}
-          icon={ChevronDown}
+          icon={HiOutlineChevronDown}
           iconColor="text-purple-400"
           iconBgFrom="from-purple-600/20"
           iconBgTo="to-pink-600/20"

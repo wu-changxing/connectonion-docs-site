@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef, useCallback } from 'react'
-import { ShieldAlert, AlertTriangle, Link as LinkIcon, Zap, Scale, Layers, CheckCircle2, Shield, Database, DollarSign, Users, Bug, Gauge, IdCard, PackageSearch, Eye, PlugZap, ArrowRight, Filter, AlertCircle, Lock, Activity, TrendingUp, ChevronDown, ChevronUp, Menu, X, ArrowUp } from 'lucide-react'
+import { HiOutlineShieldExclamation, HiOutlineExclamationTriangle, HiOutlineLink as LinkIcon, HiOutlineBolt, HiOutlineScale, HiOutlineSquare3Stack3D, HiOutlineCheckCircle, HiOutlineShieldCheck, HiOutlineCircleStack, HiOutlineCurrencyDollar, HiOutlineUsers, HiOutlineBugAnt, HiOutlineChartBar, HiOutlineIdentification, HiOutlineMagnifyingGlass, HiOutlineEye, HiOutlineArrowRight, HiOutlineFunnel, HiOutlineExclamationCircle, HiOutlineLockClosed, HiOutlineArrowTrendingUp, HiOutlineChevronDown, HiOutlineChevronUp, HiOutlineBars3, HiOutlineXMark, HiOutlineArrowUp } from 'react-icons/hi2'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
@@ -118,7 +118,7 @@ function ThreatCard({
               {severityLabel}
             </span>
             <div className={`p-2 -mr-1 rounded-full transition-colors ${expanded ? 'bg-gray-700/50' : ''}`}>
-              {expanded ? <ChevronUp className="w-4 h-4 text-slate-100" /> : <ChevronDown className="w-4 h-4 text-slate-100" />}
+              {expanded ? <HiOutlineChevronUp className="w-4 h-4 text-slate-100" /> : <HiOutlineChevronDown className="w-4 h-4 text-slate-100" />}
             </div>
           </div>
         </div>
@@ -216,7 +216,7 @@ export default function ThreatModelPage() {
       title: 'Capability Fraud',
       severity: 'H+H' as const,
       severityLabel: 'CRITICAL',
-      icon: Shield,
+      icon: HiOutlineShieldCheck,
       insight: 'Agents claim capabilities they don\'t actually have. They promise to solve complex problems but fail at basic tasks when tested.',
       diagram: (
         <MobileDiagram>
@@ -229,7 +229,7 @@ export default function ThreatModelPage() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/50 flex items-center justify-center flex-shrink-0">
-                  <Zap className="w-5 h-5 text-green-400" />
+                  <HiOutlineBolt className="w-5 h-5 text-green-400" />
                 </div>
                 <div className="bg-gray-800/80 rounded-lg px-3 py-2 border border-gray-600 flex-1">
                   <div className="text-sm text-green-400 font-medium">"I solve ANY problem!"</div>
@@ -248,7 +248,7 @@ export default function ThreatModelPage() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-500/50 flex items-center justify-center flex-shrink-0">
-                  <AlertCircle className="w-5 h-5 text-red-400" />
+                  <HiOutlineExclamationCircle className="w-5 h-5 text-red-400" />
                 </div>
                 <div className="bg-gray-800/80 rounded-lg px-3 py-2 border border-gray-600 flex-1">
                   <div className="text-sm text-red-400 font-mono">2 + 2 = 5</div>
@@ -266,7 +266,7 @@ export default function ThreatModelPage() {
       title: 'Data Harvesting',
       severity: 'H+H' as const,
       severityLabel: 'CRITICAL',
-      icon: Database,
+      icon: HiOutlineCircleStack,
       insight: 'Every request you make is secretly logged with your personal data, code, and API keys. "Free" services monetize your private information.',
       diagram: (
         <MobileDiagram>
@@ -281,7 +281,7 @@ export default function ThreatModelPage() {
                 <div className="bg-gray-800/80 rounded px-3 py-2 border border-gray-600 text-sm text-blue-400">
                   "Fix my code"
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-500" />
+                <HiOutlineArrowRight className="w-4 h-4 text-gray-500" />
                 <div className="text-sm text-gray-500 italic">forgotten</div>
               </div>
             </div>
@@ -306,7 +306,7 @@ export default function ThreatModelPage() {
               <div className="flex gap-1">
                 {[1, 2, 3].map(i => (
                   <div key={i} className="w-8 h-8 bg-red-900/20 border border-red-500/50 rounded flex items-center justify-center">
-                    <Database className="w-4 h-4 text-red-400" />
+                    <HiOutlineCircleStack className="w-4 h-4 text-red-400" />
                   </div>
                 ))}
               </div>
@@ -321,7 +321,7 @@ export default function ThreatModelPage() {
       title: 'Cost Manipulation',
       severity: 'H+H' as const,
       severityLabel: 'CRITICAL',
-      icon: DollarSign,
+      icon: HiOutlineCurrencyDollar,
       insight: 'Attackers exploit unlimited API calls to run up massive bills. A simple infinite loop can turn your $10/month into $10,000 overnight.',
       diagram: (
         <MobileDiagram>
@@ -376,7 +376,7 @@ export default function ThreatModelPage() {
       title: 'Collusion Attacks',
       severity: 'L+H' as const,
       severityLabel: 'MONITOR',
-      icon: Users,
+      icon: HiOutlineUsers,
       insight: 'Multiple bad actors work together, leaving fake positive reviews for each other to appear trustworthy and deceive victims.',
       diagram: (
         <MobileDiagram>
@@ -409,7 +409,7 @@ export default function ThreatModelPage() {
       title: 'Prompt Poisoning',
       severity: 'H+M' as const,
       severityLabel: 'HIGH',
-      icon: Bug,
+      icon: HiOutlineBugAnt,
       insight: 'Malicious instructions hidden in user input can hijack the agent\'s behavior, making it ignore safety rules or leak sensitive data.',
       diagram: (
         <MobileDiagram>
@@ -445,7 +445,7 @@ export default function ThreatModelPage() {
       title: 'Service Degradation',
       severity: 'H+M' as const,
       severityLabel: 'HIGH',
-      icon: Gauge,
+      icon: HiOutlineChartBar,
       insight: 'Services perform excellently during trials but intentionally degrade quality after you\'re committed and dependent on them.',
       diagram: (
         <MobileDiagram>
@@ -481,7 +481,7 @@ export default function ThreatModelPage() {
       title: 'Identity Theft',
       severity: 'H+M' as const,
       severityLabel: 'HIGH',
-      icon: IdCard,
+      icon: HiOutlineIdentification,
       insight: 'Malicious agents impersonate legitimate brands and services, tricking users into sharing credentials or sensitive data.',
       diagram: (
         <MobileDiagram>
@@ -493,14 +493,14 @@ export default function ThreatModelPage() {
             <div className="space-y-3">
               <div className="bg-green-900/20 rounded p-2 border border-green-500/30">
                 <div className="flex items-center gap-2">
-                  <IdCard className="w-4 h-4 text-green-400" />
+                  <HiOutlineIdentification className="w-4 h-4 text-green-400" />
                   <span className="text-xs text-green-400 font-semibold">OpenAI Assistant</span>
                 </div>
                 <div className="text-[10px] text-slate-100 mt-1">Legitimate</div>
               </div>
               <div className="bg-red-900/20 rounded p-2 border border-red-500/30">
                 <div className="flex items-center gap-2">
-                  <IdCard className="w-4 h-4 text-red-400" />
+                  <HiOutlineIdentification className="w-4 h-4 text-red-400" />
                   <span className="text-xs text-red-400 font-semibold">0penAI Assistant</span>
                 </div>
                 <div className="text-[10px] text-slate-100 mt-1">Notice the zero?</div>
@@ -520,7 +520,7 @@ export default function ThreatModelPage() {
       title: 'Supply Chain Poisoning',
       severity: 'L+H' as const,
       severityLabel: 'MONITOR',
-      icon: PackageSearch,
+      icon: HiOutlineMagnifyingGlass,
       insight: 'Attackers compromise popular upstream packages, spreading malware to thousands of projects that depend on them.',
       diagram: (
         <MobileDiagram>
@@ -561,7 +561,7 @@ export default function ThreatModelPage() {
       title: 'Privacy Inference',
       severity: 'P' as const,
       severityLabel: 'PERSISTENT',
-      icon: Eye,
+      icon: HiOutlineEye,
       insight: 'Seemingly innocent questions are aggregated over time to build detailed profiles of users\' private information and behaviors.',
       diagram: (
         <MobileDiagram>
@@ -602,7 +602,7 @@ export default function ThreatModelPage() {
       title: 'Dependency Hijacking',
       severity: 'L+H' as const,
       severityLabel: 'MONITOR',
-      icon: PlugZap,
+      icon: HiOutlineBolt,
       insight: 'Services offer low prices initially, then dramatically increase costs once you\'re locked in and migration is expensive.',
       diagram: (
         <MobileDiagram>
@@ -658,7 +658,7 @@ export default function ThreatModelPage() {
             className="bg-gray-700 hover:bg-gray-600 text-white rounded-full p-3 shadow-lg transition-all duration-200 active:scale-95"
             aria-label="Scroll to top"
           >
-            <ArrowUp className="w-5 h-5" />
+            <HiOutlineArrowUp className="w-5 h-5" />
           </button>
         )}
         <button
@@ -666,7 +666,7 @@ export default function ThreatModelPage() {
           className="bg-purple-600 hover:bg-purple-700 text-white rounded-full p-3 shadow-lg transition-all duration-200 active:scale-95"
           aria-label="Toggle navigation menu"
         >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {mobileMenuOpen ? <HiOutlineXMark className="w-5 h-5" /> : <HiOutlineBars3 className="w-5 h-5" />}
         </button>
       </div>
 
@@ -714,7 +714,7 @@ export default function ThreatModelPage() {
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <span className="text-white">Threat Model</span>
       </div>
 
@@ -723,7 +723,7 @@ export default function ThreatModelPage() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
-              <ShieldAlert className="w-8 h-8 text-purple-400" />
+              <HiOutlineShieldExclamation className="w-8 h-8 text-purple-400" />
             </div>
             <div>
               <h1 className="heading-1">Threat Model</h1>
@@ -737,7 +737,7 @@ export default function ThreatModelPage() {
       </div>
 
       {/* Severity Guide and Filters */}
-      <Section id="severity-guide" title="Severity Guide" icon={<Scale className="w-4 h-4 text-purple-300" />}>
+      <Section id="severity-guide" title="Severity Guide" icon={<HiOutlineScale className="w-4 h-4 text-purple-300" />}>
         <div className="mb-6 p-3 sm:p-4 rounded-lg bg-gray-800/40 border border-gray-700">
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div className="text-center p-2">
@@ -785,7 +785,7 @@ export default function ThreatModelPage() {
                   filter === 'all' ? 'bg-gray-600 text-white' : 'bg-gray-700 hover:bg-gray-600 text-slate-100'
                 }`}
               >
-                <Filter className="w-3 h-3 inline mr-1" />
+                <HiOutlineFunnel className="w-3 h-3 inline mr-1" />
                 All Threats (10)
               </button>
               <button 
@@ -842,7 +842,7 @@ export default function ThreatModelPage() {
       </Section>
 
       {/* Top 10 Threats */}
-      <Section id="top-10" title="Top 10 Threats" icon={<AlertTriangle className="w-4 h-4 text-amber-300" />}> 
+      <Section id="top-10" title="Top 10 Threats" icon={<HiOutlineExclamationTriangle className="w-4 h-4 text-amber-300" />}> 
         <div className="space-y-4 sm:space-y-6">
           {threats.map(threat => (
             <ThreatCard
@@ -866,7 +866,7 @@ export default function ThreatModelPage() {
       <div className="h-px bg-gray-800 my-8 sm:my-10" />
 
       {/* Key Insights */}
-      <Section id="key-insights" title="Key Insights" icon={<Layers className="w-4 h-4 text-cyan-300" />}> 
+      <Section id="key-insights" title="Key Insights" icon={<HiOutlineSquare3Stack3D className="w-4 h-4 text-cyan-300" />}> 
         <div className="space-y-2">
           {[
             'Profit drives attacks',
@@ -877,7 +877,7 @@ export default function ThreatModelPage() {
             'Local-first reduces surface'
           ].map((insight, i) => (
             <div key={i} className="rounded-md border border-gray-800 bg-gray-900/40 hover:bg-gray-900/60 hover:border-gray-700 transition-colors px-3 py-3 flex items-center gap-3 min-h-[44px]">
-              <Layers className="w-4 h-4 text-cyan-300 flex-shrink-0"/>
+              <HiOutlineSquare3Stack3D className="w-4 h-4 text-cyan-300 flex-shrink-0"/>
               <p className="text-slate-100 text-sm">{insight}</p>
             </div>
           ))}
@@ -887,7 +887,7 @@ export default function ThreatModelPage() {
       <div className="h-px bg-gray-800 my-8 sm:my-10" />
 
       {/* Defensive Principles */}
-      <Section id="defensive-principles" title="Defensive Principles" icon={<Zap className="w-4 h-4 text-rose-300" />}> 
+      <Section id="defensive-principles" title="Defensive Principles" icon={<HiOutlineBolt className="w-4 h-4 text-rose-300" />}> 
         <div className="space-y-2">
           {[
             'Cost > payoff',
@@ -897,7 +897,7 @@ export default function ThreatModelPage() {
             'Fast recovery'
           ].map((principle, i) => (
             <div key={i} className="rounded-md border border-gray-800 bg-gray-900/40 hover:bg-gray-900/60 hover:border-gray-700 transition-colors px-3 py-3 flex items-center gap-3 min-h-[44px]">
-              <Zap className="w-4 h-4 text-rose-300 flex-shrink-0"/>
+              <HiOutlineBolt className="w-4 h-4 text-rose-300 flex-shrink-0"/>
               <p className="text-slate-100 text-sm">{principle}</p>
             </div>
           ))}

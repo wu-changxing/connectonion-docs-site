@@ -11,7 +11,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Copy, Check, Code, Download, Lightbulb, MessageSquare, Target, CheckCircle } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCodeBracket, HiOutlineArrowDownTray, HiOutlineLightBulb, HiOutlineChatBubbleOvalLeft, HiOutlineViewfinderCircle, HiOutlineCheckCircle } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { ContentNavigation } from '../../../../components/ContentNavigation'
@@ -168,7 +168,7 @@ ${expectedOutput}
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <Code className="w-8 h-8 text-purple-400" />
+                <HiOutlineCodeBracket className="w-8 h-8 text-purple-400" />
                 <h1 className="heading-1">Senior Code Reviewer</h1>
                 <span className="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm font-medium">
                   Advanced
@@ -191,26 +191,26 @@ ${expectedOutput}
       {/* Key Concepts */}
       <div className="mb-12 p-6 bg-purple-900/20 border border-purple-500/30 rounded-xl">
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <Lightbulb className="w-6 h-6 text-purple-400" />
+          <HiOutlineLightBulb className="w-6 h-6 text-purple-400" />
           Key Learning Concepts
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-3">
-            <Target className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+            <HiOutlineViewfinderCircle className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-white font-semibold mb-1">Review Framework</h3>
               <p className="text-purple-200 text-sm">5 systematic focus areas ensure comprehensive code analysis</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+            <HiOutlineCheckCircle className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-white font-semibold mb-1">Priority Classification</h3>
               <p className="text-purple-200 text-sm">Critical/Major/Minor system helps developers focus on important issues</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <MessageSquare className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-white font-semibold mb-1">Constructive Feedback</h3>
               <p className="text-purple-200 text-sm">Balance criticism with positive recognition and actionable suggestions</p>
@@ -231,12 +231,12 @@ ${expectedOutput}
               >
                 {copiedId === 'prompt' ? (
                   <>
-                    <Check className="w-4 h-4 text-green-400" />
+                    <HiOutlineCheck className="w-4 h-4 text-green-400" />
                     <span className="text-green-400 text-sm">Copied!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4" />
+                    <HiOutlineClipboard className="w-4 h-4" />
                     <span className="text-sm">Copy</span>
                   </>
                 )}
@@ -278,12 +278,12 @@ ${expectedOutput}
               >
                 {copiedId === 'usage' ? (
                   <>
-                    <Check className="w-4 h-4 text-green-400" />
+                    <HiOutlineCheck className="w-4 h-4 text-green-400" />
                     <span className="text-green-400 text-sm">Copied!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4" />
+                    <HiOutlineClipboard className="w-4 h-4" />
                     <span className="text-sm">Copy</span>
                   </>
                 )}
@@ -319,7 +319,7 @@ ${expectedOutput}
           {/* Expected Output */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
-              <MessageSquare className="w-5 h-5 text-purple-400" />
+              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-purple-400" />
               <h3 className="text-xl font-semibold text-white">Expected Output</h3>
             </div>
             
@@ -360,7 +360,7 @@ ${expectedOutput}
                 download="code_reviewer.md"
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-white transition-colors font-medium"
               >
-                <Download className="w-4 h-4" />
+                <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File
               </a>
               <p className="text-xs text-slate-100 text-center">

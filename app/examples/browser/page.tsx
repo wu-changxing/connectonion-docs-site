@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Chrome, Play, Terminal, Camera, Globe, Search, ArrowRight, Code, Shield, Zap, Download } from 'lucide-react'
+import { HiOutlinePlay, HiOutlineCommandLine, HiOutlineCamera, HiOutlineGlobeAlt, HiOutlineMagnifyingGlass, HiOutlineArrowRight, HiOutlineCodeBracket, HiOutlineShieldCheck, HiOutlineBolt, HiOutlineArrowDownTray } from 'react-icons/hi2'
+import { FaChrome } from 'react-icons/fa'
 import Link from 'next/link'
 import { CommandBlock } from '../../../components/CommandBlock'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -17,11 +18,11 @@ export default function BrowserAutomationExample() {
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <Link href="/examples" className="hover:text-purple-400 transition-colors">
           Examples
         </Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <span className="text-white">Browser Automation</span>
       </div>
 
@@ -30,7 +31,7 @@ export default function BrowserAutomationExample() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
-              <Chrome className="w-8 h-8 text-purple-400" />
+              <FaChrome className="w-8 h-8 text-purple-400" />
             </div>
             <div>
               <h1 className="heading-1 text-3xl md:text-4xl font-bold text-white mb-2">Browser Automation</h1>
@@ -46,24 +47,24 @@ export default function BrowserAutomationExample() {
       {/* What You'll Learn */}
       <div className="mb-12 p-6 bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg">
         <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-          <Globe className="w-5 h-5 text-purple-400" />
+          <HiOutlineGlobeAlt className="w-5 h-5 text-purple-400" />
           What You'll Learn
         </h2>
         <div className="grid md:grid-cols-2 gap-3">
           <div className="flex items-start gap-2">
-            <ArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
+            <HiOutlineArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
             <span className="text-slate-100">Navigate websites and interact with elements</span>
           </div>
           <div className="flex items-start gap-2">
-            <ArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
+            <HiOutlineArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
             <span className="text-slate-100">Take screenshots (full page or viewport)</span>
           </div>
           <div className="flex items-start gap-2">
-            <ArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
+            <HiOutlineArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
             <span className="text-slate-100">Extract content and scrape data</span>
           </div>
           <div className="flex items-start gap-2">
-            <ArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
+            <HiOutlineArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
             <span className="text-slate-100">Control browser with natural language</span>
           </div>
         </div>
@@ -72,7 +73,7 @@ export default function BrowserAutomationExample() {
       {/* Quick Start */}
       <section className="mb-12">
         <h2 className="heading-2">
-          <Zap className="w-6 h-6 text-yellow-400" />
+          <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
           Quick Start
         </h2>
         
@@ -107,7 +108,7 @@ Search completed successfully`}
       {/* Full Implementation */}
       <section className="mb-12">
         <h2 className="heading-2">
-          <Code className="w-6 h-6 text-green-400" />
+          <HiOutlineCodeBracket className="w-6 h-6 text-green-400" />
           Complete Browser Agent
         </h2>
 
@@ -235,7 +236,7 @@ if __name__ == "__main__":
       {/* Interactive Demo */}
       <section className="mb-12">
         <h2 className="heading-2">
-          <Play className="w-6 h-6 text-orange-400" />
+          <HiOutlinePlay className="w-6 h-6 text-orange-400" />
           Interactive Demo Script
         </h2>
 
@@ -330,14 +331,14 @@ Demo complete! Check out:
       {/* Common Use Cases */}
       <section className="mb-12">
         <h2 className="heading-2">
-          <Search className="w-6 h-6 text-blue-400" />
+          <HiOutlineMagnifyingGlass className="w-6 h-6 text-blue-400" />
           Common Use Cases
         </h2>
         
         <div className="grid gap-4">
           <div className="bg-gray-800/50 p-6 rounded-lg">
             <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-              <Camera className="w-5 h-5 text-blue-400" />
+              <HiOutlineCamera className="w-5 h-5 text-blue-400" />
               Website Monitoring
             </h3>
             <CodeWithResult
@@ -354,7 +355,7 @@ Status: All systems operational ✅`}
 
           <div className="bg-gray-800/50 p-6 rounded-lg">
             <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-              <Globe className="w-5 h-5 text-green-400" />
+              <HiOutlineGlobeAlt className="w-5 h-5 text-green-400" />
               Data Extraction
             </h3>
             <CodeWithResult
@@ -371,7 +372,7 @@ Data saved to products.json`}
 
           <div className="bg-gray-800/50 p-6 rounded-lg">
             <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-              <Terminal className="w-5 h-5 text-purple-400" />
+              <HiOutlineCommandLine className="w-5 h-5 text-purple-400" />
               Form Automation
             </h3>
             <CodeWithResult
@@ -393,7 +394,7 @@ Form submitted successfully`}
       {/* Installation */}
       <section className="mb-12">
         <h2 className="heading-2">
-          <Download className="w-6 h-6 text-green-400" />
+          <HiOutlineArrowDownTray className="w-6 h-6 text-green-400" />
           Installation
         </h2>
         
@@ -410,7 +411,7 @@ Form submitted successfully`}
       {/* Pro Tips */}
       <div className="p-6 bg-gradient-to-b from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-lg mb-12">
         <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-          <Shield className="w-5 h-5 text-blue-400" />
+          <HiOutlineShieldCheck className="w-5 h-5 text-blue-400" />
           Pro Tips
         </h2>
         <ul className="space-y-2 text-slate-100">

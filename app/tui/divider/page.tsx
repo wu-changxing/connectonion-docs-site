@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Minus } from 'lucide-react'
+import { HiOutlineMinus } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { PageHeader } from '../../../components/PageHeader'
@@ -16,7 +16,7 @@ export default function DividerPage() {
             { label: 'TUI', href: '/tui' },
             { label: 'Divider' },
           ]}
-          icon={Minus}
+          icon={HiOutlineMinus}
           iconColor="text-slate-400"
           iconBgFrom="from-slate-600/20"
           iconBgTo="to-gray-600/20"

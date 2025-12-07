@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Bug, Terminal, Zap, Menu as MenuIcon } from 'lucide-react'
+import { HiOutlineArrowLeft, HiOutlineArrowRight, HiOutlineBugAnt, HiOutlineCommandLine, HiOutlineBolt, HiOutlineBars3 as MenuIcon } from 'react-icons/hi2'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { ContentNavigation } from '../../../components/ContentNavigation'
@@ -316,7 +316,7 @@ Press Enter to continue, or explore the menu. No manual required.
             href="/blog"
             className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <HiOutlineArrowLeft className="w-4 h-4" />
             <span>Back to Blog</span>
           </Link>
           <CopyMarkdownButton content={content} />
@@ -325,7 +325,7 @@ Press Enter to continue, or explore the menu. No manual required.
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <div className="p-3 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl border border-purple-500/30">
-              <Bug className="w-8 h-8 text-purple-400" />
+              <HiOutlineBugAnt className="w-8 h-8 text-purple-400" />
             </div>
             <div>
               <div className="text-sm text-slate-100 mb-1">Design Decision</div>
@@ -345,7 +345,7 @@ Press Enter to continue, or explore the menu. No manual required.
         {/* The Problem */}
         <section className="mb-12">
           <h2 className="heading-2">
-            <Terminal className="w-6 h-6 text-blue-400" />
+            <HiOutlineCommandLine className="w-6 h-6 text-blue-400" />
             The Problem: Debugging AI Agents in the Dark
           </h2>
           <p className="text-slate-100 mb-4">
@@ -424,7 +424,7 @@ agent.input("Send email to John")
         <section className="mb-12">
           <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-lg p-6 mb-6">
             <h2 className="heading-2">
-              <Zap className="w-6 h-6 text-yellow-400" />
+              <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
               The Breakthrough Question
             </h2>
             <p className="text-slate-100 text-lg">

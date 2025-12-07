@@ -10,7 +10,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Copy, Check, Code, Download, Play, Terminal, Lightbulb, Shield, AlertTriangle, ArrowRight } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCodeBracket, HiOutlineArrowDownTray, HiOutlinePlay, HiOutlineCommandLine, HiOutlineLightBulb, HiOutlineShieldCheck, HiOutlineExclamationTriangle, HiOutlineArrowRight } from 'react-icons/hi2'
 import Link from 'next/link'
 import { FaShieldAlt, FaBolt, FaWrench, FaBullseye } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -199,11 +199,11 @@ Build on this foundation for more complex agents that need to handle user input 
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <Link href="/examples" className="hover:text-purple-400 transition-colors">
           Examples
         </Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <span className="text-white">Calculator Agent</span>
       </div>
 
@@ -212,7 +212,7 @@ Build on this foundation for more complex agents that need to handle user input 
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-gradient-to-br from-blue-600/20 to-indigo-600/20 rounded-xl border border-blue-500/30">
-              <Code className="w-8 h-8 text-blue-400" />
+              <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
             </div>
             <div>
               <h1 className="heading-1">Calculator Agent</h1>
@@ -232,34 +232,34 @@ Build on this foundation for more complex agents that need to handle user input 
       {/* Key Concepts */}
       <div className="mb-12 p-6 bg-blue-900/20 border border-blue-500/30 rounded-xl">
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <Lightbulb className="w-6 h-6 text-blue-400" />
+          <HiOutlineLightBulb className="w-6 h-6 text-blue-400" />
           What You'll Learn
         </h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
             <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Shield className="w-6 h-6 text-white" />
+              <HiOutlineShieldCheck className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-white font-semibold mb-1">Input Validation</h3>
             <p className="text-blue-200 text-sm">Secure input filtering and validation</p>
           </div>
           <div className="text-center">
             <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
-              <AlertTriangle className="w-6 h-6 text-white" />
+              <HiOutlineExclamationTriangle className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-white font-semibold mb-1">Error Handling</h3>
             <p className="text-blue-200 text-sm">Graceful error management and feedback</p>
           </div>
           <div className="text-center">
             <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Code className="w-6 h-6 text-white" />
+              <HiOutlineCodeBracket className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-white font-semibold mb-1">Multiple Tools</h3>
             <p className="text-blue-200 text-sm">Integrating several tools in one agent</p>
           </div>
           <div className="text-center">
             <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Terminal className="w-6 h-6 text-white" />
+              <HiOutlineCommandLine className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-white font-semibold mb-1">System Prompts</h3>
             <p className="text-blue-200 text-sm">Guide tool selection with prompts</p>
@@ -280,12 +280,12 @@ Build on this foundation for more complex agents that need to handle user input 
               >
                 {copiedId === 'basic' ? (
                   <>
-                    <Check className="w-4 h-4 text-green-400" />
+                    <HiOutlineCheck className="w-4 h-4 text-green-400" />
                     <span className="text-green-400 text-sm">Copied!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4" />
+                    <HiOutlineClipboard className="w-4 h-4" />
                     <span className="text-sm">Copy</span>
                   </>
                 )}
@@ -325,12 +325,12 @@ Build on this foundation for more complex agents that need to handle user input 
               >
                 {copiedId === 'complete' ? (
                   <>
-                    <Check className="w-4 h-4 text-green-400" />
+                    <HiOutlineCheck className="w-4 h-4 text-green-400" />
                     <span className="text-green-400 text-sm">Copied!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4" />
+                    <HiOutlineClipboard className="w-4 h-4" />
                     <span className="text-sm">Copy</span>
                   </>
                 )}
@@ -366,7 +366,7 @@ Build on this foundation for more complex agents that need to handle user input 
           {/* Output */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
-              <Terminal className="w-5 h-5 text-blue-400" />
+              <HiOutlineCommandLine className="w-5 h-5 text-blue-400" />
               <h3 className="text-xl font-semibold text-white">Expected Output</h3>
             </div>
             
@@ -458,7 +458,7 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
                 download="calculator_agent.py"
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors font-medium"
               >
-                <Download className="w-4 h-4" />
+                <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Complete Example
               </a>
               <p className="text-xs text-slate-100 text-center">

@@ -11,7 +11,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Copy, Check, Download, Loader2 } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineArrowDownTray, HiOutlineArrowPath } from 'react-icons/hi2'
 
 interface CopyMarkdownButtonProps {
   // For new implementation with static files
@@ -148,17 +148,17 @@ export function CopyMarkdownButton({
         >
           {loading ? (
             <>
-              <Loader2 className="w-4 h-4 animate-spin" />
+              <HiOutlineArrowPath className="w-4 h-4 animate-spin" />
               <span className="hidden sm:inline">Loading...</span>
             </>
           ) : copied ? (
             <>
-              <Check className="w-4 h-4 animate-in fade-in zoom-in duration-200" />
+              <HiOutlineCheck className="w-4 h-4 animate-in fade-in zoom-in duration-200" />
               <span className="hidden sm:inline">Copied!</span>
             </>
           ) : (
             <>
-              <Copy className="w-4 h-4" />
+              <HiOutlineClipboard className="w-4 h-4" />
               <span className="hidden sm:inline">Copy</span>
             </>
           )}
@@ -181,7 +181,7 @@ export function CopyMarkdownButton({
               "
               title="Download markdown file"
             >
-              <Download className="w-4 h-4" />
+              <HiOutlineArrowDownTray className="w-4 h-4" />
               <span className="hidden sm:inline">Download</span>
             </a>
           ) : (
@@ -200,7 +200,7 @@ export function CopyMarkdownButton({
               `}
               title="Download markdown file"
             >
-              <Download className="w-4 h-4" />
+              <HiOutlineArrowDownTray className="w-4 h-4" />
               <span className="hidden sm:inline">Download</span>
             </button>
           )}
@@ -230,11 +230,11 @@ export function CopyMarkdownButton({
             title={copied ? "Copied!" : "Copy page as markdown"}
           >
             {loading ? (
-              <Loader2 className="w-6 h-6 animate-spin" />
+              <HiOutlineArrowPath className="w-6 h-6 animate-spin" />
             ) : copied ? (
-              <Check className="w-6 h-6" />
+              <HiOutlineCheck className="w-6 h-6" />
             ) : (
-              <Copy className="w-6 h-6" />
+              <HiOutlineClipboard className="w-6 h-6" />
             )}
           </button>
         </div>

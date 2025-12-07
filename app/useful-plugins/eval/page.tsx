@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Code, ArrowRight, CheckCircle, Target, ClipboardCheck } from 'lucide-react'
+import { HiOutlineCodeBracket, HiOutlineArrowRight, HiOutlineCheckCircle, HiOutlineViewfinderCircle, HiOutlineClipboardDocumentCheck } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -17,7 +17,7 @@ export default function EvalPluginPage() {
             { label: 'Useful Plugins', href: '/useful-plugins' },
             { label: 'eval' },
           ]}
-          icon={Code}
+          icon={HiOutlineCodeBracket}
           iconColor="text-blue-400"
           iconBgFrom="from-blue-600/20"
           iconBgTo="to-cyan-600/20"
@@ -37,14 +37,14 @@ export default function EvalPluginPage() {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Target className="w-5 h-5 text-blue-400" />
+                <HiOutlineViewfinderCircle className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">Generate Expected (after_user_input)</h3>
               </div>
               <p className="text-sm text-slate-100">Generates what should happen to complete the task (unless already set by re_act plugin).</p>
             </div>
             <div className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
+                <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">Evaluate (on_complete)</h3>
               </div>
               <p className="text-sm text-slate-100">After agent finishes, evaluates if the task was truly completed.</p>
@@ -178,15 +178,15 @@ def evaluate_completion(agent):
           <h2 className="heading-2">Use Cases</h2>
           <ul className="space-y-2 text-slate-100">
             <li className="flex items-start gap-2">
-              <ClipboardCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <span><strong>Development:</strong> Verify your agent completes tasks correctly</span>
             </li>
             <li className="flex items-start gap-2">
-              <ClipboardCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <span><strong>Testing:</strong> Automated evaluation of agent responses</span>
             </li>
             <li className="flex items-start gap-2">
-              <ClipboardCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <span><strong>Debugging:</strong> Identify incomplete or incorrect tool usage</span>
             </li>
           </ul>

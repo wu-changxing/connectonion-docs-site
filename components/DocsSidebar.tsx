@@ -9,10 +9,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import {
-  Search, ChevronRight, ChevronDown, Copy, Check, X,
-  Loader2
-} from 'lucide-react'
+import { HiOutlineMagnifyingGlass, HiOutlineChevronRight, HiOutlineChevronDown, HiOutlineClipboard, HiOutlineCheck, HiOutlineXMark, HiOutlineArrowPath } from 'react-icons/hi2'
 import { FaGithub, FaDiscord, FaPython } from 'react-icons/fa'
 import { DifficultyBadge } from './DifficultyBadge'
 import { copyAllDocsToClipboard } from '../utils/copyAllDocs'
@@ -259,7 +256,7 @@ export function DocsSidebar() {
       {/* Search */}
       <div className="p-4 pb-2 bg-gray-800/30">
         <div className="relative group">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 transition-colors group-focus-within:text-purple-400" aria-hidden="true" />
+          <HiOutlineMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 transition-colors group-focus-within:text-purple-400" aria-hidden="true" />
           <input
             ref={searchInputRef}
             type="text"
@@ -279,7 +276,7 @@ export function DocsSidebar() {
               className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 hover:bg-gray-700 rounded transition-colors"
               aria-label="Clear search"
             >
-              <X className="w-4 h-4 text-gray-400 hover:text-white" />
+              <HiOutlineXMark className="w-4 h-4 text-gray-400 hover:text-white" />
             </button>
           ) : (
             <div className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-500 font-mono px-1.5 py-0.5 bg-gray-700 rounded">
@@ -321,12 +318,12 @@ export function DocsSidebar() {
             </>
           ) : copyStatus === 'success' ? (
             <>
-              <Check className="w-4 h-4" aria-hidden="true" />
+              <HiOutlineCheck className="w-4 h-4" aria-hidden="true" />
               <span>Copied to Clipboard!</span>
             </>
           ) : (
             <>
-              <Copy className="w-4 h-4" aria-hidden="true" />
+              <HiOutlineClipboard className="w-4 h-4" aria-hidden="true" />
               <span>Copy All Docs</span>
             </>
           )}
@@ -386,9 +383,9 @@ export function DocsSidebar() {
                 />
               </span>
               {openSections.includes(section) ? (
-                <ChevronDown className="w-3 h-3 flex-shrink-0" />
+                <HiOutlineChevronDown className="w-3 h-3 flex-shrink-0" />
               ) : (
-                <ChevronRight className="w-3 h-3 flex-shrink-0" />
+                <HiOutlineChevronRight className="w-3 h-3 flex-shrink-0" />
               )}
             </button>
             
@@ -454,11 +451,11 @@ export function DocsSidebar() {
                             aria-label={`Copy ${item.title} as markdown`}
                           >
                             {itemCopyStatus === 'loading' && copiedPath === item.href ? (
-                              <Loader2 className="w-4 h-4 text-gray-400 animate-spin" aria-hidden="true" />
+                              <HiOutlineArrowPath className="w-4 h-4 text-gray-400 animate-spin" aria-hidden="true" />
                             ) : itemCopyStatus === 'success' && copiedPath === item.href ? (
-                              <Check className="w-4 h-4 text-green-400" aria-hidden="true" />
+                              <HiOutlineCheck className="w-4 h-4 text-green-400" aria-hidden="true" />
                             ) : (
-                              <Copy className="w-4 h-4 text-gray-400 hover:text-white" aria-hidden="true" />
+                              <HiOutlineClipboard className="w-4 h-4 text-gray-400 hover:text-white" aria-hidden="true" />
                             )}
                           </button>
                         )}

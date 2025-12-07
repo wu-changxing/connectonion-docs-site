@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Globe, Search, Link2, Mail, Share2, FileText, Brain, ArrowRight, Zap } from 'lucide-react'
+import { HiOutlineGlobeAlt, HiOutlineMagnifyingGlass, HiOutlineLink, HiOutlineEnvelope, HiOutlineShare, HiOutlineDocumentText, HiOutlineCpuChip, HiOutlineArrowRight, HiOutlineBolt } from 'react-icons/hi2'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import CodeWithResult from '../../components/CodeWithResult'
@@ -16,7 +16,7 @@ export default function WebFetchPage() {
             { label: 'Docs', href: '/' },
             { label: 'WebFetch' }
           ]}
-          icon={Globe}
+          icon={HiOutlineGlobeAlt}
           iconColor="text-green-400"
           iconBgFrom="from-green-600/20"
           iconBgTo="to-teal-600/20"
@@ -30,7 +30,7 @@ export default function WebFetchPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Zap className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -55,7 +55,7 @@ agent.input("Get contact info from acme.com")`}
           <div className="space-y-6">
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-6">
               <h3 className="font-semibold text-green-300 font-mono mb-2 flex items-center gap-2">
-                <Globe className="w-4 h-4" />
+                <HiOutlineGlobeAlt className="w-4 h-4" />
                 fetch(url)
               </h3>
               <p className="text-slate-100 text-sm mb-4">HTTP GET request, returns raw HTML</p>
@@ -69,7 +69,7 @@ agent.input("Get contact info from acme.com")`}
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-6">
               <h3 className="font-semibold text-green-300 font-mono mb-2 flex items-center gap-2">
-                <FileText className="w-4 h-4" />
+                <HiOutlineDocumentText className="w-4 h-4" />
                 strip_tags(html, max_chars=10000)
               </h3>
               <p className="text-slate-100 text-sm mb-4">Strip HTML tags, returns body text only</p>
@@ -84,7 +84,7 @@ text = web.strip_tags(html)
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-6">
               <h3 className="font-semibold text-green-300 font-mono mb-2 flex items-center gap-2">
-                <FileText className="w-4 h-4" />
+                <HiOutlineDocumentText className="w-4 h-4" />
                 get_title(html)
               </h3>
               <p className="text-slate-100 text-sm">Get page title from HTML</p>
@@ -92,7 +92,7 @@ text = web.strip_tags(html)
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-6">
               <h3 className="font-semibold text-blue-300 font-mono mb-2 flex items-center gap-2">
-                <Link2 className="w-4 h-4" />
+                <HiOutlineLink className="w-4 h-4" />
                 get_links(html)
               </h3>
               <p className="text-slate-100 text-sm">Extract all links from HTML</p>
@@ -100,7 +100,7 @@ text = web.strip_tags(html)
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-6">
               <h3 className="font-semibold text-purple-300 font-mono mb-2 flex items-center gap-2">
-                <Mail className="w-4 h-4" />
+                <HiOutlineEnvelope className="w-4 h-4" />
                 get_emails(html)
               </h3>
               <p className="text-slate-100 text-sm">Extract email addresses from HTML</p>
@@ -108,7 +108,7 @@ text = web.strip_tags(html)
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-6">
               <h3 className="font-semibold text-pink-300 font-mono mb-2 flex items-center gap-2">
-                <Share2 className="w-4 h-4" />
+                <HiOutlineShare className="w-4 h-4" />
                 get_social_links(html)
               </h3>
               <p className="text-slate-100 text-sm">Extract social media links (Twitter, LinkedIn, Facebook, etc.)</p>
@@ -124,7 +124,7 @@ text = web.strip_tags(html)
           <div className="space-y-6">
             <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-xl p-6">
               <h3 className="font-semibold text-purple-300 font-mono mb-2 flex items-center gap-2">
-                <Brain className="w-4 h-4" />
+                <HiOutlineCpuChip className="w-4 h-4" />
                 analyze_page(url)
               </h3>
               <p className="text-slate-100 text-sm mb-4">Use LLM to understand what a page/company does</p>
@@ -138,7 +138,7 @@ text = web.strip_tags(html)
 
             <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-xl p-6">
               <h3 className="font-semibold text-purple-300 font-mono mb-2 flex items-center gap-2">
-                <Search className="w-4 h-4" />
+                <HiOutlineMagnifyingGlass className="w-4 h-4" />
                 get_contact_info(url)
               </h3>
               <p className="text-slate-100 text-sm mb-4">Extract contact information (email, phone, address) using LLM</p>

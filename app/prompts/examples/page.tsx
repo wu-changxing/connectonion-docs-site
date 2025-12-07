@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { ArrowRight, User, Code, Database, FileText, Shield, TrendingUp } from 'lucide-react'
+import { HiOutlineArrowRight, HiOutlineUser, HiOutlineCodeBracket, HiOutlineCircleStack, HiOutlineDocumentText, HiOutlineShieldCheck, HiOutlineArrowTrendingUp } from 'react-icons/hi2'
 import Link from 'next/link'
 
 const examples = [
@@ -9,7 +9,7 @@ const examples = [
     id: 'friendly-assistant',
     title: '1. Friendly Assistant',
     description: 'Basic conversational agent with helpful personality',
-    icon: User,
+    icon: HiOutlineUser,
     color: 'text-green-400',
     bg: 'bg-green-900/20 border-green-500/30',
     difficulty: 'Beginner',
@@ -20,7 +20,7 @@ const examples = [
     id: 'math-tutor',
     title: '2. Math Tutor',
     description: 'Patient teacher focused on step-by-step explanations',
-    icon: Code,
+    icon: HiOutlineCodeBracket,
     color: 'text-blue-400', 
     bg: 'bg-blue-900/20 border-blue-500/30',
     difficulty: 'Beginner',
@@ -31,7 +31,7 @@ const examples = [
     id: 'customer-support',
     title: '3. Customer Support Agent',
     description: 'Empathetic support specialist with structured problem-solving',
-    icon: User,
+    icon: HiOutlineUser,
     color: 'text-orange-400',
     bg: 'bg-orange-900/20 border-orange-500/30',
     difficulty: 'Intermediate',
@@ -42,7 +42,7 @@ const examples = [
     id: 'code-reviewer',
     title: '4. Senior Code Reviewer',
     description: 'Expert engineer with systematic review methodology',
-    icon: Code,
+    icon: HiOutlineCodeBracket,
     color: 'text-purple-400',
     bg: 'bg-purple-900/20 border-purple-500/30',
     difficulty: 'Advanced',
@@ -53,7 +53,7 @@ const examples = [
     id: 'data-analyst',
     title: '5. Data Analysis Expert',
     description: 'Expert transforming data into actionable insights',
-    icon: Database,
+    icon: HiOutlineCircleStack,
     color: 'text-cyan-400',
     bg: 'bg-cyan-900/20 border-cyan-500/30',
     difficulty: 'Advanced',
@@ -64,7 +64,7 @@ const examples = [
     id: 'technical-writer',
     title: '6. Technical Documentation Specialist',
     description: 'Creating clear, comprehensive technical documentation',
-    icon: FileText,
+    icon: HiOutlineDocumentText,
     color: 'text-indigo-400',
     bg: 'bg-indigo-900/20 border-indigo-500/30',
     difficulty: 'Expert',
@@ -75,7 +75,7 @@ const examples = [
     id: 'security-analyst',
     title: '7. Security Analyst',
     description: 'Cybersecurity expert conducting threat analysis and risk assessment',
-    icon: Shield,
+    icon: HiOutlineShieldCheck,
     color: 'text-red-400',
     bg: 'bg-red-900/20 border-red-500/30',
     difficulty: 'Expert',
@@ -86,7 +86,7 @@ const examples = [
     id: 'business-strategist',
     title: '8. Business Strategist',
     description: 'Strategic business advisor for complex decision-making and planning',
-    icon: TrendingUp,
+    icon: HiOutlineArrowTrendingUp,
     color: 'text-pink-400',
     bg: 'bg-pink-900/20 border-pink-500/30',
     difficulty: 'Expert',
@@ -101,9 +101,9 @@ export default function PromptsExamplesPage() {
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-white transition-colors">Home</Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <span className="text-white">Examples</span>
       </nav>
 
@@ -213,7 +213,7 @@ export default function PromptsExamplesPage() {
 
                   {/* Arrow */}
                   <div className="flex items-center justify-end mt-4">
-                    <ArrowRight className={`w-5 h-5 ${example.color} group-hover:translate-x-1 transition-transform`} />
+                    <HiOutlineArrowRight className={`w-5 h-5 ${example.color} group-hover:translate-x-1 transition-transform`} />
                   </div>
                 </div>
               </div>
@@ -249,7 +249,7 @@ export default function PromptsExamplesPage() {
           href="/prompts" 
           className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
         >
-          <ArrowRight className="w-4 h-4 rotate-180" />
+          <HiOutlineArrowRight className="w-4 h-4 rotate-180" />
           System Prompts
         </Link>
         <Link 
@@ -257,7 +257,7 @@ export default function PromptsExamplesPage() {
           className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
         >
           Prompt Formats
-          <ArrowRight className="w-4 h-4" />
+          <HiOutlineArrowRight className="w-4 h-4" />
         </Link>
       </nav>
     </div>

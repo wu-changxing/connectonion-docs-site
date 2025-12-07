@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, BookOpen, Calendar, Clock, Users, Terminal, Code2, Network, Shield, MessageCircle, Layers } from 'lucide-react'
+import { HiOutlineArrowLeft, HiOutlineArrowRight, HiOutlineBookOpen, HiOutlineCalendar, HiOutlineClock, HiOutlineUsers, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineServerStack, HiOutlineShieldCheck, HiOutlineChatBubbleLeftRight, HiOutlineSquare3Stack3D } from 'react-icons/hi2'
 import { ContentNavigation } from '../../components/ContentNavigation'
 
 const blogPosts = [
@@ -11,7 +11,7 @@ const blogPosts = [
     date: 'December 2024',
     readTime: '12 min read',
     href: '/blog/network-protocol-design',
-    icon: Network,
+    icon: HiOutlineServerStack,
     tags: ['Design Decision', 'Network', 'Protocol'],
     excerpt: 'How we evolved from complex architectures to a simple, powerful protocol. Learn why we chose messages over sessions, public keys as addresses, and simplicity over sophistication.'
   },
@@ -21,7 +21,7 @@ const blogPosts = [
     date: 'December 2024',
     readTime: '5 min read',
     href: '/blog/trust-keyword',
-    icon: Users,
+    icon: HiOutlineUsers,
     tags: ['Design Decision', 'Authentication', 'Trust'],
     excerpt: 'After evaluating 15+ options, we settled on "trust" as our authentication keyword. Learn why this bidirectional term perfectly captures our behavioral verification approach.'
   },
@@ -31,7 +31,7 @@ const blogPosts = [
     date: 'December 2024',
     readTime: '7 min read',
     href: '/blog/llm-do',
-    icon: Code2,
+    icon: HiOutlineCodeBracket,
     tags: ['Design Decision', 'API Design', 'Naming'],
     excerpt: 'Functions should be verbs, not nouns. Discover why we added three characters to transform the entire developer experience with one-shot LLM calls.'
   },
@@ -41,7 +41,7 @@ const blogPosts = [
     date: 'December 2024',
     readTime: '8 min read',
     href: '/blog/input-method',
-    icon: Terminal,
+    icon: HiOutlineCommandLine,
     tags: ['Design Decision', 'API Design', 'UX'],
     excerpt: '40% of users naturally tried `input()` first. Learn how aligning with user mental models increased our first-time success rate from 67% to 89%.'
   },
@@ -51,7 +51,7 @@ const blogPosts = [
     date: 'December 2024',
     readTime: '10 min read',
     href: '/blog/agent-address-format',
-    icon: Shield,
+    icon: HiOutlineShieldCheck,
     tags: ['Design Decision', 'Security', 'Identity'],
     excerpt: 'How we designed agent addresses using Ed25519 public keys, why we chose hex encoding over Base58, and how this enables secure, decentralized agent communication.'
   },
@@ -61,7 +61,7 @@ const blogPosts = [
     date: 'December 2024',
     readTime: '6 min read',
     href: '/blog/naming-is-hard',
-    icon: MessageCircle,
+    icon: HiOutlineChatBubbleLeftRight,
     tags: ['Design Decision', 'Naming', 'UX'],
     excerpt: 'Words shape thinking. Learn why we chose "address" over "identity" for agent public keys, and how this single word change simplified our entire mental model.'
   },
@@ -71,7 +71,7 @@ const blogPosts = [
     date: 'December 2024',
     readTime: '7 min read',
     href: '/blog/cli-ux-progressive-disclosure',
-    icon: Layers,
+    icon: HiOutlineSquare3Stack3D,
     tags: ['Design Decision', 'CLI', 'UX'],
     excerpt: 'How we designed the ConnectOnion CLI to be approachable for beginners while maintaining power for experts through progressive disclosure and smart defaults.'
   }
@@ -87,12 +87,12 @@ export default function BlogPage() {
             href="/" 
             className="inline-flex items-center gap-2 text-slate-100 hover:text-white transition-colors mb-8"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <HiOutlineArrowLeft className="w-4 h-4" />
             Back to Docs
           </Link>
           
           <div className="flex items-center gap-3 mb-4">
-            <BookOpen className="w-8 h-8 text-purple-400" />
+            <HiOutlineBookOpen className="w-8 h-8 text-purple-400" />
             <h1 className="text-3xl font-bold text-white">Blog</h1>
           </div>
           <p className="text-slate-100">
@@ -124,11 +124,11 @@ export default function BlogPage() {
                       {/* Meta */}
                       <div className="flex flex-wrap items-center gap-3 mb-2 text-sm text-gray-500">
                         <div className="flex items-center gap-1">
-                          <Calendar className="w-3.5 h-3.5" />
+                          <HiOutlineCalendar className="w-3.5 h-3.5" />
                           <span>{post.date}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5" />
+                          <HiOutlineClock className="w-3.5 h-3.5" />
                           <span>{post.readTime}</span>
                         </div>
                       </div>
@@ -163,7 +163,7 @@ export default function BlogPage() {
                         
                         <span className="inline-flex items-center gap-1 text-sm text-purple-400 group-hover:text-purple-300">
                           Read more
-                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          <HiOutlineArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </span>
                       </div>
                     </div>

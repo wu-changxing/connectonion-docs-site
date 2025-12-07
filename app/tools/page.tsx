@@ -48,7 +48,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import { Copy, Check, Code, Layers, Compass, Monitor, ArrowRight, Wrench, Settings, Box } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCodeBracket, HiOutlineSquare3Stack3D, HiOutlineMapPin, HiOutlineComputerDesktop, HiOutlineArrowRight, HiOutlineWrench, HiOutlineCog6Tooth, HiOutlineCube } from 'react-icons/hi2'
 import { FaLightbulb, FaCheckCircle, FaTimes } from 'react-icons/fa'
 import CodeWithResult from '../../components/CodeWithResult'
 import { PageHeader } from '../../components/PageHeader'
@@ -186,7 +186,7 @@ browser.close()`
             { label: 'Docs', href: '/' },
             { label: 'Tools' }
           ]}
-          icon={Wrench}
+          icon={HiOutlineWrench}
           iconColor="text-emerald-400"
           iconBgFrom="from-emerald-600/20"
           iconBgTo="to-blue-600/20"
@@ -221,7 +221,7 @@ browser.close()`
             aria-pressed={activeTab === 'function'}
             aria-label="View function tools documentation"
           >
-            <Wrench className="w-4 h-4 inline mr-2" />
+            <HiOutlineWrench className="w-4 h-4 inline mr-2" />
             Function Tools
           </button>
           <button
@@ -236,14 +236,14 @@ browser.close()`
             aria-pressed={activeTab === 'class'}
             aria-label="View class-based tools documentation"
           >
-            <Box className="w-4 h-4 inline mr-2" />
+            <HiOutlineCube className="w-4 h-4 inline mr-2" />
             Class Tools
           </button>
         </div>
 
       {/* Quick Start */}
       <section className="mb-14">
-        <h2 className="heading-2"><Layers className="w-5 h-5 text-purple-400"/>Quick Start</h2>
+        <h2 className="heading-2"><HiOutlineSquare3Stack3D className="w-5 h-5 text-purple-400"/>Quick Start</h2>
         <CodeWithResult 
           code={quickStart}
           result={`>>> agent = Agent("helper", tools=[search], max_iterations=5)
@@ -264,7 +264,7 @@ Based on my search, here are some excellent Python tutorials for you:
 
       {/* Function Tools */}
       <section className="mb-14">
-        <h2 className="heading-2"><Code className="w-5 h-5 text-blue-400"/>Function Tools</h2>
+        <h2 className="heading-2"><HiOutlineCodeBracket className="w-5 h-5 text-blue-400"/>Function Tools</h2>
         <p className="text-slate-100 mb-4">Use Python type hints as your interface. Keep signatures explicit and return structures when needed.</p>
         <div className="grid grid-cols-1 gap-6">
           <CodeWithResult 
@@ -290,7 +290,7 @@ I'll search for the top 3 results about vector databases.
 
       {/* Stateful Tools (Playwright) */}
       <section className="mb-16">
-        <h2 className="heading-2"><Monitor className="w-5 h-5 text-emerald-400"/>Stateful Tools: Playwright</h2>
+        <h2 className="heading-2"><HiOutlineComputerDesktop className="w-5 h-5 text-emerald-400"/>Stateful Tools: Playwright</h2>
         <CodeWithResult 
           code={playwright}
           result={`>>> browser = Browser()
@@ -311,7 +311,7 @@ I'll search for the top 3 results about vector databases.
 
       {/* Class Instance vs Individual Methods */}
       <section className="mb-16">
-        <h2 className="heading-2"><Settings className="w-5 h-5 text-amber-400"/>Class Instance vs Individual Methods</h2>
+        <h2 className="heading-2"><HiOutlineCog6Tooth className="w-5 h-5 text-amber-400"/>Class Instance vs Individual Methods</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">

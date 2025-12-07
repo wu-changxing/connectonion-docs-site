@@ -6,10 +6,7 @@ import { CommandBlock } from '../../../components/CommandBlock'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../../components/ContentNavigation'
-import {
-  ArrowRight, BookOpen, Code, AlertTriangle, Timer, CheckCircle,
-  XCircle, Target, ChevronRight, Users, Star, TrendingDown
-} from 'lucide-react'
+import { HiOutlineArrowRight, HiOutlineBookOpen, HiOutlineCodeBracket, HiOutlineExclamationTriangle, HiOutlineCheckCircle, HiOutlineXCircle, HiOutlineViewfinderCircle, HiOutlineChevronRight, HiOutlineUsers, HiOutlineClock, HiOutlineArrowTrendingDown } from 'react-icons/hi2'
 
 const translations = {
   en: {
@@ -134,11 +131,11 @@ export default function Tutorial001Page() {
             <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
-            <ArrowRight className="w-4 h-4" />
+            <HiOutlineArrowRight className="w-4 h-4" />
             <Link href="/tutorials" className="hover:text-white transition-colors">
               Tutorials
             </Link>
-            <ArrowRight className="w-4 h-4" />
+            <HiOutlineArrowRight className="w-4 h-4" />
             <span className="text-white">001: AI Agent = Prompt + Function</span>
           </nav>
 
@@ -147,11 +144,11 @@ export default function Tutorial001Page() {
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-4">
                 <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-600/10 text-purple-400 rounded-full text-sm border border-purple-600/20">
-                  <BookOpen className="w-4 h-4" />
+                  <HiOutlineBookOpen className="w-4 h-4" />
                   Tutorial 001
                 </span>
                 <span className="text-sm text-slate-100 flex items-center gap-2">
-                  <Timer className="w-4 h-4" />
+                  <HiOutlineClock className="w-4 h-4" />
                   {t.readTime}
                 </span>
               </div>
@@ -187,7 +184,7 @@ export default function Tutorial001Page() {
           {/* Section 1: The Truth */}
           <section className="mb-16">
             <h2 className="heading-2">
-              <AlertTriangle className="w-6 h-6 text-orange-500" />
+              <HiOutlineExclamationTriangle className="w-6 h-6 text-orange-500" />
               {t.truth}
             </h2>
 
@@ -235,15 +232,15 @@ export default function Tutorial001Page() {
 
             <ul className="space-y-3 mb-8">
               <li className="flex items-start gap-3">
-                <XCircle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
+                <HiOutlineXCircle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
                 <span className="text-slate-100">Simple agent required 100+ lines of code</span>
               </li>
               <li className="flex items-start gap-3">
-                <XCircle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
+                <HiOutlineXCircle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
                 <span className="text-slate-100">Documentation was incomprehensible</span>
               </li>
               <li className="flex items-start gap-3">
-                <XCircle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
+                <HiOutlineXCircle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
                 <span className="text-slate-100">Every update broke my code</span>
               </li>
             </ul>
@@ -258,7 +255,7 @@ export default function Tutorial001Page() {
             {/* LangChain Example */}
             <div className="mb-8">
               <h3 className="text-lg font-semibold text-red-400 mb-4 flex items-center gap-2">
-                <TrendingDown className="w-5 h-5" />
+                <HiOutlineArrowTrendingDown className="w-5 h-5" />
                 {t.langchainTitle}
               </h3>
               <CodeWithResult
@@ -272,7 +269,7 @@ The weather in San Francisco is sunny, 72°F"
             {/* ConnectOnion Example */}
             <div className="mb-8">
               <h3 className="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" />
+                <HiOutlineCheckCircle className="w-5 h-5" />
                 {t.connectonionTitle}
               </h3>
               <CodeWithResult
@@ -334,15 +331,15 @@ print(result)`}
 
             <div className="space-y-3">
               <div className="flex items-start gap-3 p-4 bg-gray-800/30 rounded-lg">
-                <CheckCircle className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                <HiOutlineCheckCircle className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
                 <span className="text-slate-100">{t.lesson1}</span>
               </div>
               <div className="flex items-start gap-3 p-4 bg-gray-800/30 rounded-lg">
-                <CheckCircle className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                <HiOutlineCheckCircle className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
                 <span className="text-slate-100">{t.lesson2}</span>
               </div>
               <div className="flex items-start gap-3 p-4 bg-gray-800/30 rounded-lg">
-                <CheckCircle className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                <HiOutlineCheckCircle className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
                 <span className="text-slate-100">{t.lesson3}</span>
               </div>
             </div>
@@ -360,13 +357,13 @@ print(result)`}
                 className="group block p-6 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-all"
               >
                 <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
-                  <Target className="w-5 h-5 text-purple-400" />
+                  <HiOutlineViewfinderCircle className="w-5 h-5 text-purple-400" />
                   {t.quickStart}
                 </h3>
                 <p className="text-slate-100">Build your first intelligent agent</p>
                 <div className="mt-4 text-purple-400 flex items-center gap-1">
                   <span className="text-sm">Get started</span>
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <HiOutlineChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
 
@@ -375,13 +372,13 @@ print(result)`}
                 className="group block p-6 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-all"
               >
                 <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
-                  <Code className="w-5 h-5 text-blue-400" />
+                  <HiOutlineCodeBracket className="w-5 h-5 text-blue-400" />
                   {t.examples}
                 </h3>
                 <p className="text-slate-100">Real-world applications and patterns</p>
                 <div className="mt-4 text-blue-400 flex items-center gap-1">
                   <span className="text-sm">Browse examples</span>
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <HiOutlineChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             </div>

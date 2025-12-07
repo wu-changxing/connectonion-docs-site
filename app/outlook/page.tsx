@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Inbox, Search, Archive, BarChart3, ArrowRight, Zap, Send, Reply } from 'lucide-react'
+import { HiOutlineEnvelope, HiOutlineInbox, HiOutlineMagnifyingGlass, HiOutlineArchiveBox, HiOutlineChartBar, HiOutlineArrowRight, HiOutlineBolt, HiOutlinePaperAirplane, HiOutlineArrowUturnLeft } from 'react-icons/hi2'
 import { FaMicrosoft } from 'react-icons/fa'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -17,7 +17,7 @@ export default function OutlookPage() {
             { label: 'Docs', href: '/' },
             { label: 'Outlook' }
           ]}
-          icon={Mail}
+          icon={HiOutlineEnvelope}
           iconColor="text-blue-400"
           iconBgFrom="from-blue-600/20"
           iconBgTo="to-cyan-600/20"
@@ -31,7 +31,7 @@ export default function OutlookPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Zap className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -66,7 +66,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
             {/* Reading */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <Inbox className="w-5 h-5 text-blue-400" />
+                <HiOutlineInbox className="w-5 h-5 text-blue-400" />
                 Reading Emails
               </h3>
 
@@ -95,7 +95,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
             {/* Search */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <Search className="w-5 h-5 text-green-400" />
+                <HiOutlineMagnifyingGlass className="w-5 h-5 text-green-400" />
                 Search
               </h3>
 
@@ -116,7 +116,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
             {/* Sending */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <Send className="w-5 h-5 text-emerald-400" />
+                <HiOutlinePaperAirplane className="w-5 h-5 text-emerald-400" />
                 Sending Emails
               </h3>
 
@@ -143,7 +143,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
             {/* Actions */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <Archive className="w-5 h-5 text-purple-400" />
+                <HiOutlineArchiveBox className="w-5 h-5 text-purple-400" />
                 Actions
               </h3>
 
@@ -166,7 +166,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
             {/* Stats */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <BarChart3 className="w-5 h-5 text-cyan-400" />
+                <HiOutlineChartBar className="w-5 h-5 text-cyan-400" />
                 Stats
               </h3>
 

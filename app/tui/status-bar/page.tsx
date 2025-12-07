@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { BarChart3 } from 'lucide-react'
+import { HiOutlineChartBar } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { PageHeader } from '../../../components/PageHeader'
@@ -16,7 +16,7 @@ export default function StatusBarPage() {
             { label: 'TUI', href: '/tui' },
             { label: 'StatusBar' },
           ]}
-          icon={BarChart3}
+          icon={HiOutlineChartBar}
           iconColor="text-cyan-400"
           iconBgFrom="from-cyan-600/20"
           iconBgTo="to-blue-600/20"

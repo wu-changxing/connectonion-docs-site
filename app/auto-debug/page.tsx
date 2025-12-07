@@ -6,7 +6,7 @@
 
 'use client'
 
-import { Terminal, Zap, Clock, Code, Bug, Brain, Check, AlertTriangle, RefreshCw, BarChart3 } from 'lucide-react'
+import { HiOutlineCommandLine, HiOutlineBolt, HiOutlineClock, HiOutlineCodeBracket, HiOutlineBugAnt, HiOutlineCpuChip, HiOutlineCheck, HiOutlineExclamationTriangle, HiOutlineArrowPath, HiOutlineChartBar } from 'react-icons/hi2'
 import CodeWithResult from '../../components/CodeWithResult'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
@@ -22,7 +22,7 @@ export default function AutoDebugPage() {
               { label: 'Docs', href: '/' },
               { label: 'Interactive Debugging' }
             ]}
-            icon={Bug}
+            icon={HiOutlineBugAnt}
             iconColor="text-purple-400"
             iconBgFrom="from-purple-600/20"
             iconBgTo="to-pink-600/20"
@@ -36,16 +36,16 @@ export default function AutoDebugPage() {
           {/* Feature Status */}
           <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6 mb-8">
             <div className="flex items-start gap-3">
-              <Clock className="w-5 h-5 text-blue-300 mt-1 flex-shrink-0" />
+              <HiOutlineClock className="w-5 h-5 text-blue-300 mt-1 flex-shrink-0" />
               <div>
                 <p className="font-semibold text-blue-100 mb-4">Feature Status (v0.3.2 - Updated Oct 20, 2025)</p>
                 <div className="grid md:grid-cols-2 gap-3 text-sm">
                   <div className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                    <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
                     <span className="text-slate-100"><strong>Available now:</strong> Continue, Edit variables (Python REPL), Quit, Source display</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Clock className="w-4 h-4 text-yellow-400 mt-0.5" />
+                    <HiOutlineClock className="w-4 h-4 text-yellow-400 mt-0.5" />
                     <span className="text-slate-100"><strong>Coming Nov 2:</strong> Ask AI, View trace, Step mode, Universal commands</span>
                   </div>
                 </div>
@@ -64,7 +64,7 @@ export default function AutoDebugPage() {
         {/* 60-Second Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Zap className="w-8 h-8 text-yellow-400" />
+            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
             60-Second Quick Start
           </h2>
 
@@ -136,7 +136,7 @@ What do you want to do?
         {/* The Interactive Menu */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Terminal className="w-8 h-8 text-purple-400" />
+            <HiOutlineCommandLine className="w-8 h-8 text-purple-400" />
             The Interactive Menu
           </h2>
 
@@ -206,7 +206,7 @@ What do you want to do?
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
-                  <Check className="w-6 h-6 text-white" />
+                  <HiOutlineCheck className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Continue Execution</h3>
                 <span className="text-sm bg-green-900/30 text-green-400 border border-green-500/30 px-3 py-1 rounded-full">✅ Available</span>
@@ -232,7 +232,7 @@ What do you want to do?
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
-                  <Code className="w-6 h-6 text-white" />
+                  <HiOutlineCodeBracket className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Edit Variables (Python REPL)</h3>
                 <span className="text-sm bg-green-900/30 text-green-400 border border-green-500/30 px-3 py-1 rounded-full">✅ Available</span>
@@ -283,7 +283,7 @@ Available variables: query, result, tool_args
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
-                  <Brain className="w-6 h-6 text-white" />
+                  <HiOutlineCpuChip className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Ask AI for Help</h3>
                 <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
@@ -325,7 +325,7 @@ ai> /continue [Resume execution]`}
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
-                  <BarChart3 className="w-6 h-6 text-white" />
+                  <HiOutlineChartBar className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">View Execution Trace</h3>
                 <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
@@ -352,7 +352,7 @@ Total: 323ms • 2 steps • 1 iteration`}
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
-                  <RefreshCw className="w-6 h-6 text-white" />
+                  <HiOutlineArrowPath className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Toggle Step Mode</h3>
                 <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
@@ -455,15 +455,15 @@ Agent: "Sorry, no purple shoes under $100 are available."
               <p className="text-slate-100 mb-4">Add <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> to:</p>
               <ul className="space-y-2 text-slate-100 text-sm">
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-1" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-1" />
                   <span>API calls and database operations</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-1" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-1" />
                   <span>Complex business logic</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-1" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-1" />
                   <span>Tools that often fail or have important side effects</span>
                 </li>
               </ul>
@@ -517,7 +517,7 @@ agent.auto_debug(step=True)
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-4 text-green-400 flex items-center gap-2">
-                <Check className="w-5 h-5" />
+                <HiOutlineCheck className="w-5 h-5" />
                 Perfect For
               </h3>
               <ul className="space-y-2 text-sm">
@@ -546,7 +546,7 @@ agent.auto_debug(step=True)
 
             <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-4 text-red-400 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5" />
+                <HiOutlineExclamationTriangle className="w-5 h-5" />
                 Not For
               </h3>
               <ul className="space-y-2 text-sm">

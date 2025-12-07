@@ -38,7 +38,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Copy, Check, Play, Terminal, FileCode, ChevronRight } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlinePlay, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineChevronRight } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
@@ -182,7 +182,7 @@ export default function CodeWithResult({
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
-                  <FileCode className="w-4 h-4 text-blue-400" />
+                  <HiOutlineCodeBracket className="w-4 h-4 text-blue-400" />
                   <span className="text-sm text-gray-100 font-mono">{fileName || 'code'}</span>
                 </div>
               )}
@@ -193,7 +193,7 @@ export default function CodeWithResult({
               title="Copy code"
               aria-label="Copy code to clipboard"
             >
-              {copied ? <Check className="w-5 h-5 text-green-400" /> : <Copy className="w-5 h-5" />}
+              {copied ? <HiOutlineCheck className="w-5 h-5 text-green-400" /> : <HiOutlineClipboard className="w-5 h-5" />}
             </button>
           </div>
           <div className="p-4 md:p-6 overflow-x-auto custom-scrollbar">
@@ -230,8 +230,8 @@ export default function CodeWithResult({
             <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
               <div className="flex items-center gap-2.5">
                 <div className="flex items-center gap-1.5">
-                  <Terminal className="w-4 h-4 text-green-400" />
-                  <ChevronRight className="w-3 h-3 text-gray-500" />
+                  <HiOutlineCommandLine className="w-4 h-4 text-green-400" />
+                  <HiOutlineChevronRight className="w-3 h-3 text-gray-500" />
                 </div>
                 <span className="text-sm text-gray-100 font-mono">Python REPL</span>
                 <div className="flex items-center gap-1.5 ml-1">

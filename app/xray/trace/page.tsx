@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Copy, Check, Terminal, ArrowRight, Clock, Zap, Play, Eye } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineClock, HiOutlineBolt, HiOutlinePlay, HiOutlineEye } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
@@ -530,14 +530,14 @@ Works seamlessly with:
           {/* Breadcrumb */}
           <nav className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-slate-100 mb-4 overflow-x-auto">
             <Link href="/" className="hover:text-white transition-colors whitespace-nowrap">Home</Link>
-            <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+            <HiOutlineArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
             <Link href="/xray" className="hover:text-white transition-colors whitespace-nowrap">@xray</Link>
-            <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+            <HiOutlineArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
             <span className="text-white whitespace-nowrap">trace()</span>
           </nav>
 
           <h1 className="heading-1">
-            <Eye className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 flex-shrink-0" />
+            <HiOutlineEye className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 flex-shrink-0" />
             <span>xray.trace()</span>
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-slate-100 max-w-3xl">
@@ -558,10 +558,10 @@ Works seamlessly with:
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: Terminal, title: 'Visual Flow', desc: 'See all tool calls in sequence', color: 'text-blue-400' },
-            { icon: Clock, title: 'Performance', desc: 'Execution timing for each step', color: 'text-green-400' },
-            { icon: Eye, title: 'Smart Display', desc: 'Intelligent data truncation', color: 'text-purple-400' },
-            { icon: Zap, title: 'Error Tracking', desc: 'Clear error display and details', color: 'text-red-400' }
+            { icon: HiOutlineCommandLine, title: 'Visual Flow', desc: 'See all tool calls in sequence', color: 'text-blue-400' },
+            { icon: HiOutlineClock, title: 'Performance', desc: 'Execution timing for each step', color: 'text-green-400' },
+            { icon: HiOutlineEye, title: 'Smart Display', desc: 'Intelligent data truncation', color: 'text-purple-400' },
+            { icon: HiOutlineBolt, title: 'Error Tracking', desc: 'Clear error display and details', color: 'text-red-400' }
           ].map((feature, i) => {
             const IconComponent = feature.icon
             return (
@@ -602,12 +602,12 @@ Works seamlessly with:
                 >
                   {copiedId === id ? (
                     <>
-                      <Check className="w-4 h-4 text-green-400" />
+                      <HiOutlineCheck className="w-4 h-4 text-green-400" />
                       <span className="text-green-400 text-sm hidden sm:inline">Copied!</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-4 h-4" />
+                      <HiOutlineClipboard className="w-4 h-4" />
                       <span className="text-sm hidden sm:inline">Copy Code</span>
                     </>
                   )}
@@ -618,7 +618,7 @@ Works seamlessly with:
                 {/* Code Panel */}
                 <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
                   <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-700 bg-gray-800">
-                    <Play className="w-4 h-4 text-blue-400" />
+                    <HiOutlinePlay className="w-4 h-4 text-blue-400" />
                     <span className="text-sm font-medium text-slate-100">Python Code</span>
                   </div>
                   
@@ -651,7 +651,7 @@ Works seamlessly with:
                 {/* Output Panel */}
                 <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
                   <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-700 bg-gray-800">
-                    <Terminal className="w-4 h-4 text-green-400" />
+                    <HiOutlineCommandLine className="w-4 h-4 text-green-400" />
                     <span className="text-sm font-medium text-slate-100">Trace Output</span>
                   </div>
                   
@@ -692,7 +692,7 @@ Works seamlessly with:
                     <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
                     <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
                     <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
-                    <ArrowRight className="w-4 h-4" />
+                    <HiOutlineArrowRight className="w-4 h-4" />
                   </div>
                 </div>
               )}
@@ -770,7 +770,7 @@ Works seamlessly with:
           href="/xray" 
           className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
         >
-          <ArrowRight className="w-4 h-4 rotate-180" />
+          <HiOutlineArrowRight className="w-4 h-4 rotate-180" />
           @xray Overview
         </Link>
         <Link 
@@ -778,7 +778,7 @@ Works seamlessly with:
           className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
         >
           Complete Examples
-          <ArrowRight className="w-4 h-4" />
+          <HiOutlineArrowRight className="w-4 h-4" />
         </Link>
       </nav>
     </div>

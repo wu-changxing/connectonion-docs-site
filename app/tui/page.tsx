@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Terminal, Type, ChevronDown, BarChart3, Layout, Minus, Search, Keyboard, Database, ArrowRight, Code } from 'lucide-react'
+import { HiOutlineCommandLine, HiOutlineLanguage, HiOutlineChevronDown, HiOutlineChartBar, HiOutlineRectangleGroup, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineCircleStack, HiOutlineArrowRight, HiOutlineCodeBracket } from 'react-icons/hi2'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
@@ -13,7 +13,7 @@ const components = [
     name: 'pick',
     title: 'pick',
     description: 'Single-select menu with keyboard navigation',
-    icon: ChevronDown,
+    icon: HiOutlineChevronDown,
     color: 'text-purple-400',
     bgColor: 'bg-purple-900/20',
     borderColor: 'border-purple-500/30',
@@ -26,7 +26,7 @@ const components = [
     name: 'Input',
     title: 'Input',
     description: 'Smart text input with trigger-based autocomplete',
-    icon: Type,
+    icon: HiOutlineLanguage,
     color: 'text-blue-400',
     bgColor: 'bg-blue-900/20',
     borderColor: 'border-blue-500/30',
@@ -39,7 +39,7 @@ const components = [
     name: 'Dropdown',
     title: 'Dropdown',
     description: 'Selection list component for autocomplete menus',
-    icon: ChevronDown,
+    icon: HiOutlineChevronDown,
     color: 'text-green-400',
     bgColor: 'bg-green-900/20',
     borderColor: 'border-green-500/30',
@@ -52,7 +52,7 @@ const components = [
     name: 'StatusBar',
     title: 'StatusBar',
     description: 'Powerline-style status bar with colored segments',
-    icon: BarChart3,
+    icon: HiOutlineChartBar,
     color: 'text-cyan-400',
     bgColor: 'bg-cyan-900/20',
     borderColor: 'border-cyan-500/30',
@@ -65,7 +65,7 @@ const components = [
     name: 'Footer',
     title: 'Footer',
     description: 'Simple footer with tips/hints display',
-    icon: Layout,
+    icon: HiOutlineRectangleGroup,
     color: 'text-orange-400',
     bgColor: 'bg-orange-900/20',
     borderColor: 'border-orange-500/30',
@@ -78,7 +78,7 @@ const components = [
     name: 'Divider',
     title: 'Divider',
     description: 'Simple horizontal line separator',
-    icon: Minus,
+    icon: HiOutlineMinus,
     color: 'text-slate-400',
     bgColor: 'bg-slate-900/20',
     borderColor: 'border-slate-500/30',
@@ -91,7 +91,7 @@ const components = [
     name: 'fuzzy_match',
     title: 'Fuzzy Matching',
     description: 'Fuzzy matching utilities for autocomplete',
-    icon: Search,
+    icon: HiOutlineMagnifyingGlass,
     color: 'text-yellow-400',
     bgColor: 'bg-yellow-900/20',
     borderColor: 'border-yellow-500/30',
@@ -104,7 +104,7 @@ const components = [
     name: 'getch / read_key',
     title: 'Keyboard Input',
     description: 'Low-level keyboard input primitives',
-    icon: Keyboard,
+    icon: HiOutlineCommandLine,
     color: 'text-red-400',
     bgColor: 'bg-red-900/20',
     borderColor: 'border-red-500/30',
@@ -117,7 +117,7 @@ const components = [
     name: 'Providers',
     title: 'Autocomplete Providers',
     description: 'Data providers for autocomplete (FileProvider, StaticProvider)',
-    icon: Database,
+    icon: HiOutlineCircleStack,
     color: 'text-pink-400',
     bgColor: 'bg-pink-900/20',
     borderColor: 'border-pink-500/30',
@@ -142,7 +142,7 @@ export default function TUIPage() {
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
-          <ArrowRight className="w-4 h-4" />
+          <HiOutlineArrowRight className="w-4 h-4" />
           <span className="text-white">TUI Components</span>
         </div>
 
@@ -151,7 +151,7 @@ export default function TUIPage() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
               <div className="p-3 bg-gradient-to-br from-purple-600/20 to-cyan-600/20 rounded-xl border border-purple-500/30">
-                <Terminal className="w-8 h-8 text-purple-400" />
+                <HiOutlineCommandLine className="w-8 h-8 text-purple-400" />
               </div>
               <div>
                 <h1 className="heading-1">TUI Components</h1>
@@ -167,7 +167,7 @@ export default function TUIPage() {
         {/* Quick Start */}
         <div className="mb-12 p-6 bg-gradient-to-r from-purple-900/30 to-cyan-900/30 rounded-lg border border-purple-500/20">
           <h2 className="heading-2 flex items-center gap-2">
-            <Code className="w-5 h-5 text-purple-400" />
+            <HiOutlineCodeBracket className="w-5 h-5 text-purple-400" />
             Quick Start
           </h2>
           <CodeWithResult

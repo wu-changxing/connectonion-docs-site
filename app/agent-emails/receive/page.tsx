@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Inbox, Eye, Clock, Mail, Zap } from 'lucide-react'
+import { HiOutlineInbox, HiOutlineEye, HiOutlineClock, HiOutlineEnvelope, HiOutlineBolt } from 'react-icons/hi2'
 import { CommandBlock } from '../../../components/CommandBlock'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -17,7 +17,7 @@ export default function ReceiveEmailsPage() {
             { label: 'Agent Emails', href: '/agent-emails' },
             { label: 'Receive' }
           ]}
-          icon={Inbox}
+          icon={HiOutlineInbox}
           iconColor="text-blue-400"
           iconBgFrom="from-blue-600/20"
           iconBgTo="to-cyan-600/20"
@@ -31,7 +31,7 @@ export default function ReceiveEmailsPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Zap className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
             <h2 className="heading-2">Quick Start</h2>
             <span className="text-sm text-gray-500 bg-gray-800 px-3 py-1 rounded-full">10 seconds</span>
           </div>
@@ -96,7 +96,7 @@ mark_read(email_id)                 # Mark as read after processing`}
           <div className="space-y-12">
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <Eye className="w-5 h-5 text-blue-400" />
+                <HiOutlineEye className="w-5 h-5 text-blue-400" />
                 Check for new emails
               </h3>
               <CodeWithResult
@@ -118,7 +118,7 @@ for email in new_emails:
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <Clock className="w-5 h-5 text-purple-400" />
+                <HiOutlineClock className="w-5 h-5 text-purple-400" />
                 Get latest email
               </h3>
               <CodeWithResult
@@ -134,7 +134,7 @@ if emails:
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <Mail className="w-5 h-5 text-green-400" />
+                <HiOutlineEnvelope className="w-5 h-5 text-green-400" />
                 Reply to emails
               </h3>
               <CodeWithResult

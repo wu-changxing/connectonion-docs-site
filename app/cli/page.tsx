@@ -44,7 +44,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Copy, Check, Terminal, ArrowRight, FileText, Package, GitBranch, AlertCircle, Zap, Code, Folder, BookOpen, ChevronRight, Key, Sparkles, Shield } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineDocumentText, HiOutlineCube, HiOutlineCodeBracket, HiOutlineExclamationCircle, HiOutlineBolt, HiOutlineBookOpen, HiOutlineChevronRight, HiOutlineKey, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineFolderOpen } from 'react-icons/hi2'
 import { FaLightbulb, FaBolt } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -72,7 +72,7 @@ export default function CLIPage() {
             { label: 'Docs', href: '/' },
             { label: 'CLI Reference' }
           ]}
-          icon={Terminal}
+          icon={HiOutlineCommandLine}
           iconColor="text-green-400"
           iconBgFrom="from-green-600/20"
           iconBgTo="to-teal-600/20"
@@ -86,7 +86,7 @@ export default function CLIPage() {
       {/* Quick Command Cheat Sheet */}
       <div className="mb-12 p-4 bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/30 rounded-lg">
         <h2 className="text-base font-semibold text-white mb-4 flex items-center gap-2">
-          <BookOpen className="w-4 h-4 text-blue-400" />
+          <HiOutlineBookOpen className="w-4 h-4 text-blue-400" />
           Quick Reference
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
@@ -100,7 +100,7 @@ export default function CLIPage() {
       {/* Installation */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <Package className="w-6 h-6 text-blue-400" />
+          <HiOutlineCube className="w-6 h-6 text-blue-400" />
           Installation
         </h2>
         
@@ -123,7 +123,7 @@ export default function CLIPage() {
       {/* Commands Overview */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <Terminal className="w-6 h-6 text-green-400" />
+          <HiOutlineCommandLine className="w-6 h-6 text-green-400" />
           Commands Overview
         </h2>
 
@@ -134,7 +134,7 @@ export default function CLIPage() {
         <div className="grid md:grid-cols-2 gap-4 mb-8">
           <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="w-5 h-5 text-green-400" />
+              <HiOutlineSparkles className="w-5 h-5 text-green-400" />
               <h3 className="text-lg font-semibold text-white">co create [name]</h3>
             </div>
             <p className="text-slate-100 text-sm">
@@ -144,7 +144,7 @@ export default function CLIPage() {
 
           <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
-              <Folder className="w-5 h-5 text-purple-400" />
+              <HiOutlineFolderOpen className="w-5 h-5 text-purple-400" />
               <h3 className="text-lg font-semibold text-white">co init</h3>
             </div>
             <p className="text-slate-100 text-sm">
@@ -175,7 +175,7 @@ export default function CLIPage() {
       {/* co create Command */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <Sparkles className="w-6 h-6 text-green-400" />
+          <HiOutlineSparkles className="w-6 h-6 text-green-400" />
           co create [name]
         </h2>
         
@@ -286,7 +286,7 @@ Next steps:
       {/* co init Command */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <Folder className="w-6 h-6 text-purple-400" />
+          <HiOutlineFolderOpen className="w-6 h-6 text-purple-400" />
           co init
         </h2>
         
@@ -322,7 +322,7 @@ Next steps:
       {/* Browser Features */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <Zap className="w-6 h-6 text-yellow-400" />
+          <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
           Browser Features
         </h2>
 
@@ -379,7 +379,7 @@ Next steps:
       {/* Templates */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <Code className="w-6 h-6 text-purple-400" />
+          <HiOutlineCodeBracket className="w-6 h-6 text-purple-400" />
           Templates
         </h2>
 
@@ -395,15 +395,15 @@ Next steps:
             </p>
             <ul className="space-y-2 text-slate-100 text-sm">
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-blue-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-blue-400" />
                 Simple agent.py with basic tools
               </li>
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-blue-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-blue-400" />
                 Minimal dependencies
               </li>
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-blue-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-blue-400" />
                 Quick start configuration
               </li>
             </ul>
@@ -420,19 +420,19 @@ Next steps:
             </p>
             <ul className="space-y-2 text-slate-100 text-sm">
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-green-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-green-400" />
                 Web scraping tools
               </li>
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-green-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-green-400" />
                 Data extraction utilities
               </li>
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-green-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-green-400" />
                 Browser automation support
               </li>
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-green-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-green-400" />
                 API integration examples
               </li>
             </ul>
@@ -465,7 +465,7 @@ Generating custom template with AI...
       {/* API Key Detection */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <Key className="w-6 h-6 text-orange-400" />
+          <HiOutlineKey className="w-6 h-6 text-orange-400" />
           API Key Detection
         </h2>
 
@@ -517,7 +517,7 @@ Generating custom template with AI...
       {/* What Gets Created */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <FileText className="w-6 h-6 text-blue-400" />
+          <HiOutlineDocumentText className="w-6 h-6 text-blue-400" />
           What Gets Created
         </h2>
 
@@ -581,7 +581,7 @@ Generating custom template with AI...
         {/* Agent Identity */}
         <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-            <Shield className="w-5 h-5 text-purple-400" />
+            <HiOutlineShieldCheck className="w-5 h-5 text-purple-400" />
             Agent Identity
           </h3>
           <p className="text-slate-100 mb-4">
@@ -589,26 +589,26 @@ Generating custom template with AI...
           </p>
           <ul className="space-y-2 text-slate-100">
             <li className="flex items-start gap-2">
-              <Key className="w-4 h-4 text-purple-400 mt-0.5" />
+              <HiOutlineKey className="w-4 h-4 text-purple-400 mt-0.5" />
               <div>
                 <strong className="text-purple-200">Ed25519 cryptographic keys</strong> for agent identity
               </div>
             </li>
             <li className="flex items-start gap-2">
-              <Key className="w-4 h-4 text-purple-400 mt-0.5" />
+              <HiOutlineKey className="w-4 h-4 text-purple-400 mt-0.5" />
               <div>
                 <strong className="text-purple-200">Unique address</strong> (hex-encoded public key)
               </div>
             </li>
             <li className="flex items-start gap-2">
-              <Key className="w-4 h-4 text-purple-400 mt-0.5" />
+              <HiOutlineKey className="w-4 h-4 text-purple-400 mt-0.5" />
               <div>
                 <strong className="text-purple-200">12-word recovery phrase</strong> for key restoration
               </div>
             </li>
           </ul>
           <div className="mt-4 p-3 bg-black/30 rounded-lg flex items-center gap-2">
-            <AlertCircle className="w-4 h-4 text-yellow-400" />
+            <HiOutlineExclamationCircle className="w-4 h-4 text-yellow-400" />
             <p className="text-yellow-200 text-sm">
               Keys are stored in <code className="bg-black/30 px-2 py-1 rounded">.co/keys/</code> and auto-added to <code className="bg-black/30 px-2 py-1 rounded">.gitignore</code>
             </p>
@@ -652,7 +652,7 @@ Generating custom template with AI...
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
-            <Terminal className="w-8 h-8 text-purple-400 mb-4" />
+            <HiOutlineCommandLine className="w-8 h-8 text-purple-400 mb-4" />
             <h3 className="text-lg font-semibold text-white mb-2">Choose the Right Command</h3>
             <p className="text-slate-100 text-sm">
               Use <code className="bg-black/30 px-2 py-1 rounded">co create</code> for new projects, 
@@ -661,7 +661,7 @@ Generating custom template with AI...
           </div>
 
           <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
-            <Key className="w-8 h-8 text-green-400 mb-4" />
+            <HiOutlineKey className="w-8 h-8 text-green-400 mb-4" />
             <h3 className="text-lg font-semibold text-white mb-2">API Key Security</h3>
             <p className="text-slate-100 text-sm">
               Never commit <code className="bg-black/30 px-2 py-1 rounded">.env</code> files. Store API keys securely.
@@ -669,7 +669,7 @@ Generating custom template with AI...
           </div>
 
           <div className="bg-gradient-to-b from-orange-900/20 to-orange-800/10 border border-orange-500/30 rounded-lg p-6">
-            <Code className="w-8 h-8 text-orange-400 mb-4" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-orange-400 mb-4" />
             <h3 className="text-lg font-semibold text-white mb-2">Template Selection</h3>
             <p className="text-slate-100 text-sm">
               Start with Minimal for learning. Use Custom (with AI) for specific needs.
@@ -677,7 +677,7 @@ Generating custom template with AI...
           </div>
 
           <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-6">
-            <Shield className="w-8 h-8 text-blue-400 mb-4" />
+            <HiOutlineShieldCheck className="w-8 h-8 text-blue-400 mb-4" />
             <h3 className="text-lg font-semibold text-white mb-2">Agent Keys</h3>
             <p className="text-slate-100 text-sm">
               Never share <code className="bg-black/30 px-2 py-1 rounded">.co/keys/</code> directory. Backup your recovery phrase.
@@ -722,15 +722,15 @@ Generating custom template with AI...
             <h3 className="text-lg font-semibold text-white mb-4">API Key Issues</h3>
             <ul className="space-y-2 text-slate-100">
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-slate-100" />
+                <HiOutlineChevronRight className="w-4 h-4 text-slate-100" />
                 Check key format matches your provider
               </li>
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-slate-100" />
+                <HiOutlineChevronRight className="w-4 h-4 text-slate-100" />
                 Ensure key is active and has credits
               </li>
               <li className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-slate-100" />
+                <HiOutlineChevronRight className="w-4 h-4 text-slate-100" />
                 Try pasting without quotes or spaces
               </li>
             </ul>

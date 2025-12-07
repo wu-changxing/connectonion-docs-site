@@ -13,10 +13,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import {
-  Zap, ArrowRight, Activity, Clock, Code,
-  GitBranch, Timer, Layers, Play, ArrowLeft, Sparkles
-} from 'lucide-react'
+import { HiOutlineBolt, HiOutlineArrowRight, HiOutlineChartBar, HiOutlineClock, HiOutlineCodeBracket, HiOutlineSquare3Stack3D, HiOutlinePlay, HiOutlineArrowLeft, HiOutlineSparkles } from 'react-icons/hi2'
 import CodeWithResult from '../../components/CodeWithResult'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -350,14 +347,14 @@ Errors: 0
         <div className="mb-12">
           <nav className="flex items-center gap-2 text-sm text-slate-100 mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ArrowRight className="w-4 h-4" />
+            <HiOutlineArrowRight className="w-4 h-4" />
             <span className="text-white">Events (on_events)</span>
           </nav>
 
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
             <div className="flex-1">
               <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gradient-to-r from-green-900/30 to-green-800/10 border border-green-500/30 rounded-full">
-                <Sparkles className="w-4 h-4 text-green-400" />
+                <HiOutlineSparkles className="w-4 h-4 text-green-400" />
                 <span className="text-xs font-medium text-green-200">NEW</span>
               </div>
 
@@ -382,13 +379,13 @@ Errors: 0
         <section className="mb-12">
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 md:p-8">
             <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
-              <GitBranch className="text-blue-400 w-5 h-5" />
+              <HiOutlineCodeBracket className="text-blue-400 w-5 h-5" />
               9 Event Types
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-blue-900/50 border border-blue-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <Play className="text-blue-400 w-4 h-4" />
+                  <HiOutlinePlay className="text-blue-400 w-4 h-4" />
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">after_user_input</div>
@@ -398,7 +395,7 @@ Errors: 0
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-purple-900/50 border border-purple-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <Code className="text-purple-400 w-4 h-4" />
+                  <HiOutlineCodeBracket className="text-purple-400 w-4 h-4" />
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">before_llm</div>
@@ -408,7 +405,7 @@ Errors: 0
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-green-900/50 border border-green-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <Activity className="text-green-400 w-5 h-5" />
+                  <HiOutlineChartBar className="text-green-400 w-5 h-5" />
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">after_llm</div>
@@ -418,7 +415,7 @@ Errors: 0
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-yellow-900/50 border border-yellow-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <Zap className="text-yellow-400 w-4 h-4" />
+                  <HiOutlineBolt className="text-yellow-400 w-4 h-4" />
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">before_each_tool</div>
@@ -428,7 +425,7 @@ Errors: 0
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-orange-900/50 border border-orange-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <Layers className="text-orange-400 w-4 h-4" />
+                  <HiOutlineSquare3Stack3D className="text-orange-400 w-4 h-4" />
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">before_tools</div>
@@ -438,7 +435,7 @@ Errors: 0
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-cyan-900/50 border border-cyan-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <Timer className="text-cyan-400 w-4 h-4" />
+                  <HiOutlineClock className="text-cyan-400 w-4 h-4" />
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">after_each_tool</div>
@@ -448,7 +445,7 @@ Errors: 0
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-teal-900/50 border border-teal-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <Activity className="text-teal-400 w-4 h-4" />
+                  <HiOutlineChartBar className="text-teal-400 w-4 h-4" />
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">after_tools</div>
@@ -458,7 +455,7 @@ Errors: 0
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-red-900/50 border border-red-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <Layers className="text-red-400 w-4 h-4" />
+                  <HiOutlineSquare3Stack3D className="text-red-400 w-4 h-4" />
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">on_error</div>
@@ -468,7 +465,7 @@ Errors: 0
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-emerald-900/50 border border-emerald-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <Clock className="text-emerald-400 w-4 h-4" />
+                  <HiOutlineClock className="text-emerald-400 w-4 h-4" />
                 </div>
                 <div>
                   <div className="font-medium text-gray-200">on_complete</div>
@@ -565,7 +562,7 @@ agent = Agent(
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-blue-900/50 border border-blue-500 rounded flex items-center justify-center">
-                    <Play className="text-blue-400 w-5 h-5" />
+                    <HiOutlinePlay className="text-blue-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">after_user_input</h3>
@@ -594,7 +591,7 @@ agent = Agent("assistant", on_events=[
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-green-900/50 border border-green-500 rounded flex items-center justify-center">
-                    <Activity className="text-green-400 w-5 h-5" />
+                    <HiOutlineChartBar className="text-green-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">after_llm</h3>
@@ -644,7 +641,7 @@ agent = Agent("assistant", tools=[search], on_events=[
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-yellow-900/50 border border-yellow-500 rounded flex items-center justify-center">
-                    <Zap className="text-yellow-400 w-5 h-5" />
+                    <HiOutlineBolt className="text-yellow-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">before_each_tool</h3>
@@ -672,7 +669,7 @@ agent = Agent("assistant", tools=[search], on_events=[
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-orange-900/50 border border-orange-500 rounded flex items-center justify-center">
-                    <Layers className="text-orange-400 w-5 h-5" />
+                    <HiOutlineSquare3Stack3D className="text-orange-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">before_tools</h3>
@@ -697,7 +694,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-cyan-900/50 border border-cyan-500 rounded flex items-center justify-center">
-                    <Timer className="text-cyan-400 w-5 h-5" />
+                    <HiOutlineClock className="text-cyan-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">after_each_tool</h3>
@@ -731,7 +728,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-teal-900/50 border border-teal-500 rounded flex items-center justify-center">
-                    <Activity className="text-teal-400 w-5 h-5" />
+                    <HiOutlineChartBar className="text-teal-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">after_tools</h3>
@@ -767,7 +764,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-red-900/50 border border-red-500 rounded flex items-center justify-center">
-                    <Layers className="text-red-400 w-5 h-5" />
+                    <HiOutlineSquare3Stack3D className="text-red-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">on_error</h3>
@@ -799,7 +796,7 @@ agent = Agent("assistant", tools=[api_call], on_events=[
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-emerald-900/50 border border-emerald-500 rounded flex items-center justify-center">
-                    <Clock className="text-emerald-400 w-5 h-5" />
+                    <HiOutlineClock className="text-emerald-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-100">on_complete</h3>

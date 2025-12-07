@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Calendar, ArrowRight, CheckCircle, Plus, Edit, Trash2 } from 'lucide-react'
+import { HiOutlineCalendar, HiOutlineArrowRight, HiOutlineCheckCircle, HiOutlinePlus, HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -17,7 +17,7 @@ export default function CalendarPluginPage() {
             { label: 'Useful Plugins', href: '/useful-plugins' },
             { label: 'calendar_plugin' },
           ]}
-          icon={Calendar}
+          icon={HiOutlineCalendar}
           iconColor="text-cyan-400"
           iconBgFrom="from-cyan-600/20"
           iconBgTo="to-blue-600/20"
@@ -37,28 +37,28 @@ export default function CalendarPluginPage() {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Plus className="w-5 h-5 text-green-400" />
+                <HiOutlinePlus className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">Create Events</h3>
               </div>
               <p className="text-sm text-slate-100">Shows title, time, attendees (who will receive invites!)</p>
             </div>
             <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Edit className="w-5 h-5 text-blue-400" />
+                <HiOutlinePencil className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">Update Events</h3>
               </div>
               <p className="text-sm text-slate-100">Shows what's changing (time, attendees, etc.)</p>
             </div>
             <div className="p-4 bg-red-900/20 border border-red-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Trash2 className="w-5 h-5 text-red-400" />
+                <HiOutlineTrash className="w-5 h-5 text-red-400" />
                 <h3 className="font-semibold">Delete Events</h3>
               </div>
               <p className="text-sm text-slate-100">Warns that deletion is permanent</p>
             </div>
             <div className="p-4 bg-purple-900/20 border border-purple-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Calendar className="w-5 h-5 text-purple-400" />
+                <HiOutlineCalendar className="w-5 h-5 text-purple-400" />
                 <h3 className="font-semibold">Create Meetings</h3>
               </div>
               <p className="text-sm text-slate-100">Google Meet with attendees who will be notified</p>
@@ -142,21 +142,21 @@ Proceed with create event?
           <h2 className="heading-2">Approval Options</h2>
           <div className="space-y-3">
             <div className="p-3 bg-gray-800/50 rounded-lg flex items-start gap-3">
-              <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-white">Yes, {'{action}'}</strong>
                 <p className="text-sm text-slate-100">Proceed with this specific action</p>
               </div>
             </div>
             <div className="p-3 bg-gray-800/50 rounded-lg flex items-start gap-3">
-              <CheckCircle className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCheckCircle className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-white">Auto approve all calendar actions this session</strong>
                 <p className="text-sm text-slate-100">Skip approval for all calendar operations</p>
               </div>
             </div>
             <div className="p-3 bg-gray-800/50 rounded-lg flex items-start gap-3">
-              <CheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-white">No, tell agent what I want</strong>
                 <p className="text-sm text-slate-100">Reject and provide alternative instructions</p>

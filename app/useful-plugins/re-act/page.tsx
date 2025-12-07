@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Brain, ArrowRight, Code, Lightbulb, RotateCcw } from 'lucide-react'
+import { HiOutlineCpuChip, HiOutlineArrowRight, HiOutlineCodeBracket, HiOutlineLightBulb, HiOutlineArrowPath } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -17,7 +17,7 @@ export default function ReActPluginPage() {
             { label: 'Useful Plugins', href: '/useful-plugins' },
             { label: 're_act' },
           ]}
-          icon={Brain}
+          icon={HiOutlineCpuChip}
           iconColor="text-purple-400"
           iconBgFrom="from-purple-600/20"
           iconBgTo="to-pink-600/20"
@@ -37,14 +37,14 @@ export default function ReActPluginPage() {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 bg-purple-900/20 border border-purple-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-5 h-5 text-purple-400" />
+                <HiOutlineLightBulb className="w-5 h-5 text-purple-400" />
                 <h3 className="font-semibold">Plan (after_user_input)</h3>
               </div>
               <p className="text-sm text-slate-100">Before taking any action, the agent plans what to do based on user input and available tools.</p>
             </div>
             <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <RotateCcw className="w-5 h-5 text-blue-400" />
+                <HiOutlineArrowPath className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">Reflect (after_tools)</h3>
               </div>
               <p className="text-sm text-slate-100">After each tool execution, the agent reflects on results and decides next steps.</p>

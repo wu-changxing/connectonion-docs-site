@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Copy, Check, Code, ArrowRight, ArrowLeft, Download, Lightbulb, MessageSquare, BookOpen, Target } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCodeBracket, HiOutlineArrowRight, HiOutlineArrowLeft, HiOutlineArrowDownTray, HiOutlineLightBulb, HiOutlineChatBubbleOvalLeft, HiOutlineBookOpen, HiOutlineViewfinderCircle } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
@@ -102,11 +102,11 @@ ${expectedOutput}
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-white transition-colors">Home</Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <Link href="/prompts/examples" className="hover:text-white transition-colors">Examples</Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <span className="text-white">Math Tutor</span>
       </nav>
 
@@ -119,7 +119,7 @@ ${expectedOutput}
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <Code className="w-8 h-8 text-blue-400" />
+                <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
                 <h1 className="heading-1">Math Tutor</h1>
                 <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm font-medium">
                   Beginner
@@ -142,26 +142,26 @@ ${expectedOutput}
       {/* Key Concepts */}
       <div className="mb-12 p-6 bg-blue-900/20 border border-blue-500/30 rounded-xl">
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <Lightbulb className="w-6 h-6 text-blue-400" />
+          <HiOutlineLightBulb className="w-6 h-6 text-blue-400" />
           Key Learning Concepts
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-3">
-            <BookOpen className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+            <HiOutlineBookOpen className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-white font-semibold mb-1">Teaching Philosophy</h3>
               <p className="text-blue-200 text-sm">Core beliefs that shape every interaction and build student confidence</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <Target className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+            <HiOutlineViewfinderCircle className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-white font-semibold mb-1">Structured Method</h3>
               <p className="text-blue-200 text-sm">5-step process ensures consistent, effective teaching approach</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <MessageSquare className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-white font-semibold mb-1">Encouraging Language</h3>
               <p className="text-blue-200 text-sm">Specific phrases and communication patterns that motivate learning</p>
@@ -182,12 +182,12 @@ ${expectedOutput}
               >
                 {copiedId === 'prompt' ? (
                   <>
-                    <Check className="w-4 h-4 text-green-400" />
+                    <HiOutlineCheck className="w-4 h-4 text-green-400" />
                     <span className="text-green-400 text-sm">Copied!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4" />
+                    <HiOutlineClipboard className="w-4 h-4" />
                     <span className="text-sm">Copy</span>
                   </>
                 )}
@@ -229,12 +229,12 @@ ${expectedOutput}
               >
                 {copiedId === 'usage' ? (
                   <>
-                    <Check className="w-4 h-4 text-green-400" />
+                    <HiOutlineCheck className="w-4 h-4 text-green-400" />
                     <span className="text-green-400 text-sm">Copied!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4" />
+                    <HiOutlineClipboard className="w-4 h-4" />
                     <span className="text-sm">Copy</span>
                   </>
                 )}
@@ -270,7 +270,7 @@ ${expectedOutput}
           {/* Expected Output */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
-              <MessageSquare className="w-5 h-5 text-blue-400" />
+              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-blue-400" />
               <h3 className="text-xl font-semibold text-white">Expected Output</h3>
             </div>
             
@@ -311,7 +311,7 @@ ${expectedOutput}
                 download="math_tutor.md"
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors font-medium"
               >
-                <Download className="w-4 h-4" />
+                <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File
               </a>
               <p className="text-xs text-slate-100 text-center">
@@ -330,7 +330,7 @@ ${expectedOutput}
             href="/prompts/examples/friendly-assistant" 
             className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <HiOutlineArrowLeft className="w-4 h-4" />
             1. Friendly Assistant
           </Link>
         </div>
@@ -341,7 +341,7 @@ ${expectedOutput}
             className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
           >
             3. Customer Support
-            <ArrowRight className="w-4 h-4" />
+            <HiOutlineArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </nav>

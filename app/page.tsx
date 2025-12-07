@@ -12,7 +12,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Terminal, ArrowRight, CheckCircle, Check, Sparkles, Rocket, Bug, Globe, Zap, Search as SearchIcon } from 'lucide-react'
+import { HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineCheckCircle, HiOutlineCheck, HiOutlineSparkles, HiOutlineRocketLaunch, HiOutlineBugAnt, HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineMagnifyingGlass as SearchIcon } from 'react-icons/hi2'
 import { FaEdit, FaWrench, FaRobot, FaStar, FaDiscord, FaGithub } from 'react-icons/fa'
 import Link from 'next/link'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -183,7 +183,7 @@ export default function HomePage() {
           {/* Quick Example */}
           <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 rounded-xl p-6 md:p-8 border border-gray-700">
             <div className="flex items-center gap-3 mb-4">
-              <Rocket className="w-6 h-6 text-green-400" />
+              <HiOutlineRocketLaunch className="w-6 h-6 text-green-400" />
               <h4 className="text-lg font-bold text-white">Real Email Agent in 10 Lines</h4>
             </div>
             <CodeWithResult
@@ -1147,7 +1147,7 @@ Debugging: "Send email to John"
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="card-interactive p-6">
-              <Bug className="w-8 h-8 text-purple-400 mb-4" />
+              <HiOutlineBugAnt className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="font-bold text-white text-lg mb-2">@xray Breakpoints</h3>
               <p className="text-sm text-slate-100">
                 Decorate any tool with <code className="text-purple-400 bg-purple-950/50 px-1.5 py-0.5 rounded font-mono text-xs">@xray</code> - agent pauses automatically.
@@ -1155,7 +1155,7 @@ Debugging: "Send email to John"
             </div>
 
             <div className="card-interactive p-6">
-              <Terminal className="w-8 h-8 text-purple-400 mb-4" />
+              <HiOutlineCommandLine className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="font-bold text-white text-lg mb-2">Zero Learning Curve</h3>
               <p className="text-sm text-slate-100">
                 Arrow keys or shortcuts. Tips always shown. No docs needed.
@@ -1163,7 +1163,7 @@ Debugging: "Send email to John"
             </div>
 
             <div className="card-interactive p-6">
-              <CheckCircle className="w-8 h-8 text-purple-400 mb-4" />
+              <HiOutlineCheckCircle className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="font-bold text-white text-lg mb-2">Time-Travel Testing</h3>
               <p className="text-sm text-slate-100">
                 Press 'e' for Python REPL. Change variables, watch behavior change.
@@ -1176,7 +1176,7 @@ Debugging: "Send email to John"
               href="/auto-debug"
               className="btn btn-primary inline-flex items-center gap-2"
             >
-              Learn Interactive Debugging <ArrowRight className="w-5 h-5" />
+              Learn Interactive Debugging <HiOutlineArrowRight className="w-5 h-5" />
             </Link>
             <p className="mt-4 text-sm text-slate-100">
               Available in <span className="text-purple-400 font-mono">v0.3.2</span>
@@ -1194,7 +1194,7 @@ Debugging: "Send email to John"
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <div className="card-interactive p-6">
-            <Terminal className="w-8 h-8 text-purple-400 mb-4" />
+            <HiOutlineCommandLine className="w-8 h-8 text-purple-400 mb-4" />
             <h3 className="font-semibold text-white mb-2">Professional CLI</h3>
             <div className="bg-black/50 rounded-lg p-4 mb-4 font-mono text-sm">
               <span className="text-green-400">$ co init</span>
@@ -1204,7 +1204,7 @@ Debugging: "Send email to John"
           </div>
 
           <div className="card-interactive p-6">
-            <CheckCircle className="w-8 h-8 text-green-400 mb-4" />
+            <HiOutlineCheckCircle className="w-8 h-8 text-green-400 mb-4" />
             <h3 className="font-semibold text-white mb-2">Auto Logging</h3>
             <p className="text-sm text-slate-200 mb-4">
               Every interaction logged to <code className="text-purple-300 bg-gray-900/50 px-1.5 py-0.5 rounded">.co/logs/</code>
@@ -1213,7 +1213,7 @@ Debugging: "Send email to John"
           </div>
 
           <div className="card-interactive p-6">
-            <Sparkles className="w-8 h-8 text-blue-400 mb-4" />
+            <HiOutlineSparkles className="w-8 h-8 text-blue-400 mb-4" />
             <h3 className="font-semibold text-white mb-2">Multi-LLM Support</h3>
             <div className="space-y-1 text-xs font-mono">
               <div className="text-slate-200">model="gpt-4o"</div>
@@ -1273,9 +1273,9 @@ Debugging: "Send email to John"
               href="/vibe-coding"
               className="btn btn-primary inline-flex items-center gap-3 text-lg font-bold"
             >
-              <Sparkles className="w-6 h-6" />
+              <HiOutlineSparkles className="w-6 h-6" />
               <span>Learn Vibe Coding</span>
-              <ArrowRight className="w-6 h-6" />
+              <HiOutlineArrowRight className="w-6 h-6" />
             </Link>
           </div>
         </div>

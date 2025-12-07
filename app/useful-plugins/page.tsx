@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Package, Brain, Code, Image, Mail, Calendar, Shield, ArrowRight, Sparkles } from 'lucide-react'
+import { HiOutlineCube, HiOutlineCpuChip, HiOutlineCodeBracket, HiOutlinePhoto, HiOutlineEnvelope, HiOutlineCalendar, HiOutlineShieldCheck, HiOutlineArrowRight, HiOutlineSparkles } from 'react-icons/hi2'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
@@ -13,7 +13,7 @@ const plugins = [
     name: 're_act',
     title: 'ReAct Pattern',
     description: 'Implements Reason + Act pattern with planning before action and reflection after tool execution',
-    icon: Brain,
+    icon: HiOutlineCpuChip,
     color: 'text-purple-400',
     bgColor: 'bg-purple-900/20',
     borderColor: 'border-purple-500/30',
@@ -29,7 +29,7 @@ agent = Agent("assistant", tools=[search], plugins=[re_act])`,
     name: 'eval',
     title: 'Code Evaluation',
     description: 'Safe code evaluation and execution in a sandboxed environment',
-    icon: Code,
+    icon: HiOutlineCodeBracket,
     color: 'text-blue-400',
     bgColor: 'bg-blue-900/20',
     borderColor: 'border-blue-500/30',
@@ -45,7 +45,7 @@ agent = Agent("assistant", tools=[generate_code], plugins=[eval])`,
     name: 'image_result_formatter',
     title: 'Image Result Formatter',
     description: 'Automatically formats base64 images in tool results for vision models (GPT-4o, etc.)',
-    icon: Image,
+    icon: HiOutlinePhoto,
     color: 'text-green-400',
     bgColor: 'bg-green-900/20',
     borderColor: 'border-green-500/30',
@@ -61,7 +61,7 @@ agent = Agent("assistant", tools=[screenshot], plugins=[image_result_formatter])
     name: 'gmail_plugin',
     title: 'Gmail Plugin',
     description: 'Pre-configured event handlers for Gmail integration workflows',
-    icon: Mail,
+    icon: HiOutlineEnvelope,
     color: 'text-red-400',
     bgColor: 'bg-red-900/20',
     borderColor: 'border-red-500/30',
@@ -77,7 +77,7 @@ agent = Agent("email_assistant", plugins=[gmail_plugin])`,
     name: 'calendar_plugin',
     title: 'Calendar Plugin',
     description: 'Pre-configured event handlers for calendar management workflows',
-    icon: Calendar,
+    icon: HiOutlineCalendar,
     color: 'text-cyan-400',
     bgColor: 'bg-cyan-900/20',
     borderColor: 'border-cyan-500/30',
@@ -93,7 +93,7 @@ agent = Agent("scheduler", plugins=[calendar_plugin])`,
     name: 'shell_approval',
     title: 'Shell Approval',
     description: 'Requires user confirmation before executing shell commands for safety',
-    icon: Shield,
+    icon: HiOutlineShieldCheck,
     color: 'text-orange-400',
     bgColor: 'bg-orange-900/20',
     borderColor: 'border-orange-500/30',
@@ -115,7 +115,7 @@ export default function UsefulPluginsPage() {
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
-          <ArrowRight className="w-4 h-4" />
+          <HiOutlineArrowRight className="w-4 h-4" />
           <span className="text-white">Useful Plugins</span>
         </div>
 
@@ -124,13 +124,13 @@ export default function UsefulPluginsPage() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
               <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
-                <Package className="w-8 h-8 text-purple-400" />
+                <HiOutlineCube className="w-8 h-8 text-purple-400" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
                   <h1 className="heading-1">Useful Plugins</h1>
                   <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">
-                    <Sparkles className="w-3 h-3" />
+                    <HiOutlineSparkles className="w-3 h-3" />
                     Built-in
                   </span>
                 </div>
@@ -185,7 +185,7 @@ agent = Agent(
                     <code className="text-sm text-slate-100">{plugin.name}</code>
                   </div>
                 </div>
-                <ArrowRight className="w-5 h-5 text-slate-100 group-hover:text-white transition-colors" />
+                <HiOutlineArrowRight className="w-5 h-5 text-slate-100 group-hover:text-white transition-colors" />
               </div>
 
               <p className="text-slate-100 mb-4">
@@ -258,7 +258,7 @@ agent = Agent(
             className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors min-h-[48px]"
           >
             Plugin System Docs
-            <ArrowRight className="w-5 h-5" />
+            <HiOutlineArrowRight className="w-5 h-5" />
           </Link>
         </div>
 

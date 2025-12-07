@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Search } from 'lucide-react'
+import { HiOutlineMagnifyingGlass } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { PageHeader } from '../../../components/PageHeader'
@@ -16,7 +16,7 @@ export default function FuzzyPage() {
             { label: 'TUI', href: '/tui' },
             { label: 'Fuzzy Matching' },
           ]}
-          icon={Search}
+          icon={HiOutlineMagnifyingGlass}
           iconColor="text-yellow-400"
           iconBgFrom="from-yellow-600/20"
           iconBgTo="to-orange-600/20"

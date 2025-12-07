@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Send, Inbox, ArrowRight, Zap, Check } from 'lucide-react'
+import { HiOutlineEnvelope, HiOutlinePaperAirplane, HiOutlineInbox, HiOutlineArrowRight, HiOutlineBolt, HiOutlineCheck } from 'react-icons/hi2'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import CodeWithResult from '../../components/CodeWithResult'
 import { PageHeader } from '../../components/PageHeader'
@@ -15,7 +15,7 @@ export default function AgentEmailsPage() {
             { label: 'Docs', href: '/' },
             { label: 'Agent Emails' }
           ]}
-          icon={Mail}
+          icon={HiOutlineEnvelope}
           iconColor="text-purple-400"
           iconBgFrom="from-purple-600/20"
           iconBgTo="to-blue-600/20"
@@ -30,7 +30,7 @@ export default function AgentEmailsPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Zap className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -59,9 +59,9 @@ for email in emails:
               className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-xl p-6 border border-purple-500/20 hover:border-purple-400/50 hover:bg-purple-500/20 transition-all group"
             >
               <div className="flex items-center gap-3 mb-4">
-                <Send className="w-6 h-6 text-purple-400" />
+                <HiOutlinePaperAirplane className="w-6 h-6 text-purple-400" />
                 <h3 className="text-2xl font-semibold group-hover:text-purple-300 transition-colors">Send Email</h3>
-                <ArrowRight className="w-5 h-5 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
+                <HiOutlineArrowRight className="w-5 h-5 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
               </div>
               <p className="text-slate-100 mb-4">Send emails with zero configuration. Your agent gets a unique email address automatically.</p>
               <code className="text-sm bg-gray-800 px-3 py-1.5 rounded text-purple-300">send_email(to, subject, message)</code>
@@ -72,9 +72,9 @@ for email in emails:
               className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-xl p-6 border border-blue-500/20 hover:border-blue-400/50 hover:bg-blue-500/20 transition-all group"
             >
               <div className="flex items-center gap-3 mb-4">
-                <Inbox className="w-6 h-6 text-blue-400" />
+                <HiOutlineInbox className="w-6 h-6 text-blue-400" />
                 <h3 className="text-2xl font-semibold group-hover:text-blue-300 transition-colors">Receive Emails</h3>
-                <ArrowRight className="w-5 h-5 text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
+                <HiOutlineArrowRight className="w-5 h-5 text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
               </div>
               <p className="text-slate-100 mb-4">Read emails from any IMAP inbox. Works with Gmail, Outlook, or any provider.</p>
               <code className="text-sm bg-gray-800 px-3 py-1.5 rounded text-blue-300">get_emails(last=10, unread=False)</code>
@@ -110,19 +110,19 @@ mark_unread(email_id)                # Mark as unread`}
               <h3 className="font-semibold mb-4 text-purple-300">Agent Emails (This page)</h3>
               <ul className="space-y-2 text-sm text-slate-100">
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Simple functions: send_email, get_emails</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Works with any email provider (IMAP)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Zero config for sending (OpenOnion)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Best for simple automation</span>
                 </li>
               </ul>
@@ -131,19 +131,19 @@ mark_unread(email_id)                # Mark as unread`}
               <h3 className="font-semibold mb-4 text-green-300">Gmail (OAuth)</h3>
               <ul className="space-y-2 text-sm text-slate-100">
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Full Gmail class with 15+ methods</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Labels, archive, star, trash</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Advanced search &amp; CRM features</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Best for Gmail power users</span>
                 </li>
               </ul>

@@ -1,16 +1,6 @@
 'use client'
 
-import { 
-  Folder, 
-  FolderOpen, 
-  FileText, 
-  FileCode, 
-  File, 
-  Settings,
-  GitBranch,
-  Lock,
-  FileJson
-} from 'lucide-react'
+import { HiOutlineFolderOpen, HiOutlineDocumentText, HiOutlineCog6Tooth, HiOutlineCodeBracket, HiOutlineLockClosed } from 'react-icons/hi2'
 
 interface FileTreeItem {
   name: string
@@ -28,7 +18,7 @@ interface FileTreeProps {
 export function FileTree({ structure, className = '' }: FileTreeProps) {
   const getFileIcon = (item: FileTreeItem) => {
     if (item.type === 'folder') {
-      return <FolderOpen className="w-4 h-4 text-blue-400" />
+      return <HiOutlineFolderOpen className="w-4 h-4 text-blue-400" />
     }
 
     // Check file extension or icon type
@@ -39,22 +29,22 @@ export function FileTree({ structure, className = '' }: FileTreeProps) {
       return <span className="text-yellow-400 font-bold text-sm">🐍</span>
     }
     if (iconType === 'markdown' || fileName.endsWith('.md')) {
-      return <FileText className="w-4 h-4 text-blue-300" />
+      return <HiOutlineDocumentText className="w-4 h-4 text-blue-300" />
     }
     if (iconType === 'config' || fileName.endsWith('.toml')) {
-      return <Settings className="w-4 h-4 text-gray-400" />
+      return <HiOutlineCog6Tooth className="w-4 h-4 text-gray-400" />
     }
     if (iconType === 'env' || fileName.includes('.env')) {
-      return <Lock className="w-4 h-4 text-green-400" />
+      return <HiOutlineLockClosed className="w-4 h-4 text-green-400" />
     }
     if (iconType === 'git' || fileName.includes('gitignore')) {
-      return <GitBranch className="w-4 h-4 text-orange-400" />
+      return <HiOutlineCodeBracket className="w-4 h-4 text-orange-400" />
     }
     if (fileName.endsWith('.json')) {
-      return <FileJson className="w-4 h-4 text-yellow-400" />
+      return <HiOutlineDocumentText className="w-4 h-4 text-yellow-400" />
     }
 
-    return <File className="w-4 h-4 text-gray-400" />
+    return <HiOutlineDocumentText className="w-4 h-4 text-gray-400" />
   }
 
   const renderTree = (items: FileTreeItem[], level: number = 0) => {
@@ -119,7 +109,7 @@ export function FileTree({ structure, className = '' }: FileTreeProps) {
   return (
     <div className={`bg-gray-900 border border-gray-700 rounded-lg p-6 ${className}`}>
       <h3 className="text-lg font-semibold text-gray-200 mb-4 flex items-center gap-2">
-        <Folder className="w-5 h-5 text-blue-400" />
+        <HiOutlineFolderOpen className="w-5 h-5 text-blue-400" />
         Files created:
       </h3>
       <div className="font-mono text-sm">

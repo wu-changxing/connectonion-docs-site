@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Copy, Check } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
@@ -52,9 +52,9 @@ agent = Agent("bot", system_prompt="prompts/assistant")          # No extension`
               className="p-2 rounded-lg text-slate-100 hover:text-white hover:bg-gray-700 transition-colors"
             >
               {copiedId === 'code' ? (
-                <Check className="w-4 h-4 text-green-400" />
+                <HiOutlineCheck className="w-4 h-4 text-green-400" />
               ) : (
-                <Copy className="w-4 h-4" />
+                <HiOutlineClipboard className="w-4 h-4" />
               )}
             </button>
           </div>

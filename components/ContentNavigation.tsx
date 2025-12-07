@@ -10,7 +10,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { HiOutlineArrowLeft, HiOutlineArrowRight } from 'react-icons/hi2'
 import { usePathname } from 'next/navigation'
 import { getPageByHref, getExamplePages } from '../lib/navigation'
 
@@ -53,7 +53,7 @@ export function ContentNavigation() {
             href={prev.href}
             className="group flex items-center gap-3 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all"
           >
-            <ArrowLeft className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+            <HiOutlineArrowLeft className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
             <div className="text-left">
               <div className="text-xs text-gray-400 mb-1">Previous</div>
               <div className="text-sm font-medium text-white">{prev.title}</div>
@@ -72,7 +72,7 @@ export function ContentNavigation() {
               <div className="text-xs text-gray-400 mb-1">Next</div>
               <div className="text-sm font-medium text-white">{next.title}</div>
             </div>
-            <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+            <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
           </Link>
         ) : (
           <div />

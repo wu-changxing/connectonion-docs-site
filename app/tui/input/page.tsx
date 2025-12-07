@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Type, Zap, Lightbulb, Palette } from 'lucide-react'
+import { HiOutlineLanguage, HiOutlineBolt, HiOutlineLightBulb, HiOutlineSwatch } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -17,7 +17,7 @@ export default function InputPage() {
             { label: 'TUI', href: '/tui' },
             { label: 'Input' },
           ]}
-          icon={Type}
+          icon={HiOutlineLanguage}
           iconColor="text-blue-400"
           iconBgFrom="from-blue-600/20"
           iconBgTo="to-cyan-600/20"
@@ -100,21 +100,21 @@ text = Input(triggers={"/": commands}).run()`}
           <div className="grid md:grid-cols-3 gap-4">
             <div className="p-4 bg-purple-900/20 border border-purple-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Palette className="w-5 h-5 text-purple-400" />
+                <HiOutlineSwatch className="w-5 h-5 text-purple-400" />
                 <h3 className="font-semibold">modern</h3>
               </div>
               <p className="text-sm text-slate-100">Magenta prompt, clean design</p>
             </div>
             <div className="p-4 bg-gray-800/50 border border-gray-700 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Palette className="w-5 h-5 text-gray-400" />
+                <HiOutlineSwatch className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">minimal</h3>
               </div>
               <p className="text-sm text-slate-100">Bare bones, no decorations</p>
             </div>
             <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Palette className="w-5 h-5 text-blue-400" />
+                <HiOutlineSwatch className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">classic</h3>
               </div>
               <p className="text-sm text-slate-100">Traditional input style</p>

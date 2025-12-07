@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Keyboard } from 'lucide-react'
+import { HiOutlineCommandLine } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { PageHeader } from '../../../components/PageHeader'
@@ -16,7 +16,7 @@ export default function KeysPage() {
             { label: 'TUI', href: '/tui' },
             { label: 'Keyboard Input' },
           ]}
-          icon={Keyboard}
+          icon={HiOutlineCommandLine}
           iconColor="text-red-400"
           iconBgFrom="from-red-600/20"
           iconBgTo="to-pink-600/20"

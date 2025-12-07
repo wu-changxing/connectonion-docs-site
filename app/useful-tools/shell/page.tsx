@@ -1,6 +1,6 @@
 'use client'
 
-import { Terminal } from 'lucide-react'
+import { HiOutlineCommandLine } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { PageHeader } from '../../../components/PageHeader'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -15,7 +15,7 @@ export default function ShellPage() {
             { label: 'Useful Tools', href: '/useful-tools' },
             { label: 'Shell' }
           ]}
-          icon={Terminal}
+          icon={HiOutlineCommandLine}
           iconColor="text-orange-400"
           iconBgFrom="from-orange-600/20"
           iconBgTo="to-red-600/20"

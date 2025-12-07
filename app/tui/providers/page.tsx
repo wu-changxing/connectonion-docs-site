@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Database, FileText, List, Code } from 'lucide-react'
+import { HiOutlineCircleStack, HiOutlineDocumentText, HiOutlineListBullet, HiOutlineCodeBracket } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -17,7 +17,7 @@ export default function ProvidersPage() {
             { label: 'TUI', href: '/tui' },
             { label: 'Providers' },
           ]}
-          icon={Database}
+          icon={HiOutlineCircleStack}
           iconColor="text-pink-400"
           iconBgFrom="from-pink-600/20"
           iconBgTo="to-purple-600/20"
@@ -146,14 +146,14 @@ class MyProvider:
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg hover:border-purple-400/50 transition-all">
               <div className="flex items-center gap-2 mb-2">
-                <FileText className="w-5 h-5 text-blue-400" />
+                <HiOutlineDocumentText className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">FileProvider</h3>
               </div>
               <p className="text-sm text-slate-100">Browse filesystem with type-specific icons</p>
             </div>
             <div className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg hover:border-purple-400/50 transition-all">
               <div className="flex items-center gap-2 mb-2">
-                <List className="w-5 h-5 text-green-400" />
+                <HiOutlineListBullet className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">StaticProvider</h3>
               </div>
               <p className="text-sm text-slate-100">Static list of options with optional metadata</p>

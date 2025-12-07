@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Wrench, Mail, Calendar, Brain, Globe, ArrowRight, Terminal, ListTodo, Code } from 'lucide-react'
+import { HiOutlineWrench, HiOutlineEnvelope, HiOutlineCalendar, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineArrowRight, HiOutlineCommandLine, HiOutlineClipboardDocumentList, HiOutlineCodeBracket } from 'react-icons/hi2'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import Link from 'next/link'
 import { PageHeader } from '../../components/PageHeader'
@@ -12,7 +12,7 @@ const toolCategories = [
     id: 'email',
     title: 'Email',
     description: 'Send and receive emails through various providers',
-    icon: Mail,
+    icon: HiOutlineEnvelope,
     color: 'text-blue-400',
     bgColor: 'bg-blue-900/20',
     borderColor: 'border-blue-500/30',
@@ -26,7 +26,7 @@ const toolCategories = [
     id: 'calendar',
     title: 'Calendar',
     description: 'Schedule meetings and manage calendars',
-    icon: Calendar,
+    icon: HiOutlineCalendar,
     color: 'text-purple-400',
     bgColor: 'bg-purple-900/20',
     borderColor: 'border-purple-500/30',
@@ -39,7 +39,7 @@ const toolCategories = [
     id: 'memory',
     title: 'Memory & Storage',
     description: 'Persistent memory and knowledge storage',
-    icon: Brain,
+    icon: HiOutlineCpuChip,
     color: 'text-green-400',
     bgColor: 'bg-green-900/20',
     borderColor: 'border-green-500/30',
@@ -51,7 +51,7 @@ const toolCategories = [
     id: 'web',
     title: 'Web',
     description: 'Fetch and interact with web content',
-    icon: Globe,
+    icon: HiOutlineGlobeAlt,
     color: 'text-cyan-400',
     bgColor: 'bg-cyan-900/20',
     borderColor: 'border-cyan-500/30',
@@ -63,7 +63,7 @@ const toolCategories = [
     id: 'system',
     title: 'System',
     description: 'System and terminal operations',
-    icon: Terminal,
+    icon: HiOutlineCommandLine,
     color: 'text-orange-400',
     bgColor: 'bg-orange-900/20',
     borderColor: 'border-orange-500/30',
@@ -76,7 +76,7 @@ const toolCategories = [
     id: 'productivity',
     title: 'Productivity',
     description: 'Task management and productivity tools',
-    icon: ListTodo,
+    icon: HiOutlineClipboardDocumentList,
     color: 'text-yellow-400',
     bgColor: 'bg-yellow-900/20',
     borderColor: 'border-yellow-500/30',
@@ -88,7 +88,7 @@ const toolCategories = [
     id: 'dev',
     title: 'Developer',
     description: 'Development and code tools',
-    icon: Code,
+    icon: HiOutlineCodeBracket,
     color: 'text-pink-400',
     bgColor: 'bg-pink-900/20',
     borderColor: 'border-pink-500/30',
@@ -108,7 +108,7 @@ export default function UsefulToolsPage() {
             { label: 'Docs', href: '/' },
             { label: 'Useful Tools' }
           ]}
-          icon={Wrench}
+          icon={HiOutlineWrench}
           iconColor="text-purple-400"
           iconBgFrom="from-purple-600/20"
           iconBgTo="to-pink-600/20"
@@ -122,7 +122,7 @@ export default function UsefulToolsPage() {
         {/* Quick Usage */}
         <div className="mb-12 p-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/20">
           <h2 className="heading-2 flex items-center gap-2">
-            <Code className="w-5 h-5 text-purple-400" />
+            <HiOutlineCodeBracket className="w-5 h-5 text-purple-400" />
             Quick Usage
           </h2>
           <CodeWithResult
@@ -172,7 +172,7 @@ agent.input("Search my emails for invoices from last week")`}
                           Coming Soon
                         </span>
                       ) : (
-                        <ArrowRight className="w-4 h-4 text-slate-100 group-hover:text-white transition-colors" />
+                        <HiOutlineArrowRight className="w-4 h-4 text-slate-100 group-hover:text-white transition-colors" />
                       )}
                     </div>
                     <p className="text-sm text-slate-100">{tool.description}</p>

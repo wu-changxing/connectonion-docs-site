@@ -45,7 +45,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Copy, Check, FileText, Play, ArrowRight, Info, AlertTriangle, FolderOpen, BookOpen, Lightbulb, Target, MessageSquare } from 'lucide-react'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineDocumentText, HiOutlinePlay, HiOutlineArrowRight, HiOutlineInformationCircle, HiOutlineExclamationTriangle, HiOutlineFolderOpen, HiOutlineBookOpen, HiOutlineLightBulb, HiOutlineViewfinderCircle, HiOutlineChatBubbleOvalLeft } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
@@ -223,7 +223,7 @@ Explore ready-to-use prompt templates:
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
-        <ArrowRight className="w-4 h-4" />
+        <HiOutlineArrowRight className="w-4 h-4" />
         <span className="text-white">System Prompts</span>
       </div>
 
@@ -232,7 +232,7 @@ Explore ready-to-use prompt templates:
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-gradient-to-br from-green-600/20 to-teal-600/20 rounded-xl border border-green-500/30">
-              <MessageSquare className="w-8 h-8 text-green-400" />
+              <HiOutlineChatBubbleOvalLeft className="w-8 h-8 text-green-400" />
             </div>
             <div>
               <h1 className="heading-1">System Prompts</h1>
@@ -249,7 +249,7 @@ Explore ready-to-use prompt templates:
       <section className="mb-16">
         <div className="bg-gradient-to-b from-emerald-900/30 to-emerald-800/10 border border-emerald-500/30 rounded-xl p-6 mb-6">
           <div className="flex items-start gap-3">
-            <Info className="w-5 h-5 text-emerald-400 mt-0.5" />
+            <HiOutlineInformationCircle className="w-5 h-5 text-emerald-400 mt-0.5" />
             <div>
               <h2 className="text-xl font-semibold text-white mb-2">Recommended: Keep prompts in Markdown files</h2>
               <p className="text-slate-100 text-sm mb-4">
@@ -267,15 +267,15 @@ Explore ready-to-use prompt templates:
         <div className="grid grid-cols-1 gap-6">
           <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
             <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
-              <span className="text-sm text-slate-100 font-mono flex items-center gap-2"><FolderOpen className="w-4 h-4"/>project structure</span>
+              <span className="text-sm text-slate-100 font-mono flex items-center gap-2"><HiOutlineFolderOpen className="w-4 h-4"/>project structure</span>
               <button
                 onClick={() => copyToClipboard(folderTree, 'folderTree')}
                 className="text-slate-100 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'folderTree' ? (
-                  <Check className="w-4 h-4 text-green-400" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400" />
                 ) : (
-                  <Copy className="w-4 h-4" />
+                  <HiOutlineClipboard className="w-4 h-4" />
                 )}
               </button>
             </div>
@@ -299,9 +299,9 @@ Explore ready-to-use prompt templates:
                 className="text-slate-100 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'recommendedMarkdown' ? (
-                  <Check className="w-4 h-4 text-green-400" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400" />
                 ) : (
-                  <Copy className="w-4 h-4" />
+                  <HiOutlineClipboard className="w-4 h-4" />
                 )}
               </button>
             </div>
@@ -325,9 +325,9 @@ Explore ready-to-use prompt templates:
                 className="text-slate-100 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'loadFromMarkdown' ? (
-                  <Check className="w-4 h-4 text-green-400" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400" />
                 ) : (
-                  <Copy className="w-4 h-4" />
+                  <HiOutlineClipboard className="w-4 h-4" />
                 )}
               </button>
             </div>
@@ -346,7 +346,7 @@ Explore ready-to-use prompt templates:
 
         <div className="bg-gradient-to-b from-rose-900/30 to-rose-800/10 border border-rose-500/30 rounded-xl p-5 mt-6">
           <div className="flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-rose-400 mt-0.5" />
+            <HiOutlineExclamationTriangle className="w-5 h-5 text-rose-400 mt-0.5" />
             <p className="text-slate-100 text-sm">
               Avoid embedding large prompt strings directly in code. It makes diffs noisy and complicates collaboration. Prefer <code className="bg-black/30 px-1 py-0.5 rounded">.md</code> files and reference them from your agent.
             </p>
@@ -409,9 +409,9 @@ Explore ready-to-use prompt templates:
                 className="text-slate-100 hover:text-white transition-colors p-1"
               >
                 {copiedId === 'quick-start' ? (
-                  <Check className="w-4 h-4 text-green-400" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-400" />
                 ) : (
-                  <Copy className="w-4 h-4" />
+                  <HiOutlineClipboard className="w-4 h-4" />
                 )}
               </button>
             </div>
@@ -451,9 +451,9 @@ Explore ready-to-use prompt templates:
               className="text-slate-100 hover:text-white transition-colors p-1"
             >
               {copiedId === 'iterations' ? (
-                <Check className="w-4 h-4 text-green-400" />
+                <HiOutlineCheck className="w-4 h-4 text-green-400" />
               ) : (
-                <Copy className="w-4 h-4" />
+                <HiOutlineClipboard className="w-4 h-4" />
               )}
             </button>
           </div>
@@ -484,7 +484,7 @@ Explore ready-to-use prompt templates:
           ].map((format) => (
             <div key={format.ext} className="bg-gray-900 border border-gray-700 rounded-lg p-4 hover:border-gray-600 transition-colors">
               <div className="flex items-center gap-2 mb-2">
-                <FileText className={`w-5 h-5 ${format.color}`} />
+                <HiOutlineDocumentText className={`w-5 h-5 ${format.color}`} />
                 <span className={`font-mono font-bold ${format.color}`}>
                   {format.ext === 'none' ? '(none)' : format.ext}
                 </span>
@@ -507,7 +507,7 @@ Explore ready-to-use prompt templates:
           >
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-white">Prompt Examples</h3>
-              <ArrowRight className="w-5 h-5 text-slate-100 group-hover:text-blue-400 transition-colors" />
+              <HiOutlineArrowRight className="w-5 h-5 text-slate-100 group-hover:text-blue-400 transition-colors" />
             </div>
             <p className="text-slate-100 text-sm mb-4">
               Explore real-world prompt examples for different roles and domains.
@@ -521,7 +521,7 @@ Explore ready-to-use prompt templates:
           >
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-white">Examples</h3>
-              <ArrowRight className="w-5 h-5 text-slate-100 group-hover:text-green-400 transition-colors" />
+              <HiOutlineArrowRight className="w-5 h-5 text-slate-100 group-hover:text-green-400 transition-colors" />
             </div>
             <p className="text-slate-100 text-sm mb-4">
               Browse real-world prompt examples for different roles and domains.

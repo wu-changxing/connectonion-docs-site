@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Calendar, ArrowRight, Shield, Zap, Lock } from 'lucide-react'
+import { HiOutlineEnvelope, HiOutlineCalendar, HiOutlineArrowRight, HiOutlineShieldCheck, HiOutlineBolt, HiOutlineLockClosed } from 'react-icons/hi2'
 import { FaMicrosoft, FaStar } from 'react-icons/fa'
 import { CommandBlock } from '../../components/CommandBlock'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
@@ -17,7 +17,7 @@ export default function MicrosoftIntegrationPage() {
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
-          <ArrowRight className="w-4 h-4" />
+          <HiOutlineArrowRight className="w-4 h-4" />
           <span className="text-white">Microsoft Integration</span>
         </div>
 
@@ -42,7 +42,7 @@ export default function MicrosoftIntegrationPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Zap className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -100,7 +100,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
 
           <div className="mt-8 bg-gray-900/50 border border-gray-700 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <Lock className="w-5 h-5 text-purple-400" />
+              <HiOutlineLockClosed className="w-5 h-5 text-purple-400" />
               Security notes
             </h3>
             <ul className="space-y-2 text-slate-100">
@@ -172,7 +172,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
 
           <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-blue-400">
-              <Shield className="w-5 h-5" />
+              <HiOutlineShieldCheck className="w-5 h-5" />
               Privacy First
             </h3>
             <p className="text-slate-100 mb-4">We only request the permissions needed. We cannot:</p>
@@ -201,7 +201,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
           <div className="space-y-12">
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <Mail className="w-5 h-5 text-purple-400" />
+                <HiOutlineEnvelope className="w-5 h-5 text-purple-400" />
                 Send Email via Outlook
               </h3>
               <CodeWithResult
@@ -222,7 +222,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-purple-400" />
+                <HiOutlineCalendar className="w-5 h-5 text-purple-400" />
                 Read Calendar Events
               </h3>
               <CodeWithResult

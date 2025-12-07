@@ -43,7 +43,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Cpu, Zap, Globe, Brain, DollarSign, Eye, Layers, Users } from 'lucide-react'
+import { HiOutlineBolt, HiOutlineGlobeAlt, HiOutlineCpuChip, HiOutlineCurrencyDollar, HiOutlineEye, HiOutlineSquare3Stack3D, HiOutlineUsers } from 'react-icons/hi2'
 import CodeWithResult from '../../components/CodeWithResult'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -165,7 +165,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
           { label: 'Docs', href: '/' },
           { label: 'Models' }
         ]}
-        icon={Brain}
+        icon={HiOutlineCpuChip}
         iconColor="text-blue-400"
         iconBgFrom="from-blue-600/20"
         iconBgTo="to-purple-600/20"
@@ -183,7 +183,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
         {/* Managed Keys Path */}
         <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-xl border border-purple-500/30 mb-6">
           <h3 className="text-xl font-semibold mb-4 flex items-center text-white">
-            <Zap className="mr-2 h-5 w-5 text-purple-400" />
+            <HiOutlineBolt className="mr-2 h-5 w-5 text-purple-400" />
             Easiest Way: Use Managed Keys
           </h3>
           <p className="text-slate-100 mb-4">
@@ -213,7 +213,7 @@ response = agent.input("Explain quantum computing")`}
         {/* Own Keys Path */}
         <div className="bg-gray-900 border border-gray-700 p-6 rounded-xl">
           <h3 className="text-xl font-semibold mb-4 flex items-center text-white">
-            <Globe className="mr-2 h-5 w-5 text-blue-400" />
+            <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-blue-400" />
             Alternative: Bring Your Own Keys
           </h3>
           <p className="text-slate-100 mb-4">
@@ -245,7 +245,7 @@ response = agent.input("Explain quantum computing")`}
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 p-6 rounded-xl border border-green-500/30">
             <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <Users className="mr-2 h-5 w-5 text-green-400" />
+              <HiOutlineUsers className="mr-2 h-5 w-5 text-green-400" />
               Agent Default
             </h3>
             <p className="text-sm text-slate-100 mb-4">
@@ -266,7 +266,7 @@ agent = Agent("assistant", model="co/gemini-2.5-pro")`}
 
           <div className="bg-gradient-to-br from-yellow-900/20 to-orange-900/20 p-6 rounded-xl border border-yellow-500/30">
             <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <Zap className="mr-2 h-5 w-5 text-yellow-400" />
+              <HiOutlineBolt className="mr-2 h-5 w-5 text-yellow-400" />
               llm_do Default
             </h3>
             <p className="text-sm text-slate-100 mb-4">
@@ -337,7 +337,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           <div className="space-y-4">
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <Cpu className="mr-2 h-5 w-5 text-blue-400" />
+                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-blue-400" />
                 GPT-5 Series
               </h3>
               <div className="space-y-3">
@@ -358,7 +358,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <Brain className="mr-2 h-5 w-5 text-purple-400" />
+                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-purple-400" />
                 Reasoning Models
               </h3>
               <div className="space-y-3">
@@ -379,7 +379,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           <div className="space-y-4">
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <Brain className="mr-2 h-5 w-5 text-green-400" />
+                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-green-400" />
                 Gemini 3 (Newest)
               </h3>
               <div className="space-y-3">
@@ -396,7 +396,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <Eye className="mr-2 h-5 w-5 text-green-400" />
+                <HiOutlineEye className="mr-2 h-5 w-5 text-green-400" />
                 Gemini 2.5
               </h3>
               <div className="space-y-3">
@@ -413,7 +413,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <Zap className="mr-2 h-5 w-5 text-yellow-400" />
+                <HiOutlineBolt className="mr-2 h-5 w-5 text-yellow-400" />
                 Gemini 1.5
               </h3>
               <div className="space-y-3">
@@ -434,7 +434,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           <div className="space-y-4">
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <Layers className="mr-2 h-5 w-5 text-orange-400" />
+                <HiOutlineSquare3Stack3D className="mr-2 h-5 w-5 text-orange-400" />
                 Claude Opus 4 Series
               </h3>
               <div className="space-y-3">
@@ -451,7 +451,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <Globe className="mr-2 h-5 w-5 text-purple-400" />
+                <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-purple-400" />
                 Claude 3.5 Series
               </h3>
               <div className="space-y-3">
@@ -476,7 +476,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
             <h3 className="font-semibold mb-4 flex items-center text-white">
-              <Cpu className="mr-2 h-5 w-5 text-blue-400" />
+              <HiOutlineCpuChip className="mr-2 h-5 w-5 text-blue-400" />
               Best for Coding
             </h3>
             <CodeWithResult
@@ -488,7 +488,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
             <h3 className="font-semibold mb-4 flex items-center text-white">
-              <Zap className="mr-2 h-5 w-5 text-yellow-400" />
+              <HiOutlineBolt className="mr-2 h-5 w-5 text-yellow-400" />
               Fast Responses
             </h3>
             <CodeWithResult
@@ -500,7 +500,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
             <h3 className="font-semibold mb-4 flex items-center text-white">
-              <DollarSign className="mr-2 h-5 w-5 text-green-400" />
+              <HiOutlineCurrencyDollar className="mr-2 h-5 w-5 text-green-400" />
               Cost-Optimized
             </h3>
             <CodeWithResult
@@ -512,7 +512,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
             <h3 className="font-semibold mb-4 flex items-center text-white">
-              <Eye className="mr-2 h-5 w-5 text-purple-400" />
+              <HiOutlineEye className="mr-2 h-5 w-5 text-purple-400" />
               Multimodal
             </h3>
             <CodeWithResult
@@ -532,7 +532,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           {/* Managed Keys */}
           <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-xl border border-purple-500/30">
             <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <Zap className="mr-2 h-5 w-5 text-purple-400" />
+              <HiOutlineBolt className="mr-2 h-5 w-5 text-purple-400" />
               Option 1: Managed Keys
             </h3>
             <p className="text-sm text-slate-100 mb-4">
@@ -558,7 +558,7 @@ agent = Agent("assistant", model="co/claude-opus-4.1")`}
           {/* Own Keys */}
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-xl">
             <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <Globe className="mr-2 h-5 w-5 text-blue-400" />
+              <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-blue-400" />
               Option 2: Your Own Keys
             </h3>
             <p className="text-sm text-slate-100 mb-4">
@@ -698,7 +698,7 @@ agent = create_agent_with_fallback("assistant")`}
       {/* Info Box */}
       <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-lg border border-purple-500/30 mb-16">
         <h3 className="font-semibold mb-2 flex items-center text-white">
-          <Zap className="mr-2 h-5 w-5 text-purple-400" />
+          <HiOutlineBolt className="mr-2 h-5 w-5 text-purple-400" />
           Key Benefits
         </h3>
         <ul className="space-y-2 text-sm text-slate-100">

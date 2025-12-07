@@ -6,7 +6,7 @@
 
 'use client'
 
-import { Network, Zap, Cpu, RefreshCw, Layers, Check, Terminal, Code, Users, Globe } from 'lucide-react'
+import { HiOutlineServerStack, HiOutlineBolt, HiOutlineArrowPath, HiOutlineSquare3Stack3D, HiOutlineCheck, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineUsers, HiOutlineGlobeAlt, HiOutlineCpuChip } from 'react-icons/hi2'
 import Link from 'next/link'
 import CodeWithResult from '../../components/CodeWithResult'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -23,7 +23,7 @@ export default function ConnectPage() {
               { label: 'Docs', href: '/' },
               { label: 'Connect to Agents' }
             ]}
-            icon={Network}
+            icon={HiOutlineServerStack}
             iconColor="text-blue-400"
             iconBgFrom="from-blue-600/20"
             iconBgTo="to-cyan-600/20"
@@ -45,7 +45,7 @@ export default function ConnectPage() {
         {/* 60-Second Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Zap className="w-8 h-8 text-yellow-400" />
+            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
             60-Second Quick Start
           </h2>
 
@@ -72,19 +72,19 @@ library reference, and language specifications.`}
             <p className="text-lg font-semibold text-green-100 mb-4">What Just Happened?</p>
             <div className="space-y-2 text-slate-100">
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Created proxy agent</strong> → Acts like a local Agent instance</span>
               </div>
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Connected to relay</strong> → WebSocket at <code className="bg-gray-800 px-2 py-1 rounded">wss://oo.openonion.ai/ws/announce</code></span>
               </div>
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Sent INPUT message</strong> → Routed to the remote agent</span>
               </div>
               <div className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Received OUTPUT</strong> → Got the result back</span>
               </div>
             </div>
@@ -98,7 +98,7 @@ library reference, and language specifications.`}
           <div className="space-y-8">
             <div>
               <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                <Terminal className="w-5 h-5 text-emerald-400" />
+                <HiOutlineCommandLine className="w-5 h-5 text-emerald-400" />
                 Terminal 1: Start a Serving Agent
               </h3>
               <CodeWithResult
@@ -132,7 +132,7 @@ Waiting for connections...`}
 
             <div>
               <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                <Code className="w-5 h-5 text-blue-400" />
+                <HiOutlineCodeBracket className="w-5 h-5 text-blue-400" />
                 Terminal 2: Connect and Use
               </h3>
               <CodeWithResult
@@ -161,7 +161,7 @@ Weather in Seattle: Sunny, 72°F`}
         {/* Common Patterns */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Layers className="w-8 h-8 text-purple-400" />
+            <HiOutlineSquare3Stack3D className="w-8 h-8 text-purple-400" />
             Common Patterns
           </h2>
 
@@ -250,7 +250,7 @@ result3 = get_agent().input("Task 3")`}
         {/* Multi-Turn Conversations */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Users className="w-8 h-8 text-cyan-400" />
+            <HiOutlineUsers className="w-8 h-8 text-cyan-400" />
             Multi-Turn Conversations
           </h2>
 
@@ -278,7 +278,7 @@ The result is 300`}
         {/* Real-World Example */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <Cpu className="w-8 h-8 text-orange-400" />
+            <HiOutlineCpuChip className="w-8 h-8 text-orange-400" />
             Real-World: Distributed Workflow
           </h2>
 
@@ -322,7 +322,7 @@ print(result)`}
         {/* Configuration */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <RefreshCw className="w-8 h-8 text-indigo-400" />
+            <HiOutlineArrowPath className="w-8 h-8 text-indigo-400" />
             Configuration
           </h2>
 
@@ -434,14 +434,14 @@ result = agent.input("task")`}
                 href="/serve"
                 className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
-                <Globe className="w-5 h-5" />
+                <HiOutlineGlobeAlt className="w-5 h-5" />
                 Serve Your Agents
               </Link>
               <Link
                 href="/agent"
                 className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
-                <Code className="w-5 h-5" />
+                <HiOutlineCodeBracket className="w-5 h-5" />
                 Learn About Agents
               </Link>
             </div>

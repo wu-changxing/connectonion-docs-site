@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X, BookOpen, Copy, Check, Loader2 } from 'lucide-react'
+import { HiOutlineBars3, HiOutlineXMark, HiOutlineBookOpen, HiOutlineClipboard, HiOutlineCheck, HiOutlineArrowPath } from 'react-icons/hi2'
 import { DocsSidebar } from './DocsSidebar'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
@@ -30,7 +30,7 @@ export function MobileDocsNav() {
             className="p-2 rounded-md bg-gray-800/60 text-white border border-gray-700/60 hover:bg-gray-700/60 transition-colors"
             aria-label="Toggle documentation menu"
           >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isOpen ? <HiOutlineXMark className="w-5 h-5" /> : <HiOutlineBars3 className="w-5 h-5" />}
           </button>
           
           <Link href="/" className="flex items-center gap-2">
@@ -47,11 +47,11 @@ export function MobileDocsNav() {
               aria-label="Copy page as markdown"
             >
               {status === 'loading' ? (
-                <Loader2 className="w-5 h-5 animate-spin" />
+                <HiOutlineArrowPath className="w-5 h-5 animate-spin" />
               ) : status === 'success' ? (
-                <Check className="w-5 h-5 text-green-400" />
+                <HiOutlineCheck className="w-5 h-5 text-green-400" />
               ) : (
-                <Copy className="w-5 h-5" />
+                <HiOutlineClipboard className="w-5 h-5" />
               )}
             </button>
           ) : (

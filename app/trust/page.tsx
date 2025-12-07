@@ -1,7 +1,7 @@
 'use client'
 
 import CodeWithResult from '../../components/CodeWithResult'
-import { Shield, Users, Code, Zap, CheckCircle, AlertCircle, BookOpen, FileText, Bot } from 'lucide-react'
+import { HiOutlineShieldCheck, HiOutlineUsers, HiOutlineCodeBracket, HiOutlineBolt, HiOutlineCheckCircle, HiOutlineExclamationCircle, HiOutlineBookOpen, HiOutlineDocumentText, HiOutlineCpuChip } from 'react-icons/hi2'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
@@ -31,7 +31,7 @@ export default function TrustPage() {
             href="/blog/trust-keyword"
             className="inline-flex items-center gap-2 mt-6 px-4 py-2 bg-purple-900/30 border border-purple-800 rounded-lg hover:bg-purple-900/50 transition-colors group"
           >
-            <BookOpen className="w-4 h-4 text-purple-400" />
+            <HiOutlineBookOpen className="w-4 h-4 text-purple-400" />
             <span className="text-sm text-purple-300">Read: Why we chose "trust" as our keyword</span>
             <span className="text-purple-400 group-hover:translate-x-1 transition-transform">→</span>
           </Link>
@@ -46,7 +46,7 @@ export default function TrustPage() {
             {/* Quick Start */}
             <section>
               <h2 className="heading-2">
-                <Zap className="w-7 h-7 text-yellow-400" />
+                <HiOutlineBolt className="w-7 h-7 text-yellow-400" />
                 Quick Start
               </h2>
               <CodeWithResult
@@ -70,7 +70,7 @@ agent = Agent(
             {/* Three Forms of Trust */}
             <section>
               <h2 className="heading-2">
-                <Code className="w-7 h-7 text-blue-400" />
+                <HiOutlineCodeBracket className="w-7 h-7 text-blue-400" />
                 Three Forms of Trust
               </h2>
 
@@ -99,7 +99,7 @@ agent = need("service", trust="strict")`}
               <div className="mb-8">
                 <div className="bg-gradient-to-br from-blue-900/20 to-blue-900/5 border border-blue-800/50 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-                    <FileText className="w-5 h-5 text-blue-400" />
+                    <HiOutlineDocumentText className="w-5 h-5 text-blue-400" />
                     <span className="text-blue-400">2.</span> Trust Policy (Natural Language)
                   </h3>
                   <p className="text-slate-100 mb-2">Express complex requirements in plain English:</p>
@@ -137,7 +137,7 @@ I immediately reject agents that:
               <div className="mb-8">
                 <div className="bg-gradient-to-br from-purple-900/20 to-purple-900/5 border border-purple-800/50 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-                    <Bot className="w-5 h-5 text-purple-400" />
+                    <HiOutlineCpuChip className="w-5 h-5 text-purple-400" />
                     <span className="text-purple-400">3.</span> Trust Agent
                   </h3>
                   <p className="text-slate-100 mb-2">For maximum control, use a custom trust agent:</p>
@@ -175,7 +175,7 @@ payment = need("payment processor", trust=trust_agent)`}
             {/* Bidirectional Trust */}
             <section>
               <h2 className="heading-2">
-                <Users className="w-7 h-7 text-green-400" />
+                <HiOutlineUsers className="w-7 h-7 text-green-400" />
                 Bidirectional Trust
               </h2>
               <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 border border-green-800/50 rounded-lg p-6 mb-4">
@@ -290,35 +290,35 @@ payment = need("process payment", trust="strict") # High risk`}
               <div className="bg-red-900/20 border border-red-800 rounded-lg p-6">
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <HiOutlineCheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-white">Production = Strict:</span>
                       <span className="text-slate-100"> Always use <code className="text-red-400 bg-gray-900 px-2 py-1 rounded">trust="strict"</code> in production</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <HiOutlineCheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-white">Test Sensitive Operations:</span>
                       <span className="text-slate-100"> Payment, data modification, etc.</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <HiOutlineCheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-white">Whitelist Critical Services:</span>
                       <span className="text-slate-100"> Manually verify and whitelist</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <HiOutlineCheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-white">Monitor Trust Decisions:</span>
                       <span className="text-slate-100"> Log all trust evaluations</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <HiOutlineCheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-white">Regular Audits:</span>
                       <span className="text-slate-100"> Review whitelist and trust policies</span>
@@ -361,7 +361,7 @@ payment = need("process payment", trust="strict") # High risk`}
             {/* Trust Decision Helper */}
             <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 sticky top-6">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <Shield className="w-5 h-5 text-purple-400" />
+                <HiOutlineShieldCheck className="w-5 h-5 text-purple-400" />
                 Choose Your Trust Level
               </h3>
               <div className="space-y-3">
@@ -386,7 +386,7 @@ payment = need("process payment", trust="strict") # High risk`}
             {/* Warning */}
             <div className="bg-yellow-900/20 border border-yellow-800 rounded-lg p-4">
               <div className="flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineExclamationCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm font-medium text-yellow-200 mb-1">Security Note</p>
                   <p className="text-xs text-yellow-300/80">

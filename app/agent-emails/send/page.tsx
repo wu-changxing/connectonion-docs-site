@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Mail, Send, Check, Copy, Zap, Shield, Globe, ArrowRight } from 'lucide-react'
+import { HiOutlineEnvelope, HiOutlinePaperAirplane, HiOutlineCheck, HiOutlineClipboard, HiOutlineBolt, HiOutlineShieldCheck, HiOutlineGlobeAlt, HiOutlineArrowRight } from 'react-icons/hi2'
 import { FaStar, FaEnvelope } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -27,9 +27,9 @@ export default function SendEmailPage() {
         aria-label="Copy code"
       >
         {copiedCode === id ? (
-          <Check className="w-4 h-4 text-green-400" />
+          <HiOutlineCheck className="w-4 h-4 text-green-400" />
         ) : (
-          <Copy className="w-4 h-4 text-slate-100" />
+          <HiOutlineClipboard className="w-4 h-4 text-slate-100" />
         )}
       </button>
       <SyntaxHighlighter 
@@ -73,7 +73,7 @@ export default function SendEmailPage() {
             { label: 'Agent Emails', href: '/agent-emails' },
             { label: 'Send' }
           ]}
-          icon={Send}
+          icon={HiOutlinePaperAirplane}
           iconColor="text-purple-400"
           iconBgFrom="from-purple-600/20"
           iconBgTo="to-pink-600/20"
@@ -87,7 +87,7 @@ export default function SendEmailPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Zap className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
             <h2 className="heading-2">Quick Start</h2>
             <span className="text-sm text-gray-500 bg-gray-800 px-3 py-1 rounded-full">30 seconds to first email</span>
           </div>
@@ -127,28 +127,28 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
             <h3 className="text-2xl font-semibold mb-6 text-purple-300">What you get:</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-start gap-3">
-                <Send className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlinePaperAirplane className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Simple function</p>
                   <code className="text-sm bg-gray-800 px-2 py-0.5 rounded">send_email(to, subject, message)</code>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Shield className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineShieldCheck className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Zero configuration</p>
                   <p className="text-sm text-slate-100">No API keys to manage</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineEnvelope className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Your own email</p>
                   <p className="text-sm text-slate-100">Unique address for every agent</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Globe className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineGlobeAlt className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Professional delivery</p>
                   <p className="text-sm text-slate-100">Good reputation & reliability</p>
@@ -175,7 +175,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
           <div className="space-y-12">
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <ArrowRight className="w-5 h-5 text-purple-400" />
+                <HiOutlineArrowRight className="w-5 h-5 text-purple-400" />
                 Basic notification
               </h3>
               <CodeWithResult
@@ -187,7 +187,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <ArrowRight className="w-5 h-5 text-purple-400" />
+                <HiOutlineArrowRight className="w-5 h-5 text-purple-400" />
                 Verification code
               </h3>
               <CodeWithResult
@@ -199,7 +199,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <ArrowRight className="w-5 h-5 text-purple-400" />
+                <HiOutlineArrowRight className="w-5 h-5 text-purple-400" />
                 Status update
               </h3>
               <CodeWithResult
@@ -211,7 +211,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <ArrowRight className="w-5 h-5 text-purple-400" />
+                <HiOutlineArrowRight className="w-5 h-5 text-purple-400" />
                 HTML content (automatic)
               </h3>
               <CodeWithResult
