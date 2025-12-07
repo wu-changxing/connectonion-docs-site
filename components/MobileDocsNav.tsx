@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useCopyMarkdown } from '../hooks/useCopyMarkdown'
-import { hasMarkdownContent } from '../utils/markdownMapping'
+import { hasMarkdownContent } from '../lib/markdownMapping'
 
 export function MobileDocsNav() {
   const [isOpen, setIsOpen] = useState(false)

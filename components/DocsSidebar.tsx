@@ -11,20 +11,19 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { HiOutlineMagnifyingGlass, HiOutlineChevronRight, HiOutlineChevronDown, HiOutlineClipboard, HiOutlineCheck, HiOutlineXMark, HiOutlineArrowPath } from 'react-icons/hi2'
 import { FaGithub, FaDiscord, FaPython } from 'react-icons/fa'
-import { DifficultyBadge } from './DifficultyBadge'
-import { copyAllDocsToClipboard } from '../utils/copyAllDocs'
+import { copyAllDocsToClipboard } from '../lib/copyAllDocs'
 import { SearchHighlight } from './SearchHighlight'
-import { performFullTextSearch, pageContentIndex } from '../utils/searchIndex'
-import { searchPages } from '../utils/enhancedSearch'
-import { searchMarkdownDocuments, getMatchSnippet } from '../utils/markdownLoader'
+import { searchPages } from '../lib/enhancedSearch'
+import { searchMarkdownDocuments, getMatchSnippet } from '../lib/markdownLoader'
 import { useCopyMarkdown } from '../hooks/useCopyMarkdown'
-import { hasMarkdownContent } from '../utils/markdownMapping'
+import { hasMarkdownContent } from '../lib/markdownMapping'
 import { navigation as navData } from '../lib/navigation'
 
 interface SearchResult {
   item: typeof navData[0]
   score: number
   matches: string[]
+  snippet?: string
 }
 
 export function DocsSidebar() {
@@ -114,15 +113,17 @@ export function DocsSidebar() {
     const results: SearchResult[] = []
     const processedHrefs = new Set<string>()
     
-    // Process markdown search results first
+    // Process markdown search results first (with snippets)
     markdownResults.forEach(docResult => {
       const navItem = navData.find(item => item.href === docResult.href)
       if (navItem && !processedHrefs.has(navItem.href)) {
         processedHrefs.add(navItem.href)
+        const snippet = getMatchSnippet(docResult.content, query, 100)
         results.push({
           item: navItem,
           score: 150,
-          matches: ['documentation']
+          matches: ['documentation'],
+          snippet
         })
       }
     })
@@ -350,15 +351,20 @@ export function DocsSidebar() {
                         : 'hover:bg-purple-500/10 text-gray-300 hover:text-purple-200'
                     }`}
                   >
-                    <div className="flex items-center gap-2">
-                      {result.item.icon && <result.item.icon className={`w-4 h-4 ${idx === selectedIndex ? 'text-purple-300' : 'text-gray-500'}`} />}
-                      <div className="flex-1">
-                        <SearchHighlight 
-                          text={result.item.title} 
+                    <div className="flex items-start gap-2">
+                      {result.item.icon && <result.item.icon className={`w-4 h-4 mt-0.5 flex-shrink-0 ${idx === selectedIndex ? 'text-purple-300' : 'text-gray-500'}`} />}
+                      <div className="flex-1 min-w-0">
+                        <SearchHighlight
+                          text={result.item.title}
                           query={searchQuery}
                         />
-                        <div className="flex items-center gap-2 mt-0.5">
-                          <span className="text-xs text-gray-500">{result.item.section}</span>
+                        {result.snippet && (
+                          <p className="text-[11px] text-gray-400 mt-1 line-clamp-2 leading-relaxed">
+                            <SearchHighlight text={result.snippet} query={searchQuery} />
+                          </p>
+                        )}
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className="text-[10px] text-gray-500">{result.item.section}</span>
                         </div>
                       </div>
                     </div>

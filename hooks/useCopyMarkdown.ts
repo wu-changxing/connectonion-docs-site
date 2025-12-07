@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import { getMarkdownPath } from '../utils/markdownMapping'
+import { getMarkdownPath } from '../lib/markdownMapping'
 
 export type CopyStatus = 'idle' | 'loading' | 'success' | 'error'
 
