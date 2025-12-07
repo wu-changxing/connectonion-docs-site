@@ -41,13 +41,25 @@ export function DocsSidebar() {
   const searchInputRef = useRef<HTMLInputElement>(null)
   const { copyMarkdown, status: itemCopyStatus, copiedPath } = useCopyMarkdown()
 
-  // Group navigation items by section for sidebar display
+  // Group navigation items by section for sidebar display, with parent-child relationships
   const navigationSections = useMemo(() => {
     const sections: Record<string, typeof navData> = {}
+    const childItems = new Set<string>() // Track items that are children
+
+    // First pass: identify all child items
     navData.forEach(item => {
-      // Skip admin pages in sidebar
+      if ((item as any).parent) {
+        childItems.add(item.href)
+      }
+    })
+
+    // Second pass: build sections with only top-level items
+    navData.forEach(item => {
+      // Skip admin pages, hidden pages, and child items (they'll be rendered under parents)
       if (item.section === 'Admin') return
-      
+      if ((item as any).hidden) return
+      if (childItems.has(item.href)) return
+
       if (!sections[item.section]) {
         sections[item.section] = []
       }
@@ -55,6 +67,11 @@ export function DocsSidebar() {
     })
     return sections
   }, [])
+
+  // Get children of a navigation item
+  const getChildren = (parentHref: string) => {
+    return navData.filter(item => (item as any).parent === parentHref && !(item as any).hidden)
+  }
 
   // Auto-expand section containing current page
   useEffect(() => {
@@ -380,68 +397,116 @@ export function DocsSidebar() {
                 {items.map((item) => {
                   const isActive = pathname === item.href
                   const IconComponent = item.icon
-                  
+                  const children = getChildren(item.href)
+
                   return (
-                    <li key={item.href} role="listitem" className="relative group">
-                      <Link
-                        href={item.href}
-                        className={`block px-3 py-2.5 text-sm font-normal rounded-lg mx-1 transition-all relative ${
-                          isActive
-                            ? 'bg-purple-500/25 text-white font-medium shadow-sm ring-1 ring-purple-400/30'
-                            : 'text-gray-300 hover:text-white hover:bg-gray-700/40'
-                        }`}
-                        aria-current={isActive ? 'page' : undefined}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          {IconComponent && (
-                            <IconComponent className={`w-4 h-4 flex-shrink-0 ${
-                              isActive ? 'text-purple-300' : 'text-gray-400'
-                            }`} />
-                          )}
-                          <SearchHighlight 
-                            text={item.title} 
-                            query={searchQuery}
-                            className="truncate flex-1"
-                          />
-                          {item.difficulty && (
-                            <span className={`text-xs px-2 py-0.5 rounded-full font-medium flex-shrink-0 ${
-                              item.difficulty === 'Start Here' 
-                                ? 'bg-purple-500/20 text-purple-400' 
-                                : item.difficulty === 'Beginner'
-                                ? 'bg-green-500/20 text-green-400'
-                                : item.difficulty === 'Intermediate'
-                                ? 'bg-yellow-500/20 text-yellow-400'
-                                : 'bg-gray-500/20 text-gray-400'
-                            }`}>
-                              {item.difficulty}
-                            </span>
-                          )}
-                        </div>
-                      </Link>
-                      
-                      {/* Copy button */}
-                      {hasMarkdownContent(item.href) && (
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault()
-                            e.stopPropagation()
-                            copyMarkdown(item.href)
-                          }}
-                          className="absolute right-2 top-1/2 -translate-y-1/2
-                                     opacity-0 group-hover:opacity-100
-                                     transition-opacity duration-200
-                                     min-h-[44px] min-w-[44px] p-2 rounded-md hover:bg-gray-600/50
-                                     hidden lg:block"
-                          aria-label={`Copy ${item.title} as markdown`}
+                    <li key={item.href} role="listitem">
+                      <div className="relative group">
+                        <Link
+                          href={item.href}
+                          className={`block px-3 py-2.5 text-sm font-normal rounded-lg mx-1 transition-all relative ${
+                            isActive
+                              ? 'bg-purple-500/25 text-white font-medium shadow-sm ring-1 ring-purple-400/30'
+                              : 'text-gray-300 hover:text-white hover:bg-gray-700/40'
+                          }`}
+                          aria-current={isActive ? 'page' : undefined}
                         >
-                          {itemCopyStatus === 'loading' && copiedPath === item.href ? (
-                            <Loader2 className="w-4 h-4 text-gray-400 animate-spin" aria-hidden="true" />
-                          ) : itemCopyStatus === 'success' && copiedPath === item.href ? (
-                            <Check className="w-4 h-4 text-green-400" aria-hidden="true" />
-                          ) : (
-                            <Copy className="w-4 h-4 text-gray-400 hover:text-white" aria-hidden="true" />
-                          )}
-                        </button>
+                          <div className="flex items-center gap-2.5">
+                            {IconComponent && (
+                              <IconComponent className={`w-4 h-4 flex-shrink-0 ${
+                                isActive ? 'text-purple-300' : 'text-gray-400'
+                              }`} />
+                            )}
+                            <SearchHighlight
+                              text={item.title}
+                              query={searchQuery}
+                              className="truncate flex-1"
+                            />
+                            {item.difficulty && (
+                              <span className={`text-xs px-2 py-0.5 rounded-full font-medium flex-shrink-0 ${
+                                item.difficulty === 'Start Here'
+                                  ? 'bg-purple-500/20 text-purple-400'
+                                  : item.difficulty === 'Beginner'
+                                  ? 'bg-green-500/20 text-green-400'
+                                  : item.difficulty === 'Intermediate'
+                                  ? 'bg-yellow-500/20 text-yellow-400'
+                                  : 'bg-gray-500/20 text-gray-400'
+                              }`}>
+                                {item.difficulty}
+                              </span>
+                            )}
+                          </div>
+                        </Link>
+
+                        {/* Copy button */}
+                        {hasMarkdownContent(item.href) && (
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              copyMarkdown(item.href)
+                            }}
+                            className="absolute right-2 top-1/2 -translate-y-1/2
+                                       opacity-0 group-hover:opacity-100
+                                       transition-opacity duration-200
+                                       min-h-[44px] min-w-[44px] p-2 rounded-md hover:bg-gray-600/50
+                                       hidden lg:block"
+                            aria-label={`Copy ${item.title} as markdown`}
+                          >
+                            {itemCopyStatus === 'loading' && copiedPath === item.href ? (
+                              <Loader2 className="w-4 h-4 text-gray-400 animate-spin" aria-hidden="true" />
+                            ) : itemCopyStatus === 'success' && copiedPath === item.href ? (
+                              <Check className="w-4 h-4 text-green-400" aria-hidden="true" />
+                            ) : (
+                              <Copy className="w-4 h-4 text-gray-400 hover:text-white" aria-hidden="true" />
+                            )}
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Nested children */}
+                      {children.length > 0 && (
+                        <ul className="ml-4 mt-0.5 space-y-0.5 border-l border-gray-700/50 pl-2" role="list">
+                          {children.map((child) => {
+                            const isChildActive = pathname === child.href
+                            const ChildIcon = child.icon
+                            return (
+                              <li key={child.href} role="listitem" className="relative group">
+                                <Link
+                                  href={child.href}
+                                  className={`block px-3 py-2 text-sm font-normal rounded-lg transition-all relative ${
+                                    isChildActive
+                                      ? 'bg-purple-500/25 text-white font-medium shadow-sm ring-1 ring-purple-400/30'
+                                      : 'text-gray-400 hover:text-white hover:bg-gray-700/40'
+                                  }`}
+                                  aria-current={isChildActive ? 'page' : undefined}
+                                >
+                                  <div className="flex items-center gap-2">
+                                    {ChildIcon && (
+                                      <ChildIcon className={`w-3.5 h-3.5 flex-shrink-0 ${
+                                        isChildActive ? 'text-purple-300' : 'text-gray-500'
+                                      }`} />
+                                    )}
+                                    <SearchHighlight
+                                      text={child.title}
+                                      query={searchQuery}
+                                      className="truncate flex-1 text-xs"
+                                    />
+                                    {child.difficulty && (
+                                      <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium flex-shrink-0 ${
+                                        child.difficulty === 'Start Here'
+                                          ? 'bg-purple-500/20 text-purple-400'
+                                          : 'bg-gray-500/20 text-gray-400'
+                                      }`}>
+                                        {child.difficulty}
+                                      </span>
+                                    )}
+                                  </div>
+                                </Link>
+                              </li>
+                            )
+                          })}
+                        </ul>
                       )}
                     </li>
                   )
@@ -492,7 +557,7 @@ export function DocsSidebar() {
           </a>
           <div className="flex items-center gap-2 px-2">
             <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-            <span className="text-xs text-gray-400">v0.4.3</span>
+            <span className="text-xs text-gray-400">v0.5.0</span>
           </div>
         </div>
       </div>
