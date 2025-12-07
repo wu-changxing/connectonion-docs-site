@@ -115,7 +115,7 @@ agent = Agent("a", plugins=[re_act, logger])`}
             Built-in Plugins
           </h2>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto rounded-lg border border-slate-700">
             <table className="w-full text-sm text-left">
               <thead className="text-xs uppercase bg-slate-800/50">
                 <tr>
@@ -127,22 +127,22 @@ agent = Agent("a", plugins=[re_act, logger])`}
               <tbody className="divide-y divide-slate-700">
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">re_act</td>
-                  <td className="px-4 py-3 text-slate-300">Planning + reflection (ReAct pattern)</td>
+                  <td className="px-4 py-3 text-slate-100">Planning + reflection (ReAct pattern)</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/re-act" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">eval</td>
-                  <td className="px-4 py-3 text-slate-300">Task evaluation for debugging</td>
+                  <td className="px-4 py-3 text-slate-100">Task evaluation for debugging</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/eval" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">image_result_formatter</td>
-                  <td className="px-4 py-3 text-slate-300">Format images for vision models</td>
+                  <td className="px-4 py-3 text-slate-100">Format images for vision models</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/image-result-formatter" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">shell_approval</td>
-                  <td className="px-4 py-3 text-slate-300">Approve shell commands before execution</td>
+                  <td className="px-4 py-3 text-slate-100">Approve shell commands before execution</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/shell-approval" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
               </tbody>
@@ -183,7 +183,7 @@ agent = Agent("assistant", tools=[search], plugins=[logger])`}
             language="python"
           />
 
-          <p className="text-slate-400 mt-4">
+          <p className="text-slate-200 mt-4">
             For more complex plugins, see <Link href="/on_events" className="text-purple-400 hover:underline">Events</Link> for available event hooks.
           </p>
         </section>
