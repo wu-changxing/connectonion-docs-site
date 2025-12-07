@@ -68,8 +68,8 @@ const toolCategories = [
     bgColor: 'bg-orange-900/20',
     borderColor: 'border-orange-500/30',
     tools: [
-      { name: 'Shell', href: '/useful-tools/shell', description: 'Execute shell commands', status: 'coming-soon' },
-      { name: 'Terminal', href: '/useful-tools/terminal', description: 'Interactive terminal sessions', status: 'coming-soon' },
+      { name: 'Shell', href: '/useful-tools/shell', description: 'Execute shell commands', status: 'available' },
+      { name: 'Terminal', href: '/useful-tools/terminal', description: 'Interactive terminal sessions', status: 'available' },
     ]
   },
   {
@@ -81,7 +81,7 @@ const toolCategories = [
     bgColor: 'bg-yellow-900/20',
     borderColor: 'border-yellow-500/30',
     tools: [
-      { name: 'Todo List', href: '/useful-tools/todo-list', description: 'Task management for agents', status: 'coming-soon' },
+      { name: 'Todo List', href: '/useful-tools/todo-list', description: 'Task management for agents', status: 'available' },
     ]
   },
   {
@@ -93,8 +93,8 @@ const toolCategories = [
     bgColor: 'bg-pink-900/20',
     borderColor: 'border-pink-500/30',
     tools: [
-      { name: 'Diff Writer', href: '/useful-tools/diff-writer', description: 'Write code diffs', status: 'coming-soon' },
-      { name: 'Slash Command', href: '/useful-tools/slash-command', description: 'Custom CLI commands', status: 'coming-soon' },
+      { name: 'Diff Writer', href: '/useful-tools/diff-writer', description: 'Write code diffs', status: 'available' },
+      { name: 'Slash Command', href: '/useful-tools/slash-command', description: 'Custom CLI commands', status: 'available' },
     ]
   },
 ]
