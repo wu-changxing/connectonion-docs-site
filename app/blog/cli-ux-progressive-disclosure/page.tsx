@@ -1,226 +1,332 @@
-import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
+'use client'
+
+import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
+import { ContentNavigation } from '../../../components/ContentNavigation'
 
 export default function CLIProgressiveDisclosurePage() {
+
+  const content = `# Why We Choose Progressive Disclosure Over Configuration Questionnaires
+
+*September 2025 • Design Decision #006*
+
+Most framework CLIs bombard users with questions that don't matter yet. We chose progressive disclosure: start fast, decide later, respect intelligence.
+
+## The Problem with Traditional CLIs
+
+Typical framework initialization:
+- What's your project description? *(I don't know, I just started)*
+- Choose your testing framework? *(Let me build something first)*
+- Configure your linter settings? *(Please, just let me code)*
+- Set up CI/CD pipeline? *(It's my first 5 seconds with this tool)*
+
+This approach assumes users know everything upfront. Reality: they don't, and they shouldn't have to.
+
+## Our Philosophy: Progressive Disclosure
+
+- **< 30s** to working code
+- **3** questions maximum
+- **0** required configs
+
+## The Two-Command Strategy
+
+\`\`\`bash
+# Outside a project
+co create my-agent  # Creates new directory
+
+# Inside a project
+co init             # Uses current directory
+\`\`\`
+
+Why both? Because **context matters**:
+- Outside: Users want to create a new space
+- Inside: Users have already decided where to work
+
+This isn't redundancy; it's respecting user intent. Django does this, Rails does this, and for good reason.
+
+## Minimal Questions, Maximum Intelligence
+
+Our setup asks only what matters RIGHT NOW:
+1. **Enable AI?** - Determines available templates
+2. **API key** - Only if AI enabled, with auto-detection
+3. **Template** - With previews so users know what they get
+
+That's it. Three decisions max.
+
+## Smart API Key Detection
+
+\`\`\`python
+if api_key.startswith('sk-proj-'):
+    # OpenAI project key
+elif api_key.startswith('sk-ant-'):
+    # Anthropic
+elif api_key.startswith('gsk_'):
+    # Groq
+\`\`\`
+
+The key format already tells us the provider. Why make users answer what we can infer?
+
+## What We Don't Ask
+
+**We Skip:** Project description, Author name, License type, Version number, Test framework, Package manager
+
+**We Do:** Create working code immediately, Use sensible defaults, Show clear next steps, Get out of the way
+
+## Beautiful by Default
+
+We use colors and emojis for **clarity**, not decoration:
+- ✅ Green = Success
+- ⚠️ Yellow = Warning
+- ❌ Red = Error
+- 📁 Icons = Visual scanning
+
+## Results: User Delight
+
+- **30s** to running agent
+- **3** questions max
+- **0** required configs
+- **1** command to start
+
+## Conclusion
+
+Good CLI UX isn't about asking fewer questions - it's about asking the **RIGHT** questions at the **RIGHT** time. Everything else should be invisible, automatic, or optional.
+
+The best tool is one you forget you're using. That's what we built.`
+
   return (
-    <div className="max-w-4xl mx-auto px-4 py-16 md:py-24">
-      <Link href="/blog" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 mb-8 transition-colors">
-        <ArrowLeft className="w-4 h-4" />
-        Back to Blog
-      </Link>
-      
-      <article className="prose prose-invert max-w-none">
-        <h1 className="heading-1">
-          Why We Choose Progressive Disclosure Over Configuration Questionnaires
-        </h1>
-        
-        <div className="text-slate-100 mb-8">
-          <time>September 4, 2025</time> • Design Decision
-        </div>
-        
-        <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-6 mb-8">
-          <p className="text-lg text-slate-100 leading-relaxed m-0">
-            Most framework CLIs bombard users with questions that don't matter yet. 
-            We chose progressive disclosure: start fast, decide later, respect intelligence.
-          </p>
-        </div>
-
-        <h2 className="heading-2">The Problem with Traditional CLIs</h2>
-        
-        <div className="bg-gray-800 rounded-lg p-6 mb-6">
-          <p className="text-slate-100 mb-4">Typical framework initialization:</p>
-          <ul className="space-y-2 text-slate-100">
-            <li>• What's your project description? <span className="text-gray-500">(I don't know, I just started)</span></li>
-            <li>• Choose your testing framework? <span className="text-gray-500">(Let me build something first)</span></li>
-            <li>• Configure your linter settings? <span className="text-gray-500">(Please, just let me code)</span></li>
-            <li>• Set up CI/CD pipeline? <span className="text-gray-500">(It's my first 5 seconds with this tool)</span></li>
-          </ul>
-        </div>
-        
-        <p className="text-slate-100 leading-relaxed">
-          This approach assumes users know everything upfront. Reality: they don't, and they shouldn't have to.
-        </p>
-
-        <h2 className="heading-2">Our Philosophy: Progressive Disclosure</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4 text-center">
-            <div className="text-3xl font-bold text-purple-400 mb-2">&lt; 30s</div>
-            <p className="text-slate-100 text-sm">To working code</p>
+    <div className="w-full">
+      <main className="p-4 lg:p-8 lg:px-16 pb-20">
+        <article className="prose prose-invert max-w-none">
+          <div className="mb-8 flex justify-between items-start">
+            <div>
+              <h1 className="heading-1">
+                Why We Choose Progressive Disclosure Over Configuration Questionnaires
+              </h1>
+              <p className="text-slate-100 text-lg">September 2025 • Design Decision #006</p>
+            </div>
+            <CopyMarkdownButton content={content} />
           </div>
-          <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4 text-center">
-            <div className="text-3xl font-bold text-purple-400 mb-2">3</div>
-            <p className="text-slate-100 text-sm">Questions maximum</p>
-          </div>
-          <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4 text-center">
-            <div className="text-3xl font-bold text-purple-400 mb-2">0</div>
-            <p className="text-slate-100 text-sm">Required configs</p>
-          </div>
-        </div>
 
-        <h2 className="heading-2">The Two-Command Strategy</h2>
-        
-        <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-6">
-          <span className="text-gray-500"># Outside a project</span><br/>
-          co create my-agent&nbsp;&nbsp;<span className="text-green-400"># Creates new directory</span><br/>
-          <br/>
-          <span className="text-gray-500"># Inside a project</span><br/>
-          co init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-400"># Uses current directory</span>
-        </div>
-        
-        <p className="text-slate-100 leading-relaxed mb-4">
-          Why both? Because <strong className="text-white">context matters</strong>:
-        </p>
-        
-        <ul className="space-y-2 text-slate-100 mb-6">
-          <li>• Outside: Users want to create a new space</li>
-          <li>• Inside: Users have already decided where to work</li>
-        </ul>
-        
-        <p className="text-slate-100 leading-relaxed">
-          This isn't redundancy; it's respecting user intent. Django does this, Rails does this, 
-          and for good reason.
-        </p>
+          <div className="mt-8 space-y-6 text-gray-200">
+            <p className="text-lg leading-relaxed text-slate-100 italic">
+              Most framework CLIs bombard users with questions that don't matter yet.
+              We chose progressive disclosure: start fast, decide later, respect intelligence.
+            </p>
 
-        <h2 className="heading-2">Minimal Questions, Maximum Intelligence</h2>
-        
-        <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-6 mb-6">
-          <p className="text-purple-400 font-semibold mb-2">Our setup asks only what matters RIGHT NOW:</p>
-          <ol className="space-y-2 text-slate-100">
-            <li>1. <strong className="text-white">Enable AI?</strong> - Determines available templates</li>
-            <li>2. <strong className="text-white">API key</strong> - Only if AI enabled, with auto-detection</li>
-            <li>3. <strong className="text-white">Template</strong> - With previews so users know what they get</li>
-          </ol>
-          <p className="text-slate-100 text-sm mt-4">That's it. Three decisions max.</p>
-        </div>
-        
-        <p className="text-slate-100 leading-relaxed">
-          Compare to typical CLIs: Create-react-app (5+ questions), Vue CLI (10+ questions), 
-          Yeoman generators (often 15+ questions).
-        </p>
+            <h2 className="heading-2">The Problem with Traditional CLIs</h2>
 
-        <h2 className="heading-2">Smart API Key Detection</h2>
-        
-        <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-6">
-          <span className="text-blue-400">if</span> api_key.startswith(<span className="text-green-400">'sk-proj-'</span>):<br/>
-          &nbsp;&nbsp;<span className="text-gray-500"># OpenAI project key</span><br/>
-          <span className="text-blue-400">elif</span> api_key.startswith(<span className="text-green-400">'sk-ant-'</span>):<br/>
-          &nbsp;&nbsp;<span className="text-gray-500"># Anthropic</span><br/>
-          <span className="text-blue-400">elif</span> api_key.startswith(<span className="text-green-400">'gsk_'</span>):<br/>
-          &nbsp;&nbsp;<span className="text-gray-500"># Groq</span>
-        </div>
-        
-        <p className="text-slate-100 leading-relaxed">
-          The key format already tells us the provider. Why make users answer what we can infer?
-        </p>
+            <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-6 my-6">
+              <p className="text-slate-100 mb-4">Typical framework initialization:</p>
+              <ul className="space-y-3 text-slate-100">
+                <li>What's your project description? <span className="text-gray-500 italic">(I don't know, I just started)</span></li>
+                <li>Choose your testing framework? <span className="text-gray-500 italic">(Let me build something first)</span></li>
+                <li>Configure your linter settings? <span className="text-gray-500 italic">(Please, just let me code)</span></li>
+                <li>Set up CI/CD pipeline? <span className="text-gray-500 italic">(It's my first 5 seconds with this tool)</span></li>
+              </ul>
+            </div>
 
-        <h2 className="heading-2">Template Preview, Not Template Guessing</h2>
-        
-        <div className="bg-gray-800 rounded-lg p-6 mb-6">
-          <pre className="text-sm text-slate-100">
-📦 Minimal - Simple starting point
+            <p>
+              This approach assumes users know everything upfront. Reality: they don't, and they shouldn't have to.
+            </p>
+
+            <h2 className="heading-2">Our Philosophy: Progressive Disclosure</h2>
+
+            <div className="grid md:grid-cols-3 gap-6 my-8">
+              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-xl p-6 text-center">
+                <div className="text-4xl font-bold text-purple-400 mb-2">&lt; 30s</div>
+                <p className="text-slate-100">To working code</p>
+              </div>
+              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-xl p-6 text-center">
+                <div className="text-4xl font-bold text-purple-400 mb-2">3</div>
+                <p className="text-slate-100">Questions maximum</p>
+              </div>
+              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-xl p-6 text-center">
+                <div className="text-4xl font-bold text-purple-400 mb-2">0</div>
+                <p className="text-slate-100">Required configs</p>
+              </div>
+            </div>
+
+            <h2 className="heading-2">The Two-Command Strategy</h2>
+
+            <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden my-6">
+              <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
+                <span className="text-sm text-slate-100 font-mono">terminal</span>
+              </div>
+              <pre className="p-4 text-sm overflow-x-auto">
+                <code className="text-purple-300">{`# Outside a project
+co create my-agent  # Creates new directory
+
+# Inside a project
+co init             # Uses current directory`}</code>
+              </pre>
+            </div>
+
+            <p>
+              Why both? Because <strong className="text-white">context matters</strong>:
+            </p>
+
+            <ul className="list-disc list-inside space-y-2 ml-4 text-slate-100">
+              <li>Outside: Users want to create a new space</li>
+              <li>Inside: Users have already decided where to work</li>
+            </ul>
+
+            <p>
+              This isn't redundancy; it's respecting user intent. Django does this, Rails does this,
+              and for good reason.
+            </p>
+
+            <h2 className="heading-2">Minimal Questions, Maximum Intelligence</h2>
+
+            <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-xl p-6 my-8">
+              <p className="text-purple-300 font-semibold mb-4">Our setup asks only what matters RIGHT NOW:</p>
+              <ol className="space-y-3 text-slate-100">
+                <li><span className="text-purple-400 font-bold">1.</span> <strong className="text-white">Enable AI?</strong> - Determines available templates</li>
+                <li><span className="text-purple-400 font-bold">2.</span> <strong className="text-white">API key</strong> - Only if AI enabled, with auto-detection</li>
+                <li><span className="text-purple-400 font-bold">3.</span> <strong className="text-white">Template</strong> - With previews so users know what they get</li>
+              </ol>
+              <p className="text-slate-100 text-sm mt-4 italic">That's it. Three decisions max.</p>
+            </div>
+
+            <p>
+              Compare to typical CLIs: Create-react-app (5+ questions), Vue CLI (10+ questions),
+              Yeoman generators (often 15+ questions).
+            </p>
+
+            <h2 className="heading-2">Smart API Key Detection</h2>
+
+            <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden my-6">
+              <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
+                <span className="text-sm text-slate-100 font-mono">api_detection.py</span>
+              </div>
+              <pre className="p-4 text-sm overflow-x-auto">
+                <code className="text-purple-300">{`if api_key.startswith('sk-proj-'):
+    # OpenAI project key
+elif api_key.startswith('sk-ant-'):
+    # Anthropic
+elif api_key.startswith('gsk_'):
+    # Groq`}</code>
+              </pre>
+            </div>
+
+            <p>
+              The key format already tells us the provider. Why make users answer what we can infer?
+            </p>
+
+            <h2 className="heading-2">Template Preview, Not Template Guessing</h2>
+
+            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6 font-mono text-sm">
+              <pre className="text-slate-100">{`📦 Minimal - Simple starting point
   ├── agent.py (50 lines) - Basic agent with example tool
   ├── .env - API key configuration
-  └── .co/ - Agent identity & metadata</pre>
-        </div>
-        
-        <p className="text-slate-100 leading-relaxed">
-          Users shouldn't have to guess. Show them, let them choose, move on.
-        </p>
+  └── .co/ - Agent identity & metadata`}</pre>
+            </div>
 
-        <h2 className="heading-2">Silent Excellence</h2>
-        
-        <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-6">
-          <span className="text-gray-500"># This happens silently during init</span><br/>
-          addr_data = address.generate()<br/>
-          address.save(addr_data, co_dir)
-        </div>
-        
-        <p className="text-slate-100 leading-relaxed">
-          We generate cryptographic keys automatically. No prompt, no explanation. 
-          99% of users don't care about Ed25519 vs secp256k1. The 1% who do can read the docs.
-        </p>
+            <p>
+              Users shouldn't have to guess. Show them, let them choose, move on.
+            </p>
 
-        <h2 className="heading-2">What We Don't Ask</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
-            <h3 className="text-red-400 font-semibold mb-2">❌ We Skip</h3>
-            <ul className="space-y-1 text-slate-100 text-sm">
-              <li>• Project description</li>
-              <li>• Author name</li>
-              <li>• License type</li>
-              <li>• Version number</li>
-              <li>• Test framework</li>
-              <li>• Package manager</li>
-            </ul>
+            <h2 className="heading-2">What We Don't Ask</h2>
+
+            <div className="grid md:grid-cols-2 gap-6 my-8">
+              <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-6">
+                <h3 className="text-red-400 font-semibold mb-4">We Skip</h3>
+                <ul className="space-y-2 text-slate-100 text-sm">
+                  <li>Project description</li>
+                  <li>Author name</li>
+                  <li>License type</li>
+                  <li>Version number</li>
+                  <li>Test framework</li>
+                  <li>Package manager</li>
+                </ul>
+              </div>
+
+              <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-6">
+                <h3 className="text-green-400 font-semibold mb-4">We Do</h3>
+                <ul className="space-y-2 text-slate-100 text-sm">
+                  <li>Create working code immediately</li>
+                  <li>Use sensible defaults everywhere</li>
+                  <li>Show clear next steps</li>
+                  <li>Get out of the way</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2 className="heading-2">Beautiful by Default</h2>
+
+            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6">
+              <p className="text-slate-100 mb-4">We use colors and emojis for <strong className="text-white">clarity</strong>, not decoration:</p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-green-400 text-xl">✅</span>
+                  <span className="text-slate-100">Green = Success</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-yellow-400 text-xl">⚠️</span>
+                  <span className="text-slate-100">Yellow = Warning</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-red-400 text-xl">❌</span>
+                  <span className="text-slate-100">Red = Error</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">📁</span>
+                  <span className="text-slate-100">Icons = Visual scanning</span>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              But we respect terminal preferences: works in non-color terminals, copy-paste friendly,
+              no ASCII art or unnecessary flair.
+            </p>
+
+            <h2 className="heading-2">Results: User Delight</h2>
+
+            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-8 border border-purple-500/20 my-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                  <div className="text-3xl font-bold text-purple-400">30s</div>
+                  <p className="text-slate-100 text-sm">to running agent</p>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-purple-400">3</div>
+                  <p className="text-slate-100 text-sm">questions max</p>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-purple-400">0</div>
+                  <p className="text-slate-100 text-sm">required configs</p>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-purple-400">1</div>
+                  <p className="text-slate-100 text-sm">command to start</p>
+                </div>
+              </div>
+            </div>
+
+            <h2 className="heading-2">Conclusion</h2>
+
+            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-500/20">
+              <p className="text-lg text-slate-100 leading-relaxed mb-4">
+                Good CLI UX isn't about asking fewer questions - it's about asking the
+                <strong className="text-white"> RIGHT </strong> questions at the
+                <strong className="text-white"> RIGHT </strong> time. Everything else should be
+                invisible, automatic, or optional.
+              </p>
+              <p className="text-slate-100">
+                The best tool is one you forget you're using. That's what we built.
+              </p>
+            </div>
+
+            <div className="border-t border-gray-800 mt-16 pt-8">
+              <p className="text-slate-100 italic text-lg">
+                Simplicity is the ultimate sophistication in CLI design.
+              </p>
+            </div>
+
+            {/* Navigation */}
+            <ContentNavigation />
           </div>
-          
-          <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
-            <h3 className="text-green-400 font-semibold mb-2">✅ We Do</h3>
-            <ul className="space-y-1 text-slate-100 text-sm">
-              <li>• Create working code immediately</li>
-              <li>• Use sensible defaults everywhere</li>
-              <li>• Show clear next steps</li>
-              <li>• Get out of the way</li>
-            </ul>
-          </div>
-        </div>
-
-        <h2 className="heading-2">Beautiful by Default</h2>
-        
-        <div className="bg-gray-800 rounded-lg p-6 mb-6">
-          <p className="text-slate-100 mb-4">We use colors and emojis for <strong className="text-white">clarity</strong>, not decoration:</p>
-          <ul className="space-y-2">
-            <li><span className="text-green-400">✅ Green</span> = Success</li>
-            <li><span className="text-yellow-400">⚠️ Yellow</span> = Warning</li>
-            <li><span className="text-red-400">❌ Red</span> = Error</li>
-            <li>📁 Icons = Visual scanning</li>
-          </ul>
-        </div>
-        
-        <p className="text-slate-100 leading-relaxed">
-          But we respect terminal preferences: works in non-color terminals, copy-paste friendly, 
-          no ASCII art or unnecessary flair.
-        </p>
-
-        <h2 className="heading-2">Results: User Delight</h2>
-        
-        <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-500/20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div>
-              <div className="text-2xl font-bold text-purple-400">30s</div>
-              <p className="text-slate-100 text-sm">to running agent</p>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-purple-400">3</div>
-              <p className="text-slate-100 text-sm">questions max</p>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-purple-400">0</div>
-              <p className="text-slate-100 text-sm">required configs</p>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-purple-400">1</div>
-              <p className="text-slate-100 text-sm">command to start</p>
-            </div>
-          </div>
-        </div>
-
-        <h2 className="heading-2">Conclusion</h2>
-        
-        <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-6">
-          <p className="text-lg text-slate-100 leading-relaxed m-0">
-            Good CLI UX isn't about asking fewer questions - it's about asking the 
-            <strong className="text-white">RIGHT</strong> questions at the 
-            <strong className="text-white">RIGHT</strong> time. Everything else should be 
-            invisible, automatic, or optional.
-          </p>
-          <p className="text-slate-100 mt-4">
-            The best tool is one you forget you're using. That's what we built.
-          </p>
-        </div>
-      </article>
+        </article>
+      </main>
     </div>
   )
 }
