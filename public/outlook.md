@@ -1,8 +1,6 @@
 # Outlook
 
-> Give your agents full Outlook access via Microsoft Graph API. Read, search, send, and manage emails.
-
----
+Give your agents Outlook access via Microsoft Graph API.
 
 ## Quick Start
 
@@ -16,11 +14,7 @@ agent.input("Show me my recent emails")
 agent.input("Send an email to alice@example.com saying hello")
 ```
 
----
-
 ## Setup
-
-Authenticate with Microsoft:
 
 ```bash
 co auth microsoft
@@ -28,50 +22,62 @@ co auth microsoft
 
 Your agent can now read and manage Outlook emails.
 
----
+**Switch accounts?** Run `co auth microsoft` again to connect a different Microsoft account.
 
 ## Agent Methods
 
-### Reading Emails
+### Reading
 
-```python
-outlook.read_inbox(last=10, unread=False)  # Get recent inbox emails
-outlook.get_sent_emails(max_results=10)    # Get sent emails
-outlook.get_email_body(email_id)           # Get full email content
-```
+**`read_inbox(last=10, unread=False)`**
+- Read emails from inbox
+- `last`: Number of emails (default: 10)
+- `unread`: Only unread emails (default: False)
+
+**`get_sent_emails(max_results=10)`**
+- Get emails you sent
+
+**`get_email_body(email_id)`**
+- Get full email content with headers
 
 ### Search
 
-```python
-outlook.search_emails("quarterly report", max_results=10)  # Search all emails
-```
+**`search_emails(query, max_results=10)`**
+- Search using Microsoft Graph search
+- Examples: `"quarterly report"`, `"meeting notes"`, `"invoice"`
 
-### Sending Emails
+### Sending
 
-```python
-outlook.send(to="alice@example.com", subject="Hello", body="Hi there!")
-outlook.send(to="alice@example.com", subject="Hello", body="Hi!", cc="bob@example.com")
-outlook.reply(email_id, body="Thanks for your message")
-```
+**`send(to, subject, body, cc=None, bcc=None)`**
+- Send email via Microsoft Graph API
+- `to`: Recipient email (comma-separated for multiple)
+- `subject`: Email subject
+- `body`: Email body (plain text)
+- `cc`: Optional CC recipients
+- `bcc`: Optional BCC recipients
+
+**`reply(email_id, body)`**
+- Reply to an existing email
 
 ### Actions
 
-```python
-outlook.mark_read(email_id)     # Mark email as read
-outlook.mark_unread(email_id)   # Mark email as unread
-outlook.archive_email(email_id) # Move to archive folder
-```
+**`mark_read(email_id)`**
+- Mark email as read
+
+**`mark_unread(email_id)`**
+- Mark email as unread
+
+**`archive_email(email_id)`**
+- Move email to archive folder
 
 ### Stats
 
-```python
-outlook.count_unread()   # Count unread emails in inbox
-outlook.get_my_email()   # Get connected Microsoft email address
-```
+**`count_unread()`**
+- Count unread emails in inbox
 
----
+**`get_my_email()`**
+- Get connected Microsoft email address
 
-## Complete Example
+## Example
 
 ```python
 from connectonion import Agent, Outlook, Memory
@@ -85,32 +91,15 @@ agent = Agent(
     system_prompt="You help manage Outlook emails and remember important info."
 )
 
-# Various tasks your agent can now do:
-agent.input("Check unread emails and summarize them")
+agent.input("Check unread emails and save important deadlines to memory")
 agent.input("Send an email to alice@example.com about the project update")
 agent.input("Find all emails about the quarterly report")
-agent.input("How many unread emails do I have?")
 ```
-
----
 
 ## Troubleshooting
 
-### Missing Microsoft Mail scopes
+**Missing Microsoft Mail scopes**: Run `co auth microsoft`
 
-Run `co auth microsoft`
+**Credentials not found**: Run `co auth microsoft`
 
-### Credentials not found
-
-Run `co auth microsoft`
-
-### Token expired
-
-Tokens auto-refresh. If issues persist, run `co auth microsoft` again.
-
----
-
-## Related
-
-- [Microsoft Integration](/microsoft-integration) - Full OAuth setup and calendar integration
-- [Gmail](/gmail) - Gmail integration for Google users
+**Token expired**: Tokens auto-refresh. If issues persist, run `co auth microsoft` again.

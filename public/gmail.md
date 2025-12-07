@@ -22,6 +22,8 @@ co auth google
 
 Your agent can now read and manage Gmail.
 
+**Switch accounts?** Run `co auth google` again to connect a different Google account.
+
 ## Agent Methods
 
 ### Reading
@@ -37,17 +39,19 @@ Your agent can now read and manage Gmail.
 **`get_all_emails(max_results=50)`**
 - Get emails from all folders (inbox, sent, archive)
 
-**`get_email_body(email_id)`**
-- Get full email content
-
-**`get_email_attachments(email_id)`**
-- List attachments (filename, size)
-
 ### Search
 
 **`search_emails(query, max_results=10)`**
 - Search using Gmail query syntax
 - Examples: `"from:alice@example.com"`, `"subject:meeting"`, `"is:unread has:attachment"`
+
+### Content
+
+**`get_email_body(email_id)`**
+- Get full email content
+
+**`get_email_attachments(email_id)`**
+- List attachments (filename, size)
 
 ### Actions
 
@@ -107,9 +111,6 @@ agent = Agent(
 
 agent.input("Check unread emails and save important deadlines to memory")
 agent.input("Archive all newsletter emails from this week")
-agent.input("Find all emails from alice@example.com about the project")
-agent.input("Who are my top 10 most frequent contacts?")
-agent.input("Analyze my relationship with bob@company.com")
 ```
 
 ## Troubleshooting
