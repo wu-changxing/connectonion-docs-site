@@ -1,8 +1,10 @@
 import {
-  Home, Rocket, Terminal, MessageSquare, Code, Gauge, Zap, Shield, Bug,
-  GitBranch, FileText, FolderOpen, Sparkles, Calculator, Cloud, BookOpen,
-  Users, Settings, Layers, Brain, MessageCircle, Database, Package, Cpu, Chrome, Camera, Link, Mail, FileCode2, Network, Wifi, Activity, Puzzle, Calendar, Inbox, Globe, Upload, Wrench, Image, Type, ChevronDown, BarChart3, Layout, Minus, Search, Keyboard
-} from 'lucide-react'
+  HiOutlineHome, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
+  HiOutlineArrowsRightLeft, HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineCalculator, HiOutlineCloud, HiOutlineBookOpen,
+  HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup
+} from 'react-icons/hi2'
+import { VscComment, VscGitMerge, VscFileCode, VscKey, VscServerProcess } from 'react-icons/vsc'
+import { FaChrome } from 'react-icons/fa'
 
 // Simple, flat navigation structure with all metadata in one place
 export const navigation = [
@@ -10,7 +12,7 @@ export const navigation = [
   {
     title: 'Introduction',
     href: '/',
-    icon: Home,
+    icon: HiOutlineHome,
     section: 'Getting Started',
     keywords: ['intro', 'overview', 'start', 'begin'],
     prev: null,
@@ -19,7 +21,7 @@ export const navigation = [
   {
     title: 'Quick Start',
     href: '/quickstart',
-    icon: Rocket,
+    icon: HiOutlineRocketLaunch,
     section: 'Getting Started',
     keywords: ['setup', 'install', 'begin', 'tutorial'],
     prev: { href: '/', title: 'Introduction' },
@@ -28,7 +30,7 @@ export const navigation = [
   {
     title: 'Vibe Coding Guide',
     href: '/vibe-coding',
-    icon: FileCode2,
+    icon: VscFileCode,
     section: 'Getting Started',
     keywords: ['cursor', 'ai', 'vibe', 'coding', 'drag', 'drop', 'docs'],
     prev: { href: '/quickstart', title: 'Quick Start' },
@@ -37,7 +39,7 @@ export const navigation = [
   {
     title: 'Deploy',
     href: '/deploy',
-    icon: Upload,
+    icon: HiOutlineArrowUpTray,
     section: 'Getting Started',
     difficulty: 'New',
     hidden: true, // Hide from sidebar - coming soon
@@ -50,7 +52,7 @@ export const navigation = [
   {
     title: 'Agent',
     href: '/agent',
-    icon: Users,
+    icon: HiOutlineUsers,
     section: 'Core Concepts',
     difficulty: 'Essential',
     keywords: ['agent', 'create', 'orchestrator', 'core', 'llm', 'conversation', 'iteration'],
@@ -60,7 +62,7 @@ export const navigation = [
   {
     title: 'System Prompts',
     href: '/prompts',
-    icon: MessageSquare,
+    icon: HiOutlineChatBubbleBottomCenterText,
     section: 'Core Concepts',
     difficulty: 'Start Here',
     keywords: ['template', 'prompt', 'system', 'message', 'personality', 'behavior'],
@@ -70,7 +72,7 @@ export const navigation = [
   {
     title: 'Tools',
     href: '/tools',
-    icon: Code,
+    icon: HiOutlineCodeBracket,
     section: 'Core Concepts',
     keywords: ['function', 'utility', 'actions', 'capabilities', 'tools'],
     prev: { href: '/prompts', title: 'System Prompts' },
@@ -81,7 +83,7 @@ export const navigation = [
   {
     title: 'Useful Tools',
     href: '/useful-tools',
-    icon: Wrench,
+    icon: HiOutlineWrench,
     section: 'Useful Tools',
     keywords: ['tools', 'useful_tools', 'integrations', 'gmail', 'outlook', 'memory', 'calendar'],
     prev: { href: '/tools', title: 'Tools' },
@@ -90,7 +92,7 @@ export const navigation = [
   {
     title: 'Memory',
     href: '/memory',
-    icon: Brain,
+    icon: HiOutlineCpuChip,
     section: 'Useful Tools',
     difficulty: 'New',
     keywords: ['memory', 'storage', 'persistence', 'remember', 'database', 'rag'],
@@ -100,17 +102,17 @@ export const navigation = [
   {
     title: 'Agent Emails',
     href: '/agent-emails',
-    icon: Mail,
+    icon: HiOutlineEnvelope,
     section: 'Useful Tools',
     difficulty: 'New',
     keywords: ['email', 'send', 'receive', 'mail', 'notification', 'inbox', 'imap'],
-    prev: { href: '/memory', title: 'Memory' },
+    prev: { href: '/useful-tools', title: 'Useful Tools' },
     next: { href: '/agent-emails/send', title: 'Send Email' }
   },
   {
     title: 'Send Email',
     href: '/agent-emails/send',
-    icon: Mail,
+    icon: HiOutlineEnvelope,
     section: 'Useful Tools',
     keywords: ['email', 'send', 'mail', 'notification', 'alert', 'message', 'smtp'],
     prev: { href: '/agent-emails', title: 'Agent Emails' },
@@ -119,7 +121,7 @@ export const navigation = [
   {
     title: 'Receive Emails',
     href: '/agent-emails/receive',
-    icon: Inbox,
+    icon: HiOutlineInbox,
     section: 'Useful Tools',
     keywords: ['email', 'get', 'inbox', 'imap', 'read', 'fetch', 'mail', 'receive'],
     prev: { href: '/agent-emails/send', title: 'Send Email' },
@@ -128,7 +130,7 @@ export const navigation = [
   {
     title: 'Gmail',
     href: '/gmail',
-    icon: Mail,
+    icon: HiOutlineEnvelope,
     section: 'Useful Tools',
     difficulty: 'New',
     keywords: ['gmail', 'google', 'email', 'inbox', 'oauth', 'labels', 'archive', 'crm', 'contacts'],
@@ -138,7 +140,7 @@ export const navigation = [
   {
     title: 'Outlook',
     href: '/outlook',
-    icon: Mail,
+    icon: HiOutlineEnvelope,
     section: 'Useful Tools',
     difficulty: 'New',
     keywords: ['outlook', 'microsoft', 'email', 'inbox', 'oauth', 'office', '365', 'graph', 'send'],
@@ -148,7 +150,7 @@ export const navigation = [
   {
     title: 'Google Integration',
     href: '/google-integration',
-    icon: Calendar,
+    icon: HiOutlineCalendar,
     section: 'Integrations',
     difficulty: 'New',
     keywords: ['google', 'gmail', 'calendar', 'oauth', 'integration', 'schedule', 'meeting'],
@@ -158,7 +160,7 @@ export const navigation = [
   {
     title: 'Microsoft Integration',
     href: '/microsoft-integration',
-    icon: Calendar,
+    icon: HiOutlineCalendar,
     section: 'Integrations',
     difficulty: 'New',
     keywords: ['microsoft', 'outlook', 'calendar', 'oauth', 'integration', 'office', '365', 'azure', 'teams'],
@@ -168,7 +170,7 @@ export const navigation = [
   {
     title: 'WebFetch',
     href: '/web-fetch',
-    icon: Globe,
+    icon: HiOutlineGlobeAlt,
     section: 'Useful Tools',
     difficulty: 'New',
     keywords: ['web', 'fetch', 'scrape', 'html', 'parse', 'http', 'research', 'analyze'],
@@ -180,7 +182,7 @@ export const navigation = [
   {
     title: 'TUI Components',
     href: '/tui',
-    icon: Terminal,
+    icon: HiOutlineCommandLine,
     section: 'TUI',
     difficulty: 'NEW',
     keywords: ['tui', 'terminal', 'ui', 'input', 'pick', 'dropdown', 'status', 'keyboard', 'rich'],
@@ -190,7 +192,7 @@ export const navigation = [
   {
     title: 'pick',
     href: '/tui/pick',
-    icon: ChevronDown,
+    icon: HiOutlineChevronDown,
     section: 'TUI',
     keywords: ['pick', 'select', 'menu', 'choice', 'single', 'keyboard', 'navigation'],
     prev: { href: '/tui', title: 'TUI Components' },
@@ -199,7 +201,7 @@ export const navigation = [
   {
     title: 'Input',
     href: '/tui/input',
-    icon: Type,
+    icon: HiOutlineCursorArrowRays,
     section: 'TUI',
     keywords: ['input', 'text', 'autocomplete', 'trigger', 'type', 'file', 'command'],
     prev: { href: '/tui/pick', title: 'pick' },
@@ -208,7 +210,7 @@ export const navigation = [
   {
     title: 'Dropdown',
     href: '/tui/dropdown',
-    icon: ChevronDown,
+    icon: HiOutlineChevronDown,
     section: 'TUI',
     keywords: ['dropdown', 'list', 'selection', 'autocomplete', 'item', 'menu'],
     prev: { href: '/tui/input', title: 'Input' },
@@ -217,7 +219,7 @@ export const navigation = [
   {
     title: 'StatusBar',
     href: '/tui/status-bar',
-    icon: BarChart3,
+    icon: HiOutlinePresentationChartBar,
     section: 'TUI',
     keywords: ['status', 'bar', 'powerline', 'segment', 'progress', 'display'],
     prev: { href: '/tui/dropdown', title: 'Dropdown' },
@@ -226,7 +228,7 @@ export const navigation = [
   {
     title: 'Footer',
     href: '/tui/footer',
-    icon: Layout,
+    icon: HiOutlineRectangleGroup,
     section: 'TUI',
     keywords: ['footer', 'tips', 'hints', 'help', 'display'],
     prev: { href: '/tui/status-bar', title: 'StatusBar' },
@@ -235,7 +237,7 @@ export const navigation = [
   {
     title: 'Divider',
     href: '/tui/divider',
-    icon: Minus,
+    icon: HiOutlineMinus,
     section: 'TUI',
     keywords: ['divider', 'separator', 'line', 'horizontal', 'visual'],
     prev: { href: '/tui/footer', title: 'Footer' },
@@ -244,7 +246,7 @@ export const navigation = [
   {
     title: 'Fuzzy Matching',
     href: '/tui/fuzzy',
-    icon: Search,
+    icon: HiOutlineMagnifyingGlass,
     section: 'TUI',
     keywords: ['fuzzy', 'match', 'search', 'score', 'highlight', 'autocomplete'],
     prev: { href: '/tui/divider', title: 'Divider' },
@@ -253,7 +255,7 @@ export const navigation = [
   {
     title: 'Keyboard Input',
     href: '/tui/keys',
-    icon: Keyboard,
+    icon: VscKey,
     section: 'TUI',
     keywords: ['keyboard', 'input', 'getch', 'read_key', 'arrow', 'escape', 'enter'],
     prev: { href: '/tui/fuzzy', title: 'Fuzzy Matching' },
@@ -262,7 +264,7 @@ export const navigation = [
   {
     title: 'Providers',
     href: '/tui/providers',
-    icon: Database,
+    icon: HiOutlineSquare3Stack3D,
     section: 'TUI',
     keywords: ['provider', 'file', 'static', 'autocomplete', 'data', 'source'],
     prev: { href: '/tui/keys', title: 'Keyboard Input' },
@@ -273,7 +275,7 @@ export const navigation = [
   {
     title: 'Interactive Debugging',
     href: '/auto-debug',
-    icon: Bug,
+    icon: HiOutlineBugAnt,
     section: 'Debug',
     difficulty: 'Essential',
     keywords: ['debug', 'auto_debug', 'interactive', 'breakpoint', 'xray', 'inspect', 'pause', 'repl', 'python', 'variables', 'state', 'agent debugging', 'llm debugging'],
@@ -283,7 +285,7 @@ export const navigation = [
   {
     title: 'Auto Debug Exception',
     href: '/auto-debug-exception',
-    icon: Bug,
+    icon: HiOutlineBugAnt,
     section: 'Debug',
     keywords: ['debug', 'exception', 'crash', 'error', 'ai', 'runtime', 'inspection', 'traceback', 'fix'],
     prev: { href: '/auto-debug', title: 'Interactive Debugging' },
@@ -292,7 +294,7 @@ export const navigation = [
   {
     title: 'Browser Screenshots',
     href: '/tools/browser',
-    icon: Camera,
+    icon: HiOutlineCamera,
     section: 'Debug',
     keywords: ['browser', 'screenshot', 'debug', 'capture', 'viewport', 'playwright', 'test', 'responsive'],
     prev: { href: '/auto-debug-exception', title: 'Auto Debug Exception' },
@@ -301,7 +303,7 @@ export const navigation = [
   {
     title: 'Logging',
     href: '/logging',
-    icon: FileText,
+    icon: HiOutlineDocumentText,
     section: 'Debug',
     keywords: ['logging', 'log', 'file', 'output', 'debug', 'audit', 'record', 'trace', 'monitor', 'activity'],
     prev: { href: '/tools/browser', title: 'Browser Screenshots' },
@@ -311,7 +313,7 @@ export const navigation = [
   {
     title: 'Models',
     href: '/models',
-    icon: Cpu,
+    icon: HiOutlineCpuChip,
     section: 'Core Concepts',
     keywords: ['model', 'gpt', 'gemini', 'claude', 'anthropic', 'openai', 'google', 'llm', 'ai'],
     prev: { href: '/logging', title: 'Logging' },
@@ -320,7 +322,7 @@ export const navigation = [
   {
     title: 'LLM Function',
     href: '/llm_do',
-    icon: Zap,
+    icon: HiOutlineSparkles,
     section: 'Core Concepts',
     keywords: ['ai', 'model', 'openai', 'language', 'llm_do', 'direct', 'gemini', 'anthropic', 'claude'],
     prev: { href: '/models', title: 'Models' },
@@ -329,7 +331,7 @@ export const navigation = [
   {
     title: 'Trust Parameter',
     href: '/trust',
-    icon: Shield,
+    icon: HiOutlineShieldCheck,
     section: 'Network',
     keywords: ['security', 'safety', 'trust', 'permission', 'multi-agent'],
     prev: { href: '/llm_do', title: 'LLM Function' },
@@ -338,7 +340,7 @@ export const navigation = [
   {
     title: '@xray Decorator',
     href: '/xray',
-    icon: Bug,
+    icon: HiOutlineBugAnt,
     section: 'Debug',
     keywords: ['debug', 'xray', 'decorator', 'trace', 'monitor', 'visibility'],
     prev: { href: '/trust', title: 'Trust Parameter' },
@@ -347,7 +349,7 @@ export const navigation = [
   {
     title: 'Event System (on_events)',
     href: '/on_events',
-    icon: Activity,
+    icon: HiOutlineChartBarSquare,
     section: 'Core Concepts',
     difficulty: 'NEW',
     keywords: ['events', 'on_events', 'hooks', 'lifecycle', 'monitoring', 'after_llm', 'before_tool', 'after_tool', 'on_error', 'after_user_input', 'before_llm'],
@@ -357,17 +359,57 @@ export const navigation = [
   {
     title: 'Useful Plugins',
     href: '/useful-plugins',
-    icon: Package,
+    icon: HiOutlineSquares2X2,
     section: 'Useful Plugins',
     difficulty: 'NEW',
     keywords: ['plugins', 'useful_plugins', 're_act', 'eval', 'image_result_formatter', 'gmail_plugin', 'calendar_plugin', 'shell_approval'],
     prev: { href: '/plugin', title: 'Plugin System' },
+    next: { href: '/useful-plugins/re-act', title: 're_act' }
+  },
+  {
+    title: 're_act',
+    href: '/useful-plugins/re-act',
+    icon: HiOutlineCpuChip,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['react', 'reasoning', 'plan', 'reflect', 'think'],
+    prev: { href: '/useful-plugins', title: 'Useful Plugins' },
+    next: { href: '/useful-plugins/eval', title: 'eval' }
+  },
+  {
+    title: 'eval',
+    href: '/useful-plugins/eval',
+    icon: HiOutlineChartBar,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['eval', 'evaluate', 'debug', 'test', 'expected'],
+    prev: { href: '/useful-plugins/re-act', title: 're_act' },
+    next: { href: '/useful-plugins/image-result-formatter', title: 'image_result_formatter' }
+  },
+  {
+    title: 'image_result_formatter',
+    href: '/useful-plugins/image-result-formatter',
+    icon: HiOutlinePhoto,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['image', 'vision', 'base64', 'screenshot', 'format'],
+    prev: { href: '/useful-plugins/eval', title: 'eval' },
+    next: { href: '/useful-plugins/shell-approval', title: 'shell_approval' }
+  },
+  {
+    title: 'shell_approval',
+    href: '/useful-plugins/shell-approval',
+    icon: HiOutlineShieldCheck,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['shell', 'approval', 'security', 'command', 'permission'],
+    prev: { href: '/useful-plugins/image-result-formatter', title: 'image_result_formatter' },
     next: { href: '/serve', title: 'Agent Serving' }
   },
   {
     title: 'Plugin System',
     href: '/plugin',
-    icon: Puzzle,
+    icon: HiOutlinePuzzlePiece,
     section: 'Core Concepts',
     difficulty: 'NEW',
     keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'custom', 'create', 'build'],
@@ -379,17 +421,17 @@ export const navigation = [
   {
     title: 'Agent Serving',
     href: '/serve',
-    icon: Wifi,
+    icon: HiOutlineWifi,
     section: 'Network',
     difficulty: 'Essential',
     keywords: ['serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'agent serving', 'ed25519'],
-    prev: { href: '/useful-plugins', title: 'Useful Plugins' },
+    prev: { href: '/useful-plugins/shell-approval', title: 'shell_approval' },
     next: { href: '/connect', title: 'Connect to Agents' }
   },
   {
     title: 'Connect to Agents',
     href: '/connect',
-    icon: Network,
+    icon: VscServerProcess,
     section: 'Network',
     difficulty: 'Essential',
     keywords: ['connect', 'remote', 'network', 'relay', 'distributed', 'client', 'remote agent', 'proxy'],
@@ -399,7 +441,7 @@ export const navigation = [
   {
     title: 'CLI Reference',
     href: '/cli',
-    icon: Terminal,
+    icon: HiOutlineCommandLine,
     section: 'Network',
     keywords: ['command', 'terminal', 'co', 'commands'],
     prev: { href: '/connect', title: 'Connect to Agents' },
@@ -410,7 +452,7 @@ export const navigation = [
   {
     title: '001: AI Agent = Prompt + Function',
     href: '/tutorials/001-ai-agent-is-just-prompt-plus-function',
-    icon: BookOpen,
+    icon: HiOutlineBookOpen,
     section: 'Debug',
     keywords: ['tutorial', 'beginner', 'first', 'prompt', 'function', 'langchain', 'simple'],
     prev: { href: '/xray', title: '@xray Decorator' },
@@ -421,7 +463,7 @@ export const navigation = [
   {
     title: 'trace() Visual Flow',
     href: '/xray/trace',
-    icon: GitBranch,
+    icon: VscGitMerge,
     section: 'Debug',
     parent: '/xray', // Nested under @xray Decorator
     keywords: ['trace', 'flow', 'visual', 'debug', 'execution'],
@@ -431,7 +473,7 @@ export const navigation = [
   {
     title: 'Prompt Formats',
     href: '/prompts/formats',
-    icon: FileText,
+    icon: HiOutlineDocumentText,
     section: 'Core Concepts',
     parent: '/prompts', // Nested under System Prompts
     keywords: ['format', 'prompt', 'template', 'syntax'],
@@ -443,7 +485,7 @@ export const navigation = [
   {
     title: 'Threat Model',
     href: '/threat-model',
-    icon: Shield,
+    icon: HiOutlineShieldCheck,
     section: 'Network',
     keywords: ['security', 'threat', 'risk', 'safety', 'vulnerability'],
     prev: { href: '/prompts/formats', title: 'Prompt Formats' },
@@ -454,7 +496,7 @@ export const navigation = [
   {
     title: 'All Examples',
     href: '/examples',
-    icon: FolderOpen,
+    icon: HiOutlineFolderOpen,
     section: 'Examples',
     difficulty: 'Browse',
     keywords: ['examples', 'samples', 'demos', 'tutorials'],
@@ -464,7 +506,7 @@ export const navigation = [
   {
     title: 'Calculator',
     href: '/examples/calculator',
-    icon: Calculator,
+    icon: HiOutlineCalculator,
     section: 'Examples',
     difficulty: 'Beginner',
     keywords: ['calculator', 'math', 'compute', 'arithmetic', 'tools', 'functions'],
@@ -476,7 +518,7 @@ export const navigation = [
   {
     title: 'Browser Automation',
     href: '/examples/browser',
-    icon: Chrome,
+    icon: FaChrome,
     section: 'Examples',
     difficulty: 'Intermediate',
     keywords: ['browser', 'automation', 'screenshot', 'playwright', 'web', 'scraping'],
@@ -490,7 +532,7 @@ export const navigation = [
   {
     title: 'All Posts',
     href: '/blog',
-    icon: BookOpen,
+    icon: HiOutlineBookOpen,
     section: 'Blog',
     keywords: ['blog', 'posts', 'articles', 'news'],
     prev: { href: '/examples/ecommerce-manager', title: 'E-commerce Manager' },
@@ -499,7 +541,7 @@ export const navigation = [
   {
     title: 'Why `input()` Over `run()`',
     href: '/blog/input-method',
-    icon: Terminal,
+    icon: HiOutlineCommandLine,
     section: 'Blog',
     difficulty: 'Design Decision',
     keywords: ['input', 'run', 'api', 'mental', 'model', 'ux'],
@@ -509,7 +551,7 @@ export const navigation = [
   {
     title: 'Why `llm_do()` Over `llm()`',
     href: '/blog/llm-do',
-    icon: Code,
+    icon: HiOutlineCodeBracket,
     section: 'Blog',
     difficulty: 'Design Decision',
     keywords: ['llm', 'function', 'naming', 'api', 'design'],
@@ -519,7 +561,7 @@ export const navigation = [
   {
     title: 'Why We Chose "Trust"',
     href: '/blog/trust-keyword',
-    icon: Users,
+    icon: HiOutlineUsers,
     section: 'Blog',
     difficulty: 'Design Decision',
     keywords: ['trust', 'design', 'decision', 'authentication'],
@@ -529,7 +571,7 @@ export const navigation = [
   {
     title: 'Network Protocol Design',
     href: '/blog/network-protocol-design',
-    icon: GitBranch,
+    icon: VscGitMerge,
     section: 'Blog',
     difficulty: 'Architecture',
     keywords: ['network', 'protocol', 'architecture', 'design'],
@@ -539,7 +581,7 @@ export const navigation = [
   {
     title: 'Agent Address Format',
     href: '/blog/agent-address-format',
-    icon: Shield,
+    icon: HiOutlineShieldCheck,
     section: 'Blog',
     difficulty: 'Design Decision',
     keywords: ['address', 'public', 'key', 'ed25519', 'identity', 'hex'],
@@ -549,7 +591,7 @@ export const navigation = [
   {
     title: 'Why "Address" Over "Identity"',
     href: '/blog/naming-is-hard',
-    icon: MessageCircle,
+    icon: VscComment,
     section: 'Blog',
     difficulty: 'Design Decision',
     keywords: ['naming', 'identity', 'address', 'terminology', 'ux'],
@@ -559,7 +601,7 @@ export const navigation = [
   {
     title: 'Progressive Disclosure CLI',
     href: '/blog/cli-ux-progressive-disclosure',
-    icon: Terminal,
+    icon: HiOutlineCommandLine,
     section: 'Blog',
     difficulty: 'Design Decision',
     keywords: ['cli', 'ux', 'progressive', 'disclosure', 'initialization'],
@@ -569,7 +611,7 @@ export const navigation = [
   {
     title: 'Auto-Debug Design Evolution',
     href: '/blog/auto-debug-evolution',
-    icon: Bug,
+    icon: HiOutlineBugAnt,
     section: 'Blog',
     difficulty: 'Design Decision',
     keywords: ['debug', 'auto-debug', 'ux', 'design', 'iteration', 'unix', 'steve jobs', 'simplicity'],
@@ -581,7 +623,7 @@ export const navigation = [
   {
     title: 'Coming Soon Features',
     href: '/roadmap',
-    icon: Rocket,
+    icon: HiOutlineRocketLaunch,
     section: 'Roadmap',
     difficulty: 'Preview',
     keywords: ['roadmap', 'future', 'upcoming', 'features', 'soon'],
@@ -593,7 +635,7 @@ export const navigation = [
   {
     title: 'All Links',
     href: '/links',
-    icon: Link,
+    icon: HiOutlineLink,
     section: 'Connect',
     keywords: ['links', 'social', 'media', 'discord', 'github', 'twitter', 'instagram', 'tiktok', 'youtube', 'contact'],
     prev: { href: '/roadmap', title: 'Coming Soon Features' },
@@ -604,7 +646,7 @@ export const navigation = [
   {
     title: 'Website Maintenance',
     href: '/website-maintenance',
-    icon: Settings,
+    icon: HiOutlineCog,
     section: 'Admin',
     keywords: ['website', 'maintenance', 'admin'],
     prev: null,

@@ -50,10 +50,10 @@ agent = Agent("a", plugins=[re_act, logger])
 
 | Plugin | Purpose | Docs |
 |--------|---------|------|
-| `re_act` | Planning + reflection (ReAct pattern) | [docs](/useful_plugins#re_act) |
-| `eval` | Task evaluation for debugging | [docs](/useful_plugins#eval) |
-| `image_result_formatter` | Format images for vision models | [docs](/useful_plugins#image_result_formatter) |
-| `shell_approval` | Approve shell commands before execution | [docs](/useful_plugins#shell_approval) |
+| `re_act` | Planning + reflection (ReAct pattern) | [docs](/useful-plugins/re-act) |
+| `eval` | Task evaluation for debugging | [docs](/useful-plugins/eval) |
+| `image_result_formatter` | Format images for vision models | [docs](/useful-plugins/image-result-formatter) |
+| `shell_approval` | Approve shell commands before execution | [docs](/useful-plugins/shell-approval) |
 
 ```python
 from connectonion.useful_plugins import re_act, eval, image_result_formatter, shell_approval
