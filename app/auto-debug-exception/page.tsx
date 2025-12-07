@@ -1,12 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { Bug, Zap, Check, Copy, AlertTriangle, Terminal, Play, FileCode, Shield } from 'lucide-react'
+import { Bug, Zap, Check, Copy, AlertTriangle, FileCode } from 'lucide-react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { CommandBlock } from '../../components/CommandBlock'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../components/ContentNavigation'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function AutoDebugExceptionPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -49,36 +48,35 @@ export default function AutoDebugExceptionPage() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        {/* Header */}
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="p-3 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-xl border border-red-500/30">
-              <Bug className="w-8 h-8 text-red-400" />
-            </div>
+      <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Auto Debug Exception' }
+          ]}
+          icon={Bug}
+          iconColor="text-red-400"
+          iconBgFrom="from-red-500/20"
+          iconBgTo="to-orange-500/20"
+          iconBorderColor="border-red-500/30"
+          title="Auto Debug Exception"
+          description="AI debugger for uncaught exceptions with runtime inspection"
+          markdownPath="/auto-debug-exception.md"
+          markdownFilename="auto-debug-exception.md"
+        />
+
+        {/* Important Notice */}
+        <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-6 mb-16">
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
             <div>
-              <h1 className="heading-1">
-                Auto Debug Exception
-              </h1>
-              <p className="text-slate-100 mt-2">AI debugger for uncaught exceptions with runtime inspection</p>
+              <p className="font-semibold text-yellow-400 mb-2">Debugs ONLY uncaught exceptions</p>
+              <p className="text-sm text-slate-100">
+                This feature only works for uncaught exceptions - crashes, raised exceptions, and failed assertions.
+                For logic errors that don't crash, use <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">raise</code> or <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">assert</code> to convert them to exceptions.
+              </p>
             </div>
           </div>
-
-          {/* Important Notice */}
-          <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-6 mb-6">
-            <div className="flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
-              <div>
-                <p className="font-semibold text-yellow-400 mb-2">Debugs ONLY uncaught exceptions</p>
-                <p className="text-sm text-slate-100">
-                  This feature only works for uncaught exceptions - crashes, raised exceptions, and failed assertions.
-                  For logic errors that don't crash, use <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">raise</code> or <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">assert</code> to convert them to exceptions.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <CopyMarkdownButton />
         </div>
 
         {/* Quick Start */}

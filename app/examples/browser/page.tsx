@@ -10,8 +10,8 @@ import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 
 export default function BrowserAutomationExample() {
   return (
-    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
-      <div className="max-w-6xl mx-auto">
+    <div className="px-4 md:px-8 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-purple-400 transition-colors">

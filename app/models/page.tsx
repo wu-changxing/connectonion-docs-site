@@ -43,12 +43,11 @@
 'use client'
 
 import React, { useState } from 'react'
-import Link from 'next/link'
-import { ArrowRight, Cpu, Zap, Globe, Brain, DollarSign, Eye, Layers, AlertTriangle, Users } from 'lucide-react'
+import { Cpu, Zap, Globe, Brain, DollarSign, Eye, Layers, Users } from 'lucide-react'
 import CodeWithResult from '../../components/CodeWithResult'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function ModelsPage() {
   const [activeProvider, setActiveProvider] = useState<'openai' | 'google' | 'anthropic'>('openai')
@@ -101,6 +100,8 @@ response = agent.input("Hello!")
 - **o1** - Advanced reasoning model
 
 ### Google Gemini Models
+- **gemini-3-pro-preview** - State-of-the-art reasoning, 1M context (NEW!)
+- **gemini-3-pro-image-preview** - Image generation model (NEW!)
 - **gemini-2.5-pro** - Enhanced reasoning, multimodal (audio/video/PDF)
 - **gemini-2.0-flash-exp** - Experimental with native tool use
 - **gemini-1.5-pro** - 2M token context window
@@ -158,36 +159,25 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 **Important:** For Gemini models, use \`GEMINI_API_KEY\` as recommended by [Google's official documentation](https://ai.google.dev/gemini-api/docs/api-key). While \`GOOGLE_API_KEY\` is supported for backward compatibility, \`GEMINI_API_KEY\` is the standard used by Google's Python SDK and most tools in the ecosystem.`
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-        <Link href="/" className="hover:text-purple-400 transition-colors">
-          Docs
-        </Link>
-        <ArrowRight className="w-4 h-4" />
-        <span className="text-white">Models</span>
-      </div>
-
-      {/* Header */}
-      <div className="mb-12">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-xl border border-blue-500/30">
-              <Brain className="w-8 h-8 text-blue-400" />
-            </div>
-            <div>
-              <h1 className="heading-1">Models</h1>
-              <p className="text-lg text-slate-100">
-                Use the latest AI models from OpenAI, Google, and Anthropic with a single interface.
-              </p>
-            </div>
-          </div>
-          <CopyMarkdownButton markdownPath="/models/models.md" filename="models.md" className="flex-shrink-0" />
-        </div>
-      </div>
+    <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24">
+      <PageHeader
+        breadcrumbs={[
+          { label: 'Docs', href: '/' },
+          { label: 'Models' }
+        ]}
+        icon={Brain}
+        iconColor="text-blue-400"
+        iconBgFrom="from-blue-600/20"
+        iconBgTo="to-purple-600/20"
+        iconBorderColor="border-blue-500/30"
+        title="Models"
+        description="Use the latest AI models from OpenAI, Google, and Anthropic with a single interface."
+        markdownPath="/models/models.md"
+        markdownFilename="models.md"
+      />
 
       {/* Quick Start */}
-      <section className="mb-12">
+      <section className="mb-16">
         <h2 className="heading-2">Quick Start (60 Seconds)</h2>
 
         {/* Managed Keys Path */}
@@ -246,9 +236,9 @@ response = agent.input("Explain quantum computing")`}
       </section>
 
       {/* Default Models */}
-      <section className="mb-12">
+      <section className="mb-16">
         <h2 className="heading-2">Default Models</h2>
-        <p className="text-gray-600 dark:text-slate-100 mb-4">
+        <p className="text-slate-100 mb-4">
           When you don't specify a model, ConnectOnion uses these optimized defaults:
         </p>
 
@@ -307,36 +297,36 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
       </section>
 
       {/* Provider Tabs */}
-      <section className="mb-12">
+      <section className="mb-16">
         <h2 className="heading-2">Available Models</h2>
         
-        <div className="flex gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-6">
           <button
             onClick={() => setActiveProvider('openai')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'openai'
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-slate-100 hover:bg-gray-200 dark:hover:bg-gray-700'
+                : 'bg-gray-800 text-slate-100 hover:bg-gray-700'
             }`}
           >
             OpenAI
           </button>
           <button
             onClick={() => setActiveProvider('google')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'google'
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-slate-100 hover:bg-gray-200 dark:hover:bg-gray-700'
+                : 'bg-gray-800 text-slate-100 hover:bg-gray-700'
             }`}
           >
             Google Gemini
           </button>
           <button
             onClick={() => setActiveProvider('anthropic')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'anthropic'
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-slate-100 hover:bg-gray-200 dark:hover:bg-gray-700'
+                : 'bg-gray-800 text-slate-100 hover:bg-gray-700'
             }`}
           >
             Anthropic Claude
@@ -387,6 +377,23 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
         {activeProvider === 'google' && (
           <div className="space-y-4">
+            <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
+                <Brain className="mr-2 h-5 w-5 text-green-400" />
+                Gemini 3 (Newest)
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-start">
+                  <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-preview</code>
+                  <span className="text-slate-100">State-of-the-art reasoning, 1M context - <strong className="text-green-400">Most intelligent</strong></span>
+                </div>
+                <div className="flex items-start">
+                  <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-image-preview</code>
+                  <span className="text-slate-100">Image generation with grounded generation</span>
+                </div>
+              </div>
+            </div>
+
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
                 <Eye className="mr-2 h-5 w-5 text-green-400" />
@@ -463,7 +470,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
       </section>
 
       {/* Model Selection Guide */}
-      <section className="mb-12">
+      <section className="mb-16">
         <h2 className="heading-2">Model Selection Guide</h2>
         
         <div className="grid md:grid-cols-2 gap-6">
@@ -518,7 +525,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
       </section>
 
       {/* Two Ways to Use Models */}
-      <section className="mb-12">
+      <section className="mb-16">
         <h2 className="heading-2">Two Ways to Use Models</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -583,9 +590,9 @@ agent = Agent("assistant", model="claude-opus-4.1")`}
       </section>
 
       {/* Smart Model Selection */}
-      <section className="mb-12">
+      <section className="mb-16">
         <h2 className="heading-2">Smart Model Selection</h2>
-        <p className="text-gray-600 dark:text-slate-100 mb-4">
+        <p className="text-slate-100 mb-4">
           Automatically select the best model based on your needs:
         </p>
         <CodeWithResult
@@ -613,9 +620,9 @@ agent = Agent("coder", model=model)`}
       </section>
 
       {/* Fallback Chain */}
-      <section className="mb-12">
+      <section className="mb-16">
         <h2 className="heading-2">Fallback Chain</h2>
-        <p className="text-gray-600 dark:text-slate-100 mb-4">
+        <p className="text-slate-100 mb-4">
           Try multiple models if one fails:
         </p>
         <CodeWithResult
@@ -645,7 +652,7 @@ agent = create_agent_with_fallback("assistant")`}
       </section>
 
       {/* Comparison Table */}
-      <section className="mb-12">
+      <section className="mb-16">
         <h2 className="heading-2">Model Comparison</h2>
         
         <div className="overflow-x-auto">
@@ -663,19 +670,25 @@ agent = create_agent_with_fallback("assistant")`}
                 <td className="px-4 py-3"><code className="text-sm">gpt-5</code></td>
                 <td className="px-4 py-3">OpenAI</td>
                 <td className="px-4 py-3">200K</td>
-                <td className="px-4 py-3 text-gray-600 dark:text-slate-100">Best for coding & agentic tasks</td>
+                <td className="px-4 py-3 text-slate-100">Best for coding & agentic tasks</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm">gemini-3-pro-preview</code></td>
+                <td className="px-4 py-3">Google</td>
+                <td className="px-4 py-3">1M</td>
+                <td className="px-4 py-3 text-slate-100">State-of-the-art reasoning</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm">gemini-2.5-pro</code></td>
                 <td className="px-4 py-3">Google</td>
                 <td className="px-4 py-3">2M</td>
-                <td className="px-4 py-3 text-gray-600 dark:text-slate-100">Multimodal, huge context</td>
+                <td className="px-4 py-3 text-slate-100">Multimodal, huge context</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm">claude-opus-4.1</code></td>
                 <td className="px-4 py-3">Anthropic</td>
                 <td className="px-4 py-3">200K</td>
-                <td className="px-4 py-3 text-gray-600 dark:text-slate-100">Most capable Claude</td>
+                <td className="px-4 py-3 text-slate-100">Most capable Claude</td>
               </tr>
             </tbody>
           </table>
@@ -683,7 +696,7 @@ agent = create_agent_with_fallback("assistant")`}
       </section>
 
       {/* Info Box */}
-      <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-lg border border-purple-500/30 mb-12">
+      <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-lg border border-purple-500/30 mb-16">
         <h3 className="font-semibold mb-2 flex items-center text-white">
           <Zap className="mr-2 h-5 w-5 text-purple-400" />
           Key Benefits

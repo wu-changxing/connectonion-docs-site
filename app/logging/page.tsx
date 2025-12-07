@@ -1,164 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { FileText, Check, Copy, Play, Eye, Terminal, FolderOpen, RotateCcw } from 'lucide-react'
+import { FileText, Check, Copy, Play, Eye, Terminal, FolderOpen, Database } from 'lucide-react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { CommandBlock } from '../../components/CommandBlock'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../components/ContentNavigation'
-
-const pageContent = `# Logging
-
-Save agent activity to files with the \`log\` parameter.
-
-## Quick Start
-
-### Enable Logging
-The simplest way to keep a record of your agent's activity.
-
-\`\`\`python
-agent = Agent("assistant", log=True)
-\`\`\`
-
-Saves to: \`.co/logs/assistant.log\`
-
-### Logging Modes
-
-| Mode | Code | File Location | Use Case |
-|------|------|---------------|----------|
-| Default | log=False | None | Testing, quick scripts |
-| Standard | log=True | .co/logs/<name>.log | Production, audit trails |
-| Custom | log="file.log" | ./file.log | Debugging, specific output |
-
-## Log Format
-
-Logs include timestamps, user input, LLM calls, tool executions, and results:
-
-\`\`\`log
-[2025-09-25 10:32:14.123] INPUT: Generate a Python function
-[2025-09-25 10:32:14.127] LLM_REQUEST: model=gpt-4 messages=2
-[2025-09-25 10:32:15.235] LLM_RESPONSE: duration=1.1s
-[2025-09-25 10:32:15.238] TOOL_CALL: generate_code(language="python")
-[2025-09-25 10:32:15.286] TOOL_RESULT: success (0.05s)
-[2025-09-25 10:32:16.458] RESULT: Task completed
-[2025-09-25 10:32:16.461] DURATION: 2.3s
-\`\`\`
-
-### What's Logged
-* User input
-* LLM requests with timing
-* Tool calls and results
-* Final responses
-* Total execution time
-
-### Benefits
-* Audit trail for compliance
-* Debug agent behavior
-* Performance monitoring
-* Error tracking
-
-## View Logs
-
-### Watch in real-time
-\`tail -f assistant.log\`
-
-### Search for errors
-\`grep ERROR assistant.log\`
-
-### See all tool calls
-\`grep TOOL assistant.log\`
-
-## Environment Variable
-
-Set log file via environment variable:
-\`CONNECTONION_LOG=debug.log python agent.py\`
-
-Priority order: Environment variable → \`log\` parameter → default (no logging)
-
-## Auto Rotation
-
-Logs automatically rotate when they exceed 10MB:
-
-\`\`\`bash
-assistant.log           # Current
-assistant_20250925.log  # Rotated
-\`\`\`
-
-### How It Works
-1. Log file reaches 10MB
-2. Renamed with date suffix
-3. New log file created
-4. Continues logging
-
-### Why 10MB?
-* Small enough to open quickly
-* Large enough for daily use
-* Prevents disk space issues
-
-## Git Ignore
-
-**Security Warning**: Log files often contain sensitive information like API keys, user data, or internal logic. Never commit them to version control.
-
-Add to your \`.gitignore\`:
-
-\`\`\`gitignore
-*.log
-.co/logs/
-\`\`\`
-
-## Default Location
-
-When using \`log=True\`, logs are saved to:
-\`.co/logs/{agent_name}.log\`
-
-This provides automatic audit trails for all your agents in one organized location.
-
-## Complete Example
-
-Full logging setup with multiple agents:
-
-\`\`\`python
-from connectonion import Agent
-
-# Development: detailed logging
-dev_agent = Agent(
-    "dev_assistant",
-    log="dev.log",
-    debug=True  # Console + file logging
-)
-
-# Production: file logging only
-prod_agent = Agent(
-    "prod_assistant",
-    log=True,  # Logs to .co/logs/prod_assistant.log
-    debug=False  # No console output
-)
-
-# Test: no logging
-test_agent = Agent(
-    "test_assistant"
-    # No log parameter = no logging
-)
-
-# Using environment variable
-import os
-os.environ['CONNECTONION_LOG'] = 'all_agents.log'
-env_agent = Agent("env_assistant")  # Uses all_agents.log
-\`\`\`
-
-### Best Practices
-* Use \`log=True\` in production for audit trails
-* Use custom log files for specific debugging
-* Disable logging in tests to avoid clutter
-* Add \`*.log\` to \`.gitignore\`
-* Use environment variables for deployment flexibility
-
-## Philosophy
-
-Use \`log=True\` when you need persistent records.
-That's it. Simple, automatic, and always there when you need it.
-`
+import { PageHeader } from '../../components/PageHeader'
 
 export default function LoggingPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -201,22 +49,22 @@ export default function LoggingPage() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        {/* Header */}
-        <div className="mb-16">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl border border-purple-500/30">
-                <FileText className="w-8 h-8 text-purple-400" />
-              </div>
-              <div>
-                <h1 className="heading-1">Logging</h1>
-                <p className="text-slate-100 mt-2">Save agent activity to files with the <code className="bg-gray-800 px-2 py-0.5 rounded text-sm">log</code> parameter.</p>
-              </div>
-            </div>
-            <CopyMarkdownButton content={pageContent} filename="logging.md" className="flex-shrink-0" />
-          </div>
-        </div>
+      <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Logging' }
+          ]}
+          icon={FileText}
+          iconColor="text-purple-400"
+          iconBgFrom="from-purple-500/20"
+          iconBgTo="to-pink-500/20"
+          iconBorderColor="border-purple-500/30"
+          title="Logging"
+          description="Automatic activity logging for debugging and analysis."
+          markdownPath="/logging/logging.md"
+          markdownFilename="logging.md"
+        />
 
         {/* Quick Start */}
         <section className="mb-16">
@@ -226,133 +74,168 @@ export default function LoggingPage() {
           </div>
 
           <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-8 border border-purple-500/20 mb-12">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-2">Enable Logging</h3>
-                <p className="text-slate-100">The simplest way to keep a record of your agent's activity.</p>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-purple-300 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
-                <Check className="w-4 h-4" />
-                <span>Recommended for Production</span>
-              </div>
-            </div>
-            
             <CodeBlock
-              code={`agent = Agent("assistant", log=True)`}
-              id="hero-log-true"
+              code={`# Default: logs to .co/logs/{name}.log + .co/sessions/{name}_{timestamp}.yaml
+agent = Agent("assistant")
+
+# Quiet mode: no console output, but sessions still recorded
+agent = Agent("assistant", quiet=True)
+
+# Disable all logging
+agent = Agent("assistant", log=False)
+
+# Custom log file path
+agent = Agent("assistant", log="debug.log")`}
+              id="quick-start"
             />
-            
-            <div className="mt-4 text-sm text-gray-400 flex items-center gap-2">
-              <FolderOpen className="w-4 h-4" />
-              <span>Saves to: <code className="text-purple-400">.co/logs/assistant.log</code></span>
-            </div>
+          </div>
+        </section>
+
+        {/* Logging Modes */}
+        <section className="mb-16">
+          <div className="flex items-center gap-3 mb-8">
+            <Terminal className="w-6 h-6 text-purple-400" />
+            <h2 className="heading-2">Logging Modes</h2>
           </div>
 
-          <h3 className="text-lg font-semibold mb-6 text-slate-100">Logging Modes</h3>
-          <div className="overflow-hidden rounded-xl border border-gray-700 bg-gray-900/50 backdrop-blur">
+          <div className="overflow-hidden rounded-xl border border-gray-700 bg-gray-900/50 backdrop-blur mb-8">
             <table className="w-full text-left text-sm">
               <thead>
                 <tr className="border-b border-gray-700 bg-gray-800/50">
-                  <th className="p-4 font-medium text-slate-100">Mode</th>
-                  <th className="p-4 font-medium text-slate-100">Code</th>
-                  <th className="p-4 font-medium text-slate-100">File Location</th>
+                  <th className="p-4 font-medium text-slate-100">quiet</th>
+                  <th className="p-4 font-medium text-slate-100">log</th>
+                  <th className="p-4 font-medium text-slate-100">Console</th>
+                  <th className="p-4 font-medium text-slate-100">Plain Text</th>
+                  <th className="p-4 font-medium text-slate-100">Sessions</th>
                   <th className="p-4 font-medium text-slate-100">Use Case</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700/50">
-                <tr className="hover:bg-gray-800/30 transition-colors">
-                  <td className="p-4 text-white font-medium">Default</td>
-                  <td className="p-4 font-mono text-gray-400">log=False</td>
-                  <td className="p-4 text-gray-500 italic">None</td>
-                  <td className="p-4 text-gray-400">Testing, quick scripts</td>
-                </tr>
                 <tr className="hover:bg-gray-800/30 transition-colors bg-purple-500/5">
-                  <td className="p-4 text-purple-300 font-medium">Standard</td>
-                  <td className="p-4 font-mono text-purple-300">log=True</td>
-                  <td className="p-4 font-mono text-gray-400">.co/logs/&lt;name&gt;.log</td>
-                  <td className="p-4 text-slate-100">Production, audit trails</td>
+                  <td className="p-4 font-mono text-gray-400">False</td>
+                  <td className="p-4 font-mono text-gray-400">True/None</td>
+                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-purple-300 font-medium">Development (default)</td>
                 </tr>
                 <tr className="hover:bg-gray-800/30 transition-colors">
-                  <td className="p-4 text-white font-medium">Custom</td>
-                  <td className="p-4 font-mono text-gray-400">log="file.log"</td>
-                  <td className="p-4 font-mono text-gray-400">./file.log</td>
-                  <td className="p-4 text-gray-400">Debugging, specific output</td>
+                  <td className="p-4 font-mono text-purple-300">True</td>
+                  <td className="p-4 font-mono text-gray-400">True/None</td>
+                  <td className="p-4 text-gray-500">No</td>
+                  <td className="p-4 text-gray-500">No</td>
+                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-slate-100">Eval/testing</td>
+                </tr>
+                <tr className="hover:bg-gray-800/30 transition-colors">
+                  <td className="p-4 font-mono text-gray-400">False</td>
+                  <td className="p-4 font-mono text-gray-400">False</td>
+                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-gray-500">No</td>
+                  <td className="p-4 text-gray-500">No</td>
+                  <td className="p-4 text-slate-100">Benchmarking</td>
+                </tr>
+                <tr className="hover:bg-gray-800/30 transition-colors">
+                  <td className="p-4 font-mono text-gray-400">False</td>
+                  <td className="p-4 font-mono text-gray-400">"path"</td>
+                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-slate-100">custom</td>
+                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-slate-100">Custom log path</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
 
-        {/* Log Format */}
+        {/* Log Locations */}
+        <section className="mb-16">
+          <div className="flex items-center gap-3 mb-8">
+            <FolderOpen className="w-6 h-6 text-purple-400" />
+            <h2 className="heading-2">Log Locations</h2>
+          </div>
+
+          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+            <CodeBlock
+              code={`.co/
+├── logs/
+│   └── assistant.log        # Plain text logs
+└── sessions/
+    └── assistant_2024-12-02_10-30-00.yaml  # Session YAML`}
+              language="bash"
+              id="log-locations"
+            />
+          </div>
+        </section>
+
+        {/* Plain Text Format */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <Terminal className="w-6 h-6 text-purple-400" />
-            <h2 className="heading-2">Log Format</h2>
+            <h2 className="heading-2">Plain Text Format (.co/logs/)</h2>
+          </div>
+
+          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+            <CodeBlock
+              code={`============================================================
+Session started: 2024-12-02 10:32:14
+============================================================
+
+[10:32:14] INPUT: Generate a Python function...
+[10:32:14] -> LLM Request (co/o4-mini) • 2 msgs • 3 tools
+[10:32:15] <- LLM Response (1.1s) • 1 tools • 1.2k tokens • $0.0012
+[10:32:15] -> Tool: generate_code({"language": "python"})
+[10:32:15] <- Result (0.05s): def hello(): print("Hi")...
+[10:32:16] [OK] Complete (2.3s)`}
+              language="log"
+              id="plain-text-format"
+            />
+          </div>
+        </section>
+
+        {/* Session YAML Format */}
+        <section className="mb-16">
+          <div className="flex items-center gap-3 mb-8">
+            <Database className="w-6 h-6 text-purple-400" />
+            <h2 className="heading-2">Session YAML Format (.co/sessions/)</h2>
           </div>
 
           <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6 mb-6">
-            <p className="text-slate-100 mb-4">Logs include timestamps, user input, LLM calls, tool executions, and results:</p>
+            <p className="text-slate-100 mb-4">Sessions are saved as YAML for replay and eval:</p>
             <CodeBlock
-              code={`[2025-09-25 10:32:14.123] INPUT: Generate a Python function
-[2025-09-25 10:32:14.127] LLM_REQUEST: model=gpt-4 messages=2
-[2025-09-25 10:32:15.235] LLM_RESPONSE: duration=1.1s
-[2025-09-25 10:32:15.238] TOOL_CALL: generate_code(language="python")
-[2025-09-25 10:32:15.286] TOOL_RESULT: success (0.05s)
-[2025-09-25 10:32:16.458] RESULT: Task completed
-[2025-09-25 10:32:16.461] DURATION: 2.3s`}
-              language="log"
-              id="log-format"
+              code={`name: assistant
+timestamp: 2024-12-02 10:32:14
+
+turns:
+  - input: "Generate a Python function"
+    model: "co/o4-mini"
+    duration_ms: 2300
+    tokens: 1234
+    cost: 0.0012
+    tools_called: [generate_code]
+    result: "Here's a Python function..."
+    messages: '[{"role":"system",...}]'`}
+              language="yaml"
+              id="session-yaml"
             />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-purple-300">What's Logged</h3>
-              <ul className="space-y-2 text-sm text-slate-100">
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
-                  <span>User input</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
-                  <span>LLM requests with timing</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
-                  <span>Tool calls and results</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
-                  <span>Final responses</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
-                  <span>Total execution time</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-purple-300">Benefits</h3>
-              <ul className="space-y-2 text-sm text-slate-100">
-                <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span>Audit trail for compliance</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span>Debug agent behavior</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span>Performance monitoring</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span>Error tracking</span>
-                </li>
-              </ul>
-            </div>
+          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+            <h3 className="text-lg font-semibold mb-4 text-purple-300">Use Cases</h3>
+            <ul className="space-y-3 text-sm text-slate-100">
+              <li className="flex items-start gap-2">
+                <span className="text-purple-400 font-bold">Session replay:</span>
+                <span>Restore context from saved sessions</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-400 font-bold">Regression testing:</span>
+                <span>Compare expected vs actual results</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-400 font-bold">Development comparison:</span>
+                <span>See what changed after prompt edits</span>
+              </li>
+            </ul>
           </div>
         </section>
 
@@ -365,18 +248,23 @@ export default function LoggingPage() {
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-slate-100">Watch in real-time</h3>
-              <CommandBlock commands={['tail -f assistant.log']} />
+              <h3 className="text-lg font-semibold mb-4 text-slate-100">Watch plain text logs in real-time</h3>
+              <CommandBlock commands={['tail -f .co/logs/assistant.log']} />
             </div>
 
             <div>
               <h3 className="text-lg font-semibold mb-4 text-slate-100">Search for errors</h3>
-              <CommandBlock commands={['grep ERROR assistant.log']} />
+              <CommandBlock commands={['grep ERROR .co/logs/assistant.log']} />
             </div>
 
             <div>
               <h3 className="text-lg font-semibold mb-4 text-slate-100">See all tool calls</h3>
-              <CommandBlock commands={['grep TOOL assistant.log']} />
+              <CommandBlock commands={['grep "Tool:" .co/logs/assistant.log']} />
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-slate-100">List sessions</h3>
+              <CommandBlock commands={['ls -la .co/sessions/']} />
             </div>
           </div>
         </section>
@@ -388,75 +276,9 @@ export default function LoggingPage() {
             <h2 className="heading-2">Environment Variable</h2>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6 mb-6">
-            <p className="text-slate-100 mb-4">Set log file via environment variable:</p>
+          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+            <p className="text-slate-100 mb-4">Override log file via environment (highest priority):</p>
             <CommandBlock commands={['CONNECTONION_LOG=debug.log python agent.py']} />
-          </div>
-
-          <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-6 border border-purple-500/20">
-            <p className="text-sm text-slate-100">
-              <span className="text-purple-300 font-semibold">Priority order:</span> Environment variable → <code className="bg-gray-800 px-2 py-0.5 rounded">log</code> parameter → default (no logging)
-            </p>
-          </div>
-        </section>
-
-        {/* Auto Rotation */}
-        <section className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <RotateCcw className="w-6 h-6 text-purple-400" />
-            <h2 className="heading-2">Auto Rotation</h2>
-          </div>
-
-          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6 mb-6">
-            <p className="text-slate-100 mb-4">Logs automatically rotate when they exceed 10MB:</p>
-            <CodeBlock
-              code={`assistant.log           # Current
-assistant_20250925.log  # Rotated`}
-              language="bash"
-              id="rotation"
-            />
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-purple-300">How It Works</h3>
-              <ul className="space-y-2 text-sm text-slate-100">
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">1.</span>
-                  <span>Log file reaches 10MB</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">2.</span>
-                  <span>Renamed with date suffix</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">3.</span>
-                  <span>New log file created</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">4.</span>
-                  <span>Continues logging</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-purple-300">Why 10MB?</h3>
-              <ul className="space-y-2 text-sm text-slate-100">
-                <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span>Small enough to open quickly</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span>Large enough for daily use</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span>Prevents disk space issues</span>
-                </li>
-              </ul>
-            </div>
           </div>
         </section>
 
@@ -474,18 +296,16 @@ assistant_20250925.log  # Rotated`}
               </div>
               <div className="space-y-4 w-full">
                 <div>
-                  <h3 className="text-lg font-semibold text-yellow-200 mb-1">Security Warning</h3>
-                  <p className="text-yellow-200/80 text-sm">
-                    Log files often contain sensitive information like API keys, user data, or internal logic. 
-                    Never commit them to version control.
+                  <p className="text-yellow-200/80 text-sm mb-4">
+                    Add to your <code className="text-yellow-200">.gitignore</code>:
                   </p>
                 </div>
-                
+
                 <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/10">
-                  <p className="text-sm text-gray-400 mb-2">Add to your <code className="text-yellow-200">.gitignore</code>:</p>
                   <CodeBlock
-                    code={`*.log
-.co/logs/`}
+                    code={`.co/logs/
+.co/sessions/
+*.log`}
                     language="gitignore"
                     id="gitignore"
                   />
@@ -495,97 +315,38 @@ assistant_20250925.log  # Rotated`}
           </div>
         </section>
 
-        {/* Default Location */}
+        {/* Parameters */}
         <section className="mb-16">
           <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-10 border border-purple-500/20">
-            <h2 className="heading-2">Default Location</h2>
-            <p className="text-slate-100 mb-6">
-              When using <code className="bg-gray-800 px-3 py-1.5 rounded text-purple-400">log=True</code>, logs are saved to:
-            </p>
-            <div className="bg-gray-900 rounded-lg p-4 font-mono text-purple-400 text-center mb-6">
-              .co/logs/{'{'}'agent_name'{'}'}.log
+            <h2 className="heading-2 mb-6">Parameters</h2>
+
+            <div className="space-y-6">
+              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+                <p className="text-slate-100">
+                  <code className="text-purple-400 font-semibold">quiet</code> (bool): Suppress console output. Sessions still recorded. Default: <code className="text-gray-400">False</code>
+                </p>
+              </div>
+
+              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+                <p className="text-slate-100 mb-3">
+                  <code className="text-purple-400 font-semibold">log</code> (bool|str|Path): Control file logging
+                </p>
+                <ul className="space-y-2 text-sm text-slate-100 ml-4">
+                  <li className="flex items-start gap-2">
+                    <code className="text-gray-400">None</code>/<code className="text-gray-400">True</code>:
+                    <span>Default <code className="text-purple-300">.co/logs/{'{name}'}.log</code></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <code className="text-gray-400">False</code>:
+                    <span>Disable all logging</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <code className="text-gray-400">"path/to/file.log"</code>:
+                    <span>Custom log path</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <p className="text-slate-100">
-              This provides automatic audit trails for all your agents in one organized location.
-            </p>
-          </div>
-        </section>
-
-        {/* Complete Example */}
-        <section className="mb-16">
-          <h2 className="heading-2">Complete Example</h2>
-
-          <div className="max-w-4xl mx-auto space-y-6">
-            <p className="text-slate-100 text-lg">Full logging setup with multiple agents:</p>
-
-            <CodeBlock
-              code={`from connectonion import Agent
-
-# Development: detailed logging
-dev_agent = Agent(
-    "dev_assistant",
-    log="dev.log",
-    debug=True  # Console + file logging
-)
-
-# Production: file logging only
-prod_agent = Agent(
-    "prod_assistant",
-    log=True,  # Logs to .co/logs/prod_assistant.log
-    debug=False  # No console output
-)
-
-# Test: no logging
-test_agent = Agent(
-    "test_assistant"
-    # No log parameter = no logging
-)
-
-# Using environment variable
-import os
-os.environ['CONNECTONION_LOG'] = 'all_agents.log'
-env_agent = Agent("env_assistant")  # Uses all_agents.log`}
-              id="complete-example"
-            />
-
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-purple-300">Best Practices</h3>
-              <ul className="space-y-2 text-sm text-slate-100">
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
-                  <span>Use <code className="bg-gray-800 px-2 py-0.5 rounded">log=True</code> in production for audit trails</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
-                  <span>Use custom log files for specific debugging</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
-                  <span>Disable logging in tests to avoid clutter</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
-                  <span>Add <code className="bg-gray-800 px-2 py-0.5 rounded">*.log</code> to <code className="bg-gray-800 px-2 py-0.5 rounded">.gitignore</code></span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
-                  <span>Use environment variables for deployment flexibility</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* Philosophy */}
-        <section className="mb-16">
-          <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-10 border border-purple-500/20">
-            <h2 className="heading-2">Philosophy</h2>
-            <p className="text-xl font-semibold text-purple-300 mb-6">
-              Use <code className="bg-gray-800 px-3 py-1.5 rounded text-purple-400">log=True</code> when you need persistent records.
-            </p>
-            <p className="text-slate-100">
-              That's it. Simple, automatic, and always there when you need it.
-            </p>
           </div>
         </section>
 

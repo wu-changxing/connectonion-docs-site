@@ -6,47 +6,32 @@
 
 'use client'
 
-import { useState } from 'react'
-import { Play, Terminal, ArrowRight, Zap, Eye, Clock, Code, Bug, Brain, MessageSquare, Check, Copy, AlertTriangle, RefreshCw, Layers, BarChart3 } from 'lucide-react'
-import Link from 'next/link'
-import { CommandBlock } from '../../components/CommandBlock'
+import { Terminal, Zap, Clock, Code, Bug, Brain, Check, AlertTriangle, RefreshCw, BarChart3 } from 'lucide-react'
 import CodeWithResult from '../../components/CodeWithResult'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../components/ContentNavigation'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function AutoDebugPage() {
   return (
-    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
-      <div className="max-w-6xl mx-auto">
+    <div className="px-4 md:px-8 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto">
         {/* Hero Section */}
         <section className="mb-16">
-          {/* Breadcrumb */}
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-            <Link href="/" className="hover:text-purple-400 transition-colors">
-              Docs
-            </Link>
-            <ArrowRight className="w-4 h-4" />
-            <span className="text-white">Interactive Debugging</span>
-          </div>
-
-          {/* Header */}
-          <div className="mb-12">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-              <div className="flex items-center gap-3 flex-1 min-w-0">
-                <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30 flex-shrink-0">
-                  <Bug className="w-8 h-8 text-purple-400" />
-                </div>
-                <div className="min-w-0">
-                  <h1 className="heading-1 truncate">Interactive Debugging</h1>
-                  <p className="text-lg text-slate-100">
-                    Debug your AI agents like code. Pause at breakpoints, inspect state, modify variables, and explore "what if" scenarios.
-                  </p>
-                </div>
-              </div>
-              <CopyMarkdownButton markdownPath="/auto-debug.md" filename="auto-debug.md" className="flex-shrink-0" />
-            </div>
-          </div>
+          <PageHeader
+            breadcrumbs={[
+              { label: 'Docs', href: '/' },
+              { label: 'Interactive Debugging' }
+            ]}
+            icon={Bug}
+            iconColor="text-purple-400"
+            iconBgFrom="from-purple-600/20"
+            iconBgTo="to-pink-600/20"
+            iconBorderColor="border-purple-500/30"
+            title="Interactive Debugging"
+            description="Debug your AI agents like code. Pause at breakpoints, inspect state, modify variables, and explore 'what if' scenarios."
+            markdownPath="/auto-debug.md"
+            markdownFilename="auto-debug.md"
+          />
 
           {/* Feature Status */}
           <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6 mb-8">

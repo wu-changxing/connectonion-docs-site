@@ -11,7 +11,7 @@ import CodeWithResult from '../../components/CodeWithResult'
 export default function GoogleIntegrationPage() {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">

@@ -121,7 +121,7 @@ export default function HomePage() {
                 <span className="bg-green-500 text-black text-xs font-bold px-2 py-1 rounded-full animate-pulse">FREE</span>
               </div>
               <div className="text-4xl mb-4">🎁</div>
-              <h3 className="text-xl font-bold text-white mb-3">Free Credits Included</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Free Credits Included</h3>
               <p className="text-slate-200 text-sm mb-4">
                 <strong className="text-green-400">No API key needed.</strong> Get started immediately with free credits for GPT-4o, Claude, and Gemini.
               </p>
@@ -137,7 +137,7 @@ export default function HomePage() {
             {/* Built-in Tools */}
             <div className="card-interactive bg-gradient-to-br from-blue-900/30 to-blue-900/10 rounded-xl p-6 border border-blue-500/30">
               <div className="text-4xl mb-4">🧰</div>
-              <h3 className="text-xl font-bold text-white mb-3">Batteries Included</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Batteries Included</h3>
               <p className="text-slate-200 text-sm mb-4">
                 <strong className="text-blue-400">Ready-to-use integrations.</strong> No extra setup. No OAuth headaches.
               </p>
@@ -164,7 +164,7 @@ export default function HomePage() {
             {/* Human Approval */}
             <div className="card-interactive bg-gradient-to-br from-purple-900/30 to-purple-900/10 rounded-xl p-6 border border-purple-500/30">
               <div className="text-4xl mb-4">🛡️</div>
-              <h3 className="text-xl font-bold text-white mb-3">Human-in-the-Loop</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Human-in-the-Loop</h3>
               <p className="text-slate-200 text-sm mb-4">
                 <strong className="text-purple-400">Stay in control.</strong> Agent pauses and asks before sensitive actions.
               </p>

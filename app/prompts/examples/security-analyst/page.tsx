@@ -179,7 +179,7 @@ ${expectedOutput}
 *This is example 7 of 8 in the Progressive Prompt Examples series. Previous: [Technical Writer](/prompts/examples/technical-writer) | Next: [Business Strategist](/prompts/examples/business-strategist)*`
 
   return (
-    <div className="max-w-6xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
+    <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
         <Link href="/" className="hover:text-white transition-colors">Home</Link>

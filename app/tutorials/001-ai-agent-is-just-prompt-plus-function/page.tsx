@@ -123,7 +123,7 @@ export default function Tutorial001Page() {
   const t = translations[language]
 
   return (
-    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24">
       {/* Constrained content width for optimal reading */}
       <div className="max-w-4xl mx-auto">
 

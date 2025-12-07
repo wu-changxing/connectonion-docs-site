@@ -5,8 +5,8 @@ import { FileCode2, Copy, Check, Sparkles, ArrowRight, Zap, BookOpen, Mouse, Roc
 import { FaBullseye, FaRocket, FaEnvelope, FaLightbulb, FaGift } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../components/ContentNavigation'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function VibeCodingPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -104,35 +104,25 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
   )
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="px-4 md:px-8 py-16 md:py-24">
       <style jsx>{gradientStyle}</style>
-      <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-16 md:py-24">
-        {/* Header */}
-        <div className="mb-20 md:mb-24">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="p-4 bg-purple-500/10 rounded-2xl border border-purple-500/30">
-              <FileCode2 className="w-10 h-10 text-purple-400" />
-            </div>
-            <div>
-              <h1 className="heading-1">
-                Vibe-Coding Support
-              </h1>
-              <p className="text-gray-200 text-lg md:text-xl">Build AI Agents Correctly with Claude Code Plugin</p>
-            </div>
-          </div>
-          <div className="flex gap-3">
-            <CopyMarkdownButton content={markdownContent} filename="vibe-coding.md" />
-            <a
-              href="https://github.com/openonion/connectonion-claude-plugin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors border border-purple-500 focus-visible:outline-2 focus-visible:outline-purple-400 focus-visible:outline-offset-2"
-            >
-              <Terminal className="w-4 h-4" />
-              <span className="text-sm">Get Claude Plugin</span>
-            </a>
-          </div>
-        </div>
+      <div className="max-w-4xl mx-auto">
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Getting Started', href: '/' },
+            { label: 'Vibe-Coding Support' },
+          ]}
+          icon={FileCode2}
+          iconColor="text-purple-400"
+          iconBgFrom="from-purple-600/20"
+          iconBgTo="to-pink-600/20"
+          iconBorderColor="border-purple-500/30"
+          title="Vibe-Coding Support"
+          description="Build AI Agents Correctly with Claude Code Plugin"
+          markdownPath="/tutorials/vibe-coding.md"
+          markdownFilename="vibe-coding.md"
+        />
 
         {/* Hero Section */}
         <section className="mb-24 md:mb-42 lg:mb-40">

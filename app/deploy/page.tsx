@@ -1,0 +1,455 @@
+/**
+ * @purpose Deploy page - deploy ConnectOnion agents to production
+ * @context Shows how to deploy agents to Docker, GCP, AWS, and other platforms
+ * @llm-note Progressive tutorial: 60s start -> Docker -> Cloud providers -> Best practices
+ */
+
+'use client'
+
+import { Upload, ArrowRight, Zap, Server, Cloud, Shield, Check, Terminal, Code, Layers, Globe, Package, Settings } from 'lucide-react'
+import Link from 'next/link'
+import CodeWithResult from '../../components/CodeWithResult'
+import { ContentNavigation } from '../../components/ContentNavigation'
+import { PageHeader } from '../../components/PageHeader'
+
+export default function DeployPage() {
+  return (
+    <div className="px-4 md:px-8 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto">
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Getting Started', href: '/' },
+            { label: 'Deploy' },
+          ]}
+          icon={Upload}
+          iconColor="text-blue-400"
+          iconBgFrom="from-blue-600/20"
+          iconBgTo="to-purple-600/20"
+          iconBorderColor="border-blue-500/30"
+          title="Deploy"
+          description="Deploy your ConnectOnion agents to production. Docker, GCP, AWS - your choice."
+          badge={<span className="px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-bold rounded-full">Beta Test</span>}
+        />
+
+        {/* Key Benefit */}
+        <section className="mb-16">
+          <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
+            <p className="text-lg font-semibold text-blue-100">
+              <strong>Why deploy?</strong> Run agents 24/7, scale horizontally, integrate with existing infrastructure. Your agents become production services.
+            </p>
+          </div>
+        </section>
+
+        {/* 60-Second Quick Start */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <Zap className="w-8 h-8 text-yellow-400" />
+            60-Second Quick Start
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            Deploy your agent with the CLI - one command:
+          </p>
+
+          <CodeWithResult
+            code={`# Create a deployable agent project
+co create my-agent --template serve
+
+# Navigate to the project
+cd my-agent
+
+# Deploy to production (uses Docker + your cloud)
+co deploy`}
+            result={`Creating project 'my-agent'...
+  - agent.py (your agent code)
+  - Dockerfile (container config)
+  - requirements.txt (dependencies)
+  - .env.example (environment template)
+
+Done! Run 'cd my-agent && co deploy' to deploy.`}
+            language="bash"
+            fileName="Terminal"
+          />
+
+          <div className="mt-6 bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-emerald-100 mb-4">What Gets Created?</h3>
+            <div className="space-y-2 text-slate-100">
+              <div className="flex items-start gap-2">
+                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <span><strong>agent.py</strong> - Your agent with tools and system prompt</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <span><strong>Dockerfile</strong> - Production-ready container configuration</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <span><strong>requirements.txt</strong> - All dependencies pinned</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <span><strong>.env.example</strong> - Environment variable template</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Docker Deployment */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <Package className="w-8 h-8 text-cyan-400" />
+            Docker Deployment
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            The simplest way to deploy - works anywhere Docker runs:
+          </p>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">1. Create Your Agent</h3>
+              <CodeWithResult
+                code={`# agent.py
+from connectonion import Agent
+
+def search(query: str) -> str:
+    """Search for information."""
+    return f"Results for: {query}"
+
+agent = Agent(
+    name="my-agent",
+    tools=[search],
+    system_prompt="You are a helpful assistant."
+)
+
+# Serve the agent
+agent.serve()`}
+                language="python"
+                fileName="agent.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">2. Dockerfile</h3>
+              <CodeWithResult
+                code={`FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy agent code
+COPY agent.py .
+
+# Run the agent
+CMD ["python", "agent.py"]`}
+                language="dockerfile"
+                fileName="Dockerfile"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">3. Build & Run</h3>
+              <CodeWithResult
+                code={`# Build the image
+docker build -t my-agent .
+
+# Run with API key
+docker run -d \\
+  -e OPENAI_API_KEY=$OPENAI_API_KEY \\
+  --name my-agent \\
+  my-agent`}
+                result={`Building image...
+Successfully built a1b2c3d4e5f6
+Successfully tagged my-agent:latest
+
+Container started: my-agent
+Agent serving at: 0x3d4017c3e843895a...`}
+                language="bash"
+                fileName="Terminal"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* GCP Cloud Run */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <Cloud className="w-8 h-8 text-blue-400" />
+            Deploy to Google Cloud Run
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            Serverless deployment with automatic scaling:
+          </p>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">1. Build & Push to Container Registry</h3>
+              <CodeWithResult
+                code={`# Authenticate with GCP
+gcloud auth login
+
+# Set project
+gcloud config set project YOUR_PROJECT_ID
+
+# Build and push
+gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/my-agent`}
+                language="bash"
+                fileName="Terminal"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">2. Deploy to Cloud Run</h3>
+              <CodeWithResult
+                code={`gcloud run deploy my-agent \\
+  --image gcr.io/YOUR_PROJECT_ID/my-agent \\
+  --platform managed \\
+  --region us-central1 \\
+  --set-env-vars "OPENAI_API_KEY=sk-..." \\
+  --allow-unauthenticated`}
+                result={`Deploying container to Cloud Run service [my-agent]...
+Done.
+
+Service URL: https://my-agent-abc123-uc.a.run.app
+Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
+                language="bash"
+                fileName="Terminal"
+              />
+            </div>
+
+            <div className="bg-amber-950/50 border border-amber-400/40 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-amber-100 mb-2">Security Note</h3>
+              <p className="text-slate-100">
+                Use <code className="bg-gray-800 px-2 py-1 rounded">Secret Manager</code> for API keys in production instead of environment variables.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* AWS Deployment */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <Server className="w-8 h-8 text-orange-400" />
+            Deploy to AWS
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            Multiple options depending on your needs:
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-orange-100 mb-4 flex items-center gap-2">
+                <Server className="w-5 h-5" />
+                EC2 / Lightsail
+              </h3>
+              <p className="text-slate-100 mb-4">
+                Simple VPS deployment. Best for always-on agents.
+              </p>
+              <ul className="space-y-2 text-slate-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <span>Full control over environment</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <span>Predictable pricing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <span>Easy SSH access</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-purple-100 mb-4 flex items-center gap-2">
+                <Layers className="w-5 h-5" />
+                ECS / Fargate
+              </h3>
+              <p className="text-slate-100 mb-4">
+                Container orchestration. Best for scaling.
+              </p>
+              <ul className="space-y-2 text-slate-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <span>Auto-scaling built in</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <span>Load balancing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-green-400 mt-0.5" />
+                  <span>Rolling deployments</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-4">EC2 Quick Deploy</h3>
+            <CodeWithResult
+              code={`# SSH to your EC2 instance
+ssh -i your-key.pem ubuntu@your-instance-ip
+
+# Install dependencies
+sudo apt update && sudo apt install -y python3-pip docker.io
+
+# Clone and run
+git clone https://github.com/your/agent-repo.git
+cd agent-repo
+docker build -t my-agent .
+docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
+              language="bash"
+              fileName="Terminal"
+            />
+          </div>
+        </section>
+
+        {/* Environment Variables */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <Settings className="w-8 h-8 text-gray-400" />
+            Environment Variables
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            Configure your agent for different environments:
+          </p>
+
+          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-800">
+                <tr>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Variable</th>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Description</th>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Required</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-700">
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">OPENAI_API_KEY</td>
+                  <td className="px-4 py-3 text-slate-100">OpenAI API key for GPT models</td>
+                  <td className="px-4 py-3 text-yellow-400">Yes*</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">ANTHROPIC_API_KEY</td>
+                  <td className="px-4 py-3 text-slate-100">Anthropic API key for Claude</td>
+                  <td className="px-4 py-3 text-gray-400">Optional</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">GOOGLE_API_KEY</td>
+                  <td className="px-4 py-3 text-slate-100">Google API key for Gemini</td>
+                  <td className="px-4 py-3 text-gray-400">Optional</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">RELAY_URL</td>
+                  <td className="px-4 py-3 text-slate-100">Custom relay server URL</td>
+                  <td className="px-4 py-3 text-gray-400">Optional</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">LOG_LEVEL</td>
+                  <td className="px-4 py-3 text-slate-100">Logging verbosity (DEBUG, INFO, WARN)</td>
+                  <td className="px-4 py-3 text-gray-400">Optional</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-4 text-sm text-slate-100">
+            * Or use ConnectOnion managed keys with <code className="bg-gray-800 px-2 py-1 rounded">co auth</code> - no API keys needed!
+          </p>
+        </section>
+
+        {/* Best Practices */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <Shield className="w-8 h-8 text-green-400" />
+            Best Practices
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-green-100 mb-4">Security</h3>
+              <ul className="space-y-2 text-slate-100">
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-green-400 mt-0.5" />
+                  <span>Use secret managers for API keys</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-green-400 mt-0.5" />
+                  <span>Never commit <code className="bg-gray-800 px-1 rounded">.co/</code> or <code className="bg-gray-800 px-1 rounded">.env</code></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-green-400 mt-0.5" />
+                  <span>Use non-root container users</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-green-400 mt-0.5" />
+                  <span>Enable HTTPS for all endpoints</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-blue-100 mb-4">Reliability</h3>
+              <ul className="space-y-2 text-slate-100">
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-blue-400 mt-0.5" />
+                  <span>Add health checks to containers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-blue-400 mt-0.5" />
+                  <span>Set up automatic restarts</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-blue-400 mt-0.5" />
+                  <span>Configure logging and monitoring</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-blue-400 mt-0.5" />
+                  <span>Use persistent volumes for keys</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="mb-20">
+          <div className="bg-blue-950/30 rounded-2xl p-10 border border-blue-400/30 text-center">
+            <h2 className="heading-2">Ready to Deploy?</h2>
+            <p className="text-xl text-slate-100 mb-8">
+              Your agents are production-ready. Ship them!
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/serve"
+                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              >
+                <Globe className="w-5 h-5" />
+                Agent Serving
+              </Link>
+              <Link
+                href="/connect"
+                className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              >
+                <Code className="w-5 h-5" />
+                Connect to Agents
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Navigation */}
+        <ContentNavigation />
+      </div>
+    </div>
+  )
+}

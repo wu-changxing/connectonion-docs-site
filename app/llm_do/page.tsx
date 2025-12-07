@@ -40,38 +40,33 @@
 */
 import { useState } from 'react'
 import Link from 'next/link'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import CodeWithResult from '../../components/CodeWithResult'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import { CommandBlock } from '../../components/CommandBlock'
-import { ChevronRight, Zap, Package, Shield, Code, Layers, ArrowRight } from 'lucide-react'
-import { FaEdit, FaCheckCircle, FaTimes } from 'react-icons/fa'
+import { Zap } from 'lucide-react'
+import { FaCheckCircle } from 'react-icons/fa'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function LLMPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
 
 
   return (
-    <div className="max-w-5xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
-      {/* Header */}
-      <div className="mb-12">
-        <div className="flex items-center gap-2 text-sm text-slate-100 mb-4">
-          <Link href="/" className="hover:text-white transition-colors">Home</Link>
-          <span>/</span>
-          <span className="text-white">LLM Function</span>
-        </div>
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-          <div>
-            <h1 className="heading-1">
-              <Zap className="w-7 h-7 text-blue-400" /> One-shot LLM Calls
-            </h1>
-            <p className="text-slate-100 max-w-2xl">
-              Make direct LLM calls with optional structured output. Supports OpenAI, Google Gemini, and Anthropic models through a unified interface.
-            </p>
-          </div>
-          <CopyMarkdownButton markdownPath="/llm_do/llm_do.md" filename="llm_do.md" className="flex-shrink-0" />
-        </div>
-      </div>
+    <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
+      <PageHeader
+        breadcrumbs={[
+          { label: 'Docs', href: '/' },
+          { label: 'LLM Function' }
+        ]}
+        icon={Zap}
+        iconColor="text-blue-400"
+        iconBgFrom="from-blue-600/20"
+        iconBgTo="to-purple-600/20"
+        iconBorderColor="border-blue-500/30"
+        title="One-shot LLM Calls"
+        description="Make direct LLM calls with optional structured output. Supports OpenAI, Google Gemini, and Anthropic models through a unified interface."
+        markdownPath="/llm_do/llm_do.md"
+        markdownFilename="llm_do.md"
+      />
 
             {/* Quick Start Section */}
             <section className="mb-12">

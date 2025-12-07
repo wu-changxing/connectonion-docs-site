@@ -2,43 +2,30 @@
 
 import Link from 'next/link'
 import { Mail, Send, Inbox, ArrowRight, Zap, Check } from 'lucide-react'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import CodeWithResult from '../../components/CodeWithResult'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function AgentEmailsPage() {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-          <Link href="/" className="hover:text-purple-400 transition-colors">
-            Docs
-          </Link>
-          <ArrowRight className="w-4 h-4" />
-          <span className="text-white">Agent Emails</span>
-        </div>
-
-        {/* Header */}
-        <div className="mb-12">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-xl border border-purple-500/30">
-                <Mail className="w-8 h-8 text-purple-400" />
-              </div>
-              <div>
-                <div className="flex items-center gap-3">
-                  <h1 className="heading-1">Agent Emails</h1>
-                  <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full border border-green-500/30">New</span>
-                </div>
-                <p className="text-lg text-slate-100">
-                  Send and receive emails with simple functions. No config, no complexity.
-                </p>
-              </div>
-            </div>
-            <CopyMarkdownButton markdownPath="/agent-emails.md" filename="agent-emails.md" className="flex-shrink-0" />
-          </div>
-        </div>
+      <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Agent Emails' }
+          ]}
+          icon={Mail}
+          iconColor="text-purple-400"
+          iconBgFrom="from-purple-600/20"
+          iconBgTo="to-blue-600/20"
+          iconBorderColor="border-purple-500/30"
+          title="Agent Emails"
+          description="Send and receive emails with simple functions. No config, no complexity."
+          badge={<span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full border border-green-500/30">New</span>}
+          markdownPath="/agent-emails.md"
+          markdownFilename="agent-emails.md"
+        />
 
         {/* Quick Start */}
         <section className="mb-16">

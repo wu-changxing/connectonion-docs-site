@@ -20,224 +20,33 @@ import {
 import CodeWithResult from '../../components/CodeWithResult'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function PluginPage() {
-
-  // Markdown content for copy/download feature
-  const pageContent = `# Plugin System
-
-Package event handlers into reusable plugins. A plugin is just an event list you can use across multiple agents.
-
-## Key Concept
-
-**A Plugin is an Event List:**
-- \`on_events\` takes one event list → custom for this agent
-- \`plugins\` takes a list of event lists → reusable across agents
-
-## Quick Start (60 seconds)
-
-\`\`\`python
-from connectonion import Agent
-from connectonion.useful_plugins import reflection
-
-def search(query: str) -> str:
-    return f"Results for {query}"
-
-# Use built-in reflection plugin
-agent = Agent("assistant", tools=[search], plugins=[reflection])
-agent.input("Search for Python")
-\`\`\`
-
-## Plugin vs on_events
-
-- **on_events**: Takes one event list (custom for this agent)
-- **plugins**: Takes a list of event lists (reusable across agents)
-
-## Built-in Plugins
-
-### 1. image_result_formatter
-
-Converts base64 images to OpenAI vision format for multimodal LLMs.
-
-\`\`\`python
-from connectonion import Agent
-from connectonion.useful_plugins import image_result_formatter
-
-def take_screenshot(url: str) -> str:
-    # Returns: "data:image/png;base64,iVBORw0KGgoAAAANS..."
-    return capture_screenshot(url)
-
-agent = Agent(
-    "vision_agent",
-    tools=[take_screenshot],
-    plugins=[image_result_formatter],
-    model="gpt-4o"
-)
-\`\`\`
-
-### 2. reflection
-
-Adds AI-powered analysis after each tool execution.
-
-\`\`\`python
-from connectonion import Agent
-from connectonion.useful_plugins import reflection
-
-agent = Agent("assistant", tools=[search], plugins=[reflection])
-\`\`\`
-
-### 3. react (ReAct Pattern)
-
-Implements the Reason + Act pattern for better decision-making.
-
-\`\`\`python
-from connectonion import Agent
-from connectonion.useful_plugins import react
-
-agent = Agent("assistant", tools=[search], plugins=[react])
-\`\`\`
-
-### 4. token_optimizer
-
-Truncates tool results to save tokens while keeping context.
-
-\`\`\`python
-from connectonion import Agent
-from connectonion.useful_plugins import token_optimizer
-
-agent = Agent("assistant", tools=[search], plugins=[token_optimizer])
-\`\`\`
-
-## Building Custom Plugins
-
-A plugin is just an event list. Here's how to build your own:
-
-### Step 1: Choose Event Hook
-
-\`\`\`python
-from connectonion.events import after_tool
-\`\`\`
-
-### Step 2: Event Handler Function
-
-\`\`\`python
-from connectonion.events import after_tool
-from connectonion.llm_do import llm_do
-
-def _add_reflection(agent) -> None:
-    """Reflect on tool execution result"""
-    trace = agent.current_session['trace'][-1]
-
-    if trace['type'] == 'tool_execution' and trace['status'] == 'success':
-        user_prompt = agent.current_session.get('user_prompt', '')
-        tool_name = trace['tool_name']
-        tool_args = trace['arguments']
-        tool_result = trace['result']
-
-        reflection_prompt = f"""
-User asked: {user_prompt}
-Tool used: {tool_name}({tool_args})
-Result: {tool_result}
-
-Reflection: What does this result tell us? What should we do next?
-"""
-
-        reflection_text = llm_do(reflection_prompt, model="gpt-4o-mini")
-
-        agent.current_session['messages'].append({
-            "role": "assistant",
-            "content": f"💭 Reflection: {reflection_text}"
-        })
-
-        agent.console.print(f"[dim]💭 {reflection_text}[/dim]")
-\`\`\`
-
-### Step 3: Create Plugin (Event List)
-
-\`\`\`python
-reflection = [after_tool(_add_reflection)]
-\`\`\`
-
-### Step 4: Use Your Plugin
-
-\`\`\`python
-agent = Agent("assistant", tools=[search], plugins=[reflection])
-\`\`\`
-
-## Multiple Plugins Together
-
-\`\`\`python
-from connectonion import Agent
-from connectonion.useful_plugins import reflection, react, image_result_formatter
-
-agent = Agent(
-    name="visual_researcher",
-    tools=[take_screenshot, search, analyze],
-    plugins=[image_result_formatter, reflection, react]
-)
-\`\`\`
-
-## Summary
-
-A plugin is an event list:
-
-\`\`\`python
-# Define a plugin (an event list)
-my_plugin = [after_llm(handler1), after_tool(handler2)]
-
-# Use it (plugins takes a list of event lists)
-agent = Agent("assistant", tools=[search], plugins=[my_plugin])
-\`\`\`
-
-**Key Points:**
-- Plugins = Reusable event lists
-- Use \`plugins=[...]\` for pre-packaged functionality
-- Use \`on_events=[...]\` for agent-specific behavior
-- Combine multiple plugins for powerful agents
-
-## What's Next
-
-- **Event System**: Learn about all 6 lifecycle hooks
-- **Vibe Coding**: See plugin patterns in action with visual examples
-`
-
-
   return (
-    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
-        {/* Hero Section */}
-        <div className="mb-12">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-slate-100 mb-4">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ArrowRight className="w-4 h-4" />
-            <span className="text-white">Plugins</span>
-          </nav>
-
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-            <div className="flex-1">
-              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gradient-to-r from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-full">
-                <Sparkles className="w-4 h-4 text-purple-400" />
-                <span className="text-xs font-medium text-purple-200">NEW</span>
-              </div>
-
-              <h1 className="heading-1">
-                Reusable Event Bundles
-              </h1>
-
-              <p className="text-xl text-slate-100">
-                Package event handlers into reusable plugins. A plugin is just an event list you can use across multiple agents.
-              </p>
-            </div>
-
-            <CopyMarkdownButton
-              content={pageContent}
-              filename="plugin-system.md"
-              className="flex-shrink-0"
-            />
-          </div>
-        </div>
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Plugin System' }
+          ]}
+          icon={Package}
+          iconColor="text-purple-400"
+          iconBgFrom="from-purple-600/20"
+          iconBgTo="to-pink-600/20"
+          iconBorderColor="border-purple-500/30"
+          title="Plugin System"
+          description="Package event handlers into reusable plugins. A plugin is just an event list you can use across multiple agents."
+          badge={
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-full">
+              <Sparkles className="w-4 h-4 text-purple-400" />
+              <span className="text-xs font-medium text-purple-200">NEW</span>
+            </span>
+          }
+          markdownPath="/plugin/plugin.md"
+          markdownFilename="plugin.md"
+        />
 
         {/* Key Concept Info Box */}
         <div className="flex items-center gap-2 mb-12 p-4 bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg">
@@ -376,9 +185,9 @@ agent.input("Search for Python")
 
           <CodeWithResult
             code={`from connectonion import Agent
-from connectonion.useful_plugins import react
+from connectonion.useful_plugins import re_act
 
-agent = Agent("assistant", tools=[search], plugins=[react])
+agent = Agent("assistant", tools=[search], plugins=[re_act])
 
 agent.input("Search for Python and explain it")
 # After each tool execution:
@@ -423,13 +232,13 @@ agent.input("Take a screenshot of the homepage and describe what you see")
 
           <CodeWithResult
             code={`from connectonion import Agent
-from connectonion.useful_plugins import reflection, react, image_result_formatter
+from connectonion.useful_plugins import reflection, re_act, image_result_formatter
 
 # Combine plugins for powerful agents
 agent = Agent(
     name="visual_researcher",
     tools=[take_screenshot, search, analyze],
-    plugins=[image_result_formatter, reflection, react]
+    plugins=[image_result_formatter, reflection, re_act]
 )
 
 # Now you get:

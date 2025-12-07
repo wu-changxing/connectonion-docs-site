@@ -28,13 +28,15 @@ export default function OnEventsPage() {
 
 Hook into agent lifecycle to add logging, monitoring, reflection, and custom behavior at every step.
 
-## 7 Event Types
+## 9 Event Types
 
 - **after_user_input**: Fires once per turn
 - **before_llm**: Before each LLM call
 - **after_llm**: After each LLM response
-- **before_tool**: Before tool execution
-- **after_tool**: After successful tool execution
+- **before_each_tool**: Before each individual tool execution
+- **before_tools**: Once before all tools in a batch
+- **after_each_tool**: After each individual tool (logging only, don't add messages)
+- **after_tools**: Once after all tools complete (safe for adding messages)
 - **on_error**: When tool execution fails
 - **on_complete**: Fires once after agent finishes task
 
@@ -78,13 +80,13 @@ def check_email(agent):
 agent = Agent(
     "assistant",
     on_events=[
-        before_tool(check_shell, check_email),  # group handlers for same event
+        before_each_tool(check_shell, check_email),  # group handlers for same event
     ]
 )
 \`\`\`
 
 > **Note: Decorator Syntax**
-> You can also use \`@before_tool\` decorator instead of \`before_tool(fn)\`.
+> You can also use \`@before_each_tool\` decorator instead of \`before_each_tool(fn)\`.
 > We recommend wrapper style because it's easier for LLMs to understand.
 > But if you prefer decorators, they work too.
 
@@ -146,22 +148,72 @@ agent = Agent("assistant", tools=[search], on_events=[
 ])
 \`\`\`
 
-### after_tool
+### before_each_tool
 
-Fires after each successful tool execution.
+Fires before EACH individual tool execution. Access pending tool via \`agent.current_session['pending_tool']\`.
 
 \`\`\`python
-def monitor_performance(agent):
-    """Log slow tool executions"""
+def validate_tool(agent):
+    """Validate tool before execution"""
+    pending = agent.current_session['pending_tool']
+    print(f"About to run: {pending['name']}")
+    # Raise exception to cancel execution
+
+agent = Agent("assistant", tools=[search], on_events=[
+    before_each_tool(validate_tool)
+])
+\`\`\`
+
+### before_tools
+
+Fires ONCE before ALL tools in a batch execute (when LLM returns multiple tool_calls).
+
+\`\`\`python
+def log_batch_start(agent):
+    """Log start of tool execution batch"""
+    print("Starting tool execution batch...")
+
+agent = Agent("assistant", tools=[search], on_events=[
+    before_tools(log_batch_start)
+])
+\`\`\`
+
+### after_each_tool
+
+Fires after EACH individual tool execution (for logging only).
+
+⚠️ **WARNING:** Do NOT add messages to \`agent.current_session['messages']\` here! When LLM returns multiple tool_calls, adding messages between tool results breaks Anthropic Claude's API. Use \`after_tools\` instead for message injection.
+
+\`\`\`python
+def log_tool_timing(agent):
+    """Log each tool's execution time"""
     trace = agent.current_session['trace'][-1]
     if trace['type'] == 'tool_execution':
         timing = trace['timing']
-        if timing > 1000:
-            tool_name = trace['tool_name']
-            print(f"⚠️ Slow: {tool_name} took {timing/1000:.1f}s")
+        print(f"🔧 {trace['tool_name']}: {timing:.0f}ms")
 
 agent = Agent("assistant", tools=[search, analyze], on_events=[
-    after_tool(monitor_performance)
+    after_each_tool(log_tool_timing)
+])
+\`\`\`
+
+### after_tools
+
+Fires ONCE after ALL tools in a batch complete. This is the safe place to add messages.
+
+\`\`\`python
+def add_reflection(agent):
+    """Add reflection after tools complete (safe for message injection)"""
+    trace = agent.current_session['trace']
+    recent_tools = [t for t in trace if t['type'] == 'tool_execution'][-3:]
+    if recent_tools:
+        agent.current_session['messages'].append({
+            'role': 'assistant',
+            'content': f"Completed {len(recent_tools)} tools"
+        })
+
+agent = Agent("assistant", tools=[search, analyze], on_events=[
+    after_tools(add_reflection)
 ])
 \`\`\`
 
@@ -185,7 +237,7 @@ agent = Agent("assistant", tools=[api_call], on_events=[
 ## Combining Multiple Events
 
 \`\`\`python
-from connectonion import Agent, after_user_input, after_llm, after_tool, on_error
+from connectonion import Agent, after_user_input, after_llm, after_each_tool, after_tools, on_error, on_complete
 from datetime import datetime
 
 def log_session_start(agent):
@@ -196,7 +248,7 @@ def track_llm(agent):
     if trace['type'] == 'llm_call':
         print(f"⚡ LLM: {trace['duration_ms']:.0f}ms")
 
-def track_tools(agent):
+def track_each_tool(agent):
     trace = agent.current_session['trace'][-1]
     if trace['type'] == 'tool_execution':
         print(f"🔧 Tool: {trace['tool_name']}")
@@ -205,14 +257,18 @@ def handle_errors(agent):
     trace = agent.current_session['trace'][-1]
     print(f"❌ Error: {trace.get('error')}")
 
+def log_completion(agent):
+    print(f"✅ Task complete")
+
 agent = Agent(
     "full_monitoring",
     tools=[search, analyze],
     on_events=[
         after_user_input(log_session_start),
         after_llm(track_llm),
-        after_tool(track_tools),
-        on_error(handle_errors)
+        after_each_tool(track_each_tool),
+        on_error(handle_errors),
+        on_complete(log_completion)
     ]
 )
 
@@ -227,6 +283,7 @@ agent.input("Search and analyze Python")
 ⚡ LLM: 831ms
 🔧 Tool: analyze
 ⚡ LLM: 1142ms
+✅ Task complete
 "Analysis complete..."
 \`\`\`
 
@@ -269,7 +326,7 @@ class PerformanceMonitor:
 monitor = PerformanceMonitor()
 agent = Agent("monitored", tools=[search], on_events=[
     after_llm(monitor.track_llm),
-    after_tool(monitor.track_tool),
+    after_each_tool(monitor.track_tool),
     on_error(monitor.track_error)
 ])
 
@@ -287,7 +344,7 @@ Errors: 0
 `
 
   return (
-    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
         {/* Header with Breadcrumb and Copy Button */}
         <div className="mb-12">
@@ -321,12 +378,12 @@ Errors: 0
           </div>
         </div>
 
-        {/* 7 Event Types Visual */}
+        {/* 9 Event Types Visual */}
         <section className="mb-12">
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 md:p-8">
             <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
               <GitBranch className="text-blue-400 w-5 h-5" />
-              7 Event Types
+              9 Event Types
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-3">
@@ -364,8 +421,18 @@ Errors: 0
                   <Zap className="text-yellow-400 w-4 h-4" />
                 </div>
                 <div>
-                  <div className="font-medium text-gray-200">before_tool</div>
-                  <div className="text-slate-100 text-xs">Before tool execution</div>
+                  <div className="font-medium text-gray-200">before_each_tool</div>
+                  <div className="text-slate-100 text-xs">Before each individual tool</div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-orange-900/50 border border-orange-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <Layers className="text-orange-400 w-4 h-4" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">before_tools</div>
+                  <div className="text-slate-100 text-xs">Once before all tools in batch</div>
                 </div>
               </div>
 
@@ -374,8 +441,18 @@ Errors: 0
                   <Timer className="text-cyan-400 w-4 h-4" />
                 </div>
                 <div>
-                  <div className="font-medium text-gray-200">after_tool</div>
-                  <div className="text-slate-100 text-xs">After successful tool execution</div>
+                  <div className="font-medium text-gray-200">after_each_tool</div>
+                  <div className="text-slate-100 text-xs">After each tool (logging only)</div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-teal-900/50 border border-teal-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <Activity className="text-teal-400 w-4 h-4" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">after_tools</div>
+                  <div className="text-slate-100 text-xs">Once after all tools (safe for messages)</div>
                 </div>
               </div>
 
@@ -457,7 +534,7 @@ def check_email(agent):
 agent = Agent(
     "assistant",
     on_events=[
-        before_tool(check_shell, check_email),  # group handlers for same event
+        before_each_tool(check_shell, check_email),  # group handlers for same event
     ]
 )`}
               result={`# Both handlers fire before each tool execution
@@ -468,14 +545,14 @@ agent = Agent(
             <div className="bg-gray-800/50 border border-gray-700 p-4 my-6 rounded-lg">
               <p className="text-sm text-slate-100">
                 <strong className="text-gray-300">Note: Decorator Syntax</strong><br/>
-                You can also use <code className="text-blue-300 bg-blue-950/50 px-1 rounded">@before_tool</code> decorator instead of <code className="text-blue-300 bg-blue-950/50 px-1 rounded">before_tool(fn)</code>.
+                You can also use <code className="text-blue-300 bg-blue-950/50 px-1 rounded">@before_each_tool</code> decorator instead of <code className="text-blue-300 bg-blue-950/50 px-1 rounded">before_each_tool(fn)</code>.
                 We recommend wrapper style because it's easier for LLMs to understand when reading your code.
                 But if you prefer decorators, they work too.
               </p>
             </div>
           </section>
 
-          {/* Basic Usage - All 6 Events */}
+          {/* Basic Usage - All 9 Events */}
           <section className="mb-16">
             <h2 className="heading-2">All Event Types</h2>
 
@@ -563,32 +640,125 @@ agent = Agent("assistant", tools=[search], on_events=[
                 />
               </div>
 
-              {/* after_tool */}
+              {/* before_each_tool */}
+              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-yellow-900/50 border border-yellow-500 rounded flex items-center justify-center">
+                    <Zap className="text-yellow-400 w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-100">before_each_tool</h3>
+                    <p className="text-sm text-slate-100">Fires before EACH individual tool execution</p>
+                  </div>
+                </div>
+                <CodeWithResult
+                  code={`def validate_tool(agent):
+    """Validate tool before execution"""
+    pending = agent.current_session['pending_tool']
+    tool_name = pending['name']
+    print(f"🔧 About to run: {tool_name}")
+    # Raise exception to cancel execution
+
+agent = Agent("assistant", tools=[search], on_events=[
+    before_each_tool(validate_tool)
+])`}
+                  result={`🔧 About to run: search
+# Useful for: validation, approval prompts, logging`}
+                  language="python"
+                />
+              </div>
+
+              {/* before_tools */}
+              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-orange-900/50 border border-orange-500 rounded flex items-center justify-center">
+                    <Layers className="text-orange-400 w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-100">before_tools</h3>
+                    <p className="text-sm text-slate-100">Fires ONCE before ALL tools in a batch</p>
+                  </div>
+                </div>
+                <CodeWithResult
+                  code={`def log_batch_start(agent):
+    """Log start of tool execution batch"""
+    print("🔄 Starting tool execution batch...")
+
+agent = Agent("assistant", tools=[search, analyze], on_events=[
+    before_tools(log_batch_start)
+])`}
+                  result={`🔄 Starting tool execution batch...
+# Useful for: batch validation, batch-level logging`}
+                  language="python"
+                />
+              </div>
+
+              {/* after_each_tool */}
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-cyan-900/50 border border-cyan-500 rounded flex items-center justify-center">
                     <Timer className="text-cyan-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">after_tool</h3>
-                    <p className="text-sm text-slate-100">Fires after each successful tool execution</p>
+                    <h3 className="text-lg font-semibold text-gray-100">after_each_tool</h3>
+                    <p className="text-sm text-slate-100">Fires after EACH tool (logging only, NOT for messages)</p>
                   </div>
                 </div>
+                <div className="bg-red-900/20 border-l-4 border-red-500 p-4 mb-4 rounded-r">
+                  <p className="text-sm text-slate-100">
+                    <strong className="text-red-400">WARNING:</strong> Do NOT add messages here! This breaks Anthropic Claude's API message ordering.
+                  </p>
+                </div>
                 <CodeWithResult
-                  code={`def monitor_performance(agent):
-    """Log slow tool executions"""
+                  code={`def log_tool_timing(agent):
+    """Log each tool's execution time"""
     trace = agent.current_session['trace'][-1]
     if trace['type'] == 'tool_execution':
         timing = trace['timing']
-        if timing > 1000:  # Over 1 second
-            tool_name = trace['tool_name']
-            print(f"⚠️ Slow: {tool_name} took {timing/1000:.1f}s")
+        print(f"🔧 {trace['tool_name']}: {timing:.0f}ms")
 
 agent = Agent("assistant", tools=[search, analyze], on_events=[
-    after_tool(monitor_performance)
+    after_each_tool(log_tool_timing)
 ])`}
-                  result={`⚠️ Slow: analyze took 2.3s
-# Useful for: performance monitoring, caching, optimization`}
+                  result={`🔧 search: 245ms
+🔧 analyze: 1842ms
+# Useful for: timing, performance logging`}
+                  language="python"
+                />
+              </div>
+
+              {/* after_tools */}
+              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-teal-900/50 border border-teal-500 rounded flex items-center justify-center">
+                    <Activity className="text-teal-400 w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-100">after_tools</h3>
+                    <p className="text-sm text-slate-100">Fires ONCE after ALL tools complete (safe for messages)</p>
+                  </div>
+                </div>
+                <div className="bg-green-900/20 border-l-4 border-green-500 p-4 mb-4 rounded-r">
+                  <p className="text-sm text-slate-100">
+                    <strong className="text-green-400">SAFE:</strong> This is the correct place to add reflection messages after tools.
+                  </p>
+                </div>
+                <CodeWithResult
+                  code={`def add_reflection(agent):
+    """Add reflection after all tools complete"""
+    trace = agent.current_session['trace']
+    recent_tools = [t for t in trace if t['type'] == 'tool_execution'][-3:]
+    if recent_tools:
+        agent.current_session['messages'].append({
+            'role': 'assistant',
+            'content': f"Completed {len(recent_tools)} tools"
+        })
+
+agent = Agent("assistant", tools=[search, analyze], on_events=[
+    after_tools(add_reflection)
+])`}
+                  result={`Completed 2 tools
+# Useful for: reflection, summarization, message injection`}
                   language="python"
                 />
               </div>
@@ -667,7 +837,7 @@ agent = Agent("assistant", tools=[search], on_events=[
             </p>
 
             <CodeWithResult
-              code={`from connectonion import Agent, after_user_input, after_llm, after_tool, on_error, on_complete
+              code={`from connectonion import Agent, after_user_input, after_llm, after_each_tool, after_tools, on_error, on_complete
 from datetime import datetime
 
 def log_session_start(agent):
@@ -696,7 +866,7 @@ agent = Agent(
     on_events=[
         after_user_input(log_session_start),
         after_llm(track_llm),
-        after_tool(track_tools),
+        after_each_tool(track_tools),
         on_error(handle_errors),
         on_complete(log_completion)
     ]
@@ -749,16 +919,16 @@ agent.input("Search and analyze Python")`}
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <h3 className="text-lg font-semibold mb-4 text-gray-100">Message Injection Timing</h3>
                 <p className="text-slate-100 mb-4">
-                  <strong className="text-white">Important:</strong> Use <code className="text-blue-300 bg-blue-950/50 px-1 rounded">after_llm</code> to inject messages after tool execution:
+                  <strong className="text-white">Important:</strong> Use <code className="text-blue-300 bg-blue-950/50 px-1 rounded">after_tools</code> to inject messages after tool execution:
                 </p>
                 <div className="bg-red-900/20 border-l-4 border-red-500 p-4 mb-4 rounded-r">
                   <p className="text-sm text-slate-100">
-                    <strong className="text-red-400">❌ Don't use after_tool:</strong> Injecting messages during tool execution breaks the OpenAI message sequence (assistant → tool results)
+                    <strong className="text-red-400">❌ Don't use after_each_tool:</strong> Injecting messages during tool execution breaks Anthropic Claude's message sequence (all tool_results must follow tool_use)
                   </p>
                 </div>
                 <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
                   <p className="text-sm text-slate-100">
-                    <strong className="text-green-400">✅ Use after_llm:</strong> Fires after all tool results are added to messages, safe for injection
+                    <strong className="text-green-400">✅ Use after_tools:</strong> Fires once after ALL tool results are added to messages, safe for reflection injection
                   </p>
                 </div>
               </div>
@@ -828,7 +998,7 @@ agent.input("test")  # Raises RuntimeError`}
 monitor = PerformanceMonitor()
 agent = Agent("monitored", tools=[search], on_events=[
     after_llm(monitor.track_llm),
-    after_tool(monitor.track_tool),
+    after_each_tool(monitor.track_tool),
     on_error(monitor.track_error)
 ])
 
@@ -917,31 +1087,39 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
               <div className="space-y-4 text-sm">
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_user_input(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Wraps a function to fire after user input is added to session.</p>
+                  <p className="text-slate-100 mt-2">Fires once per turn after user input is added to session.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_llm(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Wraps a function to fire before each LLM call.</p>
+                  <p className="text-slate-100 mt-2">Fires before each LLM call.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_llm(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Wraps a function to fire after each LLM response.</p>
+                  <p className="text-slate-100 mt-2">Fires after each LLM response.</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_tool(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Wraps a function to fire before each tool execution.</p>
+                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_each_tool(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-slate-100 mt-2">Fires before EACH individual tool execution. Access pending tool via <code className="text-blue-300 bg-blue-950/50 px-1 rounded">agent.current_session['pending_tool']</code>.</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_tool(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Wraps a function to fire after each successful tool execution.</p>
+                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_tools(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-slate-100 mt-2">Fires ONCE before ALL tools in a batch execute.</p>
+                </div>
+                <div>
+                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_each_tool(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-slate-100 mt-2">Fires after EACH individual tool. <strong className="text-red-400">WARNING:</strong> Do NOT add messages here!</p>
+                </div>
+                <div>
+                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_tools(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-slate-100 mt-2">Fires ONCE after ALL tools complete. <strong className="text-green-400">SAFE</strong> for adding messages.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_error(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Wraps a function to fire when tool execution fails or tool is not found.</p>
+                  <p className="text-slate-100 mt-2">Fires when tool execution fails or tool is not found.</p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_complete(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Wraps a function to fire once after agent completes the task.</p>
+                  <p className="text-slate-100 mt-2">Fires once after agent completes the task.</p>
                 </div>
               </div>
             </div>
@@ -970,7 +1148,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
 
               <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
                 <p className="text-sm text-slate-100">
-                  <strong className="text-green-400">✅ Use after_llm for message injection:</strong> This is the safe time to inject context after tool execution completes.
+                  <strong className="text-green-400">✅ Use after_tools for message injection:</strong> This is the safe time to inject reflection/context after ALL tools in a batch complete.
                 </p>
               </div>
 
@@ -982,7 +1160,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
 
               <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r">
                 <p className="text-sm text-slate-100">
-                  <strong className="text-red-400">❌ Don't inject during tool execution:</strong> Using after_tool to inject messages breaks the tool calling message sequence.
+                  <strong className="text-red-400">❌ Don't inject during tool execution:</strong> Using after_each_tool to inject messages breaks Anthropic Claude's tool_result message ordering.
                 </p>
               </div>
 

@@ -523,7 +523,7 @@ Works seamlessly with:
 `
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-16 md:py-24 pt-16 lg:pt-12">
+    <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24">
       {/* Header with Copy Button */}
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">
         <div className="flex-1">
@@ -536,7 +536,7 @@ Works seamlessly with:
             <span className="text-white whitespace-nowrap">trace()</span>
           </nav>
 
-          <h1 className="h1 sm: lg:"heading-1>
+          <h1 className="heading-1">
             <Eye className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 flex-shrink-0" />
             <span>xray.trace()</span>
           </h1>

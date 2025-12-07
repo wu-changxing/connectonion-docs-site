@@ -156,7 +156,7 @@ ${expectedOutput}
 *This is example 4 of 8 in the Progressive Prompt Examples series. Previous: [Customer Support](/prompts/examples/customer-support) | Next: [Data Analyst](/prompts/examples/data-analyst)*`
 
   return (
-    <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
+    <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24">
       {/* Navigation */}
 
       {/* Header */}

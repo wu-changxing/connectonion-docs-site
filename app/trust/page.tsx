@@ -12,7 +12,7 @@ export default function TrustPage() {
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-b from-purple-900/20 to-gray-950">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px]" />
-        <div className="relative max-w-6xl mx-auto px-8 py-16">
+        <div className="relative max-w-4xl mx-auto px-8 py-16">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div>
               <div className="text-sm text-purple-400 font-medium mb-4">Core Feature</div>
@@ -39,7 +39,7 @@ export default function TrustPage() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-8 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto px-8 py-16 md:py-24">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content Column */}
           <div className="lg:col-span-2 space-y-12">

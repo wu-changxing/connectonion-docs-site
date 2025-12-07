@@ -6,46 +6,33 @@
 
 'use client'
 
-import { Network, ArrowRight, Zap, Cpu, RefreshCw, Layers, Check, Terminal, Code, Users, Globe } from 'lucide-react'
+import { Network, Zap, Cpu, RefreshCw, Layers, Check, Terminal, Code, Users, Globe } from 'lucide-react'
 import Link from 'next/link'
-import { CommandBlock } from '../../components/CommandBlock'
 import CodeWithResult from '../../components/CodeWithResult'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../components/ContentNavigation'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function ConnectPage() {
   return (
-    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
-      <div className="max-w-6xl mx-auto">
+    <div className="px-4 md:px-8 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto">
         {/* Hero Section */}
         <section className="mb-16">
-          {/* Breadcrumb */}
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-            <Link href="/" className="hover:text-purple-400 transition-colors">
-              Docs
-            </Link>
-            <ArrowRight className="w-4 h-4" />
-            <span className="text-white">Connect to Agents</span>
-          </div>
-
-          {/* Header */}
-          <div className="mb-12">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-              <div className="flex items-center gap-3">
-                <div className="p-3 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-xl border border-blue-500/30">
-                  <Network className="w-8 h-8 text-blue-400" />
-                </div>
-                <div>
-                  <h1 className="heading-1">Connect to Agents</h1>
-                  <p className="text-lg text-slate-100">
-                    Use any agent, anywhere, as if local. Create a proxy to a remote agent with the same interface.
-                  </p>
-                </div>
-              </div>
-              <CopyMarkdownButton markdownPath="/connect.md" filename="connect.md" className="flex-shrink-0" />
-            </div>
-          </div>
+          <PageHeader
+            breadcrumbs={[
+              { label: 'Docs', href: '/' },
+              { label: 'Connect to Agents' }
+            ]}
+            icon={Network}
+            iconColor="text-blue-400"
+            iconBgFrom="from-blue-600/20"
+            iconBgTo="to-cyan-600/20"
+            iconBorderColor="border-blue-500/30"
+            title="Connect to Agents"
+            description="Use any agent, anywhere, as if local. Create a proxy to a remote agent with the same interface."
+            markdownPath="/connect.md"
+            markdownFilename="connect.md"
+          />
 
           {/* Key Benefit */}
           <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">

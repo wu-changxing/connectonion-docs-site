@@ -16,6 +16,102 @@ This provides two equivalent commands:
 
 ## Commands
 
+### `co deploy`
+
+Deploy your agent to the ConnectOnion cloud platform for production hosting.
+
+#### Basic Usage
+
+```bash
+# Deploy current project
+co deploy
+
+# Deploy with specific entrypoint
+co deploy --entrypoint main.py
+```
+
+#### Prerequisites
+
+1. **Git Repository**: Project must be in a git repo with committed changes
+2. **ConnectOnion Project**: Must have `.co/` folder with `config.toml`
+3. **API Key**: Set `OPENONION_API_KEY` in environment or `.env` file
+
+#### Options
+
+- `--entrypoint, -e`: Python file to run (default: `agent.py`)
+- `--secrets`: Comma-separated secrets to pass (e.g., `KEY1=value1,KEY2=value2`)
+
+#### What Happens
+
+1. Creates a tarball of your git-tracked files
+2. Uploads to ConnectOnion platform
+3. Builds a Docker container with your agent
+4. Deploys to cloud infrastructure
+5. Returns your agent's public URL
+
+#### Example Output
+
+```bash
+$ co deploy
+📦 Packaging agent...
+🚀 Deploying to ConnectOnion...
+✅ Deployed!
+
+Your agent is live at:
+https://my-agent-abc123.agents.openonion.ai
+```
+
+#### Managing Deployments
+
+```bash
+# List your deployments
+co deploy list
+
+# Get deployment status
+co deploy status <deployment_id>
+
+# View logs
+co deploy logs <deployment_id>
+
+# Delete deployment
+co deploy delete <deployment_id>
+```
+
+For detailed deployment documentation, see the [Deploy Guide](/deploy).
+
+---
+
+### `co auth`
+
+Manage authentication for ConnectOnion platform.
+
+#### Commands
+
+```bash
+# Login (opens browser for authentication)
+co auth login
+
+# Check authentication status
+co auth status
+
+# Logout
+co auth logout
+```
+
+#### OAuth Integrations
+
+Connect external services for email and calendar tools:
+
+```bash
+# Connect Google (Gmail, Calendar)
+co auth google
+
+# Connect Microsoft (Outlook, Calendar)
+co auth microsoft
+```
+
+---
+
 ### `co init`
 
 Initialize a new ConnectOnion agent project in the current directory.

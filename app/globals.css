@@ -145,7 +145,6 @@ pre {
   letter-spacing: -0.025em;
   margin-bottom: 1.5rem; /* 24px - mb-6 equivalent */
   color: white;
-  text-align: center;
 }
 @media (min-width: 640px) {
   .heading-2 {

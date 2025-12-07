@@ -52,7 +52,7 @@ import Link from 'next/link'
 import { CommandBlock } from '../../components/CommandBlock'
 import { FileTree } from '../../components/FileTree'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function CLIPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -65,29 +65,23 @@ export default function CLIPage() {
 
 
   return (
-    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
-      {/* Header with Copy Button */}
-      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">
-        <div className="flex-1">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-slate-100 mb-4">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ArrowRight className="w-4 h-4" />
-            <span className="text-white">CLI Reference</span>
-          </nav>
-          
-          <h1 className="h1 md:"heading-1>CLI Reference</h1>
-          <p className="text-lg md:text-xl text-slate-100">
-            Quickly scaffold and manage ConnectOnion agent projects with the CLI.
-          </p>
-        </div>
-        <CopyMarkdownButton
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'CLI Reference' }
+          ]}
+          icon={Terminal}
+          iconColor="text-green-400"
+          iconBgFrom="from-green-600/20"
+          iconBgTo="to-teal-600/20"
+          iconBorderColor="border-green-500/30"
+          title="CLI Reference"
+          description="Quickly scaffold and manage ConnectOnion agent projects with the CLI."
           markdownPath="/cli/cli.md"
-          filename="cli.md"
-          className="flex-shrink-0"
+          markdownFilename="cli.md"
         />
-      </div>
       
       {/* Quick Command Cheat Sheet */}
       <div className="mb-12 p-4 bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/30 rounded-lg">

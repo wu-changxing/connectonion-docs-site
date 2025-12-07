@@ -155,7 +155,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 `
 
   return (
-    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
         {/* Header with Copy Button */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">

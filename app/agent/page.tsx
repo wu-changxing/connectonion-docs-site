@@ -20,8 +20,8 @@ import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { Copy, Check, Users, Rocket, ArrowRight, Zap, Code, Settings, RefreshCw, Play } from 'lucide-react'
 import CodeWithResult from '../../components/CodeWithResult'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import { CommandBlock } from '../../components/CommandBlock'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function AgentDocsPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -35,32 +35,21 @@ export default function AgentDocsPage() {
   return (
     <div className="min-h-screen bg-black text-gray-100">
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-          <Link href="/" className="hover:text-purple-400 transition-colors">
-            Docs
-          </Link>
-          <ArrowRight className="w-4 h-4" />
-          <span className="text-white">Agent</span>
-        </div>
-
-        {/* Header */}
-        <div className="mb-12">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-xl border border-purple-500/30">
-                <Users className="w-8 h-8 text-purple-400" />
-              </div>
-              <div>
-                <h1 className="heading-1">Agent</h1>
-                <p className="text-lg text-slate-100">
-                  The heart of ConnectOnion. Give it tools, and it figures out the rest.
-                </p>
-              </div>
-            </div>
-            <CopyMarkdownButton markdownPath="/agent/agent.md" filename="agent.md" className="flex-shrink-0" />
-          </div>
-        </div>
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Agent' }
+          ]}
+          icon={Users}
+          iconColor="text-purple-400"
+          iconBgFrom="from-purple-600/20"
+          iconBgTo="to-blue-600/20"
+          iconBorderColor="border-purple-500/30"
+          title="Agent"
+          description="The heart of ConnectOnion. Give it tools, and it figures out the rest."
+          markdownPath="/agent/agent.md"
+          markdownFilename="agent.md"
+        />
 
         {/* Quick Start Section */}
         <section className="mb-16">
@@ -108,9 +97,8 @@ The result is 714.`}
           {/* Creating an Agent */}
           <div className="mb-8">
             <h3 className="text-xl font-semibold text-white mb-4">Creating an Agent</h3>
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-              <pre className="text-sm overflow-x-auto">
-                <code className="text-slate-100">{`Agent(
+            <CodeWithResult
+              code={`Agent(
     name="my_bot",                        # Required: agent identifier
     tools=[func1, func2],                 # Optional: functions agent can call
     system_prompt="You are helpful",      # Optional: personality/behavior
@@ -119,58 +107,65 @@ The result is 714.`}
     llm=custom_llm,                       # Optional: custom LLM instance
     trust="tested",                       # Optional: security verification
     log=True                              # Optional: logging config
-)`}</code>
-              </pre>
-            </div>
+)`}
+              result=""
+              language="python"
+            />
           </div>
 
           {/* Using Your Agent */}
           <div className="mb-8">
             <h3 className="text-xl font-semibold text-white mb-4">Using Your Agent</h3>
-            <div className="grid grid-cols-1 gap-4">
-              <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-                <pre className="text-sm"><code className="text-slate-100">{`# Give it a task
+            <CodeWithResult
+              code={`# Give it a task
 result = agent.input("Do something")
 
 # Execute a tool directly (for testing)
-result = agent.execute_tool("tool_name", {"arg": "value"})`}</code></pre>
-              </div>
-            </div>
+result = agent.execute_tool("tool_name", {"arg": "value"})`}
+              result=""
+              language="python"
+            />
           </div>
 
           {/* Managing Tools */}
           <div className="mb-8">
             <h3 className="text-xl font-semibold text-white mb-4">Managing Tools</h3>
-            <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-              <pre className="text-sm"><code className="text-slate-100">{`agent.add_tool(new_function)    # Add tools after creation
+            <CodeWithResult
+              code={`agent.add_tool(new_function)    # Add tools after creation
 agent.remove_tool("name")       # Remove tools
-agent.list_tools()              # See available tools`}</code></pre>
-            </div>
+agent.list_tools()              # See available tools`}
+              result=""
+              language="python"
+            />
           </div>
 
           {/* Conversations */}
           <div className="mb-8">
             <h3 className="text-xl font-semibold text-white mb-4">Conversations & State</h3>
-            <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-              <pre className="text-sm"><code className="text-slate-100">{`agent.input("What is 10 + 5?")     # Turn 1: "15"
+            <CodeWithResult
+              code={`agent.input("What is 10 + 5?")     # Turn 1: "15"
 agent.input("Multiply that by 2")  # Turn 2: "30" (remembers!)
 
 agent.reset_conversation()         # Start fresh
-session = agent.current_session    # Access internal state`}</code></pre>
-            </div>
+session = agent.current_session    # Access internal state`}
+              result=""
+              language="python"
+            />
           </div>
 
           {/* Attributes */}
           <div className="mb-8">
             <h3 className="text-xl font-semibold text-white mb-4">Attributes You Can Access</h3>
-            <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-              <pre className="text-sm"><code className="text-slate-100">{`agent.name                # str: Agent identifier
+            <CodeWithResult
+              code={`agent.name                # str: Agent identifier
 agent.tools               # ToolRegistry: All tools
 agent.tools.names()       # list[str]: Tool names
 agent.tools.get("name")   # Tool: Get by name
 agent.system_prompt       # str: Personality
-agent.current_session     # dict | None: Runtime state`}</code></pre>
-            </div>
+agent.current_session     # dict | None: Runtime state`}
+              result=""
+              language="python"
+            />
           </div>
 
           <div className="mt-6 p-4 bg-purple-900/20 border border-purple-500/30 rounded-lg">

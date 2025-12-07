@@ -308,25 +308,19 @@ Press Enter to continue, or explore the menu. No manual required.
 *Have feedback on auto-debug? Join the discussion on [Discord](https://discord.gg/4xfD9k8AUF)*`
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
-      {/* Header */}
-      <div className="border-b border-white/10 bg-black/40 backdrop-blur-xl sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link
-              href="/blog"
-              className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Blog</span>
-            </Link>
-            <CopyMarkdownButton content={content} />
-          </div>
+    <div className="px-4 md:px-8 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto">
+        {/* Header Navigation */}
+        <div className="flex items-center justify-between mb-8">
+          <Link
+            href="/blog"
+            className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Back to Blog</span>
+          </Link>
+          <CopyMarkdownButton content={content} />
         </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-6 py-16">
         {/* Header */}
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-6">

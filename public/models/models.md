@@ -10,7 +10,7 @@ from connectonion import Agent
 # Just change the model name
 agent = Agent("assistant", model="gpt-5")              # OpenAI
 agent = Agent("assistant", model="gemini-2.5-pro")     # Google
-agent = Agent("assistant", model="claude-opus-4.1")    # Anthropic
+agent = Agent("assistant", model="claude-opus-4-5")    # Anthropic
 ```
 
 ## OpenAI Models
@@ -53,6 +53,16 @@ agent = Agent("assistant", model="o1-mini")
 
 ## Google Gemini Models
 
+### Gemini 3 (Newest - State-of-the-Art Reasoning)
+```python
+# Most intelligent model family with state-of-the-art reasoning
+# 1M token context, dynamic thinking levels (low/medium/high)
+agent = Agent("assistant", model="gemini-3-pro-preview")
+
+# Image generation model with grounded generation
+agent = Agent("assistant", model="gemini-3-pro-image-preview")
+```
+
 ### Gemini 2.5
 ```python
 # Enhanced thinking and reasoning, multimodal understanding, advanced coding
@@ -85,11 +95,23 @@ agent = Agent("assistant", model="gemini-1.5-flash-8b")
 
 ### Claude Opus 4 Series
 ```python
-# Claude Opus 4.1 - Latest and most capable
-agent = Agent("assistant", model="claude-opus-4.1")
+# Claude Opus 4.5 - Latest and most capable ($5/M input, $25/M output)
+agent = Agent("assistant", model="claude-opus-4-5")
 
-# Claude Opus 4 - Previous version
-agent = Agent("assistant", model="claude-opus-4")
+# Claude Opus 4.1 - Previous version
+agent = Agent("assistant", model="claude-opus-4-1")
+```
+
+### Claude Sonnet 4.5
+```python
+# Best balance of intelligence and speed ($3/M input, $15/M output)
+agent = Agent("assistant", model="claude-sonnet-4-5")
+```
+
+### Claude Haiku 4.5
+```python
+# Fastest with near-frontier intelligence ($1/M input, $5/M output)
+agent = Agent("assistant", model="claude-haiku-4-5")
 ```
 
 ### Claude Sonnet 4
@@ -114,8 +136,8 @@ agent = Agent("assistant", model="claude-3-5-haiku")
 | Model | Provider | Key Strengths | Multimodal |
 |-------|----------|---------------|------------|
 | gpt-5 | OpenAI | Best for coding and agentic tasks | ✅ |
-| gemini-2.5-pro | Google | Enhanced reasoning, supports audio/video/PDF | ✅ |
-| claude-opus-4.1 | Anthropic | Most capable Claude model | ✅ |
+| gemini-3-pro-preview | Google | State-of-the-art reasoning, dynamic thinking | ✅ |
+| claude-opus-4-5 | Anthropic | Latest and most capable Claude | ✅ |
 
 ### Context Windows
 
@@ -127,13 +149,15 @@ agent = Agent("assistant", model="claude-3-5-haiku")
 | gpt-5-nano | 128K tokens |
 | gpt-4.1 | 128K tokens |
 | **Google** | |
+| gemini-3-pro-preview | 1M tokens |
+| gemini-3-pro-image-preview | 65K tokens |
 | gemini-2.5-pro | 2M tokens |
 | gemini-1.5-pro | 2M tokens |
 | gemini-1.5-flash | 1M tokens |
 | **Anthropic** | |
-| claude-opus-4.1 | 200K tokens |
-| claude-opus-4 | 200K tokens |
-| claude-sonnet-4 | 200K tokens |
+| claude-opus-4-5 | 200K tokens |
+| claude-sonnet-4-5 | 200K tokens |
+| claude-haiku-4-5 | 200K tokens |
 
 ### Tool Use Support
 
@@ -153,7 +177,7 @@ tools = [search, calculate]
 
 agent_openai = Agent("assistant", model="gpt-5", tools=tools)
 agent_google = Agent("assistant", model="gemini-2.5-pro", tools=tools)
-agent_claude = Agent("assistant", model="claude-opus-4.1", tools=tools)
+agent_claude = Agent("assistant", model="claude-opus-4-5", tools=tools)
 ```
 
 ## Setting Up API Keys
@@ -178,7 +202,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 # Top tier models from each provider
 agent = Agent("assistant", model="gpt-5")           # OpenAI flagship
 agent = Agent("assistant", model="gemini-2.5-pro")  # Google flagship
-agent = Agent("assistant", model="claude-opus-4.1") # Anthropic flagship
+agent = Agent("assistant", model="claude-opus-4-5") # Anthropic flagship
 ```
 
 **Code Generation**
@@ -186,8 +210,8 @@ agent = Agent("assistant", model="claude-opus-4.1") # Anthropic flagship
 # GPT-5 excels at coding and agentic tasks
 agent = Agent("coder", model="gpt-5")
 
-# Alternative: Claude Opus 4.1
-agent = Agent("coder", model="claude-opus-4.1")
+# Alternative: Claude Opus 4.5
+agent = Agent("coder", model="claude-opus-4-5")
 ```
 
 **Fast Responses**
@@ -195,7 +219,7 @@ agent = Agent("coder", model="claude-opus-4.1")
 # Fastest options from each provider
 agent = Agent("quick", model="gpt-5-nano")      # OpenAI fastest
 agent = Agent("quick", model="gemini-1.5-flash") # Google fast
-agent = Agent("quick", model="claude-3-5-haiku") # Anthropic fast
+agent = Agent("quick", model="claude-haiku-4-5") # Anthropic fast
 ```
 
 **Cost-Optimized**
@@ -219,7 +243,7 @@ agent = Agent("multimodal", model="gemini-2.5-pro")  # Audio, video, images, PDF
 
 # Alternatives
 agent = Agent("multimodal", model="gpt-5")           # Images, text
-agent = Agent("multimodal", model="claude-opus-4.1") # Images, text
+agent = Agent("multimodal", model="claude-opus-4-5") # Images, text
 ```
 
 ## Usage Examples
@@ -232,7 +256,7 @@ from connectonion import Agent
 # Create agents with different models
 agent_openai = Agent("assistant", model="gpt-5")
 agent_google = Agent("assistant", model="gemini-2.5-pro")
-agent_claude = Agent("assistant", model="claude-opus-4.1")
+agent_claude = Agent("assistant", model="claude-opus-4-5")
 
 # Same interface for all
 response = agent_openai.input("Explain quantum computing")
@@ -244,7 +268,7 @@ response = agent_claude.input("Explain quantum computing")
 
 ```python
 # Compare responses from top models
-models = ["gpt-5", "gemini-2.5-pro", "claude-opus-4.1"]
+models = ["gpt-5", "gemini-2.5-pro", "claude-opus-4-5"]
 prompt = "Write a Python implementation of binary search"
 
 for model in models:
@@ -265,14 +289,14 @@ def select_model(task_type: str, speed_priority: bool = False) -> str:
             "code": "gpt-5-mini",
             "chat": "gpt-5-nano",
             "analysis": "gemini-1.5-flash",
-            "creative": "claude-3-5-haiku"
+            "creative": "claude-haiku-4-5"
         }.get(task_type, "gpt-5-nano")
     else:
         # Best quality models
         return {
             "code": "gpt-5",
             "reasoning": "gemini-2.5-pro",
-            "analysis": "claude-opus-4.1",
+            "analysis": "claude-opus-4-5",
             "multimodal": "gemini-2.5-pro"
         }.get(task_type, "gpt-5")
 
@@ -292,7 +316,7 @@ def create_agent_with_fallback(name: str):
     # Priority order
     model_chain = [
         "gpt-5",              # Best overall
-        "claude-opus-4.1",    # Strong alternative
+        "claude-opus-4-5",    # Strong alternative
         "gemini-2.5-pro",     # Multimodal option
         "gpt-5-mini",         # Faster fallback
         "gpt-4o"              # Legacy fallback
@@ -382,7 +406,7 @@ def create_robust_agent(name: str, model: str, max_retries: int = 3):
                 alternatives = {
                     "gpt-5": "gpt-5-mini",
                     "gemini-2.5-pro": "gemini-1.5-pro",
-                    "claude-opus-4.1": "claude-opus-4"
+                    "claude-opus-4-5": "claude-sonnet-4-5"
                 }
                 alt_model = alternatives.get(model)
                 if alt_model and attempt == 0:
@@ -417,7 +441,7 @@ agent = Agent("assistant", model="gpt-4o-mini")
 # Any provider, any model
 agent = Agent("assistant", model="gpt-5")
 agent = Agent("assistant", model="gemini-2.5-pro")
-agent = Agent("assistant", model="claude-opus-4.1")
+agent = Agent("assistant", model="claude-opus-4-5")
 ```
 
 ### From Direct SDK Usage
@@ -440,7 +464,7 @@ response = client.messages.create(model="claude-3", ...)
 agent = Agent("assistant", model="gpt-5")
 response = agent.input(prompt)
 
-agent = Agent("assistant", model="claude-opus-4.1")
+agent = Agent("assistant", model="claude-opus-4-5")
 response = agent.input(prompt)
 ```
 

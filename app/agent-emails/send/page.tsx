@@ -2,13 +2,13 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Mail, Send, Check, Copy, AlertCircle, Zap, Shield, Globe, Clock, ArrowRight } from 'lucide-react'
-import { FaStar, FaCheckCircle, FaEnvelope } from 'react-icons/fa'
+import { Mail, Send, Check, Copy, Zap, Shield, Globe, ArrowRight } from 'lucide-react'
+import { FaStar, FaEnvelope } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { CommandBlock } from '../../../components/CommandBlock'
-import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../../components/ContentNavigation'
+import { PageHeader } from '../../../components/PageHeader'
 
 export default function SendEmailPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -66,38 +66,23 @@ export default function SendEmailPage() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        {/* Header */}
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-          <Link href="/" className="hover:text-purple-400 transition-colors">
-            Docs
-          </Link>
-          <ArrowRight className="w-4 h-4" />
-          <Link href="/agent-emails" className="hover:text-purple-400 transition-colors">
-            Agent Emails
-          </Link>
-          <ArrowRight className="w-4 h-4" />
-          <span className="text-white">Send</span>
-        </div>
-
-        {/* Header */}
-        <div className="mb-12">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
-                <Mail className="w-8 h-8 text-purple-400" />
-              </div>
-              <div>
-                <h1 className="heading-1">Send Email</h1>
-                <p className="text-lg text-slate-100">
-                  Send emails with one line of code. No config, no complexity.
-                </p>
-              </div>
-            </div>
-            <CopyMarkdownButton markdownPath="/agent-emails/send.md" filename="send-email.md" className="flex-shrink-0" />
-          </div>
-        </div>
+      <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Agent Emails', href: '/agent-emails' },
+            { label: 'Send' }
+          ]}
+          icon={Send}
+          iconColor="text-purple-400"
+          iconBgFrom="from-purple-600/20"
+          iconBgTo="to-pink-600/20"
+          iconBorderColor="border-purple-500/30"
+          title="Send Email"
+          description="Send emails with one line of code. No config, no complexity."
+          markdownPath="/agent-emails/send.md"
+          markdownFilename="send-email.md"
+        />
 
         {/* Quick Start */}
         <section className="mb-16">

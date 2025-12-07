@@ -1,7 +1,7 @@
 import {
   Home, Rocket, Terminal, MessageSquare, Code, Gauge, Zap, Shield, Bug,
   GitBranch, FileText, FolderOpen, Sparkles, Calculator, Cloud, BookOpen,
-  Users, Settings, Layers, Brain, MessageCircle, Database, Package, Cpu, Chrome, Camera, Link, Mail, FileCode2, Network, Wifi, Activity, Puzzle, Calendar, Inbox, Globe
+  Users, Settings, Layers, Brain, MessageCircle, Database, Package, Cpu, Chrome, Camera, Link, Mail, FileCode2, Network, Wifi, Activity, Puzzle, Calendar, Inbox, Globe, Upload, Wrench, Image, Type, ChevronDown, BarChart3, Layout, Minus, Search, Keyboard
 } from 'lucide-react'
 
 // Simple, flat navigation structure with all metadata in one place
@@ -35,12 +35,14 @@ export const navigation = [
     next: { href: '/cli', title: 'CLI Reference' }
   },
   {
-    title: 'CLI Reference',
-    href: '/cli',
-    icon: Terminal,
+    title: 'Deploy',
+    href: '/deploy',
+    icon: Upload,
     section: 'Getting Started',
-    keywords: ['command', 'terminal', 'co', 'commands'],
-    prev: { href: '/vibe-coding', title: 'Vibe Coding Guide' },
+    difficulty: 'New',
+    hidden: true, // Hide from sidebar - coming soon
+    keywords: ['deploy', 'hosting', 'cloud', 'production', 'docker', 'gcp', 'agents'],
+    prev: { href: '/cli', title: 'CLI Reference' },
     next: { href: '/agent', title: 'Agent' }
   },
 
@@ -52,7 +54,7 @@ export const navigation = [
     section: 'Core Concepts',
     difficulty: 'Essential',
     keywords: ['agent', 'create', 'orchestrator', 'core', 'llm', 'conversation', 'iteration'],
-    prev: { href: '/cli', title: 'CLI Reference' },
+    prev: { href: '/deploy', title: 'Deploy' },
     next: { href: '/prompts', title: 'System Prompts' }
   },
   {
@@ -72,10 +74,19 @@ export const navigation = [
     section: 'Core Concepts',
     keywords: ['function', 'utility', 'actions', 'capabilities', 'tools'],
     prev: { href: '/prompts', title: 'System Prompts' },
-    next: { href: '/memory', title: 'Memory' }
+    next: { href: '/useful-tools', title: 'Useful Tools' }
   },
 
   // Useful Tools
+  {
+    title: 'Useful Tools',
+    href: '/useful-tools',
+    icon: Wrench,
+    section: 'Useful Tools',
+    keywords: ['tools', 'useful_tools', 'integrations', 'gmail', 'outlook', 'memory', 'calendar'],
+    prev: { href: '/tools', title: 'Tools' },
+    next: { href: '/memory', title: 'Memory' }
+  },
   {
     title: 'Memory',
     href: '/memory',
@@ -83,7 +94,7 @@ export const navigation = [
     section: 'Useful Tools',
     difficulty: 'New',
     keywords: ['memory', 'storage', 'persistence', 'remember', 'database', 'rag'],
-    prev: { href: '/tools', title: 'Tools' },
+    prev: { href: '/useful-tools', title: 'Useful Tools' },
     next: { href: '/agent-emails', title: 'Agent Emails' }
   },
   {
@@ -122,16 +133,36 @@ export const navigation = [
     difficulty: 'New',
     keywords: ['gmail', 'google', 'email', 'inbox', 'oauth', 'labels', 'archive', 'crm', 'contacts'],
     prev: { href: '/agent-emails/receive', title: 'Receive Emails' },
+    next: { href: '/outlook', title: 'Outlook' }
+  },
+  {
+    title: 'Outlook',
+    href: '/outlook',
+    icon: Mail,
+    section: 'Useful Tools',
+    difficulty: 'New',
+    keywords: ['outlook', 'microsoft', 'email', 'inbox', 'oauth', 'office', '365', 'graph', 'send'],
+    prev: { href: '/gmail', title: 'Gmail' },
     next: { href: '/google-integration', title: 'Google Integration' }
   },
   {
     title: 'Google Integration',
     href: '/google-integration',
     icon: Calendar,
-    section: 'Useful Tools',
+    section: 'Integrations',
     difficulty: 'New',
     keywords: ['google', 'gmail', 'calendar', 'oauth', 'integration', 'schedule', 'meeting'],
-    prev: { href: '/gmail', title: 'Gmail' },
+    prev: { href: '/outlook', title: 'Outlook' },
+    next: { href: '/microsoft-integration', title: 'Microsoft Integration' }
+  },
+  {
+    title: 'Microsoft Integration',
+    href: '/microsoft-integration',
+    icon: Calendar,
+    section: 'Integrations',
+    difficulty: 'New',
+    keywords: ['microsoft', 'outlook', 'calendar', 'oauth', 'integration', 'office', '365', 'azure', 'teams'],
+    prev: { href: '/google-integration', title: 'Google Integration' },
     next: { href: '/web-fetch', title: 'WebFetch' }
   },
   {
@@ -141,7 +172,100 @@ export const navigation = [
     section: 'Useful Tools',
     difficulty: 'New',
     keywords: ['web', 'fetch', 'scrape', 'html', 'parse', 'http', 'research', 'analyze'],
-    prev: { href: '/google-integration', title: 'Google Integration' },
+    prev: { href: '/microsoft-integration', title: 'Microsoft Integration' },
+    next: { href: '/tui', title: 'TUI Components' }
+  },
+
+  // TUI Components
+  {
+    title: 'TUI Components',
+    href: '/tui',
+    icon: Terminal,
+    section: 'TUI',
+    difficulty: 'NEW',
+    keywords: ['tui', 'terminal', 'ui', 'input', 'pick', 'dropdown', 'status', 'keyboard', 'rich'],
+    prev: { href: '/web-fetch', title: 'WebFetch' },
+    next: { href: '/tui/pick', title: 'pick' }
+  },
+  {
+    title: 'pick',
+    href: '/tui/pick',
+    icon: ChevronDown,
+    section: 'TUI',
+    keywords: ['pick', 'select', 'menu', 'choice', 'single', 'keyboard', 'navigation'],
+    prev: { href: '/tui', title: 'TUI Components' },
+    next: { href: '/tui/input', title: 'Input' }
+  },
+  {
+    title: 'Input',
+    href: '/tui/input',
+    icon: Type,
+    section: 'TUI',
+    keywords: ['input', 'text', 'autocomplete', 'trigger', 'type', 'file', 'command'],
+    prev: { href: '/tui/pick', title: 'pick' },
+    next: { href: '/tui/dropdown', title: 'Dropdown' }
+  },
+  {
+    title: 'Dropdown',
+    href: '/tui/dropdown',
+    icon: ChevronDown,
+    section: 'TUI',
+    keywords: ['dropdown', 'list', 'selection', 'autocomplete', 'item', 'menu'],
+    prev: { href: '/tui/input', title: 'Input' },
+    next: { href: '/tui/status-bar', title: 'StatusBar' }
+  },
+  {
+    title: 'StatusBar',
+    href: '/tui/status-bar',
+    icon: BarChart3,
+    section: 'TUI',
+    keywords: ['status', 'bar', 'powerline', 'segment', 'progress', 'display'],
+    prev: { href: '/tui/dropdown', title: 'Dropdown' },
+    next: { href: '/tui/footer', title: 'Footer' }
+  },
+  {
+    title: 'Footer',
+    href: '/tui/footer',
+    icon: Layout,
+    section: 'TUI',
+    keywords: ['footer', 'tips', 'hints', 'help', 'display'],
+    prev: { href: '/tui/status-bar', title: 'StatusBar' },
+    next: { href: '/tui/divider', title: 'Divider' }
+  },
+  {
+    title: 'Divider',
+    href: '/tui/divider',
+    icon: Minus,
+    section: 'TUI',
+    keywords: ['divider', 'separator', 'line', 'horizontal', 'visual'],
+    prev: { href: '/tui/footer', title: 'Footer' },
+    next: { href: '/tui/fuzzy', title: 'Fuzzy Matching' }
+  },
+  {
+    title: 'Fuzzy Matching',
+    href: '/tui/fuzzy',
+    icon: Search,
+    section: 'TUI',
+    keywords: ['fuzzy', 'match', 'search', 'score', 'highlight', 'autocomplete'],
+    prev: { href: '/tui/divider', title: 'Divider' },
+    next: { href: '/tui/keys', title: 'Keyboard Input' }
+  },
+  {
+    title: 'Keyboard Input',
+    href: '/tui/keys',
+    icon: Keyboard,
+    section: 'TUI',
+    keywords: ['keyboard', 'input', 'getch', 'read_key', 'arrow', 'escape', 'enter'],
+    prev: { href: '/tui/fuzzy', title: 'Fuzzy Matching' },
+    next: { href: '/tui/providers', title: 'Providers' }
+  },
+  {
+    title: 'Providers',
+    href: '/tui/providers',
+    icon: Database,
+    section: 'TUI',
+    keywords: ['provider', 'file', 'static', 'autocomplete', 'data', 'source'],
+    prev: { href: '/tui/keys', title: 'Keyboard Input' },
     next: { href: '/auto-debug', title: 'Interactive Debugging' }
   },
 
@@ -150,17 +274,17 @@ export const navigation = [
     title: 'Interactive Debugging',
     href: '/auto-debug',
     icon: Bug,
-    section: 'Debugging',
+    section: 'Debug',
     difficulty: 'Essential',
     keywords: ['debug', 'auto_debug', 'interactive', 'breakpoint', 'xray', 'inspect', 'pause', 'repl', 'python', 'variables', 'state', 'agent debugging', 'llm debugging'],
-    prev: { href: '/web-fetch', title: 'WebFetch' },
+    prev: { href: '/tui/providers', title: 'Providers' },
     next: { href: '/auto-debug-exception', title: 'Auto Debug Exception' }
   },
   {
     title: 'Auto Debug Exception',
     href: '/auto-debug-exception',
     icon: Bug,
-    section: 'Debugging',
+    section: 'Debug',
     keywords: ['debug', 'exception', 'crash', 'error', 'ai', 'runtime', 'inspection', 'traceback', 'fix'],
     prev: { href: '/auto-debug', title: 'Interactive Debugging' },
     next: { href: '/tools/browser', title: 'Browser Screenshots' }
@@ -169,7 +293,7 @@ export const navigation = [
     title: 'Browser Screenshots',
     href: '/tools/browser',
     icon: Camera,
-    section: 'Debugging',
+    section: 'Debug',
     keywords: ['browser', 'screenshot', 'debug', 'capture', 'viewport', 'playwright', 'test', 'responsive'],
     prev: { href: '/auto-debug-exception', title: 'Auto Debug Exception' },
     next: { href: '/logging', title: 'Logging' }
@@ -178,7 +302,7 @@ export const navigation = [
     title: 'Logging',
     href: '/logging',
     icon: FileText,
-    section: 'Debugging',
+    section: 'Debug',
     keywords: ['logging', 'log', 'file', 'output', 'debug', 'audit', 'record', 'trace', 'monitor', 'activity'],
     prev: { href: '/tools/browser', title: 'Browser Screenshots' },
     next: { href: '/models', title: 'Models' }
@@ -206,7 +330,7 @@ export const navigation = [
     title: 'Trust Parameter',
     href: '/trust',
     icon: Shield,
-    section: 'Core Concepts',
+    section: 'Network',
     keywords: ['security', 'safety', 'trust', 'permission', 'multi-agent'],
     prev: { href: '/llm_do', title: 'LLM Function' },
     next: { href: '/xray', title: '@xray Decorator' }
@@ -215,7 +339,7 @@ export const navigation = [
     title: '@xray Decorator',
     href: '/xray',
     icon: Bug,
-    section: 'Core Concepts',
+    section: 'Debug',
     keywords: ['debug', 'xray', 'decorator', 'trace', 'monitor', 'visibility'],
     prev: { href: '/trust', title: 'Trust Parameter' },
     next: { href: '/on_events', title: 'Event System (on_events)' }
@@ -231,14 +355,24 @@ export const navigation = [
     next: { href: '/plugin', title: 'Plugin System' }
   },
   {
+    title: 'Useful Plugins',
+    href: '/useful-plugins',
+    icon: Package,
+    section: 'Useful Plugins',
+    difficulty: 'NEW',
+    keywords: ['plugins', 'useful_plugins', 're_act', 'eval', 'image_result_formatter', 'gmail_plugin', 'calendar_plugin', 'shell_approval'],
+    prev: { href: '/plugin', title: 'Plugin System' },
+    next: { href: '/serve', title: 'Agent Serving' }
+  },
+  {
     title: 'Plugin System',
     href: '/plugin',
     icon: Puzzle,
     section: 'Core Concepts',
     difficulty: 'NEW',
-    keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'reflection', 'react', 'image_result_formatter', 'useful_plugins'],
+    keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'custom', 'create', 'build'],
     prev: { href: '/on_events', title: 'Event System (on_events)' },
-    next: { href: '/serve', title: 'Agent Serving' }
+    next: { href: '/useful-plugins', title: 'Useful Plugins' }
   },
 
   // Networking
@@ -246,20 +380,29 @@ export const navigation = [
     title: 'Agent Serving',
     href: '/serve',
     icon: Wifi,
-    section: 'Networking',
+    section: 'Network',
     difficulty: 'Essential',
     keywords: ['serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'agent serving', 'ed25519'],
-    prev: { href: '/plugin', title: 'Plugin System' },
+    prev: { href: '/useful-plugins', title: 'Useful Plugins' },
     next: { href: '/connect', title: 'Connect to Agents' }
   },
   {
     title: 'Connect to Agents',
     href: '/connect',
     icon: Network,
-    section: 'Networking',
+    section: 'Network',
     difficulty: 'Essential',
     keywords: ['connect', 'remote', 'network', 'relay', 'distributed', 'client', 'remote agent', 'proxy'],
     prev: { href: '/serve', title: 'Agent Serving' },
+    next: { href: '/cli', title: 'CLI Reference' }
+  },
+  {
+    title: 'CLI Reference',
+    href: '/cli',
+    icon: Terminal,
+    section: 'Network',
+    keywords: ['command', 'terminal', 'co', 'commands'],
+    prev: { href: '/connect', title: 'Connect to Agents' },
     next: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' }
   },
 
@@ -268,7 +411,7 @@ export const navigation = [
     title: '001: AI Agent = Prompt + Function',
     href: '/tutorials/001-ai-agent-is-just-prompt-plus-function',
     icon: BookOpen,
-    section: 'Tutorials',
+    section: 'Debug',
     keywords: ['tutorial', 'beginner', 'first', 'prompt', 'function', 'langchain', 'simple'],
     prev: { href: '/xray', title: '@xray Decorator' },
     next: { href: '/xray/trace', title: 'trace() Visual Flow' }
@@ -279,7 +422,8 @@ export const navigation = [
     title: 'trace() Visual Flow',
     href: '/xray/trace',
     icon: GitBranch,
-    section: 'Advanced Features',
+    section: 'Debug',
+    parent: '/xray', // Nested under @xray Decorator
     keywords: ['trace', 'flow', 'visual', 'debug', 'execution'],
     prev: { href: '/xray', title: '@xray Decorator' },
     next: { href: '/prompts/formats', title: 'Prompt Formats' }
@@ -288,8 +432,8 @@ export const navigation = [
     title: 'Prompt Formats',
     href: '/prompts/formats',
     icon: FileText,
-    section: 'Advanced Features',
-    difficulty: 'Interactive Demo',
+    section: 'Core Concepts',
+    parent: '/prompts', // Nested under System Prompts
     keywords: ['format', 'prompt', 'template', 'syntax'],
     prev: { href: '/xray/trace', title: 'trace() Visual Flow' },
     next: { href: '/threat-model', title: 'Threat Model' }
@@ -300,7 +444,7 @@ export const navigation = [
     title: 'Threat Model',
     href: '/threat-model',
     icon: Shield,
-    section: 'Security',
+    section: 'Network',
     keywords: ['security', 'threat', 'risk', 'safety', 'vulnerability'],
     prev: { href: '/prompts/formats', title: 'Prompt Formats' },
     next: { href: '/examples', title: 'All Examples' }

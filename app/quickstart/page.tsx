@@ -58,7 +58,7 @@ import { CommandBlock } from '../../components/CommandBlock'
 import CodeWithResult from '../../components/CodeWithResult'
 import { FileTree } from '../../components/FileTree'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function QuickStartPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -70,27 +70,23 @@ export default function QuickStartPage() {
   }
 
   return (
-    <div className="px-4 md:px-8 py-8 md:py-16 md:py-24 lg:py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
-      {/* Header with Copy Button */}
-      <div className="mb-8">
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm text-slate-100 mb-4">
-          <Link href="/" className="hover:text-white transition-colors">Home</Link>
-          <ArrowRight className="w-4 h-4" />
-          <span className="text-white">Quick Start</span>
-        </nav>
-        
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-          <div className="flex-1">
-            <h1 className="heading-1">Quick Start Guide</h1>
-            <p className="text-xl text-slate-100">
-              Get up and running with ConnectOnion in under 2 minutes.
-            </p>
-          </div>
-          <CopyMarkdownButton markdownPath="/quickstart/quickstart.md" filename="quickstart.md" className="flex-shrink-0" />
-        </div>
-      </div>
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Quick Start' }
+          ]}
+          icon={Play}
+          iconColor="text-green-400"
+          iconBgFrom="from-green-600/20"
+          iconBgTo="to-emerald-600/20"
+          iconBorderColor="border-green-500/30"
+          title="Quick Start Guide"
+          description="Get up and running with ConnectOnion in under 2 minutes."
+          markdownPath="/quickstart/quickstart.md"
+          markdownFilename="quickstart.md"
+        />
 
         {/* Time Estimate */}
         <div className="flex items-center gap-2 mb-12 p-4 bg-gradient-to-b from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-lg">

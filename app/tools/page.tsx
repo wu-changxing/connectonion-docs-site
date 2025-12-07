@@ -51,7 +51,7 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 import { Copy, Check, Code, Layers, Compass, Monitor, ArrowRight, Wrench, Settings, Box } from 'lucide-react'
 import { FaLightbulb, FaCheckCircle, FaTimes } from 'react-icons/fa'
 import CodeWithResult from '../../components/CodeWithResult'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function ToolsDocsPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -179,33 +179,23 @@ print(browser.list_tabs())
 browser.close()`
 
   return (
-    <div className="px-6 sm:px-8 md:px-12 py-8 md:py-16 md:py-24 lg:py-16">
-      <div className="max-w-5xl mx-auto">
-      {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-200 mb-8">
-        <Link href="/" className="hover:text-purple-400 transition-colors min-h-[44px] flex items-center">
-          Docs
-        </Link>
-        <ArrowRight className="w-4 h-4" />
-        <span className="text-white">Tools</span>
-      </div>
-
-      {/* Header */}
-      <div className="mb-12">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-br from-emerald-600/20 to-blue-600/20 rounded-xl border border-emerald-500/30">
-              <Wrench className="w-8 h-8 text-emerald-400" />
-            </div>
-            <div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight transition-all">Tools</h1>
-              <p className="text-base sm:text-lg text-gray-200 mt-2">
-                Build powerful, reusable function tools and stateful class tools.
-              </p>
-            </div>
-          </div>
-          <CopyMarkdownButton markdownPath="/tools/tools.md" filename="tools.md" className="flex-shrink-0" />
-        </div>
+    <div className="px-4 md:px-8 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto">
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Tools' }
+          ]}
+          icon={Wrench}
+          iconColor="text-emerald-400"
+          iconBgFrom="from-emerald-600/20"
+          iconBgTo="to-blue-600/20"
+          iconBorderColor="border-emerald-500/30"
+          title="Tools"
+          description="Build powerful, reusable function tools and stateful class tools."
+          markdownPath="/tools/tools.md"
+          markdownFilename="tools.md"
+        />
         
         <div className="bg-blue-900/30 border border-blue-500/50 rounded-lg p-4 mt-4">
           <p className="text-blue-300 text-sm">
@@ -216,10 +206,9 @@ browser.close()`
             ConnectOnion automatically discovers all public methods with type hints.
           </p>
         </div>
-      </div>
-        
+
         {/* Tool Type Tabs */}
-        <div className="flex gap-2 mb-6">
+        <div className="flex gap-2 my-6">
           <button
             onClick={() => setActiveTab('function')}
             className={`min-h-[44px] px-6 py-3 rounded-lg font-medium transition-all

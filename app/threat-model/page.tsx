@@ -641,7 +641,7 @@ export default function ThreatModelPage() {
   ]
 
   return (
-    <div className="max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-8 lg:py-16 md:py-24 leading-7">
+    <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24">
       {/* Progress bar for mobile */}
       <div className="fixed top-0 left-0 right-0 h-0.5 bg-gray-800 z-50 lg:hidden">
         <div 
