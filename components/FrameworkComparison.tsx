@@ -327,8 +327,8 @@ export function FrameworkComparison() {
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex-1 h-px bg-gray-700" />
                 <div className="text-center">
-                  <h3 className="text-xl md:text-2xl font-bold text-white">{comparison.title}</h3>
-                  <p className="text-sm text-slate-300 mt-1">vs {comparison.vsFramework}</p>
+                  <h3 className="text-xl md:text-2xl lg:text-2xl font-bold text-white">{comparison.title}</h3>
+                  <p className="text-sm text-slate-200 mt-1">vs {comparison.vsFramework}</p>
                 </div>
                 <div className="flex-1 h-px bg-gray-700" />
               </div>
@@ -371,7 +371,7 @@ export function FrameworkComparison() {
                     <span className="text-xs font-bold px-2 py-1 rounded bg-gray-600 text-white">
                       {comparison.other.framework}
                     </span>
-                    <span className={`text-xs font-mono ${comparison.other.lines === 'DEPRECATED' ? 'text-red-400' : 'text-slate-300'}`}>
+                    <span className={`text-xs font-mono ${comparison.other.lines === 'DEPRECATED' ? 'text-red-400' : 'text-slate-200'}`}>
                       {comparison.other.lines}
                     </span>
                   </div>
@@ -415,27 +415,27 @@ export function FrameworkComparison() {
                 <tr>
                   <td className="px-4 py-3 text-slate-100">Tool definition</td>
                   <td className="px-4 py-3 text-purple-400 font-medium">Just a function</td>
-                  <td className="px-4 py-3 text-slate-300">Decorators, wrappers, classes</td>
+                  <td className="px-4 py-3 text-slate-200">Decorators, wrappers, classes</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-slate-100">Shared state</td>
                   <td className="px-4 py-3 text-purple-400 font-medium">self.field</td>
-                  <td className="px-4 py-3 text-slate-300">wrapper.context, dataclass, services</td>
+                  <td className="px-4 py-3 text-slate-200">wrapper.context, dataclass, services</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-slate-100">Add ReAct</td>
                   <td className="px-4 py-3 text-purple-400 font-medium">plugins=[re_act]</td>
-                  <td className="px-4 py-3 text-slate-300">Planner classes, different agent types</td>
+                  <td className="px-4 py-3 text-slate-200">Planner classes, different agent types</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-slate-100">Memory</td>
                   <td className="px-4 py-3 text-purple-400 font-medium">Memory as tool</td>
-                  <td className="px-4 py-3 text-slate-300">Sessions, services, deprecated APIs</td>
+                  <td className="px-4 py-3 text-slate-200">Sessions, services, deprecated APIs</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-slate-100">Event hooks</td>
                   <td className="px-4 py-3 text-purple-400 font-medium">9 types, full access</td>
-                  <td className="px-4 py-3 text-slate-300">Guardrails only, limited callbacks</td>
+                  <td className="px-4 py-3 text-slate-200">Guardrails only, limited callbacks</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-slate-100">Free credits</td>
