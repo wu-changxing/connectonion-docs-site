@@ -1,3 +1,13 @@
+/**
+ * @purpose Central navigation data structure defining all docs pages, sections, and routing
+ * @llm-note
+ *   Dependencies: imports from [react-icons/hi2, react-icons/vsc, react-icons/fa]
+ *   Imported by: [DocsSidebar.tsx, MobileDocsNav.tsx, ContentNavigation.tsx, Footer.tsx, ClientLayout.tsx, app/quickstart/page.tsx]
+ *   Data flow: exports navigation[] array → consumed by sidebar, content nav, and search components
+ *   State/Effects: pure data module | no side effects | defines 70+ navigation items with prev/next links
+ *   Integration: exposes navigation[], getPageByHref(), getPagesBySection(), getExamplePages()
+ *   Structure: each item has {title, href, icon, section, keywords[], prev, next, difficulty?, parent?, hidden?}
+ */
 import {
   HiOutlineHome, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
   HiOutlineArrowsRightLeft, HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineCalculator, HiOutlineCloud, HiOutlineBookOpen,

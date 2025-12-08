@@ -1,3 +1,13 @@
+/**
+ * @purpose Side-by-side code comparison showcasing ConnectOnion vs other frameworks
+ * @llm-note
+ *   Dependencies: imports from [react-syntax-highlighter] | imported by [app/page.tsx (homepage)]
+ *   Data flow: renders static comparisons[] array → SyntaxHighlighter for Python code → comparison table
+ *   State/Effects: pure render component | no state | no side effects
+ *   Integration: exposes FrameworkComparison component
+ *   Content: 5 comparisons (Calculator, Browser, ReAct, Memory, Events) vs LangChain/OpenAI SDK/Google ADK
+ *   UX: purple border for ConnectOnion | gray for others | line counts shown | responsive grid layout
+ */
 'use client'
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'

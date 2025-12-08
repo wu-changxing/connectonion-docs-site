@@ -1,3 +1,12 @@
+/**
+ * @purpose React hook for copying page markdown content to clipboard with status tracking
+ * @llm-note
+ *   Dependencies: imports from [react, lib/markdownMapping] | imported by [DocsSidebar.tsx, MobileDocsNav.tsx]
+ *   Data flow: pathname → getMarkdownPath() → fetch(markdownPath) → navigator.clipboard.writeText()
+ *   State/Effects: manages {status, copiedPath} state | writes to clipboard | haptic feedback on mobile (50ms vibrate)
+ *   Integration: exposes useCopyMarkdown(defaultPathname?) → {copyMarkdown, status, copiedPath}
+ *   UX: status cycles: idle → loading → success (2s) → idle | error resets after 3s
+ */
 'use client'
 
 import { useState, useCallback } from 'react'

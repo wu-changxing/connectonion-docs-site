@@ -22,7 +22,7 @@
   --text-muted: #cbd5e1;       /* slate-300 - WCAG AA compliant for metadata */
 
   /* Background Colors */
-  --bg-base: #0f172a;          /* slate-950 - Main background */
+  --bg-base: #030712;          /* gray-950 - Main background (matches Tailwind bg-gray-950) */
   --bg-elevated: #1e293b;      /* slate-800 - Cards, elevated surfaces */
   --bg-subtle: #0f172a;        /* With purple tint for depth */
 }
@@ -32,7 +32,7 @@ html {
 }
 
 body {
-  background-color: #0f172a;
+  background-color: #030712;
   color: #e2e8f0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

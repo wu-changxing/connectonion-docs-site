@@ -1,3 +1,12 @@
+/**
+ * @purpose Visual file tree component displaying project structure with icons and comments
+ * @llm-note
+ *   Dependencies: imports from [react-icons/hi2] | imported by [app/cli/page.tsx, app/quickstart/page.tsx]
+ *   Data flow: receives {structure: FileTreeItem[], className?} → recursive renderTree() → tree with lines
+ *   State/Effects: pure render component | no state | no side effects
+ *   Integration: exposes FileTree component, FileTreeItem interface
+ *   UX: folder icons (blue), file icons by extension (py=snake, md=doc, env=lock) | tree lines (├── └──)
+ */
 'use client'
 
 import { HiOutlineFolderOpen, HiOutlineDocumentText, HiOutlineCog6Tooth, HiOutlineCodeBracket, HiOutlineLockClosed } from 'react-icons/hi2'

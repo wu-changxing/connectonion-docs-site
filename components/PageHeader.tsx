@@ -1,3 +1,12 @@
+/**
+ * @purpose Reusable page header component with breadcrumbs, icon, title, description, and copy button
+ * @llm-note
+ *   Dependencies: imports from [next/link, react-icons, CopyMarkdownButton, react] | imported by [28+ page files]
+ *   Data flow: receives {breadcrumbs, icon, title, description, badge?, markdownPath?} → renders header structure
+ *   State/Effects: pure render component | no state | CopyMarkdownButton handles copy state
+ *   Integration: exposes PageHeader component | accepts Lucide or react-icons icon components
+ *   UX: gradient icon background | breadcrumb navigation | optional CopyMarkdownButton for markdown path
+ */
 'use client'
 
 import Link from 'next/link'

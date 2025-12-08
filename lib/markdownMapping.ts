@@ -1,5 +1,12 @@
-// Map routes to markdown files in public/tutorials folder
-// This provides a single source of truth for all markdown paths
+/**
+ * @purpose Route-to-markdown file path mapping for copy-to-clipboard functionality
+ * @llm-note
+ *   Dependencies: imports from [] | imported by [hooks/useCopyMarkdown.ts, components/DocsSidebar.tsx]
+ *   Data flow: pathname string → routeToMarkdownMap lookup → returns /tutorials/*.md path or null
+ *   State/Effects: pure data module | no side effects | ~50 route mappings
+ *   Integration: exposes getMarkdownPath(pathname), hasMarkdownContent(pathname)
+ *   Usage: enables per-page markdown copying for AI context sharing
+ */
 
 const routeToMarkdownMap: Record<string, string> = {
   // Getting Started

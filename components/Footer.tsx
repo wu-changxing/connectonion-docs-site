@@ -1,3 +1,12 @@
+/**
+ * @purpose Site footer with conditional CTA section and social links
+ * @llm-note
+ *   Dependencies: imports from [next/link, next/navigation, react-icons] | imported by [ClientLayout.tsx]
+ *   Data flow: reads pathname via usePathname() → conditionally renders CTA for / and /quickstart pages
+ *   State/Effects: reads current year via Date() | no state mutations | no API calls
+ *   Integration: exposes Footer component (default export)
+ *   UX: CTA only on landing/quickstart | minimal footer with brand, copyright, social links (GitHub, Discord)
+ */
 'use client'
 
 import Link from 'next/link'

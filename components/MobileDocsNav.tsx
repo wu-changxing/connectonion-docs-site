@@ -1,3 +1,13 @@
+/**
+ * @purpose Mobile navigation header with hamburger menu and sliding sidebar drawer
+ * @llm-note
+ *   Dependencies: imports from [react, react-icons, DocsSidebar, framer-motion, next, useCopyMarkdown, markdownMapping]
+ *   Imported by: [ClientLayout.tsx]
+ *   Data flow: usePathname() → auto-close on route change | hasMarkdownContent() → show/hide copy button
+ *   State/Effects: manages isOpen state | closes menu on pathname change | uses useCopyMarkdown hook for copy
+ *   Integration: exposes MobileDocsNav component | renders DocsSidebar in slide-out drawer
+ *   UX: sticky top header on mobile (lg:hidden) | hamburger toggle | backdrop overlay | copy button if page has markdown
+ */
 'use client'
 
 import { useState, useEffect } from 'react'

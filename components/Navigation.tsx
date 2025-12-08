@@ -1,3 +1,13 @@
+/**
+ * @purpose Top navigation header with scroll effects, mobile menu, and markdown copy functionality
+ * @llm-note
+ *   Dependencies: imports from [next/link, react, react-icons, framer-motion] | imported by [legacy pages, mostly unused]
+ *   Data flow: receives {markdownContent?, markdownPath?, filename?} → fetches markdown if path provided → copy/download handlers
+ *   State/Effects: manages {isOpen, scrolled, copied, content} | scroll listener for header bg | clipboard write | haptic feedback
+ *   Integration: exposes Navigation component (default) + NavLink, MobileNavLink subcomponents
+ *   UX: transparent → blurred bg on scroll | mobile hamburger menu | copy button in header | gradient CTA button
+ *   Note: This component is superseded by DocsSidebar + MobileDocsNav for most pages
+ */
 'use client'
 
 import Link from 'next/link'

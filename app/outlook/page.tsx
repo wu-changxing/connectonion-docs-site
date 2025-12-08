@@ -10,8 +10,8 @@ import { PageHeader } from '../../components/PageHeader'
 
 export default function OutlookPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto">
         <PageHeader
           breadcrumbs={[
             { label: 'Docs', href: '/' },

@@ -1,3 +1,12 @@
+/**
+ * @purpose Text highlighting component that marks search query matches in results
+ * @llm-note
+ *   Dependencies: imports from [react] | imported by [DocsSidebar.tsx]
+ *   Data flow: receives {text, query, className?} → splits text by query regex → wraps matches in <mark>
+ *   State/Effects: pure render component | no state | no side effects
+ *   Integration: exposes SearchHighlight component
+ *   UX: highlights with purple bg (bg-purple-500/30) | case-insensitive matching
+ */
 import React from 'react'
 
 interface SearchHighlightProps {
