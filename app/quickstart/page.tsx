@@ -438,7 +438,7 @@ The answer is 739.`}
 
         <CodeWithResult
           code={`from connectonion import Agent
-from connectonion.decorators import xray
+from connectonion import xray
 
 @xray
 def calculate(expression: str) -> str:
@@ -475,8 +475,7 @@ The result is 80.`}
         </p>
 
         <CodeWithResult
-          code={`from connectonion import Agent
-from connectonion.decorators import xray
+          code={`from connectonion import Agent, xray
 
 @xray  # Breakpoint: pause here for inspection
 def search_database(query: str) -> str:
