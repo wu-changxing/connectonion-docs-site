@@ -733,7 +733,7 @@ Debug your agent's tool execution with real-time insights - see what your AI age
 ### Quick Start
 
 ```python
-from connectonion.decorators import xray
+from connectonion import xray
 
 @xray
 def my_tool(text: str) -> str:
