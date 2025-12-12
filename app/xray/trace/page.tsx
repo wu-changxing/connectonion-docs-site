@@ -20,8 +20,7 @@ export default function XrayTracePage() {
     simple: {
       title: '1. Simple Single Tool',
       description: 'Minimal example with one tool call',
-      code: `from connectonion import Agent
-from connectonion.decorators import xray
+      code: `from connectonion import Agent, xray
 
 @xray
 def greet(name: str) -> str:
@@ -45,8 +44,7 @@ Total: 12ms • 1 step • 1 iteration`
     basic: {
       title: '2. Multiple Tool Chain',
       description: 'Agent uses multiple tools in sequence',
-      code: `from connectonion import Agent
-from connectonion.decorators import xray
+      code: `from connectonion import Agent, xray
 
 @xray
 def analyze_text(text: str) -> dict:
@@ -89,8 +87,7 @@ Total: 68ms • 2 steps • 1 iteration`
     error: {
       title: '3. Error Handling & Recovery',
       description: 'How trace displays errors and agent recovery',
-      code: `from connectonion import Agent
-from connectonion.decorators import xray
+      code: `from connectonion import Agent, xray
 
 @xray
 def validate_email(email: str) -> dict:
@@ -139,8 +136,7 @@ Total: 18ms • 2 steps • 1 iteration • 1 error`
     performance: {
       title: '4. Performance Bottleneck Analysis',
       description: 'Identify slow operations and optimization opportunities',
-      code: `from connectonion import Agent
-from connectonion.decorators import xray
+      code: `from connectonion import Agent, xray
 import time
 import random
 
@@ -219,8 +215,7 @@ Total: 2.07s • 4 steps • 1 iteration
     ide: {
       title: '5. IDE Breakpoint Debugging',
       description: 'Advanced debugging with IDE breakpoints and live context inspection',
-      code: `from connectonion import Agent
-from connectonion.decorators import xray
+      code: `from connectonion import Agent, xray
 
 @xray
 def process_order(order_data: dict) -> dict:
@@ -444,8 +439,7 @@ pip install connectonion
 ## Basic Usage
 
 \`\`\`python
-from connectonion import Agent
-from connectonion.decorators import xray
+from connectonion import Agent, xray
 
 # Create agent with @xray decorated tools
 @xray

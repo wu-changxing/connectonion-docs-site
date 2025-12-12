@@ -73,8 +73,7 @@ export default function AutoDebugPage() {
           </p>
 
           <CodeWithResult
-            code={`from connectonion import Agent
-from connectonion.decorators import xray
+            code={`from connectonion import Agent, xray
 
 @xray  # Tools with @xray become breakpoints
 def search_emails(query: str):

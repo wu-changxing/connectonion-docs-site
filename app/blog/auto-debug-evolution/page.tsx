@@ -49,8 +49,7 @@ What do you want to do?
 💡 Use ↑↓ arrows and Enter, or type shortcuts
 >`
 
-  const codeUsage = `from connectonion import Agent
-from connectonion.decorators import xray
+  const codeUsage = `from connectonion import Agent, xray
 
 @xray
 def search_emails(query: str):
@@ -267,8 +266,7 @@ This isn't just about auto-debug. It's our design process:
 pip install connectonion
 
 # In your code
-from connectonion import Agent
-from connectonion.decorators import xray
+from connectonion import Agent, xray
 
 @xray
 def my_tool(param: str):
