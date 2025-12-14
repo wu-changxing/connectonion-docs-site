@@ -1,204 +1,379 @@
-# ConnectOnion CLI Reference
+# ConnectOnion CLI
 
-The ConnectOnion CLI provides commands to quickly scaffold and manage AI agent projects.
+The `co` command-line interface lets you create production-ready AI agent projects in seconds.
 
-## Installation
+## The Problem
 
-The CLI is automatically installed when you install ConnectOnion:
+Setting up AI agent projects is tedious:
+- Manual `.env` file configuration
+- Copy-pasting boilerplate code
+- Setting up authentication and API keys
+- Managing cryptographic identity
+- Inconsistent project structure
+
+## The Solution
 
 ```bash
+co create my-agent
+cd my-agent
+python agent.py
+```
+
+Done. You now have a complete, working AI agent.
+
+## Quick Start (60 seconds)
+
+```bash
+# Install
 pip install connectonion
+
+# Create agent
+co create my-agent
+
+# Run it
+cd my-agent
+python agent.py
 ```
 
-This provides two equivalent commands:
-- `co` (short form)
-- `connectonion` (full form)
+The CLI automatically:
+1. Creates your global identity (`~/.co/`)
+2. Guides you through API key setup
+3. Generates complete project structure
+4. Authenticates for managed keys (free credits)
 
-## Commands
+## All Commands
 
-### `co init`
+### Project Commands
 
-Initialize a new ConnectOnion agent project in the current directory.
+#### `co create [name]` - Create New Project
 
-#### Basic Usage
+Creates a new directory with complete agent project.
+
+**Basic usage:**
+```bash
+co create my-agent              # Interactive
+co create my-agent --yes        # Skip prompts
+co create my-agent -t playwright # Specify template
+```
+
+**Options:**
+- `[name]` - Project name (creates directory)
+- `--template, -t` - Template: `minimal` (default), `playwright`, `custom`
+- `--key` - API key (auto-detects provider)
+- `--description` - For custom templates
+- `--yes, -y` - Skip all prompts
+- `--ai/--no-ai` - Enable/disable AI (enabled by default)
+
+**Templates:**
+- **minimal** - Basic agent with simple tools
+- **playwright** - Browser automation
+- **custom** - AI-generated from description
+
+**What it creates:**
+```
+my-agent/
+├── agent.py                 # Main agent
+├── .env                     # API keys (from ~/.co/keys.env)
+├── .co/
+│   ├── config.toml          # Project config
+│   └── docs/                # Framework docs
+├── co-vibecoding-principles-docs-contexts-all-in-one.md
+└── .gitignore               # Safe defaults
+```
+
+---
+
+#### `co init` - Add to Existing Directory
+
+Adds ConnectOnion to existing project safely.
+
+**Basic usage:**
+```bash
+cd my-existing-project
+co init                      # Safe - preserves existing files
+```
+
+**What it does:**
+- Preserves existing files and `.env`
+- Appends only missing API keys
+- Updates `.co/docs/` to latest
+- Skips existing files (like `agent.py`)
+
+---
+
+### Authentication & Account Commands
+
+#### `co auth` - Authenticate for Managed Keys
+
+One-time setup for managed LLM keys (free credits included).
 
 ```bash
-# Create a meta-agent (default)
-mkdir meta-agent
-cd meta-agent
-co init
-
-# Create a web automation agent
-mkdir playwright-agent
-cd playwright-agent
-co init --template playwright
+co auth
 ```
 
-#### Options
+**What it does:**
+1. Signs message with your Ed25519 key
+2. Authenticates with OpenOnion backend
+3. Saves `OPENONION_API_KEY` to `~/.co/keys.env`
+4. Activates your agent email
 
-- `--template, -t`: Choose a template (`meta-agent`, `playwright`)
-  - `meta-agent` (default): ConnectOnion development assistant with docs expertise
-  - `playwright`: Web automation agent with stateful browser control
-- `--force`: Overwrite existing files
-
-#### What Gets Created
-
-**Meta-Agent Template (default):**
-```
-my-project/
-├── agent.py           # Main agent with llm_do integration
-├── prompts/           # System prompts directory
-│   ├── metagent.md    # Main system prompt
-│   ├── docs_retrieve_prompt.md  # Document retrieval
-│   ├── answer_prompt.md         # Answer generation
-│   └── think_prompt.md          # Reflection/thinking
-├── README.md          # Project documentation
-├── .env.example       # Environment variables template
-├── .co/               # ConnectOnion metadata
-│   ├── config.toml    # Project configuration
-│   └── docs/
-│       └── connectonion.md  # Embedded framework documentation
-└── .gitignore         # Git ignore rules (if in git repo)
-```
-
-**Playwright Template:**
-```
-my-project/
-├── agent.py           # Browser automation agent
-├── prompt.md          # System prompt
-├── .env.example       # Environment variables template
-├── .co/               # ConnectOnion metadata
-│   ├── config.toml    # Project configuration
-│   └── docs/
-│       └── connectonion.md  # Embedded framework documentation
-└── .gitignore         # Git ignore rules (if in git repo)
-```
-
-#### Interactive Features
-
-The CLI will:
-- Warn if you're in a special directory (home, root, system)
-- Ask for confirmation if the directory is not empty
-- Automatically detect git repositories and update `.gitignore`
-- Provide clear next steps after initialization
-
-### Examples
-
-#### Meta-Agent (ConnectOnion Development Assistant)
-
-```bash
-$ mkdir meta-agent && cd meta-agent
-$ co init
-✅ ConnectOnion project initialized!
-
-Created:
-   ├── agent.py (Meta-agent with llm_do integration)
-   ├── prompts/ (System prompts directory)
-   ├── README.md (Project documentation)
-   ├── .env.example (API key configuration template)
-   ├── .co/ (ConnectOnion metadata)
-   ├── .co/docs/connectonion.md (ConnectOnion reference documentation)
-
-🚀 Next steps:
-   1. Copy .env.example to .env and add your API keys
-   2. Edit prompt.md to customize your agent's personality
-   3. Run: python agent.py
-   4. Start building your agent!
-```
-
-The meta-agent template includes powerful development and self-reflective tools:
-- `answer_connectonion_question()` - Expert answers from embedded docs
-- `create_agent_from_template()` - Generate complete agent code
-- `generate_tool_code()` - Create tool functions
-- `create_test_for_agent()` - Generate pytest test suites
-- `think()` - Self-reflection to analyze task completion
-- `generate_todo_list()` - Create structured plans (uses GPT-4o-mini)
-- `suggest_project_structure()` - Architecture recommendations
-
+**Using managed keys:**
 ```python
-# Learn about ConnectOnion
-result = agent.input("What is ConnectOnion and how do tools work?")
+from connectonion import llm_do
 
-# Generate agent code
-result = agent.input("Create a web scraper agent")
-
-# Create tool functions
-result = agent.input("Generate a tool for sending emails")
-
-# Task planning
-result = agent.input("Create a to-do list for building a REST API")
-
-# Self-reflection
-result = agent.input("Think about whether you completed the task successfully")
+# Use co/ prefix
+response = llm_do("Hello", model="co/gpt-4o")
+response = llm_do("Hello", model="co/claude-3-5-sonnet")
+response = llm_do("Hello", model="co/gemini-1.5-pro")
 ```
 
-#### Playwright Web Automation Agent
+**Available models:**
+- OpenAI: `co/gpt-4o`, `co/gpt-4o-mini`, `co/o4-mini`
+- Anthropic: `co/claude-3-5-sonnet`, `co/claude-3-5-haiku`
+- Google: `co/gemini-1.5-pro`, `co/gemini-1.5-flash`
+
+---
+
+#### `co status` - Check Account Balance
+
+Shows your managed keys balance and usage.
 
 ```bash
-$ co init --template playwright
-✅ ConnectOnion project initialized!
-💡 You're using the 'playwright' template with specialized tools.
+co status
 ```
 
-The Playwright template includes stateful browser tools:
-- `start_browser()` - Launch browser instance
-- `navigate()` - Go to URLs
-- `scrape_content()` - Extract page content
-- `fill_form()` - Fill and submit forms
-- `take_screenshot()` - Capture pages
-- `extract_links()` - Get all links
-- `execute_javascript()` - Run JS code
-- `close_browser()` - Clean up resources
+**Example output:**
+```
+ConnectOnion Account Status
+============================
 
-Note: Requires `pip install playwright && playwright install`
+Address:  0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a
+Email:    0x7a9f3b2c@mail.openonion.ai
+Balance:  $5.00
+```
 
-## Project Structure
+---
 
-### `.co/` Directory
+#### `co reset` - Reset Account
 
-The `.co/` directory contains:
-- `config.toml`: Project metadata (version, creation date, template used)
-- `docs/connectonion.md`: Embedded documentation for offline reference
-- `history/`: Agent behavior history (created at runtime)
+**WARNING**: Destructive operation. Deletes all data and creates new account.
 
-### Best Practices
+```bash
+co reset
+```
 
-1. **Always use markdown for prompts**: Store system prompts in `prompt.md` files
-2. **Environment variables**: Never commit `.env` files, use `.env.example` as template
-3. **Git integration**: The CLI automatically handles `.gitignore` for git repositories
-4. **Documentation**: The embedded docs in `.co/docs/` allow agents to work offline
+---
+
+#### `co deploy` - Deploy to Cloud
+
+Deploy your agent to ConnectOnion Cloud.
+
+```bash
+co deploy
+```
+
+**Requirements:**
+- Git repository with committed code
+- `.co/config.toml` (created by `co create` or `co init`)
+- Authenticated (`co auth`)
+
+**Example:**
+```bash
+$ co deploy
+
+Deploying to ConnectOnion Cloud...
+
+  Project: my-agent
+  Secrets: 3 keys
+
+Uploading...
+Building...
+
+Deployed!
+Agent URL: https://my-agent-abc123.agents.openonion.ai
+```
+
+> **Beta**: This feature is in beta. See [Deploy Guide](../network/deploy.md) for details.
+
+---
+
+### Utility Commands
+
+#### `co doctor` - Diagnose Issues
+
+Comprehensive diagnostics for your ConnectOnion installation.
+
+```bash
+co doctor
+```
+
+**What it checks:**
+- System Info (version, Python, environment)
+- Configuration (config files, keys, API keys)
+- Connectivity (backend, authentication)
+
+**Example output:**
+```
+🔍 ConnectOnion Diagnostics
+
+┌─ System ─────────────────────────────────┐
+│ Version        ✓ 0.0.7                   │
+│ Python         ✓ 3.11.5                  │
+│ Environment    ✓ Virtual environment     │
+└──────────────────────────────────────────┘
+
+┌─ Configuration ──────────────────────────┐
+│ Config         ✓ .co/config.toml         │
+│ Keys           ✓ .co/keys/agent.key      │
+│ API Key        ✓ Found in environment    │
+└──────────────────────────────────────────┘
+
+┌─ Connectivity ───────────────────────────┐
+│ Backend        ✓ https://oo.openonion.ai │
+│ Authentication ✓ Valid credentials       │
+└──────────────────────────────────────────┘
+
+✅ Diagnostics complete!
+```
+
+---
+
+#### `co browser <command>` - Browser Automation
+
+Execute browser commands quickly.
+
+```bash
+co browser "screenshot localhost:3000"
+co browser "click on login button"
+
+# Shortcut
+co -b "screenshot localhost:3000"
+```
+
+---
+
+## Global Configuration
+
+### The `~/.co/` Directory
+
+On first use, ConnectOnion creates global configuration:
+
+```
+~/.co/
+├── config.toml          # Global identity and settings
+├── keys.env             # Shared API keys
+├── keys/                # Master Ed25519 keypair
+│   ├── agent.key        # Private key (NEVER share)
+│   ├── agent.pub        # Public key
+│   └── recovery.txt     # 12-word recovery phrase
+└── logs/                # CLI activity logs
+```
+
+**Your Global Identity:**
+- **Address**: Hex-encoded Ed25519 public key (`0x7a9f3b2c...`)
+- **Email**: Derived address (`0x7a9f3b2c@mail.openonion.ai`)
+- **Keys**: For authentication and signing
+
+All projects share this identity by default.
+
+---
+
+## API Key Management
+
+### Auto-Detection
+
+The CLI automatically detects providers:
+
+| Provider | Format | Env Variable |
+|----------|--------|--------------|
+| OpenAI | `sk-...` / `sk-proj-...` | `OPENAI_API_KEY` |
+| Anthropic | `sk-ant-...` | `ANTHROPIC_API_KEY` |
+| Google | `AIza...` | `GEMINI_API_KEY` |
+| Groq | `gsk_...` | `GROQ_API_KEY` |
+| OpenOnion | JWT token | `OPENONION_API_KEY` |
+
+### Priority Order
+
+1. `--key` flag
+2. Environment variables
+3. `~/.co/keys.env` (global)
+4. Interactive prompt
+5. Skip (add later)
+
+---
+
+## Command Reference Summary
+
+| Command | Purpose | Interactive | Safe for Existing |
+|---------|---------|-------------|-------------------|
+| `co create` | New project | Yes | N/A (creates new dir) |
+| `co init` | Add to existing | Yes | ✅ Yes |
+| `co auth` | Get managed keys | No | ✅ Yes |
+| `co status` | Check balance | No | ✅ Yes |
+| `co deploy` | Deploy to cloud | No | ✅ Yes |
+| `co reset` | Reset account | Yes | ⚠️ Destructive |
+| `co doctor` | Diagnose issues | No | ✅ Yes |
+| `co browser` | Browser command | No | ✅ Yes |
+
+---
+
+## Security & Identity
+
+### Ed25519 Cryptographic Identity
+
+Every installation generates master Ed25519 keypair:
+
+**Used for:**
+1. Agent addressing (unique identifier)
+2. Authentication (passwordless)
+3. Message signing (cryptographic proof)
+4. Secure communication (encryption)
+
+**Security:**
+- Never share `.co/keys/` directory
+- Never commit `.env` files
+- Backup 12-word recovery phrase
+- Keys auto-added to `.gitignore`
+
+---
 
 ## Troubleshooting
 
-### Permission Denied
-
-If you see "Permission denied" errors, ensure you have write permissions in the current directory.
-
-### API Keys
-
-Remember to:
-1. Copy `.env.example` to `.env`
-2. Add your actual API keys
-3. Never commit `.env` to version control
-
-### Python Version
-
-ConnectOnion requires Python 3.8 or higher. Check your version:
+### Command Not Found
 
 ```bash
-python --version
+# Check installation
+pip show connectonion
+
+# Reinstall
+pip uninstall connectonion
+pip install connectonion
+
+# Use full path
+python -m connectonion.cli.main create my-agent
 ```
 
-## Next Steps
+### Permission Denied
 
-After initializing your project:
+```bash
+# Fix global
+chmod 700 ~/.co
+chmod 600 ~/.co/keys.env
 
-1. **Set up API keys**: Copy `.env.example` to `.env` and add your OpenAI API key
-2. **Customize the prompt**: Edit `prompt.md` to define your agent's personality
-3. **Add tools**: Create Python functions and add them to your agent
-4. **Test your agent**: Run `python agent.py` to test
+# Fix project
+chmod 700 my-agent/.co
+chmod 600 my-agent/.env
+```
 
-For more information, see:
-- [Getting Started Guide](getting-started.md)
-- [Templates Documentation](templates.md)
-- [Tools Documentation](tools.md)
+### API Key Issues
+
+```bash
+# Check format
+cat ~/.co/keys.env
+
+# Test auth
+co auth
+
+# Diagnose
+co doctor
+```

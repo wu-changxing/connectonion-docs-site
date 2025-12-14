@@ -464,7 +464,7 @@ export const navigation = [
     parent: '/useful-plugins',
     keywords: ['shell', 'approval', 'security', 'command', 'permission'],
     prev: { href: '/useful-plugins/image-result-formatter', title: 'image_result_formatter' },
-    next: { href: '/serve', title: 'Agent Serving' }
+    next: { href: '/host', title: 'host()' }
   },
   {
     title: 'Plugin System',
@@ -479,12 +479,12 @@ export const navigation = [
 
   // Networking
   {
-    title: 'Agent Serving',
-    href: '/serve',
+    title: 'host()',
+    href: '/host',
     icon: HiOutlineWifi,
     section: 'Network',
     difficulty: 'Essential',
-    keywords: ['serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'agent serving', 'ed25519'],
+    keywords: ['host', 'serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'http', 'api', 'ed25519'],
     prev: { href: '/useful-plugins/shell-approval', title: 'shell_approval' },
     next: { href: '/connect', title: 'Connect to Agents' }
   },
@@ -495,7 +495,7 @@ export const navigation = [
     section: 'Network',
     difficulty: 'Essential',
     keywords: ['connect', 'remote', 'network', 'relay', 'distributed', 'client', 'remote agent', 'proxy'],
-    prev: { href: '/serve', title: 'Agent Serving' },
+    prev: { href: '/host', title: 'host()' },
     next: { href: '/cli', title: 'CLI Reference' }
   },
   {

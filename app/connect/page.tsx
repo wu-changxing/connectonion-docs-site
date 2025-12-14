@@ -99,11 +99,11 @@ library reference, and language specifications.`}
             <div>
               <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                 <HiOutlineCommandLine className="w-5 h-5 text-emerald-400" />
-                Terminal 1: Start a Serving Agent
+                Terminal 1: Host an Agent
               </h3>
               <CodeWithResult
-                code={`# serve_agent.py
-from connectonion import Agent
+                code={`# host_agent.py
+from connectonion import Agent, host
 
 def calculate(expression: str) -> str:
     """Perform calculations."""
@@ -120,13 +120,14 @@ agent = Agent(
 )
 
 print("Starting agent...")
-agent.serve()`}
+host(agent)`}
                 result={`Starting agent...
-Agent 'assistant' serving at: 0x7a8f9d4c2b1e3f5a6c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b
-Connected to relay: wss://oo.openonion.ai/ws/announce
-Waiting for connections...`}
+Agent 'assistant' hosted at: http://localhost:8000
+Address: 0x7a8f9d4c2b1e3f5a6c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b
+P2P Relay: wss://oo.openonion.ai/ws/announce
+Waiting for tasks...`}
                 language="python"
-                fileName="serve_agent.py"
+                fileName="host_agent.py"
               />
             </div>
 
@@ -431,11 +432,11 @@ result = agent.input("task")`}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/serve"
+                href="/host"
                 className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
                 <HiOutlineGlobeAlt className="w-5 h-5" />
-                Serve Your Agents
+                Host Your Agents
               </Link>
               <Link
                 href="/agent"

@@ -53,21 +53,24 @@ export default function DeployPage() {
           </p>
 
           <CodeWithResult
-            code={`# Create a deployable agent project
-co create my-agent --template serve
+            code={`# Create an agent project
+co create my-agent
 
 # Navigate to the project
 cd my-agent
 
-# Deploy to production (uses Docker + your cloud)
+# Deploy to ConnectOnion Cloud
 co deploy`}
-            result={`Creating project 'my-agent'...
-  - agent.py (your agent code)
-  - Dockerfile (container config)
-  - requirements.txt (dependencies)
-  - .env.example (environment template)
+            result={`Deploying to ConnectOnion Cloud...
 
-Done! Run 'cd my-agent && co deploy' to deploy.`}
+  Project: my-agent
+  Secrets: 3 keys
+
+Uploading...
+Building...
+
+Deployed!
+Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             language="bash"
             fileName="Terminal"
           />
@@ -111,7 +114,7 @@ Done! Run 'cd my-agent && co deploy' to deploy.`}
               <h3 className="text-xl font-semibold mb-4">1. Create Your Agent</h3>
               <CodeWithResult
                 code={`# agent.py
-from connectonion import Agent
+from connectonion import Agent, host
 
 def search(query: str) -> str:
     """Search for information."""
@@ -123,8 +126,8 @@ agent = Agent(
     system_prompt="You are a helpful assistant."
 )
 
-# Serve the agent
-agent.serve()`}
+# Host the agent
+host(agent)`}
                 language="python"
                 fileName="agent.py"
               />
@@ -430,11 +433,11 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/serve"
+                href="/host"
                 className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
                 <HiOutlineGlobeAlt className="w-5 h-5" />
-                Agent Serving
+                host() Reference
               </Link>
               <Link
                 href="/connect"

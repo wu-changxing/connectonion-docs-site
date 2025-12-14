@@ -92,8 +92,10 @@ export default function CLIPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
           <div className="font-mono text-blue-300">co create <span className="text-slate-100">→ New project</span></div>
           <div className="font-mono text-blue-300">co init <span className="text-slate-100">→ Current directory</span></div>
-          <div className="font-mono text-blue-300">co create --ai <span className="text-slate-100">→ With AI features</span></div>
-          <div className="font-mono text-blue-300">co -b "screenshot..." <span className="text-slate-100">→ Browser commands</span></div>
+          <div className="font-mono text-blue-300">co auth <span className="text-slate-100">→ Managed keys (free credits)</span></div>
+          <div className="font-mono text-blue-300">co deploy <span className="text-slate-100">→ Deploy to cloud</span></div>
+          <div className="font-mono text-blue-300">co status <span className="text-slate-100">→ Check balance</span></div>
+          <div className="font-mono text-blue-300">co doctor <span className="text-slate-100">→ Diagnose issues</span></div>
         </div>
       </div>
 
@@ -313,9 +315,182 @@ Next steps:
 
         <div className="bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg p-4">
           <p className="text-purple-200">
-            <strong>Note:</strong> Options are the same as <code className="bg-black/30 px-2 py-1 rounded">co create</code>, 
+            <strong>Note:</strong> Options are the same as <code className="bg-black/30 px-2 py-1 rounded">co create</code>,
             except no <code className="bg-black/30 px-2 py-1 rounded">[name]</code> parameter (uses current directory name).
           </p>
+        </div>
+      </section>
+
+      {/* co auth Command */}
+      <section className="mb-16">
+        <h2 className="heading-2">
+          <HiOutlineKey className="w-6 h-6 text-amber-400" />
+          co auth
+        </h2>
+
+        <p className="text-slate-100 mb-6">
+          Authenticate for managed LLM keys with free credits included.
+        </p>
+
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-white mb-4">Basic Usage</h3>
+          <CommandBlock commands={['co auth']} />
+        </div>
+
+        <div className="bg-gradient-to-b from-amber-900/20 to-amber-800/10 border border-amber-500/30 rounded-lg p-6 mb-6">
+          <h3 className="text-lg font-semibold text-amber-100 mb-4">What It Does</h3>
+          <ol className="space-y-2 text-slate-100">
+            <li className="flex items-center gap-3">
+              <span className="flex-shrink-0 w-6 h-6 bg-amber-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">1</span>
+              <span>Signs message with your Ed25519 key</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="flex-shrink-0 w-6 h-6 bg-amber-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">2</span>
+              <span>Authenticates with OpenOnion backend</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="flex-shrink-0 w-6 h-6 bg-amber-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">3</span>
+              <span>Saves <code className="bg-black/30 px-2 py-1 rounded">OPENONION_API_KEY</code> to <code className="bg-black/30 px-2 py-1 rounded">~/.co/keys.env</code></span>
+            </li>
+          </ol>
+        </div>
+
+        <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">Using Managed Keys</h3>
+          <div className="bg-black/30 rounded-lg p-4 font-mono text-sm text-slate-100">
+{`from connectonion import llm_do
+
+# Use co/ prefix for managed models
+response = llm_do("Hello", model="co/gpt-4o")
+response = llm_do("Hello", model="co/claude-3-5-sonnet")
+response = llm_do("Hello", model="co/gemini-1.5-pro")`}
+          </div>
+        </div>
+      </section>
+
+      {/* co status Command */}
+      <section className="mb-16">
+        <h2 className="heading-2">
+          <HiOutlineDocumentText className="w-6 h-6 text-cyan-400" />
+          co status
+        </h2>
+
+        <p className="text-slate-100 mb-6">
+          Check your account balance and managed keys usage.
+        </p>
+
+        <CommandBlock commands={['co status']} />
+
+        <div className="mt-6 bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">Example Output</h3>
+          <pre className="text-sm text-slate-100 font-mono">
+{`ConnectOnion Account Status
+============================
+
+Address:  0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a
+Email:    0x7a9f3b2c@mail.openonion.ai
+Balance:  $5.00`}
+          </pre>
+        </div>
+      </section>
+
+      {/* co deploy Command */}
+      <section className="mb-16">
+        <h2 className="heading-2">
+          <HiOutlineCube className="w-6 h-6 text-emerald-400" />
+          co deploy
+        </h2>
+
+        <p className="text-slate-100 mb-6">
+          Deploy your agent to ConnectOnion Cloud.
+        </p>
+
+        <CommandBlock commands={['co deploy']} />
+
+        <div className="mt-6 bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6 mb-6">
+          <h3 className="text-lg font-semibold text-emerald-100 mb-4">Requirements</h3>
+          <ul className="space-y-2 text-slate-100">
+            <li className="flex items-start gap-2">
+              <HiOutlineChevronRight className="w-4 h-4 text-emerald-400 mt-1" />
+              <span>Git repository with committed code</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <HiOutlineChevronRight className="w-4 h-4 text-emerald-400 mt-1" />
+              <span><code className="bg-black/30 px-2 py-1 rounded">.co/config.toml</code> (created by <code className="bg-black/30 px-2 py-1 rounded">co create</code> or <code className="bg-black/30 px-2 py-1 rounded">co init</code>)</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <HiOutlineChevronRight className="w-4 h-4 text-emerald-400 mt-1" />
+              <span>Authenticated (<code className="bg-black/30 px-2 py-1 rounded">co auth</code>)</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">Example Output</h3>
+          <pre className="text-sm text-slate-100 font-mono">
+{`$ co deploy
+
+Deploying to ConnectOnion Cloud...
+
+  Project: my-agent
+  Secrets: 3 keys
+
+Uploading...
+Building...
+
+Deployed!
+Agent URL: https://my-agent-abc123.agents.openonion.ai`}
+          </pre>
+        </div>
+
+        <div className="mt-6 bg-amber-950/50 border border-amber-400/40 rounded-lg p-4">
+          <p className="text-amber-200 text-sm">
+            <strong>Beta:</strong> This feature is in beta. See the <Link href="/deploy" className="underline hover:text-amber-100">Deploy Guide</Link> for more details.
+          </p>
+        </div>
+      </section>
+
+      {/* co doctor Command */}
+      <section className="mb-16">
+        <h2 className="heading-2">
+          <HiOutlineExclamationCircle className="w-6 h-6 text-red-400" />
+          co doctor
+        </h2>
+
+        <p className="text-slate-100 mb-6">
+          Comprehensive diagnostics for your ConnectOnion installation.
+        </p>
+
+        <CommandBlock commands={['co doctor']} />
+
+        <div className="mt-6 bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">What It Checks</h3>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gray-800/50 rounded-lg p-4">
+              <h4 className="font-semibold text-blue-300 mb-2">System</h4>
+              <ul className="text-sm text-slate-100 space-y-1">
+                <li>• Version</li>
+                <li>• Python</li>
+                <li>• Environment</li>
+              </ul>
+            </div>
+            <div className="bg-gray-800/50 rounded-lg p-4">
+              <h4 className="font-semibold text-purple-300 mb-2">Configuration</h4>
+              <ul className="text-sm text-slate-100 space-y-1">
+                <li>• Config files</li>
+                <li>• Keys</li>
+                <li>• API keys</li>
+              </ul>
+            </div>
+            <div className="bg-gray-800/50 rounded-lg p-4">
+              <h4 className="font-semibold text-green-300 mb-2">Connectivity</h4>
+              <ul className="text-sm text-slate-100 space-y-1">
+                <li>• Backend</li>
+                <li>• Authentication</li>
+                <li>• Network</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
