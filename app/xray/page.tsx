@@ -85,7 +85,7 @@ export default function XrayPage() {
                 Add the @xray decorator to see inside the agent's mind. Access agent name, task, and iteration count.
               </p>
               <CodeWithResult
-                code={`from connectonion.decorators import xray
+                code={`from connectonion import xray
 
 @xray
 def my_tool(text: str) -> str:

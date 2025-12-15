@@ -979,7 +979,7 @@ agent = Agent("assistant", tools=[search], plugins=[logger])`}
           <div className="mb-16">
             <CodeWithResult
               code={`from connectonion import Agent
-from connectonion.decorators import xray
+from connectonion import xray
 
 @xray  # This tool becomes a breakpoint
 def search_emails(query: str):

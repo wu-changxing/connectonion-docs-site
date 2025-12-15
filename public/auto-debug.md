@@ -7,8 +7,7 @@ Pause at breakpoints, inspect state, modify variables, and explore "what if" sce
 Add `@xray` to tools you want to inspect, then call `agent.auto_debug()`:
 
 ```python
-from connectonion import Agent
-from connectonion.decorators import xray
+from connectonion import Agent, xray
 
 @xray  # Tools with @xray become breakpoints
 def search_emails(query: str):
