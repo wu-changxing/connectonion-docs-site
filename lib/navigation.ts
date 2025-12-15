@@ -522,17 +522,6 @@ export const navigation = [
     section: 'Network',
     keywords: ['command', 'terminal', 'co', 'commands'],
     prev: { href: '/connect', title: 'Connect to Agents' },
-    next: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' }
-  },
-
-  // Tutorials
-  {
-    title: '001: AI Agent = Prompt + Function',
-    href: '/tutorials/001-ai-agent-is-just-prompt-plus-function',
-    icon: HiOutlineBookOpen,
-    section: 'Debug',
-    keywords: ['tutorial', 'beginner', 'first', 'prompt', 'function', 'langchain', 'simple'],
-    prev: { href: '/xray', title: '@xray Decorator' },
     next: { href: '/xray/trace', title: 'trace() Visual Flow' }
   },
 
@@ -544,7 +533,7 @@ export const navigation = [
     section: 'Debug',
     parent: '/xray', // Nested under @xray Decorator
     keywords: ['trace', 'flow', 'visual', 'debug', 'execution'],
-    prev: { href: '/xray', title: '@xray Decorator' },
+    prev: { href: '/cli', title: 'CLI Reference' },
     next: { href: '/prompts/formats', title: 'Prompt Formats' }
   },
   {
