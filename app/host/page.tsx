@@ -170,6 +170,20 @@ print(response.json()["result"])  # "Your name is John"`}
             </div>
 
             <div>
+              <h3 className="text-xl font-semibold mb-4">GET /sessions - List Sessions</h3>
+              <CodeWithResult
+                code={`curl http://localhost:8000/sessions`}
+                result={`{
+  "sessions": [
+    {"session_id": "abc-123", "status": "done", "created": 1702234567},
+    {"session_id": "def-456", "status": "running", "created": 1702234570}
+  ]
+}`}
+                language="bash"
+              />
+            </div>
+
+            <div>
               <h3 className="text-xl font-semibold mb-4">GET /health - Health Check</h3>
               <CodeWithResult
                 code={`curl http://localhost:8000/health`}
@@ -177,6 +191,21 @@ print(response.json()["result"])  # "Your name is John"`}
   "status": "healthy",
   "agent": "translator",
   "uptime": 3600
+}`}
+                language="bash"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">GET /info - Agent Info</h3>
+              <CodeWithResult
+                code={`curl http://localhost:8000/info`}
+                result={`{
+  "name": "translator",
+  "address": "0x3d4017c3...",
+  "tools": ["translate", "detect_language"],
+  "trust": "careful",
+  "version": "0.4.1"
 }`}
                 language="bash"
               />
@@ -330,6 +359,83 @@ I trust requests that:
           </div>
         </section>
 
+        {/* API Reference */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCodeBracket className="w-8 h-8 text-indigo-400" />
+            API Reference
+          </h2>
+
+          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-800">
+                <tr>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Parameter</th>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Type</th>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Default</th>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Description</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-700">
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">agent</td>
+                  <td className="px-4 py-3 text-slate-300">Agent</td>
+                  <td className="px-4 py-3 text-red-400">required</td>
+                  <td className="px-4 py-3 text-slate-100">The agent to host</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">trust</td>
+                  <td className="px-4 py-3 text-slate-300">str | Agent</td>
+                  <td className="px-4 py-3 text-slate-300">{'"careful"'}</td>
+                  <td className="px-4 py-3 text-slate-100">Trust level, policy, or agent</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">blacklist</td>
+                  <td className="px-4 py-3 text-slate-300">list</td>
+                  <td className="px-4 py-3 text-slate-300">None</td>
+                  <td className="px-4 py-3 text-slate-100">Addresses to always reject</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">whitelist</td>
+                  <td className="px-4 py-3 text-slate-300">list</td>
+                  <td className="px-4 py-3 text-slate-300">None</td>
+                  <td className="px-4 py-3 text-slate-100">Addresses to always accept</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">port</td>
+                  <td className="px-4 py-3 text-slate-300">int</td>
+                  <td className="px-4 py-3 text-slate-300">8000</td>
+                  <td className="px-4 py-3 text-slate-100">HTTP server port</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">workers</td>
+                  <td className="px-4 py-3 text-slate-300">int</td>
+                  <td className="px-4 py-3 text-slate-300">1</td>
+                  <td className="px-4 py-3 text-slate-100">Number of worker processes</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">result_ttl</td>
+                  <td className="px-4 py-3 text-slate-300">int</td>
+                  <td className="px-4 py-3 text-slate-300">86400</td>
+                  <td className="px-4 py-3 text-slate-100">Result storage TTL (24h default)</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">relay_url</td>
+                  <td className="px-4 py-3 text-slate-300">str</td>
+                  <td className="px-4 py-3 text-slate-300">production</td>
+                  <td className="px-4 py-3 text-slate-100">P2P relay server URL</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">reload</td>
+                  <td className="px-4 py-3 text-slate-300">bool</td>
+                  <td className="px-4 py-3 text-slate-300">False</td>
+                  <td className="px-4 py-3 text-slate-100">Auto-reload on code changes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         {/* Deployment */}
         <section className="mb-20">
           <h2 className="heading-2">
@@ -369,6 +475,48 @@ RUN pip install connectonion
 COPY myagent.py .
 CMD ["python", "myagent.py"]`}
                 language="dockerfile"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Docker Compose</h3>
+              <CodeWithResult
+                code={`# docker-compose.yml
+services:
+  agent:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - CONNECTONION_ENV=production
+      - OPENAI_API_KEY=\${OPENAI_API_KEY}`}
+                language="yaml"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">systemd Service</h3>
+              <CodeWithResult
+                code={`# /etc/systemd/system/myagent.service
+[Unit]
+Description=My ConnectOnion Agent
+After=network.target
+
+[Service]
+User=app
+WorkingDirectory=/app
+ExecStart=/usr/bin/python myagent.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target`}
+                language="ini"
+              />
+              <CodeWithResult
+                code={`sudo systemctl enable myagent
+sudo systemctl start myagent`}
+                language="bash"
               />
             </div>
           </div>

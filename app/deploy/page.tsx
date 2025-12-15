@@ -41,6 +41,64 @@ export default function DeployPage() {
           </div>
         </section>
 
+        {/* Two Options */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineArrowRight className="w-8 h-8 text-purple-400" />
+            Two Deployment Options
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-emerald-100 mb-4 flex items-center gap-2">
+                <HiOutlineCloud className="w-6 h-6" />
+                co deploy (Easiest)
+              </h3>
+              <p className="text-slate-100 mb-4">
+                Quick deployment to ConnectOnion Cloud. Managed hosting, no infrastructure to manage.
+              </p>
+              <ul className="space-y-2 text-slate-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <span>One command deployment</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <span>Automatic HTTPS</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <span>Re-deploy updates same URL</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-blue-100 mb-4 flex items-center gap-2">
+                <HiOutlineServer className="w-6 h-6" />
+                Self-Host
+              </h3>
+              <p className="text-slate-100 mb-4">
+                Full control with your own infrastructure. Use Docker, GCP, AWS, or any VPS.
+              </p>
+              <ul className="space-y-2 text-slate-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <HiOutlineCheck className="w-4 h-4 text-blue-400 mt-0.5" />
+                  <span>Full control</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <HiOutlineCheck className="w-4 h-4 text-blue-400 mt-0.5" />
+                  <span>Custom domains</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <HiOutlineCheck className="w-4 h-4 text-blue-400 mt-0.5" />
+                  <span>Compliance requirements</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* 60-Second Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
@@ -75,26 +133,105 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             fileName="Terminal"
           />
 
-          <div className="mt-6 bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-emerald-100 mb-4">What Gets Created?</h3>
+          <div className="mt-6 bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-purple-100 mb-4">co deploy Requirements</h3>
             <div className="space-y-2 text-slate-100">
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                <span><strong>agent.py</strong> - Your agent with tools and system prompt</span>
+                <HiOutlineCheck className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                <span>Git repository with committed code</span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                <span><strong>Dockerfile</strong> - Production-ready container configuration</span>
+                <HiOutlineCheck className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                <span><code className="bg-gray-800 px-2 py-0.5 rounded">.co/config.toml</code> (created by <code className="bg-gray-800 px-2 py-0.5 rounded">co create</code> or <code className="bg-gray-800 px-2 py-0.5 rounded">co init</code>)</span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                <span><strong>requirements.txt</strong> - All dependencies pinned</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                <span><strong>.env.example</strong> - Environment variable template</span>
+                <HiOutlineCheck className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                <span>Authenticated (<code className="bg-gray-800 px-2 py-0.5 rounded">co auth</code>)</span>
               </div>
             </div>
+          </div>
+
+          <div className="mt-6">
+            <h3 className="text-xl font-semibold mb-4">Configuration</h3>
+            <CodeWithResult
+              code={`# .co/config.toml
+[project]
+name = "my-agent"
+secrets = ".env"
+
+[deploy]
+entrypoint = "agent.py"`}
+              language="toml"
+              fileName=".co/config.toml"
+            />
+          </div>
+
+          <div className="mt-6">
+            <h3 className="text-xl font-semibold mb-4">Secrets</h3>
+            <p className="text-slate-100 mb-4">
+              Secrets from <code className="bg-gray-800 px-2 py-0.5 rounded">.env</code> are securely passed to your agent:
+            </p>
+            <CodeWithResult
+              code={`# .env
+OPENAI_API_KEY=sk-xxx
+DATABASE_URL=postgres://...`}
+              language="bash"
+              fileName=".env"
+            />
+          </div>
+
+          <div className="mt-6 bg-amber-950/50 border border-amber-400/40 rounded-lg p-4">
+            <p className="text-amber-200 text-sm">
+              <strong>Note:</strong> URL format is <code className="bg-gray-800 px-2 py-0.5 rounded">{'{project_name}-{your_address[:10]}.agents.openonion.ai'}</code>. Re-deploying updates the same URL.
+            </p>
+          </div>
+        </section>
+
+        {/* Self-Host with host() */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineServer className="w-8 h-8 text-indigo-400" />
+            Self-Host with host()
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            Deploy to your own infrastructure using <code className="bg-gray-800 px-2 py-1 rounded">host()</code>:
+          </p>
+
+          <CodeWithResult
+            code={`# agent.py
+from connectonion import Agent, host
+
+agent = Agent("my-agent", tools=[my_tool])
+
+# Export ASGI app for uvicorn/gunicorn
+app = host.app(agent)
+
+if __name__ == "__main__":
+    host(agent)`}
+            language="python"
+            fileName="agent.py"
+          />
+
+          <div className="mt-6">
+            <h3 className="text-xl font-semibold mb-4">Run with uvicorn/gunicorn</h3>
+            <CodeWithResult
+              code={`# Direct
+python agent.py
+
+# Uvicorn
+uvicorn agent:app --workers 4
+
+# Gunicorn
+gunicorn agent:app -w 4 -k uvicorn.workers.UvicornWorker`}
+              language="bash"
+            />
+          </div>
+
+          <div className="mt-6 bg-blue-950/50 border border-blue-400/40 rounded-lg p-4">
+            <p className="text-blue-200 text-sm">
+              For full API reference, see <Link href="/host" className="underline hover:text-blue-100">host() documentation</Link>.
+            </p>
           </div>
         </section>
 

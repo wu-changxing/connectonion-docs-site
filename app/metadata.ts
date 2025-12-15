@@ -4,7 +4,7 @@
  * @llm-note Provides OpenGraph, Twitter cards, canonical URLs, and structured data for search engines,
  *           includes comprehensive keyword optimization for "ConnectOnion" and "Connect Onion" branding
  */
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
   title: "ConnectOnion - Best Agent Framework for Python | Connect Onion AI",
@@ -55,13 +55,15 @@ export const metadata: Metadata = {
     shortcut: 'https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png',
     apple: 'https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
   verification: {
     google: 'google-verification-code',
     yandex: 'yandex-verification-code',
   },
+};
+
+// Viewport must be exported separately in Next.js 15+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
