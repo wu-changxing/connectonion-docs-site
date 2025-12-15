@@ -100,16 +100,6 @@ export const navigation = [
     next: { href: '/memory', title: 'Memory' }
   },
   {
-    title: 'Memory',
-    href: '/memory',
-    icon: HiOutlineCpuChip,
-    section: 'Useful Tools',
-    difficulty: 'New',
-    keywords: ['memory', 'storage', 'persistence', 'remember', 'database', 'rag'],
-    prev: { href: '/useful-tools', title: 'Useful Tools' },
-    next: { href: '/agent-emails', title: 'Agent Emails' }
-  },
-  {
     title: 'Agent Emails',
     href: '/agent-emails',
     icon: HiOutlineEnvelope,
@@ -124,6 +114,7 @@ export const navigation = [
     href: '/agent-emails/send',
     icon: HiOutlineEnvelope,
     section: 'Useful Tools',
+    parent: '/agent-emails',
     keywords: ['email', 'send', 'mail', 'notification', 'alert', 'message', 'smtp'],
     prev: { href: '/agent-emails', title: 'Agent Emails' },
     next: { href: '/agent-emails/receive', title: 'Receive Emails' }
@@ -133,9 +124,19 @@ export const navigation = [
     href: '/agent-emails/receive',
     icon: HiOutlineInbox,
     section: 'Useful Tools',
+    parent: '/agent-emails',
     keywords: ['email', 'get', 'inbox', 'imap', 'read', 'fetch', 'mail', 'receive'],
     prev: { href: '/agent-emails/send', title: 'Send Email' },
     next: { href: '/gmail', title: 'Gmail' }
+  },
+  {
+    title: 'Diff Writer',
+    href: '/useful-tools/diff-writer',
+    icon: HiOutlineCodeBracket,
+    section: 'Useful Tools',
+    keywords: ['diff', 'write', 'file', 'code', 'approval', 'human', 'loop'],
+    prev: { href: '/microsoft-integration', title: 'Microsoft Integration' },
+    next: { href: '/useful-tools/shell', title: 'Shell' }
   },
   {
     title: 'Gmail',
@@ -146,6 +147,16 @@ export const navigation = [
     keywords: ['gmail', 'google', 'email', 'inbox', 'oauth', 'labels', 'archive', 'crm', 'contacts'],
     prev: { href: '/agent-emails/receive', title: 'Receive Emails' },
     next: { href: '/outlook', title: 'Outlook' }
+  },
+  {
+    title: 'Memory',
+    href: '/memory',
+    icon: HiOutlineCpuChip,
+    section: 'Useful Tools',
+    difficulty: 'New',
+    keywords: ['memory', 'storage', 'persistence', 'remember', 'database', 'rag'],
+    prev: { href: '/useful-tools', title: 'Useful Tools' },
+    next: { href: '/agent-emails', title: 'Agent Emails' }
   },
   {
     title: 'Outlook',
@@ -175,6 +186,42 @@ export const navigation = [
     difficulty: 'New',
     keywords: ['microsoft', 'outlook', 'calendar', 'oauth', 'integration', 'office', '365', 'azure', 'teams'],
     prev: { href: '/google-integration', title: 'Google Integration' },
+    next: { href: '/useful-tools/diff-writer', title: 'Diff Writer' }
+  },
+  {
+    title: 'Shell',
+    href: '/useful-tools/shell',
+    icon: HiOutlineCommandLine,
+    section: 'Useful Tools',
+    keywords: ['shell', 'command', 'bash', 'terminal', 'execute', 'run'],
+    prev: { href: '/useful-tools/diff-writer', title: 'Diff Writer' },
+    next: { href: '/useful-tools/slash-command', title: 'Slash Command' }
+  },
+  {
+    title: 'Slash Command',
+    href: '/useful-tools/slash-command',
+    icon: HiOutlineCommandLine,
+    section: 'Useful Tools',
+    keywords: ['slash', 'command', 'custom', 'markdown', 'prompt'],
+    prev: { href: '/useful-tools/shell', title: 'Shell' },
+    next: { href: '/useful-tools/terminal', title: 'Terminal' }
+  },
+  {
+    title: 'Terminal',
+    href: '/useful-tools/terminal',
+    icon: HiOutlineCommandLine,
+    section: 'Useful Tools',
+    keywords: ['terminal', 'pick', 'menu', 'input', 'browse', 'files', 'autocomplete'],
+    prev: { href: '/useful-tools/slash-command', title: 'Slash Command' },
+    next: { href: '/useful-tools/todo-list', title: 'Todo List' }
+  },
+  {
+    title: 'Todo List',
+    href: '/useful-tools/todo-list',
+    icon: HiOutlineDocumentText,
+    section: 'Useful Tools',
+    keywords: ['todo', 'task', 'list', 'progress', 'track', 'manage'],
+    prev: { href: '/useful-tools/terminal', title: 'Terminal' },
     next: { href: '/web-fetch', title: 'WebFetch' }
   },
   {
@@ -184,57 +231,7 @@ export const navigation = [
     section: 'Useful Tools',
     difficulty: 'New',
     keywords: ['web', 'fetch', 'scrape', 'html', 'parse', 'http', 'research', 'analyze'],
-    prev: { href: '/microsoft-integration', title: 'Microsoft Integration' },
-    next: { href: '/useful-tools/shell', title: 'Shell' }
-  },
-  {
-    title: 'Shell',
-    href: '/useful-tools/shell',
-    icon: HiOutlineCommandLine,
-    section: 'Useful Tools',
-    parent: '/useful-tools',
-    keywords: ['shell', 'command', 'bash', 'terminal', 'execute', 'run'],
-    prev: { href: '/web-fetch', title: 'WebFetch' },
-    next: { href: '/useful-tools/terminal', title: 'Terminal' }
-  },
-  {
-    title: 'Terminal',
-    href: '/useful-tools/terminal',
-    icon: HiOutlineCommandLine,
-    section: 'Useful Tools',
-    parent: '/useful-tools',
-    keywords: ['terminal', 'pick', 'menu', 'input', 'browse', 'files', 'autocomplete'],
-    prev: { href: '/useful-tools/shell', title: 'Shell' },
-    next: { href: '/useful-tools/todo-list', title: 'Todo List' }
-  },
-  {
-    title: 'Todo List',
-    href: '/useful-tools/todo-list',
-    icon: HiOutlineDocumentText,
-    section: 'Useful Tools',
-    parent: '/useful-tools',
-    keywords: ['todo', 'task', 'list', 'progress', 'track', 'manage'],
-    prev: { href: '/useful-tools/terminal', title: 'Terminal' },
-    next: { href: '/useful-tools/diff-writer', title: 'Diff Writer' }
-  },
-  {
-    title: 'Diff Writer',
-    href: '/useful-tools/diff-writer',
-    icon: HiOutlineCodeBracket,
-    section: 'Useful Tools',
-    parent: '/useful-tools',
-    keywords: ['diff', 'write', 'file', 'code', 'approval', 'human', 'loop'],
     prev: { href: '/useful-tools/todo-list', title: 'Todo List' },
-    next: { href: '/useful-tools/slash-command', title: 'Slash Command' }
-  },
-  {
-    title: 'Slash Command',
-    href: '/useful-tools/slash-command',
-    icon: HiOutlineCommandLine,
-    section: 'Useful Tools',
-    parent: '/useful-tools',
-    keywords: ['slash', 'command', 'custom', 'markdown', 'prompt'],
-    prev: { href: '/useful-tools/diff-writer', title: 'Diff Writer' },
     next: { href: '/tui', title: 'TUI Components' }
   },
 

@@ -65,10 +65,6 @@ export default function Footer() {
               </div>
               <span className="hidden sm:inline text-gray-700">·</span>
               <span>© {currentYear}</span>
-              <span className="hidden sm:inline text-gray-700">·</span>
-              <span className="hidden sm:flex items-center gap-1">
-                Built with <HiOutlineHeart className="w-4 h-4 text-red-500 fill-current" />
-              </span>
             </div>
 
             {/* Right: Social Links */}
@@ -91,7 +87,7 @@ export default function Footer() {
               >
                 <FaDiscord className="w-6 h-6" />
               </a>
-              <span className="text-sm text-gray-500 ml-2">v0.1.9</span>
+              <span className="text-sm text-gray-500 ml-2">v0.5.1</span>
             </div>
           </div>
         </div>
