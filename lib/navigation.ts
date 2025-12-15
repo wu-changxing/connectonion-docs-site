@@ -464,6 +464,26 @@ export const navigation = [
     parent: '/useful-plugins',
     keywords: ['shell', 'approval', 'security', 'command', 'permission'],
     prev: { href: '/useful-plugins/image-result-formatter', title: 'image_result_formatter' },
+    next: { href: '/useful-plugins/gmail-plugin', title: 'gmail_plugin' }
+  },
+  {
+    title: 'gmail_plugin',
+    href: '/useful-plugins/gmail-plugin',
+    icon: HiOutlineEnvelope,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['gmail', 'email', 'approval', 'crm', 'plugin'],
+    prev: { href: '/useful-plugins/shell-approval', title: 'shell_approval' },
+    next: { href: '/useful-plugins/calendar-plugin', title: 'calendar_plugin' }
+  },
+  {
+    title: 'calendar_plugin',
+    href: '/useful-plugins/calendar-plugin',
+    icon: HiOutlineCalendar,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['calendar', 'events', 'approval', 'google', 'microsoft', 'plugin'],
+    prev: { href: '/useful-plugins/gmail-plugin', title: 'gmail_plugin' },
     next: { href: '/host', title: 'host()' }
   },
   {
@@ -485,7 +505,7 @@ export const navigation = [
     section: 'Network',
     difficulty: 'Essential',
     keywords: ['host', 'serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'http', 'api', 'ed25519'],
-    prev: { href: '/useful-plugins/shell-approval', title: 'shell_approval' },
+    prev: { href: '/useful-plugins/calendar-plugin', title: 'calendar_plugin' },
     next: { href: '/connect', title: 'Connect to Agents' }
   },
   {

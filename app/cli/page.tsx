@@ -95,7 +95,9 @@ export default function CLIPage() {
           <div className="font-mono text-blue-300">co auth <span className="text-slate-100">→ Managed keys (free credits)</span></div>
           <div className="font-mono text-blue-300">co deploy <span className="text-slate-100">→ Deploy to cloud</span></div>
           <div className="font-mono text-blue-300">co status <span className="text-slate-100">→ Check balance</span></div>
+          <div className="font-mono text-blue-300">co reset <span className="text-slate-100">→ Reset account</span></div>
           <div className="font-mono text-blue-300">co doctor <span className="text-slate-100">→ Diagnose issues</span></div>
+          <div className="font-mono text-blue-300">co -b <span className="text-slate-100">→ Browser automation</span></div>
         </div>
       </div>
 
@@ -391,6 +393,67 @@ Address:  0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a
 Email:    0x7a9f3b2c@mail.openonion.ai
 Balance:  $5.00`}
           </pre>
+        </div>
+      </section>
+
+      {/* co reset Command */}
+      <section className="mb-16">
+        <h2 className="heading-2">
+          <HiOutlineExclamationCircle className="w-6 h-6 text-red-400" />
+          co reset
+        </h2>
+
+        <p className="text-slate-100 mb-6">
+          <strong className="text-red-400">⚠️ Destructive:</strong> Reset your account and create a new identity.
+        </p>
+
+        <CommandBlock commands={['co reset']} />
+
+        <div className="mt-6 bg-red-950/50 border border-red-400/40 rounded-lg p-6 mb-6">
+          <h3 className="text-lg font-semibold text-red-100 mb-4">What It Does</h3>
+          <ul className="space-y-2 text-slate-100">
+            <li className="flex items-start gap-2">
+              <HiOutlineChevronRight className="w-4 h-4 text-red-400 mt-1" />
+              <span>Deletes your account data</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <HiOutlineChevronRight className="w-4 h-4 text-red-400 mt-1" />
+              <span>Clears balance and usage history</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <HiOutlineChevronRight className="w-4 h-4 text-red-400 mt-1" />
+              <span>Creates new account with new keys</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <HiOutlineChevronRight className="w-4 h-4 text-red-400 mt-1" />
+              <span>Generates new address and email</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">Example Output</h3>
+          <pre className="text-sm text-slate-100 font-mono">
+{`$ co reset
+
+⚠️  WARNING: This will delete ALL your data
+Including:
+  - Account balance
+  - Usage history
+  - Current identity
+
+Continue? (y/N): y
+
+✓ Account reset
+✓ New identity created
+✓ New address: 0x9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0`}
+          </pre>
+        </div>
+
+        <div className="mt-6 bg-amber-950/50 border border-amber-400/40 rounded-lg p-4">
+          <p className="text-amber-200 text-sm">
+            <strong>When to use:</strong> Starting completely fresh, testing account creation, or removing old identity.
+          </p>
         </div>
       </section>
 
