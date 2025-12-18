@@ -4,6 +4,7 @@ import { HiOutlineClipboardDocumentList } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { PageHeader } from '../../../components/PageHeader'
 import CodeWithResult from '../../../components/CodeWithResult'
+import Link from 'next/link'
 
 export default function TodoListPage() {
   return (
@@ -36,7 +37,7 @@ todo = TodoList()`}
             language="python"
           />
           <p className="text-slate-100 mt-4 text-sm">
-            Want to customize? Run <code className="bg-gray-800 px-2 py-1 rounded">co copy todo_list</code> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy todo_list</code></Link> to get an editable copy.
           </p>
         </section>
 

@@ -78,7 +78,7 @@ The screenshot shows a simple webpage with the heading "Example Domain"...`}
             language="python"
           />
           <p className="text-slate-100 mt-4 text-sm">
-            Want to customize? Run <code className="bg-gray-800 px-2 py-1 rounded">co copy image_result_formatter</code> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy image_result_formatter</code></Link> to get an editable copy.
           </p>
         </section>
 
