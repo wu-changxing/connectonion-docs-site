@@ -183,6 +183,40 @@ agent.input("Search my emails for invoices from last week")`}
           ))}
         </div>
 
+        {/* Customizing Built-in Tools */}
+        <div className="mb-12 p-6 bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg border border-green-500/20">
+          <h2 className="heading-2">Customizing Built-in Tools</h2>
+          <p className="text-slate-100 mb-4">
+            Need to modify a built-in tool? Copy it to your project:
+          </p>
+          <CodeWithResult
+            code={`# Copy a tool to your project
+co copy shell
+
+# Copy multiple tools
+co copy shell memory gmail`}
+            result={`✓ Copied: ./tools/shell.py
+✓ Copied: ./tools/memory.py
+✓ Copied: ./tools/gmail.py`}
+            language="bash"
+          />
+          <p className="text-slate-100 mt-4 mb-4">
+            Then import from your local copy and customize:
+          </p>
+          <CodeWithResult
+            code={`# Before (from package)
+from connectonion import Shell
+
+# After (from your copy)
+from tools.shell import Shell  # Customize freely!`}
+            result=""
+            language="python"
+          />
+          <p className="text-sm text-slate-100 mt-4">
+            See <Link href="/cli" className="text-purple-400 hover:text-purple-300">co copy</Link> for full details.
+          </p>
+        </div>
+
         {/* Building Custom Tools */}
         <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-500/20">
           <h2 className="heading-2">Building Custom Tools</h2>

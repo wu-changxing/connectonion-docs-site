@@ -209,6 +209,27 @@ gmail_plugin = [
           />
         </section>
 
+        {/* Customizing */}
+        <section className="mb-12">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-slate-100 mb-4">
+            Need to modify gmail_plugin's behavior? Copy the source to your project:
+          </p>
+          <CodeWithResult
+            code={`co copy gmail_plugin`}
+            result={`✓ Copied: ./plugins/gmail_plugin.py`}
+            language="bash"
+          />
+          <p className="text-slate-100 mt-4 mb-4">
+            Then import from your local copy:
+          </p>
+          <CodeWithResult
+            code={`# from connectonion.useful_plugins import gmail_plugin  # Before
+from plugins.gmail_plugin import gmail_plugin            # After - customize freely!`}
+            language="python"
+          />
+        </section>
+
         {/* Navigation */}
         <ContentNavigation />
       </div>

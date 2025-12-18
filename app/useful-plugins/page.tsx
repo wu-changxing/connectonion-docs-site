@@ -247,6 +247,40 @@ agent = Agent(
           />
         </div>
 
+        {/* Customizing Plugins */}
+        <div className="mb-12 p-6 bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg border border-green-500/20">
+          <h2 className="heading-2">Customizing Plugins</h2>
+          <p className="text-slate-100 mb-4">
+            Need to modify a built-in plugin? Copy it to your project:
+          </p>
+          <CodeWithResult
+            code={`# Copy a plugin to your project
+co copy re_act
+
+# Copy multiple plugins
+co copy re_act shell_approval eval`}
+            result={`✓ Copied: ./plugins/re_act.py
+✓ Copied: ./plugins/shell_approval.py
+✓ Copied: ./plugins/eval.py`}
+            language="bash"
+          />
+          <p className="text-slate-100 mt-4 mb-4">
+            Then import from your local copy and customize:
+          </p>
+          <CodeWithResult
+            code={`# Before (from package)
+from connectonion.useful_plugins import re_act
+
+# After (from your copy)
+from plugins.re_act import re_act  # Customize freely!`}
+            result=""
+            language="python"
+          />
+          <p className="text-sm text-slate-100 mt-4">
+            See <Link href="/cli" className="text-purple-400 hover:text-purple-300">co copy</Link> for full details.
+          </p>
+        </div>
+
         {/* Call to Action */}
         <div className="text-center py-8 px-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/20">
           <h2 className="heading-2">Build Your Own Plugin</h2>

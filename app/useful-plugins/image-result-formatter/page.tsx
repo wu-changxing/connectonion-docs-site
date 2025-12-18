@@ -235,6 +235,27 @@ image_result_formatter = [after_tools(_format_image_result)]`}
           />
         </section>
 
+        {/* Customizing */}
+        <section className="mb-12">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-slate-100 mb-4">
+            Need to modify image_result_formatter's behavior? Copy the source to your project:
+          </p>
+          <CodeWithResult
+            code={`co copy image_result_formatter`}
+            result={`✓ Copied: ./plugins/image_result_formatter.py`}
+            language="bash"
+          />
+          <p className="text-slate-100 mt-4 mb-4">
+            Then import from your local copy:
+          </p>
+          <CodeWithResult
+            code={`# from connectonion.useful_plugins import image_result_formatter  # Before
+from plugins.image_result_formatter import image_result_formatter  # After`}
+            language="python"
+          />
+        </section>
+
         {/* Navigation */}
         <ContentNavigation />
       </div>

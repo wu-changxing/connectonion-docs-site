@@ -143,6 +143,27 @@ choice = pick("Continue?", {
           </div>
         </section>
 
+        {/* Customizing */}
+        <section className="mb-12">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-slate-100 mb-4">
+            Need to modify terminal utilities? Copy the source to your project:
+          </p>
+          <CodeWithResult
+            code={`co copy terminal`}
+            result={`✓ Copied: ./tools/terminal.py`}
+            language="bash"
+          />
+          <p className="text-slate-100 mt-4 mb-4">
+            Then import from your local copy:
+          </p>
+          <CodeWithResult
+            code={`# from connectonion import pick, yes_no  # Before
+from tools.terminal import pick, yes_no   # After - customize freely!`}
+            language="python"
+          />
+        </section>
+
         <ContentNavigation />
       </div>
     </div>

@@ -230,6 +230,27 @@ shell_approval = [before_each_tool(_check_approval)]`}
           />
         </section>
 
+        {/* Customizing */}
+        <section className="mb-12">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-slate-100 mb-4">
+            Need to modify shell_approval's behavior? Copy the source to your project:
+          </p>
+          <CodeWithResult
+            code={`co copy shell_approval`}
+            result={`✓ Copied: ./plugins/shell_approval.py`}
+            language="bash"
+          />
+          <p className="text-slate-100 mt-4 mb-4">
+            Then import from your local copy:
+          </p>
+          <CodeWithResult
+            code={`# from connectonion.useful_plugins import shell_approval  # Before
+from plugins.shell_approval import shell_approval          # After - customize freely!`}
+            language="python"
+          />
+        </section>
+
         {/* Navigation */}
         <ContentNavigation />
       </div>

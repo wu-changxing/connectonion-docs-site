@@ -231,6 +231,27 @@ todo.start("Task B")  # Now works`}
           <p className="text-slate-100 mb-4">Complete tasks as soon as done, don't batch.</p>
         </section>
 
+        {/* Customizing */}
+        <section className="mb-12">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-slate-100 mb-4">
+            Need to modify TodoList's behavior? Copy the source to your project:
+          </p>
+          <CodeWithResult
+            code={`co copy todo_list`}
+            result={`✓ Copied: ./tools/todo_list.py`}
+            language="bash"
+          />
+          <p className="text-slate-100 mt-4 mb-4">
+            Then import from your local copy:
+          </p>
+          <CodeWithResult
+            code={`# from connectonion import TodoList  # Before
+from tools.todo_list import TodoList   # After - customize freely!`}
+            language="python"
+          />
+        </section>
+
         <ContentNavigation />
       </div>
     </div>

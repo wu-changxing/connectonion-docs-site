@@ -261,6 +261,27 @@ calendar_plugin = [
           />
         </section>
 
+        {/* Customizing */}
+        <section className="mb-12">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-slate-100 mb-4">
+            Need to modify calendar_plugin's behavior? Copy the source to your project:
+          </p>
+          <CodeWithResult
+            code={`co copy calendar_plugin`}
+            result={`✓ Copied: ./plugins/calendar_plugin.py`}
+            language="bash"
+          />
+          <p className="text-slate-100 mt-4 mb-4">
+            Then import from your local copy:
+          </p>
+          <CodeWithResult
+            code={`# from connectonion.useful_plugins import calendar_plugin  # Before
+from plugins.calendar_plugin import calendar_plugin        # After - customize freely!`}
+            language="python"
+          />
+        </section>
+
         {/* Navigation */}
         <ContentNavigation />
       </div>

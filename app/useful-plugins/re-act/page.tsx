@@ -189,6 +189,27 @@ re_act = [plan_task, reflect]`}
           />
         </section>
 
+        {/* Customizing */}
+        <section className="mb-12">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-slate-100 mb-4">
+            Need to modify re_act's behavior? Copy the source to your project:
+          </p>
+          <CodeWithResult
+            code={`co copy re_act`}
+            result={`✓ Copied: ./plugins/re_act.py`}
+            language="bash"
+          />
+          <p className="text-slate-100 mt-4 mb-4">
+            Then import from your local copy:
+          </p>
+          <CodeWithResult
+            code={`# from connectonion.useful_plugins import re_act  # Before
+from plugins.re_act import re_act                  # After - customize freely!`}
+            language="python"
+          />
+        </section>
+
         {/* Navigation */}
         <ContentNavigation />
       </div>
