@@ -150,8 +150,8 @@ def _format_image_result(agent):
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-slate-100">Format</th>
-                  <th className="text-left py-2 text-slate-100">Example</th>
+                  <th scope="col" className="text-left py-2 text-slate-100">Format</th>
+                  <th scope="col" className="text-left py-2 text-slate-100">Example</th>
                 </tr>
               </thead>
               <tbody>
@@ -206,9 +206,9 @@ def _format_image_result(agent):
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-slate-100">Event</th>
-                  <th className="text-left py-2 text-slate-100">Handler</th>
-                  <th className="text-left py-2 text-slate-100">Purpose</th>
+                  <th scope="col" className="text-left py-2 text-slate-100">Event</th>
+                  <th scope="col" className="text-left py-2 text-slate-100">Handler</th>
+                  <th scope="col" className="text-left py-2 text-slate-100">Purpose</th>
                 </tr>
               </thead>
               <tbody>

@@ -108,9 +108,8 @@ agent = Agent("devops", tools=[run_command], plugins=[shell_approval])`,
 
 export default function UsefulPluginsPage() {
   return (
-    <div className="px-4 md:px-8 py-16 md:py-24">
-      <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb */}
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-24 lg:pt-12 lg:pb-16">
+      {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
@@ -173,7 +172,7 @@ agent = Agent(
             <Link
               key={plugin.id}
               href={plugin.href}
-              className={`group block p-6 rounded-lg border ${plugin.borderColor} ${plugin.bgColor} hover:border-purple-400/50 hover:bg-gray-800/50 hover:scale-[1.02] transition-all duration-200`}
+              className={`group block p-6 rounded-lg border ${plugin.borderColor} ${plugin.bgColor} hover:border-purple-400/50 hover:bg-gray-800/50 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 transition-all duration-200`}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
@@ -296,9 +295,8 @@ from plugins.re_act import re_act  # Customize freely!`}
           </Link>
         </div>
 
-        {/* Navigation */}
-        <ContentNavigation />
-      </div>
+      {/* Navigation */}
+      <ContentNavigation />
     </div>
   )
 }

@@ -158,9 +158,9 @@ agent.input("Search for Python")
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-slate-100">Event</th>
-                  <th className="text-left py-2 text-slate-100">Handler</th>
-                  <th className="text-left py-2 text-slate-100">Purpose</th>
+                  <th scope="col" className="text-left py-2 text-slate-100">Event</th>
+                  <th scope="col" className="text-left py-2 text-slate-100">Handler</th>
+                  <th scope="col" className="text-left py-2 text-slate-100">Purpose</th>
                 </tr>
               </thead>
               <tbody>
