@@ -35,6 +35,9 @@ export default function ShellPage() {
 shell = Shell()`}
             language="python"
           />
+          <p className="text-slate-100 mt-4 text-sm">
+            Want to customize? Run <code className="bg-gray-800 px-2 py-1 rounded">co copy shell</code> to get an editable copy.
+          </p>
         </section>
 
         {/* API */}
@@ -109,27 +112,6 @@ shell.run("npm run build")
 shell.run("pwd")
 shell.run("whoami")
 shell.run("df -h")`}
-            language="python"
-          />
-        </section>
-
-        {/* Customizing */}
-        <section className="mb-12">
-          <h2 className="heading-2">Customizing</h2>
-          <p className="text-slate-100 mb-4">
-            Need to modify Shell's behavior? Copy the source to your project:
-          </p>
-          <CodeWithResult
-            code={`co copy shell`}
-            result={`✓ Copied: ./tools/shell.py`}
-            language="bash"
-          />
-          <p className="text-slate-100 mt-4 mb-4">
-            Then import from your local copy:
-          </p>
-          <CodeWithResult
-            code={`# from connectonion import Shell  # Before
-from tools.shell import Shell       # After - customize freely!`}
             language="python"
           />
         </section>

@@ -73,6 +73,9 @@ Result: 100
 ✓ Task complete: Calculated 25 * 4 = 100, which matches the expected result.`}
             language="python"
           />
+          <p className="text-slate-100 mt-4 text-sm">
+            Want to customize? Run <code className="bg-gray-800 px-2 py-1 rounded">co copy eval</code> to get an editable copy.
+          </p>
         </section>
 
         {/* Use with re_act */}
@@ -201,27 +204,6 @@ def evaluate_completion(agent):
           <CodeWithResult
             code={`# The plugin is just a list of event handlers
 eval = [generate_expected, evaluate_completion]`}
-            language="python"
-          />
-        </section>
-
-        {/* Customizing */}
-        <section className="mb-12">
-          <h2 className="heading-2">Customizing</h2>
-          <p className="text-slate-100 mb-4">
-            Need to modify eval's behavior? Copy the source to your project:
-          </p>
-          <CodeWithResult
-            code={`co copy eval`}
-            result={`✓ Copied: ./plugins/eval.py`}
-            language="bash"
-          />
-          <p className="text-slate-100 mt-4 mb-4">
-            Then import from your local copy:
-          </p>
-          <CodeWithResult
-            code={`# from connectonion.useful_plugins import eval  # Before
-from plugins.eval import eval                    # After - customize freely!`}
             language="python"
           />
         </section>

@@ -72,6 +72,9 @@ agent.input("Search for Python and explain what it is")`}
 Python is a high-level, interpreted programming language known for its simplicity...`}
             language="python"
           />
+          <p className="text-slate-100 mt-4 text-sm">
+            Want to customize? Run <code className="bg-gray-800 px-2 py-1 rounded">co copy re_act</code> to get an editable copy.
+          </p>
         </section>
 
         {/* How it works */}
@@ -185,27 +188,6 @@ agent.input("Search for Python")
           <CodeWithResult
             code={`# The plugin is just a list of event handlers
 re_act = [plan_task, reflect]`}
-            language="python"
-          />
-        </section>
-
-        {/* Customizing */}
-        <section className="mb-12">
-          <h2 className="heading-2">Customizing</h2>
-          <p className="text-slate-100 mb-4">
-            Need to modify re_act's behavior? Copy the source to your project:
-          </p>
-          <CodeWithResult
-            code={`co copy re_act`}
-            result={`✓ Copied: ./plugins/re_act.py`}
-            language="bash"
-          />
-          <p className="text-slate-100 mt-4 mb-4">
-            Then import from your local copy:
-          </p>
-          <CodeWithResult
-            code={`# from connectonion.useful_plugins import re_act  # Before
-from plugins.re_act import re_act                  # After - customize freely!`}
             language="python"
           />
         </section>
