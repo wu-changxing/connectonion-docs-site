@@ -232,6 +232,78 @@ export const navigation = [
     difficulty: 'New',
     keywords: ['web', 'fetch', 'scrape', 'html', 'parse', 'http', 'research', 'analyze'],
     prev: { href: '/useful-tools/todo-list', title: 'Todo List' },
+    next: { href: '/useful-plugins', title: 'Useful Plugins' }
+  },
+
+  // Useful Plugins
+  {
+    title: 'Useful Plugins',
+    href: '/useful-plugins',
+    icon: HiOutlineSquares2X2,
+    section: 'Useful Plugins',
+    difficulty: 'NEW',
+    keywords: ['plugins', 'useful_plugins', 're_act', 'eval', 'image_result_formatter', 'gmail_plugin', 'calendar_plugin', 'shell_approval'],
+    prev: { href: '/web-fetch', title: 'WebFetch' },
+    next: { href: '/useful-plugins/re-act', title: 're_act' }
+  },
+  {
+    title: 're_act',
+    href: '/useful-plugins/re-act',
+    icon: HiOutlineCpuChip,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['react', 'reasoning', 'plan', 'reflect', 'think'],
+    prev: { href: '/useful-plugins', title: 'Useful Plugins' },
+    next: { href: '/useful-plugins/eval', title: 'eval' }
+  },
+  {
+    title: 'eval',
+    href: '/useful-plugins/eval',
+    icon: HiOutlineChartBar,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['eval', 'evaluate', 'debug', 'test', 'expected'],
+    prev: { href: '/useful-plugins/re-act', title: 're_act' },
+    next: { href: '/useful-plugins/image-result-formatter', title: 'image_result_formatter' }
+  },
+  {
+    title: 'image_result_formatter',
+    href: '/useful-plugins/image-result-formatter',
+    icon: HiOutlinePhoto,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['image', 'vision', 'base64', 'screenshot', 'format'],
+    prev: { href: '/useful-plugins/eval', title: 'eval' },
+    next: { href: '/useful-plugins/shell-approval', title: 'shell_approval' }
+  },
+  {
+    title: 'shell_approval',
+    href: '/useful-plugins/shell-approval',
+    icon: HiOutlineShieldCheck,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['shell', 'approval', 'security', 'command', 'permission'],
+    prev: { href: '/useful-plugins/image-result-formatter', title: 'image_result_formatter' },
+    next: { href: '/useful-plugins/gmail-plugin', title: 'gmail_plugin' }
+  },
+  {
+    title: 'gmail_plugin',
+    href: '/useful-plugins/gmail-plugin',
+    icon: HiOutlineEnvelope,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['gmail', 'email', 'approval', 'crm', 'plugin'],
+    prev: { href: '/useful-plugins/shell-approval', title: 'shell_approval' },
+    next: { href: '/useful-plugins/calendar-plugin', title: 'calendar_plugin' }
+  },
+  {
+    title: 'calendar_plugin',
+    href: '/useful-plugins/calendar-plugin',
+    icon: HiOutlineCalendar,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['calendar', 'events', 'approval', 'google', 'microsoft', 'plugin'],
+    prev: { href: '/useful-plugins/gmail-plugin', title: 'gmail_plugin' },
     next: { href: '/tui', title: 'TUI Components' }
   },
 
@@ -243,7 +315,7 @@ export const navigation = [
     section: 'TUI',
     difficulty: 'NEW',
     keywords: ['tui', 'terminal', 'ui', 'input', 'pick', 'dropdown', 'status', 'keyboard', 'rich'],
-    prev: { href: '/web-fetch', title: 'WebFetch' },
+    prev: { href: '/useful-plugins/calendar-plugin', title: 'calendar_plugin' },
     next: { href: '/tui/pick', title: 'pick' }
   },
   {
@@ -414,76 +486,6 @@ export const navigation = [
     next: { href: '/plugin', title: 'Plugin System' }
   },
   {
-    title: 'Useful Plugins',
-    href: '/useful-plugins',
-    icon: HiOutlineSquares2X2,
-    section: 'Useful Plugins',
-    difficulty: 'NEW',
-    keywords: ['plugins', 'useful_plugins', 're_act', 'eval', 'image_result_formatter', 'gmail_plugin', 'calendar_plugin', 'shell_approval'],
-    prev: { href: '/plugin', title: 'Plugin System' },
-    next: { href: '/useful-plugins/re-act', title: 're_act' }
-  },
-  {
-    title: 're_act',
-    href: '/useful-plugins/re-act',
-    icon: HiOutlineCpuChip,
-    section: 'Useful Plugins',
-    parent: '/useful-plugins',
-    keywords: ['react', 'reasoning', 'plan', 'reflect', 'think'],
-    prev: { href: '/useful-plugins', title: 'Useful Plugins' },
-    next: { href: '/useful-plugins/eval', title: 'eval' }
-  },
-  {
-    title: 'eval',
-    href: '/useful-plugins/eval',
-    icon: HiOutlineChartBar,
-    section: 'Useful Plugins',
-    parent: '/useful-plugins',
-    keywords: ['eval', 'evaluate', 'debug', 'test', 'expected'],
-    prev: { href: '/useful-plugins/re-act', title: 're_act' },
-    next: { href: '/useful-plugins/image-result-formatter', title: 'image_result_formatter' }
-  },
-  {
-    title: 'image_result_formatter',
-    href: '/useful-plugins/image-result-formatter',
-    icon: HiOutlinePhoto,
-    section: 'Useful Plugins',
-    parent: '/useful-plugins',
-    keywords: ['image', 'vision', 'base64', 'screenshot', 'format'],
-    prev: { href: '/useful-plugins/eval', title: 'eval' },
-    next: { href: '/useful-plugins/shell-approval', title: 'shell_approval' }
-  },
-  {
-    title: 'shell_approval',
-    href: '/useful-plugins/shell-approval',
-    icon: HiOutlineShieldCheck,
-    section: 'Useful Plugins',
-    parent: '/useful-plugins',
-    keywords: ['shell', 'approval', 'security', 'command', 'permission'],
-    prev: { href: '/useful-plugins/image-result-formatter', title: 'image_result_formatter' },
-    next: { href: '/useful-plugins/gmail-plugin', title: 'gmail_plugin' }
-  },
-  {
-    title: 'gmail_plugin',
-    href: '/useful-plugins/gmail-plugin',
-    icon: HiOutlineEnvelope,
-    section: 'Useful Plugins',
-    parent: '/useful-plugins',
-    keywords: ['gmail', 'email', 'approval', 'crm', 'plugin'],
-    prev: { href: '/useful-plugins/shell-approval', title: 'shell_approval' },
-    next: { href: '/useful-plugins/calendar-plugin', title: 'calendar_plugin' }
-  },
-  {
-    title: 'calendar_plugin',
-    href: '/useful-plugins/calendar-plugin',
-    icon: HiOutlineCalendar,
-    section: 'Useful Plugins',
-    parent: '/useful-plugins',
-    keywords: ['calendar', 'events', 'approval', 'google', 'microsoft', 'plugin'],
-    prev: { href: '/useful-plugins/gmail-plugin', title: 'gmail_plugin' },
-    next: { href: '/host', title: 'host()' }
-  },
-  {
     title: 'Plugin System',
     href: '/plugin',
     icon: HiOutlinePuzzlePiece,
@@ -491,7 +493,7 @@ export const navigation = [
     difficulty: 'NEW',
     keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'custom', 'create', 'build'],
     prev: { href: '/on_events', title: 'Event System (on_events)' },
-    next: { href: '/useful-plugins', title: 'Useful Plugins' }
+    next: { href: '/host', title: 'host()' }
   },
 
   // Networking
@@ -502,7 +504,7 @@ export const navigation = [
     section: 'Network',
     difficulty: 'Essential',
     keywords: ['host', 'serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'http', 'api', 'ed25519'],
-    prev: { href: '/useful-plugins/calendar-plugin', title: 'calendar_plugin' },
+    prev: { href: '/plugin', title: 'Plugin System' },
     next: { href: '/connect', title: 'Connect to Agents' }
   },
   {
