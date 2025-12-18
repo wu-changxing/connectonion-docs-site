@@ -3,7 +3,6 @@
   @date: 2025-12-18
   @description: Transcribe Page - Audio transcription utility documentation
 */
-import { useState } from 'react'
 import Link from 'next/link'
 import CodeWithResult from '../../components/CodeWithResult'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -12,10 +11,8 @@ import { FaCheckCircle } from 'react-icons/fa'
 import { PageHeader } from '../../components/PageHeader'
 
 export default function TranscribePage() {
-  const [copiedId, setCopiedId] = useState<string | null>(null)
-
   return (
-    <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-24 lg:pt-12 lg:pb-16">
       <PageHeader
         breadcrumbs={[
           { label: 'Docs', href: '/' },
@@ -101,7 +98,7 @@ print(text)`}
         <div className="space-y-8">
           {/* Meeting Minutes */}
           <div>
-            <h3 className="text-xl font-semibold text-green-400 mb-4">Meeting Minutes</h3>
+            <h3 className="text-lg font-semibold text-green-400 mb-4">Meeting Minutes</h3>
             <CodeWithResult
               code={`def get_meeting_minutes(audio_path: str) -> str:
     """Transcribe and summarize a meeting."""
@@ -130,7 +127,7 @@ print(text)`}
 
           {/* Voice Notes Processing */}
           <div>
-            <h3 className="text-xl font-semibold text-green-400 mb-4">Voice Notes Processing</h3>
+            <h3 className="text-lg font-semibold text-green-400 mb-4">Voice Notes Processing</h3>
             <CodeWithResult
               code={`from pathlib import Path
 
@@ -153,7 +150,7 @@ Remember to add the new transcribe feature to the docs...`}
 
           {/* Use as Agent Tool */}
           <div>
-            <h3 className="text-xl font-semibold text-green-400 mb-4">Use as Agent Tool</h3>
+            <h3 className="text-lg font-semibold text-green-400 mb-4">Use as Agent Tool</h3>
             <CodeWithResult
               code={`from connectonion import Agent, transcribe
 
@@ -180,10 +177,10 @@ The team discussed the Q4 roadmap and agreed to...`}
           <table className="min-w-full border-collapse">
             <thead>
               <tr className="border-b border-gray-700">
-                <th className="text-left py-3 px-4 text-green-400">Parameter</th>
-                <th className="text-left py-3 px-4 text-green-400">Type</th>
-                <th className="text-left py-3 px-4 text-green-400">Default</th>
-                <th className="text-left py-3 px-4 text-green-400">Description</th>
+                <th scope="col" className="text-left py-3 px-4 text-green-400">Parameter</th>
+                <th scope="col" className="text-left py-3 px-4 text-green-400">Type</th>
+                <th scope="col" className="text-left py-3 px-4 text-green-400">Default</th>
+                <th scope="col" className="text-left py-3 px-4 text-green-400">Description</th>
               </tr>
             </thead>
             <tbody>
@@ -283,9 +280,9 @@ transcribe("audio.mp3", model="gemini-2.5-flash")`}
           <table className="min-w-full border-collapse">
             <thead>
               <tr className="border-b border-gray-700">
-                <th className="text-left py-3 px-4 text-green-400">Feature</th>
-                <th className="text-left py-3 px-4 text-green-400">transcribe()</th>
-                <th className="text-left py-3 px-4 text-green-400">Agent()</th>
+                <th scope="col" className="text-left py-3 px-4 text-green-400">Feature</th>
+                <th scope="col" className="text-left py-3 px-4 text-green-400">transcribe()</th>
+                <th scope="col" className="text-left py-3 px-4 text-green-400">Agent()</th>
               </tr>
             </thead>
             <tbody>
@@ -358,15 +355,15 @@ Audio file not found`}
         <h2 className="heading-2">Next Steps</h2>
 
         <div className="grid md:grid-cols-3 gap-4">
-          <Link href="/llm_do" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
+          <Link href="/llm_do" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
             <h3 className="text-lg font-semibold text-white mb-2">Learn about llm_do()</h3>
             <p className="text-sm text-slate-100">For one-shot LLM calls</p>
           </Link>
-          <Link href="/agent" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
+          <Link href="/agent" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
             <h3 className="text-lg font-semibold text-white mb-2">Explore Agents</h3>
             <p className="text-sm text-slate-100">For multi-step workflows</p>
           </Link>
-          <Link href="/tools" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
+          <Link href="/tools" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
             <h3 className="text-lg font-semibold text-white mb-2">See Tools</h3>
             <p className="text-sm text-slate-100">For extending agents</p>
           </Link>
