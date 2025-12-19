@@ -134,7 +134,7 @@ export default function UsefulPluginsPage() {
                   </span>
                 </div>
                 <p className="text-lg text-slate-100">
-                  Pre-built plugins from <code className="bg-gray-800 px-2 py-1 rounded text-purple-300">connectonion.useful_plugins</code>
+                  Pre-built plugins from <code className="bg-gray-800 px-2 py-1 rounded text-purple-300 text-sm sm:text-base break-all">connectonion.useful_plugins</code>
                 </p>
               </div>
             </div>
@@ -206,9 +206,9 @@ agent = Agent(
               </div>
 
               {/* Code Preview */}
-              <div className="bg-gray-900 rounded p-3 overflow-hidden">
+              <div className="bg-gray-900 rounded p-3">
                 <div className="text-xs text-gray-500 mb-2">Usage</div>
-                <pre className="text-xs text-slate-100 overflow-x-auto">
+                <pre className="text-xs text-slate-100 overflow-x-auto whitespace-pre">
                   <code>{plugin.usage}</code>
                 </pre>
               </div>
