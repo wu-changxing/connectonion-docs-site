@@ -108,7 +108,8 @@ agent = Agent("devops", tools=[run_command], plugins=[shell_approval])`,
 
 export default function UsefulPluginsPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-24 lg:pt-12 lg:pb-16">
+    <div className="px-4 md:px-8 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto">
       {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">
@@ -297,6 +298,7 @@ from plugins.re_act import re_act  # Customize freely!`}
 
       {/* Navigation */}
       <ContentNavigation />
+      </div>
     </div>
   )
 }
