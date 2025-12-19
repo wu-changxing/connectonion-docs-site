@@ -121,13 +121,13 @@ export default function UsefulPluginsPage() {
 
         {/* Header */}
         <div className="mb-12">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
+          <div className="flex flex-col gap-4 mb-4">
+            <div className="flex items-start gap-3">
+              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30 flex-shrink-0">
                 <HiOutlineCube className="w-8 h-8 text-purple-400" />
               </div>
-              <div>
-                <div className="flex items-center gap-2">
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
                   <h1 className="heading-1">Useful Plugins</h1>
                   <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">
                     <HiOutlineSparkles className="w-3 h-3" />
@@ -135,7 +135,7 @@ export default function UsefulPluginsPage() {
                   </span>
                 </div>
                 <p className="text-lg text-slate-100">
-                  Pre-built plugins from <code className="bg-gray-800 px-2 py-1 rounded text-purple-300 text-sm sm:text-base break-all">connectonion.useful_plugins</code>
+                  Pre-built plugins from <code className="bg-gray-800 px-2 py-1 rounded text-purple-300 text-sm break-all">connectonion.useful_plugins</code>
                 </p>
               </div>
             </div>
@@ -207,9 +207,9 @@ agent = Agent(
               </div>
 
               {/* Code Preview */}
-              <div className="bg-gray-900 rounded p-3">
+              <div className="bg-gray-900 rounded p-3 overflow-hidden">
                 <div className="text-xs text-gray-500 mb-2">Usage</div>
-                <pre className="text-xs text-slate-100 overflow-x-auto whitespace-pre">
+                <pre className="text-xs text-slate-100 overflow-x-auto">
                   <code>{plugin.usage}</code>
                 </pre>
               </div>
