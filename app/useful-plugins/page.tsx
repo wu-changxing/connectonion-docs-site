@@ -173,45 +173,34 @@ agent = Agent(
             <Link
               key={plugin.id}
               href={plugin.href}
-              className={`group block p-6 rounded-lg border overflow-hidden ${plugin.borderColor} ${plugin.bgColor} hover:border-purple-400/50 hover:bg-gray-800/50 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 transition-all duration-200`}
+              className={`group block p-4 sm:p-6 rounded-lg border ${plugin.borderColor} ${plugin.bgColor} hover:border-purple-400/50 hover:bg-gray-800/50 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 transition-all duration-200`}
             >
-              <div className="flex items-start justify-between mb-4">
+              <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
                   <div className={`p-2 rounded-lg bg-gray-800 ${plugin.color}`}>
                     <plugin.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white">{plugin.title}</h3>
-                    <code className="text-sm text-slate-100">{plugin.name}</code>
+                    <h3 className="text-lg sm:text-xl font-semibold text-white">{plugin.title}</h3>
+                    <code className="text-xs sm:text-sm text-slate-100">{plugin.name}</code>
                   </div>
                 </div>
-                <HiOutlineArrowRight className="w-5 h-5 text-slate-100 group-hover:text-white transition-colors" />
+                <HiOutlineArrowRight className="w-5 h-5 text-slate-100 group-hover:text-white transition-colors flex-shrink-0" />
               </div>
 
-              <p className="text-slate-100 mb-4">
+              <p className="text-sm sm:text-base text-slate-100 mb-3">
                 {plugin.description}
               </p>
 
-              <div className="mb-4">
-                <div className="text-sm font-semibold text-slate-100 mb-2">Events used:</div>
-                <div className="flex flex-wrap gap-2">
-                  {plugin.events.map((event, i) => (
-                    <span
-                      key={i}
-                      className="text-xs px-2 py-1 bg-gray-800 text-slate-100 rounded"
-                    >
-                      {event}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Code Preview */}
-              <div className="bg-gray-900 rounded p-3 overflow-hidden">
-                <div className="text-xs text-gray-500 mb-2">Usage</div>
-                <pre className="text-xs text-slate-100 overflow-x-auto">
-                  <code>{plugin.usage}</code>
-                </pre>
+              <div className="flex flex-wrap gap-2">
+                {plugin.events.map((event, i) => (
+                  <span
+                    key={i}
+                    className="text-xs px-2 py-1 bg-gray-800 text-slate-100 rounded"
+                  >
+                    {event}
+                  </span>
+                ))}
               </div>
             </Link>
           ))}
