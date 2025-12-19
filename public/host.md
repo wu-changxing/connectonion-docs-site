@@ -83,15 +83,36 @@ def host(
 │                                                         │
 │  1. Request arrives (HTTP or WebSocket)                 │
 │  2. Trust check (blacklist/whitelist/policy)            │
-│  3. Create session_id, append to session_results.jsonl  │
-│  4. Execute agent.input(prompt, session)                │
-│  5. Append result to session_results.jsonl (done)       │
-│  6. Return result (or client fetches via GET /sessions) │
+│  3. Deep copy agent (isolated instance for this request)│
+│  4. Create session_id, append to session_results.jsonl  │
+│  5. Execute agent.input(prompt, session)                │
+│  6. Append result to session_results.jsonl (done)       │
+│  7. Return result (or client fetches via GET /sessions) │
 │                                                         │
 └─────────────────────────────────────────────────────────┘
 ```
 
 **Results are always saved first.** If connection drops, client can fetch later via HTTP.
+
+### Worker Isolation
+
+Each request gets a **fresh deep copy** of your agent. This ensures:
+
+- **No shared state** between concurrent requests
+- **Stateful tools work correctly** (e.g., browser tools with page state)
+- **Complete isolation** - one request can't affect another
+
+```python
+# Request A and B arrive simultaneously
+# Each gets its own copy of the agent and tools
+# No interference, no race conditions
+```
+
+For horizontal scaling, use uvicorn `workers`:
+
+```python
+host(agent, workers=4)  # 4 OS processes, each with isolated agents
+```
 
 ---
 
