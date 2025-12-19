@@ -173,7 +173,7 @@ agent = Agent(
             <Link
               key={plugin.id}
               href={plugin.href}
-              className={`group block p-6 rounded-lg border ${plugin.borderColor} ${plugin.bgColor} hover:border-purple-400/50 hover:bg-gray-800/50 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 transition-all duration-200`}
+              className={`group block p-6 rounded-lg border overflow-hidden ${plugin.borderColor} ${plugin.bgColor} hover:border-purple-400/50 hover:bg-gray-800/50 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 transition-all duration-200`}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
