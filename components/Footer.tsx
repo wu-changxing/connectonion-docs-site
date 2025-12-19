@@ -87,7 +87,7 @@ export default function Footer() {
               >
                 <FaDiscord className="w-6 h-6" />
               </a>
-              <span className="text-sm text-gray-500 ml-2">v0.5.9</span>
+              <span className="text-sm text-gray-500 ml-2">v0.5.10</span>
             </div>
           </div>
         </div>
