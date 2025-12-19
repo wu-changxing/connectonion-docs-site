@@ -106,6 +106,28 @@ Waiting for tasks...`}
               </div>
             </div>
           </div>
+
+          {/* Worker Isolation */}
+          <div className="mt-8 bg-emerald-950/30 border border-emerald-400/30 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-emerald-100 mb-4">Worker Isolation</h3>
+            <p className="text-slate-100 mb-4">
+              Each request gets a <strong>fresh deep copy</strong> of your agent:
+            </p>
+            <div className="space-y-2 text-slate-100">
+              <div className="flex items-start gap-2">
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <span><strong>No shared state</strong> between concurrent requests</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <span><strong>Stateful tools work correctly</strong> (browser, file handles)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <span><strong>Complete isolation</strong> - one request can't affect another</span>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* HTTP API */}
@@ -205,7 +227,7 @@ print(response.json()["result"])  # "Your name is John"`}
   "address": "0x3d4017c3...",
   "tools": ["translate", "detect_language"],
   "trust": "careful",
-  "version": "0.4.1"
+  "version": "0.5.10"
 }`}
                 language="bash"
               />
