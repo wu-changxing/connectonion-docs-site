@@ -27,8 +27,10 @@ Agent(
   - `Path`: Path object pointing to a prompt file
   - `None`: Uses default prompt
 - **api_key** (`Optional[str]`): OpenAI API key (if not using custom LLM)
-- **model** (`str`): Model name for OpenAI (default: "gpt-5-mini")
-  - Available models: `gpt-5-nano`, `gpt-5-mini`, `gpt-5`
+- **model** (`str`): Model name (default: "co/gemini-2.5-pro")
+  - OpenAI: `gpt-5`, `gpt-5-mini`, `gpt-5-nano`, `o4-mini`
+  - Google: `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-3-pro-preview`
+  - Anthropic: `claude-opus-4-5`, `claude-sonnet-4-5`, `claude-haiku-4-5`
 
 ### System Prompt Options
 
@@ -174,7 +176,7 @@ Each log entry includes:
 Example log output:
 ```
 10:30:15 INPUT: Calculate 2 + 2
-10:30:15 → LLM call (gpt-4o-mini)
+10:30:15 → LLM call (gemini-2.5-pro)
 10:30:16 → Tool: calculator(expression="2 + 2")
 10:30:16   Result: 4
 10:30:16 ✓ Complete (1.2s)

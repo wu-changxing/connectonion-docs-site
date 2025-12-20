@@ -80,10 +80,10 @@ answer = llm_do("What's 2+2?")
 print(answer)
 
 # Google Gemini
-answer = llm_do("What's 2+2?", model="gemini-1.5-flash")
+answer = llm_do("What's 2+2?", model="gemini-2.5-flash")
 
 # Anthropic Claude
-answer = llm_do("What's 2+2?", model="claude-3-5-haiku-20241022")`}
+answer = llm_do("What's 2+2?", model="claude-haiku-4-5")`}
                 result={`>>> answer = llm_do("What's 2+2?")
 >>> print(answer)
 4`}
@@ -208,27 +208,27 @@ agent = Agent("support", tools=[analyze_feedback])`}
             <section className="mb-12">
               <h2 className="heading-2">Supported Models</h2>
               
-              <CodeWithResult 
+              <CodeWithResult
                 code={`# OpenAI models
-llm_do("Hello", model="gpt-4o")
-llm_do("Hello", model="gpt-4o-mini")
-llm_do("Hello", model="gpt-3.5-turbo")
+llm_do("Hello", model="gpt-5")
+llm_do("Hello", model="gpt-5-mini")
+llm_do("Hello", model="gpt-5-nano")
 
 # Google Gemini models
-llm_do("Hello", model="gemini-1.5-pro")
-llm_do("Hello", model="gemini-1.5-flash")
+llm_do("Hello", model="gemini-2.5-pro")
+llm_do("Hello", model="gemini-2.5-flash")
 
 # Anthropic Claude models
-llm_do("Hello", model="claude-3-5-sonnet-latest")
-llm_do("Hello", model="claude-3-5-haiku-20241022")
-llm_do("Hello", model="claude-3-opus-latest")`}
-                result={`>>> llm_do("Hello", model="gpt-4o")
+llm_do("Hello", model="claude-sonnet-4-5")
+llm_do("Hello", model="claude-haiku-4-5")
+llm_do("Hello", model="claude-opus-4-5")`}
+                result={`>>> llm_do("Hello", model="gpt-5")
 'Hello! How can I assist you today?'
 
->>> llm_do("Hello", model="gemini-1.5-flash")
+>>> llm_do("Hello", model="gemini-2.5-flash")
 'Hello there! How can I help you?'
 
->>> llm_do("Hello", model="claude-3-5-haiku-20241022")
+>>> llm_do("Hello", model="claude-haiku-4-5")
 'Hello! How may I assist you today?'`}
                 className="mb-6"
               />

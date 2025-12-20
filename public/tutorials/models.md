@@ -27,12 +27,6 @@ agent = Agent("assistant", model="gpt-5-mini")
 agent = Agent("assistant", model="gpt-5-nano")
 ```
 
-### GPT-4.1
-```python
-# Smartest non-reasoning model
-agent = Agent("assistant", model="gpt-4.1")
-```
-
 ### GPT-4o Series (Previous Generation)
 ```python
 # Multimodal model with vision capabilities
@@ -42,81 +36,72 @@ agent = Agent("assistant", model="gpt-4o")
 agent = Agent("assistant", model="gpt-4o-mini")
 ```
 
-### o1 Reasoning Models
+### o4-mini Reasoning Model
 ```python
-# Advanced reasoning and problem solving
-agent = Agent("assistant", model="o1")
-
-# Fast reasoning, cost-effective
-agent = Agent("assistant", model="o1-mini")
+# OpenAI's newest reasoning model
+agent = Agent("assistant", model="o4-mini")
 ```
 
 ## Google Gemini Models
 
+### Gemini 3 (Newest - State-of-the-Art Reasoning)
+```python
+# Most intelligent model family with state-of-the-art reasoning
+agent = Agent("assistant", model="gemini-3-pro-preview")
+
+# Fastest Gemini 3 model
+agent = Agent("assistant", model="gemini-3-flash-preview")
+
+# Image generation model with grounded generation
+agent = Agent("assistant", model="gemini-3-pro-image-preview")
+```
+
 ### Gemini 2.5
 ```python
-# Enhanced thinking and reasoning, multimodal understanding, advanced coding
+# Default model - best price-performance for agents
 # Supports: Audio, images, videos, text, and PDF
 agent = Agent("assistant", model="gemini-2.5-pro")
+
+# Best price-performance ratio
+agent = Agent("assistant", model="gemini-2.5-flash")
+
+# Ultra fast, cheapest Gemini option
+agent = Agent("assistant", model="gemini-2.5-flash-lite")
 ```
 
 ### Gemini 2.0
 ```python
-# Experimental multimodal model with native tool use
-agent = Agent("assistant", model="gemini-2.0-flash-exp")
+# Previous gen workhorse
+agent = Agent("assistant", model="gemini-2.0-flash")
 
-# With thinking/reasoning capabilities
-agent = Agent("assistant", model="gemini-2.0-flash-thinking-exp")
-```
-
-### Gemini 1.5
-```python
-# 2M token context window
-agent = Agent("assistant", model="gemini-1.5-pro")
-
-# Fast and versatile, 1M token context
-agent = Agent("assistant", model="gemini-1.5-flash")
-
-# High-volume tasks, lower cost
-agent = Agent("assistant", model="gemini-1.5-flash-8b")
+# Previous gen lite version
+agent = Agent("assistant", model="gemini-2.0-flash-lite")
 ```
 
 ## Anthropic Claude Models
 
-### Claude Opus 4 Series
+### Claude 4.5 Series (Latest)
 ```python
-# Claude Opus 4.5 - Latest and most capable ($5/M input, $25/M output)
+# Claude Opus 4.5 - Most capable model
 agent = Agent("assistant", model="claude-opus-4-5")
 
-# Claude Opus 4.1 - Previous version
-agent = Agent("assistant", model="claude-opus-4-1")
-```
-
-### Claude Sonnet 4.5
-```python
-# Best balance of intelligence and speed ($3/M input, $15/M output)
+# Claude Sonnet 4.5 - Best balance of intelligence and speed
 agent = Agent("assistant", model="claude-sonnet-4-5")
-```
 
-### Claude Haiku 4.5
-```python
-# Fastest with near-frontier intelligence ($1/M input, $5/M output)
+# Claude Haiku 4.5 - Fastest with near-frontier intelligence
 agent = Agent("assistant", model="claude-haiku-4-5")
 ```
 
-### Claude Sonnet 4
+### Claude 4 Series (Previous Generation)
 ```python
-# Balanced performance model
+# Claude Opus 4.1 - Specialized reasoning
+agent = Agent("assistant", model="claude-opus-4-1")
+
+# Claude Sonnet 4 - Balanced performance
 agent = Agent("assistant", model="claude-sonnet-4")
-```
 
-### Claude 3.5 Series (Previous Generation)
-```python
-# Excellent at coding
-agent = Agent("assistant", model="claude-3-5-sonnet")
-
-# Fast and cost-effective
-agent = Agent("assistant", model="claude-3-5-haiku")
+# Claude Opus 4 - Legacy version
+agent = Agent("assistant", model="claude-opus-4")
 ```
 
 ## Model Capabilities Comparison
@@ -137,11 +122,13 @@ agent = Agent("assistant", model="claude-3-5-haiku")
 | gpt-5 | 200K tokens |
 | gpt-5-mini | 200K tokens |
 | gpt-5-nano | 128K tokens |
-| gpt-4.1 | 128K tokens |
+| gpt-4o | 128K tokens |
+| o4-mini | 128K tokens |
 | **Google** | |
+| gemini-3-pro-preview | 1M tokens |
+| gemini-3-flash-preview | 1M tokens |
 | gemini-2.5-pro | 2M tokens |
-| gemini-1.5-pro | 2M tokens |
-| gemini-1.5-flash | 1M tokens |
+| gemini-2.5-flash | 1M tokens |
 | **Anthropic** | |
 | claude-opus-4-5 | 200K tokens |
 | claude-sonnet-4-5 | 200K tokens |
@@ -205,23 +192,22 @@ agent = Agent("coder", model="claude-opus-4-5")
 **Fast Responses**
 ```python
 # Fastest options from each provider
-agent = Agent("quick", model="gpt-5-nano")      # OpenAI fastest
-agent = Agent("quick", model="gemini-1.5-flash") # Google fast
+agent = Agent("quick", model="gpt-5-nano")       # OpenAI fastest
+agent = Agent("quick", model="gemini-2.5-flash") # Google fast
 agent = Agent("quick", model="claude-haiku-4-5") # Anthropic fast
 ```
 
 **Cost-Optimized**
 ```python
 # Most cost-efficient options
-agent = Agent("budget", model="gpt-5-nano")       # OpenAI cheapest
-agent = Agent("budget", model="gemini-1.5-flash-8b") # Google cheapest
+agent = Agent("budget", model="gpt-5-nano")          # OpenAI cheapest
+agent = Agent("budget", model="gemini-2.5-flash-lite") # Google cheapest
 ```
 
 **Long Context (>200K tokens)**
 ```python
 # Models with longest context windows
 agent = Agent("reader", model="gemini-2.5-pro")  # 2M tokens
-agent = Agent("reader", model="gemini-1.5-pro")  # 2M tokens
 ```
 
 **Multimodal (Images, Audio, Video)**
@@ -276,7 +262,7 @@ def select_model(task_type: str, speed_priority: bool = False) -> str:
         return {
             "code": "gpt-5-mini",
             "chat": "gpt-5-nano",
-            "analysis": "gemini-1.5-flash",
+            "analysis": "gemini-2.5-flash",
             "creative": "claude-haiku-4-5"
         }.get(task_type, "gpt-5-nano")
     else:
@@ -393,7 +379,7 @@ def create_robust_agent(name: str, model: str, max_retries: int = 3):
                 # Try alternative model
                 alternatives = {
                     "gpt-5": "gpt-5-mini",
-                    "gemini-2.5-pro": "gemini-1.5-pro",
+                    "gemini-2.5-pro": "gemini-2.5-flash",
                     "claude-opus-4-5": "claude-sonnet-4-5"
                 }
                 alt_model = alternatives.get(model)

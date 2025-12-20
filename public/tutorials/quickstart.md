@@ -89,9 +89,9 @@ The agent will pause and ask for your approval before sending any email.
 agent = Agent("prompt", model="co/gemini-2.5-pro")
 
 # Or use your own API keys
-agent = Agent("prompt", model="gpt-4o")           # OpenAI
-agent = Agent("prompt", model="claude-sonnet-4-20250514")  # Anthropic
-agent = Agent("prompt", model="gemini-2.0-flash") # Google
+agent = Agent("prompt", model="gpt-5")              # OpenAI
+agent = Agent("prompt", model="claude-sonnet-4-5")  # Anthropic
+agent = Agent("prompt", model="gemini-2.5-pro")     # Google
 ```
 
 Check your free credits: `co status`

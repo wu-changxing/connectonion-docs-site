@@ -96,22 +96,20 @@ response = agent.input("Hello!")
 - **gpt-5** - Best for coding and agentic tasks
 - **gpt-5-mini** - Faster, cost-efficient version
 - **gpt-5-nano** - Fastest, most cost-efficient
-- **gpt-4.1** - Smartest non-reasoning model
-- **o1** - Advanced reasoning model
+- **o4-mini** - OpenAI's newest reasoning model
 
 ### Google Gemini Models
-- **gemini-3-pro-preview** - State-of-the-art reasoning, 1M context (NEW!)
-- **gemini-3-pro-image-preview** - Image generation model (NEW!)
-- **gemini-2.5-pro** - Enhanced reasoning, multimodal (audio/video/PDF)
-- **gemini-2.0-flash-exp** - Experimental with native tool use
-- **gemini-1.5-pro** - 2M token context window
-- **gemini-1.5-flash** - Fast and versatile
+- **gemini-3-pro-preview** - State-of-the-art reasoning, 1M context
+- **gemini-3-flash-preview** - Fastest Gemini 3 model
+- **gemini-2.5-pro** - Default model, best price-performance for agents
+- **gemini-2.5-flash** - Best price-performance ratio
+- **gemini-2.0-flash** - Previous gen workhorse
 
 ### Anthropic Claude Models
-- **claude-opus-4.1** - Latest and most capable
-- **claude-opus-4** - Previous flagship
-- **claude-sonnet-4** - Balanced performance
-- **claude-3-5-sonnet** - Excellent at coding
+- **claude-opus-4-5** - Most capable Claude model
+- **claude-sonnet-4-5** - Best balance of intelligence and speed
+- **claude-haiku-4-5** - Fastest with near-frontier intelligence
+- **claude-sonnet-4** - Balanced performance (previous gen)
 
 ## Model Selection Guide
 
@@ -120,26 +118,25 @@ response = agent.input("Hello!")
 **Best Overall Performance**
 \`\`\`python
 agent = Agent("assistant", model="gpt-5")           # OpenAI flagship
-agent = Agent("assistant", model="gemini-2.5-pro")  # Google flagship
-agent = Agent("assistant", model="claude-opus-4.1") # Anthropic flagship
+agent = Agent("assistant", model="gemini-2.5-pro")  # Google default
+agent = Agent("assistant", model="claude-opus-4-5") # Anthropic flagship
 \`\`\`
 
 **Code Generation**
 \`\`\`python
 agent = Agent("coder", model="gpt-5")               # Best for coding
-agent = Agent("coder", model="claude-opus-4.1")     # Alternative
+agent = Agent("coder", model="claude-sonnet-4-5")   # Alternative
 \`\`\`
 
 **Fast Responses**
 \`\`\`python
 agent = Agent("quick", model="gpt-5-nano")          # OpenAI fastest
-agent = Agent("quick", model="gemini-1.5-flash")    # Google fast
+agent = Agent("quick", model="gemini-2.5-flash")    # Google fast
 \`\`\`
 
 **Long Context (>200K tokens)**
 \`\`\`python
 agent = Agent("reader", model="gemini-2.5-pro")     # 2M tokens
-agent = Agent("reader", model="gemini-1.5-pro")     # 2M tokens
 \`\`\`
 
 ## Setting Up API Keys
@@ -363,12 +360,8 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">o1</code>
-                  <span className="text-slate-100">Advanced reasoning and problem solving</span>
-                </div>
-                <div className="flex items-start">
-                  <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">o1-mini</code>
-                  <span className="text-slate-100">Fast reasoning, cost-effective</span>
+                  <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">o4-mini</code>
+                  <span className="text-slate-100">OpenAI's newest reasoning model</span>
                 </div>
               </div>
             </div>
@@ -386,6 +379,10 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
                 <div className="flex items-start">
                   <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-preview</code>
                   <span className="text-slate-100">State-of-the-art reasoning, 1M context - <strong className="text-green-400">Most intelligent</strong></span>
+                </div>
+                <div className="flex items-start">
+                  <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-flash-preview</code>
+                  <span className="text-slate-100">Fastest Gemini 3 model</span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-image-preview</code>
@@ -414,16 +411,16 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
                 <HiOutlineBolt className="mr-2 h-5 w-5 text-yellow-400" />
-                Gemini 1.5
+                Gemini 2.0
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-1.5-pro</code>
-                  <span className="text-slate-100">2M token context window</span>
+                  <code className="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.0-flash</code>
+                  <span className="text-slate-100">Previous gen workhorse</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-1.5-flash</code>
-                  <span className="text-slate-100">Fast and versatile (1M tokens)</span>
+                  <code className="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.0-flash-lite</code>
+                  <span className="text-slate-100">Previous gen lite version</span>
                 </div>
               </div>
             </div>
@@ -435,16 +432,20 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
                 <HiOutlineSquare3Stack3D className="mr-2 h-5 w-5 text-orange-400" />
-                Claude Opus 4 Series
+                Claude 4.5 Series (Latest)
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4.1</code>
-                  <span className="text-slate-100">Latest and most capable (200K tokens)</span>
+                  <code className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4-5</code>
+                  <span className="text-slate-100">Most capable Claude model (200K tokens)</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4</code>
-                  <span className="text-slate-100">Previous flagship model</span>
+                  <code className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-sonnet-4-5</code>
+                  <span className="text-slate-100">Best balance of intelligence and speed</span>
+                </div>
+                <div className="flex items-start">
+                  <code className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-haiku-4-5</code>
+                  <span className="text-slate-100">Fastest with near-frontier intelligence</span>
                 </div>
               </div>
             </div>
@@ -452,16 +453,16 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
                 <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-purple-400" />
-                Claude 3.5 Series
+                Claude 4 Series (Previous Gen)
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-3-5-sonnet</code>
-                  <span className="text-slate-100">Excellent at coding</span>
+                  <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4-1</code>
+                  <span className="text-slate-100">Specialized reasoning</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-3-5-haiku</code>
-                  <span className="text-slate-100">Fast and cost-effective</span>
+                  <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-sonnet-4</code>
+                  <span className="text-slate-100">Balanced performance</span>
                 </div>
               </div>
             </div>
@@ -481,7 +482,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             </h3>
             <CodeWithResult
               code={`agent = Agent("coder", model="gpt-5")
-# Alternative: claude-opus-4.1`}
+# Alternative: claude-sonnet-4-5`}
               result=""
             />
           </div>
@@ -493,7 +494,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             </h3>
             <CodeWithResult
               code={`agent = Agent("quick", model="gpt-5-nano")
-# Alternative: gemini-1.5-flash`}
+# Alternative: gemini-2.5-flash`}
               result=""
             />
           </div>
@@ -505,7 +506,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             </h3>
             <CodeWithResult
               code={`agent = Agent("budget", model="gpt-5-nano")
-# Alternative: gemini-1.5-flash-8b`}
+# Alternative: gemini-2.5-flash-lite`}
               result=""
             />
           </div>
@@ -545,7 +546,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               code={`# Use any model with co/ prefix
 agent = Agent("assistant", model="co/gpt-5")
 agent = Agent("assistant", model="co/gemini-2.5-pro")
-agent = Agent("assistant", model="co/claude-opus-4.1")`}
+agent = Agent("assistant", model="co/claude-opus-4-5")`}
               result=""
             />
             <div className="mt-4 space-y-2 text-sm text-slate-100">
@@ -577,7 +578,7 @@ agent = Agent("assistant", model="co/claude-opus-4.1")`}
               code={`# Use models without co/ prefix
 agent = Agent("assistant", model="gpt-5")
 agent = Agent("assistant", model="gemini-2.5-pro")
-agent = Agent("assistant", model="claude-opus-4.1")`}
+agent = Agent("assistant", model="claude-opus-4-5")`}
               result=""
             />
             <div className="mt-4 space-y-2 text-sm text-slate-100">
@@ -603,13 +604,13 @@ agent = Agent("assistant", model="claude-opus-4.1")`}
         return {
             "code": "gpt-5-mini",
             "chat": "gpt-5-nano",
-            "analysis": "gemini-1.5-flash"
+            "analysis": "gemini-2.5-flash"
         }.get(task_type, "gpt-5-nano")
     else:
         return {
             "code": "gpt-5",
-            "reasoning": "gemini-2.5-pro",
-            "analysis": "claude-opus-4.1"
+            "reasoning": "o4-mini",
+            "analysis": "claude-opus-4-5"
         }.get(task_type, "gpt-5")
 
 # Use appropriate model
@@ -631,7 +632,7 @@ agent = Agent("coder", model=model)`}
     
     model_chain = [
         "gpt-5",           # Best overall
-        "claude-opus-4.1", # Strong alternative
+        "claude-opus-4-5", # Strong alternative
         "gemini-2.5-pro",  # Multimodal option
         "gpt-5-mini"       # Faster fallback
     ]
@@ -685,7 +686,7 @@ agent = create_agent_with_fallback("assistant")`}
                 <td className="px-4 py-3 text-slate-100">Multimodal, huge context</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm">claude-opus-4.1</code></td>
+                <td className="px-4 py-3"><code className="text-sm">claude-opus-4-5</code></td>
                 <td className="px-4 py-3">Anthropic</td>
                 <td className="px-4 py-3">200K</td>
                 <td className="px-4 py-3 text-slate-100">Most capable Claude</td>

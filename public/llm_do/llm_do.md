@@ -12,10 +12,10 @@ answer = llm_do("What's 2+2?")
 print(answer)  # "4"
 
 # Google Gemini
-answer = llm_do("What's 2+2?", model="gemini-1.5-flash")  
+answer = llm_do("What's 2+2?", model="gemini-2.5-flash")
 
 # Anthropic Claude
-answer = llm_do("What's 2+2?", model="claude-3-5-haiku-20241022")
+answer = llm_do("What's 2+2?", model="claude-haiku-4-5")
 ```
 
 That's it! One function for any LLM task across multiple providers.
@@ -115,18 +115,20 @@ result = llm_do(
 
 ```python
 # OpenAI models
-llm_do("Hello", model="gpt-4o")
-llm_do("Hello", model="gpt-4o-mini")
-llm_do("Hello", model="gpt-3.5-turbo")
+llm_do("Hello", model="gpt-5")
+llm_do("Hello", model="gpt-5-mini")
+llm_do("Hello", model="gpt-5-nano")
+llm_do("Hello", model="o4-mini")
 
 # Google Gemini models
-llm_do("Hello", model="gemini-1.5-pro")
-llm_do("Hello", model="gemini-1.5-flash")
+llm_do("Hello", model="gemini-2.5-pro")
+llm_do("Hello", model="gemini-2.5-flash")
+llm_do("Hello", model="gemini-3-pro-preview")
 
-# Anthropic Claude models  
-llm_do("Hello", model="claude-3-5-sonnet-latest")
-llm_do("Hello", model="claude-3-5-haiku-20241022")
-llm_do("Hello", model="claude-3-opus-latest")
+# Anthropic Claude models
+llm_do("Hello", model="claude-sonnet-4-5")
+llm_do("Hello", model="claude-haiku-4-5")
+llm_do("Hello", model="claude-opus-4-5")
 ```
 
 ## Parameters
@@ -136,7 +138,7 @@ llm_do("Hello", model="claude-3-opus-latest")
 | `input` | str | required | The input text/question |
 | `output` | BaseModel | None | Pydantic model for structured output |
 | `system_prompt` | str\|Path | None | System prompt (string or file path) |
-| `model` | str | "gpt-4o-mini" | Model to use (supports OpenAI, Gemini, Claude) |
+| `model` | str | "co/gemini-2.5-flash" | Model to use (supports OpenAI, Gemini, Claude) |
 | `temperature` | float | 0.1 | Randomness (0=deterministic, 2=creative) |
 
 ## What You Get

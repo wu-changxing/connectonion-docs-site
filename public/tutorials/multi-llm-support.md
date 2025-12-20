@@ -4,14 +4,14 @@
 
 ```python
 # With Agent
-agent = Agent("assistant", model="gpt-4o")        # OpenAI
-agent = Agent("assistant", model="gemini-1.5-pro") # Google  
-agent = Agent("assistant", model="claude-3-5-sonnet-latest") # Anthropic
+agent = Agent("assistant", model="gpt-5")              # OpenAI
+agent = Agent("assistant", model="gemini-2.5-pro")     # Google
+agent = Agent("assistant", model="claude-sonnet-4-5")  # Anthropic
 
 # With llm_do
-llm_do("Hello", model="gpt-4o")        # OpenAI
-llm_do("Hello", model="gemini-1.5-flash")  # Google
-llm_do("Hello", model="claude-3-5-haiku-20241022") # Anthropic
+llm_do("Hello", model="gpt-5")              # OpenAI
+llm_do("Hello", model="gemini-2.5-flash")   # Google
+llm_do("Hello", model="claude-haiku-4-5")   # Anthropic
 ```
 
 No configuration files. No provider setup. No complexity. Just change the model name.
@@ -61,8 +61,8 @@ def compare_models(prompt):
     # Define models to compare
     models = {
         "OpenAI GPT-5": "gpt-5-mini",
-        "Google Gemini": "gemini-1.5-flash",
-        "Claude Haiku": "claude-3-5-haiku"
+        "Google Gemini": "gemini-2.5-flash",
+        "Claude Haiku": "claude-haiku-4-5"
     }
     
     print(f"Prompt: {prompt}\n")
@@ -122,8 +122,8 @@ def search_knowledge(query: str) -> str:
 tools = [get_current_time, calculate, search_knowledge]
 
 agent_openai = Agent("assistant", model="gpt-5-mini", tools=tools)
-agent_google = Agent("assistant", model="gemini-1.5-flash", tools=tools)
-agent_claude = Agent("assistant", model="claude-3-5-haiku", tools=tools)
+agent_google = Agent("assistant", model="gemini-2.5-flash", tools=tools)
+agent_claude = Agent("assistant", model="claude-haiku-4-5", tools=tools)
 
 # All agents can use the tools
 prompt = "What time is it? Calculate 15% of 250. What is Python?"
@@ -151,12 +151,12 @@ class SmartAssistant:
     def __init__(self):
         # Map task types to optimal models
         self.task_models = {
-            "code": "claude-opus-4.1",      # Claude excels at coding
+            "code": "claude-sonnet-4-5",    # Claude excels at coding
             "creative": "gpt-5",            # GPT-5 for creative tasks
             "analysis": "gemini-2.5-pro",   # Gemini for deep analysis
             "quick": "gpt-5-nano",          # Fast model for simple tasks
             "vision": "gemini-2.5-pro",     # Gemini supports many formats
-            "reasoning": "gpt-5"            # GPT-5 for complex reasoning
+            "reasoning": "o4-mini"          # o4-mini for complex reasoning
         }
     
     def process(self, prompt: str, task_type: str = "general"):
@@ -205,11 +205,11 @@ class RobustAssistant:
     def __init__(self):
         # Priority order for models (best to fallback)
         self.model_chain = [
-            "claude-opus-4.1",    # Most capable
+            "claude-opus-4-5",   # Most capable
             "gpt-5",             # Very capable
             "gemini-2.5-pro",    # Multimodal champion
             "gpt-5-mini",        # Fast and reliable
-            "gemini-1.5-flash"   # Budget option
+            "gemini-2.5-flash"   # Budget option
         ]
         
         self.agent = None
@@ -290,18 +290,18 @@ class CostOptimizedAssistant:
         # Define model tiers with approximate costs
         self.model_tiers = {
             "premium": [
-                ("claude-opus-4.1", 15.0),  # $15/1M tokens
+                ("claude-opus-4-5", 25.0),  # $25/1M tokens
                 ("gpt-5", 10.0),            # $10/1M tokens
-                ("gemini-2.5-pro", 5.0)     # $5/1M tokens
+                ("gemini-2.5-pro", 10.0)    # $10/1M tokens
             ],
             "standard": [
                 ("gpt-5-mini", 2.0),        # $2/1M tokens
-                ("claude-3-5-haiku", 1.0),  # $1/1M tokens
-                ("gemini-1.5-flash", 0.3)   # $0.3/1M tokens
+                ("claude-haiku-4-5", 5.0),  # $5/1M tokens
+                ("gemini-2.5-flash", 2.5)   # $2.5/1M tokens
             ],
             "economy": [
-                ("gpt-5-nano", 0.5),        # $0.5/1M tokens
-                ("gemini-1.5-flash-8b", 0.15)  # $0.15/1M tokens
+                ("gpt-5-nano", 0.4),        # $0.4/1M tokens
+                ("gemini-2.5-flash-lite", 0.4)  # $0.4/1M tokens
             ]
         }
     
@@ -388,7 +388,7 @@ for budget in ["economy", "standard", "premium"]:
 
 ```python
 try:
-    agent = Agent("assistant", model="claude-opus-4.1")
+    agent = Agent("assistant", model="claude-opus-4-5")
     response = agent.input(prompt)
 except Exception as e:
     if "api key" in str(e).lower():
@@ -419,7 +419,7 @@ print(f"Available providers: {', '.join(available)}")
 
 | Need | Use | Why |
 |------|-----|-----|
-| Code | `claude-opus-4.1` | Best at coding |
+| Code | `claude-sonnet-4-5` | Best at coding |
 | Speed | `gpt-5-nano` | Fastest |
 | Long docs | `gemini-2.5-pro` | 2M tokens |
 | Images | `gemini-2.5-pro` | Handles everything |
@@ -447,7 +447,7 @@ for model, tokens in usage_tracker.items():
 from connectonion import Agent
 
 # Just change this string to switch providers
-model = "gpt-5"  # or "gemini-2.5-pro" or "claude-opus-4.1"
+model = "gpt-5"  # or "gemini-2.5-pro" or "claude-opus-4-5"
 
 agent = Agent("demo", model=model)
 print(agent.input("What model are you?"))
