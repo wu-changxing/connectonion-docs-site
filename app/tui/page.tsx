@@ -9,6 +9,19 @@ import CodeWithResult from '../../components/CodeWithResult'
 
 const components = [
   {
+    id: 'chat',
+    name: 'Chat',
+    title: 'Chat',
+    description: 'Full chat interface with agent integration',
+    icon: HiOutlineCommandLine,
+    color: 'text-emerald-400',
+    bgColor: 'bg-emerald-900/20',
+    borderColor: 'border-emerald-500/30',
+    href: '/tui/chat',
+    usage: 'Chat(agent=agent).run()',
+    category: 'input'
+  },
+  {
     id: 'pick',
     name: 'pick',
     title: 'pick',
@@ -256,6 +269,11 @@ console.print(status.render())`}
                 </tr>
               </thead>
               <tbody>
+                <tr className="border-b border-gray-700/50">
+                  <td className="py-2"><Link href="/tui/chat" className="text-purple-400 hover:text-purple-300">Chat</Link></td>
+                  <td className="py-2 text-slate-100">Full chat interface with agent</td>
+                  <td className="py-2"><code className="text-xs">from connectonion.tui import Chat</code></td>
+                </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2"><Link href="/tui/input" className="text-purple-400 hover:text-purple-300">Input</Link></td>
                   <td className="py-2 text-slate-100">Text input with autocomplete</td>

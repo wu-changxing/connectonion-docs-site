@@ -207,7 +207,7 @@ agent = Agent("support", tools=[analyze_feedback])`}
             {/* Supported Models */}
             <section className="mb-12">
               <h2 className="heading-2">Supported Models</h2>
-              
+
               <CodeWithResult
                 code={`# OpenAI models
 llm_do("Hello", model="gpt-5")
@@ -231,6 +231,66 @@ llm_do("Hello", model="claude-opus-4-5")`}
 >>> llm_do("Hello", model="claude-haiku-4-5")
 'Hello! How may I assist you today?'`}
                 className="mb-6"
+              />
+            </section>
+
+            {/* Structured Output Model Compatibility */}
+            <section className="mb-12">
+              <h2 className="heading-2">Structured Output Compatibility</h2>
+
+              <p className="text-slate-100 mb-4">
+                When using <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">output=</code> with Pydantic models,
+                note these compatibility differences:
+              </p>
+
+              <div className="table-wrapper mb-6">
+                <table className="min-w-full border-collapse">
+                  <thead>
+                    <tr className="border-b border-gray-700">
+                      <th className="text-left py-3 px-4 text-green-400">Provider</th>
+                      <th className="text-left py-3 px-4 text-green-400">Structured Output Support</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-gray-800">
+                      <td className="py-3 px-4 text-slate-100"><strong>OpenAI</strong></td>
+                      <td className="py-3 px-4 text-slate-100">All models</td>
+                    </tr>
+                    <tr className="border-b border-gray-800">
+                      <td className="py-3 px-4 text-slate-100"><strong>Google Gemini</strong></td>
+                      <td className="py-3 px-4 text-slate-100">All models</td>
+                    </tr>
+                    <tr className="border-b border-gray-800">
+                      <td className="py-3 px-4 text-slate-100"><strong>Anthropic Claude</strong></td>
+                      <td className="py-3 px-4 text-slate-100">Only 4.5/4.1 series (claude-sonnet-4-5, claude-opus-4-5, claude-opus-4-1, claude-haiku-4-5)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-4 mb-6">
+                <p className="text-sm text-yellow-300">
+                  <strong>Note:</strong> Legacy Claude models (claude-sonnet-4, claude-opus-4) do NOT support structured outputs.
+                  Use Claude 4.5 or 4.1 series for structured output tasks.
+                </p>
+              </div>
+
+              <CodeWithResult
+                code={`from pydantic import BaseModel
+
+class Answer(BaseModel):
+    result: int
+
+# Works with all providers
+llm_do("What is 2+2?", output=Answer, model="co/gpt-4o-mini")       # ✅
+llm_do("What is 2+2?", output=Answer, model="co/gemini-2.5-flash")  # ✅
+llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4-5") # ✅
+
+# Legacy Claude models do NOT support structured output
+# llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4") # ❌`}
+                result={`>>> llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4-5")
+Answer(result=4)`}
+                className="mb-4"
               />
             </section>
 

@@ -448,6 +448,11 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
                   <span className="text-slate-100">Fastest with near-frontier intelligence</span>
                 </div>
               </div>
+              <div className="mt-4 p-3 bg-green-500/10 rounded border border-green-500/20">
+                <p className="text-xs text-green-300">
+                  ✅ All 4.5 series models support <strong>structured output</strong> with Pydantic models
+                </p>
+              </div>
             </div>
 
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
@@ -458,12 +463,18 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               <div className="space-y-3">
                 <div className="flex items-start">
                   <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4-1</code>
-                  <span className="text-slate-100">Specialized reasoning</span>
+                  <span className="text-slate-100">Specialized reasoning - <strong className="text-green-400">supports structured output</strong></span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-sonnet-4</code>
-                  <span className="text-slate-100">Balanced performance</span>
+                  <span className="text-slate-100">Balanced performance - <strong className="text-yellow-400">no structured output</strong></span>
                 </div>
+              </div>
+              <div className="mt-4 p-3 bg-yellow-500/10 rounded border border-yellow-500/20">
+                <p className="text-xs text-yellow-300">
+                  ⚠️ Legacy models (claude-sonnet-4, claude-opus-4) do NOT support structured output.
+                  Use 4.5 or 4.1 series for <code className="bg-gray-800 px-1 rounded">llm_do(..., output=Model)</code>
+                </p>
               </div>
             </div>
           </div>
