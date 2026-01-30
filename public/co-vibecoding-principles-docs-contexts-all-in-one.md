@@ -1384,6 +1384,104 @@ def my_tool(natural_input: str) -> str:
 
 ---
 
+## Useful Plugins - Pre-built Agent Extensions
+
+ConnectOnion includes pre-built plugins that extend agent behavior via event hooks.
+
+### Quick Reference
+
+| Plugin | Purpose | Import |
+|--------|---------|--------|
+| re_act | ReAct reasoning pattern | `from connectonion.useful_plugins import re_act` |
+| eval | Task evaluation/debugging | `from connectonion.useful_plugins import eval` |
+| system_reminder | Inject contextual guidance | `from connectonion.useful_plugins import system_reminder` |
+| image_result_formatter | Format images for vision | `from connectonion.useful_plugins import image_result_formatter` |
+| shell_approval | Shell command approval | `from connectonion.useful_plugins import shell_approval` |
+
+### Usage Pattern
+
+```python
+from connectonion import Agent
+from connectonion.useful_plugins import re_act, system_reminder
+
+agent = Agent(
+    "assistant",
+    tools=[search],
+    plugins=[re_act, system_reminder]  # List of plugins
+)
+```
+
+### system_reminder Plugin
+
+Injects contextual guidance into tool results to nudge agent behavior—without extra API calls.
+
+**Example:** After writing a Python file, remind the agent to consider testing.
+
+```
+write_file("app.py", code)
+    ↓
+Result: "File written successfully"
+    ↓
+With system reminder: "File written successfully
+
+    <system-reminder>
+    Consider running tests to verify your changes.
+    This is a gentle reminder - ignore if not applicable.
+    </system-reminder>"
+```
+
+**Quick Start:**
+```python
+from connectonion import Agent
+from connectonion.useful_plugins import system_reminder
+
+agent = Agent("assistant", tools=[write_file], plugins=[system_reminder])
+```
+
+**Customizing:** Copy the plugin and built-in reminders to your project:
+```bash
+co copy system_reminder
+```
+
+Creates:
+```
+./plugins/system_reminder.py
+./prompts/system-reminders/
+├── test-reminder.md
+└── security-warning.md
+```
+
+**Reminder File Format:**
+```markdown
+---
+name: test-reminder
+triggers:
+  - tool: write_file
+    path_pattern: "*.py"
+---
+
+<system-reminder>
+Consider running tests to verify your changes.
+This is a gentle reminder - ignore if not applicable.
+</system-reminder>
+```
+
+### Customizing Plugins
+
+Need to modify a built-in plugin? Copy it to your project:
+
+```bash
+co copy re_act
+co copy system_reminder
+```
+
+Then import from your local copy:
+```python
+from plugins.re_act import re_act  # Customize freely!
+```
+
+---
+
 ## Best Practices
 
 ### Principles: Avoid over‑engineering with agents
