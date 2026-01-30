@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { HiOutlineCube, HiOutlineCpuChip, HiOutlineCodeBracket, HiOutlinePhoto, HiOutlineEnvelope, HiOutlineCalendar, HiOutlineShieldCheck, HiOutlineArrowRight, HiOutlineSparkles } from 'react-icons/hi2'
+import { HiOutlineCube, HiOutlineCpuChip, HiOutlineCodeBracket, HiOutlinePhoto, HiOutlineEnvelope, HiOutlineCalendar, HiOutlineShieldCheck, HiOutlineArrowRight, HiOutlineSparkles, HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
@@ -102,6 +102,22 @@ agent = Agent("scheduler", plugins=[calendar_plugin])`,
     usage: `from connectonion.useful_plugins import shell_approval
 
 agent = Agent("devops", tools=[run_command], plugins=[shell_approval])`,
+    status: 'available'
+  },
+  {
+    id: 'system-reminder',
+    name: 'system_reminder',
+    title: 'System Reminder',
+    description: 'Injects contextual guidance into tool results to nudge agent behavior',
+    icon: HiOutlineChatBubbleBottomCenterText,
+    color: 'text-teal-400',
+    bgColor: 'bg-teal-900/20',
+    borderColor: 'border-teal-500/30',
+    href: '/useful-plugins/system-reminder',
+    events: ['after_each_tool'],
+    usage: `from connectonion.useful_plugins import system_reminder
+
+agent = Agent("assistant", tools=[write_file], plugins=[system_reminder])`,
     status: 'available'
   },
 ]

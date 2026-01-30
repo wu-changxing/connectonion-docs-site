@@ -304,6 +304,17 @@ export const navigation = [
     parent: '/useful-plugins',
     keywords: ['calendar', 'events', 'approval', 'google', 'microsoft', 'plugin'],
     prev: { href: '/useful-plugins/gmail-plugin', title: 'gmail_plugin' },
+    next: { href: '/useful-plugins/system-reminder', title: 'system_reminder' }
+  },
+  {
+    title: 'system_reminder',
+    href: '/useful-plugins/system-reminder',
+    icon: HiOutlineChatBubbleBottomCenterText,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    difficulty: 'New',
+    keywords: ['system', 'reminder', 'guidance', 'nudge', 'context', 'injection', 'tool', 'result'],
+    prev: { href: '/useful-plugins/calendar-plugin', title: 'calendar_plugin' },
     next: { href: '/tui', title: 'TUI Components' }
   },
 
@@ -315,7 +326,7 @@ export const navigation = [
     section: 'TUI',
     difficulty: 'NEW',
     keywords: ['tui', 'terminal', 'ui', 'input', 'pick', 'dropdown', 'status', 'keyboard', 'rich'],
-    prev: { href: '/useful-plugins/calendar-plugin', title: 'calendar_plugin' },
+    prev: { href: '/useful-plugins/system-reminder', title: 'system_reminder' },
     next: { href: '/tui/pick', title: 'pick' }
   },
   {
