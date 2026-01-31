@@ -108,7 +108,7 @@ const structuredData = {
     "ratingValue": "4.8",
     "ratingCount": "127"
   },
-  "softwareVersion": "0.6.3",
+  "softwareVersion": "0.6.4",
   "softwareHelp": {
     "@type": "WebPage",
     "url": "https://connectonion.com/quickstart"
