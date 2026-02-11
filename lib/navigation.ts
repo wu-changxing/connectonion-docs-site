@@ -11,7 +11,7 @@
 import {
   HiOutlineHome, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
   HiOutlineArrowsRightLeft, HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineCalculator, HiOutlineCloud, HiOutlineBookOpen,
-  HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup
+  HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone
 } from 'react-icons/hi2'
 import { VscComment, VscGitMerge, VscFileCode, VscKey, VscServerProcess } from 'react-icons/vsc'
 import { FaChrome } from 'react-icons/fa'
@@ -408,6 +408,16 @@ export const navigation = [
     section: 'TUI',
     keywords: ['provider', 'file', 'static', 'autocomplete', 'data', 'source'],
     prev: { href: '/tui/keys', title: 'Keyboard Input' },
+    next: { href: '/tui/chat', title: 'Chat Interface' }
+  },
+  {
+    title: 'Chat Interface',
+    href: '/tui/chat',
+    icon: HiOutlineChatBubbleBottomCenterText,
+    section: 'TUI',
+    difficulty: 'New',
+    keywords: ['chat', 'tui', 'terminal', 'interface', 'conversation', 'interactive'],
+    prev: { href: '/tui/providers', title: 'Providers' },
     next: { href: '/auto-debug', title: 'Interactive Debugging' }
   },
 
@@ -419,7 +429,7 @@ export const navigation = [
     section: 'Debug',
     difficulty: 'Essential',
     keywords: ['debug', 'auto_debug', 'interactive', 'breakpoint', 'xray', 'inspect', 'pause', 'repl', 'python', 'variables', 'state', 'agent debugging', 'llm debugging'],
-    prev: { href: '/tui/providers', title: 'Providers' },
+    prev: { href: '/tui/chat', title: 'Chat Interface' },
     next: { href: '/auto-debug-exception', title: 'Auto Debug Exception' }
   },
   {
@@ -457,6 +467,16 @@ export const navigation = [
     section: 'Core Concepts',
     keywords: ['model', 'gpt', 'gemini', 'claude', 'anthropic', 'openai', 'google', 'llm', 'ai'],
     prev: { href: '/logging', title: 'Logging' },
+    next: { href: '/models/pricing', title: 'Pricing' }
+  },
+  {
+    title: 'Pricing',
+    href: '/models/pricing',
+    icon: HiOutlineCurrencyDollar,
+    section: 'Core Concepts',
+    parent: '/models',
+    keywords: ['pricing', 'cost', 'credits', 'tokens', 'billing', 'managed keys', 'purchase', 'pay', 'price'],
+    prev: { href: '/models', title: 'Models' },
     next: { href: '/llm_do', title: 'LLM Function' }
   },
   {
@@ -465,7 +485,17 @@ export const navigation = [
     icon: HiOutlineSparkles,
     section: 'Core Concepts',
     keywords: ['ai', 'model', 'openai', 'language', 'llm_do', 'direct', 'gemini', 'anthropic', 'claude'],
-    prev: { href: '/models', title: 'Models' },
+    prev: { href: '/models/pricing', title: 'Pricing' },
+    next: { href: '/transcribe', title: 'Audio Transcription' }
+  },
+  {
+    title: 'Audio Transcription',
+    href: '/transcribe',
+    icon: HiOutlineMicrophone,
+    section: 'Core Concepts',
+    difficulty: 'New',
+    keywords: ['transcribe', 'audio', 'speech', 'voice', 'text', 'gemini', 'mp3', 'wav'],
+    prev: { href: '/llm_do', title: 'LLM Function' },
     next: { href: '/trust', title: 'Trust Parameter' }
   },
   {
@@ -474,7 +504,7 @@ export const navigation = [
     icon: HiOutlineShieldCheck,
     section: 'Network',
     keywords: ['security', 'safety', 'trust', 'permission', 'multi-agent'],
-    prev: { href: '/llm_do', title: 'LLM Function' },
+    prev: { href: '/transcribe', title: 'Audio Transcription' },
     next: { href: '/xray', title: '@xray Decorator' }
   },
   {
