@@ -13,7 +13,7 @@ Agent(
     tools: Optional[List[Callable]] = None,
     system_prompt: Union[str, Path, None] = None,
     api_key: Optional[str] = None,
-    model: str = "gpt-5-mini"
+    model: str = "co/gpt-5-mini"
 )
 ```
 
@@ -195,7 +195,7 @@ from connectonion.llm import OpenAILLM
 
 llm = OpenAILLM(
     api_key="your-key",
-    model="gpt-4",
+    model="co/gpt-4",
     temperature=0.7
 )
 

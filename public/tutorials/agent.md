@@ -38,7 +38,7 @@ Agent(
     name="my_bot",                        # Required: agent identifier
     tools=[func1, func2],                 # Optional: functions agent can call
     system_prompt="You are helpful",      # Optional: personality/behavior
-    model="o4-mini",                      # Optional: LLM model (OpenAI/Claude/Gemini)
+    model="co/o4-mini",                   # Optional: LLM model (OpenAI/Claude/Gemini)
     max_iterations=10,                    # Optional: how many tool calls allowed
     api_key="sk-...",                     # Optional: override environment variable
     llm=custom_llm,                       # Optional: bring your own LLM instance

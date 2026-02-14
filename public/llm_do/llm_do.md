@@ -12,10 +12,10 @@ answer = llm_do("What's 2+2?")
 print(answer)  # "4"
 
 # Google Gemini
-answer = llm_do("What's 2+2?", model="gemini-2.5-flash")
+answer = llm_do("What's 2+2?", model="co/gemini-2.5-flash")
 
 # Anthropic Claude
-answer = llm_do("What's 2+2?", model="claude-haiku-4-5")
+answer = llm_do("What's 2+2?", model="co/claude-haiku-4-5")
 ```
 
 That's it! One function for any LLM task across multiple providers.
@@ -106,7 +106,7 @@ result = llm_do(
     input="Your text here",
     output=YourModel,              # Optional: Pydantic model for structure
     system_prompt="instructions", # Optional: String or file path
-    model="gpt-4o-mini",          # Optional: OpenAI, Gemini, Claude models
+    model="co/gpt-4o-mini",       # Optional: prefix with co/ for managed keys
     temperature=0.7,               # Optional: Default is 0.1 (consistent)
 )
 ```
@@ -115,20 +115,20 @@ result = llm_do(
 
 ```python
 # OpenAI models
-llm_do("Hello", model="gpt-5")
-llm_do("Hello", model="gpt-5-mini")
-llm_do("Hello", model="gpt-5-nano")
-llm_do("Hello", model="o4-mini")
+llm_do("Hello", model="co/gpt-5")
+llm_do("Hello", model="co/gpt-5-mini")
+llm_do("Hello", model="co/gpt-5-nano")
+llm_do("Hello", model="co/o4-mini")
 
 # Google Gemini models
-llm_do("Hello", model="gemini-2.5-pro")
-llm_do("Hello", model="gemini-2.5-flash")
-llm_do("Hello", model="gemini-3-pro-preview")
+llm_do("Hello", model="co/gemini-2.5-pro")
+llm_do("Hello", model="co/gemini-2.5-flash")
+llm_do("Hello", model="co/gemini-3-pro-preview")
 
 # Anthropic Claude models
-llm_do("Hello", model="claude-sonnet-4-5")
-llm_do("Hello", model="claude-haiku-4-5")
-llm_do("Hello", model="claude-opus-4-5")
+llm_do("Hello", model="co/claude-sonnet-4-5")
+llm_do("Hello", model="co/claude-haiku-4-5")
+llm_do("Hello", model="co/claude-opus-4-5")
 ```
 
 ## Parameters

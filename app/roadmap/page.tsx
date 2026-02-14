@@ -76,18 +76,25 @@ export default function RoadmapPage() {
         progress: 100,
       },
       {
-        title: 'Advanced Tool System',
-        status: 'in-progress',
-        description: 'Enhanced tool composition and chaining',
+        title: 'Event System & Plugins',
+        status: 'completed',
+        description: '9 lifecycle events, plugin architecture, built-in plugins',
         targetDate: 'Oct 2025',
-        progress: 35,
+        progress: 100,
       },
       {
         title: 'Agent-to-Agent Protocol',
-        status: 'planned',
-        description: 'Enable agents to collaborate seamlessly',
+        status: 'completed',
+        description: 'host(), connect(), relay, trust verification between agents',
         targetDate: 'Dec 2025',
-        progress: 0,
+        progress: 100,
+      },
+      {
+        title: 'Advanced Tool System',
+        status: 'completed',
+        description: 'TUI components, file tools, email/calendar, memory, shell',
+        targetDate: 'Jan 2026',
+        progress: 100,
       }
     ],
     trust: [
@@ -99,54 +106,54 @@ export default function RoadmapPage() {
         progress: 100,
       },
       {
-        title: 'Function Validation',
-        status: 'in-progress',
-        description: 'Type checking and parameter validation',
+        title: 'Trust Verification System',
+        status: 'completed',
+        description: 'Three-level trust (open/careful/strict) with custom policies',
         targetDate: 'Sep 2025',
-        progress: 70,
+        progress: 100,
       },
       {
-        title: 'Sandbox Mode',
-        status: 'planned',
-        description: 'Test agents safely before deployment',
+        title: 'Onboard Protocol',
+        status: 'completed',
+        description: 'Invite codes and payment-based agent onboarding',
         targetDate: 'Nov 2025',
-        progress: 15,
+        progress: 100,
       },
       {
         title: 'Audit Logs',
-        status: 'planned',
-        description: 'Comprehensive action history and rollback',
+        status: 'completed',
+        description: 'YAML session logging, .co/logs/ and .co/evals/ tracking',
         targetDate: 'Jan 2026',
-        progress: 0,
+        progress: 100,
       }
     ],
     intelligence: [
       {
         title: 'OpenAI Integration',
         status: 'completed',
-        description: 'Full GPT-4 function calling support',
+        description: 'Full GPT function calling and structured output',
         targetDate: 'Jan 2025',
         progress: 100,
       },
       {
         title: 'Multi-Model Support',
-        status: 'in-progress',
-        description: 'Claude, Gemini, and Mistral integration',
+        status: 'completed',
+        description: 'Claude, Gemini, Groq, and managed keys (co/ prefix)',
         targetDate: 'Oct 2025',
-        progress: 25,
+        progress: 100,
       },
       {
-        title: 'Context Management',
-        status: 'planned',
-        description: 'Smart conversation memory and retrieval',
+        title: 'Interactive Debugging',
+        status: 'completed',
+        description: '@xray decorator, auto_debug, breakpoints, Python REPL',
         targetDate: 'Nov 2025',
-        progress: 10,
+        progress: 100,
       },
       {
         title: 'Local Model Support',
         status: 'planned',
         description: 'Run Llama, Mistral locally via Ollama',
-        targetDate: 'Feb 2026',
+        targetDate: 'Q2 2026',
         progress: 0,
       }
     ],
@@ -161,29 +168,29 @@ export default function RoadmapPage() {
       {
         title: 'Documentation Site',
         status: 'completed',
-        description: 'Comprehensive docs at docs.connectonion.com',
+        description: '59+ pages at docs.connectonion.com',
         targetDate: 'Jul 2025',
         progress: 100,
       },
       {
-        title: 'Example Library',
+        title: 'Multi-Language SDKs',
         status: 'in-progress',
-        description: 'Real-world agent examples and templates',
-        targetDate: 'Sep 2025',
-        progress: 60,
+        description: 'TypeScript, Rust, Kotlin, Swift implementations',
+        targetDate: 'Q1 2026',
+        progress: 40,
       },
       {
-        title: 'VS Code Extension',
-        status: 'planned',
-        description: 'Agent development and debugging tools',
-        targetDate: 'Dec 2025',
-        progress: 5,
+        title: 'Cloud Deploy',
+        status: 'in-progress',
+        description: 'co deploy for one-command agent deployment',
+        targetDate: 'Q1 2026',
+        progress: 50,
       },
       {
         title: 'Agent Registry',
         status: 'planned',
         description: 'Share and discover community agents',
-        targetDate: 'Mar 2026',
+        targetDate: 'Q2 2026',
         progress: 0,
       }
     ]
@@ -234,7 +241,7 @@ export default function RoadmapPage() {
           iconBorderColor="border-purple-500/30"
           title="Roadmap"
           description="Track our progress from v0.0.1 to v1.0 and beyond."
-          badge={<span className="px-2 py-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs font-semibold rounded-full">v0.0.6</span>}
+          badge={<span className="px-2 py-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs font-semibold rounded-full">v0.6.6</span>}
           markdownPath="/roadmap.md"
           markdownFilename="roadmap.md"
         />
@@ -329,20 +336,20 @@ export default function RoadmapPage() {
         <div className="mt-12 p-4 bg-gray-800/50 rounded-xl border border-gray-700">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
-              <div className="text-2xl font-bold text-green-400">8</div>
+              <div className="text-2xl font-bold text-green-400">16</div>
               <div className="text-xs text-slate-100">Completed</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-yellow-400">5</div>
+              <div className="text-2xl font-bold text-yellow-400">2</div>
               <div className="text-xs text-slate-100">In Progress</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-slate-100">7</div>
+              <div className="text-2xl font-bold text-slate-100">2</div>
               <div className="text-xs text-slate-100">Planned</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-purple-400">Sep 2025</div>
-              <div className="text-xs text-slate-100">Current Month</div>
+              <div className="text-2xl font-bold text-purple-400">v0.6.6</div>
+              <div className="text-xs text-slate-100">Current Version</div>
             </div>
           </div>
         </div>

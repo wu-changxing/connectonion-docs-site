@@ -237,8 +237,11 @@ export default function CLIPage() {
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">--template</td>
                   <td className="px-4 py-3 text-slate-100">
-                    Choose template: <code className="bg-gray-800 px-2 py-1 rounded text-xs">minimal</code>, 
-                    <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">web-research</code>, 
+                    Choose template: <code className="bg-gray-800 px-2 py-1 rounded text-xs">minimal</code>,
+                    <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">playwright</code>,
+                    <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">email-agent</code>,
+                    <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">meta-agent</code>,
+                    <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">web-research</code>,
                     <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">custom</code>
                   </td>
                 </tr>
@@ -273,6 +276,9 @@ export default function CLIPage() {
   ✓ Detected OpenAI API key
 ✔ Choose a template:
   ❯ Minimal - Simple starting point
+    Playwright - Browser automation
+    Email Agent - Email tools & OAuth
+    Meta Agent - Agent that builds agents
     Web Research - Data analysis & web scraping
     Custom - AI generates based on your needs
 
@@ -676,6 +682,81 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             </ul>
           </div>
 
+          {/* Playwright Template */}
+          <div className="bg-gradient-to-b from-yellow-900/20 to-yellow-800/10 border border-yellow-500/30 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+              <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+              Playwright
+            </h3>
+            <p className="text-slate-100 mb-4">
+              Browser automation agent with stateful web tools:
+            </p>
+            <ul className="space-y-2 text-slate-100 text-sm">
+              <li className="flex items-center gap-2">
+                <HiOutlineChevronRight className="w-4 h-4 text-yellow-400" />
+                Stateful browser (start, navigate, click, fill)
+              </li>
+              <li className="flex items-center gap-2">
+                <HiOutlineChevronRight className="w-4 h-4 text-yellow-400" />
+                Screenshot capture with device presets
+              </li>
+              <li className="flex items-center gap-2">
+                <HiOutlineChevronRight className="w-4 h-4 text-yellow-400" />
+                Content scraping and link extraction
+              </li>
+            </ul>
+          </div>
+
+          {/* Email Agent Template */}
+          <div className="bg-gradient-to-b from-pink-900/20 to-pink-800/10 border border-pink-500/30 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+              <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+              Email Agent
+            </h3>
+            <p className="text-slate-100 mb-4">
+              Email automation with send, receive, and management:
+            </p>
+            <ul className="space-y-2 text-slate-100 text-sm">
+              <li className="flex items-center gap-2">
+                <HiOutlineChevronRight className="w-4 h-4 text-pink-400" />
+                SMTP sending and IMAP reading
+              </li>
+              <li className="flex items-center gap-2">
+                <HiOutlineChevronRight className="w-4 h-4 text-pink-400" />
+                Gmail and Outlook OAuth integration
+              </li>
+              <li className="flex items-center gap-2">
+                <HiOutlineChevronRight className="w-4 h-4 text-pink-400" />
+                Email filtering and management tools
+              </li>
+            </ul>
+          </div>
+
+          {/* Meta Agent Template */}
+          <div className="bg-gradient-to-b from-cyan-900/20 to-cyan-800/10 border border-cyan-500/30 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+              <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+              Meta Agent
+            </h3>
+            <p className="text-slate-100 mb-4">
+              An agent that knows ConnectOnion and helps you build agents:
+            </p>
+            <ul className="space-y-2 text-slate-100 text-sm">
+              <li className="flex items-center gap-2">
+                <HiOutlineChevronRight className="w-4 h-4 text-cyan-400" />
+                Built-in framework knowledge
+              </li>
+              <li className="flex items-center gap-2">
+                <HiOutlineChevronRight className="w-4 h-4 text-cyan-400" />
+                Generates agent code from descriptions
+              </li>
+              <li className="flex items-center gap-2">
+                <HiOutlineChevronRight className="w-4 h-4 text-cyan-400" />
+                Includes complete docs context
+              </li>
+            </ul>
+          </div>
+
           {/* Custom Template */}
           <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
@@ -688,8 +769,8 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             <div className="bg-black/30 rounded-lg p-4">
               <pre className="text-sm text-slate-100 font-mono">
 {`✔ Choose template: Custom
-✔ Describe what you want to build: … 
-  I need an agent that monitors GitHub repos and 
+✔ Describe what you want to build: …
+  I need an agent that monitors GitHub repos and
   sends notifications for new issues
 
 Generating custom template with AI...
@@ -949,7 +1030,7 @@ Generating custom template with AI...
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-white mb-4">Python Version</h3>
             <p className="text-slate-100 mb-4">
-              ConnectOnion requires Python 3.8 or higher. Check your version:
+              ConnectOnion requires Python 3.9 or higher. Check your version:
             </p>
             <CommandBlock 
               commands={['python --version']}

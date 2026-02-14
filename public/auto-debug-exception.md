@@ -202,10 +202,10 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
 auto_debug_exception()
 
 # Use a more powerful model
-auto_debug_exception(model="gpt-4o")
+auto_debug_exception(model="co/gpt-4o")
 
 # Use Claude for complex analysis
-auto_debug_exception(model="claude-sonnet-4")
+auto_debug_exception(model="co/claude-sonnet-4")
 ```
 
 ### Disable Temporarily

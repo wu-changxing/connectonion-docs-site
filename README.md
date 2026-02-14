@@ -45,7 +45,7 @@ agent = Agent("assistant").input("Hello!")  # That's it!
 
 # Complicated thing (still possible) - Production system
 agent = Agent("production",
-              model="gpt-5",              # Choose any model
+              model="co/gpt-5",            # co/ prefix = managed keys
               tools=[search, analyze],    # Add capabilities
               max_iterations=10,          # Control execution
               system_prompt=company_prompt,  # Custom behavior

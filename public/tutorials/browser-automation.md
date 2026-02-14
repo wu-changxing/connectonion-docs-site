@@ -128,7 +128,7 @@ agent = Agent(
     name="browser_agent",
     system_prompt="You are a web automation assistant. Start the browser, navigate, and help users interact with websites.",
     tools=[browser],  # ConnectOnion auto-discovers all methods
-    model="gpt-4o-mini"
+    model="co/gpt-4o-mini"
 )
 
 if __name__ == "__main__":

@@ -18,9 +18,13 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-purple-900/5 to-transparent" />
 
         <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h1 className="heading-1 text-gradient-hero mb-4">
+          <h1 className="heading-1 text-gradient-hero mb-2">
             ConnectOnion
           </h1>
+
+          <div className="mb-4">
+            <span className="px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-semibold rounded-full">v0.6.6</span>
+          </div>
 
           {/* Philosophy - The Core Message */}
           <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 leading-relaxed">

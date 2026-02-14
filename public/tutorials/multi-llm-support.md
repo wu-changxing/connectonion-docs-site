@@ -4,14 +4,14 @@
 
 ```python
 # With Agent
-agent = Agent("assistant", model="gpt-5")              # OpenAI
-agent = Agent("assistant", model="gemini-2.5-pro")     # Google
-agent = Agent("assistant", model="claude-sonnet-4-5")  # Anthropic
+agent = Agent("assistant", model="co/gpt-5")              # OpenAI
+agent = Agent("assistant", model="co/gemini-2.5-pro")     # Google
+agent = Agent("assistant", model="co/claude-sonnet-4-5")  # Anthropic
 
 # With llm_do
-llm_do("Hello", model="gpt-5")              # OpenAI
-llm_do("Hello", model="gemini-2.5-flash")   # Google
-llm_do("Hello", model="claude-haiku-4-5")   # Anthropic
+llm_do("Hello", model="co/gpt-5")              # OpenAI
+llm_do("Hello", model="co/gemini-2.5-flash")   # Google
+llm_do("Hello", model="co/claude-haiku-4-5")   # Anthropic
 ```
 
 No configuration files. No provider setup. No complexity. Just change the model name.
@@ -33,17 +33,17 @@ Done. You're ready.
 from connectonion import Agent
 
 # Create an agent with OpenAI's GPT-5
-agent_openai = Agent("assistant", model="gpt-5")
+agent_openai = Agent("assistant", model="co/gpt-5")
 response = agent_openai.input("Hello! What model are you?")
 print("OpenAI:", response)
 
 # Create an agent with Google's Gemini
-agent_google = Agent("assistant", model="gemini-2.5-pro")
+agent_google = Agent("assistant", model="co/gemini-2.5-pro")
 response = agent_google.input("Hello! What model are you?")
 print("Google:", response)
 
 # Create an agent with Anthropic's Claude
-agent_claude = Agent("assistant", model="claude-opus-4.1")
+agent_claude = Agent("assistant", model="co/claude-opus-4.1")
 response = agent_claude.input("Hello! What model are you?")
 print("Claude:", response)
 ```
@@ -60,9 +60,9 @@ def compare_models(prompt):
     
     # Define models to compare
     models = {
-        "OpenAI GPT-5": "gpt-5-mini",
-        "Google Gemini": "gemini-2.5-flash",
-        "Claude Haiku": "claude-haiku-4-5"
+        "OpenAI GPT-5": "co/gpt-5-mini",
+        "Google Gemini": "co/gemini-2.5-flash",
+        "Claude Haiku": "co/claude-haiku-4-5"
     }
     
     print(f"Prompt: {prompt}\n")
@@ -121,9 +121,9 @@ def search_knowledge(query: str) -> str:
 # Create agents with the same tools
 tools = [get_current_time, calculate, search_knowledge]
 
-agent_openai = Agent("assistant", model="gpt-5-mini", tools=tools)
-agent_google = Agent("assistant", model="gemini-2.5-flash", tools=tools)
-agent_claude = Agent("assistant", model="claude-haiku-4-5", tools=tools)
+agent_openai = Agent("assistant", model="co/gpt-5-mini", tools=tools)
+agent_google = Agent("assistant", model="co/gemini-2.5-flash", tools=tools)
+agent_claude = Agent("assistant", model="co/claude-haiku-4-5", tools=tools)
 
 # All agents can use the tools
 prompt = "What time is it? Calculate 15% of 250. What is Python?"
@@ -163,7 +163,7 @@ class SmartAssistant:
         """Process a prompt with the optimal model for the task."""
         
         # Select model based on task type
-        model = self.task_models.get(task_type, "gpt-5-mini")
+        model = self.task_models.get(task_type, "co/gpt-5-mini")
         
         print(f"Task type: {task_type}")
         print(f"Selected model: {model}")
@@ -174,8 +174,8 @@ class SmartAssistant:
             return agent.input(prompt)
         except Exception as e:
             # Fallback to a reliable model
-            print(f"Error with {model}, falling back to gpt-5-mini")
-            fallback = Agent("fallback", model="gpt-5-mini")
+            print(f"Error with {model}, falling back to co/gpt-5-mini")
+            fallback = Agent("fallback", model="co/gpt-5-mini")
             return fallback.input(prompt)
 
 # Use the smart assistant
@@ -345,7 +345,7 @@ class CostOptimizedAssistant:
                 continue
         
         # Fallback
-        model_name = "gpt-5-nano"
+        model_name = "co/gpt-5-nano"
         return Agent("fallback", model=model_name), model_name, 0.5
     
     def process(self, prompt: str):
@@ -388,7 +388,7 @@ for budget in ["economy", "standard", "premium"]:
 
 ```python
 try:
-    agent = Agent("assistant", model="claude-opus-4-5")
+    agent = Agent("assistant", model="co/claude-opus-4-5")
     response = agent.input(prompt)
 except Exception as e:
     if "api key" in str(e).lower():
@@ -447,7 +447,7 @@ for model, tokens in usage_tracker.items():
 from connectonion import Agent
 
 # Just change this string to switch providers
-model = "gpt-5"  # or "gemini-2.5-pro" or "claude-opus-4-5"
+model = "co/gpt-5"  # or "co/gemini-2.5-pro" or "co/claude-opus-4-5"
 
 agent = Agent("demo", model=model)
 print(agent.input("What model are you?"))
