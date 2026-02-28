@@ -112,14 +112,16 @@ agent = Agent("assistant", model="co/claude-opus-4")
 ### Mistral Latest
 ```python
 # Mistral Large - Most capable Mistral model
-agent = Agent("assistant", model="co/mistral/mistral-large-latest")
+agent = Agent("assistant", model="mistral/mistral-large-latest")
 
 # Mistral Small - Balanced performance and efficiency
-agent = Agent("assistant", model="co/mistral/mistral-small-latest")
+agent = Agent("assistant", model="mistral/mistral-small-latest")
 
 # Mistral Medium - Mid-tier performance
-agent = Agent("assistant", model="co/mistral/mistral-medium-latest")
+agent = Agent("assistant", model="mistral/mistral-medium-latest")
 ```
+
+**Note:** Mistral models require your own API key (`MISTRAL_API_KEY`). Managed keys (`co/` prefix) are not yet available for Mistral.
 
 ## Model Capabilities Comparison
 

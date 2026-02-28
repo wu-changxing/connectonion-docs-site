@@ -511,9 +511,10 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
                   <span className="text-slate-100">Mid-tier performance</span>
                 </div>
               </div>
-              <div className="mt-4 p-3 bg-blue-500/10 rounded border border-blue-500/20">
-                <p className="text-xs text-blue-300">
-                  💡 Use <code className="bg-gray-800 px-1 rounded">mistral/</code> prefix for model names
+              <div className="mt-4 p-3 bg-yellow-500/10 rounded border border-yellow-500/20">
+                <p className="text-xs text-yellow-300">
+                  ⚠️ Mistral models require your own API key (<code className="bg-gray-800 px-1 rounded">MISTRAL_API_KEY</code>).
+                  Managed keys (<code className="bg-gray-800 px-1 rounded">co/</code> prefix) are not yet available for Mistral.
                 </p>
               </div>
             </div>
