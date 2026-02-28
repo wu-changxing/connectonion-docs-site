@@ -1,6 +1,6 @@
 # Models
 
-ConnectOnion supports the latest models from OpenAI, Google Gemini, and Anthropic Claude. The default model is `co/gemini-2.5-pro` - best price-performance for AI agents.
+ConnectOnion supports the latest models from OpenAI, Google Gemini, Anthropic Claude, and Mistral AI. The default model is `co/gemini-2.5-pro` - best price-performance for AI agents.
 
 ## Quick Start
 
@@ -107,6 +107,20 @@ agent = Agent("assistant", model="co/claude-sonnet-4")
 agent = Agent("assistant", model="co/claude-opus-4")
 ```
 
+## Mistral AI Models
+
+### Mistral Latest
+```python
+# Mistral Large - Most capable Mistral model
+agent = Agent("assistant", model="co/mistral/mistral-large-latest")
+
+# Mistral Small - Balanced performance and efficiency
+agent = Agent("assistant", model="co/mistral/mistral-small-latest")
+
+# Mistral Medium - Mid-tier performance
+agent = Agent("assistant", model="co/mistral/mistral-medium-latest")
+```
+
 ## Model Capabilities Comparison
 
 ### Latest Flagship Models
@@ -117,6 +131,7 @@ agent = Agent("assistant", model="co/claude-opus-4")
 | gemini-2.5-pro | Google | **Default** - best price-performance for agents | Yes |
 | gemini-3-pro-preview | Google | State-of-the-art reasoning | Yes |
 | claude-sonnet-4-5 | Anthropic | Best balance of intelligence and speed | Yes |
+| mistral-large-latest | Mistral | High performance European model | Yes |
 
 ### Context Windows
 
@@ -196,6 +211,7 @@ tools = [search, calculate]
 agent_openai = Agent("assistant", model="co/gpt-5", tools=tools)
 agent_google = Agent("assistant", model="co/gemini-2.5-pro", tools=tools)
 agent_claude = Agent("assistant", model="co/claude-sonnet-4-5", tools=tools)
+agent_mistral = Agent("assistant", model="co/mistral/mistral-large-latest", tools=tools)
 ```
 
 ## Model Selection Guide
