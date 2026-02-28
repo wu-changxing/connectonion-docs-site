@@ -50,11 +50,11 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
 
 export default function ModelsPage() {
-  const [activeProvider, setActiveProvider] = useState<'openai' | 'google' | 'anthropic'>('openai')
+  const [activeProvider, setActiveProvider] = useState<'openai' | 'google' | 'anthropic' | 'mistral'>('openai')
 
   const markdownContent = `# Models
 
-ConnectOnion supports the latest models from OpenAI, Google Gemini, and Anthropic Claude. Get started in 60 seconds with managed keys, or bring your own API keys.
+ConnectOnion supports the latest models from OpenAI, Google Gemini, Anthropic Claude, and Mistral AI. Get started in 60 seconds with managed keys, or bring your own API keys.
 
 ## Quick Start (60 Seconds)
 
@@ -168,7 +168,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
         iconBgTo="to-purple-600/20"
         iconBorderColor="border-blue-500/30"
         title="Models"
-        description="Use the latest AI models from OpenAI, Google, and Anthropic with a single interface."
+        description="Use the latest AI models from OpenAI, Google, Anthropic, and Mistral with a single interface."
         markdownPath="/models/models.md"
         markdownFilename="models.md"
       />
@@ -328,6 +328,16 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           >
             Anthropic Claude
           </button>
+          <button
+            onClick={() => setActiveProvider('mistral')}
+            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
+              activeProvider === 'mistral'
+                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
+                : 'bg-gray-800 text-slate-100 hover:bg-gray-700'
+            }`}
+          >
+            Mistral AI
+          </button>
         </div>
 
         {activeProvider === 'openai' && (
@@ -479,6 +489,36 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             </div>
           </div>
         )}
+
+        {activeProvider === 'mistral' && (
+          <div className="space-y-4">
+            <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
+                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-red-400" />
+                Mistral Latest
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-start">
+                  <code className="bg-red-500/20 text-red-300 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-large-latest</code>
+                  <span className="text-slate-100">Most capable Mistral model - High performance European model</span>
+                </div>
+                <div className="flex items-start">
+                  <code className="bg-red-500/20 text-red-300 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-small-latest</code>
+                  <span className="text-slate-100">Balanced performance and efficiency</span>
+                </div>
+                <div className="flex items-start">
+                  <code className="bg-red-500/20 text-red-300 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-medium-latest</code>
+                  <span className="text-slate-100">Mid-tier performance</span>
+                </div>
+              </div>
+              <div className="mt-4 p-3 bg-blue-500/10 rounded border border-blue-500/20">
+                <p className="text-xs text-blue-300">
+                  💡 Use <code className="bg-gray-800 px-1 rounded">mistral/</code> prefix for model names
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Model Selection Guide */}
@@ -582,7 +622,8 @@ agent = Agent("assistant", model="co/claude-opus-4-5")`}
                 commands={[
                   'export OPENAI_API_KEY="sk-..."',
                   'export GEMINI_API_KEY="AIza..."',
-                  'export ANTHROPIC_API_KEY="sk-ant-..."'
+                  'export ANTHROPIC_API_KEY="sk-ant-..."',
+                  'export MISTRAL_API_KEY="..."'
                 ]}
               />
             </div>
@@ -702,6 +743,12 @@ agent = create_agent_with_fallback("assistant")`}
                 <td className="px-4 py-3">Anthropic</td>
                 <td className="px-4 py-3">200K</td>
                 <td className="px-4 py-3 text-slate-100">Most capable Claude</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm">mistral-large-latest</code></td>
+                <td className="px-4 py-3">Mistral</td>
+                <td className="px-4 py-3">128K</td>
+                <td className="px-4 py-3 text-slate-100">High performance European model</td>
               </tr>
             </tbody>
           </table>
