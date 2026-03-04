@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { HiOutlineWrench, HiOutlineEnvelope, HiOutlineCalendar, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineArrowRight, HiOutlineCommandLine, HiOutlineClipboardDocumentList, HiOutlineCodeBracket } from 'react-icons/hi2'
+import { HiOutlineWrench, HiOutlineEnvelope, HiOutlineCalendar, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineArrowRight, HiOutlineCommandLine, HiOutlineClipboardDocumentList, HiOutlineCodeBracket, HiOutlineDocumentText } from 'react-icons/hi2'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import Link from 'next/link'
 import { PageHeader } from '../../components/PageHeader'
@@ -93,6 +93,7 @@ const toolCategories = [
     bgColor: 'bg-pink-900/20',
     borderColor: 'border-pink-500/30',
     tools: [
+      { name: 'FileTools', href: '/useful-tools/file-tools', description: 'Read/edit files with safety tracking', status: 'available' },
       { name: 'Diff Writer', href: '/useful-tools/diff-writer', description: 'Write code diffs', status: 'available' },
       { name: 'Slash Command', href: '/useful-tools/slash-command', description: 'Custom CLI commands', status: 'available' },
     ]
