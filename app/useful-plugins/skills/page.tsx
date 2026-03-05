@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { HiOutlineCommandLine, HiOutlineShieldCheck, HiOutlineCodeBracket } from 'react-icons/hi2'
+import { HiOutlineCommandLine, HiOutlineShieldCheck, HiOutlineCodeBracket, HiOutlineCube, HiOutlineDocumentText, HiOutlineLockClosed } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -23,7 +23,7 @@ export default function SkillsPluginPage() {
           iconBgTo="to-pink-600/20"
           iconBorderColor="border-purple-500/30"
           title="Skills Plugin"
-          description="Pre-packaged workflows with automatic permission management"
+          description="Pre-packaged workflows with snapshot/restore permission management"
           markdownPath="/skills.md"
           markdownFilename="skills.md"
         />
@@ -36,7 +36,7 @@ export default function SkillsPluginPage() {
 from connectonion.useful_tools import FileTools
 from connectonion.useful_plugins import skills, tool_approval
 
-file_tools = FileTools()  # Read/edit files with safety tracking
+file_tools = FileTools()
 agent = Agent(
     "assistant",
     tools=[file_tools],
@@ -44,10 +44,11 @@ agent = Agent(
 )
 
 # User types: /commit
-# → Skills plugin loads .co/skills/commit/SKILL.md
-# → Sets temporary permission scope for git commands
+# → Skills plugin loads commit skill
+# → Takes snapshot of current permissions
+# → Grants temporary git permissions
 # → Agent executes with auto-approved tools
-# → Scope clears after turn completes`}
+# → Restores snapshot when turn ends`}
             language="python"
           />
         </section>
@@ -56,18 +57,135 @@ agent = Agent(
         <section className="mb-12">
           <h2 className="heading-2">What Skills Do</h2>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="p-4 bg-purple-900/20 border border-purple-500/30 rounded-lg">
+            <div className="p-5 bg-gradient-to-br from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg hover:border-purple-400/50 transition-all">
+              <HiOutlineCommandLine className="w-7 h-7 text-purple-400 mb-3" />
               <h3 className="font-semibold text-purple-300 mb-2">Instant Invocation</h3>
-              <p className="text-sm text-slate-100">/command detected in @after_user_input, no LLM overhead</p>
+              <p className="text-sm text-slate-300">/command detected in @after_user_input, no LLM overhead</p>
             </div>
-            <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
-              <h3 className="font-semibold text-blue-300 mb-2">Scoped Permissions</h3>
-              <p className="text-sm text-slate-100">Temporary tool auto-approval for skill duration</p>
+            <div className="p-5 bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg hover:border-blue-400/50 transition-all">
+              <HiOutlineShieldCheck className="w-7 h-7 text-blue-400 mb-3" />
+              <h3 className="font-semibold text-blue-300 mb-2">Snapshot/Restore</h3>
+              <p className="text-sm text-slate-300">Preserves user approvals while granting temporary permissions</p>
             </div>
-            <div className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
+            <div className="p-5 bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg hover:border-green-400/50 transition-all">
+              <HiOutlineLockClosed className="w-7 h-7 text-green-400 mb-3" />
               <h3 className="font-semibold text-green-300 mb-2">Security</h3>
-              <p className="text-sm text-slate-100">Permissions auto-clear after turn completes</p>
+              <p className="text-sm text-slate-300">Permissions auto-clear after turn completes</p>
             </div>
+          </div>
+        </section>
+
+        {/* Unified Permission Structure */}
+        <section className="mb-12">
+          <h2 className="heading-2">Unified Permission Structure</h2>
+          <p className="text-slate-100 mb-4">
+            Skills use the same 4-field permission structure as all other permission sources:
+          </p>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+              <div className="flex items-center gap-2 mb-2">
+                <HiOutlineShieldCheck className="w-5 h-5 text-green-400" />
+                <span className="font-semibold text-green-300">allowed</span>
+              </div>
+              <p className="text-sm text-slate-300">True - Tool is permitted</p>
+            </div>
+            <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+              <div className="flex items-center gap-2 mb-2">
+                <HiOutlineCube className="w-5 h-5 text-blue-400" />
+                <span className="font-semibold text-blue-300">source</span>
+              </div>
+              <p className="text-sm text-slate-300">"skill" - From skill invocation</p>
+            </div>
+            <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+              <div className="flex items-center gap-2 mb-2">
+                <HiOutlineDocumentText className="w-5 h-5 text-yellow-400" />
+                <span className="font-semibold text-yellow-300">reason</span>
+              </div>
+              <p className="text-sm text-slate-300">"commit skill (turn 5)"</p>
+            </div>
+            <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+              <div className="flex items-center gap-2 mb-2">
+                <HiOutlineLockClosed className="w-5 h-5 text-red-400" />
+                <span className="font-semibold text-red-300">expires</span>
+              </div>
+              <p className="text-sm text-slate-300">{`{"type": "turn_end"}`}</p>
+            </div>
+          </div>
+          <CodeWithResult
+            code={`# Skills grant permissions like this:
+session['permissions']['Bash(git status)'] = {
+    'allowed': True,
+    'source': 'skill',
+    'reason': 'commit skill (turn 5)',
+    'expires': {'type': 'turn_end'}
+}`}
+            language="python"
+          />
+        </section>
+
+        {/* Snapshot/Restore Flow */}
+        <section className="mb-12">
+          <h2 className="heading-2">Snapshot/Restore Flow</h2>
+          <p className="text-slate-100 mb-6">
+            Skills preserve user approvals using a <strong className="text-purple-300">snapshot → grant → restore</strong> pattern:
+          </p>
+
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 mb-6">
+            <div className="space-y-5">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-blue-500/20 border border-blue-500 flex items-center justify-center text-blue-300 font-semibold text-lg">1</div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-white mb-2">📸 Snapshot</h3>
+                  <p className="text-sm text-slate-300 mb-2">Before granting skill permissions, save current state:</p>
+                  <div className="bg-gray-950 rounded p-3 font-mono text-xs text-purple-300">
+                    snapshot = deepcopy(session['permissions'])
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-purple-500/20 border border-purple-500 flex items-center justify-center text-purple-300 font-semibold text-lg">2</div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-white mb-2">➕ Grant</h3>
+                  <p className="text-sm text-slate-300 mb-2">Add skill permissions to existing permissions:</p>
+                  <div className="bg-gray-950 rounded p-3 font-mono text-xs text-green-300">
+                    session['permissions']['Bash(git *)'] = {'{'}...{'}'}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-green-500/20 border border-green-500 flex items-center justify-center text-green-300 font-semibold text-lg">3</div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-white mb-2">⚡ Execute</h3>
+                  <p className="text-sm text-slate-300">Agent runs with both user and skill permissions active</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-orange-500/20 border border-orange-500 flex items-center justify-center text-orange-300 font-semibold text-lg">4</div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-white mb-2">🔄 Restore</h3>
+                  <p className="text-sm text-slate-300 mb-2">When turn ends, restore the snapshot:</p>
+                  <div className="bg-gray-950 rounded p-3 font-mono text-xs text-blue-300">
+                    session['permissions'] = snapshot
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-5">
+            <h3 className="font-semibold text-green-300 mb-3 flex items-center gap-2">
+              <HiOutlineShieldCheck className="w-6 h-6" />
+              Result: User Approvals Never Lost
+            </h3>
+            <ul className="space-y-2 text-sm text-slate-300">
+              <li>✅ User's session approvals preserved across skill invocations</li>
+              <li>✅ Skill permissions cleanly added and removed</li>
+              <li>✅ No permission contamination between turns</li>
+              <li>✅ Predictable, testable permission lifecycle</li>
+            </ul>
           </div>
         </section>
 
@@ -83,53 +201,103 @@ tools:
   - Bash(git diff *)
   - Bash(git commit *)
   - Bash(git add *)
-  - FileTools.read_file
-  - FileTools.glob
+  - read_file
+  - glob
 ---
 
 Create a well-formatted git commit for staged changes.
 
 1. Check status: \`git status\`
 2. Review changes: \`git diff --staged\`
-3. Create commit with good message`}
+3. Create commit with descriptive message`}
             language="yaml"
           />
-          <p className="text-slate-100 mt-4">
-            User types: <code className="bg-gray-800 px-2 py-1 rounded">/commit</code> → git commands auto-approved → commit created → permissions cleared.
-          </p>
+          <div className="mt-6 bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
+            <p className="text-slate-100">
+              User types: <code className="bg-gray-800 px-2 py-1 rounded text-purple-300">/commit</code> →
+              git commands auto-approved → commit created → permissions restored
+            </p>
+          </div>
         </section>
 
         {/* Permission Patterns */}
         <section className="mb-12">
           <h2 className="heading-2">Permission Patterns</h2>
+          <p className="text-slate-100 mb-4">
+            Skills support flexible pattern matching for tool permissions:
+          </p>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+              <h3 className="font-semibold text-blue-300 mb-2">Exact Match</h3>
+              <code className="text-sm text-slate-300">Bash(git status)</code>
+              <p className="text-xs text-slate-400 mt-2">Only matches "git status"</p>
+            </div>
+            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+              <h3 className="font-semibold text-purple-300 mb-2">Wildcard Args</h3>
+              <code className="text-sm text-slate-300">Bash(git diff *)</code>
+              <p className="text-xs text-slate-400 mt-2">Any git diff command</p>
+            </div>
+            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+              <h3 className="font-semibold text-green-300 mb-2">Command Prefix</h3>
+              <code className="text-sm text-slate-300">Bash(git *)</code>
+              <p className="text-xs text-slate-400 mt-2">All git commands</p>
+            </div>
+            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+              <h3 className="font-semibold text-yellow-300 mb-2">Tool Name</h3>
+              <code className="text-sm text-slate-300">read_file</code>
+              <p className="text-xs text-slate-400 mt-2">Any read_file call</p>
+            </div>
+          </div>
           <CodeWithResult
             code={`tools:
   - Bash(git status)         # Exact: only "git status"
   - Bash(git diff *)         # Wildcard: any git diff command
-  - Bash(git *)              # All git commands
-  - FileTools.read_file      # FileTools method (any arguments)
-  - FileTools.edit           # FileTools method
-  - FileTools.glob           # FileTools method`}
+  - Bash(git *)              # Prefix: all git commands
+  - read_file                # Tool name (any arguments)
+  - glob                     # Tool name
+  - grep                     # Tool name`}
             language="yaml"
           />
         </section>
 
         {/* Security Model */}
         <section className="mb-12">
-          <h2 className="heading-2">Security Model</h2>
-          <div className="bg-gray-800/50 rounded-lg p-4">
-            <h3 className="font-semibold text-white mb-3">One-Turn Permissions</h3>
-            <p className="text-slate-100 mb-4">Scope is tied to turn number:</p>
-            <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm">
-              <pre className="text-slate-100">{`Turn 5: User invokes /commit
-  → permission_scope set with turn=5
-  → git commands auto-approved during turn 5
-  → Agent creates commit, turn ends
-  → permission_scope cleared
+          <h2 className="heading-2">Security Model - One Turn Only</h2>
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6">
+            <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
+              <HiOutlineLockClosed className="w-6 h-6 text-red-400" />
+              Turn-Based Expiration
+            </h3>
+            <div className="bg-gray-950 rounded-lg p-5 font-mono text-sm space-y-3">
+              <div className="text-blue-300">
+                <div className="text-slate-400 text-xs mb-1">Turn 3: User approves bash:pytest for session</div>
+                <div>permissions['bash:pytest'] = {'{'}source: 'user', expires: 'session_end'{'}'}</div>
+              </div>
 
-Turn 6: User types "refactor the code"
-  → git permissions NO LONGER active
-  → Dangerous commands require approval again`}</pre>
+              <div className="text-purple-300">
+                <div className="text-slate-400 text-xs mb-1">Turn 5: /commit skill invoked</div>
+                <div>→ Snapshot taken (bash:pytest saved)</div>
+                <div>→ Grant: permissions['Bash(git *)'] = {'{'}source: 'skill', expires: 'turn_end'{'}'}</div>
+              </div>
+
+              <div className="text-green-300">
+                <div className="text-slate-400 text-xs mb-1">During turn 5:</div>
+                <div>→ git status ✓ (skill permission)</div>
+                <div>→ bash:pytest ✓ (user permission)</div>
+              </div>
+
+              <div className="text-orange-300">
+                <div className="text-slate-400 text-xs mb-1">Turn 5 ends (@on_complete):</div>
+                <div>→ Restore snapshot</div>
+                <div>→ git permissions cleared ✓</div>
+                <div>→ bash:pytest preserved ✓</div>
+              </div>
+
+              <div className="text-red-300">
+                <div className="text-slate-400 text-xs mb-1">Turn 6: Normal operation</div>
+                <div>→ git commands require approval ✗</div>
+                <div>→ bash:pytest still works ✓</div>
+              </div>
             </div>
           </div>
         </section>
@@ -152,6 +320,10 @@ tools:
 ---
 
 Deploy package to PyPI after running tests.
+
+1. Run tests to ensure quality
+2. Build the package
+3. Upload to PyPI
 EOF`}
             language="bash"
           />
@@ -166,12 +338,16 @@ description: Code review workflow
 tools:
   - Bash(git diff *)
   - Bash(git log *)
-  - FileTools.read_file
-  - FileTools.glob
-  - FileTools.grep
+  - read_file
+  - glob
+  - grep
 ---
 
 Review recent code changes and provide feedback.
+
+1. Check recent commits
+2. Review diffs
+3. Identify issues and suggestions
 EOF`}
             language="bash"
           />
@@ -181,19 +357,19 @@ EOF`}
         <section className="mb-12">
           <h2 className="heading-2">Related</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/concepts/permissions" className="p-4 bg-gray-800/50 border border-gray-700 hover:border-purple-500/50 rounded-lg transition-all">
+            <Link href="/concepts/permissions" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-green-500/50 rounded-lg transition-all group">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineShieldCheck className="w-5 h-5 text-purple-400" />
-                <h3 className="font-semibold text-white">Permissions</h3>
+                <HiOutlineShieldCheck className="w-6 h-6 text-green-400 group-hover:text-green-300 transition-colors" />
+                <h3 className="font-semibold text-white group-hover:text-green-300 transition-colors">Permissions</h3>
               </div>
-              <p className="text-sm text-slate-100">Complete permission system overview</p>
+              <p className="text-sm text-slate-300">Complete permission system overview</p>
             </Link>
-            <Link href="/concepts/skills" className="p-4 bg-gray-800/50 border border-gray-700 hover:border-purple-500/50 rounded-lg transition-all">
+            <Link href="/concepts/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-purple-500/50 rounded-lg transition-all group">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineCodeBracket className="w-5 h-5 text-purple-400" />
-                <h3 className="font-semibold text-white">Skills Concepts</h3>
+                <HiOutlineCodeBracket className="w-6 h-6 text-purple-400 group-hover:text-purple-300 transition-colors" />
+                <h3 className="font-semibold text-white group-hover:text-purple-300 transition-colors">Skills Concepts</h3>
               </div>
-              <p className="text-sm text-slate-100">Detailed skills documentation</p>
+              <p className="text-sm text-slate-300">Detailed skills documentation</p>
             </Link>
           </div>
         </section>
