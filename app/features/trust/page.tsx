@@ -1,10 +1,10 @@
 'use client'
 
-import CodeWithResult from '../../components/CodeWithResult'
+import CodeWithResult from '../../../components/CodeWithResult'
 import { HiOutlineShieldCheck, HiOutlineUsers, HiOutlineCodeBracket, HiOutlineBolt, HiOutlineCheckCircle, HiOutlineExclamationCircle, HiOutlineBookOpen, HiOutlineDocumentText, HiOutlineCpuChip } from 'react-icons/hi2'
 import Link from 'next/link'
-import { ContentNavigation } from '../../components/ContentNavigation'
-import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
+import { ContentNavigation } from '../../../components/ContentNavigation'
+import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 
 export default function TrustPage() {
   return (

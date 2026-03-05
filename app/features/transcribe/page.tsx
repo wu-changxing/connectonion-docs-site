@@ -4,11 +4,11 @@
   @description: Transcribe Page - Audio transcription utility documentation
 */
 import Link from 'next/link'
-import CodeWithResult from '../../components/CodeWithResult'
-import { ContentNavigation } from '../../components/ContentNavigation'
+import CodeWithResult from '../../../components/CodeWithResult'
+import { ContentNavigation } from '../../../components/ContentNavigation'
 import { HiOutlineMicrophone } from 'react-icons/hi2'
 import { FaCheckCircle } from 'react-icons/fa'
-import { PageHeader } from '../../components/PageHeader'
+import { PageHeader } from '../../../components/PageHeader'
 
 export default function TranscribePage() {
   return (
