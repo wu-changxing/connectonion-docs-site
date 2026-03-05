@@ -14,7 +14,7 @@ export default function PermissionsPage() {
         <PageHeader
           breadcrumbs={[
             { label: 'Docs', href: '/' },
-            { label: 'Concepts', href: '/' },
+            { label: 'Features', href: '/' },
             { label: 'Permissions' },
           ]}
           icon={HiOutlineShieldCheck}

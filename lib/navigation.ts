@@ -486,25 +486,6 @@ export const navigation = [
     section: 'Core Concepts',
     keywords: ['ai', 'model', 'openai', 'language', 'llm_do', 'direct', 'gemini', 'anthropic', 'claude'],
     prev: { href: '/models/pricing', title: 'Pricing' },
-    next: { href: '/transcribe', title: 'Audio Transcription' }
-  },
-  {
-    title: 'Audio Transcription',
-    href: '/transcribe',
-    icon: HiOutlineMicrophone,
-    section: 'Core Concepts',
-    difficulty: 'New',
-    keywords: ['transcribe', 'audio', 'speech', 'voice', 'text', 'gemini', 'mp3', 'wav'],
-    prev: { href: '/llm_do', title: 'LLM Function' },
-    next: { href: '/trust', title: 'Trust Parameter' }
-  },
-  {
-    title: 'Trust Parameter',
-    href: '/trust',
-    icon: HiOutlineShieldCheck,
-    section: 'Network',
-    keywords: ['security', 'safety', 'trust', 'permission', 'multi-agent'],
-    prev: { href: '/transcribe', title: 'Audio Transcription' },
     next: { href: '/xray', title: '@xray Decorator' }
   },
   {
@@ -513,7 +494,7 @@ export const navigation = [
     icon: HiOutlineBugAnt,
     section: 'Debug',
     keywords: ['debug', 'xray', 'decorator', 'trace', 'monitor', 'visibility'],
-    prev: { href: '/trust', title: 'Trust Parameter' },
+    prev: { href: '/llm_do', title: 'LLM Function' },
     next: { href: '/on_events', title: 'Event System (on_events)' }
   },
   {
@@ -534,26 +515,47 @@ export const navigation = [
     difficulty: 'NEW',
     keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'custom', 'create', 'build'],
     prev: { href: '/on_events', title: 'Event System (on_events)' },
-    next: { href: '/concepts/permissions', title: 'Permissions' }
+    next: { href: '/features/permissions', title: 'Permissions' }
   },
+
+  // Features
   {
     title: 'Permissions',
-    href: '/concepts/permissions',
+    href: '/features/permissions',
     icon: HiOutlineShieldCheck,
-    section: 'Core Concepts',
+    section: 'Features',
     difficulty: 'NEW',
     keywords: ['permissions', 'approval', 'security', 'safe tools', 'skills', 'snapshot', 'restore', 'unified'],
     prev: { href: '/plugin', title: 'Plugin System' },
-    next: { href: '/concepts/skills', title: 'Skills' }
+    next: { href: '/features/skills', title: 'Skills' }
   },
   {
     title: 'Skills',
-    href: '/concepts/skills',
+    href: '/features/skills',
     icon: HiOutlineCommandLine,
-    section: 'Core Concepts',
+    section: 'Features',
     difficulty: 'NEW',
     keywords: ['skills', 'slash command', 'workflow', 'automation', 'git', 'commit', 'permission', 'scope'],
-    prev: { href: '/concepts/permissions', title: 'Permissions' },
+    prev: { href: '/features/permissions', title: 'Permissions' },
+    next: { href: '/features/transcribe', title: 'Audio Transcription' }
+  },
+  {
+    title: 'Audio Transcription',
+    href: '/features/transcribe',
+    icon: HiOutlineMicrophone,
+    section: 'Features',
+    difficulty: 'New',
+    keywords: ['transcribe', 'audio', 'speech', 'voice', 'text', 'gemini', 'mp3', 'wav'],
+    prev: { href: '/features/skills', title: 'Skills' },
+    next: { href: '/features/trust', title: 'Trust' }
+  },
+  {
+    title: 'Trust',
+    href: '/features/trust',
+    icon: HiOutlineShieldCheck,
+    section: 'Features',
+    keywords: ['security', 'safety', 'trust', 'permission', 'multi-agent', 'verification'],
+    prev: { href: '/features/transcribe', title: 'Audio Transcription' },
     next: { href: '/host', title: 'host()' }
   },
 
@@ -565,7 +567,7 @@ export const navigation = [
     section: 'Network',
     difficulty: 'Essential',
     keywords: ['host', 'serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'http', 'api', 'ed25519'],
-    prev: { href: '/concepts/skills', title: 'Skills' },
+    prev: { href: '/features/trust', title: 'Trust' },
     next: { href: '/connect', title: 'Connect to Agents' }
   },
   {
