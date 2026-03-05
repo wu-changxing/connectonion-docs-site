@@ -77,6 +77,16 @@ export const navigation = [
     difficulty: 'Start Here',
     keywords: ['template', 'prompt', 'system', 'message', 'personality', 'behavior'],
     prev: { href: '/agent', title: 'Agent' },
+    next: { href: '/prompts/formats', title: 'Prompt Formats' }
+  },
+  {
+    title: 'Prompt Formats',
+    href: '/prompts/formats',
+    icon: HiOutlineDocumentText,
+    section: 'Core Concepts',
+    parent: '/prompts',
+    keywords: ['format', 'prompt', 'template', 'syntax'],
+    prev: { href: '/prompts', title: 'System Prompts' },
     next: { href: '/tools', title: 'Tools' }
   },
   {
@@ -85,8 +95,56 @@ export const navigation = [
     icon: HiOutlineCodeBracket,
     section: 'Core Concepts',
     keywords: ['function', 'utility', 'actions', 'capabilities', 'tools'],
-    prev: { href: '/prompts', title: 'System Prompts' },
-    next: { href: '/useful-tools', title: 'Useful Tools' }
+    prev: { href: '/prompts/formats', title: 'Prompt Formats' },
+    next: { href: '/models', title: 'Models' }
+  },
+  {
+    title: 'Models',
+    href: '/models',
+    icon: HiOutlineCpuChip,
+    section: 'Core Concepts',
+    keywords: ['model', 'gpt', 'gemini', 'claude', 'anthropic', 'openai', 'google', 'llm', 'ai'],
+    prev: { href: '/tools', title: 'Tools' },
+    next: { href: '/models/pricing', title: 'Pricing' }
+  },
+  {
+    title: 'Pricing',
+    href: '/models/pricing',
+    icon: HiOutlineCurrencyDollar,
+    section: 'Core Concepts',
+    parent: '/models',
+    keywords: ['pricing', 'cost', 'credits', 'tokens', 'billing', 'managed keys', 'purchase', 'pay', 'price'],
+    prev: { href: '/models', title: 'Models' },
+    next: { href: '/llm_do', title: 'LLM Function' }
+  },
+  {
+    title: 'LLM Function',
+    href: '/llm_do',
+    icon: HiOutlineSparkles,
+    section: 'Core Concepts',
+    keywords: ['ai', 'model', 'openai', 'language', 'llm_do', 'direct', 'gemini', 'anthropic', 'claude'],
+    prev: { href: '/models/pricing', title: 'Pricing' },
+    next: { href: '/on_events', title: 'Event System (on_events)' }
+  },
+  {
+    title: 'Event System (on_events)',
+    href: '/on_events',
+    icon: HiOutlineChartBarSquare,
+    section: 'Core Concepts',
+    difficulty: 'NEW',
+    keywords: ['events', 'on_events', 'hooks', 'lifecycle', 'monitoring', 'after_llm', 'before_tool', 'after_tool', 'on_error', 'after_user_input', 'before_llm'],
+    prev: { href: '/llm_do', title: 'LLM Function' },
+    next: { href: '/plugin', title: 'Plugin System' }
+  },
+  {
+    title: 'Plugin System',
+    href: '/plugin',
+    icon: HiOutlinePuzzlePiece,
+    section: 'Core Concepts',
+    difficulty: 'NEW',
+    keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'custom', 'create', 'build'],
+    prev: { href: '/on_events', title: 'Event System (on_events)' },
+    next: { href: '/features/permissions', title: 'Permissions' }
   },
 
   // Useful Tools
@@ -457,35 +515,6 @@ export const navigation = [
     section: 'Debug',
     keywords: ['logging', 'log', 'file', 'output', 'debug', 'audit', 'record', 'trace', 'monitor', 'activity'],
     prev: { href: '/tools/browser', title: 'Browser Screenshots' },
-    next: { href: '/models', title: 'Models' }
-  },
-
-  {
-    title: 'Models',
-    href: '/models',
-    icon: HiOutlineCpuChip,
-    section: 'Core Concepts',
-    keywords: ['model', 'gpt', 'gemini', 'claude', 'anthropic', 'openai', 'google', 'llm', 'ai'],
-    prev: { href: '/logging', title: 'Logging' },
-    next: { href: '/models/pricing', title: 'Pricing' }
-  },
-  {
-    title: 'Pricing',
-    href: '/models/pricing',
-    icon: HiOutlineCurrencyDollar,
-    section: 'Core Concepts',
-    parent: '/models',
-    keywords: ['pricing', 'cost', 'credits', 'tokens', 'billing', 'managed keys', 'purchase', 'pay', 'price'],
-    prev: { href: '/models', title: 'Models' },
-    next: { href: '/llm_do', title: 'LLM Function' }
-  },
-  {
-    title: 'LLM Function',
-    href: '/llm_do',
-    icon: HiOutlineSparkles,
-    section: 'Core Concepts',
-    keywords: ['ai', 'model', 'openai', 'language', 'llm_do', 'direct', 'gemini', 'anthropic', 'claude'],
-    prev: { href: '/models/pricing', title: 'Pricing' },
     next: { href: '/xray', title: '@xray Decorator' }
   },
   {
@@ -494,28 +523,8 @@ export const navigation = [
     icon: HiOutlineBugAnt,
     section: 'Debug',
     keywords: ['debug', 'xray', 'decorator', 'trace', 'monitor', 'visibility'],
-    prev: { href: '/llm_do', title: 'LLM Function' },
-    next: { href: '/on_events', title: 'Event System (on_events)' }
-  },
-  {
-    title: 'Event System (on_events)',
-    href: '/on_events',
-    icon: HiOutlineChartBarSquare,
-    section: 'Core Concepts',
-    difficulty: 'NEW',
-    keywords: ['events', 'on_events', 'hooks', 'lifecycle', 'monitoring', 'after_llm', 'before_tool', 'after_tool', 'on_error', 'after_user_input', 'before_llm'],
-    prev: { href: '/xray', title: '@xray Decorator' },
-    next: { href: '/plugin', title: 'Plugin System' }
-  },
-  {
-    title: 'Plugin System',
-    href: '/plugin',
-    icon: HiOutlinePuzzlePiece,
-    section: 'Core Concepts',
-    difficulty: 'NEW',
-    keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'custom', 'create', 'build'],
-    prev: { href: '/on_events', title: 'Event System (on_events)' },
-    next: { href: '/features/permissions', title: 'Permissions' }
+    prev: { href: '/logging', title: 'Logging' },
+    next: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' }
   },
 
   // Features
@@ -597,29 +606,18 @@ export const navigation = [
     icon: HiOutlineBookOpen,
     section: 'Debug',
     keywords: ['tutorial', 'beginner', 'first', 'prompt', 'function', 'langchain', 'simple'],
-    prev: { href: '/xray', title: '@xray Decorator' },
+    prev: { href: '/cli', title: 'CLI Reference' },
     next: { href: '/xray/trace', title: 'trace() Visual Flow' }
   },
 
-  // Advanced Features
   {
     title: 'trace() Visual Flow',
     href: '/xray/trace',
     icon: VscGitMerge,
     section: 'Debug',
-    parent: '/xray', // Nested under @xray Decorator
+    parent: '/xray',
     keywords: ['trace', 'flow', 'visual', 'debug', 'execution'],
-    prev: { href: '/xray', title: '@xray Decorator' },
-    next: { href: '/prompts/formats', title: 'Prompt Formats' }
-  },
-  {
-    title: 'Prompt Formats',
-    href: '/prompts/formats',
-    icon: HiOutlineDocumentText,
-    section: 'Core Concepts',
-    parent: '/prompts', // Nested under System Prompts
-    keywords: ['format', 'prompt', 'template', 'syntax'],
-    prev: { href: '/xray/trace', title: 'trace() Visual Flow' },
+    prev: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' },
     next: { href: '/threat-model', title: 'Threat Model' }
   },
 
