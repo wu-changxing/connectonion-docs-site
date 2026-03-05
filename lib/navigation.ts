@@ -534,6 +534,26 @@ export const navigation = [
     difficulty: 'NEW',
     keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'custom', 'create', 'build'],
     prev: { href: '/on_events', title: 'Event System (on_events)' },
+    next: { href: '/concepts/permissions', title: 'Permissions' }
+  },
+  {
+    title: 'Permissions',
+    href: '/concepts/permissions',
+    icon: HiOutlineShieldCheck,
+    section: 'Core Concepts',
+    difficulty: 'NEW',
+    keywords: ['permissions', 'approval', 'security', 'safe tools', 'skills', 'snapshot', 'restore', 'unified'],
+    prev: { href: '/plugin', title: 'Plugin System' },
+    next: { href: '/concepts/skills', title: 'Skills' }
+  },
+  {
+    title: 'Skills',
+    href: '/concepts/skills',
+    icon: HiOutlineCommandLine,
+    section: 'Core Concepts',
+    difficulty: 'NEW',
+    keywords: ['skills', 'slash command', 'workflow', 'automation', 'git', 'commit', 'permission', 'scope'],
+    prev: { href: '/concepts/permissions', title: 'Permissions' },
     next: { href: '/host', title: 'host()' }
   },
 
@@ -545,7 +565,7 @@ export const navigation = [
     section: 'Network',
     difficulty: 'Essential',
     keywords: ['host', 'serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'http', 'api', 'ed25519'],
-    prev: { href: '/plugin', title: 'Plugin System' },
+    prev: { href: '/concepts/skills', title: 'Skills' },
     next: { href: '/connect', title: 'Connect to Agents' }
   },
   {
