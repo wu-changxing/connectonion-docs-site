@@ -10,6 +10,7 @@ import { CopyMarkdownButton } from '../components/CopyMarkdownButton'
 import { ContentNavigation } from '../components/ContentNavigation'
 import { FrameworkComparison } from '../components/FrameworkComparison'
 import { MacOSDownload } from '../components/MacOSDownload'
+import { AIFirstDevelopment } from '../components/AIFirstDevelopment'
 
 export default function HomePage() {
   return (
@@ -105,6 +106,9 @@ agent.input("What's the weather in NYC?")`}
 
       {/* Framework Comparison - The Main Feature */}
       <FrameworkComparison />
+
+      {/* AI-First Development */}
+      <AIFirstDevelopment />
 
       {/* macOS App Download */}
       <MacOSDownload />
