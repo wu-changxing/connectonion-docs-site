@@ -7,6 +7,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
+import { MacOSDownload } from '../../components/MacOSDownload'
 
 export default function VibeCodingPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -267,6 +268,10 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
 
 
         {/* Note: For Cursor/Copilot users, the same approach applies - drag the co-vibecoding documentation into your IDE */}
+
+        {/* macOS App Download */}
+        <MacOSDownload />
+
         {/* Navigation */}
         <ContentNavigation />
       </div>

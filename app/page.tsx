@@ -9,6 +9,7 @@ import { CommandBlock } from '../components/CommandBlock'
 import { CopyMarkdownButton } from '../components/CopyMarkdownButton'
 import { ContentNavigation } from '../components/ContentNavigation'
 import { FrameworkComparison } from '../components/FrameworkComparison'
+import { MacOSDownload } from '../components/MacOSDownload'
 
 export default function HomePage() {
   return (
@@ -104,6 +105,9 @@ agent.input("What's the weather in NYC?")`}
 
       {/* Framework Comparison - The Main Feature */}
       <FrameworkComparison />
+
+      {/* macOS App Download */}
+      <MacOSDownload />
 
       {/* Free Credits Banner - Compact */}
       <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-green-900/10 to-transparent">
