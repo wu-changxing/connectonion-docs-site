@@ -1,0 +1,456 @@
+/**
+ * @purpose CLI browser command documentation
+ * @context Shows how to use `co browser` for screenshots and automation
+ */
+
+'use client'
+
+import { HiOutlineCamera, HiOutlineDevicePhoneMobile, HiOutlineComputerDesktop, HiOutlineBolt, HiOutlineCodeBracket } from 'react-icons/hi2'
+import CodeWithResult from '../../../components/CodeWithResult'
+import { ContentNavigation } from '../../../components/ContentNavigation'
+import { PageHeader } from '../../../components/PageHeader'
+
+export default function CliBrowserCommandPage() {
+  return (
+    <div className="px-4 md:px-8 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto">
+        {/* Hero Section */}
+        <section className="mb-16">
+          <PageHeader
+            breadcrumbs={[
+              { label: 'Docs', href: '/' },
+              { label: 'CLI', href: '/cli' },
+              { label: 'co browser' }
+            ]}
+            icon={HiOutlineCamera}
+            iconColor="text-blue-400"
+            iconBgFrom="from-blue-600/20"
+            iconBgTo="to-cyan-600/20"
+            iconBorderColor="border-blue-500/30"
+            title="co browser"
+            description="Quick browser screenshots and automation with one command. Perfect for debugging, testing, and visual proof."
+          />
+
+          <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
+            <p className="text-lg font-semibold text-blue-100">
+              <strong>Quick Start:</strong> <code className="bg-gray-800 px-2 py-1 rounded">co browser "screenshot localhost:3000"</code> - instant screenshot, no code required.
+            </p>
+          </div>
+        </section>
+
+        {/* Basic Usage */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+            Basic Usage
+          </h2>
+
+          <CodeWithResult
+            code={`co browser "screenshot localhost:3000"`}
+            result={`[browser] Taking screenshot of http://localhost:3000
+[browser] Saved to .tmp/screenshot_20260310_143022.png
+
+✓ Screenshot saved successfully`}
+            language="bash"
+          />
+
+          <p className="text-slate-300 mt-4">
+            Saves to <code className="bg-gray-800 px-2 py-1 rounded">.tmp/screenshot_YYYYMMDD_HHMMSS.png</code> by default.
+          </p>
+        </section>
+
+        {/* Command Format */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCodeBracket className="w-8 h-8 text-purple-400" />
+            Command Format
+          </h2>
+
+          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mb-6">
+            <code className="text-lg text-purple-300">
+              co browser "screenshot [URL] [save to PATH] [size SIZE]"
+            </code>
+          </div>
+
+          <p className="text-slate-100 mb-4">All parts except URL are optional.</p>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Basic Screenshots</h3>
+              <CodeWithResult
+                code={`# Local development
+co browser "screenshot localhost:3000"
+
+# Specific port
+co browser "screenshot localhost:8080"
+
+# External site
+co browser "screenshot example.com"
+
+# Full URL
+co browser "screenshot https://docs.connectonion.com"`}
+                language="bash"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Save to Specific Path</h3>
+              <CodeWithResult
+                code={`# Save to temp directory
+co browser "screenshot localhost:3000 save to /tmp/debug.png"
+
+# Save to current directory
+co browser "screenshot localhost:3000 save to homepage.png"
+
+# Save to subdirectory
+co browser "screenshot localhost:3000 save to screenshots/test.png"`}
+                language="bash"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Device Sizes</h3>
+              <CodeWithResult
+                code={`# iPhone viewport
+co browser "screenshot localhost:3000 size iphone"
+
+# Custom dimensions
+co browser "screenshot localhost:3000 size 390x844"
+
+# Common presets
+co browser "screenshot localhost:3000 size ipad"
+co browser "screenshot localhost:3000 size desktop"`}
+                language="bash"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Device Presets */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineDevicePhoneMobile className="w-8 h-8 text-cyan-400" />
+            Device Presets
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-gray-700 rounded-lg">
+              <thead className="bg-gray-800">
+                <tr>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Preset</th>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Dimensions</th>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Device</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-700">
+                <tr>
+                  <td className="px-4 py-3 font-mono text-blue-300">iphone</td>
+                  <td className="px-4 py-3 text-slate-100">390x844</td>
+                  <td className="px-4 py-3 text-slate-300">iPhone 14/15</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-green-300">android</td>
+                  <td className="px-4 py-3 text-slate-100">360x800</td>
+                  <td className="px-4 py-3 text-slate-300">Common Android</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">ipad</td>
+                  <td className="px-4 py-3 text-slate-100">768x1024</td>
+                  <td className="px-4 py-3 text-slate-300">iPad</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-yellow-300">desktop</td>
+                  <td className="px-4 py-3 text-slate-100">1920x1080</td>
+                  <td className="px-4 py-3 text-slate-300">Full HD Desktop</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* Complete Examples */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineComputerDesktop className="w-8 h-8 text-emerald-400" />
+            Complete Examples
+          </h2>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Debug Mobile Checkout</h3>
+              <CodeWithResult
+                code={`co browser "screenshot localhost:3000/checkout save to /tmp/checkout-mobile.png size iphone"`}
+                language="bash"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Document Bug</h3>
+              <CodeWithResult
+                code={`co browser "screenshot localhost:3000/xray save to bug-report.png size 1920x1080"`}
+                language="bash"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Test Responsive Design</h3>
+              <CodeWithResult
+                code={`# Test multiple viewports
+co browser "screenshot localhost:3000 save to mobile.png size 390x844"
+co browser "screenshot localhost:3000 save to tablet.png size 768x1024"
+co browser "screenshot localhost:3000 save to desktop.png size 1920x1080"`}
+                language="bash"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* URL Handling */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCodeBracket className="w-8 h-8 text-indigo-400" />
+            URL Handling
+          </h2>
+
+          <p className="text-slate-100 mb-6">
+            The command intelligently handles URLs:
+          </p>
+
+          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+            <div className="space-y-3 font-mono text-sm">
+              <div className="flex items-center gap-4">
+                <span className="text-slate-400">localhost</span>
+                <span className="text-slate-600">→</span>
+                <span className="text-green-300">http://localhost</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-slate-400">localhost:3000</span>
+                <span className="text-slate-600">→</span>
+                <span className="text-green-300">http://localhost:3000</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-slate-400">example.com</span>
+                <span className="text-slate-600">→</span>
+                <span className="text-green-300">https://example.com</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-slate-400">http://example.com</span>
+                <span className="text-slate-600">→</span>
+                <span className="text-green-300">http://example.com</span>
+                <span className="text-slate-500">(unchanged)</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Use Cases */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineBolt className="w-8 h-8 text-orange-400" />
+            Use Cases
+          </h2>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">1. Debug Local Development</h3>
+              <CodeWithResult
+                code={`# Quick check of homepage
+co browser "screenshot localhost:3000"
+
+# Debug specific route
+co browser "screenshot localhost:3000/api/status"`}
+                language="bash"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">2. Document Bugs</h3>
+              <CodeWithResult
+                code={`# Capture error state
+co browser "screenshot localhost:3000/error save to bug.png"
+
+# Mobile-specific issue
+co browser "screenshot localhost:3000/mobile-bug save to mobile-issue.png size iphone"`}
+                language="bash"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">3. Test Responsive Design</h3>
+              <CodeWithResult
+                code={`# Test different viewports
+for size in iphone android ipad desktop; do
+  co browser "screenshot localhost:3000 save to view-$size.png size $size"
+done`}
+                language="bash"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">4. CI/CD Integration</h3>
+              <CodeWithResult
+                code={`# In GitHub Actions or similar
+co browser "screenshot $DEPLOY_URL save to artifacts/deployed.png"`}
+                language="bash"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Framework Examples */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCodeBracket className="w-8 h-8 text-pink-400" />
+            Framework Examples
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Next.js</h3>
+              <CodeWithResult
+                code={`co browser "screenshot localhost:3000"
+co browser "screenshot localhost:3000/_error save to error.png"`}
+                language="bash"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-3">FastAPI</h3>
+              <CodeWithResult
+                code={`co browser "screenshot localhost:8000"
+co browser "screenshot localhost:8000/docs save to api-docs.png"`}
+                language="bash"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Django</h3>
+              <CodeWithResult
+                code={`co browser "screenshot localhost:8000"
+co browser "screenshot localhost:8000/admin save to admin.png"`}
+                language="bash"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-3">React Dev Server</h3>
+              <CodeWithResult
+                code={`co browser "screenshot localhost:3000"
+co browser "screenshot localhost:3000 size iphone"`}
+                language="bash"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Installation */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+            Installation
+          </h2>
+
+          <p className="text-slate-100 mb-6">
+            Browser features require Playwright:
+          </p>
+
+          <CodeWithResult
+            code={`# Install Playwright
+pip install playwright
+playwright install chromium
+
+# Or install ConnectOnion with browser support
+pip install connectonion[browser]`}
+            language="bash"
+          />
+        </section>
+
+        {/* Error Messages */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCodeBracket className="w-8 h-8 text-red-400" />
+            Common Errors
+          </h2>
+
+          <div className="space-y-4">
+            <div className="bg-red-950/30 border border-red-400/40 rounded-lg p-4">
+              <p className="font-mono text-sm text-red-300 mb-2">
+                ❌ Browser tools not installed
+              </p>
+              <p className="text-slate-300 text-sm">
+                Run: <code className="bg-gray-800 px-2 py-1 rounded">pip install playwright && playwright install chromium</code>
+              </p>
+            </div>
+
+            <div className="bg-red-950/30 border border-red-400/40 rounded-lg p-4">
+              <p className="font-mono text-sm text-red-300 mb-2">
+                ❌ Cannot reach http://localhost:3000
+              </p>
+              <p className="text-slate-300 text-sm">
+                Is your server running? Start it first.
+              </p>
+            </div>
+
+            <div className="bg-red-950/30 border border-red-400/40 rounded-lg p-4">
+              <p className="font-mono text-sm text-red-300 mb-2">
+                ❌ Natural language browser agent unavailable. Set OPENAI_API_KEY
+              </p>
+              <p className="text-slate-300 text-sm">
+                Set your OpenAI API key for natural language commands
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Tips */}
+        <section className="mb-20">
+          <div className="bg-yellow-950/50 border border-yellow-400/40 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-yellow-100 mb-4">Tips & Best Practices</h3>
+            <div className="space-y-3 text-slate-100">
+              <div>
+                <strong className="text-green-300">Quick Debug:</strong> Just <code className="bg-gray-800 px-2 py-1 rounded">co browser "screenshot localhost:3000"</code> for instant feedback
+              </div>
+              <div>
+                <strong className="text-green-300">Organize Screenshots:</strong> Use descriptive paths like <code className="bg-gray-800 px-2 py-1 rounded">save to bugs/issue-123.png</code>
+              </div>
+              <div>
+                <strong className="text-green-300">Test Viewports:</strong> Use device names (iphone, ipad) for common sizes
+              </div>
+              <div>
+                <strong className="text-green-300">Timestamps:</strong> Default filenames include timestamp for versioning
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Limitations */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCodeBracket className="w-8 h-8 text-slate-400" />
+            Limitations
+          </h2>
+
+          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+            <ul className="space-y-2 text-slate-300">
+              <li>• Screenshots only (no interaction, clicking, forms)</li>
+              <li>• Single page at a time</li>
+              <li>• Headless browser only</li>
+              <li>• PNG format only</li>
+            </ul>
+          </div>
+
+          <p className="text-slate-300 mt-4">
+            For complex browser automation, use the full{' '}
+            <a href="/tools/browser" className="text-blue-400 hover:underline">
+              ConnectOnion browser agent
+            </a>{' '}
+            or Playwright directly.
+          </p>
+        </section>
+
+        {/* Navigation */}
+        <ContentNavigation />
+      </div>
+    </div>
+  )
+}
