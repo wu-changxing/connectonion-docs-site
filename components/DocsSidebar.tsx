@@ -6,9 +6,9 @@
  */
 'use client'
 
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { HiOutlineMagnifyingGlass, HiOutlineChevronRight, HiOutlineChevronDown, HiOutlineClipboard, HiOutlineCheck, HiOutlineXMark, HiOutlineArrowPath } from 'react-icons/hi2'
 import { FaGithub, FaDiscord, FaPython } from 'react-icons/fa'
 import { copyAllDocsToClipboard } from '../lib/copyAllDocs'
@@ -34,7 +34,9 @@ export function DocsSidebar() {
   const [isClientMounted, setIsClientMounted] = useState(false)
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copying' | 'success'>('idle')
   const pathname = usePathname()
+  const router = useRouter()
   const searchInputRef = useRef<HTMLInputElement>(null)
+  const activeItemRef = useRef<HTMLLIElement>(null)
   const { copyMarkdown, status: itemCopyStatus, copiedPath } = useCopyMarkdown()
 
   // Group navigation items by section for sidebar display, with parent-child relationships
@@ -69,29 +71,39 @@ export function DocsSidebar() {
     return navData.filter(item => (item as any).parent === parentHref && !(item as any).hidden)
   }
 
-  // Auto-expand section containing current page
+  // Initialize from localStorage, then auto-expand current section (single effect to avoid race)
   useEffect(() => {
-    const currentPage = navData.find(page => page.href === pathname)
-    if (currentPage && !openSections.includes(currentPage.section)) {
-      setOpenSections(prev => [...prev, currentPage.section])
-    }
-  }, [pathname])
-
-  // Initialize from localStorage after client mount
-  useEffect(() => {
-    setIsClientMounted(true)
+    let sections = openSections
     const saved = localStorage.getItem('docs-open-sections')
     if (saved) {
       try {
         const parsed = JSON.parse(saved)
         if (parsed && parsed.length > 0) {
-          setOpenSections(parsed)
+          sections = parsed
         }
       } catch {
         // Keep default if parsing fails
       }
     }
+    // Auto-expand section containing current page
+    const currentPage = navData.find(page => page.href === pathname)
+    if (currentPage && !sections.includes(currentPage.section)) {
+      sections = [...sections, currentPage.section]
+    }
+    setOpenSections(sections)
+    setIsClientMounted(true)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  // Auto-expand section on navigation (after initial mount)
+  useEffect(() => {
+    if (!isClientMounted) return
+    const currentPage = navData.find(page => page.href === pathname)
+    if (currentPage && !openSections.includes(currentPage.section)) {
+      setOpenSections(prev => [...prev, currentPage.section])
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname, isClientMounted])
 
   // Save to localStorage whenever sections change
   useEffect(() => {
@@ -101,7 +113,7 @@ export function DocsSidebar() {
   }, [openSections, isClientMounted])
 
   // Enhanced search
-  const performSearch = async (query: string) => {
+  const performSearch = useCallback(async (query: string) => {
     if (!query.trim()) {
       setSearchResults([])
       return
@@ -169,7 +181,7 @@ export function DocsSidebar() {
     results.sort((a, b) => b.score - a.score)
     setSearchResults(results.slice(0, 5))
     setSelectedIndex(0)
-  }
+  }, [])
 
   // Keyboard navigation
   useEffect(() => {
@@ -180,7 +192,10 @@ export function DocsSidebar() {
         return
       }
 
-      if (!searchQuery) return
+      // Only handle arrow/enter/escape when the sidebar search input is focused
+      const activeEl = document.activeElement
+      const isSearchFocused = activeEl === searchInputRef.current
+      if (!searchQuery || !isSearchFocused) return
 
       switch(e.key) {
         case 'ArrowDown':
@@ -194,7 +209,9 @@ export function DocsSidebar() {
         case 'Enter':
           e.preventDefault()
           if (searchResults[selectedIndex]) {
-            window.location.href = searchResults[selectedIndex].item.href
+            router.push(searchResults[selectedIndex].item.href)
+            setSearchQuery('')
+            setSearchResults([])
           }
           break
         case 'Escape':
@@ -207,7 +224,7 @@ export function DocsSidebar() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [searchQuery, searchResults, selectedIndex])
+  }, [searchQuery, searchResults, selectedIndex, router])
 
   // Debounced search
   useEffect(() => {
@@ -215,7 +232,7 @@ export function DocsSidebar() {
       performSearch(searchQuery)
     }, 150)
     return () => clearTimeout(timer)
-  }, [searchQuery])
+  }, [searchQuery, performSearch])
 
   const toggleSection = (section: string) => {
     setOpenSections(prev => 
@@ -224,6 +241,13 @@ export function DocsSidebar() {
         : [...prev, section]
     )
   }
+
+  // Auto-scroll to active sidebar item on mount and navigation
+  useEffect(() => {
+    if (activeItemRef.current) {
+      activeItemRef.current.scrollIntoView({ block: 'center', behavior: 'smooth' })
+    }
+  }, [pathname])
 
   const handleCopyAllDocs = async () => {
     setCopyStatus('copying')
@@ -246,7 +270,7 @@ export function DocsSidebar() {
       {/* Header */}
       <div className="p-4 border-b border-gray-700/50">
         <Link href="/" className="flex items-center gap-3 group">
-          <img src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png" alt="ConnectOnion Logo" className="w-8 h-8 rounded-lg object-cover" />
+          <img src="/onion-logo.png" alt="ConnectOnion Logo" className="w-8 h-8 rounded-lg object-cover" />
           <div>
             <div className="text-lg font-bold text-white">ConnectOnion</div>
             <div className="text-sm text-gray-300">Documentation</div>
@@ -403,7 +427,7 @@ export function DocsSidebar() {
                   const children = getChildren(item.href)
 
                   return (
-                    <li key={item.href} role="listitem">
+                    <li key={item.href} role="listitem" ref={isActive ? activeItemRef : undefined}>
                       <div className="relative group">
                         <Link
                           href={item.href}

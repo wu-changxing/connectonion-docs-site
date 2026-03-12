@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png",
+        url: "/onion-logo.png",
         width: 1200,
         height: 630,
         alt: "ConnectOnion - Connect Onion AI Framework",
@@ -44,16 +44,16 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ConnectOnion - Build AI Agents with Python",
     description: "Connect Onion: The simplest Python framework for building AI agents. No complex classes, just functions.",
-    images: ["https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png"],
+    images: ["/onion-logo.png"],
     creator: "@connectonion",
   },
   alternates: {
     canonical: "https://connectonion.com",
   },
   icons: {
-    icon: 'https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png',
-    shortcut: 'https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png',
-    apple: 'https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png',
+    icon: '/onion-logo.png',
+    shortcut: '/onion-logo.png',
+    apple: '/onion-logo.png',
   },
   verification: {
     google: 'google-verification-code',

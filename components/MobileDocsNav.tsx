@@ -30,6 +30,18 @@ export function MobileDocsNav() {
     setIsOpen(false)
   }, [pathname])
 
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
+
   return (
     <>
       {/* Mobile Header Bar */}
@@ -44,7 +56,7 @@ export function MobileDocsNav() {
           </button>
           
           <Link href="/" className="flex items-center gap-2">
-            <img src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png" alt="ConnectOnion" className="w-6 h-6 rounded-md object-cover" />
+            <img src="/onion-logo.png" alt="ConnectOnion" className="w-6 h-6 rounded-md object-cover" />
             <span className="font-semibold text-white">ConnectOnion</span>
           </Link>
           
@@ -89,7 +101,7 @@ export function MobileDocsNav() {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
-              className="lg:hidden fixed left-0 top-0 h-screen z-50"
+              className="lg:hidden fixed left-0 top-0 h-screen z-[45]"
             >
               <DocsSidebar />
             </motion.div>
