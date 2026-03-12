@@ -4,12 +4,40 @@
  *   Dependencies: imports from [next] | imported by [Next.js build system]
  *   Data flow: exports nextConfig → consumed by Next.js at build/dev time
  *   State/Effects: configuration only | no runtime side effects
- *   Integration: currently uses default config | extend for custom webpack, redirects, rewrites
+ *   Integration: configures images, server actions, React compiler, and performance options
  */
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Strict mode for catching bugs early
+  reactStrictMode: true,
+
+  // Remove x-powered-by header for security
+  poweredByHeader: false,
+
+  // Image optimization configuration
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    localPatterns: [
+      {
+        pathname: '/**',
+      },
+    ],
+  },
+
+  // Optimize package imports for faster builds
+  optimizePackageImports: [
+    'react-icons',
+    'framer-motion',
+    'react-syntax-highlighter',
+  ],
+
+  experimental: {
+    // Server Actions body size limit (default 1mb, increased for doc copy features)
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
+  },
 };
 
 export default nextConfig;
