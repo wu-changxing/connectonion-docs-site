@@ -61,3 +61,24 @@ Input(
 - **modern** - Magenta prompt, clean design
 - **minimal** - Bare bones, no decorations
 - **classic** - Traditional input style
+
+## Keyboard Shortcuts
+
+| Key | Action |
+|-----|--------|
+| `Enter` | Submit input or accept selection |
+| `Tab` | Accept autocomplete selection |
+| `Escape` | Cancel autocomplete |
+| `↑` / `↓` | Navigate dropdown |
+| `Ctrl+C` | Cancel input |
+| `Ctrl+D` | Exit |
+
+## Paste Handling
+
+Input uses **bracketed paste mode** for reliable paste detection:
+
+- Pasted text is handled atomically (no display glitches)
+- Works with any terminal that supports bracketed paste
+- Automatically enabled/disabled during input
+
+This prevents the common issue of pasted text causing multiple prompt lines or character loss.

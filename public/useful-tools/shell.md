@@ -2,6 +2,26 @@
 
 Shell command execution tool.
 
+## Usage
+
+**Option 1: Import directly**
+
+```python
+from connectonion import Shell
+
+agent = Agent("coder", tools=[Shell()])
+```
+
+**Option 2: Copy and customize**
+
+```bash
+co copy shell
+```
+
+```python
+from tools.shell import Shell  # Your local copy
+```
+
 ## Installation
 
 ```python
@@ -77,4 +97,19 @@ shell.run("npm run build")
 shell.run("pwd")
 shell.run("whoami")
 shell.run("df -h")
+```
+
+## Customizing
+
+Need to modify Shell's behavior? Copy the source to your project:
+
+```bash
+co copy shell
+```
+
+Then import from your local copy:
+
+```python
+# from connectonion import Shell  # Before
+from tools.shell import Shell      # After - customize freely!
 ```
