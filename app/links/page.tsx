@@ -445,7 +445,7 @@ export default function LinksPage() {
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="bg-white rounded-xl p-2 shadow-lg">
                           <img
-                            src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png"
+                            src="/onion-logo.png"
                             alt="ConnectOnion logo overlay on QR code"
                             width={48}
                             height={48}

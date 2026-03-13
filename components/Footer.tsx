@@ -57,7 +57,7 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-center gap-4 text-base text-gray-400">
               <div className="flex items-center gap-2">
                 <img
-                  src="https://raw.githubusercontent.com/wu-changxing/openonion-assets/master/imgs/Onion.png"
+                  src="/onion-logo.png"
                   alt="ConnectOnion"
                   className="w-8 h-8 rounded"
                 />
