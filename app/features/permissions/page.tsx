@@ -34,27 +34,35 @@ export default function PermissionsPage() {
           <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 font-mono text-sm overflow-x-auto shadow-xl">
             <pre className="text-slate-100 whitespace-pre">{`┌─────────────────────────────────────────────────────────────┐
 │ 1. SAFE_TOOLS - Always auto-approved                       │
-│    FileTools.read_file, FileTools.glob, FileTools.grep     │
+│    read_file, glob, grep (read-only operations)            │
+│    Stored as: source='safe', expires='never'               │
 └─────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────┐
-│ 2. Skills - Temporary scoped permissions (one turn)         │
+│ 2. Config Permissions - Project-level auto-approve         │
+│    host.yaml: Bash(git status), write(*.md), etc.          │
+│    Stored as: source='config', expires='never'             │
+│    Pattern: Bash() → 'bash' with when:{command: '...'}     │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│ 3. Skills - Temporary scoped permissions (one turn)         │
 │    /commit → auto-approve git commands for this turn only  │
+│    Stored as: source='skill', expires='turn_end'           │
+│    Preserves user approvals via snapshot/restore           │
 └─────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────┐
-│ 3. Plan Mode - Auto-edit in planning phase                 │
-│    Edit tool auto-approved when agent.is_planning=True     │
-└─────────────────────────────────────────────────────────────┘
-                              ↓
-┌─────────────────────────────────────────────────────────────┐
-│ 4. Session Memory - Remember user decisions                │
-│    User approved bash once → auto-approve for session      │
+│ 4. User Approvals - Tool-level session memory              │
+│    User approves 'bash' once → ALL bash commands allowed   │
+│    Stored as: source='user', expires='session_end'         │
+│    TOOL-LEVEL: Approving "bash npm" = approve ALL bash     │
 └─────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────┐
 │ 5. Tool Approval - Ask user for dangerous operations       │
 │    bash, edit, write → require explicit user approval      │
+│    If no permission in unified dict → ask user             │
 └─────────────────────────────────────────────────────────────┘`}</pre>
           </div>
         </section>
@@ -126,28 +134,137 @@ agent.input("Read the README")
           </div>
 
           <CodeWithResult
-            code={`session['permissions'] = {
+            code={`# Unified permission format - all sources use same structure:
+session['permissions'] = {
     "read_file": {
         "allowed": True,
         "source": "safe",
         "reason": "read-only operation",
         "expires": {"type": "never"}
     },
-    "Bash(git *)": {
+    "bash": {
         "allowed": True,
         "source": "skill",
         "reason": "commit skill (turn 5)",
+        "when": {"command": "git *"},  # Granular: only git commands
         "expires": {"type": "turn_end"}
     },
-    "bash:pytest": {
+    "write": {
         "allowed": True,
         "source": "user",
         "reason": "approved for session",
+        # NO 'when' field → matches ALL write calls (tool-level)
         "expires": {"type": "session_end"}
     }
 }`}
             language="python"
           />
+        </section>
+
+        {/* Config File Format */}
+        <section className="mb-12">
+          <h2 className="heading-2">Config Files Use Bash() Pattern</h2>
+
+          <p className="text-slate-100 mb-6">
+            User-facing config files (<code className="px-2 py-1 bg-gray-800 rounded text-purple-300">.co/host.yaml</code>) use a friendly <code className="px-2 py-1 bg-gray-800 rounded text-green-300">Bash()</code> pattern that automatically converts to the unified format at runtime:
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <h3 className="font-semibold text-slate-100 mb-3">User-Facing Config (.co/host.yaml)</h3>
+              <CodeWithResult
+                code={`permissions:
+  "Bash(git status)":  # ← Natural pattern
+    allowed: true
+    source: config
+    reason: safe git read
+    expires:
+      type: never`}
+                language="yaml"
+              />
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-slate-100 mb-3">Runtime Format (Internal)</h3>
+              <CodeWithResult
+                code={`session['permissions']['bash'] = {
+    "allowed": True,
+    "source": "config",
+    "reason": "safe git read",
+    "when": {"command": "git status"},
+    "expires": {"type": "never"}
+}`}
+                language="python"
+              />
+            </div>
+          </div>
+
+          <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
+            <p className="text-slate-100">
+              <strong className="text-purple-300">Automatic conversion:</strong> You write <code className="px-2 py-1 bg-gray-800 rounded text-green-300">Bash(git status)</code> in config, it becomes <code className="px-2 py-1 bg-gray-800 rounded text-purple-300">bash</code> with <code className="px-2 py-1 bg-gray-800 rounded text-blue-300">when:{'{command: "git status"}'}</code> at runtime.
+            </p>
+          </div>
+        </section>
+
+        {/* Tool-Level vs Granular Permissions */}
+        <section className="mb-12">
+          <h2 className="heading-2">Tool-Level vs Granular Permissions</h2>
+
+          <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-6 mb-6">
+            <h3 className="font-semibold text-yellow-300 mb-3 flex items-center gap-2">
+              <HiOutlineKey className="w-5 h-5" />
+              Critical Difference
+            </h3>
+            <p className="text-slate-100 mb-4">
+              User approvals are <strong className="text-yellow-300">tool-level</strong>, not command-specific. This is different from config/skill permissions.
+            </p>
+
+            <div className="space-y-4">
+              <div className="bg-gray-900/50 rounded-lg p-4 border border-green-500/30">
+                <h4 className="font-semibold text-green-300 mb-2">Config/Skill Permissions: Granular</h4>
+                <CodeWithResult
+                  code={`# Can use 'when' field for parameter matching
+session['permissions']['bash'] = {
+    "source": "config",
+    "when": {"command": "git status"}  # Only "git status"
+}`}
+                  language="python"
+                />
+              </div>
+
+              <div className="bg-gray-900/50 rounded-lg p-4 border border-blue-500/30">
+                <h4 className="font-semibold text-blue-300 mb-2">User Approvals: Tool-Level</h4>
+                <CodeWithResult
+                  code={`# When user approves "bash npm install" → Stored as:
+session['permissions']['bash'] = {
+    "source": "user",
+    "reason": "approved for session"
+    # NO 'when' field → matches ALL bash commands
+}`}
+                  language="python"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="p-4 bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg">
+              <h3 className="font-semibold text-blue-300 mb-2">Why Tool-Level?</h3>
+              <ul className="space-y-2 text-sm text-slate-300">
+                <li>✅ Convenience for development workflows</li>
+                <li>✅ Don't re-approve every npm/pytest/git command</li>
+                <li>✅ Clear intent: "I trust bash for this session"</li>
+              </ul>
+            </div>
+            <div className="p-4 bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg">
+              <h3 className="font-semibold text-green-300 mb-2">Security</h3>
+              <ul className="space-y-2 text-sm text-slate-300">
+                <li>✅ Config uses granular 'when' field</li>
+                <li>✅ Skills use granular 'when' field</li>
+                <li>✅ User approvals are simpler</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         {/* Snapshot/Restore Mechanism */}
@@ -165,7 +282,7 @@ agent.input("Read the README")
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500 flex items-center justify-center text-blue-300 font-semibold">1</div>
                   <div>
                     <h3 className="font-semibold text-white mb-1">Turn 3: User Approves</h3>
-                    <p className="text-sm text-slate-300">User approves <code className="px-2 py-1 bg-gray-800 rounded text-green-300">bash:pytest</code> for session</p>
+                    <p className="text-sm text-slate-300">User approves <code className="px-2 py-1 bg-gray-800 rounded text-green-300">write</code> for session (tool-level approval)</p>
                   </div>
                 </div>
 
@@ -174,8 +291,8 @@ agent.input("Read the README")
                   <div>
                     <h3 className="font-semibold text-white mb-1">Turn 5: /commit Skill</h3>
                     <div className="text-sm text-slate-300 space-y-2">
-                      <div>📸 <strong>Snapshot</strong> current permissions (bash:pytest saved)</div>
-                      <div>➕ <strong>Grant</strong> skill permissions (git commands added)</div>
+                      <div>📸 <strong>Snapshot</strong> current permissions (write saved)</div>
+                      <div>➕ <strong>Grant</strong> skill permissions (bash with when:{'{command: "git *"}'} added)</div>
                       <div>⚡ <strong>Execute</strong> tools with both user + skill permissions</div>
                       <div>🔄 <strong>Restore</strong> snapshot when turn ends</div>
                     </div>
@@ -187,8 +304,8 @@ agent.input("Read the README")
                   <div>
                     <h3 className="font-semibold text-white mb-1">Turn 6: Continue</h3>
                     <div className="text-sm text-slate-300 space-y-1">
-                      <div>✅ <code className="px-2 py-1 bg-gray-800 rounded text-green-300">bash:pytest</code> still works (user approval preserved)</div>
-                      <div>❌ <code className="px-2 py-1 bg-gray-800 rounded text-red-300">git status</code> requires approval (skill cleared)</div>
+                      <div>✅ <code className="px-2 py-1 bg-gray-800 rounded text-green-300">write</code> still works (user approval preserved)</div>
+                      <div>❌ <code className="px-2 py-1 bg-gray-800 rounded text-red-300">bash</code> requires approval (skill cleared)</div>
                     </div>
                   </div>
                 </div>
@@ -197,35 +314,38 @@ agent.input("Read the README")
 
             {/* Code Example */}
             <CodeWithResult
-              code={`# Turn 3: User approved bash:pytest for session
+              code={`# Turn 3: User approved write for session (tool-level)
 session['permissions'] = {
-    "bash:pytest": {
+    "write": {
         "allowed": True,
         "source": "user",
         "reason": "approved for session",
+        # NO 'when' field → all write calls allowed
         "expires": {"type": "session_end"}
     }
 }
 
 # Turn 5: User types /commit
 # Step 1: Take snapshot
-snapshot = deepcopy(session['permissions'])  # bash:pytest saved ✓
+snapshot = deepcopy(session['permissions'])  # write saved ✓
 
-# Step 2: Grant skill permissions
-session['permissions']['Bash(git status)'] = {
+# Step 2: Grant skill permissions (with 'when' field for granular matching)
+session['permissions']['bash'] = {
     "allowed": True,
     "source": "skill",
     "reason": "commit skill (turn 5)",
+    "when": {"command": "git *"},  # Only git commands
     "expires": {"type": "turn_end"}
 }
 
 # During turn 5:
-# → git status - auto-approved ✓ (skill permission)
-# → bash:pytest - auto-approved ✓ (user permission)
+# → git status - auto-approved ✓ (skill permission matches "git *")
+# → write("foo.txt") - auto-approved ✓ (user permission, no 'when' field)
+# → pytest - BLOCKED ✗ (no permission for pytest)
 
 # Turn 5 ends
 # Step 3: Restore snapshot
-session['permissions'] = snapshot  # User's bash:pytest preserved ✓`}
+session['permissions'] = snapshot  # User's write preserved ✓`}
               language="python"
             />
           </div>

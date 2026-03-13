@@ -270,33 +270,33 @@ Create a well-formatted git commit for staged changes.
             </h3>
             <div className="bg-gray-950 rounded-lg p-5 font-mono text-sm space-y-3">
               <div className="text-blue-300">
-                <div className="text-slate-400 text-xs mb-1">Turn 3: User approves bash:pytest for session</div>
-                <div>permissions['bash:pytest'] = {'{'}source: 'user', expires: 'session_end'{'}'}</div>
+                <div className="text-slate-400 text-xs mb-1">Turn 3: User approves write for session (tool-level)</div>
+                <div>permissions['write'] = {'{'}source: 'user', expires: 'session_end'{'}'}</div>
               </div>
 
               <div className="text-purple-300">
                 <div className="text-slate-400 text-xs mb-1">Turn 5: /commit skill invoked</div>
-                <div>→ Snapshot taken (bash:pytest saved)</div>
-                <div>→ Grant: permissions['Bash(git *)'] = {'{'}source: 'skill', expires: 'turn_end'{'}'}</div>
+                <div>→ Snapshot taken (write saved)</div>
+                <div>→ Grant: permissions['bash'] = {'{'}source: 'skill', when: {'{'}command: 'git *'{'}'}, expires: 'turn_end'{'}'}</div>
               </div>
 
               <div className="text-green-300">
                 <div className="text-slate-400 text-xs mb-1">During turn 5:</div>
-                <div>→ git status ✓ (skill permission)</div>
-                <div>→ bash:pytest ✓ (user permission)</div>
+                <div>→ git status ✓ (skill permission with when:{'{'}command: 'git *'{'}'})</div>
+                <div>→ write("foo.txt") ✓ (user permission, tool-level)</div>
               </div>
 
               <div className="text-orange-300">
                 <div className="text-slate-400 text-xs mb-1">Turn 5 ends (@on_complete):</div>
                 <div>→ Restore snapshot</div>
-                <div>→ git permissions cleared ✓</div>
-                <div>→ bash:pytest preserved ✓</div>
+                <div>→ bash permissions cleared ✓</div>
+                <div>→ write preserved ✓</div>
               </div>
 
               <div className="text-red-300">
                 <div className="text-slate-400 text-xs mb-1">Turn 6: Normal operation</div>
-                <div>→ git commands require approval ✗</div>
-                <div>→ bash:pytest still works ✓</div>
+                <div>→ bash commands require approval ✗</div>
+                <div>→ write still works ✓</div>
               </div>
             </div>
           </div>
