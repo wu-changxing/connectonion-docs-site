@@ -25,14 +25,13 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // Optimize package imports for faster builds
-  optimizePackageImports: [
-    'react-icons',
-    'framer-motion',
-    'react-syntax-highlighter',
-  ],
-
   experimental: {
+    // Optimize package imports for faster builds
+    optimizePackageImports: [
+      'react-icons',
+      'framer-motion',
+      'react-syntax-highlighter',
+    ],
     // Server Actions body size limit (default 1mb, increased for doc copy features)
     serverActions: {
       bodySizeLimit: '2mb',
