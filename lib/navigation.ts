@@ -18,7 +18,7 @@ import { FaChrome } from 'react-icons/fa'
 
 // Simple, flat navigation structure with all metadata in one place
 export const navigation = [
-  // Getting Started
+  // ─── Getting Started ───────────────────────────────────────────
   {
     title: 'Introduction',
     href: '/',
@@ -47,6 +47,15 @@ export const navigation = [
     next: { href: '/cli', title: 'CLI Reference' }
   },
   {
+    title: 'CLI Reference',
+    href: '/cli',
+    icon: HiOutlineCommandLine,
+    section: 'Getting Started',
+    keywords: ['command', 'terminal', 'co', 'commands', 'cli'],
+    prev: { href: '/vibe-coding', title: 'Vibe Coding Guide' },
+    next: { href: '/agent', title: 'Agent' }
+  },
+  {
     title: 'Deploy',
     href: '/deploy',
     icon: HiOutlineArrowUpTray,
@@ -58,7 +67,7 @@ export const navigation = [
     next: { href: '/agent', title: 'Agent' }
   },
 
-  // Core Concepts
+  // ─── Core Concepts ─────────────────────────────────────────────
   {
     title: 'Agent',
     href: '/agent',
@@ -66,7 +75,7 @@ export const navigation = [
     section: 'Core Concepts',
     difficulty: 'Essential',
     keywords: ['agent', 'create', 'orchestrator', 'core', 'llm', 'conversation', 'iteration'],
-    prev: { href: '/deploy', title: 'Deploy' },
+    prev: { href: '/cli', title: 'CLI Reference' },
     next: { href: '/prompts', title: 'System Prompts' }
   },
   {
@@ -147,15 +156,76 @@ export const navigation = [
     next: { href: '/features/permissions', title: 'Permissions' }
   },
 
-  // Useful Tools
+  // ─── Features ──────────────────────────────────────────────────
+  {
+    title: 'Permissions',
+    href: '/features/permissions',
+    icon: HiOutlineShieldCheck,
+    section: 'Features',
+    difficulty: 'NEW',
+    keywords: ['permissions', 'approval', 'security', 'safe tools', 'skills', 'snapshot', 'restore', 'unified'],
+    prev: { href: '/plugin', title: 'Plugin System' },
+    next: { href: '/features/skills', title: 'Skills' }
+  },
+  {
+    title: 'Skills',
+    href: '/features/skills',
+    icon: HiOutlineCommandLine,
+    section: 'Features',
+    difficulty: 'NEW',
+    keywords: ['skills', 'slash command', 'workflow', 'automation', 'git', 'commit', 'permission', 'scope'],
+    prev: { href: '/features/permissions', title: 'Permissions' },
+    next: { href: '/features/transcribe', title: 'Audio Transcription' }
+  },
+  {
+    title: 'Audio Transcription',
+    href: '/features/transcribe',
+    icon: HiOutlineMicrophone,
+    section: 'Features',
+    difficulty: 'New',
+    keywords: ['transcribe', 'audio', 'speech', 'voice', 'text', 'gemini', 'mp3', 'wav'],
+    prev: { href: '/features/skills', title: 'Skills' },
+    next: { href: '/features/trust', title: 'Trust' }
+  },
+  {
+    title: 'Trust',
+    href: '/features/trust',
+    icon: HiOutlineShieldCheck,
+    section: 'Features',
+    keywords: ['security', 'safety', 'trust', 'permission', 'multi-agent', 'verification'],
+    prev: { href: '/features/transcribe', title: 'Audio Transcription' },
+    next: { href: '/useful-tools', title: 'Useful Tools' }
+  },
+
+  // ─── Useful Tools ─────────────────────────────────────────────
   {
     title: 'Useful Tools',
     href: '/useful-tools',
     icon: HiOutlineWrench,
     section: 'Useful Tools',
     keywords: ['tools', 'useful_tools', 'integrations', 'gmail', 'outlook', 'memory', 'calendar'],
-    prev: { href: '/tools', title: 'Tools' },
+    prev: { href: '/features/trust', title: 'Trust' },
     next: { href: '/memory', title: 'Memory' }
+  },
+  {
+    title: 'Memory',
+    href: '/memory',
+    icon: HiOutlineCpuChip,
+    section: 'Useful Tools',
+    difficulty: 'New',
+    keywords: ['memory', 'storage', 'persistence', 'remember', 'database', 'rag'],
+    prev: { href: '/useful-tools', title: 'Useful Tools' },
+    next: { href: '/web-fetch', title: 'WebFetch' }
+  },
+  {
+    title: 'WebFetch',
+    href: '/web-fetch',
+    icon: HiOutlineGlobeAlt,
+    section: 'Useful Tools',
+    difficulty: 'New',
+    keywords: ['web', 'fetch', 'scrape', 'html', 'parse', 'http', 'research', 'analyze'],
+    prev: { href: '/memory', title: 'Memory' },
+    next: { href: '/agent-emails', title: 'Agent Emails' }
   },
   {
     title: 'Agent Emails',
@@ -164,7 +234,7 @@ export const navigation = [
     section: 'Useful Tools',
     difficulty: 'New',
     keywords: ['email', 'send', 'receive', 'mail', 'notification', 'inbox', 'imap'],
-    prev: { href: '/useful-tools', title: 'Useful Tools' },
+    prev: { href: '/web-fetch', title: 'WebFetch' },
     next: { href: '/agent-emails/send', title: 'Send Email' }
   },
   {
@@ -188,15 +258,6 @@ export const navigation = [
     next: { href: '/gmail', title: 'Gmail' }
   },
   {
-    title: 'Diff Writer',
-    href: '/useful-tools/diff-writer',
-    icon: HiOutlineCodeBracket,
-    section: 'Useful Tools',
-    keywords: ['diff', 'write', 'file', 'code', 'approval', 'human', 'loop'],
-    prev: { href: '/microsoft-integration', title: 'Microsoft Integration' },
-    next: { href: '/useful-tools/shell', title: 'Shell' }
-  },
-  {
     title: 'Gmail',
     href: '/gmail',
     icon: HiOutlineEnvelope,
@@ -207,16 +268,6 @@ export const navigation = [
     next: { href: '/outlook', title: 'Outlook' }
   },
   {
-    title: 'Memory',
-    href: '/memory',
-    icon: HiOutlineCpuChip,
-    section: 'Useful Tools',
-    difficulty: 'New',
-    keywords: ['memory', 'storage', 'persistence', 'remember', 'database', 'rag'],
-    prev: { href: '/useful-tools', title: 'Useful Tools' },
-    next: { href: '/agent-emails', title: 'Agent Emails' }
-  },
-  {
     title: 'Outlook',
     href: '/outlook',
     icon: HiOutlineEnvelope,
@@ -224,27 +275,16 @@ export const navigation = [
     difficulty: 'New',
     keywords: ['outlook', 'microsoft', 'email', 'inbox', 'oauth', 'office', '365', 'graph', 'send'],
     prev: { href: '/gmail', title: 'Gmail' },
-    next: { href: '/google-integration', title: 'Google Integration' }
-  },
-  {
-    title: 'Google Integration',
-    href: '/google-integration',
-    icon: HiOutlineCalendar,
-    section: 'Integrations',
-    difficulty: 'New',
-    keywords: ['google', 'gmail', 'calendar', 'oauth', 'integration', 'schedule', 'meeting'],
-    prev: { href: '/outlook', title: 'Outlook' },
-    next: { href: '/microsoft-integration', title: 'Microsoft Integration' }
-  },
-  {
-    title: 'Microsoft Integration',
-    href: '/microsoft-integration',
-    icon: HiOutlineCalendar,
-    section: 'Integrations',
-    difficulty: 'New',
-    keywords: ['microsoft', 'outlook', 'calendar', 'oauth', 'integration', 'office', '365', 'azure', 'teams'],
-    prev: { href: '/google-integration', title: 'Google Integration' },
     next: { href: '/useful-tools/diff-writer', title: 'Diff Writer' }
+  },
+  {
+    title: 'Diff Writer',
+    href: '/useful-tools/diff-writer',
+    icon: HiOutlineCodeBracket,
+    section: 'Useful Tools',
+    keywords: ['diff', 'write', 'file', 'code', 'approval', 'human', 'loop'],
+    prev: { href: '/outlook', title: 'Outlook' },
+    next: { href: '/useful-tools/shell', title: 'Shell' }
   },
   {
     title: 'Shell',
@@ -280,20 +320,32 @@ export const navigation = [
     section: 'Useful Tools',
     keywords: ['todo', 'task', 'list', 'progress', 'track', 'manage'],
     prev: { href: '/useful-tools/terminal', title: 'Terminal' },
-    next: { href: '/web-fetch', title: 'WebFetch' }
+    next: { href: '/google-integration', title: 'Google Integration' }
+  },
+
+  // ─── Integrations ─────────────────────────────────────────────
+  {
+    title: 'Google Integration',
+    href: '/google-integration',
+    icon: HiOutlineCalendar,
+    section: 'Integrations',
+    difficulty: 'New',
+    keywords: ['google', 'gmail', 'calendar', 'oauth', 'integration', 'schedule', 'meeting'],
+    prev: { href: '/useful-tools/todo-list', title: 'Todo List' },
+    next: { href: '/microsoft-integration', title: 'Microsoft Integration' }
   },
   {
-    title: 'WebFetch',
-    href: '/web-fetch',
-    icon: HiOutlineGlobeAlt,
-    section: 'Useful Tools',
+    title: 'Microsoft Integration',
+    href: '/microsoft-integration',
+    icon: HiOutlineCalendar,
+    section: 'Integrations',
     difficulty: 'New',
-    keywords: ['web', 'fetch', 'scrape', 'html', 'parse', 'http', 'research', 'analyze'],
-    prev: { href: '/useful-tools/todo-list', title: 'Todo List' },
+    keywords: ['microsoft', 'outlook', 'calendar', 'oauth', 'integration', 'office', '365', 'azure', 'teams'],
+    prev: { href: '/google-integration', title: 'Google Integration' },
     next: { href: '/useful-plugins', title: 'Useful Plugins' }
   },
 
-  // Useful Plugins
+  // ─── Useful Plugins ───────────────────────────────────────────
   {
     title: 'Useful Plugins',
     href: '/useful-plugins',
@@ -301,7 +353,7 @@ export const navigation = [
     section: 'Useful Plugins',
     difficulty: 'NEW',
     keywords: ['plugins', 'useful_plugins', 're_act', 'eval', 'image_result_formatter', 'gmail_plugin', 'calendar_plugin', 'shell_approval'],
-    prev: { href: '/web-fetch', title: 'WebFetch' },
+    prev: { href: '/microsoft-integration', title: 'Microsoft Integration' },
     next: { href: '/useful-plugins/re-act', title: 're_act' }
   },
   {
@@ -376,7 +428,7 @@ export const navigation = [
     next: { href: '/tui', title: 'TUI Components' }
   },
 
-  // TUI Components
+  // ─── TUI Components ───────────────────────────────────────────
   {
     title: 'TUI Components',
     href: '/tui',
@@ -479,7 +531,7 @@ export const navigation = [
     next: { href: '/auto-debug', title: 'Interactive Debugging' }
   },
 
-  // Debugging Tools
+  // ─── Debug ─────────────────────────────────────────────────────
   {
     title: 'Interactive Debugging',
     href: '/auto-debug',
@@ -524,51 +576,20 @@ export const navigation = [
     section: 'Debug',
     keywords: ['debug', 'xray', 'decorator', 'trace', 'monitor', 'visibility'],
     prev: { href: '/logging', title: 'Logging' },
-    next: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' }
-  },
-
-  // Features
-  {
-    title: 'Permissions',
-    href: '/features/permissions',
-    icon: HiOutlineShieldCheck,
-    section: 'Features',
-    difficulty: 'NEW',
-    keywords: ['permissions', 'approval', 'security', 'safe tools', 'skills', 'snapshot', 'restore', 'unified'],
-    prev: { href: '/plugin', title: 'Plugin System' },
-    next: { href: '/features/skills', title: 'Skills' }
+    next: { href: '/xray/trace', title: 'trace() Visual Flow' }
   },
   {
-    title: 'Skills',
-    href: '/features/skills',
-    icon: HiOutlineCommandLine,
-    section: 'Features',
-    difficulty: 'NEW',
-    keywords: ['skills', 'slash command', 'workflow', 'automation', 'git', 'commit', 'permission', 'scope'],
-    prev: { href: '/features/permissions', title: 'Permissions' },
-    next: { href: '/features/transcribe', title: 'Audio Transcription' }
-  },
-  {
-    title: 'Audio Transcription',
-    href: '/features/transcribe',
-    icon: HiOutlineMicrophone,
-    section: 'Features',
-    difficulty: 'New',
-    keywords: ['transcribe', 'audio', 'speech', 'voice', 'text', 'gemini', 'mp3', 'wav'],
-    prev: { href: '/features/skills', title: 'Skills' },
-    next: { href: '/features/trust', title: 'Trust' }
-  },
-  {
-    title: 'Trust',
-    href: '/features/trust',
-    icon: HiOutlineShieldCheck,
-    section: 'Features',
-    keywords: ['security', 'safety', 'trust', 'permission', 'multi-agent', 'verification'],
-    prev: { href: '/features/transcribe', title: 'Audio Transcription' },
+    title: 'trace() Visual Flow',
+    href: '/xray/trace',
+    icon: VscGitMerge,
+    section: 'Debug',
+    parent: '/xray',
+    keywords: ['trace', 'flow', 'visual', 'debug', 'execution'],
+    prev: { href: '/xray', title: '@xray Decorator' },
     next: { href: '/host', title: 'host()' }
   },
 
-  // Networking
+  // ─── Network ───────────────────────────────────────────────────
   {
     title: 'host()',
     href: '/host',
@@ -576,7 +597,7 @@ export const navigation = [
     section: 'Network',
     difficulty: 'Essential',
     keywords: ['host', 'serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'http', 'api', 'ed25519'],
-    prev: { href: '/features/trust', title: 'Trust' },
+    prev: { href: '/xray/trace', title: 'trace() Visual Flow' },
     next: { href: '/connect', title: 'Connect to Agents' }
   },
   {
@@ -587,52 +608,30 @@ export const navigation = [
     difficulty: 'Essential',
     keywords: ['connect', 'remote', 'network', 'relay', 'distributed', 'client', 'remote agent', 'proxy'],
     prev: { href: '/host', title: 'host()' },
-    next: { href: '/cli', title: 'CLI Reference' }
-  },
-  {
-    title: 'CLI Reference',
-    href: '/cli',
-    icon: HiOutlineCommandLine,
-    section: 'Network',
-    keywords: ['command', 'terminal', 'co', 'commands'],
-    prev: { href: '/connect', title: 'Connect to Agents' },
-    next: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' }
-  },
-
-  // Tutorials
-  {
-    title: '001: AI Agent = Prompt + Function',
-    href: '/tutorials/001-ai-agent-is-just-prompt-plus-function',
-    icon: HiOutlineBookOpen,
-    section: 'Debug',
-    keywords: ['tutorial', 'beginner', 'first', 'prompt', 'function', 'langchain', 'simple'],
-    prev: { href: '/cli', title: 'CLI Reference' },
-    next: { href: '/xray/trace', title: 'trace() Visual Flow' }
-  },
-
-  {
-    title: 'trace() Visual Flow',
-    href: '/xray/trace',
-    icon: VscGitMerge,
-    section: 'Debug',
-    parent: '/xray',
-    keywords: ['trace', 'flow', 'visual', 'debug', 'execution'],
-    prev: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' },
     next: { href: '/threat-model', title: 'Threat Model' }
   },
-
-  // Security
   {
     title: 'Threat Model',
     href: '/threat-model',
     icon: HiOutlineShieldCheck,
     section: 'Network',
     keywords: ['security', 'threat', 'risk', 'safety', 'vulnerability'],
-    prev: { href: '/prompts/formats', title: 'Prompt Formats' },
+    prev: { href: '/connect', title: 'Connect to Agents' },
+    next: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' }
+  },
+
+  // ─── Tutorials ─────────────────────────────────────────────────
+  {
+    title: '001: AI Agent = Prompt + Function',
+    href: '/tutorials/001-ai-agent-is-just-prompt-plus-function',
+    icon: HiOutlineBookOpen,
+    section: 'Tutorials',
+    keywords: ['tutorial', 'beginner', 'first', 'prompt', 'function', 'langchain', 'simple'],
+    prev: { href: '/threat-model', title: 'Threat Model' },
     next: { href: '/examples', title: 'All Examples' }
   },
 
-  // Examples
+  // ─── Examples ──────────────────────────────────────────────────
   {
     title: 'All Examples',
     href: '/examples',
@@ -640,7 +639,7 @@ export const navigation = [
     section: 'Examples',
     difficulty: 'Browse',
     keywords: ['examples', 'samples', 'demos', 'tutorials'],
-    prev: { href: '/threat-model', title: 'Threat Model' },
+    prev: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' },
     next: { href: '/examples/calculator', title: 'Calculator' }
   },
   {
@@ -668,14 +667,14 @@ export const navigation = [
     totalExamples: 2
   },
 
-  // Blog - Design Decisions in chronological order
+  // ─── Blog ──────────────────────────────────────────────────────
   {
     title: 'All Posts',
     href: '/blog',
     icon: HiOutlineBookOpen,
     section: 'Blog',
     keywords: ['blog', 'posts', 'articles', 'news'],
-    prev: { href: '/examples/ecommerce-manager', title: 'E-commerce Manager' },
+    prev: { href: '/examples/browser', title: 'Browser Automation' },
     next: { href: '/blog/input-method', title: 'Why `input()` Over `run()`' }
   },
   {
@@ -759,7 +758,7 @@ export const navigation = [
     next: { href: '/roadmap', title: 'Coming Soon Features' }
   },
 
-  // Roadmap
+  // ─── Roadmap ───────────────────────────────────────────────────
   {
     title: 'Coming Soon Features',
     href: '/roadmap',
@@ -767,11 +766,11 @@ export const navigation = [
     section: 'Roadmap',
     difficulty: 'Preview',
     keywords: ['roadmap', 'future', 'upcoming', 'features', 'soon'],
-    prev: { href: '/blog/input-method', title: 'Why `input()` Over `run()`' },
+    prev: { href: '/blog/auto-debug-evolution', title: 'Auto-Debug Design Evolution' },
     next: { href: '/links', title: 'All Links' }
   },
 
-  // Links
+  // ─── Connect ───────────────────────────────────────────────────
   {
     title: 'All Links',
     href: '/links',
@@ -782,7 +781,7 @@ export const navigation = [
     next: null
   },
 
-  // Other pages not in main nav flow
+  // ─── Admin (hidden from sidebar) ──────────────────────────────
   {
     title: 'Website Maintenance',
     href: '/website-maintenance',
