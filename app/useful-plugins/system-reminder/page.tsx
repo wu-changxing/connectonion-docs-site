@@ -24,7 +24,7 @@ export default function SystemReminderPluginPage() {
           iconBorderColor="border-teal-500/30"
           title="system_reminder"
           description="Inject contextual guidance into tool results"
-          markdownPath="/useful-plugins/system-reminder.md"
+          markdownPath="/useful-plugins/system_reminder.md"
           markdownFilename="system-reminder.md"
         />
 

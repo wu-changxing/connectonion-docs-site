@@ -24,7 +24,7 @@ export default function ToolApprovalPage() {
           iconBorderColor="border-green-500/30"
           title="tool_approval"
           description="Web-based approval for dangerous tools via WebSocket"
-          markdownPath="/useful-plugins/tool-approval.md"
+          markdownPath="/useful-plugins/tool_approval.md"
           markdownFilename="tool-approval.md"
         />
 

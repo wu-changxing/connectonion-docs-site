@@ -62,7 +62,7 @@ export default function LoggingPage() {
           iconBorderColor="border-purple-500/30"
           title="Logging"
           description="Automatic activity logging for debugging and analysis."
-          markdownPath="/logging/logging.md"
+          markdownPath="/debug/log.md"
           markdownFilename="logging.md"
         />
 

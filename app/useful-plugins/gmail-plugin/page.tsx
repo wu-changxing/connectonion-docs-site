@@ -24,7 +24,7 @@ export default function GmailPluginPage() {
           iconBorderColor="border-red-500/30"
           title="gmail_plugin"
           description="Email approval and CRM sync for Gmail operations"
-          markdownPath="/useful-plugins/gmail-plugin.md"
+          markdownPath="/useful-plugins/gmail_plugin.md"
           markdownFilename="gmail-plugin.md"
         />
 

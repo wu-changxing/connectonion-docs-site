@@ -23,7 +23,7 @@ export default function DiffWriterPage() {
           iconBorderColor="border-pink-500/30"
           title="DiffWriter"
           description="Human-in-the-loop file writing with diff display and approval."
-          markdownPath="/useful-tools/diff-writer.md"
+          markdownPath="/useful-tools/diff_writer.md"
           markdownFilename="diff-writer.md"
         />
 

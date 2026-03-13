@@ -35,7 +35,7 @@ export default function MicrosoftIntegrationPage() {
                 </p>
               </div>
             </div>
-            <CopyMarkdownButton markdownPath="/microsoft-integration.md" filename="microsoft-integration.md" className="flex-shrink-0" />
+            <CopyMarkdownButton markdownPath="/integrations/microsoft.md" filename="microsoft.md" className="flex-shrink-0" />
           </div>
         </div>
 

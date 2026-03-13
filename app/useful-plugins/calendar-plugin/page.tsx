@@ -24,7 +24,7 @@ export default function CalendarPluginPage() {
           iconBorderColor="border-cyan-500/30"
           title="calendar_plugin"
           description="Require approval for calendar modifications"
-          markdownPath="/useful-plugins/calendar-plugin.md"
+          markdownPath="/useful-plugins/calendar_plugin.md"
           markdownFilename="calendar-plugin.md"
         />
 

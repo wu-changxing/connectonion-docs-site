@@ -24,7 +24,7 @@ export default function OutlookPage() {
           iconBorderColor="border-blue-500/30"
           title="Outlook"
           description="Give your agents full Outlook access via Microsoft Graph API. Read, search, send, and manage emails."
-          markdownPath="/outlook.md"
+          markdownPath="/useful_tools/outlook.md"
           markdownFilename="outlook.md"
         />
 

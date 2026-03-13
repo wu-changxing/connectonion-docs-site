@@ -24,7 +24,7 @@ export default function ReActPluginPage() {
           iconBorderColor="border-purple-500/30"
           title="re_act"
           description="ReAct (Reason + Act) pattern for intelligent agents"
-          markdownPath="/useful-plugins/re-act.md"
+          markdownPath="/useful-plugins/re_act.md"
           markdownFilename="re-act.md"
         />
 

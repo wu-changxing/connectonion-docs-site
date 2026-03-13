@@ -30,7 +30,7 @@ export default function HostPage() {
             iconBorderColor="border-emerald-500/30"
             title="host()"
             description="Make your agent accessible over the network. One function call. HTTP, WebSocket, and P2P relay."
-            markdownPath="/host.md"
+            markdownPath="/network/host.md"
             markdownFilename="host.md"
           />
 

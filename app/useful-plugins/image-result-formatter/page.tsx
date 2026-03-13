@@ -24,7 +24,7 @@ export default function ImageResultFormatterPage() {
           iconBorderColor="border-green-500/30"
           title="image_result_formatter"
           description="Enable vision models to see images from tool results"
-          markdownPath="/useful-plugins/image-result-formatter.md"
+          markdownPath="/useful-plugins/image_result_formatter.md"
           markdownFilename="image-result-formatter.md"
         />
 

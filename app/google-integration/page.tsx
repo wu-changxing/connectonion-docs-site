@@ -35,7 +35,7 @@ export default function GoogleIntegrationPage() {
                 </p>
               </div>
             </div>
-            <CopyMarkdownButton markdownPath="/google-integration.md" filename="google-integration.md" className="flex-shrink-0" />
+            <CopyMarkdownButton markdownPath="/integrations/google.md" filename="google.md" className="flex-shrink-0" />
           </div>
         </div>
 

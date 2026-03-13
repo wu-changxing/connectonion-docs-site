@@ -24,7 +24,7 @@ export default function ShellApprovalPage() {
           iconBorderColor="border-orange-500/30"
           title="shell_approval"
           description="Require user approval before executing shell commands"
-          markdownPath="/useful-plugins/shell-approval.md"
+          markdownPath="/useful-plugins/shell_approval.md"
           markdownFilename="shell-approval.md"
         />
 

@@ -24,7 +24,7 @@ export default function XrayPage() {
           iconBorderColor="border-purple-500/30"
           title="@xray Debugging"
           description="See what your AI agent is thinking. Add one decorator and unlock debugging superpowers."
-          markdownPath="/xray/xray.md"
+          markdownPath="/debug/xray.md"
           markdownFilename="xray.md"
         />
 

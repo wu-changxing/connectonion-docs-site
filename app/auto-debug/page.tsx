@@ -29,7 +29,7 @@ export default function AutoDebugPage() {
             iconBorderColor="border-purple-500/30"
             title="Interactive Debugging"
             description="Debug your AI agents like code. Pause at breakpoints, inspect state, modify variables, and explore 'what if' scenarios."
-            markdownPath="/auto-debug.md"
+            markdownPath="/debug/auto_debug.md"
             markdownFilename="auto-debug.md"
           />
 

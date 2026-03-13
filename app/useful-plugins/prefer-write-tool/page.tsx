@@ -24,7 +24,7 @@ export default function PreferWriteToolPage() {
           iconBorderColor="border-orange-500/30"
           title="prefer_write_tool"
           description="Block bash file operations, remind agent to use proper tools instead"
-          markdownPath="/useful-plugins/prefer-write-tool.md"
+          markdownPath="/useful-plugins/prefer_write_tool.md"
           markdownFilename="prefer-write-tool.md"
         />
 

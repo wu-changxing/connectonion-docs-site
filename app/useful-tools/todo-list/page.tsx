@@ -23,7 +23,7 @@ export default function TodoListPage() {
           iconBorderColor="border-yellow-500/30"
           title="TodoList"
           description="Task tracking tool for agents to manage complex, multi-step tasks."
-          markdownPath="/useful-tools/todo-list.md"
+          markdownPath="/useful-tools/todo_list.md"
           markdownFilename="todo-list.md"
         />
 

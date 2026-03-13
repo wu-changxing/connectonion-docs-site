@@ -61,7 +61,7 @@ export default function AutoDebugExceptionPage() {
           iconBorderColor="border-red-500/30"
           title="Auto Debug Exception"
           description="AI debugger for uncaught exceptions with runtime inspection"
-          markdownPath="/auto-debug-exception.md"
+          markdownPath="/debug/exceptions.md"
           markdownFilename="auto-debug-exception.md"
         />
 

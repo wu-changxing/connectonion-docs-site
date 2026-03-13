@@ -23,7 +23,7 @@ export default function SlashCommandPage() {
           iconBorderColor="border-pink-500/30"
           title="SlashCommand"
           description="Load and execute custom commands from markdown files."
-          markdownPath="/useful-tools/slash-command.md"
+          markdownPath="/useful-tools/slash_command.md"
           markdownFilename="slash-command.md"
         />
 

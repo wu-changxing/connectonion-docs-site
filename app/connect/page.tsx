@@ -30,7 +30,7 @@ export default function ConnectPage() {
             iconBorderColor="border-blue-500/30"
             title="Connect to Agents"
             description="Use any agent, anywhere, as if local. Create a proxy to a remote agent with the same interface."
-            markdownPath="/connect.md"
+            markdownPath="/network/connect.md"
             markdownFilename="connect.md"
           />
 
