@@ -13,7 +13,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { HiOutlineBolt, HiOutlineArrowRight, HiOutlineChartBar, HiOutlineClock, HiOutlineCodeBracket, HiOutlineSquare3Stack3D, HiOutlinePlay, HiOutlineArrowLeft, HiOutlineSparkles } from 'react-icons/hi2'
+import { HiOutlineBolt, HiOutlineArrowRight, HiOutlineChartBar, HiOutlineClock, HiOutlineCodeBracket, HiOutlineSquare3Stack3D, HiOutlinePlay, HiOutlineArrowLeft, HiOutlineSparkles, HiOutlineShieldCheck } from 'react-icons/hi2'
 import CodeWithResult from '../../components/CodeWithResult'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -25,9 +25,10 @@ export default function OnEventsPage() {
 
 Hook into agent lifecycle to add logging, monitoring, reflection, and custom behavior at every step.
 
-## 9 Event Types
+## 12 Event Types
 
 - **after_user_input**: Fires once per turn
+- **before_iteration**: Before each iteration starts (poll IO, check mode changes)
 - **before_llm**: Before each LLM call
 - **after_llm**: After each LLM response
 - **before_each_tool**: Before each individual tool execution
@@ -35,6 +36,8 @@ Hook into agent lifecycle to add logging, monitoring, reflection, and custom beh
 - **after_each_tool**: After each individual tool (logging only, don't add messages)
 - **after_tools**: Once after all tools complete (safe for adding messages)
 - **on_error**: When tool execution fails
+- **after_iteration**: After each iteration (checkpoints, can stop loop)
+- **on_stop_signal**: When stop_signal is set (cleanup interrupted operations)
 - **on_complete**: Fires once after agent finishes task
 
 ## Quick Start
@@ -375,12 +378,12 @@ Errors: 0
           </div>
         </div>
 
-        {/* 9 Event Types Visual */}
+        {/* 12 Event Types Visual */}
         <section className="mb-12">
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 md:p-8">
             <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
               <HiOutlineCodeBracket className="text-blue-400 w-5 h-5" />
-              9 Event Types
+              12 Event Types
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-3">
@@ -390,6 +393,16 @@ Errors: 0
                 <div>
                   <div className="font-medium text-gray-200">after_user_input</div>
                   <div className="text-slate-100 text-xs">Fires once per turn</div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-indigo-900/50 border border-indigo-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <HiOutlineClock className="text-indigo-400 w-4 h-4" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">before_iteration</div>
+                  <div className="text-slate-100 text-xs">Before each iteration starts</div>
                 </div>
               </div>
 
@@ -460,6 +473,26 @@ Errors: 0
                 <div>
                   <div className="font-medium text-gray-200">on_error</div>
                   <div className="text-slate-100 text-xs">When tool execution fails</div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-pink-900/50 border border-pink-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <HiOutlineChartBar className="text-pink-400 w-4 h-4" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">after_iteration</div>
+                  <div className="text-slate-100 text-xs">After iteration (checkpoints, can stop)</div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-amber-900/50 border border-amber-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                  <HiOutlineShieldCheck className="text-amber-400 w-4 h-4" />
+                </div>
+                <div>
+                  <div className="font-medium text-gray-200">on_stop_signal</div>
+                  <div className="text-slate-100 text-xs">When interrupted (cleanup)</div>
                 </div>
               </div>
 
@@ -583,6 +616,36 @@ agent = Agent("assistant", on_events=[
 ])`}
                   result={`# LLM now sees timestamp in context
 # Useful for: time-aware agents, logging, session metadata`}
+                  language="python"
+                />
+              </div>
+
+              {/* before_iteration */}
+              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-indigo-900/50 border border-indigo-500 rounded flex items-center justify-center">
+                    <HiOutlineClock className="text-indigo-400 w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-100">before_iteration</h3>
+                    <p className="text-sm text-slate-100">Fires before each iteration starts (poll IO, check mode changes)</p>
+                  </div>
+                </div>
+                <CodeWithResult
+                  code={`def check_mode_change(agent):
+    """Poll for mode changes before iteration"""
+    # Check if IO has mode change request
+    if hasattr(agent.io, 'poll_mode_change'):
+        new_mode = agent.io.poll_mode_change()
+        if new_mode:
+            agent.current_session['mode'] = new_mode
+            print(f"🔄 Mode changed to: {new_mode}")
+
+agent = Agent("assistant", on_events=[
+    before_iteration(check_mode_change)
+])`}
+                  result={`# Fires before each iteration loop starts
+# Useful for: polling IO, mode changes, iteration setup`}
                   language="python"
                 />
               </div>
@@ -792,6 +855,86 @@ agent = Agent("assistant", tools=[api_call], on_events=[
                 />
               </div>
 
+              {/* after_iteration */}
+              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-pink-900/50 border border-pink-500 rounded flex items-center justify-center">
+                    <HiOutlineChartBar className="text-pink-400 w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-100">after_iteration</h3>
+                    <p className="text-sm text-slate-100">Fires after each iteration (checkpoints, can control loop continuation)</p>
+                  </div>
+                </div>
+                <CodeWithResult
+                  code={`def save_checkpoint(agent):
+    """Save checkpoint after each iteration"""
+    iteration = agent.current_session['iteration']
+    trace = agent.current_session['trace']
+
+    # Save state to file
+    checkpoint = {
+        'iteration': iteration,
+        'messages': agent.current_session['messages'],
+        'trace': trace
+    }
+    save_to_file(f'.co/checkpoint_{iteration}.json', checkpoint)
+    print(f"💾 Checkpoint saved: iteration {iteration}")
+
+agent = Agent("assistant", tools=[search], on_events=[
+    after_iteration(save_checkpoint)
+])`}
+                  result={`💾 Checkpoint saved: iteration 1
+💾 Checkpoint saved: iteration 2
+# Useful for: checkpoints, stopping loop, tracking iterations`}
+                  language="python"
+                />
+              </div>
+
+              {/* on_stop_signal */}
+              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-amber-900/50 border border-amber-500 rounded flex items-center justify-center">
+                    <HiOutlineShieldCheck className="text-amber-400 w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-100">on_stop_signal</h3>
+                    <p className="text-sm text-slate-100">Fires when stop_signal is set (cleanup interrupted operations)</p>
+                  </div>
+                </div>
+                <div className="bg-yellow-900/20 border-l-4 border-yellow-500 p-4 mb-4 rounded-r">
+                  <p className="text-sm text-slate-100">
+                    <strong className="text-yellow-400">Note:</strong> Mutually exclusive with on_complete - either this fires (interrupted) OR on_complete fires (normal completion), never both.
+                  </p>
+                </div>
+                <CodeWithResult
+                  code={`def cleanup_interrupted_work(agent):
+    """Cleanup when user interrupts operation"""
+    trace = agent.current_session['trace']
+
+    # Rollback files written this turn
+    files_modified = [
+        t['args']['file_path']
+        for t in trace
+        if t.get('name') == 'write' and t.get('status') == 'success'
+    ]
+
+    for file_path in files_modified:
+        restore_from_backup(file_path)
+        print(f"⏪ Rolled back: {file_path}")
+
+    print("✅ Cleanup complete - ready for new input")
+
+agent = Agent("assistant", tools=[write, read], on_events=[
+    on_stop_signal(cleanup_interrupted_work)
+])`}
+                  result={`⏪ Rolled back: config.json
+✅ Cleanup complete - ready for new input
+# Useful for: rollback, cleanup, save checkpoints, notify user`}
+                  language="python"
+                />
+              </div>
+
               {/* on_complete */}
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
@@ -834,11 +977,15 @@ agent = Agent("assistant", tools=[search], on_events=[
             </p>
 
             <CodeWithResult
-              code={`from connectonion import Agent, after_user_input, after_llm, after_each_tool, after_tools, on_error, on_complete
+              code={`from connectonion import Agent, after_user_input, before_iteration, after_llm, after_each_tool, on_error, after_iteration, on_stop_signal, on_complete
 from datetime import datetime
 
 def log_session_start(agent):
     print(f"📝 Session started at {datetime.now()}")
+
+def check_iteration(agent):
+    iteration = agent.current_session.get('iteration', 0)
+    print(f"🔄 Starting iteration {iteration}")
 
 def track_llm(agent):
     trace = agent.current_session['trace'][-1]
@@ -854,6 +1001,13 @@ def handle_errors(agent):
     trace = agent.current_session['trace'][-1]
     print(f"❌ Error: {trace.get('error')}")
 
+def save_checkpoint(agent):
+    iteration = agent.current_session.get('iteration', 0)
+    print(f"💾 Checkpoint: iteration {iteration}")
+
+def handle_interruption(agent):
+    print(f"⚠️  Operation interrupted - cleaning up")
+
 def log_completion(agent):
     print(f"✅ Task complete")
 
@@ -862,9 +1016,12 @@ agent = Agent(
     tools=[search, analyze],
     on_events=[
         after_user_input(log_session_start),
+        before_iteration(check_iteration),
         after_llm(track_llm),
         after_each_tool(track_tools),
         on_error(handle_errors),
+        after_iteration(save_checkpoint),
+        on_stop_signal(handle_interruption),
         on_complete(log_completion)
     ]
 )
@@ -1087,6 +1244,10 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
                   <p className="text-slate-100 mt-2">Fires once per turn after user input is added to session.</p>
                 </div>
                 <div>
+                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_iteration(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-slate-100 mt-2">Fires before each iteration starts (poll IO, check mode changes).</p>
+                </div>
+                <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_llm(func: Callable[[Agent], None]) → EventHandler</code>
                   <p className="text-slate-100 mt-2">Fires before each LLM call.</p>
                 </div>
@@ -1113,6 +1274,14 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_error(func: Callable[[Agent], None]) → EventHandler</code>
                   <p className="text-slate-100 mt-2">Fires when tool execution fails or tool is not found.</p>
+                </div>
+                <div>
+                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_iteration(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-slate-100 mt-2">Fires after each iteration (checkpoints, can control loop continuation).</p>
+                </div>
+                <div>
+                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_stop_signal(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-slate-100 mt-2">Fires when stop_signal is set (cleanup interrupted operations). <strong className="text-yellow-400">Mutually exclusive with on_complete.</strong></p>
                 </div>
                 <div>
                   <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_complete(func: Callable[[Agent], None]) → EventHandler</code>
