@@ -11,6 +11,7 @@ import { ContentNavigation } from '../components/ContentNavigation'
 import { FrameworkComparison } from '../components/FrameworkComparison'
 import { MacOSDownload } from '../components/MacOSDownload'
 import { AIFirstDevelopment } from '../components/AIFirstDevelopment'
+import { VERSION } from '../lib/version'
 
 export default function HomePage() {
   return (
@@ -25,7 +26,7 @@ export default function HomePage() {
           </h1>
 
           <div className="mb-4">
-            <span className="px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-semibold rounded-full">v0.6.6</span>
+            <span className="px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-semibold rounded-full">v{VERSION}</span>
           </div>
 
           {/* Philosophy - The Core Message */}

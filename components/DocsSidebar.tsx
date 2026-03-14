@@ -18,6 +18,7 @@ import { searchMarkdownDocuments, getMatchSnippet } from '../lib/markdownLoader'
 import { useCopyMarkdown } from '../hooks/useCopyMarkdown'
 import { hasMarkdownContent } from '../lib/markdownMapping'
 import { navigation as navData } from '../lib/navigation'
+import { VERSION } from '../lib/version'
 
 interface SearchResult {
   item: typeof navData[0]
@@ -584,7 +585,7 @@ export function DocsSidebar() {
           </a>
           <div className="flex items-center gap-2 px-2">
             <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-            <span className="text-xs text-gray-400">v0.8.4</span>
+            <span className="text-xs text-gray-400">v{VERSION}</span>
           </div>
         </div>
       </div>

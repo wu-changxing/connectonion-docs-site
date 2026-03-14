@@ -10,6 +10,7 @@ import "./globals.css";
 import ClientLayout from "../components/ClientLayout";
 import GitHubStarBanner from "../components/GitHubStarBanner";
 import Script from "next/script";
+import { VERSION } from "../lib/version";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -109,7 +110,7 @@ const structuredData = {
     "ratingValue": "4.8",
     "ratingCount": "127"
   },
-  "softwareVersion": "0.8.4",
+  "softwareVersion": VERSION,
   "softwareHelp": {
     "@type": "WebPage",
     "url": "https://connectonion.com/quickstart"
