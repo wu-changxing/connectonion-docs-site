@@ -173,6 +173,37 @@ export const navigation = [
     difficulty: 'NEW',
     keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'custom', 'create', 'build'],
     prev: { href: '/on_events', title: 'Event System (on_events)' },
+    next: { href: '/host', title: 'host()' }
+  },
+
+  // ─── Network ───────────────────────────────────────────────────
+  {
+    title: 'host()',
+    href: '/host',
+    icon: HiOutlineWifi,
+    section: 'Network',
+    difficulty: 'Essential',
+    keywords: ['host', 'serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'http', 'api', 'ed25519'],
+    prev: { href: '/plugin', title: 'Plugin System' },
+    next: { href: '/connect', title: 'Connect to Agents' }
+  },
+  {
+    title: 'Connect to Agents',
+    href: '/connect',
+    icon: VscServerProcess,
+    section: 'Network',
+    difficulty: 'Essential',
+    keywords: ['connect', 'remote', 'network', 'relay', 'distributed', 'client', 'remote agent', 'proxy'],
+    prev: { href: '/host', title: 'host()' },
+    next: { href: '/threat-model', title: 'Threat Model' }
+  },
+  {
+    title: 'Threat Model',
+    href: '/threat-model',
+    icon: HiOutlineShieldCheck,
+    section: 'Network',
+    keywords: ['security', 'threat', 'risk', 'safety', 'vulnerability'],
+    prev: { href: '/connect', title: 'Connect to Agents' },
     next: { href: '/features/permissions', title: 'Permissions' }
   },
 
@@ -184,7 +215,7 @@ export const navigation = [
     section: 'Features',
     difficulty: 'NEW',
     keywords: ['permissions', 'approval', 'security', 'safe tools', 'skills', 'snapshot', 'restore', 'unified'],
-    prev: { href: '/plugin', title: 'Plugin System' },
+    prev: { href: '/threat-model', title: 'Threat Model' },
     next: { href: '/features/skills', title: 'Skills' }
   },
   {
@@ -645,37 +676,6 @@ export const navigation = [
     parent: '/xray',
     keywords: ['trace', 'flow', 'visual', 'debug', 'execution'],
     prev: { href: '/xray', title: '@xray Decorator' },
-    next: { href: '/host', title: 'host()' }
-  },
-
-  // ─── Network ───────────────────────────────────────────────────
-  {
-    title: 'host()',
-    href: '/host',
-    icon: HiOutlineWifi,
-    section: 'Network',
-    difficulty: 'Essential',
-    keywords: ['host', 'serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'http', 'api', 'ed25519'],
-    prev: { href: '/xray/trace', title: 'trace() Visual Flow' },
-    next: { href: '/connect', title: 'Connect to Agents' }
-  },
-  {
-    title: 'Connect to Agents',
-    href: '/connect',
-    icon: VscServerProcess,
-    section: 'Network',
-    difficulty: 'Essential',
-    keywords: ['connect', 'remote', 'network', 'relay', 'distributed', 'client', 'remote agent', 'proxy'],
-    prev: { href: '/host', title: 'host()' },
-    next: { href: '/threat-model', title: 'Threat Model' }
-  },
-  {
-    title: 'Threat Model',
-    href: '/threat-model',
-    icon: HiOutlineShieldCheck,
-    section: 'Network',
-    keywords: ['security', 'threat', 'risk', 'safety', 'vulnerability'],
-    prev: { href: '/connect', title: 'Connect to Agents' },
     next: { href: '/examples', title: 'All Examples' }
   },
 
@@ -687,7 +687,7 @@ export const navigation = [
     section: 'Examples',
     difficulty: 'Browse',
     keywords: ['examples', 'samples', 'demos', 'tutorials'],
-    prev: { href: '/threat-model', title: 'Threat Model' },
+    prev: { href: '/xray/trace', title: 'trace() Visual Flow' },
     next: { href: '/examples/calculator', title: 'Calculator' }
   },
   {
