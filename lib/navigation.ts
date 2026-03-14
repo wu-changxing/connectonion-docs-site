@@ -53,6 +53,26 @@ export const navigation = [
     section: 'Getting Started',
     keywords: ['command', 'terminal', 'co', 'commands', 'cli'],
     prev: { href: '/vibe-coding', title: 'Vibe Coding Guide' },
+    next: { href: '/cli/ai', title: 'co ai' }
+  },
+  {
+    title: 'co ai',
+    href: '/cli/ai',
+    icon: HiOutlineSparkles,
+    section: 'Getting Started',
+    parent: '/cli',
+    keywords: ['ai', 'coding', 'agent', 'terminal', 'one-shot', 'interactive', 'web', 'server'],
+    prev: { href: '/cli', title: 'CLI Reference' },
+    next: { href: '/cli/browser-command', title: 'co browser' }
+  },
+  {
+    title: 'co browser',
+    href: '/cli/browser-command',
+    icon: HiOutlineCamera,
+    section: 'Getting Started',
+    parent: '/cli',
+    keywords: ['browser', 'screenshot', 'automation', 'debug', 'playwright', 'viewport'],
+    prev: { href: '/cli/ai', title: 'co ai' },
     next: { href: '/agent', title: 'Agent' }
   },
   {
@@ -320,6 +340,15 @@ export const navigation = [
     section: 'Useful Tools',
     keywords: ['todo', 'task', 'list', 'progress', 'track', 'manage'],
     prev: { href: '/useful-tools/terminal', title: 'Terminal' },
+    next: { href: '/useful-tools/file-tools', title: 'FileTools' }
+  },
+  {
+    title: 'FileTools',
+    href: '/useful-tools/file-tools',
+    icon: HiOutlineDocumentText,
+    section: 'Useful Tools',
+    keywords: ['file', 'tools', 'read', 'write', 'edit', 'glob', 'grep', 'snapshot', 'md5', 'permission'],
+    prev: { href: '/useful-tools/todo-list', title: 'Todo List' },
     next: { href: '/google-integration', title: 'Google Integration' }
   },
 
@@ -425,6 +454,36 @@ export const navigation = [
     difficulty: 'New',
     keywords: ['system', 'reminder', 'guidance', 'nudge', 'context', 'injection', 'tool', 'result'],
     prev: { href: '/useful-plugins/calendar-plugin', title: 'calendar_plugin' },
+    next: { href: '/useful-plugins/prefer-write-tool', title: 'prefer_write_tool' }
+  },
+  {
+    title: 'prefer_write_tool',
+    href: '/useful-plugins/prefer-write-tool',
+    icon: HiOutlineShieldCheck,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['write', 'file', 'bash', 'block', 'approval', 'cat', 'echo', 'redirect'],
+    prev: { href: '/useful-plugins/system-reminder', title: 'system_reminder' },
+    next: { href: '/useful-plugins/skills', title: 'skills' }
+  },
+  {
+    title: 'skills',
+    href: '/useful-plugins/skills',
+    icon: HiOutlineCommandLine,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['skills', 'workflow', 'slash', 'command', 'permissions', 'snapshot', 'restore'],
+    prev: { href: '/useful-plugins/prefer-write-tool', title: 'prefer_write_tool' },
+    next: { href: '/useful-plugins/tool-approval', title: 'tool_approval' }
+  },
+  {
+    title: 'tool_approval',
+    href: '/useful-plugins/tool-approval',
+    icon: HiOutlineShieldCheck,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['approval', 'tool', 'dangerous', 'web', 'websocket', 'permission', 'config'],
+    prev: { href: '/useful-plugins/skills', title: 'skills' },
     next: { href: '/tui', title: 'TUI Components' }
   },
 
