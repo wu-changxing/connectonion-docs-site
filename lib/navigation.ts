@@ -676,17 +676,6 @@ export const navigation = [
     section: 'Network',
     keywords: ['security', 'threat', 'risk', 'safety', 'vulnerability'],
     prev: { href: '/connect', title: 'Connect to Agents' },
-    next: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' }
-  },
-
-  // ─── Tutorials ─────────────────────────────────────────────────
-  {
-    title: '001: AI Agent = Prompt + Function',
-    href: '/tutorials/001-ai-agent-is-just-prompt-plus-function',
-    icon: HiOutlineBookOpen,
-    section: 'Tutorials',
-    keywords: ['tutorial', 'beginner', 'first', 'prompt', 'function', 'langchain', 'simple'],
-    prev: { href: '/threat-model', title: 'Threat Model' },
     next: { href: '/examples', title: 'All Examples' }
   },
 
@@ -698,7 +687,7 @@ export const navigation = [
     section: 'Examples',
     difficulty: 'Browse',
     keywords: ['examples', 'samples', 'demos', 'tutorials'],
-    prev: { href: '/tutorials/001-ai-agent-is-just-prompt-plus-function', title: 'Tutorial: AI Agent = Prompt + Function' },
+    prev: { href: '/threat-model', title: 'Threat Model' },
     next: { href: '/examples/calculator', title: 'Calculator' }
   },
   {
