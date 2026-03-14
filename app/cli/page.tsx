@@ -92,12 +92,13 @@ export default function CLIPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
           <div className="font-mono text-blue-300">co create <span className="text-slate-100">→ New project</span></div>
           <div className="font-mono text-blue-300">co init <span className="text-slate-100">→ Current directory</span></div>
+          <div className="font-mono text-blue-300">co ai <span className="text-slate-100">→ AI coding agent</span></div>
+          <div className="font-mono text-blue-300">co browser <span className="text-slate-100">→ Screenshots & automation</span></div>
           <div className="font-mono text-blue-300">co auth <span className="text-slate-100">→ Managed keys (free credits)</span></div>
           <div className="font-mono text-blue-300">co deploy <span className="text-slate-100">→ Deploy to cloud</span></div>
           <div className="font-mono text-blue-300">co status <span className="text-slate-100">→ Check balance</span></div>
           <div className="font-mono text-blue-300">co reset <span className="text-slate-100">→ Reset account</span></div>
           <div className="font-mono text-blue-300">co doctor <span className="text-slate-100">→ Diagnose issues</span></div>
-          <div className="font-mono text-blue-300">co -b <span className="text-slate-100">→ Browser automation</span></div>
         </div>
       </div>
 
@@ -563,15 +564,54 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
         </div>
       </section>
 
+      {/* co ai Command */}
+      <section className="mb-16">
+        <h2 className="heading-2">
+          <HiOutlineSparkles className="w-6 h-6 text-purple-400" />
+          co ai
+        </h2>
+
+        <p className="text-slate-100 mb-6">
+          AI coding agent in your terminal. Run one-shot prompts or start an interactive agent with full tool access.
+        </p>
+
+        <div className="space-y-4 mb-6">
+          <CommandBlock
+            title="One-shot mode - quick code generation"
+            commands={['co ai "create a FastAPI hello world app"']}
+          />
+
+          <CommandBlock
+            title="Interactive mode - multi-turn conversation"
+            commands={['co ai']}
+          />
+
+          <CommandBlock
+            title="Web server mode - browser interface"
+            commands={['co ai --port 8000']}
+          />
+        </div>
+
+        <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
+          <p className="text-purple-200">
+            <strong>Learn more:</strong> See the complete{' '}
+            <Link href="/cli/ai" className="text-purple-300 hover:text-purple-100 underline">
+              co ai documentation
+            </Link>{' '}
+            for advanced features, model selection, and use cases.
+          </p>
+        </div>
+      </section>
+
       {/* Browser Features */}
       <section className="mb-16">
         <h2 className="heading-2">
           <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
-          Browser Features
+          co browser
         </h2>
 
         <p className="text-slate-100 mb-6">
-          Guide the browser to do something using natural language commands. Use <code className="bg-gray-800 px-2 py-1 rounded">-b</code> (short for browser) or the full <code className="bg-gray-800 px-2 py-1 rounded">browser</code> subcommand:
+          Quick browser screenshots and automation. Use <code className="bg-gray-800 px-2 py-1 rounded">-b</code> (short for browser) or the full <code className="bg-gray-800 px-2 py-1 rounded">browser</code> subcommand:
         </p>
 
         <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 mb-6">
@@ -601,7 +641,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
         </div>
 
         {/* Device Presets */}
-        <div className="bg-gradient-to-b from-yellow-900/30 to-yellow-800/10 border border-yellow-500/30 rounded-lg p-6">
+        <div className="bg-gradient-to-b from-yellow-900/30 to-yellow-800/10 border border-yellow-500/30 rounded-lg p-6 mb-6">
           <h3 className="text-lg font-semibold text-white mb-4">Device Presets</h3>
           <div className="grid grid-cols-3 gap-4 text-sm">
             <div>
@@ -617,6 +657,16 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
               <p className="text-slate-100">1920×1080 (default)</p>
             </div>
           </div>
+        </div>
+
+        <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+          <p className="text-blue-200">
+            <strong>Learn more:</strong> See the complete{' '}
+            <Link href="/cli/browser-command" className="text-blue-300 hover:text-blue-100 underline">
+              co browser documentation
+            </Link>{' '}
+            for URL handling, framework examples, and advanced usage.
+          </p>
         </div>
       </section>
 
