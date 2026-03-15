@@ -11,7 +11,7 @@
 import {
   HiOutlineHome, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
   HiOutlineArrowsRightLeft, HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineCalculator, HiOutlineCloud, HiOutlineBookOpen,
-  HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone
+  HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone, HiOutlineArrowPath
 } from 'react-icons/hi2'
 import { VscComment, VscGitMerge, VscFileCode, VscKey, VscServerProcess } from 'react-icons/vsc'
 import { FaChrome } from 'react-icons/fa'
@@ -195,6 +195,15 @@ export const navigation = [
     difficulty: 'Essential',
     keywords: ['connect', 'remote', 'network', 'relay', 'distributed', 'client', 'remote agent', 'proxy'],
     prev: { href: '/host', title: 'host()' },
+    next: { href: '/session-reconnect', title: 'Session Reconnect' }
+  },
+  {
+    title: 'Session Reconnect',
+    href: '/session-reconnect',
+    icon: HiOutlineArrowPath,
+    section: 'Network',
+    keywords: ['reconnect', 'websocket', 'session', 'recovery', 'disconnect', 'ping', 'pong', 'cleanup', 'merge'],
+    prev: { href: '/connect', title: 'Connect to Agents' },
     next: { href: '/threat-model', title: 'Threat Model' }
   },
   {
@@ -203,7 +212,7 @@ export const navigation = [
     icon: HiOutlineShieldCheck,
     section: 'Network',
     keywords: ['security', 'threat', 'risk', 'safety', 'vulnerability'],
-    prev: { href: '/connect', title: 'Connect to Agents' },
+    prev: { href: '/session-reconnect', title: 'Session Reconnect' },
     next: { href: '/features/permissions', title: 'Permissions' }
   },
 

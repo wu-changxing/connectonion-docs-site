@@ -6,7 +6,7 @@
 
 'use client'
 
-import { HiOutlineServerStack, HiOutlineBolt, HiOutlineArrowPath, HiOutlineSquare3Stack3D, HiOutlineCheck, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineUsers, HiOutlineGlobeAlt, HiOutlineCpuChip } from 'react-icons/hi2'
+import { HiOutlineServerStack, HiOutlineBolt, HiOutlineArrowPath, HiOutlineSquare3Stack3D, HiOutlineCheck, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineUsers, HiOutlineGlobeAlt, HiOutlineCpuChip, HiOutlineWindow, HiOutlinePuzzlePiece } from 'react-icons/hi2'
 import Link from 'next/link'
 import CodeWithResult from '../../components/CodeWithResult'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -423,12 +423,341 @@ result = agent.input("task")`}
           </div>
         </section>
 
+        {/* TypeScript SDK */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
+            TypeScript SDK
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            The <code className="bg-gray-800 px-2 py-1 rounded">connectonion</code> npm package provides the same <code className="bg-gray-800 px-2 py-1 rounded">connect()</code> interface for TypeScript and JavaScript:
+          </p>
+
+          <CodeWithResult
+            code={`npm install connectonion`}
+            language="bash"
+            fileName="terminal"
+          />
+
+          <div className="mt-6 space-y-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Basic Usage</h3>
+              <CodeWithResult
+                code={`import { connect } from 'connectonion'
+
+// Connect to a hosted agent
+const agent = connect("0x3d4017c3e843...")
+
+// Send a message and get a response
+const response = await agent.input("What is Python?")
+console.log(response.text)`}
+                language="typescript"
+                fileName="app.ts"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Direct Connection (Deployed Agents)</h3>
+              <CodeWithResult
+                code={`import { connect } from 'connectonion'
+
+// Connect directly to a deployed agent (bypasses relay)
+const agent = connect("my-agent", {
+  directUrl: "https://my-agent.example.com"
+})
+
+const response = await agent.input("Hello!")
+console.log(response.text)`}
+                language="typescript"
+                fileName="direct.ts"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Streaming Events */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineSquare3Stack3D className="w-8 h-8 text-violet-400" />
+            Streaming Events
+          </h2>
+
+          <p className="text-slate-100 mb-4 text-lg">
+            While the agent works, events stream in real-time via the <code className="bg-gray-800 px-2 py-1 rounded">ui</code> property. Each event is a <code className="bg-gray-800 px-2 py-1 rounded">ChatItem</code>:
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-700">
+                  <th className="text-left px-4 py-3 text-slate-400">Event Type</th>
+                  <th className="text-left px-4 py-3 text-slate-400">Description</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-700">
+                <tr>
+                  <td className="px-4 py-3 font-mono text-blue-300">user</td>
+                  <td className="px-4 py-3 text-slate-300">User message</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-green-300">agent</td>
+                  <td className="px-4 py-3 text-slate-300">Agent response text</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-purple-300">thinking</td>
+                  <td className="px-4 py-3 text-slate-300">LLM thinking/reasoning</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-orange-300">tool_call</td>
+                  <td className="px-4 py-3 text-slate-300">Tool execution with name, args, result</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-yellow-300">ask_user</td>
+                  <td className="px-4 py-3 text-slate-300">Agent asking a question (with options)</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-red-300">approval_needed</td>
+                  <td className="px-4 py-3 text-slate-300">Tool requires user approval before running</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-cyan-300">plan_review</td>
+                  <td className="px-4 py-3 text-slate-300">Agent presenting a plan for review</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* React Hook */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlinePuzzlePiece className="w-8 h-8 text-cyan-400" />
+            React Hook: useAgent()
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            The SDK includes a React hook that wraps <code className="bg-gray-800 px-2 py-1 rounded">connect()</code> with state management and localStorage persistence:
+          </p>
+
+          <CodeWithResult
+            code={`import { useAgent } from 'connectonion/react'
+
+function ChatPage() {
+  const {
+    ui,              // ChatItem[] — streaming events
+    status,          // 'idle' | 'working' | 'waiting'
+    isProcessing,    // true while agent is working
+    mode,            // approval mode
+    input,           // send a message
+    respond,         // answer ask_user
+    respondToApproval,
+    reset,           // clear conversation
+  } = useAgent("0x3d4017c3e843...", {
+    sessionId: "my-session-123"  // auto-persisted to localStorage
+  })
+
+  return (
+    <div>
+      {/* Render streaming events */}
+      {ui.map(item => {
+        if (item.type === 'user') return <UserMsg key={item.id}>{item.content}</UserMsg>
+        if (item.type === 'agent') return <AgentMsg key={item.id}>{item.content}</AgentMsg>
+        if (item.type === 'thinking') return <Thinking key={item.id} />
+        if (item.type === 'tool_call') return <ToolCall key={item.id} name={item.name} />
+        if (item.type === 'ask_user') return (
+          <AskUser
+            key={item.id}
+            question={item.text}
+            options={item.options}
+            onAnswer={(answer) => respond(answer)}
+          />
+        )
+        return null
+      })}
+
+      {/* Input */}
+      <input onSubmit={(msg) => input(msg)} disabled={isProcessing} />
+    </div>
+  )
+}`}
+            language="tsx"
+            fileName="ChatPage.tsx"
+          />
+
+          <div className="mt-6 bg-cyan-950/50 border border-cyan-400/40 rounded-lg p-6">
+            <p className="text-sm text-cyan-100">
+              <strong>Session persistence:</strong> The hook automatically saves conversation state to <code className="bg-gray-800 px-1 rounded">localStorage</code> using the sessionId. Page refreshes restore the full conversation.
+            </p>
+          </div>
+        </section>
+
+        {/* Interactive Features */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineUsers className="w-8 h-8 text-amber-400" />
+            Interactive Features
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            Agents can ask questions, request approval for dangerous tools, and present plans for review. Here{"'"}s how to handle each:
+          </p>
+
+          <div className="space-y-8">
+            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-yellow-300 mb-4">Ask User</h3>
+              <p className="text-sm text-slate-300 mb-4">Agent needs information from the user:</p>
+              <CodeWithResult
+                code={`// Agent sends: { type: 'ask_user', text: 'Which city?', options: ['Sydney', 'Tokyo'] }
+
+// Respond with:
+respond("Sydney")
+
+// Or multiple selections:
+respond(["Sydney", "Tokyo"])`}
+                language="typescript"
+              />
+            </div>
+
+            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-red-300 mb-4">Tool Approval</h3>
+              <p className="text-sm text-slate-300 mb-4">Agent wants to run a tool that needs permission:</p>
+              <CodeWithResult
+                code={`// Agent sends: { type: 'approval_needed', tool: 'shell', arguments: { cmd: 'rm -rf /tmp' } }
+
+// Approve once:
+respondToApproval(true, 'once')
+
+// Approve for entire session:
+respondToApproval(true, 'session')
+
+// Reject with feedback:
+respondToApproval(false, 'once', 'reject_explain', 'Too dangerous')`}
+                language="typescript"
+              />
+            </div>
+
+            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-violet-300 mb-4">Plan Review</h3>
+              <p className="text-sm text-slate-300 mb-4">Agent presenting a plan before executing:</p>
+              <CodeWithResult
+                code={`// Agent sends: { type: 'plan_review', plan_content: '1. Research\\n2. Analyze\\n3. Report' }
+
+// Approve and continue:
+respondToPlanReview("Looks good, proceed")
+
+// Request changes:
+respondToPlanReview("Skip step 2, go straight to report")`}
+                language="typescript"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* oo-chat Reference */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineWindow className="w-8 h-8 text-emerald-400" />
+            oo-chat: Open-Source Reference Client
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            <Link href="https://github.com/openonion/oo-chat" className="text-emerald-400 hover:text-emerald-300 underline">oo-chat</Link> is an open-source Next.js chat client built on the TypeScript SDK. It{"'"}s a complete working example of how to build a chat UI for ConnectOnion agents.
+          </p>
+
+          <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 sm:p-6 overflow-x-auto mb-6">
+            <pre className="text-sm font-mono text-slate-200 whitespace-pre leading-relaxed">{`oo-chat/
+├── app/[address]/[sessionId]/page.tsx   ← session page (uses useAgentSDK)
+├── components/chat/
+│   ├── chat.tsx                         ← main Chat component
+│   ├── chat-input.tsx                   ← message input
+│   ├── chat-messages.tsx                ← message list
+│   ├── use-agent-sdk.ts                 ← wrapper hook around useAgent()
+│   └── messages/
+│       ├── tool-call.tsx                ← tool call rendering
+│       └── tools/plan-card.tsx          ← plan review UI
+└── package.json                         ← depends on connectonion`}</pre>
+          </div>
+
+          <h3 className="text-xl font-semibold mb-4">How oo-chat Connects</h3>
+
+          <CodeWithResult
+            code={`// app/[address]/[sessionId]/page.tsx
+import { useAgentSDK } from '@/components/chat/use-agent-sdk'
+
+export default function ChatSession({ params }) {
+  const { address, sessionId } = params
+
+  const {
+    ui,
+    isLoading,
+    elapsedTime,
+    pendingAskUser,
+    pendingApproval,
+    pendingPlanReview,
+    mode,
+    send,
+    respondToAskUser,
+    respondToApproval,
+    respondToPlanReview,
+    setMode,
+    clear,
+  } = useAgentSDK({ agentAddress: address, sessionId })
+
+  return (
+    <Chat
+      ui={ui}
+      isLoading={isLoading}
+      elapsedTime={elapsedTime}
+      onSend={(msg, images) => send(msg, images)}
+      pendingAskUser={pendingAskUser}
+      onAskUserResponse={respondToAskUser}
+      pendingApproval={pendingApproval}
+      onApprovalResponse={respondToApproval}
+      pendingPlanReview={pendingPlanReview}
+      onPlanReviewResponse={respondToPlanReview}
+      mode={mode}
+      onModeChange={setMode}
+    />
+  )
+}`}
+            language="tsx"
+            fileName="app/[address]/[sessionId]/page.tsx"
+          />
+
+          <div className="mt-6 bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
+            <p className="text-lg font-semibold text-emerald-100 mb-4">Architecture</p>
+            <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 overflow-x-auto">
+              <pre className="text-sm font-mono text-slate-200 whitespace-pre leading-relaxed">{`┌──────────────────────────────────────────────────┐
+│  oo-chat (Next.js)                               │
+│                                                   │
+│  page.tsx                                         │
+│    └─ useAgentSDK()     ← elapsed time, pending   │
+│         └─ useAgent()   ← connectonion/react      │
+│              └─ connect()  ← WebSocket to agent   │
+│                                                   │
+│  <Chat />                                         │
+│    ├─ <ChatMessages />  ← renders ui: ChatItem[]  │
+│    ├─ <AskUser />       ← from pendingAskUser     │
+│    ├─ <Approval />      ← from pendingApproval    │
+│    └─ <ChatInput />     ← calls send()            │
+└──────────────────────────────────────────────────┘
+         │ WebSocket
+         ▼
+┌──────────────────────────────────────────────────┐
+│  Hosted Agent (Python)                            │
+│  host(agent)                                      │
+└──────────────────────────────────────────────────┘`}</pre>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="mb-20">
           <div className="bg-blue-950/30 rounded-2xl p-10 border border-blue-400/30 text-center">
             <h2 className="heading-2">Ready to Use Remote Agents?</h2>
             <p className="text-xl text-slate-100 mb-8">
-              Just call <code className="bg-gray-800 px-3 py-1.5 rounded">connect(address)</code> and start building distributed workflows!
+              Python, TypeScript, or React — connect to any agent with one function call.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
