@@ -157,11 +157,11 @@ export default function CodeWithResult({
   }
 
   return (
-    <div className={`bg-gray-900 rounded-lg overflow-hidden shadow-xl shadow-black/50 border border-gray-800 ${className}`}>
-      <div className="flex flex-col divide-y divide-gray-800">
+    <div className={`bg-gray-900 rounded-lg overflow-hidden shadow-xl shadow-black/50 border border-subtle ${className}`}>
+      <div className="flex flex-col divide-y border-subtle">
         {/* Code Section */}
         <div className="relative">
-          <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
+          <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-subtle">
             <div className="flex items-center gap-2">
               {language === 'python' ? (
                 <div className="flex items-center gap-2">
@@ -227,7 +227,7 @@ export default function CodeWithResult({
         {/* Result Section */}
         {result && (
           <div className="relative">
-            <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
+            <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-subtle">
               <div className="flex items-center gap-2.5">
                 <div className="flex items-center gap-1.5">
                   <HiOutlineCommandLine className="w-4 h-4 text-green-400" />

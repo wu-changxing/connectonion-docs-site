@@ -37,7 +37,7 @@ export function ContentNavigation() {
               href={example.href}
               className={`w-2 h-2 rounded-full transition-all ${
                 idx === currentPage.exampleIndex
-                  ? 'bg-purple-400 w-8' 
+                  ? 'bg-purple-400 w-6'
                   : 'bg-gray-600 hover:bg-gray-500'
               }`}
               title={example.title}

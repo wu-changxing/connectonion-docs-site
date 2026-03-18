@@ -102,11 +102,15 @@ The result is 714.`}
     name="my_bot",                        # Required: agent identifier
     tools=[func1, func2],                 # Optional: functions agent can call
     system_prompt="You are helpful",      # Optional: personality/behavior
-    model="o4-mini",                      # Optional: LLM model
+    model="co/gemini-2.5-pro",            # Optional: LLM model (default: co/gemini-2.5-pro)
+    max_iterations=10,                    # Optional: max tool calls per turn (default: 10)
     api_key="sk-...",                     # Optional: override env var
     llm=custom_llm,                       # Optional: custom LLM instance
     trust="tested",                       # Optional: security verification
-    log=True                              # Optional: logging config
+    on_events=[after_llm(handler)],       # Optional: event hooks for this agent
+    plugins=[re_act, logger],             # Optional: reusable event handler bundles
+    quiet=False,                          # Optional: suppress console output
+    log=True                              # Optional: logging config (bool or file path)
 )`}
               result=""
               language="python"
@@ -162,7 +166,12 @@ agent.tools               # ToolRegistry: All tools
 agent.tools.names()       # list[str]: Tool names
 agent.tools.get("name")   # Tool: Get by name
 agent.system_prompt       # str: Personality
-agent.current_session     # dict | None: Runtime state`}
+agent.current_session     # dict | None: Runtime state
+
+# Token & cost tracking (after agent.input())
+agent.context_percent     # float: Context window used (0-100)
+agent.total_cost          # float: Total USD cost this session
+agent.last_usage          # dict: Last call token usage`}
               result=""
               language="python"
             />

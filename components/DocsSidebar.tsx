@@ -291,7 +291,7 @@ export function DocsSidebar() {
             aria-describedby="search-hint"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-8 py-2.5 bg-gray-800/50 border border-gray-600 rounded-lg text-gray-100 placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all text-sm font-normal"
+            className="w-full pl-10 pr-8 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-gray-100 placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all text-sm font-normal"
           />
           {searchQuery ? (
             <button
@@ -312,7 +312,7 @@ export function DocsSidebar() {
         </div>
         
         {!searchQuery && (
-          <div id="search-hint" className="mt-1.5 text-[11px] text-gray-500">
+          <div id="search-hint" className="mt-1.5 text-xs text-gray-500">
             Search everything • Typo-tolerant • Smart matching
           </div>
         )}
@@ -384,7 +384,7 @@ export function DocsSidebar() {
                           query={searchQuery}
                         />
                         {result.snippet && (
-                          <p className="text-[11px] text-gray-400 mt-1 line-clamp-2 leading-relaxed">
+                          <p className="text-search-snippet mt-1 line-clamp-2">
                             <SearchHighlight text={result.snippet} query={searchQuery} />
                           </p>
                         )}
@@ -432,7 +432,7 @@ export function DocsSidebar() {
                       <div className="relative group">
                         <Link
                           href={item.href}
-                          className={`block px-3 py-2.5 text-sm font-normal rounded-lg mx-1 transition-all relative ${
+                          className={`block px-4 py-3 text-sm font-normal rounded-lg mx-1 transition-all relative ${
                             isActive
                               ? 'bg-purple-500/25 text-white font-medium shadow-sm ring-1 ring-purple-400/30'
                               : 'text-gray-300 hover:text-white hover:bg-gray-700/40'
@@ -585,7 +585,7 @@ export function DocsSidebar() {
           </a>
           <div className="flex items-center gap-2 px-2">
             <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-            <span className="text-xs text-gray-400">v{VERSION}</span>
+            <span className="text-sm font-medium text-gray-400">v{VERSION}</span>
           </div>
         </div>
       </div>

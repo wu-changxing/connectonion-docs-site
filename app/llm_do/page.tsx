@@ -330,7 +330,7 @@ Answer(result=4)`}
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">model</code></td>
                       <td className="py-3 px-4 text-slate-100">str</td>
-                      <td className="py-3 px-4 text-slate-100">"gpt-4o-mini"</td>
+                      <td className="py-3 px-4 text-slate-100">"co/gemini-2.5-flash"</td>
                       <td className="py-3 px-4 text-slate-100">Model to use (supports OpenAI, Gemini, Claude)</td>
                     </tr>
                     <tr className="border-b border-gray-800">

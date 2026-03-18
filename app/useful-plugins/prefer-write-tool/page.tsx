@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { HiOutlineShieldExclamation, HiOutlineCommandLine, HiOutlineDocumentText, HiOutlinePencil, HiOutlineCheckCircle, HiOutlineXCircle } from 'react-icons/hi2'
+import { HiOutlineShieldExclamation, HiOutlineCheckCircle, HiOutlineXCircle, HiOutlineBell } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -23,7 +23,7 @@ export default function PreferWriteToolPage() {
           iconBgTo="to-yellow-600/20"
           iconBorderColor="border-orange-500/30"
           title="prefer_write_tool"
-          description="Block bash file operations, remind agent to use proper tools instead"
+          description="Block bash file creation, soft-remind for file reading"
           markdownPath="/useful-plugins/prefer_write_tool.md"
           markdownFilename="prefer-write-tool.md"
         />
@@ -50,9 +50,9 @@ EOF`}
               />
             </div>
 
-            <div className="p-5 bg-red-900/20 border border-red-500/30 rounded-lg">
-              <h3 className="font-semibold text-red-300 mb-3 flex items-center gap-2">
-                <HiOutlineXCircle className="w-5 h-5" />
+            <div className="p-5 bg-yellow-900/20 border border-yellow-500/30 rounded-lg">
+              <h3 className="font-semibold text-yellow-300 mb-3 flex items-center gap-2">
+                <HiOutlineBell className="w-5 h-5" />
                 File Reading
               </h3>
               <CodeWithResult
@@ -63,26 +63,11 @@ head -n 10 README.md`}
             </div>
           </div>
 
-          <div className="mt-6 bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-5">
-            <h3 className="font-semibold text-yellow-300 mb-3">Why This is an Anti-Pattern</h3>
-            <ul className="space-y-2 text-slate-100">
-              <li className="flex items-start gap-2">
-                <span className="text-yellow-400">•</span>
-                Bypasses proper tool UI/diffs/approval flow
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-yellow-400">•</span>
-                Escaping issues with special characters
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-yellow-400">•</span>
-                Harder to review and track changes
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-yellow-400">•</span>
-                No line numbers or formatting for reading
-              </li>
-            </ul>
+          <div className="mt-6 bg-slate-800/50 border border-slate-700 rounded-lg p-5">
+            <p className="text-slate-100">
+              File creation via bash bypasses tool UI/diffs/approval flow and has escaping issues.
+              File reading via bash works but misses line numbers, formatting, and control that <code className="px-2 py-1 bg-gray-800 rounded text-green-300">read_file</code> provides.
+            </p>
           </div>
         </section>
 
@@ -90,8 +75,18 @@ head -n 10 README.md`}
         <section className="mb-12">
           <h2 className="heading-2">Solution</h2>
           <p className="text-slate-100 mb-6">
-            This plugin detects bash file operations <strong className="text-orange-300">before execution</strong> and rejects them with a system reminder telling the agent to use the proper tools (read_file, write, edit).
+            This plugin uses two strategies:
           </p>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div className="p-4 bg-red-900/20 border border-red-500/30 rounded-lg">
+              <h3 className="font-semibold text-red-300 mb-2">File Creation</h3>
+              <p className="text-sm text-slate-300"><strong className="text-red-300">Hard block</strong> — raises ValueError, agent must use Write or Edit tool</p>
+            </div>
+            <div className="p-4 bg-yellow-900/20 border border-yellow-500/30 rounded-lg">
+              <h3 className="font-semibold text-yellow-300 mb-2">File Reading</h3>
+              <p className="text-sm text-slate-300"><strong className="text-yellow-300">Soft reminder</strong> — command runs, system reminder appended suggesting read_file</p>
+            </div>
+          </div>
           <CodeWithResult
             code={`from connectonion import Agent
 from connectonion.useful_plugins import prefer_write_tool
@@ -114,64 +109,67 @@ agent = Agent(
             <div className="p-5 bg-gradient-to-br from-red-900/20 to-red-800/10 border border-red-500/30 rounded-lg">
               <h3 className="font-semibold text-red-300 mb-4 flex items-center gap-2">
                 <HiOutlineXCircle className="w-5 h-5" />
-                File Creation (blocked)
+                File Creation (hard blocked)
               </h3>
               <div className="space-y-2 font-mono text-sm text-slate-300">
                 <div className="flex items-center gap-2">
-                  <span className="text-red-400">•</span>
+                  <span className="text-red-400">&bull;</span>
                   <code>cat &lt;&lt;EOF &gt; file.py</code> - heredoc redirection
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-red-400">•</span>
-                  <code>echo "..." &gt; file.py</code> - output redirection
+                  <span className="text-red-400">&bull;</span>
+                  <code>echo &quot;...&quot; &gt; file.py</code> - output redirection
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-red-400">•</span>
-                  <code>printf "..." &gt; file.py</code> - printf redirection
+                  <span className="text-red-400">&bull;</span>
+                  <code>printf &quot;...&quot; &gt; file.py</code> - printf redirection
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-red-400">•</span>
-                  <code>cmd &gt; file</code> - any output redirection
+                  <span className="text-red-400">&bull;</span>
+                  <code>cmd &gt; ./file</code> - output redirection to path
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-red-400">•</span>
-                  <code>cmd &gt;&gt; file</code> - append redirection
+                  <span className="text-red-400">&bull;</span>
+                  <code>cmd &gt;&gt; ./file</code> - append redirection to path
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-red-400">•</span>
+                  <span className="text-red-400">&bull;</span>
                   <code>tee file.py</code> - tee command
                 </div>
               </div>
             </div>
 
             {/* File Reading */}
-            <div className="p-5 bg-gradient-to-br from-orange-900/20 to-orange-800/10 border border-orange-500/30 rounded-lg">
-              <h3 className="font-semibold text-orange-300 mb-4 flex items-center gap-2">
-                <HiOutlineXCircle className="w-5 h-5" />
-                File Reading (blocked)
+            <div className="p-5 bg-gradient-to-br from-yellow-900/20 to-yellow-800/10 border border-yellow-500/30 rounded-lg">
+              <h3 className="font-semibold text-yellow-300 mb-4 flex items-center gap-2">
+                <HiOutlineBell className="w-5 h-5" />
+                File Reading (soft reminder)
               </h3>
               <div className="space-y-2 font-mono text-sm text-slate-300">
                 <div className="flex items-center gap-2">
-                  <span className="text-orange-400">•</span>
-                  <code>cat file.txt</code> - read file contents
+                  <span className="text-yellow-400">&bull;</span>
+                  <code>cat file.txt</code> - standalone cat (not piped)
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-orange-400">•</span>
+                  <span className="text-yellow-400">&bull;</span>
                   <code>head file.txt</code> - read first lines
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-orange-400">•</span>
+                  <span className="text-yellow-400">&bull;</span>
                   <code>tail file.log</code> - read last lines
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-orange-400">•</span>
+                  <span className="text-yellow-400">&bull;</span>
                   <code>less file.txt</code> - page through file
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-orange-400">•</span>
+                  <span className="text-yellow-400">&bull;</span>
                   <code>more file.txt</code> - page through file
                 </div>
               </div>
+              <p className="mt-4 text-xs text-slate-400">
+                Note: <code>cat file | grep pattern</code> (piped cat) is not detected — piping is legitimate bash usage.
+              </p>
             </div>
           </div>
         </section>
@@ -179,14 +177,11 @@ agent = Agent(
         {/* What Happens */}
         <section className="mb-12">
           <h2 className="heading-2">What Happens</h2>
-          <p className="text-slate-100 mb-6">
-            When detected, the tool is rejected and the agent receives a system reminder:
-          </p>
 
           <div className="space-y-6">
             {/* For file creation */}
             <div>
-              <h3 className="heading-3">For file creation</h3>
+              <h3 className="heading-3">For file creation (blocked)</h3>
               <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 font-mono text-sm">
                 <pre className="text-slate-100 whitespace-pre-wrap">{`Bash file creation blocked.
 
@@ -204,14 +199,12 @@ For editing existing files:
 
             {/* For file reading */}
             <div>
-              <h3 className="heading-3">For file reading</h3>
+              <h3 className="heading-3">For file reading (soft reminder)</h3>
               <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 font-mono text-sm">
-                <pre className="text-slate-100 whitespace-pre-wrap">{`Bash file reading blocked.
+                <pre className="text-slate-100 whitespace-pre-wrap">{`[actual command output here]
 
 <system-reminder>
-You tried to read a file using bash. This is blocked.
-
-Use the read_file tool instead:
+You used bash to read a file. Consider using the read_file tool instead:
   read_file(file_path="/path/to/file.txt")
 
 Why: read_file provides line numbers, proper formatting, and better control.
@@ -226,8 +219,28 @@ Why: read_file provides line numbers, proper formatting, and better control.
               Result
             </h3>
             <p className="text-slate-100">
-              The agent will then use the proper tools (read_file, write, edit).
+              File creation is stopped before execution. File reading runs normally with a gentle nudge toward <code className="px-2 py-1 bg-gray-800 rounded text-green-300">read_file</code>.
             </p>
+          </div>
+        </section>
+
+        {/* How It Works */}
+        <section className="mb-12">
+          <h2 className="heading-2">How It Works</h2>
+          <p className="text-slate-100 mb-4">
+            The plugin exports two event handlers:
+          </p>
+          <div className="space-y-3">
+            <div className="p-4 bg-slate-800/50 border border-slate-700 rounded-lg">
+              <p className="text-slate-100">
+                <code className="px-2 py-1 bg-gray-800 rounded text-orange-300">block_bash_file_creation</code> (<code className="text-slate-400">before_each_tool</code>) — detects file creation patterns and raises ValueError. For file reading, sets a session flag.
+              </p>
+            </div>
+            <div className="p-4 bg-slate-800/50 border border-slate-700 rounded-lg">
+              <p className="text-slate-100">
+                <code className="px-2 py-1 bg-gray-800 rounded text-orange-300">remind_read_file</code> (<code className="text-slate-400">after_each_tool</code>) — if the flag is set, appends a system reminder to the tool result message.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -248,7 +261,7 @@ agent = Agent(
             language="python"
           />
           <div className="mt-4 bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4">
-            <h3 className="font-semibold text-yellow-300 mb-2">⚠️ Order Matters</h3>
+            <h3 className="font-semibold text-yellow-300 mb-2">Order Matters</h3>
             <p className="text-slate-100">
               <code className="px-2 py-1 bg-gray-800 rounded text-orange-300">prefer_write_tool</code> should come first to block file creation before <code className="px-2 py-1 bg-gray-800 rounded text-green-300">tool_approval</code> prompts for approval.
             </p>
