@@ -567,7 +567,7 @@ export const navigation = [
   {
     title: 'ulw',
     href: '/useful-plugins/ulw',
-    icon: HiOutlineBolt,
+    icon: HiOutlineRocketLaunch,
     section: 'Useful Plugins',
     parent: '/useful-plugins',
     keywords: ['ulw', 'ultra', 'autonomous', 'mode', 'work', 'turns', 'checkpoint', 'approval'],
