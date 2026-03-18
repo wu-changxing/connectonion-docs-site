@@ -1,11 +1,11 @@
 /**
  * @purpose CLI AI command documentation
- * @context Shows how to use `co ai` for coding agent
+ * @context Shows how to use `co ai` for coding agent — web server mode and one-shot mode
  */
 
 'use client'
 
-import { HiOutlineCommandLine, HiOutlineSparkles, HiOutlineCodeBracket, HiOutlineServer, HiOutlineBolt } from 'react-icons/hi2'
+import { HiOutlineCommandLine, HiOutlineSparkles, HiOutlineCodeBracket, HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineFolder } from 'react-icons/hi2'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { PageHeader } from '../../../components/PageHeader'
@@ -28,35 +28,95 @@ export default function CliAiPage() {
             iconBgTo="to-pink-600/20"
             iconBorderColor="border-purple-500/30"
             title="co ai"
-            description="AI coding agent in your terminal. Run one-shot prompts or start an interactive agent with full tool access."
+            description="AI coding agent that works in your project. Start a web chat session or run one-shot prompts — with full access to your files, shell, and tools."
           />
 
           <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
             <p className="text-lg font-semibold text-purple-100">
-              <strong>Quick Start:</strong> Type <code className="bg-gray-800 px-2 py-1 rounded">co ai "create a FastAPI hello world app"</code> and watch the AI write code for you.
+              <strong>Quick Start:</strong> Run <code className="bg-gray-800 px-2 py-1 rounded">co ai</code> in your project — it opens a web chat connected to a coding agent that can read and edit your files.
             </p>
+          </div>
+        </section>
+
+        {/* Two Modes */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+            Two Modes
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-4 mb-8">
+            <div className="bg-gray-900 border border-purple-500/30 rounded-lg p-5">
+              <h3 className="font-semibold text-purple-300 mb-2">Web Chat (default)</h3>
+              <code className="text-sm text-slate-300">co ai</code>
+              <p className="text-slate-400 text-sm mt-2">Starts a local agent server, opens <code className="text-purple-300">chat.openonion.ai</code> in your browser. Chat conversationally — best for extended sessions.</p>
+            </div>
+            <div className="bg-gray-900 border border-cyan-500/30 rounded-lg p-5">
+              <h3 className="font-semibold text-cyan-300 mb-2">One-Shot</h3>
+              <code className="text-sm text-slate-300">co ai "your prompt"</code>
+              <p className="text-slate-400 text-sm mt-2">Runs the prompt, prints the result, exits. Best for quick tasks and scripting.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Web Chat Mode */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineGlobeAlt className="w-8 h-8 text-emerald-400" />
+            Web Chat Mode
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            Run <code className="bg-gray-800 px-2 py-1 rounded">co ai</code> in your project directory:
+          </p>
+
+          <CodeWithResult
+            code={`co ai`}
+            result={`Starting AI coding agent...
+Server running at http://localhost:8000
+Opening chat.openonion.ai/0x7a9f3b2c...`}
+            language="bash"
+          />
+
+          <div className="mt-6 bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-emerald-100 mb-3">What happens</h3>
+            <div className="space-y-2 text-slate-100">
+              <div className="flex items-start gap-2">
+                <span className="text-emerald-300">1.</span>
+                <span>Agent server starts on <code className="bg-gray-800 px-1 rounded">localhost:8000</code></span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-emerald-300">2.</span>
+                <span>Your browser opens <code className="bg-gray-800 px-1 rounded">chat.openonion.ai/{'{your-address}'}</code></span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-emerald-300">3.</span>
+                <span>The agent runs in your project directory with full tool access</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-emerald-300">4.</span>
+                <span>Your identity comes from <code className="bg-gray-800 px-1 rounded">~/.co/</code> — same across all sessions</span>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* One-Shot Mode */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+            <HiOutlineCommandLine className="w-8 h-8 text-cyan-400" />
             One-Shot Mode
           </h2>
 
           <p className="text-slate-100 mb-6 text-lg">
-            Run a single prompt and exit - perfect for quick code generation:
+            Pass a prompt directly — the agent runs, prints the result, and exits:
           </p>
 
           <CodeWithResult
-            code={`co ai "create a FastAPI app with hello world endpoint"`}
+            code={`co ai "Create a FastAPI hello world app"`}
             result={`[agent] Creating FastAPI hello world app...
 [agent] Writing main.py...
 
-✓ Created main.py with FastAPI hello world endpoint
-
-main.py:
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -65,169 +125,88 @@ app = FastAPI()
 def hello():
     return {"message": "Hello World"}
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
-
-Done! Run with: python main.py`}
+Done! Run with: uvicorn main:app --reload`}
             language="bash"
           />
 
-          <div className="mt-6 space-y-4">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">More Examples</h3>
-              <div className="space-y-3">
-                <CodeWithResult
-                  code={`# Fix a bug
-co ai "fix the authentication error in app.py"
+          <div className="mt-8 space-y-3">
+            <CodeWithResult
+              code={`# Fix a bug
+co ai "fix the failing test in tests/unit/test_agent.py"
 
 # Add a feature
-co ai "add database connection to main.py using SQLAlchemy"
+co ai "add rate limiting to the /api endpoint"
 
-# Refactor code
-co ai "refactor utils.py to use async functions"
+# Refactor
+co ai "refactor agent.py to use the new event system"
 
 # Write tests
-co ai "write pytest tests for the User model"`}
-                  language="bash"
-                />
-              </div>
-            </div>
+co ai "write pytest tests for models/user.py"`}
+              language="bash"
+            />
           </div>
         </section>
 
-        {/* Interactive Mode */}
+        {/* Project Context */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCommandLine className="w-8 h-8 text-cyan-400" />
-            Interactive Mode
+            <HiOutlineFolder className="w-8 h-8 text-amber-400" />
+            Project Context
           </h2>
 
           <p className="text-slate-100 mb-6 text-lg">
-            Start without a prompt for multi-turn conversation:
+            When started, the agent automatically loads context from your project — no setup required:
+          </p>
+
+          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden mb-6">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-800">
+                <tr>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Source</th>
+                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Purpose</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-700">
+                <tr>
+                  <td className="px-4 py-3 font-mono text-amber-300">.co/OO.md</td>
+                  <td className="px-4 py-3 text-slate-100">Project instructions (primary)</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-amber-300">CLAUDE.md</td>
+                  <td className="px-4 py-3 text-slate-100">Claude Code compatibility</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-amber-300">README.md</td>
+                  <td className="px-4 py-3 text-slate-100">Project overview</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-amber-300">~/.claude/skills/</td>
+                  <td className="px-4 py-3 text-slate-100">User-defined skills</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-amber-300">git status</td>
+                  <td className="px-4 py-3 text-slate-100">Current branch, changes, recent commits</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-slate-300 mb-4">
+            Give the agent persistent project rules with <code className="bg-gray-800 px-2 py-1 rounded">.co/OO.md</code>:
           </p>
 
           <CodeWithResult
-            code={`co ai`}
-            result={`[agent] AI coding agent ready. What would you like me to do?
-
-> create a todo app with FastAPI
-
-[agent] I'll create a FastAPI todo application...
-[agent] Writing main.py...
-[agent] Writing models.py...
-
-✓ Created todo API with FastAPI
-
-> now add authentication
-
-[agent] Adding authentication to the todo app...
-[agent] Updating main.py with auth...
-
-✓ Added JWT authentication
-
-> exit`}
+            code={`mkdir -p .co
+cat > .co/OO.md << 'EOF'
+Always run tests before committing.
+Use snake_case for function names.
+The main entry point is src/main.py.
+EOF`}
             language="bash"
           />
-        </section>
-
-        {/* Web Server Mode */}
-        <section className="mb-20">
-          <h2 className="heading-2">
-            <HiOutlineServer className="w-8 h-8 text-emerald-400" />
-            Web Server Mode
-          </h2>
-
-          <p className="text-slate-100 mb-6 text-lg">
-            Start a web server to interact with the agent via browser:
+          <p className="text-slate-400 mt-3 text-sm">
+            Loaded every session — the agent always follows your rules without being told.
           </p>
-
-          <CodeWithResult
-            code={`co ai --port 8000`}
-            result={`[agent] Starting AI coding agent web server...
-[agent] Server running at http://localhost:8000
-[agent] Open in browser to interact with the agent`}
-            language="bash"
-          />
-
-          <div className="mt-6 bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-blue-100 mb-4">Web Interface Features</h3>
-            <div className="space-y-2 text-slate-100">
-              <div className="flex items-start gap-2">
-                <span className="text-blue-300">•</span>
-                <span>Chat interface for multi-turn conversations</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-blue-300">•</span>
-                <span>File upload support for context</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-blue-300">•</span>
-                <span>Code syntax highlighting</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-blue-300">•</span>
-                <span>Tool execution logs in real-time</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Configuration */}
-        <section className="mb-20">
-          <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-indigo-400" />
-            Configuration
-          </h2>
-
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Model Selection</h3>
-              <CodeWithResult
-                code={`# Use specific model
-co ai "create app" --model co/gpt-4o
-
-# Use faster model for simple tasks
-co ai "fix typo" --model co/gpt-4o-mini
-
-# Use most powerful model
-co ai "design complex system" --model co/claude-opus-4-5`}
-                language="bash"
-              />
-              <p className="text-slate-300 mt-4">
-                Default model: <code className="bg-gray-800 px-2 py-1 rounded">co/claude-opus-4-5</code>
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Max Iterations</h3>
-              <p className="text-slate-100 mb-4">
-                Control how many times the agent can iterate:
-              </p>
-              <CodeWithResult
-                code={`# Allow more iterations for complex tasks
-co ai "refactor entire codebase" --max-iterations 200
-
-# Limit iterations for simple tasks
-co ai "add comment" --max-iterations 10`}
-                language="bash"
-              />
-              <p className="text-slate-300 mt-4">
-                Default: <code className="bg-gray-800 px-2 py-1 rounded">100</code> iterations
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Combined Options</h3>
-              <CodeWithResult
-                code={`co ai "build microservice" \\
-  --model co/claude-opus-4-5 \\
-  --max-iterations 150 \\
-  --port 9000`}
-                language="bash"
-              />
-            </div>
-          </div>
         </section>
 
         {/* Available Tools */}
@@ -237,143 +216,42 @@ co ai "add comment" --max-iterations 10`}
             Available Tools
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
-            The AI agent has access to powerful tools:
-          </p>
-
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
               <h3 className="font-semibold text-green-300 mb-2">File Operations</h3>
               <ul className="text-sm text-slate-300 space-y-1">
-                <li>• Read files</li>
-                <li>• Write new files</li>
-                <li>• Edit existing files</li>
-                <li>• Search with glob/grep</li>
+                <li>• Read, write, edit files</li>
+                <li>• Search with glob and grep</li>
               </ul>
             </div>
 
             <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
-              <h3 className="font-semibold text-blue-300 mb-2">Code Execution</h3>
+              <h3 className="font-semibold text-blue-300 mb-2">Shell</h3>
               <ul className="text-sm text-slate-300 space-y-1">
                 <li>• Run bash commands</li>
-                <li>• Execute tests</li>
-                <li>• Install packages</li>
-                <li>• Git operations</li>
+                <li>• Approval flow for destructive ops</li>
               </ul>
             </div>
 
             <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
               <h3 className="font-semibold text-purple-300 mb-2">Planning</h3>
               <ul className="text-sm text-slate-300 space-y-1">
-                <li>• Create task lists</li>
-                <li>• Track progress</li>
-                <li>• Plan implementation</li>
-                <li>• Design architecture</li>
+                <li>• Enter plan mode, write plans</li>
+                <li>• Exit plan and implement</li>
               </ul>
             </div>
 
             <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
-              <h3 className="font-semibold text-pink-300 mb-2">Sub-Agents</h3>
+              <h3 className="font-semibold text-pink-300 mb-2">Tasks & Skills</h3>
               <ul className="text-sm text-slate-300 space-y-1">
-                <li>• Explore codebase</li>
-                <li>• Plan features</li>
-                <li>• Run specialized tasks</li>
-                <li>• Parallel execution</li>
+                <li>• Background tasks, todo lists</li>
+                <li>• Load and run user-defined skills</li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* Use Cases */}
-        <section className="mb-20">
-          <h2 className="heading-2">
-            <HiOutlineSparkles className="w-8 h-8 text-yellow-400" />
-            Common Use Cases
-          </h2>
-
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">1. Rapid Prototyping</h3>
-              <CodeWithResult
-                code={`co ai "create a REST API for blog posts with CRUD operations"`}
-                language="bash"
-              />
-              <p className="text-slate-300 mt-2">
-                Generates complete working code in seconds
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">2. Bug Fixing</h3>
-              <CodeWithResult
-                code={`co ai "fix the TypeError in api/routes.py on line 45"`}
-                language="bash"
-              />
-              <p className="text-slate-300 mt-2">
-                Analyzes code, identifies issue, applies fix
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">3. Adding Features</h3>
-              <CodeWithResult
-                code={`co ai "add pagination to the /users endpoint"`}
-                language="bash"
-              />
-              <p className="text-slate-300 mt-2">
-                Understands existing code, adds feature cleanly
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">4. Code Migration</h3>
-              <CodeWithResult
-                code={`co ai "migrate from requests to httpx in all API clients"`}
-                language="bash"
-              />
-              <p className="text-slate-300 mt-2">
-                Refactors across multiple files consistently
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">5. Test Generation</h3>
-              <CodeWithResult
-                code={`co ai "write comprehensive pytest tests for models/user.py"`}
-                language="bash"
-              />
-              <p className="text-slate-300 mt-2">
-                Generates test cases with proper fixtures and assertions
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Best Practices */}
-        <section className="mb-20">
-          <div className="bg-yellow-950/50 border border-yellow-400/40 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-yellow-100 mb-4">Best Practices</h3>
-            <div className="space-y-3 text-slate-100">
-              <div>
-                <strong className="text-green-300">✅ DO:</strong> Be specific in your prompts - "add user authentication with JWT" is better than "add auth"
-              </div>
-              <div>
-                <strong className="text-green-300">✅ DO:</strong> Use one-shot mode for quick tasks, interactive for complex projects
-              </div>
-              <div>
-                <strong className="text-green-300">✅ DO:</strong> Review generated code before running in production
-              </div>
-              <div>
-                <strong className="text-red-300">❌ DON'T:</strong> Run destructive commands without confirmation
-              </div>
-              <div>
-                <strong className="text-red-300">❌ DON'T:</strong> Use for critical security-sensitive code without review
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* API Reference */}
+        {/* Options */}
         <section className="mb-20">
           <h2 className="heading-2">
             <HiOutlineCodeBracket className="w-8 h-8 text-indigo-400" />
@@ -401,16 +279,30 @@ co ai "add comment" --max-iterations 10`}
                   <td className="px-4 py-3 font-mono text-purple-300">--model</td>
                   <td className="px-4 py-3 font-mono text-slate-400">-m</td>
                   <td className="px-4 py-3 text-slate-300">co/claude-opus-4-5</td>
-                  <td className="px-4 py-3 text-slate-100">Model to use</td>
+                  <td className="px-4 py-3 text-slate-100">LLM model to use</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-purple-300">--max-iterations</td>
                   <td className="px-4 py-3 font-mono text-slate-400">-i</td>
                   <td className="px-4 py-3 text-slate-300">100</td>
-                  <td className="px-4 py-3 text-slate-100">Maximum iterations</td>
+                  <td className="px-4 py-3 text-slate-100">Max tool iterations per turn</td>
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <div className="mt-6">
+            <CodeWithResult
+              code={`# Different port
+co ai --port 9000
+
+# Faster model
+co ai --model co/gemini-2.5-pro
+
+# One-shot with options
+co ai "build a microservice" --model co/gpt-4o --max-iterations 50`}
+              language="bash"
+            />
           </div>
         </section>
 
