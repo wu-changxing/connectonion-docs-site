@@ -353,6 +353,15 @@ export const navigation = [
     section: 'Useful Tools',
     keywords: ['shell', 'command', 'bash', 'terminal', 'execute', 'run'],
     prev: { href: '/useful-tools/diff-writer', title: 'Diff Writer' },
+    next: { href: '/useful-tools/bash', title: 'bash' }
+  },
+  {
+    title: 'bash',
+    href: '/useful-tools/bash',
+    icon: HiOutlineCommandLine,
+    section: 'Useful Tools',
+    keywords: ['bash', 'shell', 'command', 'execute', 'unix', 'mac', 'subprocess', 'terminal'],
+    prev: { href: '/useful-tools/shell', title: 'Shell' },
     next: { href: '/useful-tools/slash-command', title: 'Slash Command' }
   },
   {
@@ -389,6 +398,15 @@ export const navigation = [
     section: 'Useful Tools',
     keywords: ['file', 'tools', 'read', 'write', 'edit', 'glob', 'grep', 'snapshot', 'md5', 'permission'],
     prev: { href: '/useful-tools/todo-list', title: 'Todo List' },
+    next: { href: '/useful-tools/browser-tools', title: 'BrowserAutomation' }
+  },
+  {
+    title: 'BrowserAutomation',
+    href: '/useful-tools/browser-tools',
+    icon: FaChrome,
+    section: 'Useful Tools',
+    keywords: ['browser', 'playwright', 'automation', 'click', 'screenshot', 'navigate', 'session', 'persistent'],
+    prev: { href: '/useful-tools/file-tools', title: 'FileTools' },
     next: { href: '/google-integration', title: 'Google Integration' }
   },
 
@@ -400,7 +418,7 @@ export const navigation = [
     section: 'Integrations',
     difficulty: 'New',
     keywords: ['google', 'gmail', 'calendar', 'oauth', 'integration', 'schedule', 'meeting'],
-    prev: { href: '/useful-tools/todo-list', title: 'Todo List' },
+    prev: { href: '/useful-tools/browser-tools', title: 'BrowserAutomation' },
     next: { href: '/microsoft-integration', title: 'Microsoft Integration' }
   },
   {
@@ -524,6 +542,46 @@ export const navigation = [
     parent: '/useful-plugins',
     keywords: ['approval', 'tool', 'dangerous', 'web', 'websocket', 'permission', 'config'],
     prev: { href: '/useful-plugins/skills', title: 'skills' },
+    next: { href: '/useful-plugins/auto-compact', title: 'auto_compact' }
+  },
+  {
+    title: 'auto_compact',
+    href: '/useful-plugins/auto-compact',
+    icon: HiOutlineArrowPath,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['compact', 'context', 'window', 'compress', 'summarize', 'token', 'overflow', 'memory'],
+    prev: { href: '/useful-plugins/tool-approval', title: 'tool_approval' },
+    next: { href: '/useful-plugins/subagents', title: 'subagents' }
+  },
+  {
+    title: 'subagents',
+    href: '/useful-plugins/subagents',
+    icon: HiOutlineUsers,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['subagents', 'agents', 'spawn', 'delegate', 'task', 'specialized', 'parallel'],
+    prev: { href: '/useful-plugins/auto-compact', title: 'auto_compact' },
+    next: { href: '/useful-plugins/ulw', title: 'ulw' }
+  },
+  {
+    title: 'ulw',
+    href: '/useful-plugins/ulw',
+    icon: HiOutlineBolt,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['ulw', 'ultra', 'autonomous', 'mode', 'work', 'turns', 'checkpoint', 'approval'],
+    prev: { href: '/useful-plugins/subagents', title: 'subagents' },
+    next: { href: '/useful-plugins/ui-stream', title: 'ui_stream' }
+  },
+  {
+    title: 'ui_stream',
+    href: '/useful-plugins/ui-stream',
+    icon: HiOutlineWifi,
+    section: 'Useful Plugins',
+    parent: '/useful-plugins',
+    keywords: ['stream', 'websocket', 'ui', 'real-time', 'completion', 'host', 'events'],
+    prev: { href: '/useful-plugins/ulw', title: 'ulw' },
     next: { href: '/tui', title: 'TUI Components' }
   },
 
@@ -535,7 +593,7 @@ export const navigation = [
     section: 'TUI',
     difficulty: 'NEW',
     keywords: ['tui', 'terminal', 'ui', 'input', 'pick', 'dropdown', 'status', 'keyboard', 'rich'],
-    prev: { href: '/useful-plugins/system-reminder', title: 'system_reminder' },
+    prev: { href: '/useful-plugins/ui-stream', title: 'ui_stream' },
     next: { href: '/tui/pick', title: 'pick' }
   },
   {
