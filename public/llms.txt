@@ -1,0 +1,127 @@
+# ConnectOnion Documentation
+
+> ConnectOnion is a simple, elegant open-source Python framework for building production-ready AI agents. Philosophy: "Keep simple things simple, make complicated things possible." 2-line agent creation, functions as tools, built-in approval system, plugin architecture, and multi-agent networking.
+
+## Getting Started
+
+- [Introduction](https://docs.connectonion.com/): Overview of ConnectOnion framework
+- [Quick Start](https://docs.connectonion.com/quickstart): Install and build your first agent in 60 seconds
+- [Vibe Coding Guide](https://docs.connectonion.com/vibe-coding): Use AI tools like Cursor to build agents
+- [CLI Reference](https://docs.connectonion.com/cli): All CLI commands (co create, co init, co auth, co doctor)
+- [co ai](https://docs.connectonion.com/cli/ai): Built-in AI coding assistant that understands ConnectOnion
+- [co browser](https://docs.connectonion.com/cli/browser-command): Browser automation and screenshot tool
+
+## Core Concepts
+
+- [Agent](https://docs.connectonion.com/agent): Main orchestrator class — LLM calls, tool execution, event system
+- [System Prompts](https://docs.connectonion.com/prompts): Define agent personality via string, file, or Path
+- [Prompt Formats](https://docs.connectonion.com/prompts/formats): Supported prompt template formats
+- [Tools](https://docs.connectonion.com/tools): Functions become tools automatically via type hints and docstrings
+- [Models](https://docs.connectonion.com/models): Multi-provider support — OpenAI, Anthropic, Gemini, managed keys (co/)
+- [Pricing](https://docs.connectonion.com/models/pricing): Credits, token costs, and managed keys pricing
+- [LLM Function](https://docs.connectonion.com/llm_do): One-shot LLM calls without creating an agent
+- [Event System](https://docs.connectonion.com/on_events): 12 lifecycle hooks for injecting logic at any execution point
+- [Plugin System](https://docs.connectonion.com/plugin): Bundle event handlers into reusable plugins
+
+## Network
+
+- [host()](https://docs.connectonion.com/host): Make your agent remotely callable via HTTP + WebSocket + P2P relay
+- [Connect to Agents](https://docs.connectonion.com/connect): Call remote agents as tools
+- [Session Reconnect](https://docs.connectonion.com/session-reconnect): WebSocket session recovery and reconnection
+- [Threat Model](https://docs.connectonion.com/threat-model): Security considerations for networked agents
+
+## Features
+
+- [Permissions](https://docs.connectonion.com/features/permissions): Unified permission system for tools and commands
+- [Skills](https://docs.connectonion.com/features/skills): Reusable workflows with auto permission scoping, Claude Code compatible
+- [Audio Transcription](https://docs.connectonion.com/features/transcribe): Speech-to-text via Gemini
+- [Trust](https://docs.connectonion.com/features/trust): Multi-agent trust system — open, careful, strict presets
+
+## Useful Tools
+
+- [Overview](https://docs.connectonion.com/useful-tools): All built-in tools
+- [Memory](https://docs.connectonion.com/memory): Persistent memory as a tool
+- [WebFetch](https://docs.connectonion.com/web-fetch): Web scraping and content extraction
+- [Agent Emails](https://docs.connectonion.com/agent-emails): Email send/receive overview
+- [Send Email](https://docs.connectonion.com/agent-emails/send): SMTP email sending
+- [Receive Emails](https://docs.connectonion.com/agent-emails/receive): IMAP email fetching
+- [Gmail](https://docs.connectonion.com/gmail): Gmail OAuth integration with labels, CRM
+- [Outlook](https://docs.connectonion.com/outlook): Microsoft Outlook OAuth integration
+- [Diff Writer](https://docs.connectonion.com/useful-tools/diff-writer): File writing with human approval
+- [Shell](https://docs.connectonion.com/useful-tools/shell): Cross-platform command execution
+- [bash](https://docs.connectonion.com/useful-tools/bash): Unix/Mac command execution
+- [Slash Command](https://docs.connectonion.com/useful-tools/slash-command): Custom slash commands from markdown
+- [Terminal](https://docs.connectonion.com/useful-tools/terminal): Interactive terminal with autocomplete
+- [Todo List](https://docs.connectonion.com/useful-tools/todo-list): Task tracking tool
+- [FileTools](https://docs.connectonion.com/useful-tools/file-tools): File read/write/edit with safety tracking
+- [BrowserAutomation](https://docs.connectonion.com/useful-tools/browser-tools): Natural language browser automation via Playwright
+
+## Integrations
+
+- [Google Integration](https://docs.connectonion.com/google-integration): Gmail + Google Calendar OAuth setup
+- [Microsoft Integration](https://docs.connectonion.com/microsoft-integration): Outlook + Microsoft Calendar OAuth setup
+
+## Useful Plugins
+
+- [Overview](https://docs.connectonion.com/useful-plugins): All built-in plugins
+- [re_act](https://docs.connectonion.com/useful-plugins/re-act): ReAct reasoning — reflect + plan after each tool call
+- [eval](https://docs.connectonion.com/useful-plugins/eval): Task evaluation — judge if task is complete
+- [image_result_formatter](https://docs.connectonion.com/useful-plugins/image-result-formatter): Format image results for vision models
+- [shell_approval](https://docs.connectonion.com/useful-plugins/shell-approval): CLI approval for shell commands
+- [gmail_plugin](https://docs.connectonion.com/useful-plugins/gmail-plugin): Gmail approval flows
+- [calendar_plugin](https://docs.connectonion.com/useful-plugins/calendar-plugin): Calendar event approval
+- [system_reminder](https://docs.connectonion.com/useful-plugins/system-reminder): Context injection after tool execution
+- [prefer_write_tool](https://docs.connectonion.com/useful-plugins/prefer-write-tool): Block bash file writes, prefer FileTools
+- [skills](https://docs.connectonion.com/useful-plugins/skills): Skill auto-discovery and permission scoping
+- [tool_approval](https://docs.connectonion.com/useful-plugins/tool-approval): Web-based approval UI via WebSocket
+- [auto_compact](https://docs.connectonion.com/useful-plugins/auto-compact): Auto-compress context at 90% capacity
+- [subagents](https://docs.connectonion.com/useful-plugins/subagents): Spawn sub-agents with independent tools
+- [ulw](https://docs.connectonion.com/useful-plugins/ulw): Ultra Light Work — fully autonomous mode
+- [ui_stream](https://docs.connectonion.com/useful-plugins/ui-stream): Real-time streaming to web UI
+
+## TUI Components
+
+- [Overview](https://docs.connectonion.com/tui): Terminal UI component library
+- [pick](https://docs.connectonion.com/tui/pick): Single-select menu
+- [Input](https://docs.connectonion.com/tui/input): Text input with autocomplete
+- [Dropdown](https://docs.connectonion.com/tui/dropdown): Dropdown selection list
+- [StatusBar](https://docs.connectonion.com/tui/status-bar): Powerline-style status bar
+- [Footer](https://docs.connectonion.com/tui/footer): Help tips footer
+- [Divider](https://docs.connectonion.com/tui/divider): Visual separator
+- [Fuzzy Matching](https://docs.connectonion.com/tui/fuzzy): Fuzzy search scoring
+- [Keyboard Input](https://docs.connectonion.com/tui/keys): Raw keyboard input handling
+- [Providers](https://docs.connectonion.com/tui/providers): Data source providers for autocomplete
+- [Chat Interface](https://docs.connectonion.com/tui/chat): Terminal chat UI
+
+## Debug
+
+- [Interactive Debugging](https://docs.connectonion.com/auto-debug): Debug agents with auto_debug() and breakpoints
+- [Auto Debug Exception](https://docs.connectonion.com/auto-debug-exception): AI-powered crash analysis
+- [Browser Screenshots](https://docs.connectonion.com/tools/browser): Capture and debug browser state
+- [Logging](https://docs.connectonion.com/logging): Automatic activity logging to .co/logs/
+- [@xray Decorator](https://docs.connectonion.com/xray): Runtime context injection for debugging
+- [trace() Visual Flow](https://docs.connectonion.com/xray/trace): Visualize agent execution flow
+
+## Examples
+
+- [All Examples](https://docs.connectonion.com/examples): Browse all example agents
+- [Calculator](https://docs.connectonion.com/examples/calculator): Simple calculator agent
+- [Browser Automation](https://docs.connectonion.com/examples/browser): Web automation agent
+
+## Blog — Design Decisions
+
+- [Why input() Over run()](https://docs.connectonion.com/blog/input-method): API naming design decision
+- [Why llm_do() Over llm()](https://docs.connectonion.com/blog/llm-do): LLM function naming rationale
+- [Why We Chose "Trust"](https://docs.connectonion.com/blog/trust-keyword): Trust keyword design decision
+- [Network Protocol Design](https://docs.connectonion.com/blog/network-protocol-design): Architecture decisions
+- [Agent Address Format](https://docs.connectonion.com/blog/agent-address-format): Ed25519 public key addressing
+- [Why "Address" Over "Identity"](https://docs.connectonion.com/blog/naming-is-hard): Terminology choice
+- [Progressive Disclosure CLI](https://docs.connectonion.com/blog/cli-ux-progressive-disclosure): CLI UX design
+- [Auto-Debug Design Evolution](https://docs.connectonion.com/blog/auto-debug-evolution): Debug feature iteration
+
+## Links
+
+- [GitHub](https://github.com/openonion/connectonion): Source code and issues
+- [PyPI](https://pypi.org/project/connectonion/): Python package
+- [Discord](https://discord.gg/4xfD9k8AUF): Community chat
+- [Roadmap](https://docs.connectonion.com/roadmap): Upcoming features

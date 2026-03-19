@@ -27,4 +27,7 @@ Crawl-delay: 0
 # Sitemap Location
 Sitemap: https://docs.connectonion.com/sitemap.xml
 
+# LLMs.txt — AI-friendly content index
+# https://docs.connectonion.com/llms.txt
+
 # ConnectOnion (Connect Onion) - The simplest Python framework for building AI agents
