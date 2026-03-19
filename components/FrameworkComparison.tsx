@@ -434,8 +434,23 @@ export function FrameworkComparison() {
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-slate-100">Event hooks</td>
-                  <td className="px-4 py-3 text-purple-400 font-medium">9 types, full access</td>
+                  <td className="px-4 py-3 text-purple-400 font-medium">12 types, full access</td>
                   <td className="px-4 py-3 text-slate-200">Guardrails only, limited callbacks</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 text-slate-100">Built-in AI programmer</td>
+                  <td className="px-4 py-3 text-purple-400 font-medium">co ai</td>
+                  <td className="px-4 py-3 text-slate-200">None</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 text-slate-100">Frontend + Backend</td>
+                  <td className="px-4 py-3 text-purple-400 font-medium">Built-in</td>
+                  <td className="px-4 py-3 text-slate-200">Build your own</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 text-slate-100">Approval system</td>
+                  <td className="px-4 py-3 text-purple-400 font-medium">Plugin-based, built-in</td>
+                  <td className="px-4 py-3 text-slate-200">Build your own</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-slate-100">Free credits</td>

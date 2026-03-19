@@ -11,6 +11,7 @@ import { ContentNavigation } from '../components/ContentNavigation'
 import { FrameworkComparison } from '../components/FrameworkComparison'
 import { MacOSDownload } from '../components/MacOSDownload'
 import { AIFirstDevelopment } from '../components/AIFirstDevelopment'
+import { NonObviousAdvantages } from '../components/NonObviousAdvantages'
 import { VERSION } from '../lib/version'
 
 export default function HomePage() {
@@ -107,6 +108,9 @@ agent.input("What's the weather in NYC?")`}
 
       {/* Framework Comparison - The Main Feature */}
       <FrameworkComparison />
+
+      {/* Non-Obvious Advantages - What other frameworks don't have */}
+      <NonObviousAdvantages />
 
       {/* AI-First Development */}
       <AIFirstDevelopment />
