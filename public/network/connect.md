@@ -11,7 +11,7 @@
 │                            YOUR APPLICATION                                 │
 │  ┌──────────────┐        ┌──────────────┐        ┌──────────────────────┐  │
 │  │ React/Vue    │        │  Python      │        │  Swift/Kotlin        │  │
-│  │ useAgent()   │        │  connect()   │        │  connect()           │  │
+│  │ useAgentForHumanForHuman()   │        │  connect()   │        │  connect()           │  │
 │  └──────┬───────┘        └──────┬───────┘        └──────────┬───────────┘  │
 │         │                       │                           │              │
 └─────────┼───────────────────────┼───────────────────────────┼──────────────┘
@@ -373,7 +373,7 @@ Note: Relay /ws/input does not forward streaming events. Use direct host /ws for
 | `connectonion/network/connect.py` | Python client - RemoteAgent class |
 | `connectonion/network/relay.py` | Agent-side relay connection |
 | `connectonion-ts/src/connect.ts` | TypeScript client - same API |
-| `connectonion-ts/src/react/index.ts` | useAgent React hook |
+| `connectonion-ts/src/react/index.ts` | useAgentForHuman React hook |
 | `oo-api/relay/routes.py` | Relay server endpoints |
 
 ---
@@ -516,10 +516,10 @@ For reactive UI updates, use framework-specific hooks:
 ### React
 
 ```tsx
-import { useAgent } from 'connectonion/react';
+import { useAgentForHuman } from 'connectonion/react';
 
 function ChatUI() {
-    const agent = useAgent('0x...');
+    const agent = useAgentForHuman('0x...');
 
     return (
         <div>
@@ -542,9 +542,9 @@ function ChatUI() {
 
 ```vue
 <script setup>
-import { useAgent } from 'connectonion/vue';
+import { useAgentForHuman } from 'connectonion/vue';
 
-const agent = useAgent('0x...');
+const agent = useAgentForHuman('0x...');
 </script>
 
 <template>
@@ -564,7 +564,7 @@ const agent = useAgent('0x...');
 All hooks return the same interface:
 
 ```ts
-const agent = useAgent('0x...');
+const agent = useAgentForHuman('0x...');
 
 agent.ui        // UIEvent[] - reactive, auto updates
 agent.status    // 'idle' | 'working' | 'waiting' - reactive
@@ -601,10 +601,10 @@ class RemoteAgent:
     status: str              # 'idle' | 'working' | 'waiting'
 ```
 
-### useAgent() (React/Vue)
+### useAgentForHumanForHuman() (React/Vue)
 
 ```ts
-const agent = useAgent('0x...');
+const agent = useAgentForHuman('0x...');
 
 agent.ui        // Reactive - auto updates when data changes
 agent.status    // Reactive - 'idle' | 'working' | 'waiting'
@@ -746,7 +746,7 @@ agent.status  # 'idle' | 'working' | 'waiting'
 
 ```tsx
 // React / Vue (reactive)
-const agent = useAgent('0x...');
+const agent = useAgentForHuman('0x...');
 agent.ui      // Reactive - auto updates
 agent.send()  // Send message
 ```

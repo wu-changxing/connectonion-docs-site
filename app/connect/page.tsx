@@ -533,7 +533,7 @@ console.log(response.text)`}
         <section className="mb-20">
           <h2 className="heading-2">
             <HiOutlinePuzzlePiece className="w-8 h-8 text-cyan-400" />
-            React Hook: useAgent()
+            React Hook: useAgentForHuman()
           </h2>
 
           <p className="text-slate-100 mb-6 text-lg">
@@ -541,7 +541,7 @@ console.log(response.text)`}
           </p>
 
           <CodeWithResult
-            code={`import { useAgent } from 'connectonion/react'
+            code={`import { useAgentForHuman } from 'connectonion/react'
 
 function ChatPage() {
   const {
@@ -553,7 +553,7 @@ function ChatPage() {
     respond,         // answer ask_user
     respondToApproval,
     reset,           // clear conversation
-  } = useAgent("0x3d4017c3e843...", {
+  } = useAgentForHuman("0x3d4017c3e843...", {
     sessionId: "my-session-123"  // auto-persisted to localStorage
   })
 
@@ -667,12 +667,12 @@ respondToPlanReview("Skip step 2, go straight to report")`}
 
           <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 sm:p-6 overflow-x-auto mb-6">
             <pre className="text-sm font-mono text-slate-200 whitespace-pre leading-relaxed">{`oo-chat/
-├── app/[address]/[sessionId]/page.tsx   ← session page (uses useAgentSDK)
+├── app/[address]/[sessionId]/page.tsx   ← session page (uses useAgentForHumanSDK)
 ├── components/chat/
 │   ├── chat.tsx                         ← main Chat component
 │   ├── chat-input.tsx                   ← message input
 │   ├── chat-messages.tsx                ← message list
-│   ├── use-agent-sdk.ts                 ← wrapper hook around useAgent()
+│   ├── use-agent-sdk.ts                 ← wrapper hook around useAgentForHuman()
 │   └── messages/
 │       ├── tool-call.tsx                ← tool call rendering
 │       └── tools/plan-card.tsx          ← plan review UI
@@ -683,7 +683,7 @@ respondToPlanReview("Skip step 2, go straight to report")`}
 
           <CodeWithResult
             code={`// app/[address]/[sessionId]/page.tsx
-import { useAgentSDK } from '@/components/chat/use-agent-sdk'
+import { useAgentForHumanSDK } from '@/components/chat/use-agent-sdk'
 
 export default function ChatSession({ params }) {
   const { address, sessionId } = params
@@ -702,7 +702,7 @@ export default function ChatSession({ params }) {
     respondToPlanReview,
     setMode,
     clear,
-  } = useAgentSDK({ agentAddress: address, sessionId })
+  } = useAgentForHumanSDK({ agentAddress: address, sessionId })
 
   return (
     <Chat
@@ -732,8 +732,8 @@ export default function ChatSession({ params }) {
 │  oo-chat (Next.js)                               │
 │                                                   │
 │  page.tsx                                         │
-│    └─ useAgentSDK()     ← elapsed time, pending   │
-│         └─ useAgent()   ← connectonion/react      │
+│    └─ useAgentForHumanSDK()     ← elapsed time, pending   │
+│         └─ useAgentForHuman()   ← connectonion/react      │
 │              └─ connect()  ← WebSocket to agent   │
 │                                                   │
 │  <Chat />                                         │
