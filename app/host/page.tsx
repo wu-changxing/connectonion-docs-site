@@ -249,6 +249,16 @@ print(response.json()["result"])  # "Your name is John"`}
           <CodeWithResult
             code={`const ws = new WebSocket("ws://localhost:8000/ws");
 
+// Step 1: Authenticate and get session
+ws.send(JSON.stringify({
+  type: "CONNECT",
+  to: "0xAgentAddress...",
+  payload: { to: "0xAgent...", timestamp: Date.now() / 1000 },
+  from: "0xYourKey", signature: "0x..."
+}));
+// → Server responds: { type: "CONNECTED", session_id: "...", status: "new" }
+
+// Step 2: Send prompts (no auth needed)
 ws.send(JSON.stringify({
   type: "INPUT",
   prompt: "Translate hello to Spanish"
@@ -256,19 +266,21 @@ ws.send(JSON.stringify({
 
 ws.onmessage = (event) => {
   const msg = JSON.parse(event.data);
-  if (msg.type === "OUTPUT") {
-    console.log("Result:", msg.result);
-  } else if (msg.type === "STREAM") {
-    process.stdout.write(msg.chunk);
-  }
+  if (msg.type === "CONNECTED") console.log("Session:", msg.session_id);
+  else if (msg.type === "OUTPUT") console.log("Result:", msg.result);
+  else if (msg.type === "PING") ws.send(JSON.stringify({ type: "PONG" }));
 };`}
             language="javascript"
           />
 
           <div className="mt-6 grid md:grid-cols-2 gap-4">
+            <div className="bg-cyan-950/50 border border-cyan-400/40 rounded-lg p-4">
+              <h4 className="font-semibold text-cyan-100 mb-2">CONNECT → Server</h4>
+              <p className="text-sm text-slate-300">Authenticate + allocate session</p>
+            </div>
             <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-4">
               <h4 className="font-semibold text-blue-100 mb-2">INPUT → Agent</h4>
-              <p className="text-sm text-slate-300">Send prompts to the agent</p>
+              <p className="text-sm text-slate-300">Send prompts (after CONNECT)</p>
             </div>
             <div className="bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-4">
               <h4 className="font-semibold text-emerald-100 mb-2">OUTPUT ← Agent</h4>
