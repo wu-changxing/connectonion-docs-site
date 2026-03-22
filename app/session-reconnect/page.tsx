@@ -6,7 +6,7 @@
 
 'use client'
 
-import { HiOutlineArrowPath, HiOutlineSquare3Stack3D, HiOutlineQueueList, HiOutlineSignal, HiOutlineTrash, HiOutlineArchiveBox, HiOutlineArrowsRightLeft } from 'react-icons/hi2'
+import { HiOutlineArrowPath, HiOutlineSquare3Stack3D, HiOutlineQueueList, HiOutlineSignal, HiOutlineTrash, HiOutlineArchiveBox, HiOutlineArrowsRightLeft, HiOutlineCommandLine, HiOutlineExclamationTriangle } from 'react-icons/hi2'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
 
@@ -224,11 +224,11 @@ T+35                        ◄────────────────�
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="bg-red-950/30 border border-red-500/30 rounded-lg p-4">
               <p className="text-sm font-semibold text-red-300 mb-1">On disconnect</p>
-              <p className="text-sm text-slate-300"><code className="bg-gray-800 px-1 rounded">io.close()</code> puts a sentinel in the incoming queue, unblocking any waiting <code className="bg-gray-800 px-1 rounded">receive()</code>.</p>
+              <p className="text-sm text-slate-300"><code className="bg-gray-800 px-1 rounded">io.close()</code> sets <code className="bg-gray-800 px-1 rounded">_closed = True</code> and puts a sentinel in the incoming queue, unblocking any waiting <code className="bg-gray-800 px-1 rounded">receive()</code>. After close, <code className="bg-gray-800 px-1 rounded">io.send()</code> silently drops events.</p>
             </div>
             <div className="bg-green-950/30 border border-green-500/30 rounded-lg p-4">
               <p className="text-sm font-semibold text-green-300 mb-1">On reconnect</p>
-              <p className="text-sm text-slate-300">The <strong>same io object</strong> is reused. A new WebSocket handler pumps the same queues.</p>
+              <p className="text-sm text-slate-300">The <strong>same io object</strong> is reused. A new WebSocket handler pumps the same queues. <strong>Caveat:</strong> IO must be reopened (<code className="bg-gray-800 px-1 rounded">_closed = False</code>) for the agent to send again.</p>
             </div>
           </div>
         </section>
@@ -377,6 +377,99 @@ iteration: 5                iteration: 10
                 </tr>
               </tbody>
             </table>
+          </div>
+        </section>
+
+        {/* Server Console Output */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCommandLine className="w-8 h-8 text-slate-400" />
+            Server Console Output
+          </h2>
+
+          <p className="text-slate-100 mb-4 text-lg">
+            The WebSocket handler prints structured status lines to the server console. Designed for quick scanning: routine messages are compact, data flow events are indented sub-lines.
+          </p>
+
+          <Diagram label="Connection lifecycle">
+{`⚡ ws+ 127.0.0.1 (0 active)        # new WebSocket, show session count
+✓ CONNECT identity=0x2f3d... session=aad5... status=new
+✓ INPUT identity=0x2f3d... session=aad5... prompt=hello world...
+⚡ ws- (1 active)                    # disconnect, remaining sessions`}
+          </Diagram>
+
+          <Diagram label="Data flow visibility — when client data is used">
+{`✓ CONNECT identity=0x2f3d... session=aad5... status=connected
+  ↑ client session: 4 messages       # client sent history
+  ↕ merged sessions (server newer)   # server had newer data
+
+✓ CONNECT identity=0x2f3d... session=aad5... status=executing
+  ↻ reattaching to running agent     # reconnecting mid-execution
+
+✓ INPUT identity=0x2f3d... session=aad5... prompt=analyze this...
+  ↑ 2 images, 1 files                # client sent attachments`}
+          </Diagram>
+
+          <div className="grid md:grid-cols-2 gap-4 mt-4">
+            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+              <p className="text-sm font-semibold text-slate-300 mb-1">Suppressed</p>
+              <p className="text-sm text-slate-400">CONNECT, INPUT, SESSION_STATUS, PONG — these have their own status lines.</p>
+            </div>
+            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+              <p className="text-sm font-semibold text-slate-300 mb-1">Still logged</p>
+              <p className="text-sm text-slate-400">ADMIN_*, ONBOARD_SUBMIT, and unexpected types print <code className="bg-gray-800 px-1 rounded">← WS recv:</code>.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Known Issue */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineExclamationTriangle className="w-8 h-8 text-amber-400" />
+            Known Issue: Reconnect During Approval
+          </h2>
+
+          <p className="text-slate-100 mb-4 text-lg">
+            When a client refreshes while the agent is blocked waiting for approval (e.g., bash tool), reconnection fails. Three bugs compound:
+          </p>
+
+          <Diagram label="Bug chain: refresh during approval">
+{`T+0    Agent sends approval_needed, blocks on io.receive()
+T+5    Client refreshes → WebSocket disconnects
+       → io.close() puts sentinel in io._incoming
+       → io.receive() unblocks with {"type": "io_closed"}
+       → Agent treats as "connection closed" error
+       → run_agent() has NO try/finally
+         → agent_finished.set() NEVER fires
+         → _pipe_ws_io hangs forever
+
+T+10   New WebSocket connects → CONNECT { session_id }
+       → registry.get() finds session, still 'executing'
+       → Reattach: uses SAME io object
+       → BUT io._closed = True → io.send() drops all events
+       → Agent can't send to new client`}
+          </Diagram>
+
+          <div className="space-y-3 mt-4">
+            {[
+              { label: 'run_agent() has no error handling', desc: 'If agent crashes, agent_finished.set() never fires. _pipe_ws_io hangs forever waiting.' },
+              { label: 'Reattach uses closed IO', desc: 'On reconnect, the server reattaches to the old io object with _closed = True. io.send() silently drops all events.' },
+              { label: 'Two _pipe_ws_io loops compete', desc: 'The old loop (stuck) and the new loop (from reattach) both reference the same agent_finished event.' },
+            ].map(({ label, desc }) => (
+              <div key={label} className="flex items-start gap-3">
+                <span className="text-amber-400 mt-0.5">&#x2022;</span>
+                <p className="text-sm text-slate-300"><strong className="text-white">{label}.</strong> {desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-amber-950/30 border border-amber-500/30 rounded-lg p-4 mt-6">
+            <p className="text-sm font-semibold text-amber-300 mb-2">Fix plan</p>
+            <div className="space-y-2 text-sm text-slate-300">
+              <p>1. <strong>run_agent()</strong>: wrap in try/finally — always set agent_finished, capture error in error_holder.</p>
+              <p>2. <strong>Reattach</strong>: reopen IO — reset io._closed = False so agent can send events through new WebSocket.</p>
+              <p>3. <strong>Old _pipe_ws_io</strong>: detect superseded — when new connection reattaches, old pipe should exit cleanly.</p>
+            </div>
           </div>
         </section>
 
