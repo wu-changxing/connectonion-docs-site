@@ -249,16 +249,16 @@ print(response.json()["result"])  # "Your name is John"`}
           <CodeWithResult
             code={`const ws = new WebSocket("ws://localhost:8000/ws");
 
-// Step 1: Authenticate and get session
+// Step 1: CONNECT — authenticate + find/create session
 ws.send(JSON.stringify({
   type: "CONNECT",
-  to: "0xAgentAddress...",
   payload: { to: "0xAgent...", timestamp: Date.now() / 1000 },
-  from: "0xYourKey", signature: "0x..."
+  from: "0xYourKey", signature: "0x...",
+  session_id: savedId  // optional — omit for new session
 }));
-// → Server responds: { type: "CONNECTED", session_id: "...", status: "new" }
+// → { type: "CONNECTED", session_id: "...", status: "new" }
 
-// Step 2: Send prompts (no auth needed)
+// Step 2: INPUT — send prompts (after CONNECT)
 ws.send(JSON.stringify({
   type: "INPUT",
   prompt: "Translate hello to Spanish"
@@ -276,7 +276,7 @@ ws.onmessage = (event) => {
           <div className="mt-6 grid md:grid-cols-2 gap-4">
             <div className="bg-cyan-950/50 border border-cyan-400/40 rounded-lg p-4">
               <h4 className="font-semibold text-cyan-100 mb-2">CONNECT → Server</h4>
-              <p className="text-sm text-slate-300">Authenticate + allocate session</p>
+              <p className="text-sm text-slate-300">Authenticate + find/create session (one message for new and resume)</p>
             </div>
             <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-4">
               <h4 className="font-semibold text-blue-100 mb-2">INPUT → Agent</h4>
