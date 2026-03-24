@@ -142,6 +142,12 @@ export default function PricingPage() {
                 <td className="px-4 py-3 text-slate-300">Fastest Gemini 3</td>
               </tr>
               <tr>
+                <td className="px-4 py-3"><code className="text-sm text-green-300">gemini-3.1-flash-lite-preview</code></td>
+                <td className="px-4 py-3 text-slate-100">$0.10</td>
+                <td className="px-4 py-3 text-slate-100">$0.40</td>
+                <td className="px-4 py-3 text-slate-300">Ultra fast, cheapest Gemini 3</td>
+              </tr>
+              <tr>
                 <td className="px-4 py-3">
                   <code className="text-sm text-green-300">gemini-2.5-pro</code>
                   <span className="ml-2 text-xs bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded">default</span>

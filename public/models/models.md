@@ -57,6 +57,9 @@ agent = Agent("assistant", model="co/gemini-3-flash-preview")
 
 # Image generation model with grounded generation
 agent = Agent("assistant", model="co/gemini-3-pro-image-preview")
+
+# Ultra fast, cheapest Gemini 3
+agent = Agent("assistant", model="co/gemini-3.1-flash-lite-preview")
 ```
 
 ### Gemini 2.5
@@ -176,6 +179,7 @@ All prices are **per 1M tokens**:
 |-------|-------|--------|-------|
 | gemini-3-pro-preview | $2.00 | $12.00 | State-of-the-art reasoning |
 | gemini-3-flash-preview | $0.50 | $3.00 | Fastest Gemini 3 |
+| gemini-3.1-flash-lite-preview | $0.10 | $0.40 | Ultra fast, cheapest Gemini 3 |
 | gemini-3-pro-image-preview | $2.00 | $0.134 | Image generation |
 | gemini-2.5-pro | $1.25 | $10.00 | **Default model** |
 | gemini-2.5-flash | $0.30 | $2.50 | Best price-performance |

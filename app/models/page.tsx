@@ -101,6 +101,7 @@ response = agent.input("Hello!")
 ### Google Gemini Models
 - **gemini-3-pro-preview** - State-of-the-art reasoning, 1M context
 - **gemini-3-flash-preview** - Fastest Gemini 3 model
+- **gemini-3.1-flash-lite-preview** - Ultra fast, cheapest Gemini 3
 - **gemini-2.5-pro** - Default model, best price-performance for agents
 - **gemini-2.5-flash** - Best price-performance ratio
 - **gemini-2.0-flash** - Previous gen workhorse
@@ -397,6 +398,10 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
                 <div className="flex items-start">
                   <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-image-preview</code>
                   <span className="text-slate-100">Image generation with grounded generation</span>
+                </div>
+                <div className="flex items-start">
+                  <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.1-flash-lite-preview</code>
+                  <span className="text-slate-100">Ultra fast, cheapest Gemini 3</span>
                 </div>
               </div>
             </div>
