@@ -454,7 +454,7 @@ export function FrameworkComparison() {
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-slate-100">Free credits</td>
-                  <td className="px-4 py-3 text-green-400 font-medium">Yes</td>
+                  <td className="px-4 py-3 text-green-400 font-medium">$5 free</td>
                   <td className="px-4 py-3 text-red-400">No</td>
                 </tr>
               </tbody>

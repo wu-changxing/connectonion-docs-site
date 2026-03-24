@@ -106,11 +106,11 @@ agent.input("What's the weather in NYC?")`}
         </div>
       </section>
 
-      {/* Framework Comparison - The Main Feature */}
-      <FrameworkComparison />
-
       {/* Non-Obvious Advantages - What other frameworks don't have */}
       <NonObviousAdvantages />
+
+      {/* Framework Comparison - Code-level differences */}
+      <FrameworkComparison />
 
       {/* AI-First Development */}
       <AIFirstDevelopment />
@@ -127,13 +127,13 @@ agent.input("What's the weather in NYC?")`}
             </div>
             <div className="flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-white mb-2">Start Free - No API Key Needed</h3>
+                <h3 className="text-xl font-bold text-white mb-2">$5 Free Credits - No API Key Needed</h3>
                 <p className="text-slate-200 text-sm">
-                  Get started immediately with free credits for GPT-4o, Claude, and Gemini.
+                  Get $5 free credits to try Gemini 3 Flash Preview, GPT-4o, Claude, and more. Start building immediately.
                 </p>
               </div>
               <div className="bg-black/40 rounded-lg p-4 font-mono text-sm border border-green-500/20">
-                <div><span className="text-green-400">model=</span><span className="text-yellow-300">"co/gemini-2.5-pro"</span></div>
+                <div><span className="text-green-400">model=</span><span className="text-yellow-300">"co/gemini-3-flash-preview"</span></div>
                 <div className="text-slate-200 text-xs mt-1">Check balance: co status</div>
               </div>
             </div>
