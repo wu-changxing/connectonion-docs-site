@@ -177,6 +177,38 @@ print(response.json()["result"])  # "Your name is John"`}
               />
             </div>
 
+            <div className="bg-teal-950/50 border border-teal-400/40 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-teal-100 mb-4">Sending Images & Files</h3>
+              <p className="text-slate-100 mb-4">
+                Both HTTP and WebSocket accept images and files alongside text prompts:
+              </p>
+              <CodeWithResult
+                code={`# Send with files
+curl -X POST http://localhost:8000/input \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "prompt": "Summarize this document",
+    "files": [
+      {"name": "report.pdf", "data": "data:application/pdf;base64,JVBERi..."}
+    ]
+  }'
+
+# Send with images
+curl -X POST http://localhost:8000/input \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "prompt": "What do you see?",
+    "images": ["data:image/png;base64,iVBORw0KGgo..."]
+  }'`}
+                language="bash"
+              />
+              <div className="mt-4 space-y-2 text-sm text-slate-300">
+                <p><strong className="text-teal-200">Images</strong> are passed directly to the LLM as visual content (multimodal).</p>
+                <p><strong className="text-teal-200">Files</strong> are decoded from base64, saved to <code className="bg-gray-800 px-1 rounded">.co/uploads/</code>, and the agent reads them via tools like <code className="bg-gray-800 px-1 rounded">read_file</code>.</p>
+                <p><strong className="text-teal-200">Limits:</strong> Default 10MB per file, 10 files per request. Configure in <code className="bg-gray-800 px-1 rounded">.co/host.yaml</code> or via <code className="bg-gray-800 px-1 rounded">host()</code> params.</p>
+              </div>
+            </div>
+
             <div>
               <h3 className="text-xl font-semibold mb-4">GET /sessions/{'{session_id}'} - Fetch Results</h3>
               <CodeWithResult
@@ -227,10 +259,21 @@ print(response.json()["result"])  # "Your name is John"`}
   "address": "0x3d4017c3...",
   "tools": ["translate", "detect_language"],
   "trust": "careful",
-  "version": "0.5.10"
+  "version": "0.5.10",
+  "accepted_inputs": {
+    "text": true,
+    "images": true,
+    "files": {
+      "max_file_size_mb": 10,
+      "max_files_per_request": 10
+    }
+  }
 }`}
                 language="bash"
               />
+              <p className="text-sm text-slate-400 mt-2">
+                The <code className="bg-gray-800 px-1 rounded">accepted_inputs</code> field tells clients what input types the agent supports and file size limits.
+              </p>
             </div>
           </div>
         </section>

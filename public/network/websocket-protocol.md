@@ -215,6 +215,43 @@ Send a prompt. Only valid after CONNECTED. **No session data — just the prompt
 }
 ```
 
+| Field | Required | Description |
+|-------|----------|-------------|
+| `prompt` | Yes | The user's message |
+| `images` | No | Array of base64 data URLs (passed directly to LLM as visual content) |
+| `files` | No | Array of file objects (saved to disk, agent reads via tools) |
+
+##### File Upload Protocol
+
+Files are sent inline as base64-encoded data URLs. Each file object has two fields:
+
+```json
+{
+  "name": "report.pdf",
+  "data": "data:application/pdf;base64,JVBERi0xLjQK..."
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | `string` | Filename (e.g. `"report.pdf"`). Path components are stripped for security. |
+| `data` | `string` | Base64-encoded data URL. Format: `data:<mime>;base64,<payload>` or raw base64. |
+
+**Server-side handling:**
+1. Validates against file limits (default: 10MB per file, 10 files per request)
+2. Decodes base64 and saves to `.co/uploads/{filename}`
+3. Adds file paths to the agent's message as a system reminder
+4. Agent uses `read_file` or other tools to process the files
+
+**Important:** Images and files are handled differently:
+- **Images** → passed directly to the LLM as visual content (multimodal)
+- **Files** → saved to disk, agent reads them via tools
+
+**Error on limit exceeded:**
+```json
+{ "type": "ERROR", "message": "File too large: video.mp4 (150.2MB, max: 10MB)" }
+```
+
 #### PONG
 
 ```json

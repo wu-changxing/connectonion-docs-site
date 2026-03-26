@@ -330,6 +330,101 @@ try {
 
 ---
 
+## Sending Files
+
+All SDKs support sending files alongside prompts. Files are base64-encoded and sent inline.
+
+### Python
+
+```python
+import base64
+
+agent = connect("0x...")
+
+# Read file and convert to data URL
+with open("report.pdf", "rb") as f:
+    data_url = f"data:application/pdf;base64,{base64.b64encode(f.read()).decode()}"
+
+response = agent.input("Summarize this document", files=[
+    {"name": "report.pdf", "data": data_url}
+])
+```
+
+### TypeScript
+
+```typescript
+import { connect, FileAttachment } from 'connectonion';
+
+const agent = connect('0x...');
+
+// From a File object (browser)
+const file = fileInput.files[0];
+const reader = new FileReader();
+reader.onload = async () => {
+  const attachment: FileAttachment = {
+    name: file.name,
+    type: file.type,
+    size: file.size,
+    dataUrl: reader.result as string,
+  };
+  const response = await agent.input('Summarize this', { files: [attachment] });
+};
+reader.readAsDataURL(file);
+```
+
+### React (useAgentForHuman)
+
+```tsx
+import { useAgentForHuman, FileAttachment } from 'connectonion/react';
+
+function Chat() {
+  const { input } = useAgentForHuman('0x...', { sessionId: 'my-session' });
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const attachment: FileAttachment = {
+        name: file.name,
+        type: file.type,
+        size: file.size,
+        dataUrl: reader.result as string,
+      };
+      input('Analyze this file', { files: [attachment] });
+    };
+    reader.readAsDataURL(file);
+  };
+
+  return <input type="file" onChange={handleFileUpload} />;
+}
+```
+
+### FileAttachment Type (TypeScript)
+
+```typescript
+interface FileAttachment {
+  name: string;      // Filename (e.g. "report.pdf")
+  type: string;      // MIME type (e.g. "application/pdf")
+  size: number;      // File size in bytes
+  dataUrl: string;   // Base64 data URL: "data:<mime>;base64,..."
+}
+```
+
+### File Limits
+
+Default: **10MB per file**, **10 files per request**. Check limits via `/info`:
+
+```bash
+curl http://agent-host:8000/info
+# → { "accepted_inputs": { "files": { "max_file_size_mb": 10, "max_files_per_request": 10 } } }
+```
+
+Server-side, files are saved to `.co/uploads/{filename}` and the agent reads them via tools. See [host.md — Multimodal Input](host.md#multimodal-input-images--files) for server-side details.
+
+---
+
 ## Message Protocol
 
 ### INPUT (Client → Relay → Agent)

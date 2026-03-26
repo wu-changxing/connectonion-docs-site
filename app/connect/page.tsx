@@ -6,7 +6,7 @@
 
 'use client'
 
-import { HiOutlineServerStack, HiOutlineBolt, HiOutlineArrowPath, HiOutlineSquare3Stack3D, HiOutlineCheck, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineUsers, HiOutlineGlobeAlt, HiOutlineCpuChip, HiOutlineWindow, HiOutlinePuzzlePiece } from 'react-icons/hi2'
+import { HiOutlineServerStack, HiOutlineBolt, HiOutlineArrowPath, HiOutlineSquare3Stack3D, HiOutlineCheck, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineUsers, HiOutlineGlobeAlt, HiOutlineCpuChip, HiOutlineWindow, HiOutlinePuzzlePiece, HiOutlineDocumentText } from 'react-icons/hi2'
 import Link from 'next/link'
 import CodeWithResult from '../../components/CodeWithResult'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -651,6 +651,143 @@ respondToPlanReview("Skip step 2, go straight to report")`}
                 language="typescript"
               />
             </div>
+          </div>
+        </section>
+
+        {/* Sending Files */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineDocumentText className="w-8 h-8 text-teal-400" />
+            Sending Files
+          </h2>
+
+          <p className="text-slate-100 mb-6 text-lg">
+            All SDKs support sending files alongside prompts. Files are base64-encoded and sent inline as data URLs.
+          </p>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-3">Python</h3>
+              <CodeWithResult
+                code={`import base64
+from connectonion import connect
+
+agent = connect("0x...")
+
+# Read file and convert to data URL
+with open("report.pdf", "rb") as f:
+    data_url = f"data:application/pdf;base64,{base64.b64encode(f.read()).decode()}"
+
+response = agent.input("Summarize this document", files=[
+    {"name": "report.pdf", "data": data_url}
+])`}
+                language="python"
+                fileName="send_file.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-3">TypeScript</h3>
+              <CodeWithResult
+                code={`import { connect, FileAttachment } from 'connectonion'
+
+const agent = connect('0x...')
+
+// From a File object (browser)
+const file = fileInput.files[0]
+const reader = new FileReader()
+reader.onload = async () => {
+  const attachment: FileAttachment = {
+    name: file.name,
+    type: file.type,
+    size: file.size,
+    dataUrl: reader.result as string,
+  }
+  const response = await agent.input('Summarize this', { files: [attachment] })
+}
+reader.readAsDataURL(file)`}
+                language="typescript"
+                fileName="send_file.ts"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-3">React (useAgentForHuman)</h3>
+              <CodeWithResult
+                code={`import { useAgentForHuman, FileAttachment } from 'connectonion/react'
+
+function Chat() {
+  const { input } = useAgentForHuman('0x...', { sessionId: 'my-session' })
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    const reader = new FileReader()
+    reader.onload = () => {
+      const attachment: FileAttachment = {
+        name: file.name,
+        type: file.type,
+        size: file.size,
+        dataUrl: reader.result as string,
+      }
+      input('Analyze this file', { files: [attachment] })
+    }
+    reader.readAsDataURL(file)
+  }
+
+  return <input type="file" onChange={handleFileUpload} />
+}`}
+                language="tsx"
+                fileName="FileUpload.tsx"
+              />
+            </div>
+          </div>
+
+          <div className="mt-6">
+            <h3 className="text-xl font-semibold mb-3">FileAttachment Type</h3>
+            <CodeWithResult
+              code={`interface FileAttachment {
+  name: string      // Filename (e.g. "report.pdf")
+  type: string      // MIME type (e.g. "application/pdf")
+  size: number      // File size in bytes
+  dataUrl: string   // Base64 data URL: "data:<mime>;base64,..."
+}`}
+              language="typescript"
+              fileName="types.ts"
+            />
+          </div>
+
+          <div className="mt-6 space-y-4">
+            <h3 className="text-xl font-semibold mb-3">How It Works</h3>
+            <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 sm:p-6 overflow-x-auto">
+              <pre className="text-sm font-mono text-slate-200 whitespace-pre leading-relaxed">{`Client                              Server
+  │                                    │
+  │  Convert file to base64 data URL   │
+  │                                    │
+  │── INPUT ──────────────────────────►│
+  │  { prompt, files: [               │
+  │    { name, data: "data:...;base64,│
+  │      ..." }                        │
+  │  ]}                                │
+  │                                    │
+  │                 Validate file limits│
+  │                 Decode base64      │
+  │                 Save to .co/uploads│
+  │                 Tell agent paths   │
+  │                                    │
+  │                 Agent reads files  │
+  │                 via read_file tool │
+  │                                    │
+  │◄── OUTPUT ────────────────────────│
+  │  { result }                        │`}</pre>
+            </div>
+          </div>
+
+          <div className="mt-6 bg-teal-950/50 border border-teal-400/40 rounded-lg p-6">
+            <p className="text-sm text-teal-100">
+              <strong>File limits:</strong> Default 10MB per file, 10 files per request. Check agent limits via <code className="bg-gray-800 px-1 rounded">GET /info</code> → <code className="bg-gray-800 px-1 rounded">accepted_inputs.files</code>. Server-side, files are saved to <code className="bg-gray-800 px-1 rounded">.co/uploads/</code> and the agent reads them via tools. See <Link href="/host" className="text-teal-300 hover:text-teal-200 underline">host()</Link> for server-side details.
+            </p>
           </div>
         </section>
 
