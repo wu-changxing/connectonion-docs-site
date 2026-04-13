@@ -22,6 +22,8 @@ export default function SubagentsPage() {
           iconBorderColor="border-violet-500/30"
           title="subagents"
           description="Spawn specialized sub-agents to handle specific tasks. Delegate work to focused agents with their own tools, model, and system prompt."
+          markdownPath="/useful-plugins/subagents.md"
+          markdownFilename="subagents.md"
         />
 
         <div className="bg-violet-950/50 border border-violet-400/40 rounded-lg p-6 mb-16">

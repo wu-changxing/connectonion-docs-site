@@ -22,6 +22,8 @@ export default function AutoCompactPage() {
           iconBorderColor="border-cyan-500/30"
           title="auto_compact"
           description="Automatically compress context when the conversation gets too long, preventing token overflow without interrupting the agent."
+          markdownPath="/useful-plugins/auto_compact.md"
+          markdownFilename="auto_compact.md"
         />
 
         <div className="bg-cyan-950/50 border border-cyan-400/40 rounded-lg p-6 mb-16">

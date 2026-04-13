@@ -23,7 +23,7 @@ export default function FileToolsPage() {
           iconBorderColor="border-blue-500/30"
           title="FileTools"
           description="Claude Code-style file operations with read-before-edit tracking and permission control."
-          markdownPath="/file_tools.md"
+          markdownPath="/useful-tools/file_tools.md"
           markdownFilename="file_tools.md"
         />
 

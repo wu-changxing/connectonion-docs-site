@@ -22,6 +22,8 @@ export default function BashPage() {
           iconBorderColor="border-slate-500/30"
           title="bash"
           description="Execute bash commands from an agent. Returns stdout + stderr as a string. Unix/Mac only."
+          markdownPath="/useful-tools/bash.md"
+          markdownFilename="bash.md"
         />
 
         <div className="bg-slate-950/50 border border-slate-400/40 rounded-lg p-6 mb-16">

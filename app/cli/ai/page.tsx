@@ -29,6 +29,8 @@ export default function CliAiPage() {
             iconBorderColor="border-purple-500/30"
             title="co ai"
             description="AI coding agent that works in your project. Start a web chat session or run one-shot prompts — with full access to your files, shell, and tools."
+            markdownPath="/cli/ai.md"
+            markdownFilename="ai.md"
           />
 
           <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">

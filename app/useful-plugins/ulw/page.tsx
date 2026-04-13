@@ -22,6 +22,8 @@ export default function UlwPage() {
           iconBorderColor="border-orange-500/30"
           title="ulw"
           description="Ultra Light Work — autonomous mode where the agent keeps working turn after turn without approval prompts, until it reaches a checkpoint."
+          markdownPath="/useful-plugins/ulw.md"
+          markdownFilename="ulw.md"
         />
 
         <div className="bg-orange-950/50 border border-orange-400/40 rounded-lg p-6 mb-16">

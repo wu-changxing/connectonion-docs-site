@@ -22,6 +22,8 @@ export default function UiStreamPage() {
           iconBorderColor="border-emerald-500/30"
           title="ui_stream"
           description="Stream agent completion summaries to WebSocket UI clients. Used with host() for real-time updates in web chat interfaces."
+          markdownPath="/useful-plugins/ui_stream.md"
+          markdownFilename="ui_stream.md"
         />
 
         <div className="bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6 mb-16">

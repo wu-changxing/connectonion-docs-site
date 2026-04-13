@@ -121,7 +121,7 @@ Read-only operations that never modify state:
 ```
 read, read_file, glob, grep, search
 list_files, get_file_info, task, load_guide
-enter_plan_mode, exit_plan_mode, write_plan
+enter_plan_mode, exit_plan_and_implement, write_plan
 task_output, ask_user
 ```
 
@@ -321,29 +321,60 @@ permissions:
 
 ## Bash Command Chain Permissions
 
-Uses **bashlex** to parse and validate command chains - ALL commands must be permitted.
+Uses **bashlex** to parse and validate command chains. ALL subcommands must match a permission — one unlisted command rejects the whole chain.
 
 ### How It Works
 
 When bash executes `pwd && ls -F`:
 
-1. **Parse** with bashlex → `["pwd", "ls"]`
-2. **Check** each command against permissions
-3. **Approve** only if ALL commands are whitelisted
-4. **Reject** if ANY command lacks permission
+1. **Parse** with bashlex → `[("pwd", "pwd"), ("ls", "ls -F")]` — full subcommand text, including args
+2. **Check** each subcommand against permissions using `fnmatch`
+3. **Approve** only if ALL subcommands match a permission
+4. **Reject** if ANY subcommand has no matching permission
+
+Each subcommand is matched as its full text (e.g. `"ls -F"`), not just the command name (`"ls"`). This means:
+
+- `Bash(ls *)` matches `ls -F` ✅ — wildcard covers the args
+- `Bash(ls *)` does NOT match bare `ls` ❌ — no args after the space
+- `Bash(git diff *)` matches `git diff --staged` ✅
+- `Bash(git diff *)` does NOT match `git status` ❌
+
+### `when` Field at Runtime
+
+When a `Bash(X)` pattern is loaded from config, it is stored internally as a `bash` key with a `when: {command: X}` field. At runtime this field is validated against the **full subcommand** via `fnmatch`:
+
+```yaml
+# In host.yaml
+"Bash(git diff *)":
+  allowed: true
+  source: config
+  reason: safe git diff
+```
+
+Internally becomes:
+```python
+{'bash': {'allowed': True, 'when': {'command': 'git diff *'}}}
+```
+
+At runtime:
+- `git diff --staged` → `fnmatch("git diff --staged", "git diff *")` → ✅ permitted
+- `git status`       → `fnmatch("git status", "git diff *")` → ❌ rejected
+- `timeout 300 bash script.sh` → `fnmatch("timeout 300 bash script.sh", "git diff *")` → ❌ rejected
+
+This prevents a `bash` key from becoming a wildcard that approves any command.
 
 ### Examples
 
 **✅ All Permitted:**
 ```yaml
 permissions:
-  "Bash(pwd)": {allowed: true, ...}
-  "Bash(ls *)": {allowed: true, ...}
+  "Bash(pwd)":   {allowed: true, ...}
+  "Bash(ls *)":  {allowed: true, ...}
 ```
 
 Command: `pwd && ls -F`
-- ✅ pwd permitted
-- ✅ ls permitted
+- ✅ `pwd` matches `Bash(pwd)` exactly
+- ✅ `ls -F` matches `Bash(ls *)` via wildcard
 - **Result:** Auto-approved ⚡
 
 **❌ Partial Permission:**
@@ -354,21 +385,20 @@ permissions:
 ```
 
 Command: `pwd && rm -rf /`
-- ✅ pwd permitted
-- ❌ rm NOT permitted
+- ✅ `pwd` permitted
+- ❌ `rm -rf /` has no matching permission
 - **Result:** Requires approval ⚠️
 
 ### Supported Syntax
 
 bashlex handles all bash constructs:
 
-| Syntax | Example | Commands Extracted |
-|--------|---------|-------------------|
-| AND (`&&`) | `pwd && ls` | `["pwd", "ls"]` |
-| OR (`\|\|`) | `test -f file \|\| echo no` | `["test", "echo"]` |
-| Pipe (`\|`) | `cat file \| grep test` | `["cat", "grep"]` |
-| Semicolon (`;`) | `echo a; echo b` | `["echo", "echo"]` |
-| Complex | `sw_vers; df -h \| grep /` | `["sw_vers", "df", "grep"]` |
+| Syntax | Example | Subcommands Extracted |
+|--------|---------|----------------------|
+| AND (`&&`) | `pwd && ls -F` | `[("pwd","pwd"), ("ls","ls -F")]` |
+| OR (`\|\|`) | `test -f f \|\| echo no` | `[("test","test -f f"), ("echo","echo no")]` |
+| Pipe (`\|`) | `cat file \| grep test` | `[("cat","cat file"), ("grep","grep test")]` |
+| Semicolon (`;`) | `echo a; echo b` | `[("echo","echo a"), ("echo","echo b")]` |
 
 ### Security
 

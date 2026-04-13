@@ -1,29 +1,81 @@
 # Roadmap
 
-Track our progress from v0.0.1 to v1.0 and beyond.
+ConnectOnion's development roadmap. Track progress on [GitHub](https://github.com/openonion/connectonion/milestones).
 
-## Core
-- [x] **Basic Agent Framework**: Simple Python framework with tool system (Jan 2025)
-- [x] **CLI Tool (co)**: Initialize and manage agent projects (Feb 2025)
-- [x] **Browser Agent**: Stateful web navigation and scraping (Aug 2025)
-- [/] **Advanced Tool System**: Enhanced tool composition and chaining (Oct 2025)
-- [ ] **Agent-to-Agent Protocol**: Enable agents to collaborate seamlessly (Dec 2025)
+## Current Milestones
 
-## Trust
-- [x] **Behavior Tracking**: Automatic recording of all agent actions (Mar 2025)
-- [/] **Function Validation**: Type checking and parameter validation (Sep 2025)
-- [ ] **Sandbox Mode**: Test agents safely before deployment (Nov 2025)
-- [ ] **Audit Logs**: Comprehensive action history and rollback (Jan 2026)
+### Launch the Network (Q4 2025)
 
-## AI Intelligence
-- [x] **OpenAI Integration**: Full GPT-4 function calling support (Jan 2025)
-- [/] **Multi-Model Support**: Claude, Gemini, and Mistral integration (Oct 2025)
-- [ ] **Context Management**: Smart conversation memory and retrieval (Nov 2025)
-- [ ] **Local Model Support**: Run Llama, Mistral locally via Ollama (Feb 2026)
+Implement the ConnectOnion peer-to-peer network protocol where agents discover and collaborate using public keys as addresses.
 
-## Platform
-- [x] **PyPI Package**: pip install connectonion (Feb 2025)
-- [x] **Documentation Site**: Comprehensive docs at docs.connectonion.com (Jul 2025)
-- [/] **Example Library**: Real-world agent examples and templates (Sep 2025)
-- [ ] **VS Code Extension**: Agent development and debugging tools (Dec 2025)
-- [ ] **Agent Registry**: Share and discover community agents (Mar 2026)
+**Features:**
+- Message-based architecture (ANNOUNCE/FIND/TASK)
+- Relay nodes for NAT traversal
+- Encrypted peer-to-peer communication
+- Contact/stranger management
+- Managed keys API (`co/` prefix) - **Done**
+
+### Multi-Agent Trust System (Q1 2026)
+
+Build a trust system for secure multi-agent collaboration.
+
+**Features:**
+- Agent-to-agent trust verification
+- Trust levels for remote agents (open/tested/strict)
+- Behavior-based trust scoring
+- Trust policies for agent networks
+
+### co deploy - Agent Deployment (Q1 2026)
+
+One-command deployment for production agents.
+
+**Features:**
+- `co deploy` CLI command
+- Deploy to cloud providers (AWS, GCP, etc.)
+- Automatic HTTPS and domain setup
+- Environment management (dev/staging/prod)
+- Health monitoring and auto-restart
+
+### AI Auto-Coding (Q2 2026)
+
+Enable AI agents to automatically write, debug, and improve code.
+
+**Features:**
+- `auto_debug_exception` for runtime debugging - **Done**
+- Code generation tools
+- Automated testing
+- AI-powered refactoring
+
+## Open Features
+
+### Debugging & Development
+- [ ] Implement AI Help Mode for interactive debugging assistance
+- [ ] Implement step mode for debugging all tool executions
+- [ ] Implement modify result command for time-travel debugging
+- [ ] Implement inspect command for viewing agent state
+- [ ] Implement retry command for re-executing tools
+- [ ] Implement update prompt command for mid-execution changes
+
+### Documentation
+- [ ] Create tutorial video series
+- [ ] Update docs website with current features
+- [ ] Create comprehensive auto-debug documentation
+- [ ] Create templates/ documentation folder with individual template guides
+- [ ] Document Claude Code plugin templates for AI vibe coding
+
+### Platform
+- [ ] Add Microsoft OAuth integration (`co auth microsoft`)
+- [ ] Add conflict detection for duplicate tool names
+- [ ] Session logging and eval system
+
+## Recently Completed
+
+- Google OAuth integration (`co auth google`)
+- React-mode plugin example
+- Managed keys API (`co/` prefix)
+- Auto-detect base64 image results for vision models
+- Network feature API design (serve/connect)
+
+## Contributing
+
+Want to contribute? Check [open issues](https://github.com/openonion/connectonion/issues) or join our [Discord](https://discord.gg/4xfD9k8AUF).

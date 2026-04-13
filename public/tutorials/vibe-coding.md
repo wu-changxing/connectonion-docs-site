@@ -6,18 +6,20 @@
 
 ### Method 1: Drag & Drop
 1. **Open Cursor AI editor**
-2. **Drag** `.co/docs/co-vibecoding-principles-docs-contexts-all-in-one.md`
-3. **Ask**: "Help me create an agent"
+2. **Drag our documentation** into Cursor:
+   - From website: Go to [docs.connectonion.com](https://docs.connectonion.com) → Drag any page
+   - From local: After `co init`, drag `.co/docs/co-vibecoding-principles-docs-contexts-all-in-one.md`
+3. **Ask Cursor**: "Help me create an agent using these docs"
 
 ### Method 2: Copy All
-1. **Visit** docs.connectonion.com
-2. **Click** "Copy All Docs" (purple button)
+1. **Visit** [docs.connectonion.com](https://docs.connectonion.com)
+2. **Click** "Copy All Docs" (purple button in sidebar)
 3. **Paste** into Cursor chat
-4. **Ask**: "Create an agent"
+4. **Ask Cursor**: "Help me create an agent using these docs"
 
 ## Example: What Cursor Generates
 
-When you ask: **"Using ConnectOnion docs, create a calculator agent"**
+When you ask Cursor: **"Using ConnectOnion docs, create a calculator agent"**
 
 Cursor generates:
 
@@ -72,11 +74,11 @@ The agent automatically:
 
 Cursor + Our Docs = Complete Understanding:
 - How to create agents
-- How to add tools
+- How to add tools  
 - Best practices
 - Natural language processing
 
-## Quick Start Checklist
+## Quick Start
 
 1. **Install**: `pip install connectonion`
 2. **Initialize**: `co init`
@@ -87,7 +89,7 @@ Cursor + Our Docs = Complete Understanding:
 
 ## Get Our Docs
 
-- **Website**: docs.connectonion.com → Copy All Docs
+- **Website**: [docs.connectonion.com](https://docs.connectonion.com) → Copy All Docs
 - **Local**: `.co/docs/co-vibecoding-principles-docs-contexts-all-in-one.md` (after `co init`)
 
 ---

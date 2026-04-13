@@ -195,6 +195,15 @@ export const navigation = [
     difficulty: 'Essential',
     keywords: ['connect', 'remote', 'network', 'relay', 'distributed', 'client', 'remote agent', 'proxy'],
     prev: { href: '/host', title: 'host()' },
+    next: { href: '/websocket-protocol', title: 'WebSocket Protocol' }
+  },
+  {
+    title: 'WebSocket Protocol',
+    href: '/websocket-protocol',
+    icon: HiOutlineCodeBracket,
+    section: 'Network',
+    keywords: ['websocket', 'protocol', 'connect', 'input', 'output', 'session', 'message', 'auth', 'ping', 'pong', 'reconnect', 'ed25519'],
+    prev: { href: '/connect', title: 'Connect to Agents' },
     next: { href: '/session-reconnect', title: 'Session Reconnect' }
   },
   {
@@ -203,7 +212,7 @@ export const navigation = [
     icon: HiOutlineArrowPath,
     section: 'Network',
     keywords: ['reconnect', 'websocket', 'session', 'recovery', 'disconnect', 'ping', 'pong', 'cleanup', 'merge'],
-    prev: { href: '/connect', title: 'Connect to Agents' },
+    prev: { href: '/websocket-protocol', title: 'WebSocket Protocol' },
     next: { href: '/threat-model', title: 'Threat Model' }
   },
   {

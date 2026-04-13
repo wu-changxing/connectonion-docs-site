@@ -10,6 +10,7 @@
 - [CLI Reference](https://docs.connectonion.com/cli): All CLI commands (co create, co init, co auth, co doctor)
 - [co ai](https://docs.connectonion.com/cli/ai): Built-in AI coding assistant that understands ConnectOnion
 - [co browser](https://docs.connectonion.com/cli/browser-command): Browser automation and screenshot tool
+- [co copy](https://docs.connectonion.com/cli/copy): Copy built-in tools, plugins, skills, and prompts to your project for customization
 
 ## Core Concepts
 
@@ -78,6 +79,13 @@
 - [subagents](https://docs.connectonion.com/useful-plugins/subagents): Spawn sub-agents with independent tools
 - [ulw](https://docs.connectonion.com/useful-plugins/ulw): Ultra Light Work — fully autonomous mode
 - [ui_stream](https://docs.connectonion.com/useful-plugins/ui-stream): Real-time streaming to web UI
+
+## Useful Skills
+
+Skills are copyable markdown workflows invoked with /skill-name. Install with: co copy <skill-name>
+
+- [Overview](https://docs.connectonion.com/useful-skills): All built-in copyable skills
+- [ship-feature](https://docs.connectonion.com/useful-skills/ship-feature): Ship a feature end-to-end — update tests, docs, docs-site, then release to PyPI
 
 ## TUI Components
 

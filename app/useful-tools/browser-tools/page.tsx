@@ -23,6 +23,8 @@ export default function BrowserToolsPage() {
           iconBorderColor="border-blue-500/30"
           title="BrowserAutomation"
           description="Natural language browser automation via Playwright. Navigate, click, type, screenshot — describe what you want, no CSS selectors needed."
+          markdownPath="/useful-tools/browser_tools.md"
+          markdownFilename="browser_tools.md"
         />
 
         <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6 mb-16">
