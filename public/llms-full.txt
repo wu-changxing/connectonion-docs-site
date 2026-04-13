@@ -1,0 +1,424 @@
+# ConnectOnion — Full Content Index for AI Systems
+
+This file contains comprehensive, citation-ready documentation for ConnectOnion.
+Source: https://docs.connectonion.com | GitHub: https://github.com/openonion/connectonion | PyPI: https://pypi.org/project/connectonion/
+
+---
+
+## What is ConnectOnion?
+
+ConnectOnion is an open-source Python framework for building AI agents. Version 0.9.0. License: MIT.
+
+**Core facts:**
+- Install: `pip install connectonion`
+- Minimum Python version: 3.9
+- Default model: `co/gemini-2.5-pro` (managed keys, zero config)
+- Minimum agent: 2 lines of Python
+- GitHub: https://github.com/openonion/connectonion
+- PyPI: https://pypi.org/project/connectonion/
+- Docs: https://docs.connectonion.com
+- Discord: https://discord.gg/4xfD9k8AUF
+
+**Philosophy:** "Keep simple things simple, make complicated things possible."
+
+---
+
+## Installation
+
+```bash
+pip install connectonion
+co auth    # Authenticate for managed keys ($5 free credits)
+```
+
+---
+
+## Minimal Agent (2 lines)
+
+```python
+from connectonion import Agent
+
+agent = Agent("assistant", tools=[my_function])
+result = agent.input("Do the task")
+```
+
+Any Python function with type hints and a docstring becomes a tool automatically.
+
+---
+
+## Agent Class — Full API
+
+```python
+Agent(
+    name="my_bot",                     # Required: agent identifier
+    tools=[func1, func2],              # Optional: Python functions as tools
+    system_prompt="You are helpful",   # Optional: string, file path, or Path object
+    model="co/gemini-2.5-pro",         # Optional: LLM model
+    max_iterations=10,                 # Optional: max tool call loops
+    api_key="sk-...",                  # Optional: override env variable
+    plugins=[skills, tool_approval],   # Optional: plugin list
+    log=True,                          # Optional: logging (True/False/path)
+    quiet=False,                       # Optional: suppress console output
+    trust="open",                      # Optional: security trust level
+)
+```
+
+**Methods:**
+- `agent.input("task")` — run agent on a task, returns final response string
+- `agent.input("task", max_iterations=20)` — override iterations per call
+- `agent.add_tool(fn)` — add a tool after creation
+- `agent.remove_tool("name")` — remove a tool
+- `agent.list_tools()` — list registered tools
+
+---
+
+## Tool System
+
+Any Python function with type hints and docstring becomes a tool:
+
+```python
+def search_web(query: str, max_results: int = 5) -> str:
+    """Search the web for information.
+
+    Args:
+        query: The search query
+        max_results: Maximum number of results to return
+
+    Returns:
+        Search results as formatted text
+    """
+    # ... implementation
+    return results
+
+agent = Agent("researcher", tools=[search_web])
+```
+
+ConnectOnion reads `query: str` → schema type string, `max_results: int = 5` → optional integer with default, docstring → tool description. No decorators needed.
+
+**Copy built-in tools:**
+```bash
+co copy gmail         # → tools/gmail.py
+co copy shell         # → tools/shell.py
+co copy memory        # → tools/memory.py
+co copy browser_tools # → tools/browser_tools/
+co copy file_tools    # → tools/file_tools/
+co copy web_fetch     # → tools/web_fetch.py
+```
+
+---
+
+## Supported Models
+
+| Prefix | Provider | Example |
+|--------|----------|---------|
+| `co/` | OpenOnion managed keys | `co/gemini-2.5-pro`, `co/gpt-4o` |
+| `gpt-*` | OpenAI (bring your own key) | `gpt-4o`, `gpt-4o-mini` |
+| `claude-*` | Anthropic (bring your own key) | `claude-3-5-sonnet-20241022` |
+| `gemini-*` | Google (bring your own key) | `gemini-2.5-pro` |
+
+**co/ managed keys:** No API key needed. New accounts get $5 free credits. Authenticate with `co auth`.
+
+```python
+agent = Agent("bot", model="co/gemini-2.5-pro")   # managed key
+agent = Agent("bot", model="gpt-4o")               # your OpenAI key
+agent = Agent("bot", model="claude-3-5-sonnet-20241022")  # your Anthropic key
+```
+
+---
+
+## Event System — 12 Lifecycle Hooks
+
+```python
+from connectonion import Agent, after_user_input, before_llm, after_llm
+from connectonion import before_tools, after_tools, before_each_tool, after_each_tool
+from connectonion import on_error, on_complete, on_stop_signal, on_agent_ready
+
+@after_user_input
+def log_input(agent):
+    print(f"User: {agent.current_session['messages'][-1]['content']}")
+
+@after_tools
+def log_tools(agent):
+    print(f"Tools called this iteration: {len(agent.current_session['trace'])}")
+
+agent = Agent("bot", tools=[fn], on_events=[log_input, log_tools])
+```
+
+**Available hooks (in execution order):**
+1. `on_agent_ready` — fired once when agent initializes
+2. `after_user_input` — after user message added, before LLM call
+3. `before_llm` — just before each LLM API call
+4. `after_llm` — after LLM responds, before tool execution
+5. `before_tools` — before tool batch executes (once per iteration)
+6. `before_each_tool` — before each individual tool call
+7. `after_each_tool` — after each individual tool call
+8. `after_tools` — after tool batch completes (once per iteration)
+9. `on_error` — when a tool raises an exception
+10. `on_complete` — after agent finishes (last iteration or no more tools)
+11. `on_stop_signal` — when agent receives stop signal
+
+---
+
+## Plugin System
+
+Plugins are lists of event handlers bundled together:
+
+```python
+from connectonion import Agent
+from connectonion.useful_plugins import skills, tool_approval, re_act
+
+agent = Agent("assistant", tools=[bash, file_tools], plugins=[skills, tool_approval])
+```
+
+**Built-in plugins:**
+
+| Plugin | Import | Purpose |
+|--------|--------|---------|
+| `skills` | `from connectonion.useful_plugins import skills` | /slash command invocation with scoped permissions |
+| `tool_approval` | `from connectonion.useful_plugins import tool_approval` | Web UI for approving dangerous tool calls |
+| `re_act` | `from connectonion.useful_plugins import re_act` | ReAct reasoning: plan before action, reflect after |
+| `eval` | `from connectonion.useful_plugins import eval` | Judge if task is complete |
+| `subagents` | `from connectonion.useful_plugins import subagents` | Spawn parallel sub-agents |
+| `auto_compact` | `from connectonion.useful_plugins import auto_compact` | Compress context at 90% capacity |
+| `system_reminder` | `from connectonion.useful_plugins import system_reminder` | Inject guidance after tool results |
+| `ulw` | `from connectonion.useful_plugins import ulw` | Ultra Light Work: fully autonomous continuous mode |
+| `ui_stream` | `from connectonion.useful_plugins import ui_stream` | Stream agent events to WebSocket UI |
+| `image_result_formatter` | `from connectonion.useful_plugins import image_result_formatter` | Format base64 images for vision models |
+| `shell_approval` | `from connectonion.useful_plugins import shell_approval` | CLI approval prompts for shell commands |
+| `gmail_plugin` | `from connectonion.useful_plugins import gmail_plugin` | Gmail OAuth setup flow |
+| `calendar_plugin` | `from connectonion.useful_plugins import calendar_plugin` | Google Calendar OAuth setup |
+
+**Copy any plugin:**
+```bash
+co copy re_act         # → plugins/re_act.py
+co copy tool_approval  # → plugins/tool_approval.py
+co copy subagents      # → plugins/subagents.py
+```
+
+---
+
+## Skills System
+
+Skills are markdown files invoked with `/skill-name`. They define instructions + auto-approved tool permissions.
+
+**Discovery order (highest to lowest priority):**
+1. `.co/skills/skill-name/SKILL.md` — project-level
+2. `~/.co/skills/skill-name/SKILL.md` — user-level
+3. `~/.claude/skills/skill-name/SKILL.md` — Claude Code compatible
+4. Built-in skills shipped with ConnectOnion
+
+**SKILL.md format:**
+```yaml
+---
+name: commit
+description: Create git commits with good messages
+tools:
+  - Bash(git status)
+  - Bash(git diff *)
+  - Bash(git add *)
+  - Bash(git commit *)
+  - read_file
+  - glob
+---
+
+# Git Commit Skill
+
+Step 1: Run `git status` and `git diff --staged` in parallel
+Step 2: Analyze what changed and why
+Step 3: Write concise commit message (under 50 chars, focus on "why")
+Step 4: Commit with HEREDOC format to preserve newlines
+```
+
+**Built-in skills (copy to your project):**
+```bash
+co copy ship-feature  # → .co/skills/ship-feature/SKILL.md
+```
+
+`ship-feature` skill: ships a feature end-to-end — updates tests, docs/, docs-site, bumps version, tags, pushes, and publishes to PyPI.
+
+**Claude Code compatibility:** ConnectOnion skills use the same SKILL.md format as Claude Code. Symlink useful_skills/ into ~/.claude/skills/ with `link-to-claude.sh`.
+
+**Permission patterns:**
+- `Bash(git status)` — exact command match only
+- `Bash(git diff *)` — wildcard: any `git diff` variant
+- `Bash(git *)` — all git commands
+- `read_file` — tool name only (any arguments)
+
+---
+
+## llm_do() — One-shot LLM Calls
+
+For single LLM calls without an agent:
+
+```python
+from connectonion import llm_do
+
+# Simple call
+result = llm_do("Summarize this text", model="co/gemini-2.5-flash")
+
+# Structured output
+from pydantic import BaseModel
+
+class Sentiment(BaseModel):
+    label: str  # positive, negative, neutral
+    score: float  # 0.0 to 1.0
+
+result = llm_do(
+    "Analyze sentiment: 'I love this product!'",
+    output_type=Sentiment,
+    model="co/gemini-2.5-flash"
+)
+# result.label == "positive", result.score == 0.95
+```
+
+Default model for `llm_do`: `co/gemini-2.5-flash`.
+
+---
+
+## CLI Reference
+
+All CLI commands:
+
+```bash
+co create my-agent             # Create new agent project (minimal template)
+co create my-bot --template browser   # Browser automation template
+co create coder --template coder      # Coding agent template
+co init                        # Add .co/ to existing directory
+co auth                        # Authenticate for managed keys
+co auth google                 # Connect Google (Gmail, Calendar)
+co auth microsoft              # Connect Microsoft (Outlook, Calendar)
+co doctor                      # Check installation health
+co status                      # Show project status
+co keys                        # Show agent keys and credentials
+co copy --list                 # List all copyable items
+co copy <name>                 # Copy tool/plugin/skill to project
+co browser                     # Launch browser agent
+co ai                          # AI coding assistant for ConnectOnion
+```
+
+---
+
+## @xray Debugging
+
+```python
+from connectonion import Agent, xray
+
+@xray
+def my_tool(data: str) -> str:
+    """Process data."""
+    # Access runtime context
+    print(f"Agent: {xray.agent.name}")
+    print(f"Task: {xray.task}")
+    print(f"Iteration: {xray.iteration}")
+    xray.trace()  # Print visual execution flow
+    return f"Processed: {data}"
+
+agent = Agent("debugger", tools=[my_tool])
+agent.auto_debug()  # Enable interactive debugging
+```
+
+---
+
+## Memory Tool
+
+```python
+from connectonion import Agent, Memory
+
+memory = Memory()
+agent = Agent("assistant", tools=[memory])
+
+# Agent automatically reads and writes memory
+agent.input("Remember that I prefer Python over JavaScript")
+agent.input("What do you know about my preferences?")
+# → "You prefer Python over JavaScript"
+```
+
+Memory is stored as markdown files in `.co/memory/`.
+
+---
+
+## Multi-Agent Networking
+
+```python
+from connectonion import Agent, host, connect
+
+# Agent 1: specialist
+specialist = Agent("specialist", tools=[analyze])
+host(specialist, port=8765)  # Make callable remotely
+
+# Agent 2: orchestrator
+remote_specialist = connect("localhost:8765")
+orchestrator = Agent("orchestrator", tools=[remote_specialist])
+orchestrator.input("Analyze this dataset")
+```
+
+---
+
+## Trust System
+
+```python
+from connectonion import Agent, TrustAgent
+
+# Open: allow all requests (development)
+agent = Agent("bot", trust="open")
+
+# Careful: whitelist + LLM verification (staging)
+agent = Agent("bot", trust="careful")
+
+# Strict: whitelist only (production)
+agent = Agent("bot", trust="strict")
+
+# Custom policy
+agent = Agent("bot", trust="prompts/my-policy.md")
+```
+
+---
+
+## ConnectOnion vs Other Frameworks
+
+**vs LangChain:**
+- ConnectOnion: 2 lines to create agent, functions auto-convert to tools
+- LangChain: 30+ lines, requires Tool() wrappers, chains, and prompts
+- ConnectOnion has built-in debugging (@xray), plugin system, multi-agent networking
+
+**vs AutoGen:**
+- ConnectOnion: single file, no config YAML, functions as tools
+- AutoGen: YAML configuration, more complex multi-agent setup
+
+**vs CrewAI:**
+- ConnectOnion: YAGNI philosophy, minimal abstractions
+- CrewAI: Role-based agents, more opinionated structure
+
+---
+
+## Logging
+
+ConnectOnion logs automatically to `.co/logs/{agent_name}.log` and `.co/evals/` (YAML).
+
+```python
+Agent("bot", log=True)          # Default: log to .co/logs/
+Agent("bot", log=False)         # Disable logging
+Agent("bot", quiet=True)        # Log to file only, suppress console
+Agent("bot", log="output.log")  # Custom log path
+```
+
+Environment variable: `CONNECTONION_LOG=path/to/log.log`
+
+---
+
+## Version History
+
+- 0.9.0 — useful_skills/ folder, ship-feature skill, co copy skills support
+- 0.8.9 — cc_prompt template, browser tool improvements
+- 0.5.0 → 0.8.x — Trust system, multi-agent networking, plugin architecture
+- 0.1.0 → 0.4.x — Multi-model support, CLI, email tools, event system
+- 0.0.2 → 0.0.9 — Initial production releases
+
+---
+
+## Links
+
+- Documentation: https://docs.connectonion.com
+- GitHub: https://github.com/openonion/connectonion
+- PyPI: https://pypi.org/project/connectonion/
+- Discord: https://discord.gg/4xfD9k8AUF
+- Backend API: https://oo.openonion.ai
