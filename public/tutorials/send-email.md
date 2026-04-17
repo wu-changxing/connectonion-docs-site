@@ -96,14 +96,14 @@ Every agent automatically gets an email address:
 
 ### Check your email address
 
-Your email address is configured when you run `co create` or `co init` and stored in `.co/config.toml`:
+Your email address is configured when you run `co create` or `co init` and stored in `.co/host.yaml`:
 
-```toml
-[agent]
-address = "0x04e1c4ae3c57d716383153479dae869e51e86d43d88db8dfa22fba7533f3968d"
-short_address = "0x04e1c4ae"
-email = "0x04e1c4ae@mail.openonion.ai"
-email_active = false  # Becomes true after 'co auth'
+```yaml
+agent:
+  address: "0x04e1c4ae3c57d716383153479dae869e51e86d43d88db8dfa22fba7533f3968d"
+  short_address: "0x04e1c4ae"
+  email: "0x04e1c4ae@mail.openonion.ai"
+  email_active: false  # Becomes true after 'co auth'
 ```
 
 Access it from your agent:
@@ -139,9 +139,9 @@ $ co auth  # Run this anytime to activate
 
 To check your email status:
 ```bash
-$ cat .co/config.toml | grep email
-email = "0x04e1c4ae@mail.openonion.ai"
-email_active = true  # true = active, false = inactive
+$ grep email .co/host.yaml
+  email: "0x04e1c4ae@mail.openonion.ai"
+  email_active: true  # true = active, false = inactive
 ```
 
 ### Want a custom name?
@@ -299,7 +299,7 @@ Automatic rate limiting prevents abuse:
 ### Behind the Scenes
 
 - Email address configured during `co create` or `co init`
-- Stored in `.co/config.toml` for your project
+- Stored in `.co/host.yaml` for your project
 - Uses Resend API for delivery
 - Automatic retry on temporary failures
 - Logs all emails for debugging

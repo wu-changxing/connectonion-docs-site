@@ -33,7 +33,7 @@ co deploy --entrypoint main.py
 #### Prerequisites
 
 1. **Git Repository**: Project must be in a git repo with committed changes
-2. **ConnectOnion Project**: Must have `.co/` folder with `config.toml`
+2. **ConnectOnion Project**: Must have `.co/` folder with `host.yaml`
 3. **API Key**: Set `OPENONION_API_KEY` in environment or `.env` file
 
 #### Options
@@ -151,7 +151,7 @@ my-project/
 ├── README.md          # Project documentation
 ├── .env.example       # Environment variables template
 ├── .co/               # ConnectOnion metadata
-│   ├── config.toml    # Project configuration
+│   ├── host.yaml      # Project configuration
 │   └── docs/
 │       └── connectonion.md  # Embedded framework documentation
 └── .gitignore         # Git ignore rules (if in git repo)
@@ -164,7 +164,7 @@ my-project/
 ├── prompt.md          # System prompt
 ├── .env.example       # Environment variables template
 ├── .co/               # ConnectOnion metadata
-│   ├── config.toml    # Project configuration
+│   ├── host.yaml      # Project configuration
 │   └── docs/
 │       └── connectonion.md  # Embedded framework documentation
 └── .gitignore         # Git ignore rules (if in git repo)
@@ -253,7 +253,7 @@ Note: Requires `pip install playwright && playwright install`
 ### `.co/` Directory
 
 The `.co/` directory contains:
-- `config.toml`: Project metadata (version, creation date, template used)
+- `host.yaml`: Project metadata (name, entrypoint, env file)
 - `docs/connectonion.md`: Embedded documentation for offline reference
 - `history/`: Agent behavior history (created at runtime)
 

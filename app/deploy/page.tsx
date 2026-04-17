@@ -122,7 +122,7 @@ co deploy`}
             result={`Deploying to ConnectOnion Cloud...
 
   Project: my-agent
-  Secrets: 3 keys
+  Env vars: 3 keys
 
 Uploading...
 Building...
@@ -142,7 +142,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
               </div>
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
-                <span><code className="bg-gray-800 px-2 py-0.5 rounded">.co/config.toml</code> (created by <code className="bg-gray-800 px-2 py-0.5 rounded">co create</code> or <code className="bg-gray-800 px-2 py-0.5 rounded">co init</code>)</span>
+                <span><code className="bg-gray-800 px-2 py-0.5 rounded">.co/host.yaml</code> (created by <code className="bg-gray-800 px-2 py-0.5 rounded">co create</code> or <code className="bg-gray-800 px-2 py-0.5 rounded">co init</code>)</span>
               </div>
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
@@ -154,22 +154,19 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           <div className="mt-6">
             <h3 className="text-xl font-semibold mb-4">Configuration</h3>
             <CodeWithResult
-              code={`# .co/config.toml
-[project]
-name = "my-agent"
-secrets = ".env"
-
-[deploy]
-entrypoint = "agent.py"`}
-              language="toml"
-              fileName=".co/config.toml"
+              code={`# .co/host.yaml
+name: my-agent
+entrypoint: agent.py
+env: .env`}
+              language="yaml"
+              fileName=".co/host.yaml"
             />
           </div>
 
           <div className="mt-6">
-            <h3 className="text-xl font-semibold mb-4">Secrets</h3>
+            <h3 className="text-xl font-semibold mb-4">Environment Variables</h3>
             <p className="text-slate-100 mb-4">
-              Secrets from <code className="bg-gray-800 px-2 py-0.5 rounded">.env</code> are securely passed to your agent:
+              Environment variables from <code className="bg-gray-800 px-2 py-0.5 rounded">.env</code> are securely passed to your agent:
             </p>
             <CodeWithResult
               code={`# .env

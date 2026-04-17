@@ -58,8 +58,8 @@ co deploy
 # With custom entrypoint
 co deploy --entrypoint main.py
 
-# With secrets
-co deploy --secrets "API_KEY=secret123,DB_URL=postgres://..."
+# With env file
+co deploy
 ```
 
 ### List Deployments
@@ -105,35 +105,33 @@ my-agent/
 ├── agent.py              # Main entrypoint (or custom via --entrypoint)
 ├── requirements.txt      # Python dependencies (optional)
 ├── prompt.md             # System prompt
-├── .env                  # Local secrets (NOT deployed)
+├── .env                  # Environment variables (deployed securely)
 ├── .co/
-│   └── config.toml       # Project configuration
+│   └── host.yaml         # Deployment configuration
 └── .git/                 # Git repository
 ```
 
 ## Configuration
 
-The `.co/config.toml` contains project metadata:
+The `.co/host.yaml` contains deployment configuration:
 
-```toml
-[project]
-name = "my-agent"
-version = "0.1.0"
-created = "2024-01-15"
-template = "minimal"
+```yaml
+name: my-agent
+entrypoint: agent.py
+env: .env
 ```
 
-## Secrets Management
+## Environment Variables
 
-Secrets are passed securely during deployment:
+Variables from your `.env` file are securely passed during deployment and injected as environment variables in your deployed container.
 
 ```bash
-co deploy --secrets "OPENAI_API_KEY=sk-...,DATABASE_URL=postgres://..."
+# .env
+OPENAI_API_KEY=sk-...
+DATABASE_URL=postgres://...
 ```
 
-These are injected as environment variables in your deployed container.
-
-**Important**: Never commit secrets to git. Use `.env` for local development.
+**Important**: Never commit `.env` to git. Use it for local development and deployment.
 
 ## API Endpoints
 
