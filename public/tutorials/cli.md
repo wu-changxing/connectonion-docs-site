@@ -39,7 +39,7 @@ co deploy --entrypoint main.py
 #### Options
 
 - `--entrypoint, -e`: Python file to run (default: `agent.py`)
-- `--secrets`: Comma-separated secrets to pass (e.g., `KEY1=value1,KEY2=value2`)
+- `--env-vars`: Comma-separated environment variables to pass during deploy (e.g., `KEY1=value1,KEY2=value2`)
 
 #### What Happens
 
