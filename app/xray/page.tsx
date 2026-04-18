@@ -195,19 +195,19 @@ positive`}
               </h3>
             </div>
             <div className="grid md:grid-cols-3 gap-4 text-sm">
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+              <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
                 <HiOutlineCpuChip className="w-6 h-6 md:w-8 md:h-8 text-gray-500 mx-auto mb-2" />
                 <div className="font-mono text-gray-700">xray.agent</div>
                 <div className="text-gray-700 text-xs mt-1">Agent Instance</div>
               </div>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+              <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
                 <HiOutlineChatBubbleOvalLeft className="w-8 h-8 icon-ui mx-auto mb-2" />
                 <div className="font-mono text-gray-700">xray.task</div>
                 <div className="text-gray-700 text-xs mt-1">User Request</div>
               </div>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+              <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
                 <HiOutlineClock className="w-8 h-8 text-gray-500 mx-auto mb-2" />
-                <div className="font-mono text-gray-400">xray.messages</div>
+                <div className="font-mono text-gray-700">xray.messages</div>
                 <div className="text-gray-700 text-xs mt-1">Chat History</div>
               </div>
             </div>
@@ -233,7 +233,7 @@ positive`}
                       <IconComponent className="w-4 h-4 md:w-5 md:h-5" />
                     </div>
                     <div>
-                      <h3 className={`font-mono ${item.color} font-bold mb-2`}>{item.name}</h3>
+                      <h3 className="font-mono text-gray-900 font-bold mb-2">{item.name}</h3>
                       <p className="text-gray-700">{item.desc}</p>
                     </div>
                   </div>
@@ -332,11 +332,11 @@ Order ABC123 processed`}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="flex items-start gap-4 glass-subtle rounded-lg p-4"
+                className="flex items-start gap-4 bg-gray-50 border border-gray-200 rounded-lg p-4"
               >
                 <span className="text-2xl">{tip.icon}</span>
                 <div>
-                  <h4 className="font-bold text-gray-500">{tip.tip}</h4>
+                  <h4 className="font-bold text-gray-900">{tip.tip}</h4>
                   <p className="text-gray-700">{tip.detail}</p>
                 </div>
               </motion.div>
@@ -360,7 +360,7 @@ Order ABC123 processed`}
                   key={item}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="glass-subtle hover:glass rounded-lg px-6 py-3 flex items-center gap-2 transition-all duration-300"
+                  className="bg-white border border-gray-200 hover:border-gray-400 hover:shadow-sm rounded-lg px-6 py-3 flex items-center gap-2 text-gray-700 transition-all duration-200"
                 >
                   {item}
                   <HiOutlineArrowRight className="w-4 h-4" />
