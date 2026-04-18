@@ -13,9 +13,9 @@ function Section({ id, title, children, icon }: { id: string; title: string; chi
         {icon}
         <h2 className="text-lg sm:text-xl font-semibold text-gray-900 group flex items-center gap-2">
           {title}
-          <a 
-            href={`#${id}`} 
-            className="text-sm text-purple-400 opacity-30 group-hover:opacity-100 group-focus-within:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-white rounded px-1"
+          <a
+            href={`#${id}`}
+            className="text-sm text-gray-400 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white rounded px-1 hover:text-green-600"
             aria-label={`Link to ${title} section`}
           >
             #
@@ -711,7 +711,7 @@ export default function ThreatModelPage() {
 
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-gray-600 mb-8">
-        <Link href="/" className="hover:text-purple-400 transition-colors">
+        <Link href="/" className="hover:text-gray-900 transition-colors">
           Docs
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />
@@ -722,7 +722,7 @@ export default function ThreatModelPage() {
       <div className="mb-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
+            <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
               <HiOutlineShieldExclamation className="w-8 h-8 text-gray-500" />
             </div>
             <div>
@@ -737,7 +737,7 @@ export default function ThreatModelPage() {
       </div>
 
       {/* Severity Guide and Filters */}
-      <Section id="severity-guide" title="Severity Guide" icon={<HiOutlineScale className="w-4 h-4 text-purple-300" />}>
+      <Section id="severity-guide" title="Severity Guide" icon={<HiOutlineScale className="w-4 h-4 text-gray-400" />}>
         <div className="mb-6 p-3 sm:p-4 rounded-lg bg-gray-50 border border-gray-200">
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div className="text-center p-2">
@@ -767,7 +767,7 @@ export default function ThreatModelPage() {
                 id="threat-filter"
                 value={filter}
                 onChange={(e) => setFilter(e.target.value as any)}
-                className="w-full px-3 py-3 bg-white border border-gray-300 rounded-md text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-purple-400 min-h-[44px]"
+                className="w-full px-3 py-3 bg-white border border-gray-300 rounded-md text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-gray-400 min-h-[44px]"
               >
                 <option value="all">All Threats (10)</option>
                 <option value="H+H">Critical Priority (3)</option>
@@ -887,7 +887,7 @@ export default function ThreatModelPage() {
       <div className="h-px bg-gray-200 my-8 sm:my-10" />
 
       {/* Defensive Principles */}
-      <Section id="defensive-principles" title="Defensive Principles" icon={<HiOutlineBolt className="w-4 h-4 text-rose-300" />}> 
+      <Section id="defensive-principles" title="Defensive Principles" icon={<HiOutlineBolt className="w-4 h-4 text-gray-400" />}> 
         <div className="space-y-2">
           {[
             'Cost > payoff',

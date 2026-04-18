@@ -271,8 +271,8 @@ export function DocsSidebar() {
         )}
 
         {/* Regular Navigation */}
-        {Object.entries(navigationSections).map(([section, items]) => (
-          <div key={section} className="mb-3">
+        {Object.entries(navigationSections).map(([section, items], idx) => (
+          <div key={section} className={`mb-3 ${idx > 0 ? 'border-t border-gray-100 pt-2' : ''}`}>
             <button
               onClick={() => toggleSection(section)}
               className={`w-full flex items-center justify-between px-2 py-1 mb-1 text-left text-xs font-semibold tracking-wide transition-colors rounded-md ${
