@@ -307,7 +307,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
             </div>
 
             <div className="mt-8 space-y-6 text-gray-700">
-              <p className="text-lg leading-relaxed text-gray-700 italic">
+              <p className="text-xl leading-relaxed text-gray-600 italic">
                 Functions need verbs, and "do" is the ultimate action word
               </p>
 

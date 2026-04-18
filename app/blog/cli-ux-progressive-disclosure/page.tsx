@@ -107,7 +107,7 @@ The best tool is one you forget you're using. That's what we built.`
           </div>
 
           <div className="mt-8 space-y-6 text-gray-700">
-            <p className="text-lg leading-relaxed text-gray-700 italic">
+            <p className="text-xl leading-relaxed text-gray-600 italic">
               Most framework CLIs bombard users with questions that don't matter yet.
               We chose progressive disclosure: start fast, decide later, respect intelligence.
             </p>

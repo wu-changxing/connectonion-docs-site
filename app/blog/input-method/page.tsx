@@ -218,7 +218,7 @@ Sometimes the best API design decision is the one that makes developers forget t
             </div>
 
             <div className="mt-8 space-y-6 text-gray-700">
-              <p className="text-lg leading-relaxed text-gray-700 italic">
+              <p className="text-xl leading-relaxed text-gray-600 italic">
                 The power of aligning with user mental models
               </p>
 

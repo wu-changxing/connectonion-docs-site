@@ -95,7 +95,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
           </div>
 
           <div className="mt-8 space-y-6 text-gray-700">
-            <p className="text-lg leading-relaxed text-gray-700 italic">
+            <p className="text-xl leading-relaxed text-gray-600 italic">
               Naming is hard. We spent days debating whether to call it an "address" or "identity".
               The answer came from asking: what mental model serves developers best?
             </p>

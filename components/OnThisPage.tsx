@@ -68,7 +68,7 @@ export function OnThisPage() {
   if (headings.length < 2) return null
 
   return (
-    <nav className="sticky top-24 w-56 flex-shrink-0">
+    <nav className="sticky top-[6.5rem] w-56 flex-shrink-0">
       <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
         On this page
       </p>
@@ -77,12 +77,12 @@ export function OnThisPage() {
           <li key={h.id}>
             <a
               href={`#${h.id}`}
-              className={`block text-sm py-0.5 transition-colors ${
-                h.level === 3 ? 'pl-3' : ''
+              className={`block text-sm py-0.5 transition-colors border-l-2 ${
+                h.level === 3 ? 'pl-3' : 'pl-2'
               } ${
                 activeId === h.id
-                  ? 'text-green-700 font-medium'
-                  : 'text-gray-500 hover:text-gray-900'
+                  ? 'text-green-700 font-semibold border-green-600'
+                  : 'text-gray-500 hover:text-gray-900 border-transparent'
               }`}
             >
               {h.text}

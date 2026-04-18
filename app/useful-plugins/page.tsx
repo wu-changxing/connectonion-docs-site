@@ -151,7 +151,7 @@ export default function UsefulPluginsPage() {
                   </span>
                 </div>
                 <p className="text-lg text-gray-700">
-                  Pre-built plugins from <code className="bg-gray-100 px-2 py-1 rounded text-gray-400 text-sm break-all">connectonion.useful_plugins</code>
+                  Pre-built plugins from <code className="bg-gray-100 px-2 py-1 rounded text-gray-700 text-sm whitespace-nowrap">connectonion.useful_plugins</code>
                 </p>
               </div>
             </div>

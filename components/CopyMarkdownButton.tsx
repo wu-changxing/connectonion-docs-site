@@ -115,13 +115,7 @@ export function CopyMarkdownButton({
   }
 
   // Don't render if there's an error loading
-  if (error) {
-    return (
-      <div className={`flex gap-2 ${className}`}>
-        <span className="text-red-400 text-sm">Failed to load content</span>
-      </div>
-    )
-  }
+  if (error) return null
 
   return (
     <>
@@ -132,17 +126,16 @@ export function CopyMarkdownButton({
           onClick={handleCopy}
           disabled={loading || !content}
           className={`
-            relative flex items-center gap-2 px-3 py-2 
-            ${copied 
-              ? 'bg-green-600 hover:bg-green-700' 
-              : 'bg-gray-800 hover:bg-gray-800'
+            relative flex items-center gap-2 px-3 py-1.5
+            ${copied
+              ? 'bg-green-50 border-green-300 text-green-700'
+              : 'bg-white border-gray-200 text-gray-600 hover:border-gray-400 hover:text-gray-900'
             }
-            text-white rounded-lg 
+            border rounded-lg
             transition-all duration-200 ease-out
             text-sm font-medium
             ${loading || !content ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
-            transform active:scale-95
-            shadow-lg hover:shadow-xl
+            active:scale-95
           `}
           title={copied ? "Copied to clipboard!" : "Copy to clipboard"}
         >
@@ -171,13 +164,13 @@ export function CopyMarkdownButton({
               href={markdownPath}
               download={markdownPath.split('/').pop() || filename}
               className="
-                flex items-center gap-2 px-3 py-2 
-                bg-gray-700 hover:bg-gray-600 
-                text-white rounded-lg 
+                flex items-center gap-2 px-3 py-1.5
+                bg-white border border-gray-200 text-gray-600
+                hover:border-gray-400 hover:text-gray-900
+                rounded-lg
                 transition-all duration-200 ease-out
                 text-sm font-medium cursor-pointer
-                transform active:scale-95
-                shadow-lg hover:shadow-xl
+                active:scale-95
               "
               title="Download markdown file"
             >
@@ -189,14 +182,14 @@ export function CopyMarkdownButton({
               onClick={handleDownload}
               disabled={loading || !content}
               className={`
-                flex items-center gap-2 px-3 py-2 
-                bg-gray-700 hover:bg-gray-600 
-                text-white rounded-lg 
+                flex items-center gap-2 px-3 py-1.5
+                bg-white border border-gray-200 text-gray-600
+                hover:border-gray-400 hover:text-gray-900
+                rounded-lg
                 transition-all duration-200 ease-out
                 text-sm font-medium
                 ${loading || !content ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
-                transform active:scale-95
-                shadow-lg hover:shadow-xl
+                active:scale-95
               `}
               title="Download markdown file"
             >

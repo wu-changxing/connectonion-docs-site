@@ -13,10 +13,7 @@ export function MobileSectionJump() {
   const [headings, setHeadings] = useState<Heading[]>([])
 
   useEffect(() => {
-    let elements = Array.from(document.querySelectorAll('h2.heading-2, h3.heading-3'))
-    if (elements.length === 0) {
-      elements = Array.from(document.querySelectorAll('main h2'))
-    }
+    const elements = Array.from(document.querySelectorAll('h2.heading-2, h3.heading-3'))
 
     const items: Heading[] = elements.map(el => {
       if (!el.id) {
@@ -41,7 +38,7 @@ export function MobileSectionJump() {
     setHeadings(items)
   }, [])
 
-  if (headings.length < 2) return null
+  if (headings.length < 4) return null
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const id = e.target.value

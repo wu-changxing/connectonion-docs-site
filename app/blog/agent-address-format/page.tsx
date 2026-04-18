@@ -94,7 +94,7 @@ Don't pretend to be something you're not. Our addresses aren't Ethereum addresse
           </div>
 
           <div className="mt-8 space-y-6 text-gray-700">
-            <p className="text-lg leading-relaxed text-gray-700 italic">
+            <p className="text-xl leading-relaxed text-gray-600 italic">
               When designing agent network identities, we chose hex-encoded Ed25519 public keys with a 0x prefix.
               Familiar to developers, fast for agents, and honest about what it represents.
             </p>

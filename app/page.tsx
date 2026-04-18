@@ -84,7 +84,7 @@ export default function HomePage() {
               >
 {`from connectonion import Agent
 
-agent = Agent("You are helpful", tools=[get_weather])
+agent = Agent("ai", tools=[get_weather])
 agent.input("What's the weather in NYC?")`}
               </SyntaxHighlighter>
           </div>
@@ -105,6 +105,13 @@ agent.input("What's the weather in NYC?")`}
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Scroll cue */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce opacity-40">
+          <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
         </div>
       </section>
 
