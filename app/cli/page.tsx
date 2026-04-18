@@ -44,7 +44,7 @@
 'use client'
 
 import { useState } from 'react'
-import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineDocumentText, HiOutlineCube, HiOutlineCodeBracket, HiOutlineExclamationCircle, HiOutlineBolt, HiOutlineBookOpen, HiOutlineChevronRight, HiOutlineKey, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineFolderOpen } from 'react-icons/hi2'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineDocumentText, HiOutlineCube, HiOutlineCodeBracket, HiOutlineExclamationCircle, HiOutlineBolt, HiOutlineBookOpen, HiOutlineChevronRight, HiOutlineKey, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineFolderOpen, HiOutlineExclamationTriangle, HiOutlineCheckCircle } from 'react-icons/hi2'
 import { FaLightbulb, FaBolt } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -406,7 +406,7 @@ Balance:  $5.00`}
         </h2>
 
         <p className="text-gray-700 mb-6">
-          <strong className="text-red-400">⚠️ Destructive:</strong> Reset your account and create a new identity.
+          <strong className="text-red-500 inline-flex items-center gap-1"><HiOutlineExclamationTriangle className="w-4 h-4 flex-shrink-0" />Destructive:</strong> Reset your account and create a new identity.
         </p>
 
         <CommandBlock commands={['co reset']} />

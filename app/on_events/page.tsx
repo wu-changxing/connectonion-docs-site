@@ -13,7 +13,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { HiOutlineBolt, HiOutlineArrowRight, HiOutlineChartBar, HiOutlineClock, HiOutlineCodeBracket, HiOutlineSquare3Stack3D, HiOutlinePlay, HiOutlineArrowLeft, HiOutlineSparkles, HiOutlineShieldCheck } from 'react-icons/hi2'
+import { HiOutlineBolt, HiOutlineArrowRight, HiOutlineChartBar, HiOutlineClock, HiOutlineCodeBracket, HiOutlineSquare3Stack3D, HiOutlinePlay, HiOutlineArrowLeft, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineCheckCircle, HiOutlineXCircle } from 'react-icons/hi2'
 import CodeWithResult from '../../components/CodeWithResult'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -494,7 +494,7 @@ agent = Agent(
               {/* after_user_input */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gray-50 border border-gray-200 rounded flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
                     <HiOutlinePlay className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
@@ -553,7 +553,7 @@ agent = Agent("assistant", on_events=[
               {/* after_llm */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gray-100 border border-gray-300 rounded flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
                     <HiOutlineChartBar className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
@@ -603,7 +603,7 @@ agent = Agent("assistant", tools=[search], on_events=[
               {/* before_each_tool */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gray-100 border border-gray-300 rounded flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
                     <HiOutlineBolt className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
@@ -726,7 +726,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
               {/* on_error */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gray-100 border border-gray-300 rounded flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
                     <HiOutlineSquare3Stack3D className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
@@ -838,7 +838,7 @@ agent = Agent("assistant", tools=[write, read], on_events=[
               {/* on_complete */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gray-50 border border-gray-200 rounded flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
                     <HiOutlineClock className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
@@ -977,12 +977,12 @@ agent.input("Search and analyze Python")`}
                 </p>
                 <div className="bg-gray-50 border-l-4 border-gray-400 p-4 mb-4 rounded-r">
                   <p className="text-sm text-gray-700">
-                    <strong className="text-red-400">❌ Don't use after_each_tool:</strong> Injecting messages during tool execution breaks Anthropic Claude's message sequence (all tool_results must follow tool_use)
+                    <strong className="text-red-500 inline-flex items-center gap-1"><HiOutlineXCircle className="w-4 h-4 flex-shrink-0" />Don't use after_each_tool:</strong> Injecting messages during tool execution breaks Anthropic Claude's message sequence (all tool_results must follow tool_use)
                   </p>
                 </div>
                 <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
                   <p className="text-sm text-gray-700">
-                    <strong className="text-green-700">✅ Use after_tools:</strong> Fires once after ALL tool results are added to messages, safe for reflection injection
+                    <strong className="text-green-700 inline-flex items-center gap-1"><HiOutlineCheckCircle className="w-4 h-4 flex-shrink-0" />Use after_tools:</strong> Fires once after ALL tool results are added to messages, safe for reflection injection
                   </p>
                 </div>
               </div>
@@ -1208,31 +1208,31 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
             <div className="space-y-4">
               <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
                 <p className="text-sm text-gray-700">
-                  <strong className="text-green-700">✅ Keep handlers simple:</strong> Each event handler should do one thing well. Compose multiple handlers for complex behavior.
+                  <strong className="text-green-700 inline-flex items-center gap-1"><HiOutlineCheckCircle className="w-4 h-4 flex-shrink-0" />Keep handlers simple:</strong> Each event handler should do one thing well. Compose multiple handlers for complex behavior.
                 </p>
               </div>
 
               <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
                 <p className="text-sm text-gray-700">
-                  <strong className="text-green-700">✅ Use after_tools for message injection:</strong> This is the safe time to inject reflection/context after ALL tools in a batch complete.
+                  <strong className="text-green-700 inline-flex items-center gap-1"><HiOutlineCheckCircle className="w-4 h-4 flex-shrink-0" />Use after_tools for message injection:</strong> This is the safe time to inject reflection/context after ALL tools in a batch complete.
                 </p>
               </div>
 
               <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
                 <p className="text-sm text-gray-700">
-                  <strong className="text-green-700">✅ Handle exceptions internally:</strong> If your event handler can fail, catch exceptions to prevent stopping the agent.
+                  <strong className="text-green-700 inline-flex items-center gap-1"><HiOutlineCheckCircle className="w-4 h-4 flex-shrink-0" />Handle exceptions internally:</strong> If your event handler can fail, catch exceptions to prevent stopping the agent.
                 </p>
               </div>
 
               <div className="bg-gray-50 border-l-4 border-gray-400 p-4 rounded-r">
                 <p className="text-sm text-gray-700">
-                  <strong className="text-red-400">❌ Don't inject during tool execution:</strong> Using after_each_tool to inject messages breaks Anthropic Claude's tool_result message ordering.
+                  <strong className="text-red-500 inline-flex items-center gap-1"><HiOutlineXCircle className="w-4 h-4 flex-shrink-0" />Don't inject during tool execution:</strong> Using after_each_tool to inject messages breaks Anthropic Claude's tool_result message ordering.
                 </p>
               </div>
 
               <div className="bg-gray-50 border-l-4 border-gray-400 p-4 rounded-r">
                 <p className="text-sm text-gray-700">
-                  <strong className="text-red-400">❌ Don't do heavy computation:</strong> Event handlers run synchronously and block agent execution. Keep them fast.
+                  <strong className="text-red-500 inline-flex items-center gap-1"><HiOutlineXCircle className="w-4 h-4 flex-shrink-0" />Don't do heavy computation:</strong> Event handlers run synchronously and block agent execution. Keep them fast.
                 </p>
               </div>
             </div>

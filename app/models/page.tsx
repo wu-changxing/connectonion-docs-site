@@ -43,7 +43,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { HiOutlineBolt, HiOutlineGlobeAlt, HiOutlineCpuChip, HiOutlineCurrencyDollar, HiOutlineEye, HiOutlineSquare3Stack3D, HiOutlineUsers } from 'react-icons/hi2'
+import { HiOutlineBolt, HiOutlineGlobeAlt, HiOutlineCpuChip, HiOutlineCurrencyDollar, HiOutlineEye, HiOutlineSquare3Stack3D, HiOutlineUsers, HiOutlineCheckCircle, HiOutlineExclamationTriangle } from 'react-icons/hi2'
 import CodeWithResult from '../../components/CodeWithResult'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -462,7 +462,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               </div>
               <div className="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
                 <p className="text-xs text-gray-500">
-                  ✅ All 4.5 series models support <strong>structured output</strong> with Pydantic models
+                  <span className="inline-flex items-center gap-1"><HiOutlineCheckCircle className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />All 4.5 series models support <strong>structured output</strong> with Pydantic models</span>
                 </p>
               </div>
             </div>
@@ -515,7 +515,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               </div>
               <div className="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
                 <p className="text-xs text-gray-500">
-                  ⚠️ Mistral models require your own API key (<code className="bg-gray-100 px-1 rounded">MISTRAL_API_KEY</code>).
+                  <span className="inline-flex items-center gap-1"><HiOutlineExclamationTriangle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />Mistral models require your own API key</span> (<code className="bg-gray-100 px-1 rounded">MISTRAL_API_KEY</code>).
                   Managed keys (<code className="bg-gray-100 px-1 rounded">co/</code> prefix) are not yet available for Mistral.
                 </p>
               </div>
