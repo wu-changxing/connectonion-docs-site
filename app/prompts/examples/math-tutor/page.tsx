@@ -121,7 +121,7 @@ ${expectedOutput}
               <div className="flex items-center gap-3 mb-2">
                 <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
                 <h1 className="heading-1">Math Tutor</h1>
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm font-medium">
+                <span className="px-3 py-1 bg-gray-50 text-blue-300 rounded-full text-sm font-medium">
                   Beginner
                 </span>
               </div>
@@ -140,7 +140,7 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-gray-900/5 border border-gray-200 rounded-xl">
+      <div className="mb-12 p-6 bg-gray-50 border border-gray-200 rounded-xl">
         <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
           <HiOutlineLightBulb className="w-6 h-6 text-blue-400" />
           Key Learning Concepts
@@ -178,7 +178,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-gray-900">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-100 transition-colors p-2 rounded-lg hover:bg-gray-700 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -225,7 +225,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-gray-900">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-100 transition-colors p-2 rounded-lg hover:bg-gray-700 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -284,7 +284,7 @@ ${expectedOutput}
           </div>
 
           {/* Analysis */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">What's New Here</h3>
             <div className="space-y-4 text-sm">
               <div>
@@ -303,7 +303,7 @@ ${expectedOutput}
           </div>
 
           {/* Download Options */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Download & Customize</h3>
             <div className="space-y-3">
               <a

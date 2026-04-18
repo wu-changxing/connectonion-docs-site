@@ -259,7 +259,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-gray-900">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-100 transition-colors p-2 rounded-lg hover:bg-gray-700 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -306,7 +306,7 @@ ${expectedOutput}
               <h3 className="text-xl font-semibold text-gray-900">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-100 transition-colors p-2 rounded-lg hover:bg-gray-700 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -365,7 +365,7 @@ ${expectedOutput}
           </div>
 
           {/* Analysis */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Expert Security Techniques</h3>
             <div className="space-y-4 text-sm">
               <div>
@@ -384,7 +384,7 @@ ${expectedOutput}
           </div>
 
           {/* Download Options */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Download & Customize</h3>
             <div className="space-y-3">
               <a
