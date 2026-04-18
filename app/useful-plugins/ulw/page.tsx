@@ -46,7 +46,7 @@ agent = Agent("worker", plugins=[tool_approval, ulw], model="co/claude-opus-4-5"
         {/* Trigger */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowPath className="w-8 h-8 text-cyan-400" />
+            <HiOutlineArrowPath className="w-8 h-8 text-gray-400" />
             Triggering ULW Mode
           </h2>
 

@@ -63,15 +63,15 @@ matched, score, positions = fuzzy_match(query, text)`}
               </thead>
               <tbody>
                 <tr className="border-b border-gray-200">
-                  <td className="py-2 text-yellow-400">+1</td>
+                  <td className="py-2 text-gray-700">+1</td>
                   <td className="py-2 text-gray-700">Per matched character</td>
                 </tr>
                 <tr className="border-b border-gray-200">
-                  <td className="py-2 text-yellow-400">+10</td>
+                  <td className="py-2 text-gray-700">+10</td>
                   <td className="py-2 text-gray-700">Consecutive character bonus</td>
                 </tr>
                 <tr>
-                  <td className="py-2 text-yellow-400">+5</td>
+                  <td className="py-2 text-gray-700">+5</td>
                   <td className="py-2 text-gray-700">Word boundary bonus (after <code>/_-. </code>)</td>
                 </tr>
               </tbody>

@@ -33,7 +33,7 @@ export default function SystemReminderPluginPage() {
           </p>
           <div className="p-4 bg-teal-900/20 border border-teal-500/30 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
-              <HiOutlineLightBulb className="w-5 h-5 text-teal-400" />
+              <HiOutlineLightBulb className="w-5 h-5 text-gray-400" />
               <h3 className="font-semibold">Example: After writing code</h3>
             </div>
             <CodeWithResult
@@ -106,27 +106,27 @@ agent = Agent("assistant", tools=[write_file], plugins=[system_reminder])`}
               </thead>
               <tbody>
                 <tr className="border-b border-gray-200/50">
-                  <td className="py-2 font-semibold text-teal-300">Workflow Nudges</td>
+                  <td className="py-2 font-semibold text-gray-700">Workflow Nudges</td>
                   <td className="py-2 text-gray-700">Gentle best practice suggestions</td>
                   <td className="py-2 text-gray-700">&quot;Consider running tests&quot;</td>
                 </tr>
                 <tr className="border-b border-gray-200/50">
-                  <td className="py-2 font-semibold text-teal-300">State Notifications</td>
+                  <td className="py-2 font-semibold text-gray-700">State Notifications</td>
                   <td className="py-2 text-gray-700">Inform about state changes</td>
                   <td className="py-2 text-gray-700">&quot;You exited plan mode&quot;</td>
                 </tr>
                 <tr className="border-b border-gray-200/50">
-                  <td className="py-2 font-semibold text-teal-300">External Events</td>
+                  <td className="py-2 font-semibold text-gray-700">External Events</td>
                   <td className="py-2 text-gray-700">React to external changes</td>
                   <td className="py-2 text-gray-700">&quot;File was modified by linter&quot;</td>
                 </tr>
                 <tr className="border-b border-gray-200/50">
-                  <td className="py-2 font-semibold text-teal-300">Next Steps</td>
+                  <td className="py-2 font-semibold text-gray-700">Next Steps</td>
                   <td className="py-2 text-gray-700">Guide what to do next</td>
                   <td className="py-2 text-gray-700">&quot;Verify your implementation&quot;</td>
                 </tr>
                 <tr>
-                  <td className="py-2 font-semibold text-teal-300">Context Injection</td>
+                  <td className="py-2 font-semibold text-gray-700">Context Injection</td>
                   <td className="py-2 text-gray-700">Provide relevant info</td>
                   <td className="py-2 text-gray-700">&quot;This file contains secrets&quot;</td>
                 </tr>

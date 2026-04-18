@@ -32,7 +32,7 @@ export default function UiStreamPage() {
         {/* Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+            <HiOutlineBolt className="w-8 h-8 text-gray-400" />
             Quick Start
           </h2>
           <CodeWithResult

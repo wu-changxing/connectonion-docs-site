@@ -32,7 +32,7 @@ export default function AutoCompactPage() {
         {/* Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+            <HiOutlineBolt className="w-8 h-8 text-gray-400" />
             Quick Start
           </h2>
           <CodeWithResult
@@ -56,21 +56,21 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
 
           <div className="space-y-4 mb-8">
             <div className="flex items-start gap-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <span className="text-cyan-400 font-bold text-lg w-6 flex-shrink-0">1</span>
+              <span className="text-gray-700 font-bold text-lg w-6 flex-shrink-0">1</span>
               <div>
                 <div className="font-semibold mb-1">Monitor after every LLM call</div>
                 <p className="text-gray-600 text-sm">After each response, checks <code className="bg-gray-100 px-1 rounded">context_percent</code>. Requires at least 8 messages before activating.</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <span className="text-cyan-400 font-bold text-lg w-6 flex-shrink-0">2</span>
+              <span className="text-gray-700 font-bold text-lg w-6 flex-shrink-0">2</span>
               <div>
                 <div className="font-semibold mb-1">Summarize old messages</div>
                 <p className="text-gray-600 text-sm">Calls <code className="bg-gray-100 px-1 rounded">co/gemini-2.5-flash</code> to generate a compact summary of earlier turns (max 800 words).</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <span className="text-cyan-400 font-bold text-lg w-6 flex-shrink-0">3</span>
+              <span className="text-gray-700 font-bold text-lg w-6 flex-shrink-0">3</span>
               <div>
                 <div className="font-semibold mb-1">Replace with summary</div>
                 <p className="text-gray-600 text-sm">Keeps: system prompt + summary message + last 5 messages. Discards the rest. Session continues normally.</p>
@@ -90,7 +90,7 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
               </thead>
               <tbody>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-cyan-300">90%</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">90%</td>
                   <td className="px-4 py-3 text-gray-600">8</td>
                   <td className="px-4 py-3 text-gray-600">system + summary + last 5</td>
                   <td className="px-4 py-3 font-mono text-gray-600">co/gemini-2.5-flash</td>

@@ -41,7 +41,7 @@ export default function ShellApprovalPage() {
             </div>
             <div className="p-4 bg-orange-900/20 border border-orange-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineXCircle className="w-5 h-5 text-orange-400" />
+                <HiOutlineXCircle className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">Asks approval for other commands</h3>
               </div>
               <p className="text-sm text-gray-700">Commands that modify files, install packages, or have side effects require user confirmation.</p>
@@ -208,7 +208,7 @@ def _check_approval(agent):
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-2"><code className="text-orange-300">before_each_tool</code></td>
+                  <td className="py-2"><code className="text-gray-700">before_each_tool</code></td>
                   <td className="py-2">_check_approval</td>
                   <td className="py-2 text-gray-700">Check and prompt before shell commands</td>
                 </tr>

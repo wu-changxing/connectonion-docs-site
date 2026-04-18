@@ -143,7 +143,7 @@ class MyProvider:
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg hover:border-gray-300/50 transition-all">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineDocumentText className="w-5 h-5 text-blue-400" />
+                <HiOutlineDocumentText className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">FileProvider</h3>
               </div>
               <p className="text-sm text-gray-700">Browse filesystem with type-specific icons</p>

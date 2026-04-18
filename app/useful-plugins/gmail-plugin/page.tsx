@@ -34,7 +34,7 @@ export default function GmailPluginPage() {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 bg-red-900/20 border border-red-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineCheckCircle className="w-5 h-5 text-red-400" />
+                <HiOutlineCheckCircle className="w-5 h-5 text-green-600" />
                 <h3 className="font-semibold">Email Approval (before_each_tool)</h3>
               </div>
               <p className="text-sm text-gray-700">Shows a preview and asks for confirmation before sending any email.</p>

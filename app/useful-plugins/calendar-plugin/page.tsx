@@ -48,7 +48,7 @@ export default function CalendarPluginPage() {
             </div>
             <div className="p-4 bg-red-900/20 border border-red-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineTrash className="w-5 h-5 text-red-400" />
+                <HiOutlineTrash className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">Delete Events</h3>
               </div>
               <p className="text-sm text-gray-700">Warns that deletion is permanent</p>
@@ -156,7 +156,7 @@ Proceed with create event?
               </div>
             </div>
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
-              <HiOutlineCheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-gray-900">No, tell agent what I want</strong>
                 <p className="text-sm text-gray-700">Reject and provide alternative instructions</p>

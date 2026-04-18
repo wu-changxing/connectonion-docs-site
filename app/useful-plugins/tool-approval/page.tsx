@@ -277,13 +277,13 @@ permissions:
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-yellow-400 font-semibold">4.</span>
+                <span className="text-gray-900 font-semibold">4.</span>
                 <div>
                   <strong>Session approvals</strong> - User approved for session (<code className="text-xs">source: user</code>)
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-red-400 font-semibold">5.</span>
+                <span className="text-gray-900 font-semibold">5.</span>
                 <div>
                   <strong>Runtime approval</strong> - Ask user (if none of above match)
                 </div>
@@ -451,7 +451,7 @@ pwd && rm -rf /
               <p className="text-sm text-gray-600">Pre-packaged workflows with scoped permissions</p>
             </Link>
             <Link href="/useful-plugins/shell-approval" className="p-6 bg-gray-50 border border-gray-200 hover:border-orange-500/50 rounded-lg transition-all group">
-              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-orange-300 transition-colors">shell_approval</h3>
+              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">shell_approval</h3>
               <p className="text-sm text-gray-600">Terminal-based approval for shell commands</p>
             </Link>
           </div>

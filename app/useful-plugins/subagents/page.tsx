@@ -32,7 +32,7 @@ export default function SubagentsPage() {
         {/* Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+            <HiOutlineBolt className="w-8 h-8 text-gray-400" />
             Quick Start
           </h2>
           <CodeWithResult
@@ -59,7 +59,7 @@ Architecture summary:
         {/* AGENT.md format */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineDocumentText className="w-8 h-8 text-amber-400" />
+            <HiOutlineDocumentText className="w-8 h-8 text-gray-400" />
             AGENT.md Format
           </h2>
           <p className="text-gray-700 mb-6">Create a file at <code className="bg-gray-100 px-2 py-1 rounded">.co/agents/name/AGENT.md</code>:</p>

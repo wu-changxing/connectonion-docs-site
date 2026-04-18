@@ -95,14 +95,14 @@ agent = Agent(
             </div>
             <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineDocumentText className="w-5 h-5 text-yellow-400" />
+                <HiOutlineDocumentText className="w-5 h-5 text-gray-400" />
                 <span className="font-semibold text-gray-700">reason</span>
               </div>
               <p className="text-sm text-gray-600">"commit skill (turn 5)"</p>
             </div>
             <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineLockClosed className="w-5 h-5 text-red-400" />
+                <HiOutlineLockClosed className="w-5 h-5 text-gray-400" />
                 <span className="font-semibold text-gray-700">expires</span>
               </div>
               <p className="text-sm text-gray-600">{`{"type": "turn_end"}`}</p>
@@ -262,7 +262,7 @@ Create a well-formatted git commit for staged changes.
           <h2 className="heading-2">Security Model - One Turn Only</h2>
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <HiOutlineLockClosed className="w-6 h-6 text-red-400" />
+              <HiOutlineLockClosed className="w-6 h-6 text-gray-400" />
               Turn-Based Expiration
             </h3>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 font-mono text-sm space-y-3">
@@ -283,7 +283,7 @@ Create a well-formatted git commit for staged changes.
                 <div>→ bash:pytest ✓ (user permission)</div>
               </div>
 
-              <div className="text-orange-300">
+              <div className="text-gray-700">
                 <div className="text-slate-400 text-xs mb-1">Turn 5 ends (@on_complete):</div>
                 <div>→ Restore snapshot</div>
                 <div>→ git permissions cleared ✓</div>

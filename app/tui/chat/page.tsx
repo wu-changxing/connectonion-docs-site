@@ -114,7 +114,7 @@ pip install textual textual-autocomplete`}
         {/* Thinking Indicator */}
         <section className="mb-12">
           <h2 className="heading-2 flex items-center gap-2">
-            <HiOutlineSparkles className="w-5 h-5 text-emerald-400" />
+            <HiOutlineSparkles className="w-5 h-5 text-gray-400" />
             Thinking Indicator
           </h2>
           <p className="text-gray-700 mb-4">
@@ -160,7 +160,7 @@ chat = Chat(
         {/* Status Bar */}
         <section className="mb-12">
           <h2 className="heading-2 flex items-center gap-2">
-            <HiOutlineCog6Tooth className="w-5 h-5 text-emerald-400" />
+            <HiOutlineCog6Tooth className="w-5 h-5 text-gray-400" />
             Status Bar
           </h2>
           <p className="text-gray-700 mb-4">

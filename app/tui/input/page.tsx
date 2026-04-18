@@ -111,7 +111,7 @@ text = Input(triggers={"/": commands}).run()`}
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineSwatch className="w-5 h-5 text-blue-400" />
+                <HiOutlineSwatch className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">classic</h3>
               </div>
               <p className="text-sm text-gray-700">Traditional input style</p>
