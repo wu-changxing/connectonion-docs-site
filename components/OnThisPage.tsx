@@ -13,7 +13,14 @@ export function OnThisPage() {
   const [activeId, setActiveId] = useState<string>('')
 
   useEffect(() => {
-    const elements = Array.from(document.querySelectorAll('h2, h3'))
+    // Only pick real section headings (.heading-2 / .heading-3), not stray
+    // h2/h3 inside cards. Falls back to plain h2 if no .heading-2 exists
+    // (some pages haven't migrated to the design-system class yet).
+    let elements = Array.from(document.querySelectorAll('h2.heading-2, h3.heading-3'))
+    if (elements.length === 0) {
+      elements = Array.from(document.querySelectorAll('main h2'))
+    }
+
     const items: Heading[] = elements.map(el => {
       if (!el.id) {
         const slug = (el.textContent || '')
@@ -21,15 +28,19 @@ export function OnThisPage() {
           .toLowerCase()
           .replace(/[^a-z0-9\s-]/g, '')
           .replace(/\s+/g, '-')
+          .replace(/-+/g, '-')
+          .replace(/^-|-$/g, '')
           .slice(0, 60)
         el.id = slug
       }
+      // scroll-margin-top so anchor scrolls don't land flush with the viewport top
+      ;(el as HTMLElement).style.scrollMarginTop = '6rem'
       return {
         id: el.id,
         text: el.textContent?.trim() || '',
         level: parseInt(el.tagName[1]),
       }
-    }).filter(h => h.text)
+    }).filter(h => h.text && h.id)
     setHeadings(items)
   }, [])
 
