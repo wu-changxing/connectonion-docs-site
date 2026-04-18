@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { HiOutlineClipboard, HiOutlineCheck, HiOutlineDocumentText, HiOutlineArrowRight, HiOutlineArrowLeft, HiOutlineArrowDownTray, HiOutlineLightBulb, HiOutlineChatBubbleOvalLeft, HiOutlineBookOpen, HiOutlineRectangleGroup } from 'react-icons/hi2'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineDocumentText, HiOutlineArrowRight, HiOutlineArrowLeft, HiOutlineArrowDownTray, HiOutlineLightBulb, HiOutlineChatBubbleOvalLeft, HiOutlineBookOpen, HiOutlineRectangleGroup, HiOutlineCheckCircle, HiOutlineUserGroup } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
@@ -382,15 +382,15 @@ ${expectedOutput}
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Expert Documentation Techniques</h3>
             <div className="space-y-4 text-sm">
               <div>
-                <h4 className="font-semibold text-gray-700 mb-2">📋 Structured Templates</h4>
+                <h4 className="font-semibold text-gray-700 mb-2 flex items-center gap-1.5"><HiOutlineClipboard className="w-4 h-4 flex-shrink-0" />Structured Templates</h4>
                 <p className="text-gray-700">6-section format ensures comprehensive coverage for any documentation type.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-700 mb-2">✅ Quality Assurance</h4>
+                <h4 className="font-semibold text-gray-700 mb-2 flex items-center gap-1.5"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />Quality Assurance</h4>
                 <p className="text-gray-700">Built-in checklist prevents common documentation problems.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-700 mb-2">👥 User-Centric Focus</h4>
+                <h4 className="font-semibold text-gray-700 mb-2 flex items-center gap-1.5"><HiOutlineUserGroup className="w-4 h-4 flex-shrink-0" />User-Centric Focus</h4>
                 <p className="text-gray-700">Always considers reader's skill level and real-world usage scenarios.</p>
               </div>
             </div>
