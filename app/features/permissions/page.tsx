@@ -32,7 +32,7 @@ export default function PermissionsPage() {
         <section className="mb-12">
           <h2 className="heading-2">Permission Layers</h2>
           <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 font-mono text-sm overflow-x-auto shadow-xl">
-            <pre className="text-slate-100 whitespace-pre">{`┌─────────────────────────────────────────────────────────────┐
+            <pre className="text-gray-700 whitespace-pre">{`┌─────────────────────────────────────────────────────────────┐
 │ 1. SAFE_TOOLS - Always auto-approved                       │
 │    read_file, glob, grep (read-only operations)            │
 │    Stored as: source='safe', expires='never'               │
@@ -97,8 +97,8 @@ agent.input("Read the README")
         {/* Unified Permission Structure */}
         <section className="mb-12">
           <h2 className="heading-2">Unified Permission Structure</h2>
-          <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-purple-500/30 rounded-lg p-6 mb-6">
-            <p className="text-slate-100 mb-4">
+          <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-purple-200 rounded-lg p-6 mb-6">
+            <p className="text-gray-700 mb-4">
               All permissions use the same 4-field structure, stored in <code className="px-2 py-1 bg-gray-800 rounded text-purple-300">session['permissions']</code>
             </p>
             <div className="grid md:grid-cols-2 gap-4">
@@ -165,13 +165,13 @@ session['permissions'] = {
         <section className="mb-12">
           <h2 className="heading-2">Config Files Use Bash() Pattern</h2>
 
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             User-facing config files (<code className="px-2 py-1 bg-gray-800 rounded text-purple-300">.co/host.yaml</code>) use a friendly <code className="px-2 py-1 bg-gray-800 rounded text-green-300">Bash()</code> pattern that automatically converts to the unified format at runtime:
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <h3 className="font-semibold text-slate-100 mb-3">User-Facing Config (.co/host.yaml)</h3>
+              <h3 className="font-semibold text-gray-700 mb-3">User-Facing Config (.co/host.yaml)</h3>
               <CodeWithResult
                 code={`permissions:
   "Bash(git status)":  # ← Natural pattern
@@ -185,7 +185,7 @@ session['permissions'] = {
             </div>
 
             <div>
-              <h3 className="font-semibold text-slate-100 mb-3">Runtime Format (Internal)</h3>
+              <h3 className="font-semibold text-gray-700 mb-3">Runtime Format (Internal)</h3>
               <CodeWithResult
                 code={`session['permissions']['bash'] = {
     "allowed": True,
@@ -199,8 +199,8 @@ session['permissions'] = {
             </div>
           </div>
 
-          <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
-            <p className="text-slate-100">
+          <div className="bg-purple-900/20 border border-purple-200 rounded-lg p-4">
+            <p className="text-gray-700">
               <strong className="text-purple-300">Automatic conversion:</strong> You write <code className="px-2 py-1 bg-gray-800 rounded text-green-300">Bash(git status)</code> in config, it becomes <code className="px-2 py-1 bg-gray-800 rounded text-purple-300">bash</code> with <code className="px-2 py-1 bg-gray-800 rounded text-blue-300">when:{'{command: "git status"}'}</code> at runtime.
             </p>
           </div>
@@ -210,17 +210,17 @@ session['permissions'] = {
         <section className="mb-12">
           <h2 className="heading-2">Tool-Level vs Granular Permissions</h2>
 
-          <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-6 mb-6">
+          <div className="bg-yellow-900/20 border border-yellow-200 rounded-lg p-6 mb-6">
             <h3 className="font-semibold text-yellow-300 mb-3 flex items-center gap-2">
               <HiOutlineKey className="w-5 h-5" />
               Critical Difference
             </h3>
-            <p className="text-slate-100 mb-4">
+            <p className="text-gray-700 mb-4">
               User approvals are <strong className="text-yellow-300">tool-level</strong>, not command-specific. This is different from config/skill permissions.
             </p>
 
             <div className="space-y-4">
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-green-500/30">
+              <div className="bg-gray-900/50 rounded-lg p-4 border border-green-200">
                 <h4 className="font-semibold text-green-300 mb-2">Config/Skill Permissions: Granular</h4>
                 <CodeWithResult
                   code={`# Can use 'when' field for parameter matching
@@ -232,7 +232,7 @@ session['permissions']['bash'] = {
                 />
               </div>
 
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-blue-500/30">
+              <div className="bg-gray-900/50 rounded-lg p-4 border border-blue-200">
                 <h4 className="font-semibold text-blue-300 mb-2">User Approvals: Tool-Level</h4>
                 <CodeWithResult
                   code={`# When user approves "bash npm install" → Stored as:
@@ -248,7 +248,7 @@ session['permissions']['bash'] = {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg">
+            <div className="p-4 bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg">
               <h3 className="font-semibold text-blue-300 mb-2">Why Tool-Level?</h3>
               <ul className="space-y-2 text-sm text-slate-300">
                 <li>✅ Convenience for development workflows</li>
@@ -256,7 +256,7 @@ session['permissions']['bash'] = {
                 <li>✅ Clear intent: "I trust bash for this session"</li>
               </ul>
             </div>
-            <div className="p-4 bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg">
+            <div className="p-4 bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-200 rounded-lg">
               <h3 className="font-semibold text-green-300 mb-2">Security</h3>
               <ul className="space-y-2 text-sm text-slate-300">
                 <li>✅ Config uses granular 'when' field</li>
@@ -270,7 +270,7 @@ session['permissions']['bash'] = {
         {/* Snapshot/Restore Mechanism */}
         <section className="mb-12">
           <h2 className="heading-2">Snapshot/Restore - Preserving User Approvals</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             Skills use a <strong className="text-purple-300">snapshot → grant → restore</strong> pattern to ensure user approvals are never lost:
           </p>
 
@@ -281,7 +281,7 @@ session['permissions']['bash'] = {
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500 flex items-center justify-center text-blue-300 font-semibold">1</div>
                   <div>
-                    <h3 className="font-semibold text-white mb-1">Turn 3: User Approves</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1">Turn 3: User Approves</h3>
                     <p className="text-sm text-slate-300">User approves <code className="px-2 py-1 bg-gray-800 rounded text-green-300">write</code> for session (tool-level approval)</p>
                   </div>
                 </div>
@@ -289,7 +289,7 @@ session['permissions']['bash'] = {
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500 flex items-center justify-center text-purple-300 font-semibold">2</div>
                   <div>
-                    <h3 className="font-semibold text-white mb-1">Turn 5: /commit Skill</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1">Turn 5: /commit Skill</h3>
                     <div className="text-sm text-slate-300 space-y-2">
                       <div>📸 <strong>Snapshot</strong> current permissions (write saved)</div>
                       <div>➕ <strong>Grant</strong> skill permissions (bash with when:{'{command: "git *"}'} added)</div>
@@ -302,7 +302,7 @@ session['permissions']['bash'] = {
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500/20 border border-green-500 flex items-center justify-center text-green-300 font-semibold">3</div>
                   <div>
-                    <h3 className="font-semibold text-white mb-1">Turn 6: Continue</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1">Turn 6: Continue</h3>
                     <div className="text-sm text-slate-300 space-y-1">
                       <div>✅ <code className="px-2 py-1 bg-gray-800 rounded text-green-300">write</code> still works (user approval preserved)</div>
                       <div>❌ <code className="px-2 py-1 bg-gray-800 rounded text-red-300">bash</code> requires approval (skill cleared)</div>
@@ -350,7 +350,7 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
             />
           </div>
 
-          <div className="mt-6 bg-green-900/20 border border-green-500/30 rounded-lg p-4">
+          <div className="mt-6 bg-green-900/20 border border-green-200 rounded-lg p-4">
             <h3 className="font-semibold text-green-300 mb-2 flex items-center gap-2">
               <HiOutlineShieldCheck className="w-5 h-5" />
               Security Benefits
@@ -367,7 +367,7 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
         {/* SAFE_TOOLS */}
         <section className="mb-12">
           <h2 className="heading-2">1. SAFE_TOOLS - Always Auto-Approved</h2>
-          <p className="text-slate-100 mb-4">Read-only operations that can't harm the system:</p>
+          <p className="text-gray-700 mb-4">Read-only operations that can't harm the system:</p>
           <CodeWithResult
             code={`SAFE_TOOLS = [
     'FileTools.read_file',
@@ -379,8 +379,8 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
 ]`}
             language="python"
           />
-          <div className="mt-4 bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
-            <p className="text-slate-100">
+          <div className="mt-4 bg-blue-900/20 border border-blue-200 rounded-lg p-4">
+            <p className="text-gray-700">
               <strong className="text-blue-300">No approval needed</strong> - these tools are always safe to execute.
             </p>
           </div>
@@ -397,21 +397,21 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
         {/* Skills */}
         <section className="mb-12">
           <h2 className="heading-2">2. Skills - Temporary Scoped Permissions</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Skills provide one-turn auto-approval with automatic cleanup. Perfect for workflows like git commits, deployments, or reviews.
           </p>
           <div className="grid md:grid-cols-3 gap-4 mb-6">
-            <div className="p-4 bg-gradient-to-br from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg hover:border-purple-400/50 transition-all">
+            <div className="p-4 bg-gradient-to-br from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg hover:border-purple-400/50 transition-all">
               <HiOutlineLockClosed className="w-6 h-6 text-purple-400 mb-2" />
               <h3 className="font-semibold text-purple-300 mb-2">Turn-Based</h3>
               <p className="text-sm text-slate-300">Permissions tied to specific turn number</p>
             </div>
-            <div className="p-4 bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg hover:border-blue-400/50 transition-all">
+            <div className="p-4 bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg hover:border-blue-400/50 transition-all">
               <HiOutlineKey className="w-6 h-6 text-blue-400 mb-2" />
               <h3 className="font-semibold text-blue-300 mb-2">Auto-Cleanup</h3>
               <p className="text-sm text-slate-300">Cleared when turn completes</p>
             </div>
-            <div className="p-4 bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg hover:border-green-400/50 transition-all">
+            <div className="p-4 bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-200 rounded-lg hover:border-green-400/50 transition-all">
               <HiOutlineShieldCheck className="w-6 h-6 text-green-400 mb-2" />
               <h3 className="font-semibold text-green-300 mb-2">Secure</h3>
               <p className="text-sm text-slate-300">No permission escalation across turns</p>
@@ -427,7 +427,7 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
         {/* Session Memory */}
         <section className="mb-12">
           <h2 className="heading-2">4. Session Memory - Remember User Decisions</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             When you approve a tool, you can choose to remember it for the session:
           </p>
           <CodeWithResult
@@ -444,11 +444,11 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
           <h2 className="heading-2">Related</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <Link href="/useful-plugins/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-purple-500/50 rounded-lg transition-all group">
-              <h3 className="font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">Skills Plugin</h3>
+              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">Skills Plugin</h3>
               <p className="text-sm text-slate-300">Pre-packaged workflows with automatic permissions</p>
             </Link>
             <Link href="/concepts/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-green-500/50 rounded-lg transition-all group">
-              <h3 className="font-semibold text-white mb-2 group-hover:text-green-300 transition-colors">Skills Concepts</h3>
+              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-green-300 transition-colors">Skills Concepts</h3>
               <p className="text-sm text-slate-300">Complete skills documentation</p>
             </Link>
           </div>

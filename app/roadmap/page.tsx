@@ -203,7 +203,7 @@ export default function RoadmapPage() {
       case 'in-progress':
         return <HiOutlineClock className="w-4 h-4 text-yellow-400" />
       case 'planned':
-        return <HiOutlineExclamationCircle className="w-4 h-4 text-slate-100" />
+        return <HiOutlineExclamationCircle className="w-4 h-4 text-gray-700" />
       default:
         return null
     }
@@ -253,7 +253,7 @@ export default function RoadmapPage() {
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
               !selectedCategory 
                 ? 'bg-purple-600 text-white' 
-                : 'bg-gray-800 text-slate-100 hover:bg-gray-700'
+                : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
             }`}
           >
             All
@@ -267,7 +267,7 @@ export default function RoadmapPage() {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                   selectedCategory === category.id
                     ? 'bg-purple-600 text-white'
-                    : 'bg-gray-800 text-slate-100 hover:bg-gray-700'
+                    : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -289,7 +289,7 @@ export default function RoadmapPage() {
                 {!selectedCategory && (
                   <div className="flex items-center gap-2 mb-4">
                     <category.icon className="w-5 h-5 text-purple-400" />
-                    <h2 className="text-lg font-semibold text-white">{category.name} Features</h2>
+                    <h2 className="text-lg font-semibold text-gray-900">{category.name} Features</h2>
                   </div>
                 )}
                 
@@ -298,14 +298,14 @@ export default function RoadmapPage() {
                   {categoryFeatures.map((feature, index) => (
                     <div
                       key={index}
-                      className="p-4 md:p-5 bg-gray-800/50 rounded-xl border border-gray-700 hover:border-purple-500/30 transition-all"
+                      className="p-4 md:p-5 bg-gray-100 rounded-xl border border-gray-700 hover:border-purple-500/30 transition-all"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                         <div className="flex items-start gap-3">
                           {getStatusIcon(feature.status)}
                           <div className="flex-1 min-w-0">
                             <h3 className="text-white font-medium mb-1 break-words">{feature.title}</h3>
-                            <p className="text-slate-100 text-sm break-words">{feature.description}</p>
+                            <p className="text-gray-700 text-sm break-words">{feature.description}</p>
                           </div>
                         </div>
                         <span className="text-xs text-purple-400 font-medium whitespace-nowrap ml-7 sm:ml-0">{feature.targetDate}</span>
@@ -315,7 +315,7 @@ export default function RoadmapPage() {
                       <div className="mt-3">
                         <div className="flex justify-between text-xs mb-2">
                           <span className="text-gray-500">Progress</span>
-                          <span className="text-slate-100">{feature.progress}%</span>
+                          <span className="text-gray-700">{feature.progress}%</span>
                         </div>
                         <div className="w-full bg-gray-700 rounded-full h-2 md:h-1.5">
                           <div
@@ -333,31 +333,31 @@ export default function RoadmapPage() {
         </div>
 
         {/* Progress Summary */}
-        <div className="mt-12 p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+        <div className="mt-12 p-4 bg-gray-100 rounded-xl border border-gray-700">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
               <div className="text-2xl font-bold text-green-400">16</div>
-              <div className="text-xs text-slate-100">Completed</div>
+              <div className="text-xs text-gray-700">Completed</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-yellow-400">2</div>
-              <div className="text-xs text-slate-100">In Progress</div>
+              <div className="text-xs text-gray-700">In Progress</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-slate-100">2</div>
-              <div className="text-xs text-slate-100">Planned</div>
+              <div className="text-2xl font-bold text-gray-700">2</div>
+              <div className="text-xs text-gray-700">Planned</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-purple-400">v0.6.6</div>
-              <div className="text-xs text-slate-100">Current Version</div>
+              <div className="text-xs text-gray-700">Current Version</div>
             </div>
           </div>
         </div>
 
         {/* Call to Action */}
         <div className="mt-8 p-6 md:p-8 bg-gray-800/30 rounded-xl border border-gray-700 text-center">
-          <h2 className="text-lg font-semibold text-white mb-4">Want to Shape Our Roadmap?</h2>
-          <p className="text-slate-100 text-sm mb-6 max-w-xl mx-auto">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Want to Shape Our Roadmap?</h2>
+          <p className="text-gray-700 text-sm mb-6 max-w-xl mx-auto">
             We're building ConnectOnion with our community. Your feedback helps prioritize features.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 max-w-md mx-auto">

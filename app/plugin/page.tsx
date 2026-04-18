@@ -70,7 +70,7 @@ agent.input("Search for Python")
             What is a Plugin?
           </h2>
 
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             A plugin is a list of event handlers:
           </p>
 
@@ -127,57 +127,57 @@ agent = Agent("a", plugins=[re_act, logger])`}
               <tbody className="divide-y divide-slate-700">
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">re_act</td>
-                  <td className="px-4 py-3 text-slate-100">Planning + reflection (ReAct pattern)</td>
+                  <td className="px-4 py-3 text-gray-700">Planning + reflection (ReAct pattern)</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/re-act" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">auto_compact</td>
-                  <td className="px-4 py-3 text-slate-100">Auto-compress context at 90% — prevents hitting token limits</td>
+                  <td className="px-4 py-3 text-gray-700">Auto-compress context at 90% — prevents hitting token limits</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/auto-compact" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">subagents</td>
-                  <td className="px-4 py-3 text-slate-100">Load sub-agents from AGENT.md files via task() tool</td>
+                  <td className="px-4 py-3 text-gray-700">Load sub-agents from AGENT.md files via task() tool</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/subagents" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">ulw</td>
-                  <td className="px-4 py-3 text-slate-100">Ultra Light Work — autonomous mode from web UI</td>
+                  <td className="px-4 py-3 text-gray-700">Ultra Light Work — autonomous mode from web UI</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/ulw" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">ui_stream</td>
-                  <td className="px-4 py-3 text-slate-100">WebSocket streaming of completion events to UI</td>
+                  <td className="px-4 py-3 text-gray-700">WebSocket streaming of completion events to UI</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/ui-stream" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">tool_approval</td>
-                  <td className="px-4 py-3 text-slate-100">Require user approval before each tool call</td>
+                  <td className="px-4 py-3 text-gray-700">Require user approval before each tool call</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/tool-approval" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">shell_approval</td>
-                  <td className="px-4 py-3 text-slate-100">Approve shell commands before execution</td>
+                  <td className="px-4 py-3 text-gray-700">Approve shell commands before execution</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/shell-approval" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">prefer_write_tool</td>
-                  <td className="px-4 py-3 text-slate-100">Encourage agent to use FileTools.write() over bash</td>
+                  <td className="px-4 py-3 text-gray-700">Encourage agent to use FileTools.write() over bash</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/prefer-write-tool" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">system_reminder</td>
-                  <td className="px-4 py-3 text-slate-100">Inject system reminders into LLM context</td>
+                  <td className="px-4 py-3 text-gray-700">Inject system reminders into LLM context</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/system-reminder" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">image_result_formatter</td>
-                  <td className="px-4 py-3 text-slate-100">Format images for vision models</td>
+                  <td className="px-4 py-3 text-gray-700">Format images for vision models</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/image-result-formatter" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-purple-300">eval</td>
-                  <td className="px-4 py-3 text-slate-100">Task evaluation for debugging</td>
+                  <td className="px-4 py-3 text-gray-700">Task evaluation for debugging</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/eval" className="text-purple-400 hover:underline">docs</Link></td>
                 </tr>
               </tbody>
@@ -199,7 +199,7 @@ agent = Agent("assistant", plugins=[re_act, image_result_formatter])`}
             Writing Custom Plugins
           </h2>
 
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Simple example - log each tool execution:
           </p>
 
@@ -250,27 +250,27 @@ writer = Agent("writer", tools=[generate], plugins=[logger])`}
           <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
             <Link
               href="/on_events"
-              className="group bg-gradient-to-r from-purple-900/20 to-purple-800/20 border border-purple-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all"
+              className="group bg-purple-50 border border-purple-200 rounded-xl p-6 hover:border-purple-400/50 transition-all"
             >
               <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
                 <VscLayers className="text-white w-6 h-6" />
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Events
               </h3>
-              <p className="text-purple-100 text-sm">
+              <p className="text-purple-900 text-sm">
                 Available event hooks
               </p>
             </Link>
 
             <Link
               href="/llm_do"
-              className="group bg-gradient-to-r from-blue-900/20 to-blue-800/20 border border-blue-500/30 rounded-xl p-6 hover:border-blue-400/50 transition-all"
+              className="group bg-blue-50 border border-blue-200 rounded-xl p-6 hover:border-blue-400/50 transition-all"
             >
               <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
                 <HiOutlineCodeBracket className="text-white w-6 h-6" />
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 llm_do
               </h3>
               <p className="text-blue-100 text-sm">
@@ -280,15 +280,15 @@ writer = Agent("writer", tools=[generate], plugins=[logger])`}
 
             <Link
               href="/examples"
-              className="group bg-gradient-to-r from-green-900/20 to-green-800/20 border border-green-500/30 rounded-xl p-6 hover:border-green-400/50 transition-all"
+              className="group bg-green-50 border border-green-200 rounded-xl p-6 hover:border-green-400/50 transition-all"
             >
               <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4">
                 <HiOutlineSparkles className="text-white w-6 h-6" />
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Examples
               </h3>
-              <p className="text-green-100 text-sm">
+              <p className="text-green-900 text-sm">
                 More examples
               </p>
             </Link>

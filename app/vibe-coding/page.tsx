@@ -127,16 +127,16 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
 
         {/* Hero Section */}
         <section className="mb-24 md:mb-42 lg:mb-40">
-          <div className="bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl p-6 md:p-8 lg:p-10 border border-purple-500/20 mb-12">
+          <div className="bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl p-6 md:p-8 lg:p-10 border border-purple-200 mb-12">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 rounded-full border border-purple-500/30 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 rounded-full border border-purple-200 mb-6">
                 <HiOutlineCommandLine className="w-4 h-4 text-purple-400" />
                 <span className="text-sm font-medium text-purple-300">Documentation-Grounded Development</span>
               </div>
               <h2 className="heading-2">
                 Build ConnectOnion Agents <span className="text-purple-400">The Right Way</span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
                 Code review and agent builder powered by actual ConnectOnion documentation. No hallucinations, no wrong patterns.
               </p>
             </div>
@@ -175,9 +175,9 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
 
         {/* Claude Code Plugin - Installation */}
         <section className="mb-24 md:mb-42 lg:mb-40">
-          <div className="relative bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl p-6 md:p-8 lg:p-10 border border-purple-500/30 overflow-hidden">
+          <div className="relative bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl p-6 md:p-8 lg:p-10 border border-purple-200 overflow-hidden">
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-purple-500/20 rounded-xl border border-purple-500/30">
+              <div className="p-3 bg-purple-500/20 rounded-xl border border-purple-200">
                 <HiOutlineCommandLine className="w-8 h-8 text-purple-400" />
               </div>
               <div>

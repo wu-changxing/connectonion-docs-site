@@ -46,7 +46,7 @@ path = browse_files()
 cmd = input_with_at("> ")`}
             language="python"
           />
-          <p className="text-slate-100 mt-4 text-sm">
+          <p className="text-gray-700 mt-4 text-sm">
             Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy terminal</code></Link> to get an editable copy.
           </p>
         </section>
@@ -54,7 +54,7 @@ cmd = input_with_at("> ")`}
         {/* pick() */}
         <section className="mb-12">
           <h2 className="heading-2">pick()</h2>
-          <p className="text-slate-100 mb-4">Single-select menu with keyboard navigation.</p>
+          <p className="text-gray-700 mb-4">Single-select menu with keyboard navigation.</p>
           <CodeWithResult
             code={`# List options (press 1, 2, 3 or arrow keys)
 choice = pick("Apply this command?", [
@@ -75,7 +75,7 @@ choice = pick("Continue?", {
         {/* yes_no() */}
         <section className="mb-12">
           <h2 className="heading-2">yes_no()</h2>
-          <p className="text-slate-100 mb-4">Simple binary confirmation.</p>
+          <p className="text-gray-700 mb-4">Simple binary confirmation.</p>
           <CodeWithResult
             code={`ok = yes_no("Delete this file?")
 # Press y → True, n → False`}
@@ -86,7 +86,7 @@ choice = pick("Continue?", {
         {/* browse_files() */}
         <section className="mb-12">
           <h2 className="heading-2">browse_files()</h2>
-          <p className="text-slate-100 mb-4">Navigate and select files.</p>
+          <p className="text-gray-700 mb-4">Navigate and select files.</p>
           <CodeWithResult
             code={`path = browse_files()
 # Arrow keys to navigate
@@ -100,7 +100,7 @@ choice = pick("Continue?", {
         {/* input_with_at() */}
         <section className="mb-12">
           <h2 className="heading-2">input_with_at()</h2>
-          <p className="text-slate-100 mb-4">Text input with @ file autocomplete.</p>
+          <p className="text-gray-700 mb-4">Text input with @ file autocomplete.</p>
           <CodeWithResult
             code={`cmd = input_with_at("> ")
 # User types: "edit @"
@@ -124,23 +124,23 @@ choice = pick("Continue?", {
               <tbody className="divide-y divide-slate-700">
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-orange-300">↑/↓</td>
-                  <td className="px-4 py-3 text-slate-100">Navigate options</td>
+                  <td className="px-4 py-3 text-gray-700">Navigate options</td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-orange-300">1-9</td>
-                  <td className="px-4 py-3 text-slate-100">Quick select by number</td>
+                  <td className="px-4 py-3 text-gray-700">Quick select by number</td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-orange-300">Enter</td>
-                  <td className="px-4 py-3 text-slate-100">Confirm selection</td>
+                  <td className="px-4 py-3 text-gray-700">Confirm selection</td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-orange-300">Esc</td>
-                  <td className="px-4 py-3 text-slate-100">Cancel</td>
+                  <td className="px-4 py-3 text-gray-700">Cancel</td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-orange-300">@</td>
-                  <td className="px-4 py-3 text-slate-100">Trigger file autocomplete</td>
+                  <td className="px-4 py-3 text-gray-700">Trigger file autocomplete</td>
                 </tr>
               </tbody>
             </table>

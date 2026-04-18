@@ -127,19 +127,19 @@ export default function UsefulPluginsPage() {
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
       {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
+        <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
           <HiOutlineArrowRight className="w-4 h-4" />
-          <span className="text-white">Useful Plugins</span>
+          <span className="text-gray-900">Useful Plugins</span>
         </div>
 
         {/* Header */}
         <div className="mb-12">
           <div className="flex flex-col gap-4 mb-4">
             <div className="flex items-start gap-3">
-              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30 flex-shrink-0">
+              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-200 flex-shrink-0">
                 <HiOutlineCube className="w-8 h-8 text-purple-400" />
               </div>
               <div className="min-w-0">
@@ -150,7 +150,7 @@ export default function UsefulPluginsPage() {
                     Built-in
                   </span>
                 </div>
-                <p className="text-lg text-slate-100">
+                <p className="text-lg text-gray-700">
                   Pre-built plugins from <code className="bg-gray-800 px-2 py-1 rounded text-purple-300 text-sm break-all">connectonion.useful_plugins</code>
                 </p>
               </div>
@@ -160,9 +160,9 @@ export default function UsefulPluginsPage() {
         </div>
 
         {/* What is a Plugin */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/20">
+        <div className="mb-12 p-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-200">
           <h2 className="heading-2">What is a Plugin?</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             A plugin is a reusable list of event handlers. Use <code className="bg-gray-800 px-2 py-1 rounded">plugins=[...]</code> to add pre-packaged functionality to any agent.
           </p>
           <CodeWithResult
@@ -178,7 +178,7 @@ agent = Agent(
             result=""
             language="python"
           />
-          <p className="text-sm text-slate-100 mt-4">
+          <p className="text-sm text-gray-700 mt-4">
             Learn how to build custom plugins in the <Link href="/plugin" className="text-purple-400 hover:text-purple-300">Plugin System documentation</Link>.
           </p>
         </div>
@@ -189,7 +189,7 @@ agent = Agent(
             <Link
               key={plugin.id}
               href={plugin.href}
-              className={`group block p-4 sm:p-6 rounded-lg border ${plugin.borderColor} ${plugin.bgColor} hover:border-purple-400/50 hover:bg-gray-800/50 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 transition-all duration-200`}
+              className={`group block p-4 sm:p-6 rounded-lg border ${plugin.borderColor} ${plugin.bgColor} hover:border-purple-400/50 hover:bg-gray-100 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 transition-all duration-200`}
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
@@ -197,14 +197,14 @@ agent = Agent(
                     <plugin.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-white">{plugin.title}</h3>
-                    <code className="text-xs sm:text-sm text-slate-100">{plugin.name}</code>
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{plugin.title}</h3>
+                    <code className="text-xs sm:text-sm text-gray-700">{plugin.name}</code>
                   </div>
                 </div>
-                <HiOutlineArrowRight className="w-5 h-5 text-slate-100 group-hover:text-white transition-colors flex-shrink-0" />
+                <HiOutlineArrowRight className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors flex-shrink-0" />
               </div>
 
-              <p className="text-sm sm:text-base text-slate-100 mb-3">
+              <p className="text-sm sm:text-base text-gray-700 mb-3">
                 {plugin.description}
               </p>
 
@@ -212,7 +212,7 @@ agent = Agent(
                 {plugin.events.map((event, i) => (
                   <span
                     key={i}
-                    className="text-xs px-2 py-1 bg-gray-800 text-slate-100 rounded"
+                    className="text-xs px-2 py-1 bg-gray-800 text-gray-700 rounded"
                   >
                     {event}
                   </span>
@@ -225,7 +225,7 @@ agent = Agent(
         {/* Using Multiple Plugins */}
         <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-500/20">
           <h2 className="heading-2">Combining Plugins</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Plugins can be combined for powerful agent behaviors:
           </p>
           <CodeWithResult
@@ -255,7 +255,7 @@ agent = Agent(
         {/* Customizing Plugins */}
         <div className="mb-12 p-6 bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg border border-green-500/20">
           <h2 className="heading-2">Customizing Plugins</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Need to modify a built-in plugin? Copy it to your project:
           </p>
           <CodeWithResult
@@ -269,7 +269,7 @@ co copy re_act shell_approval eval`}
 ✓ Copied: ./plugins/eval.py`}
             language="bash"
           />
-          <p className="text-slate-100 mt-4 mb-4">
+          <p className="text-gray-700 mt-4 mb-4">
             Then import from your local copy and customize:
           </p>
           <CodeWithResult
@@ -281,15 +281,15 @@ from plugins.re_act import re_act  # Customize freely!`}
             result=""
             language="python"
           />
-          <p className="text-sm text-slate-100 mt-4">
+          <p className="text-sm text-gray-700 mt-4">
             See <Link href="/cli" className="text-purple-400 hover:text-purple-300">co copy</Link> for full details.
           </p>
         </div>
 
         {/* Call to Action */}
-        <div className="text-center py-8 px-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/20">
+        <div className="text-center py-8 px-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-200">
           <h2 className="heading-2">Build Your Own Plugin</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             Learn how to create custom plugins using the event system
           </p>
           <Link

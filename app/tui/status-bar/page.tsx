@@ -92,7 +92,7 @@ status = StatusBar([
         {/* Styles */}
         <section className="mb-12">
           <h2 className="heading-2">Styles</h2>
-          <ul className="space-y-2 text-slate-100">
+          <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
               <span className="text-cyan-400">•</span>
               <span>Uses powerline arrows for segment transitions</span>
@@ -111,7 +111,7 @@ status = StatusBar([
         {/* Example Output */}
         <section className="mb-12">
           <h2 className="heading-2">Example Output</h2>
-          <pre className="bg-gray-900 rounded-lg p-4 text-sm text-slate-100 overflow-x-auto">
+          <pre className="bg-gray-900 rounded-lg p-4 text-sm text-gray-700 overflow-x-auto">
 {`🤖 co/gemini-2.5-pro  📊 50%   main`}
           </pre>
         </section>

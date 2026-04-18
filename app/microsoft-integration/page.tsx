@@ -10,27 +10,27 @@ import CodeWithResult from '../../components/CodeWithResult'
 
 export default function MicrosoftIntegrationPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="bg-white text-gray-900">
       <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
+        <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
           <HiOutlineArrowRight className="w-4 h-4" />
-          <span className="text-white">Microsoft Integration</span>
+          <span className="text-gray-900">Microsoft Integration</span>
         </div>
 
         {/* Header */}
         <div className="mb-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-xl border border-blue-500/30">
+              <div className="p-3 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-xl border border-blue-200">
                 <FaMicrosoft className="w-8 h-8 text-white" />
               </div>
               <div>
                 <h1 className="heading-1">Microsoft Integration</h1>
-                <p className="text-lg text-slate-100">
+                <p className="text-lg text-gray-700">
                   Send emails via Outlook and read calendar events from your AI agents. 30-second setup.
                 </p>
               </div>
@@ -50,8 +50,8 @@ export default function MicrosoftIntegrationPage() {
             <CommandBlock commands={['co auth microsoft']} />
 
             <div className="mt-8 space-y-4">
-              <h3 className="text-lg font-semibold text-white">What happens:</h3>
-              <ol className="list-decimal list-inside space-y-2 text-slate-100 ml-2">
+              <h3 className="text-lg font-semibold text-gray-900">What happens:</h3>
+              <ol className="list-decimal list-inside space-y-2 text-gray-700 ml-2">
                 <li>Opens browser to Microsoft OAuth consent screen</li>
                 <li>You authorize Mail + Calendar permissions</li>
                 <li>Credentials saved to <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> (both local and global <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code>)</li>
@@ -71,11 +71,11 @@ export default function MicrosoftIntegrationPage() {
         {/* Prerequisites */}
         <section className="mb-16">
           <h2 className="heading-2">Prerequisites</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             Before running <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth microsoft</code>, you must authenticate with OpenOnion:
           </p>
           <CommandBlock commands={['co auth']} />
-          <p className="text-slate-100 mt-4">
+          <p className="text-gray-700 mt-4">
             This creates your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code> which is required for Microsoft OAuth to work.
           </p>
         </section>
@@ -83,7 +83,7 @@ export default function MicrosoftIntegrationPage() {
         {/* What Gets Saved */}
         <section className="mb-16">
           <h2 className="heading-2">What Gets Saved</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             After successful authentication, your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> file contains:
           </p>
 
@@ -103,7 +103,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
               <HiOutlineLockClosed className="w-5 h-5 text-purple-400" />
               Security notes
             </h3>
-            <ul className="space-y-2 text-slate-100">
+            <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="text-purple-400">•</span>
                 <span>Credentials are saved to both local <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> and <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></span>
@@ -127,7 +127,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
         {/* Permissions Requested */}
         <section className="mb-16">
           <h2 className="heading-2">Permissions Requested</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             When you run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth microsoft</code>, we request these Microsoft Graph API scopes:
           </p>
 
@@ -135,12 +135,12 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="py-3 px-4 font-semibold text-white">Scope</th>
-                  <th className="py-3 px-4 font-semibold text-white">Purpose</th>
-                  <th className="py-3 px-4 font-semibold text-white">What agents can do</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Scope</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Purpose</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">What agents can do</th>
                 </tr>
               </thead>
-              <tbody className="text-slate-100">
+              <tbody className="text-gray-700">
                 <tr className="border-b border-gray-800">
                   <td className="py-3 px-4 font-mono text-sm text-purple-400">Mail.Read</td>
                   <td className="py-3 px-4">Read user emails</td>
@@ -170,13 +170,13 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
             </table>
           </div>
 
-          <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
+          <div className="bg-blue-900/20 border border-blue-200 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-blue-400">
               <HiOutlineShieldCheck className="w-5 h-5" />
               Privacy First
             </h3>
-            <p className="text-slate-100 mb-4">We only request the permissions needed. We cannot:</p>
-            <ul className="space-y-2 text-slate-100">
+            <p className="text-gray-700 mb-4">We only request the permissions needed. We cannot:</p>
+            <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="text-red-400">✕</span>
                 <span>Delete your emails</span>
@@ -196,7 +196,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
         {/* Using Microsoft OAuth in Agents */}
         <section className="mb-16">
           <h2 className="heading-2">Using Microsoft OAuth in Agents</h2>
-          <p className="text-slate-100 mb-8">Once authenticated, your agents can use Microsoft-powered tools:</p>
+          <p className="text-gray-700 mb-8">Once authenticated, your agents can use Microsoft-powered tools:</p>
 
           <div className="space-y-12">
             <div>
@@ -246,7 +246,7 @@ agent.input("What's on my calendar this week?")`}
         {/* Outlook Tool Methods */}
         <section className="mb-16">
           <h2 className="heading-2">Outlook Tool Methods</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             The <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">Outlook</code> tool provides these capabilities:
           </p>
 
@@ -282,7 +282,7 @@ outlook.get_my_email()          # Get connected Microsoft email address`}
         {/* Microsoft Calendar Tool Methods */}
         <section className="mb-16">
           <h2 className="heading-2">Microsoft Calendar Tool Methods</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             The <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">MicrosoftCalendar</code> tool provides:
           </p>
 
@@ -334,20 +334,20 @@ calendar.check_availability("2025-01-15 14:00")  # Check if specific time is fre
           <div className="space-y-8">
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-red-400">"Not authenticated with OpenOnion"</h3>
-              <p className="text-slate-100 mb-4">You need to run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
+              <p className="text-gray-700 mb-4">You need to run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
               <CommandBlock commands={['co auth', 'co auth microsoft']} />
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-yellow-400">Authorization Timeout</h3>
-              <p className="text-slate-100 mb-4">If the browser window doesn't complete authorization within 5 minutes:</p>
+              <p className="text-gray-700 mb-4">If the browser window doesn't complete authorization within 5 minutes:</p>
               <CommandBlock commands={['co auth microsoft']} />
               <p className="text-sm text-gray-400 mt-2">The command polls the backend every 5 seconds waiting for your authorization.</p>
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-blue-400">Credentials Not Working</h3>
-              <p className="text-slate-100 mb-4">Check if credentials are properly saved:</p>
+              <p className="text-gray-700 mb-4">Check if credentials are properly saved:</p>
               <CodeWithResult
                 code={`# Check local .env
 cat .env | grep MICROSOFT_
@@ -357,14 +357,14 @@ cat ~/.co/keys.env | grep MICROSOFT_`}
                 language="bash"
                 fileName="terminal"
               />
-              <p className="text-slate-100 mt-4 mb-2">If credentials exist but don't work, re-authenticate:</p>
+              <p className="text-gray-700 mt-4 mb-2">If credentials exist but don't work, re-authenticate:</p>
               <CommandBlock commands={['co auth microsoft']} />
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-green-400">Revoke Access</h3>
-              <p className="text-slate-100 mb-4">To disconnect your Microsoft account:</p>
-              <ul className="space-y-2 text-slate-100">
+              <p className="text-gray-700 mb-4">To disconnect your Microsoft account:</p>
+              <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <span className="text-purple-400">1.</span>
                   <span>Go to <a href="https://account.live.com/consent/Manage" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">Microsoft Account Permissions</a></span>
@@ -381,7 +381,7 @@ cat ~/.co/keys.env | grep MICROSOFT_`}
         {/* Comparison */}
         <section className="mb-16">
           <h2 className="heading-2">Google vs Microsoft</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             Both integrations follow the same CLI pattern:
           </p>
 
@@ -389,12 +389,12 @@ cat ~/.co/keys.env | grep MICROSOFT_`}
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="py-3 px-4 font-semibold text-white">Feature</th>
-                  <th className="py-3 px-4 font-semibold text-white">Google</th>
-                  <th className="py-3 px-4 font-semibold text-white">Microsoft</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Feature</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Google</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Microsoft</th>
                 </tr>
               </thead>
-              <tbody className="text-slate-100">
+              <tbody className="text-gray-700">
                 <tr className="border-b border-gray-800">
                   <td className="py-3 px-4">Command</td>
                   <td className="py-3 px-4 font-mono text-sm">co auth google</td>

@@ -345,7 +345,7 @@ export function FrameworkComparison() {
                     <SyntaxHighlighter
                       language="python"
                       style={monokai}
-                      customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.75rem', lineHeight: '1.5' }}
+                      customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6' }}
                       wrapLongLines={false}
                     >
                       {comparison.connectonion.code}
@@ -365,7 +365,7 @@ export function FrameworkComparison() {
                     <SyntaxHighlighter
                       language="python"
                       style={monokai}
-                      customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.75rem', lineHeight: '1.5' }}
+                      customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6' }}
                       wrapLongLines={false}
                     >
                       {comparison.other.code}

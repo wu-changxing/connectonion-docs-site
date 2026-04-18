@@ -65,7 +65,7 @@ Architecture summary:
             <HiOutlineDocumentText className="w-8 h-8 text-amber-400" />
             AGENT.md Format
           </h2>
-          <p className="text-slate-100 mb-6">Create a file at <code className="bg-gray-800 px-2 py-1 rounded">.co/agents/name/AGENT.md</code>:</p>
+          <p className="text-gray-700 mb-6">Create a file at <code className="bg-gray-800 px-2 py-1 rounded">.co/agents/name/AGENT.md</code>:</p>
           <CodeWithResult
             code={`---
 name: reviewer
@@ -87,36 +87,36 @@ Return a structured report with findings and line numbers.`}
             <table className="w-full text-sm">
               <thead className="bg-gray-800">
                 <tr>
-                  <th className="text-left px-4 py-3 text-slate-100">Field</th>
-                  <th className="text-left px-4 py-3 text-slate-100">Required</th>
-                  <th className="text-left px-4 py-3 text-slate-100">Description</th>
+                  <th className="text-left px-4 py-3 text-gray-700">Field</th>
+                  <th className="text-left px-4 py-3 text-gray-700">Required</th>
+                  <th className="text-left px-4 py-3 text-gray-700">Description</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-violet-300">name</td>
                   <td className="px-4 py-3 text-slate-300">yes</td>
-                  <td className="px-4 py-3 text-slate-100">Agent identifier (used in task() calls)</td>
+                  <td className="px-4 py-3 text-gray-700">Agent identifier (used in task() calls)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-violet-300">description</td>
                   <td className="px-4 py-3 text-slate-300">yes</td>
-                  <td className="px-4 py-3 text-slate-100">Shown to parent agent when choosing sub-agent</td>
+                  <td className="px-4 py-3 text-gray-700">Shown to parent agent when choosing sub-agent</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-violet-300">model</td>
                   <td className="px-4 py-3 text-slate-300">no</td>
-                  <td className="px-4 py-3 text-slate-100">Default: co/gemini-2.5-pro</td>
+                  <td className="px-4 py-3 text-gray-700">Default: co/gemini-2.5-pro</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-violet-300">max_iterations</td>
                   <td className="px-4 py-3 text-slate-300">no</td>
-                  <td className="px-4 py-3 text-slate-100">Default: 10</td>
+                  <td className="px-4 py-3 text-gray-700">Default: 10</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-violet-300">tools</td>
                   <td className="px-4 py-3 text-slate-300">no</td>
-                  <td className="px-4 py-3 text-slate-100">List of tool names to give the sub-agent</td>
+                  <td className="px-4 py-3 text-gray-700">List of tool names to give the sub-agent</td>
                 </tr>
               </tbody>
             </table>
@@ -134,7 +134,7 @@ Return a structured report with findings and line numbers.`}
             <HiOutlineCpuChip className="w-8 h-8 text-blue-400" />
             Agent Discovery
           </h2>
-          <p className="text-slate-100 mb-4">Agents are discovered in priority order:</p>
+          <p className="text-gray-700 mb-4">Agents are discovered in priority order:</p>
           <CodeWithResult
             code={`.co/agents/{name}/AGENT.md      # Project-level (highest priority)
 ~/.co/agents/{name}/AGENT.md    # User-level
@@ -147,20 +147,20 @@ builtin/{name}/AGENT.md         # Built-in agents (lowest priority)`}
         {/* Events */}
         <section className="mb-20">
           <h2 className="heading-2">Events used</h2>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-slate-100">Event</th>
-                  <th className="text-left py-2 text-slate-100">Handler</th>
-                  <th className="text-left py-2 text-slate-100">Purpose</th>
+                  <th className="text-left py-2 text-gray-700">Event</th>
+                  <th className="text-left py-2 text-gray-700">Handler</th>
+                  <th className="text-left py-2 text-gray-700">Purpose</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td className="py-2"><code className="text-violet-300">on_agent_ready</code></td>
                   <td className="py-2 text-slate-300">initialize_subagents</td>
-                  <td className="py-2 text-slate-100">Discover agents, register task() tool</td>
+                  <td className="py-2 text-gray-700">Discover agents, register task() tool</td>
                 </tr>
               </tbody>
             </table>

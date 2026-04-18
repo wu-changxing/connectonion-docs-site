@@ -31,7 +31,7 @@ export default function SystemReminderPluginPage() {
         {/* What it does */}
         <section className="mb-12">
           <h2 className="heading-2">What it does</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             The <code className="bg-gray-800 px-2 py-1 rounded">system_reminder</code> plugin injects contextual guidance into tool results to nudge agent behavior—without extra API calls.
           </p>
           <div className="p-4 bg-teal-900/20 border border-teal-500/30 rounded-lg">
@@ -65,7 +65,7 @@ from connectonion.useful_plugins import system_reminder
 agent = Agent("assistant", tools=[write_file], plugins=[system_reminder])`}
             language="python"
           />
-          <p className="text-slate-100 mt-4 text-sm">
+          <p className="text-gray-700 mt-4 text-sm">
             Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy system_reminder</code></Link> to get an editable copy with built-in reminders.
           </p>
         </section>
@@ -73,8 +73,8 @@ agent = Agent("assistant", tools=[write_file], plugins=[system_reminder])`}
         {/* How it works */}
         <section className="mb-12">
           <h2 className="heading-2">How it works</h2>
-          <div className="bg-gray-800/50 rounded-lg p-4 font-mono text-sm">
-            <pre className="text-slate-100 overflow-x-auto">{`┌─────────────────────────────────────────────┐
+          <div className="bg-gray-100 rounded-lg p-4 font-mono text-sm">
+            <pre className="text-gray-700 overflow-x-auto">{`┌─────────────────────────────────────────────┐
 │          SYSTEM REMINDER FLOW                │
 ├─────────────────────────────────────────────┤
 │                                             │
@@ -97,41 +97,41 @@ agent = Agent("assistant", tools=[write_file], plugins=[system_reminder])`}
         {/* Reminder Categories */}
         <section className="mb-12">
           <h2 className="heading-2">Reminder Categories</h2>
-          <p className="text-slate-100 mb-4">Based on Claude Code patterns, system reminders fall into five categories:</p>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <p className="text-gray-700 mb-4">Based on Claude Code patterns, system reminders fall into five categories:</p>
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th scope="col" className="text-left py-2 text-slate-100">Category</th>
-                  <th scope="col" className="text-left py-2 text-slate-100">Purpose</th>
-                  <th scope="col" className="text-left py-2 text-slate-100">Example</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Category</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Purpose</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Example</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2 font-semibold text-teal-300">Workflow Nudges</td>
-                  <td className="py-2 text-slate-100">Gentle best practice suggestions</td>
-                  <td className="py-2 text-slate-100">&quot;Consider running tests&quot;</td>
+                  <td className="py-2 text-gray-700">Gentle best practice suggestions</td>
+                  <td className="py-2 text-gray-700">&quot;Consider running tests&quot;</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2 font-semibold text-teal-300">State Notifications</td>
-                  <td className="py-2 text-slate-100">Inform about state changes</td>
-                  <td className="py-2 text-slate-100">&quot;You exited plan mode&quot;</td>
+                  <td className="py-2 text-gray-700">Inform about state changes</td>
+                  <td className="py-2 text-gray-700">&quot;You exited plan mode&quot;</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2 font-semibold text-teal-300">External Events</td>
-                  <td className="py-2 text-slate-100">React to external changes</td>
-                  <td className="py-2 text-slate-100">&quot;File was modified by linter&quot;</td>
+                  <td className="py-2 text-gray-700">React to external changes</td>
+                  <td className="py-2 text-gray-700">&quot;File was modified by linter&quot;</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2 font-semibold text-teal-300">Next Steps</td>
-                  <td className="py-2 text-slate-100">Guide what to do next</td>
-                  <td className="py-2 text-slate-100">&quot;Verify your implementation&quot;</td>
+                  <td className="py-2 text-gray-700">Guide what to do next</td>
+                  <td className="py-2 text-gray-700">&quot;Verify your implementation&quot;</td>
                 </tr>
                 <tr>
                   <td className="py-2 font-semibold text-teal-300">Context Injection</td>
-                  <td className="py-2 text-slate-100">Provide relevant info</td>
-                  <td className="py-2 text-slate-100">&quot;This file contains secrets&quot;</td>
+                  <td className="py-2 text-gray-700">Provide relevant info</td>
+                  <td className="py-2 text-gray-700">&quot;This file contains secrets&quot;</td>
                 </tr>
               </tbody>
             </table>
@@ -141,7 +141,7 @@ agent = Agent("assistant", tools=[write_file], plugins=[system_reminder])`}
         {/* File Format */}
         <section className="mb-12">
           <h2 className="heading-2">Reminder File Format</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Each system reminder is a markdown file with YAML frontmatter:
           </p>
           <CodeWithResult
@@ -159,40 +159,40 @@ This is a gentle reminder - ignore if not applicable.
             language="markdown"
           />
           <h3 className="heading-3 mt-6">Frontmatter Fields</h3>
-          <div className="bg-gray-800/50 rounded-lg p-4 mt-4">
+          <div className="bg-gray-100 rounded-lg p-4 mt-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th scope="col" className="text-left py-2 text-slate-100">Field</th>
-                  <th scope="col" className="text-left py-2 text-slate-100">Required</th>
-                  <th scope="col" className="text-left py-2 text-slate-100">Description</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Field</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Required</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2"><code className="text-purple-300">name</code></td>
-                  <td className="py-2 text-slate-100">Yes</td>
-                  <td className="py-2 text-slate-100">Unique identifier</td>
+                  <td className="py-2 text-gray-700">Yes</td>
+                  <td className="py-2 text-gray-700">Unique identifier</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2"><code className="text-purple-300">triggers</code></td>
-                  <td className="py-2 text-slate-100">Yes</td>
-                  <td className="py-2 text-slate-100">List of trigger conditions</td>
+                  <td className="py-2 text-gray-700">Yes</td>
+                  <td className="py-2 text-gray-700">List of trigger conditions</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2"><code className="text-purple-300">triggers[].tool</code></td>
-                  <td className="py-2 text-slate-100">No</td>
-                  <td className="py-2 text-slate-100">Tool name to match</td>
+                  <td className="py-2 text-gray-700">No</td>
+                  <td className="py-2 text-gray-700">Tool name to match</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2"><code className="text-purple-300">triggers[].path_pattern</code></td>
-                  <td className="py-2 text-slate-100">No</td>
-                  <td className="py-2 text-slate-100">Glob pattern(s) for file paths</td>
+                  <td className="py-2 text-gray-700">No</td>
+                  <td className="py-2 text-gray-700">Glob pattern(s) for file paths</td>
                 </tr>
                 <tr>
                   <td className="py-2"><code className="text-purple-300">triggers[].command_pattern</code></td>
-                  <td className="py-2 text-slate-100">No</td>
-                  <td className="py-2 text-slate-100">Glob pattern(s) for commands</td>
+                  <td className="py-2 text-gray-700">No</td>
+                  <td className="py-2 text-gray-700">Glob pattern(s) for commands</td>
                 </tr>
               </tbody>
             </table>
@@ -202,7 +202,7 @@ This is a gentle reminder - ignore if not applicable.
         {/* Customizing */}
         <section className="mb-12">
           <h2 className="heading-2">Customizing</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Copy the plugin and built-in reminders to your project:
           </p>
           <CodeWithResult
@@ -211,7 +211,7 @@ This is a gentle reminder - ignore if not applicable.
 ✓ Copied: ./prompts/system-reminders/`}
             language="bash"
           />
-          <p className="text-slate-100 mt-4 mb-4">
+          <p className="text-gray-700 mt-4 mb-4">
             This creates:
           </p>
           <CodeWithResult
@@ -221,7 +221,7 @@ This is a gentle reminder - ignore if not applicable.
 └── security-warning.md`}
             language="text"
           />
-          <p className="text-slate-100 mt-4">
+          <p className="text-gray-700 mt-4">
             Then import from your local copy and add new reminders:
           </p>
           <CodeWithResult
@@ -235,16 +235,16 @@ agent = Agent("assistant", plugins=[system_reminder])`}
         <section className="mb-12">
           <h2 className="heading-2">Design Principles</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
+            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
               <h3 className="font-semibold text-green-300 mb-2">Gentle, Not Forceful</h3>
-              <ul className="text-sm text-slate-100 space-y-1">
+              <ul className="text-sm text-gray-700 space-y-1">
                 <li>✓ &quot;Consider running tests&quot;</li>
                 <li>✗ &quot;You MUST run tests now&quot;</li>
               </ul>
             </div>
-            <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
+            <div className="p-4 bg-blue-900/20 border border-blue-200 rounded-lg">
               <h3 className="font-semibold text-blue-300 mb-2">Contextual, Not Spammy</h3>
-              <p className="text-sm text-slate-100">Fire only when relevant, not after every tool call</p>
+              <p className="text-sm text-gray-700">Fire only when relevant, not after every tool call</p>
             </div>
           </div>
         </section>
@@ -252,20 +252,20 @@ agent = Agent("assistant", plugins=[system_reminder])`}
         {/* Events used */}
         <section className="mb-12">
           <h2 className="heading-2">Events Used</h2>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th scope="col" className="text-left py-2 text-slate-100">Event</th>
-                  <th scope="col" className="text-left py-2 text-slate-100">Handler</th>
-                  <th scope="col" className="text-left py-2 text-slate-100">Purpose</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Event</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Handler</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Purpose</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td className="py-2"><code className="text-purple-300">after_each_tool</code></td>
                   <td className="py-2">inject_reminder</td>
-                  <td className="py-2 text-slate-100">Append matching reminder to tool result</td>
+                  <td className="py-2 text-gray-700">Append matching reminder to tool result</td>
                 </tr>
               </tbody>
             </table>
@@ -275,7 +275,7 @@ agent = Agent("assistant", plugins=[system_reminder])`}
         {/* Source */}
         <section className="mb-12">
           <h2 className="heading-2">Source</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             <code className="bg-gray-800 px-2 py-1 rounded">connectonion/useful_plugins/system_reminder.py</code>
           </p>
           <CodeWithResult

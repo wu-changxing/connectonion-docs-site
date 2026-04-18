@@ -181,14 +181,14 @@ ${expectedOutput}
   return (
     <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+      <nav className="flex items-center gap-2 text-sm text-gray-700 mb-8">
+        <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
+        <Link href="/prompts" className="hover:text-gray-900 transition-colors">System Prompts</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts/examples" className="hover:text-white transition-colors">Examples</Link>
+        <Link href="/prompts/examples" className="hover:text-gray-900 transition-colors">Examples</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <span className="text-white">Security Analyst</span>
+        <span className="text-gray-900">Security Analyst</span>
       </nav>
 
       {/* Header */}
@@ -196,7 +196,7 @@ ${expectedOutput}
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-16 h-16 bg-red-600 rounded-xl flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">7</span>
+              <span className="text-2xl font-bold text-gray-900">7</span>
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
@@ -206,7 +206,7 @@ ${expectedOutput}
                   Expert
                 </span>
               </div>
-              <p className="text-xl text-slate-100">
+              <p className="text-xl text-gray-700">
                 Master cybersecurity analysis with threat intelligence frameworks and incident response protocols.
               </p>
             </div>
@@ -221,8 +221,8 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-red-900/20 border border-red-500/30 rounded-xl">
-        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+      <div className="mb-12 p-6 bg-red-900/20 border border-red-200 rounded-xl">
+        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
           <HiOutlineLightBulb className="w-6 h-6 text-red-400" />
           Key Learning Concepts
         </h2>
@@ -230,22 +230,22 @@ ${expectedOutput}
           <div className="flex items-start gap-3">
             <HiOutlineExclamationTriangle className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Threat Analysis Framework</h3>
-              <p className="text-red-200 text-sm">Systematic 3-step process for comprehensive threat evaluation</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Threat Analysis Framework</h3>
+              <p className="text-red-800 text-sm">Systematic 3-step process for comprehensive threat evaluation</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <HiOutlineLockClosed className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Risk Classification</h3>
-              <p className="text-red-200 text-sm">Impact vs. Likelihood matrix for prioritizing security issues</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Risk Classification</h3>
+              <p className="text-red-800 text-sm">Impact vs. Likelihood matrix for prioritizing security issues</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Communication Protocols</h3>
-              <p className="text-red-200 text-sm">Executive and technical formats for different audience needs</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Communication Protocols</h3>
+              <p className="text-red-800 text-sm">Executive and technical formats for different audience needs</p>
             </div>
           </div>
         </div>
@@ -256,10 +256,10 @@ ${expectedOutput}
         <div className="space-y-8">
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">System Prompt</h3>
+              <h3 className="text-xl font-semibold text-gray-900">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -303,10 +303,10 @@ ${expectedOutput}
           {/* Usage Example */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">Usage Example</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -352,12 +352,12 @@ ${expectedOutput}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
               <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-red-400" />
-              <h3 className="text-xl font-semibold text-white">Expected Output</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
             <div className="p-6">
               <div className="bg-black/50 rounded-lg p-4 font-mono text-sm ">
-                <pre className="text-red-200 whitespace-pre-wrap">
+                <pre className="text-red-800 whitespace-pre-wrap">
                   {expectedOutput}
                 </pre>
               </div>
@@ -366,26 +366,26 @@ ${expectedOutput}
 
           {/* Analysis */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">Expert Security Techniques</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Expert Security Techniques</h3>
             <div className="space-y-4 text-sm">
               <div>
                 <h4 className="font-semibold text-red-400 mb-2">🚨 Executive Communication</h4>
-                <p className="text-slate-100">Lead with threat level and business impact for rapid decision-making.</p>
+                <p className="text-gray-700">Lead with threat level and business impact for rapid decision-making.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-red-400 mb-2">🔍 Systematic Analysis</h4>
-                <p className="text-slate-100">Structured framework ensures no critical security aspects are missed.</p>
+                <p className="text-gray-700">Structured framework ensures no critical security aspects are missed.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-red-400 mb-2">⚡ Response Templates</h4>
-                <p className="text-slate-100">Predefined incident response and vulnerability reporting formats.</p>
+                <p className="text-gray-700">Predefined incident response and vulnerability reporting formats.</p>
               </div>
             </div>
           </div>
 
           {/* Download Options */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Download & Customize</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Download & Customize</h3>
             <div className="space-y-3">
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(promptContent)}`}
@@ -395,7 +395,7 @@ ${expectedOutput}
                 <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File
               </a>
-              <p className="text-xs text-slate-100 text-center">
+              <p className="text-xs text-gray-700 text-center">
                 Essential for cybersecurity and threat analysis systems
               </p>
             </div>
@@ -406,20 +406,20 @@ ${expectedOutput}
       {/* Navigation */}
       <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Previous in series</p>
+          <p className="text-sm text-gray-700 mb-1">Previous in series</p>
           <Link 
             href="/prompts/examples/technical-writer" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+            className="flex items-center gap-2 text-white hover:text-gray-700 transition-colors font-medium"
           >
             <HiOutlineArrowLeft className="w-4 h-4" />
             6. Technical Writer
           </Link>
         </div>
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Next in series</p>
+          <p className="text-sm text-gray-700 mb-1">Next in series</p>
           <Link 
             href="/prompts/examples/business-strategist" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+            className="flex items-center gap-2 text-white hover:text-gray-700 transition-colors font-medium"
           >
             8. Business Strategist
             <HiOutlineArrowRight className="w-4 h-4" />

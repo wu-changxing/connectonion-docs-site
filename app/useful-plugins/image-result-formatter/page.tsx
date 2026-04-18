@@ -31,23 +31,23 @@ export default function ImageResultFormatterPage() {
         {/* What it does */}
         <section className="mb-12">
           <h2 className="heading-2">What it does</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             When a tool returns a base64-encoded image (screenshot, generated image, etc.), this plugin:
           </p>
           <div className="space-y-4">
-            <div className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
+            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineEye className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">Detects base64 images</h3>
               </div>
-              <p className="text-sm text-slate-100">Recognizes data URLs (<code>data:image/png;base64,...</code>) and plain base64 strings.</p>
+              <p className="text-sm text-gray-700">Recognizes data URLs (<code>data:image/png;base64,...</code>) and plain base64 strings.</p>
             </div>
-            <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
+            <div className="p-4 bg-blue-900/20 border border-blue-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineSparkles className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">Converts to vision format</h3>
               </div>
-              <p className="text-sm text-slate-100">Transforms the tool result into OpenAI vision API format so the LLM can see the image visually.</p>
+              <p className="text-sm text-gray-700">Transforms the tool result into OpenAI vision API format so the LLM can see the image visually.</p>
             </div>
           </div>
         </section>
@@ -77,7 +77,7 @@ agent.input("Take a screenshot of example.com and describe what you see")`}
 The screenshot shows a simple webpage with the heading "Example Domain"...`}
             language="python"
           />
-          <p className="text-slate-100 mt-4 text-sm">
+          <p className="text-gray-700 mt-4 text-sm">
             Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy image_result_formatter</code></Link> to get an editable copy.
           </p>
         </section>
@@ -87,21 +87,21 @@ The screenshot shows a simple webpage with the heading "Example Domain"...`}
           <h2 className="heading-2">Without vs With Plugin</h2>
 
           <div className="grid md:grid-cols-2 gap-4 mb-6">
-            <div className="p-4 bg-red-900/20 border border-red-500/30 rounded-lg">
+            <div className="p-4 bg-red-900/20 border border-red-200 rounded-lg">
               <h3 className="font-semibold text-red-400 mb-2">Without Plugin</h3>
-              <p className="text-sm text-slate-100 mb-2">The LLM receives raw base64 text:</p>
-              <code className="text-xs text-slate-100 block bg-gray-900 p-2 rounded overflow-x-auto">
+              <p className="text-sm text-gray-700 mb-2">The LLM receives raw base64 text:</p>
+              <code className="text-xs text-gray-700 block bg-gray-900 p-2 rounded overflow-x-auto">
                 Tool result: "iVBORw0KGgoAAAANSUhEUgAAA..."
               </code>
-              <p className="text-sm text-slate-100 mt-2">LLM cannot interpret this as an image!</p>
+              <p className="text-sm text-gray-700 mt-2">LLM cannot interpret this as an image!</p>
             </div>
-            <div className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
+            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
               <h3 className="font-semibold text-green-400 mb-2">With Plugin</h3>
-              <p className="text-sm text-slate-100 mb-2">The LLM receives proper image format:</p>
-              <code className="text-xs text-slate-100 block bg-gray-900 p-2 rounded overflow-x-auto">
+              <p className="text-sm text-gray-700 mb-2">The LLM receives proper image format:</p>
+              <code className="text-xs text-gray-700 block bg-gray-900 p-2 rounded overflow-x-auto">
                 {`{type: "image_url", url: "data:image/png;..."}`}
               </code>
-              <p className="text-sm text-slate-100 mt-2">LLM can see and analyze the image!</p>
+              <p className="text-sm text-gray-700 mt-2">LLM can see and analyze the image!</p>
             </div>
           </div>
         </section>
@@ -146,34 +146,34 @@ def _format_image_result(agent):
         {/* Supported formats */}
         <section className="mb-12">
           <h2 className="heading-2">Supported Formats</h2>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th scope="col" className="text-left py-2 text-slate-100">Format</th>
-                  <th scope="col" className="text-left py-2 text-slate-100">Example</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Format</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Example</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2">PNG</td>
-                  <td className="py-2 text-slate-100"><code>data:image/png;base64,...</code></td>
+                  <td className="py-2 text-gray-700"><code>data:image/png;base64,...</code></td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2">JPEG</td>
-                  <td className="py-2 text-slate-100"><code>data:image/jpeg;base64,...</code></td>
+                  <td className="py-2 text-gray-700"><code>data:image/jpeg;base64,...</code></td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2">WebP</td>
-                  <td className="py-2 text-slate-100"><code>data:image/webp;base64,...</code></td>
+                  <td className="py-2 text-gray-700"><code>data:image/webp;base64,...</code></td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2">GIF</td>
-                  <td className="py-2 text-slate-100"><code>data:image/gif;base64,...</code></td>
+                  <td className="py-2 text-gray-700"><code>data:image/gif;base64,...</code></td>
                 </tr>
                 <tr>
                   <td className="py-2">Plain base64</td>
-                  <td className="py-2 text-slate-100">Long base64 strings (defaults to PNG)</td>
+                  <td className="py-2 text-gray-700">Long base64 strings (defaults to PNG)</td>
                 </tr>
               </tbody>
             </table>
@@ -183,7 +183,7 @@ def _format_image_result(agent):
         {/* Use Cases */}
         <section className="mb-12">
           <h2 className="heading-2">Use Cases</h2>
-          <ul className="space-y-2 text-slate-100">
+          <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
               <HiOutlineCamera className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <span><strong>Screenshots:</strong> Browser automation tools that capture pages</span>
@@ -202,25 +202,25 @@ def _format_image_result(agent):
         {/* Events used */}
         <section className="mb-12">
           <h2 className="heading-2">Events Used</h2>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th scope="col" className="text-left py-2 text-slate-100">Event</th>
-                  <th scope="col" className="text-left py-2 text-slate-100">Handler</th>
-                  <th scope="col" className="text-left py-2 text-slate-100">Purpose</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Event</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Handler</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Purpose</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td className="py-2"><code className="text-green-300">after_tools</code></td>
                   <td className="py-2">_format_image_result</td>
-                  <td className="py-2 text-slate-100">Convert base64 to vision format</td>
+                  <td className="py-2 text-gray-700">Convert base64 to vision format</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="text-sm text-slate-100 mt-4">
+          <p className="text-sm text-gray-700 mt-4">
             Uses <code>after_tools</code> (not <code>after_each_tool</code>) because message modification must happen after all tools complete.
           </p>
         </section>
@@ -228,7 +228,7 @@ def _format_image_result(agent):
         {/* Source */}
         <section className="mb-12">
           <h2 className="heading-2">Source</h2>
-          <p className="text-slate-100">
+          <p className="text-gray-700">
             <code className="bg-gray-800 px-2 py-1 rounded">connectonion/useful_plugins/image_result_formatter.py</code>
           </p>
           <CodeWithResult

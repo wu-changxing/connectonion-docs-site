@@ -312,7 +312,7 @@ Press Enter to continue, or explore the menu. No manual required.
         <div className="flex items-center justify-between mb-8">
           <Link
             href="/blog"
-            className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
+            className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
           >
             <HiOutlineArrowLeft className="w-4 h-4" />
             <span>Back to Blog</span>
@@ -322,17 +322,17 @@ Press Enter to continue, or explore the menu. No manual required.
         {/* Header */}
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl border border-purple-500/30">
+            <div className="p-3 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl border border-purple-200">
               <HiOutlineBugAnt className="w-8 h-8 text-purple-400" />
             </div>
             <div>
-              <div className="text-sm text-slate-100 mb-1">Design Decision</div>
+              <div className="text-sm text-gray-700 mb-1">Design Decision</div>
               <h1 className="heading-1">
                 Auto-Debug Design Evolution
               </h1>
             </div>
           </div>
-          <p className="text-xl text-slate-100">
+          <p className="text-xl text-gray-700">
             Five iterations to simplicity: How user feedback and timeless design principles shaped our interactive debugging experience
           </p>
           <div className="mt-4 text-sm text-gray-500">
@@ -346,7 +346,7 @@ Press Enter to continue, or explore the menu. No manual required.
             <HiOutlineCommandLine className="w-6 h-6 text-blue-400" />
             The Problem: Debugging AI Agents in the Dark
           </h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             AI agents make decisions we can't see. They call tools, process results, iterate through problems - all invisible to developers. When something goes wrong, you're left guessing.
           </p>
           <CodeWithResult
@@ -356,7 +356,7 @@ agent.input("Send email to John")
 # Wrong email sent... but why? what happened?`}
             language="python"
           />
-          <p className="text-slate-100 mt-4">
+          <p className="text-gray-700 mt-4">
             We needed a way to <strong className="text-white">see inside agent execution</strong>, understand decisions, and test "what if" scenarios. The question was: <strong className="text-white">how?</strong>
           </p>
         </section>
@@ -366,17 +366,17 @@ agent.input("Send email to John")
           <h2 className="heading-2">
             Iteration 1: The Complex Four-Mode System ❌
           </h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Our first instinct was to build something comprehensive - a debugging system with four distinct modes for different tasks.
           </p>
           <CodeWithResult code={codeIteration1} language="text" className="mb-4" />
-          <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 mb-4">
+          <div className="bg-red-500/10 border border-red-200 rounded-lg p-4 mb-4">
             <div className="text-red-400 font-semibold mb-2">User Feedback:</div>
-            <div className="text-slate-100 italic">"I think 4 is too complicated, two or three at most"</div>
+            <div className="text-gray-700 italic">"I think 4 is too complicated, two or three at most"</div>
           </div>
-          <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+          <div className="bg-blue-500/10 border border-blue-200 rounded-lg p-4">
             <div className="text-blue-400 font-semibold mb-2">Lesson #1:</div>
-            <div className="text-slate-100">More features ≠ better UX. High learning curve before being productive.</div>
+            <div className="text-gray-700">More features ≠ better UX. High learning curve before being productive.</div>
           </div>
         </section>
 
@@ -385,17 +385,17 @@ agent.input("Send email to John")
           <h2 className="heading-2">
             Iteration 2: Prefix-Based Mode Switching ❌
           </h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             We simplified by using prefix characters to indicate different targets:
           </p>
           <CodeWithResult code={codeIteration2} language="text" className="mb-4" />
-          <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 mb-4">
+          <div className="bg-red-500/10 border border-red-200 rounded-lg p-4 mb-4">
             <div className="text-red-400 font-semibold mb-2">User Feedback:</div>
-            <div className="text-slate-100 italic">"When we do auto-debug, the input to the agent should default have a mode"</div>
+            <div className="text-gray-700 italic">"When we do auto-debug, the input to the agent should default have a mode"</div>
           </div>
-          <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+          <div className="bg-blue-500/10 border border-blue-200 rounded-lg p-4">
             <div className="text-blue-400 font-semibold mb-2">Lesson #2:</div>
-            <div className="text-slate-100">Symbolic shortcuts (?, {'>>>'}) require learning. Not discoverable without docs.</div>
+            <div className="text-gray-700">Symbolic shortcuts (?, {'>>>'}) require learning. Not discoverable without docs.</div>
           </div>
         </section>
 
@@ -404,38 +404,38 @@ agent.input("Send email to John")
           <h2 className="heading-2">
             Iteration 3: Mode Indicators with Prompts 🟡
           </h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             We added clear, named mode indicators to show where input goes:
           </p>
           <CodeWithResult code={codeIteration3} language="text" className="mb-4" />
-          <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-4">
+          <div className="bg-yellow-500/10 border border-yellow-200 rounded-lg p-4 mb-4">
             <div className="text-yellow-400 font-semibold mb-2">User Feedback:</div>
-            <div className="text-slate-100 italic">"The AI should be something more intuitive like 'AI Ask' or something like that"</div>
+            <div className="text-gray-700 italic">"The AI should be something more intuitive like 'AI Ask' or something like that"</div>
           </div>
-          <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+          <div className="bg-blue-500/10 border border-blue-200 rounded-lg p-4">
             <div className="text-blue-400 font-semibold mb-2">Lesson #3:</div>
-            <div className="text-slate-100">Names matter. "AI" is ambiguous - "AI Ask" is self-explanatory. Progress made but still not simple enough.</div>
+            <div className="text-gray-700">Names matter. "AI" is ambiguous - "AI Ask" is self-explanatory. Progress made but still not simple enough.</div>
           </div>
         </section>
 
         {/* The Breakthrough */}
         <section className="mb-12">
-          <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-lg p-6 mb-6">
+          <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-200 rounded-lg p-6 mb-6">
             <h2 className="heading-2">
               <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
               The Breakthrough Question
             </h2>
-            <p className="text-slate-100 text-lg">
+            <p className="text-gray-700 text-lg">
               "What would <strong className="text-white">Unix creators</strong> or <strong className="text-white">Steve Jobs</strong> design?"
             </p>
           </div>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             This forced us to apply timeless design principles instead of following our assumptions:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4">
               <div className="text-blue-400 font-semibold mb-2">Unix Philosophy</div>
-              <ul className="text-slate-100 text-sm space-y-1">
+              <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Do one thing well</li>
                 <li>• Compose simply</li>
                 <li>• Ship early, validate</li>
@@ -443,7 +443,7 @@ agent.input("Send email to John")
             </div>
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4">
               <div className="text-purple-400 font-semibold mb-2">Steve Jobs</div>
-              <ul className="text-slate-100 text-sm space-y-1">
+              <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Eliminate unnecessary</li>
                 <li>• Focus on essence</li>
                 <li>• Intuitive over learnable</li>
@@ -458,13 +458,13 @@ agent.input("Send email to John")
             <MenuIcon className="w-6 h-6 text-green-400" />
             Iteration 4: Agent-First Menu ✅
           </h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             The final design that actually works:
           </p>
           <CodeWithResult code={codeFinal} language="text" className="mb-4" />
-          <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
+          <div className="bg-green-500/10 border border-green-200 rounded-lg p-4">
             <div className="text-green-400 font-semibold mb-4">Why This Works:</div>
-            <ul className="text-slate-100 space-y-2 text-sm">
+            <ul className="text-gray-700 space-y-2 text-sm">
               <li>✅ <strong className="text-white">Agent-first by default</strong> - Press Enter to continue (simplest action)</li>
               <li>✅ <strong className="text-white">Progressive disclosure</strong> - See options, discover gradually</li>
               <li>✅ <strong className="text-white">Multiple input methods</strong> - Arrow keys (beginner) OR shortcuts (expert)</li>
@@ -482,32 +482,32 @@ agent.input("Send email to John")
           </h2>
           <div className="space-y-4">
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-2">1. Listen to User Feedback</h3>
-              <p className="text-slate-100 text-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">1. Listen to User Feedback</h3>
+              <p className="text-gray-700 text-sm">
                 We almost built the wrong thing FIVE times. User feedback redirected us every time. Without it, we'd have shipped a complex, unusable debugger.
               </p>
             </div>
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-2">2. Ask "What Would Masters Design?"</h3>
-              <p className="text-slate-100 text-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">2. Ask "What Would Masters Design?"</h3>
+              <p className="text-gray-700 text-sm">
                 Unix and Steve Jobs principles aren't abstract - they're actionable. Single purpose per mode. Eliminate unnecessary. Visual over cognitive load.
               </p>
             </div>
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-2">3. Default Action Should Be Effortless</h3>
-              <p className="text-slate-100 text-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">3. Default Action Should Be Effortless</h3>
+              <p className="text-gray-700 text-sm">
                 Most users just want to continue. Make that one keystroke: Enter. If the default is perfect, 80% never need advanced features.
               </p>
             </div>
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-2">4. Visual Discovery {'>'}Command Recall</h3>
-              <p className="text-slate-100 text-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">4. Visual Discovery {'>'}Command Recall</h3>
+              <p className="text-gray-700 text-sm">
                 Menu navigation beats typed commands for discoverability. See all options immediately. No memorization required.
               </p>
             </div>
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-2">5. Iteration Beats Planning</h3>
-              <p className="text-slate-100 text-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">5. Iteration Beats Planning</h3>
+              <p className="text-gray-700 text-sm">
                 We couldn't have designed the final version first. Each failure taught us something essential. Embrace iteration.
               </p>
             </div>
@@ -516,10 +516,10 @@ agent.input("Send email to John")
 
         {/* Try It */}
         <section className="mb-12">
-          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-lg p-8">
+          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-200 rounded-lg p-8">
             <h2 className="heading-2">Try It Yourself</h2>
             <CodeWithResult code={codeUsage} language="python" className="mb-4" />
-            <p className="text-slate-100 text-sm">
+            <p className="text-gray-700 text-sm">
               Press Enter to continue, or explore the menu. <strong className="text-white">No manual required.</strong>
             </p>
           </div>

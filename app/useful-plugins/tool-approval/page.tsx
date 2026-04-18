@@ -50,7 +50,7 @@ agent.input("Install dependencies")
         <section className="mb-12">
           <h2 className="heading-2">Lifecycle</h2>
           <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 font-mono text-sm overflow-x-auto shadow-xl">
-            <pre className="text-slate-100 whitespace-pre">{`User sends prompt
+            <pre className="text-gray-700 whitespace-pre">{`User sends prompt
     ↓
 Agent calls LLM
     ↓
@@ -96,18 +96,18 @@ tool_executor iterates sequentially:
         {/* Rejection Modes */}
         <section className="mb-12">
           <h2 className="heading-2">Rejection Modes</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             When the client rejects a tool, the <code className="px-2 py-1 bg-gray-800 rounded text-purple-300">mode</code> field determines what happens next:
           </p>
 
           <div className="space-y-6">
             {/* reject_soft */}
-            <div className="p-6 bg-gradient-to-br from-yellow-900/20 to-yellow-800/10 border border-yellow-500/30 rounded-lg">
+            <div className="p-6 bg-gradient-to-br from-yellow-900/20 to-yellow-800/10 border border-yellow-200 rounded-lg">
               <h3 className="font-semibold text-yellow-300 mb-3 flex items-center gap-2">
                 <HiOutlineCheckCircle className="w-5 h-5" />
                 reject_soft (Skip)
               </h3>
-              <p className="text-slate-100 mb-4">Skip this tool, agent loop continues. The LLM receives a hint to ask the user what they prefer.</p>
+              <p className="text-gray-700 mb-4">Skip this tool, agent loop continues. The LLM receives a hint to ask the user what they prefer.</p>
               <CodeWithResult
                 code={`{"approved": false, "mode": "reject_soft", "feedback": "Don't write that file"}`}
                 language="json"
@@ -120,12 +120,12 @@ tool_executor iterates sequentially:
             </div>
 
             {/* reject_hard */}
-            <div className="p-6 bg-gradient-to-br from-red-900/20 to-red-800/10 border border-red-500/30 rounded-lg">
+            <div className="p-6 bg-gradient-to-br from-red-900/20 to-red-800/10 border border-red-200 rounded-lg">
               <h3 className="font-semibold text-red-300 mb-3 flex items-center gap-2">
                 <HiOutlineXCircle className="w-5 h-5" />
                 reject_hard (Stop)
               </h3>
-              <p className="text-slate-100 mb-4">Skip this tool AND all remaining tools in the batch. The agent loop stops and waits for new user input.</p>
+              <p className="text-gray-700 mb-4">Skip this tool AND all remaining tools in the batch. The agent loop stops and waits for new user input.</p>
               <CodeWithResult
                 code={`{"approved": false, "mode": "reject_hard", "feedback": "Wrong approach entirely"}`}
                 language="json"
@@ -150,12 +150,12 @@ tool_executor iterates sequentially:
 
           <div className="space-y-6">
             {/* Safe Tools */}
-            <div className="p-5 bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg">
+            <div className="p-5 bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-200 rounded-lg">
               <h3 className="font-semibold text-green-300 mb-3 flex items-center gap-2">
                 <HiOutlineCheckCircle className="w-5 h-5" />
                 Safe Tools (No Approval)
               </h3>
-              <p className="text-slate-100 mb-3">Read-only operations that never modify state:</p>
+              <p className="text-gray-700 mb-3">Read-only operations that never modify state:</p>
               <div className="bg-gray-950 rounded-lg p-4 font-mono text-sm text-slate-300">
                 read, read_file, glob, grep, search<br/>
                 list_files, get_file_info, task, load_guide<br/>
@@ -165,12 +165,12 @@ tool_executor iterates sequentially:
             </div>
 
             {/* Dangerous Tools */}
-            <div className="p-5 bg-gradient-to-br from-red-900/20 to-red-800/10 border border-red-500/30 rounded-lg">
+            <div className="p-5 bg-gradient-to-br from-red-900/20 to-red-800/10 border border-red-200 rounded-lg">
               <h3 className="font-semibold text-red-300 mb-3 flex items-center gap-2">
                 <HiOutlineXCircle className="w-5 h-5" />
                 Dangerous Tools (Require Approval)
               </h3>
-              <p className="text-slate-100 mb-3">Operations that can modify files or have side effects:</p>
+              <p className="text-gray-700 mb-3">Operations that can modify files or have side effects:</p>
               <div className="bg-gray-950 rounded-lg p-4 font-mono text-sm text-slate-300">
                 bash, shell, run, run_in_dir<br/>
                 write, edit, multi_edit<br/>
@@ -182,7 +182,7 @@ tool_executor iterates sequentially:
             {/* Unknown Tools */}
             <div className="p-5 bg-gradient-to-br from-gray-900/20 to-gray-800/10 border border-gray-500/30 rounded-lg">
               <h3 className="font-semibold text-slate-300 mb-3">Unknown Tools</h3>
-              <p className="text-slate-100">Tools not in either list are treated as safe (no approval needed).</p>
+              <p className="text-gray-700">Tools not in either list are treated as safe (no approval needed).</p>
             </div>
           </div>
         </section>
@@ -190,7 +190,7 @@ tool_executor iterates sequentially:
         {/* Config-Based Auto-Approval */}
         <section className="mb-12">
           <h2 className="heading-2">Config-Based Auto-Approval</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             Auto-approve safe commands permanently via <code className="px-2 py-1 bg-gray-800 rounded text-purple-300">host.yaml</code> configuration. Config permissions never expire and apply to all sessions.
           </p>
 
@@ -260,7 +260,7 @@ permissions:
 
           <h3 className="heading-3 mt-8">Priority Order</h3>
           <div className="bg-gray-900/50 rounded-lg p-5 border border-gray-700">
-            <ol className="space-y-2 text-slate-100">
+            <ol className="space-y-2 text-gray-700">
               <li className="flex items-start gap-3">
                 <span className="text-green-400 font-semibold">1.</span>
                 <div>
@@ -298,12 +298,12 @@ permissions:
         {/* Bash Command Chain Permissions */}
         <section className="mb-12">
           <h2 className="heading-2">Bash Command Chain Permissions</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             Uses <strong className="text-purple-300">bashlex</strong> to parse and validate command chains - ALL commands must be permitted.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-5 bg-green-900/20 border border-green-500/30 rounded-lg">
+            <div className="p-5 bg-green-900/20 border border-green-200 rounded-lg">
               <h3 className="font-semibold text-green-300 mb-3">✅ All Permitted</h3>
               <CodeWithResult
                 code={`# Config:
@@ -319,7 +319,7 @@ pwd && ls -F
               />
             </div>
 
-            <div className="p-5 bg-red-900/20 border border-red-500/30 rounded-lg">
+            <div className="p-5 bg-red-900/20 border border-red-200 rounded-lg">
               <h3 className="font-semibold text-red-300 mb-3">❌ Partial Permission</h3>
               <CodeWithResult
                 code={`# Config:
@@ -341,9 +341,9 @@ pwd && rm -rf /
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left p-3 text-slate-100">Syntax</th>
-                  <th className="text-left p-3 text-slate-100">Example</th>
-                  <th className="text-left p-3 text-slate-100">Commands Extracted</th>
+                  <th className="text-left p-3 text-gray-700">Syntax</th>
+                  <th className="text-left p-3 text-gray-700">Example</th>
+                  <th className="text-left p-3 text-gray-700">Commands Extracted</th>
                 </tr>
               </thead>
               <tbody className="text-slate-300">
@@ -371,9 +371,9 @@ pwd && rm -rf /
             </table>
           </div>
 
-          <div className="mt-6 bg-red-900/20 border border-red-500/30 rounded-lg p-4">
+          <div className="mt-6 bg-red-900/20 border border-red-200 rounded-lg p-4">
             <h4 className="font-semibold text-red-300 mb-2">Security</h4>
-            <p className="text-slate-100">
+            <p className="text-gray-700">
               <strong>Whitelist-first:</strong> One dangerous command = whole chain rejected.
             </p>
             <div className="mt-3 bg-gray-950 rounded p-3 font-mono text-sm text-red-300">
@@ -423,8 +423,8 @@ pwd && rm -rf /
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left p-3 text-slate-100">Scope</th>
-                  <th className="text-left p-3 text-slate-100">Behavior</th>
+                  <th className="text-left p-3 text-gray-700">Scope</th>
+                  <th className="text-left p-3 text-gray-700">Behavior</th>
                 </tr>
               </thead>
               <tbody className="text-slate-300">
@@ -446,15 +446,15 @@ pwd && rm -rf /
           <h2 className="heading-2">See Also</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <Link href="/features/permissions" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-green-500/50 rounded-lg transition-all group">
-              <h3 className="font-semibold text-white mb-2 group-hover:text-green-300 transition-colors">Permissions System</h3>
+              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-green-300 transition-colors">Permissions System</h3>
               <p className="text-sm text-slate-300">Complete permission system overview</p>
             </Link>
             <Link href="/useful-plugins/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-purple-500/50 rounded-lg transition-all group">
-              <h3 className="font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">Skills Plugin</h3>
+              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">Skills Plugin</h3>
               <p className="text-sm text-slate-300">Pre-packaged workflows with scoped permissions</p>
             </Link>
             <Link href="/useful-plugins/shell-approval" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-orange-500/50 rounded-lg transition-all group">
-              <h3 className="font-semibold text-white mb-2 group-hover:text-orange-300 transition-colors">shell_approval</h3>
+              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-orange-300 transition-colors">shell_approval</h3>
               <p className="text-sm text-slate-300">Terminal-based approval for shell commands</p>
             </Link>
           </div>

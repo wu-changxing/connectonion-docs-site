@@ -85,7 +85,7 @@ export default function BlogPage() {
         <div className="mb-12">
           <Link 
             href="/" 
-            className="inline-flex items-center gap-2 text-slate-100 hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors mb-8"
           >
             <HiOutlineArrowLeft className="w-4 h-4" />
             Back to Docs
@@ -93,9 +93,9 @@ export default function BlogPage() {
           
           <div className="flex items-center gap-3 mb-4">
             <HiOutlineBookOpen className="w-8 h-8 text-purple-400" />
-            <h1 className="text-3xl font-bold text-white">Blog</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Blog</h1>
           </div>
-          <p className="text-slate-100">
+          <p className="text-gray-700">
             Design decisions and insights from building ConnectOnion
           </p>
         </div>
@@ -110,7 +110,7 @@ export default function BlogPage() {
                 href={post.href}
                 className="block group"
               >
-                <article className="p-6 bg-gray-800/50 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all">
+                <article className="p-6 bg-gray-100 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all">
                   <div className="flex items-start gap-4">
                     {/* Icon */}
                     <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 p-[1px]">
@@ -134,17 +134,17 @@ export default function BlogPage() {
                       </div>
                       
                       {/* Title */}
-                      <h2 className="text-xl font-semibold text-white mb-1 group-hover:text-purple-400 transition-colors">
+                      <h2 className="text-xl font-semibold text-gray-900 mb-1 group-hover:text-purple-400 transition-colors">
                         {post.title}
                       </h2>
                       
                       {/* Subtitle */}
-                      <p className="text-slate-100 mb-4">
+                      <p className="text-gray-700 mb-4">
                         {post.subtitle}
                       </p>
                       
                       {/* Excerpt */}
-                      <p className="text-slate-100 text-sm mb-4 line-clamp-2">
+                      <p className="text-gray-700 text-sm mb-4 line-clamp-2">
                         {post.excerpt}
                       </p>
                       
@@ -154,7 +154,7 @@ export default function BlogPage() {
                           {post.tags.map((tag) => (
                             <span 
                               key={tag}
-                              className="px-2 py-1 bg-gray-700/50 rounded-md text-xs text-slate-100"
+                              className="px-2 py-1 bg-gray-700/50 rounded-md text-xs text-gray-700"
                             >
                               {tag}
                             </span>
@@ -176,8 +176,8 @@ export default function BlogPage() {
 
         {/* Coming Soon */}
         <div className="mt-12 p-8 bg-gray-800/30 rounded-xl border border-gray-700 text-center">
-          <h3 className="text-lg font-semibold text-white mb-2">More Posts Coming Soon</h3>
-          <p className="text-slate-100 text-sm">
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">More Posts Coming Soon</h3>
+          <p className="text-gray-700 text-sm">
             We're documenting our journey. Stay tuned for more insights.
           </p>
         </div>

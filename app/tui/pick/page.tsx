@@ -79,30 +79,30 @@ choice = pick("Pick a color", ["Red", "Green", "Blue"])
         {/* Keyboard Controls */}
         <section className="mb-12">
           <h2 className="heading-2">Keyboard Controls</h2>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-slate-100">Key</th>
-                  <th className="text-left py-2 text-slate-100">Action</th>
+                  <th className="text-left py-2 text-gray-700">Key</th>
+                  <th className="text-left py-2 text-gray-700">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2"><kbd className="bg-gray-700 px-2 py-1 rounded text-xs">↑/↓</kbd></td>
-                  <td className="py-2 text-slate-100">Navigate up/down</td>
+                  <td className="py-2 text-gray-700">Navigate up/down</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2"><kbd className="bg-gray-700 px-2 py-1 rounded text-xs">1-9</kbd></td>
-                  <td className="py-2 text-slate-100">Jump to option</td>
+                  <td className="py-2 text-gray-700">Jump to option</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2"><kbd className="bg-gray-700 px-2 py-1 rounded text-xs">Enter</kbd></td>
-                  <td className="py-2 text-slate-100">Confirm selection</td>
+                  <td className="py-2 text-gray-700">Confirm selection</td>
                 </tr>
                 <tr>
                   <td className="py-2"><kbd className="bg-gray-700 px-2 py-1 rounded text-xs">Esc</kbd></td>
-                  <td className="py-2 text-slate-100">Cancel</td>
+                  <td className="py-2 text-gray-700">Cancel</td>
                 </tr>
               </tbody>
             </table>
@@ -126,7 +126,7 @@ choice = pick("Pick a color", ["Red", "Green", "Blue"])
         {/* Example Output */}
         <section className="mb-12">
           <h2 className="heading-2">Example Output</h2>
-          <pre className="bg-gray-900 rounded-lg p-4 text-sm text-slate-100 overflow-x-auto">
+          <pre className="bg-gray-900 rounded-lg p-4 text-sm text-gray-700 overflow-x-auto">
 {`Pick a color
 
   ❯ 1  Red

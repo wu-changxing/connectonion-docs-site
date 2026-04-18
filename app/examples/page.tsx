@@ -55,24 +55,24 @@ export default function ExamplesPage() {
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
+        <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
           <HiOutlineArrowRight className="w-4 h-4" />
-          <span className="text-white">Examples</span>
+          <span className="text-gray-900">Examples</span>
         </div>
 
         {/* Header */}
         <div className="mb-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-xl border border-blue-500/30">
+              <div className="p-3 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-xl border border-blue-200">
                 <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
               </div>
               <div>
                 <h1 className="heading-1">Examples</h1>
-                <p className="text-lg text-slate-100">
+                <p className="text-lg text-gray-700">
                   Master ConnectOnion through practical examples, from simple fundamentals to advanced automation.
                 </p>
               </div>
@@ -92,7 +92,7 @@ export default function ExamplesPage() {
               <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
               <div>
                 <div className="font-semibold">Calculator</div>
-                <div className="text-sm text-slate-100">Learn the basics</div>
+                <div className="text-sm text-gray-700">Learn the basics</div>
               </div>
             </div>
             <HiOutlineArrowRight className="w-5 h-5 text-gray-500" />
@@ -100,7 +100,7 @@ export default function ExamplesPage() {
               <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">2</div>
               <div>
                 <div className="font-semibold">Browser</div>
-                <div className="text-sm text-slate-100">Advanced automation</div>
+                <div className="text-sm text-gray-700">Advanced automation</div>
               </div>
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function ExamplesPage() {
                     <example.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white flex items-center gap-2">
+                    <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
                       {example.title}
                       {index === 0 && (
                         <span className="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">
@@ -133,20 +133,20 @@ export default function ExamplesPage() {
                     </span>
                   </div>
                 </div>
-                <HiOutlineArrowRight className="w-5 h-5 text-slate-100 group-hover:text-white transition-colors" />
+                <HiOutlineArrowRight className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors" />
               </div>
               
-              <p className="text-slate-100 mb-4">
+              <p className="text-gray-700 mb-4">
                 {example.description}
               </p>
               
               <div className="mb-4">
-                <div className="text-sm font-semibold text-slate-100 mb-2">What you'll learn:</div>
+                <div className="text-sm font-semibold text-gray-700 mb-2">What you'll learn:</div>
                 <div className="flex flex-wrap gap-2">
                   {example.concepts.map((concept, i) => (
                     <span
                       key={i}
-                      className="text-xs px-2 py-1 bg-gray-800 text-slate-100 rounded"
+                      className="text-xs px-2 py-1 bg-gray-800 text-gray-700 rounded"
                     >
                       {concept}
                     </span>
@@ -160,7 +160,7 @@ export default function ExamplesPage() {
                   <span className="text-xs text-gray-500">Code Preview</span>
                   <HiOutlinePlay className="w-3 h-3 text-gray-500" />
                 </div>
-                <pre className="text-xs text-slate-100 overflow-x-auto">
+                <pre className="text-xs text-gray-700 overflow-x-auto">
                   <code>{example.preview}</code>
                 </pre>
               </div>
@@ -171,7 +171,7 @@ export default function ExamplesPage() {
         {/* Call to Action */}
         <div className="text-center py-8 px-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-500/20">
           <h2 className="heading-2">Ready to Build Your First Agent?</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             Start with the Calculator example to learn the fundamentals, then advance to Browser automation
           </p>
           <Link

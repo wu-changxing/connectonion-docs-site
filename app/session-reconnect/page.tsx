@@ -58,7 +58,7 @@ export default function SessionReconnectPage() {
             Architecture
           </h2>
 
-          <p className="text-slate-100 mb-4 text-lg">
+          <p className="text-gray-700 mb-4 text-lg">
             Two layers handle session survival:
           </p>
 
@@ -122,27 +122,27 @@ export default function SessionReconnectPage() {
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-cyan-300">→ RUNNING</td>
-                  <td className="px-4 py-3 text-slate-100">register()</td>
+                  <td className="px-4 py-3 text-gray-700">register()</td>
                   <td className="px-4 py-3 text-slate-300">Agent thread spawned, IO queues created</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-yellow-300">→ SUSPENDED</td>
-                  <td className="px-4 py-3 text-slate-100">Client WebSocket drops</td>
+                  <td className="px-4 py-3 text-gray-700">Client WebSocket drops</td>
                   <td className="px-4 py-3 text-slate-300">Agent keeps running, queues buffer events</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-cyan-300">→ RUNNING</td>
-                  <td className="px-4 py-3 text-slate-100">Client reconnects (same session_id)</td>
+                  <td className="px-4 py-3 text-gray-700">Client reconnects (same session_id)</td>
                   <td className="px-4 py-3 text-slate-300">Same IO queues reattached to new WebSocket</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-green-300">→ COMPLETED</td>
-                  <td className="px-4 py-3 text-slate-100">Agent finishes</td>
+                  <td className="px-4 py-3 text-gray-700">Agent finishes</td>
                   <td className="px-4 py-3 text-slate-300">Result saved to JSONL, session stays in memory</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-red-300">→ REMOVED</td>
-                  <td className="px-4 py-3 text-slate-100">10min idle (no client ping)</td>
+                  <td className="px-4 py-3 text-gray-700">10min idle (no client ping)</td>
                   <td className="px-4 py-3 text-slate-300">Freed from memory</td>
                 </tr>
               </tbody>
@@ -205,7 +205,7 @@ T+35                        ◄────────────────�
             IO Queue Bridge
           </h2>
 
-          <p className="text-slate-100 mb-4 text-lg">
+          <p className="text-gray-700 mb-4 text-lg">
             The agent runs in a sync thread. The WebSocket handler is async. Two thread-safe queues bridge them:
           </p>
 
@@ -222,11 +222,11 @@ T+35                        ◄────────────────�
           </Diagram>
 
           <div className="grid md:grid-cols-2 gap-4 mt-4">
-            <div className="bg-red-950/30 border border-red-500/30 rounded-lg p-4">
+            <div className="bg-red-950/30 border border-red-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-red-300 mb-1">On disconnect</p>
               <p className="text-sm text-slate-300"><code className="bg-gray-800 px-1 rounded">io.close()</code> sets <code className="bg-gray-800 px-1 rounded">_closed = True</code> and puts a sentinel in the incoming queue, unblocking any waiting <code className="bg-gray-800 px-1 rounded">receive()</code>. After close, <code className="bg-gray-800 px-1 rounded">io.send()</code> silently drops events.</p>
             </div>
-            <div className="bg-green-950/30 border border-green-500/30 rounded-lg p-4">
+            <div className="bg-green-950/30 border border-green-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-green-300 mb-1">On reconnect</p>
               <p className="text-sm text-slate-300">The <strong>same io object</strong> is reused. A new WebSocket handler pumps the same queues. <strong>Caveat:</strong> IO must be reopened (<code className="bg-gray-800 px-1 rounded">_closed = False</code>) for the agent to send again.</p>
             </div>
@@ -240,7 +240,7 @@ T+35                        ◄────────────────�
             Keep-Alive
           </h2>
 
-          <p className="text-slate-100 mb-4 text-lg">
+          <p className="text-gray-700 mb-4 text-lg">
             Server sends PING every 30s. Client responds with PONG. Each message updates <code className="bg-gray-800 px-2 py-1 rounded">last_ping</code> in the registry.
           </p>
 
@@ -268,7 +268,7 @@ T+35                        ◄────────────────�
             Session Cleanup
           </h2>
 
-          <p className="text-slate-100 mb-4 text-lg">
+          <p className="text-gray-700 mb-4 text-lg">
             One rule for all non-running sessions:
           </p>
 
@@ -306,7 +306,7 @@ T+35                        ◄────────────────�
             Recovery Without Reconnect
           </h2>
 
-          <p className="text-slate-100 mb-4 text-lg">
+          <p className="text-gray-700 mb-4 text-lg">
             If the client never comes back:
           </p>
 
@@ -339,7 +339,7 @@ Client returns (hours later)  │
             Session Merge
           </h2>
 
-          <p className="text-slate-100 mb-4 text-lg">
+          <p className="text-gray-700 mb-4 text-lg">
             When a client reconnects and both sides have session state, <code className="bg-gray-800 px-2 py-1 rounded">merge_sessions()</code> resolves the conflict using iteration count (incremented on each LLM call):
           </p>
 
@@ -364,15 +364,15 @@ iteration: 5                iteration: 10
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
-                  <td className="px-4 py-3 text-slate-100">Server continued (iteration 10 vs 5)</td>
+                  <td className="px-4 py-3 text-gray-700">Server continued (iteration 10 vs 5)</td>
                   <td className="px-4 py-3 font-mono text-green-300">Server wins</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 text-slate-100">Client newer (iteration 8 vs 3)</td>
+                  <td className="px-4 py-3 text-gray-700">Client newer (iteration 8 vs 3)</td>
                   <td className="px-4 py-3 font-mono text-blue-300">Client wins</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 text-slate-100">Tie (same iteration)</td>
+                  <td className="px-4 py-3 text-gray-700">Tie (same iteration)</td>
                   <td className="px-4 py-3 font-mono text-yellow-300">Higher timestamp wins</td>
                 </tr>
               </tbody>
@@ -387,7 +387,7 @@ iteration: 5                iteration: 10
             Server Console Output
           </h2>
 
-          <p className="text-slate-100 mb-4 text-lg">
+          <p className="text-gray-700 mb-4 text-lg">
             The WebSocket handler prints structured status lines to the server console. Designed for quick scanning: routine messages are compact, data flow events are indented sub-lines.
           </p>
 
@@ -429,7 +429,7 @@ iteration: 5                iteration: 10
             Known Issue: Reconnect During Approval
           </h2>
 
-          <p className="text-slate-100 mb-4 text-lg">
+          <p className="text-gray-700 mb-4 text-lg">
             When a client refreshes while the agent is blocked waiting for approval (e.g., bash tool), reconnection fails. Three bugs compound:
           </p>
 
@@ -463,7 +463,7 @@ T+10   New WebSocket connects → CONNECT { session_id }
             ))}
           </div>
 
-          <div className="bg-amber-950/30 border border-amber-500/30 rounded-lg p-4 mt-6">
+          <div className="bg-amber-950/30 border border-amber-200 rounded-lg p-4 mt-6">
             <p className="text-sm font-semibold text-amber-300 mb-2">Fix plan</p>
             <div className="space-y-2 text-sm text-slate-300">
               <p>1. <strong>run_agent()</strong>: wrap in try/finally — always set agent_finished, capture error in error_holder.</p>

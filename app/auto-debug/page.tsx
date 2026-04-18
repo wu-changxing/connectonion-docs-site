@@ -42,11 +42,11 @@ export default function AutoDebugPage() {
                 <div className="grid md:grid-cols-2 gap-3 text-sm">
                   <div className="flex items-start gap-2">
                     <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
-                    <span className="text-slate-100"><strong>Available now:</strong> Continue, Edit variables (Python REPL), Quit, Source display</span>
+                    <span className="text-gray-700"><strong>Available now:</strong> Continue, Edit variables (Python REPL), Quit, Source display</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <HiOutlineClock className="w-4 h-4 text-yellow-400 mt-0.5" />
-                    <span className="text-slate-100"><strong>Coming Nov 2:</strong> Ask AI, View trace, Step mode, Universal commands</span>
+                    <span className="text-gray-700"><strong>Coming Nov 2:</strong> Ask AI, View trace, Step mode, Universal commands</span>
                   </div>
                 </div>
               </div>
@@ -55,7 +55,7 @@ export default function AutoDebugPage() {
 
           {/* Most Important Tip */}
           <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
-            <p className="text-lg font-semibold text-green-100">
+            <p className="text-lg font-semibold text-green-900">
               <strong>Most Important:</strong> Use arrow keys to navigate menus, or press <code className="bg-gray-800 px-2 py-1 rounded">c</code> to continue. That's all you need to know to start!
             </p>
           </div>
@@ -68,7 +68,7 @@ export default function AutoDebugPage() {
             60-Second Quick Start
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Add <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> to tools you want to inspect, then call <code className="bg-gray-800 px-2 py-1 rounded">agent.auto_debug()</code>:
           </p>
 
@@ -139,12 +139,12 @@ What do you want to do?
             The Interactive Menu
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             At every <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> breakpoint, you see this menu:
           </p>
 
           <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6 mb-8">
-            <pre className="text-slate-100 font-mono text-sm">
+            <pre className="text-gray-700 font-mono text-sm">
 {`What do you want to do?
   → Continue execution 🚀       [c or Enter]
     Edit values 🔍             [e]
@@ -156,9 +156,9 @@ What do you want to do?
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
+            <div className="bg-blue-900/20 border border-blue-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-blue-300 mb-4">Method 1: Arrow Keys (Beginner-friendly)</h3>
-              <ul className="space-y-2 text-slate-100 text-sm">
+              <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-400">↑ ↓</span>
                   <span>Move selection up and down</span>
@@ -170,9 +170,9 @@ What do you want to do?
               </ul>
             </div>
 
-            <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-6">
+            <div className="bg-green-900/20 border border-green-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-green-300 mb-4">Method 2: Shortcuts (Power user)</h3>
-              <ul className="space-y-2 text-slate-100 text-sm">
+              <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
                   <code className="bg-gray-800 px-2 py-0.5 rounded text-green-400">c</code>
                   <span>Continue execution</span>
@@ -190,7 +190,7 @@ What do you want to do?
           </div>
 
           <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-            <p className="text-purple-100">
+            <p className="text-purple-900">
               <strong>Both methods do exactly the same thing</strong> - use whichever feels natural!
             </p>
           </div>
@@ -208,10 +208,10 @@ What do you want to do?
                   <HiOutlineCheck className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Continue Execution</h3>
-                <span className="text-sm bg-green-900/30 text-green-400 border border-green-500/30 px-3 py-1 rounded-full">✅ Available</span>
+                <span className="text-sm bg-green-900/30 text-green-400 border border-green-200 px-3 py-1 rounded-full">✅ Available</span>
               </div>
 
-              <p className="text-slate-100 mb-6">
+              <p className="text-gray-700 mb-6">
                 The most common action - just press <code className="bg-gray-800 px-2 py-1 rounded">c</code> or <code className="bg-gray-800 px-2 py-1 rounded">Enter</code> to continue:
               </p>
 
@@ -234,10 +234,10 @@ What do you want to do?
                   <HiOutlineCodeBracket className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Edit Variables (Python REPL)</h3>
-                <span className="text-sm bg-green-900/30 text-green-400 border border-green-500/30 px-3 py-1 rounded-full">✅ Available</span>
+                <span className="text-sm bg-green-900/30 text-green-400 border border-green-200 px-3 py-1 rounded-full">✅ Available</span>
               </div>
 
-              <p className="text-slate-100 mb-6">
+              <p className="text-gray-700 mb-6">
                 Modify variables to test "what if" scenarios. This is a full Python REPL with access to all variables:
               </p>
 
@@ -271,7 +271,7 @@ Available variables: query, result, tool_args
 ✓ Complete`}
               />
 
-              <div className="mt-6 bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+              <div className="mt-6 bg-blue-900/20 border border-blue-200 rounded-lg p-4">
                 <p className="text-blue-300 text-sm">
                   <strong>Test any scenario:</strong> Empty results, large datasets, error cases, edge cases - just modify the variables and see how your agent handles it!
                 </p>
@@ -285,15 +285,15 @@ Available variables: query, result, tool_args
                   <HiOutlineCpuChip className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Ask AI for Help</h3>
-                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
+                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
-              <p className="text-slate-100 mb-6">
+              <p className="text-gray-700 mb-6">
                 Get context-aware help from AI about what's happening. The AI knows your code, execution state, and history:
               </p>
 
               <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6">
-                <pre className="text-slate-100 font-mono text-sm">
+                <pre className="text-gray-700 font-mono text-sm">
 {`> a
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -327,15 +327,15 @@ ai> /continue [Resume execution]`}
                   <HiOutlineChartBar className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">View Execution Trace</h3>
-                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
+                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
-              <p className="text-slate-100 mb-6">
+              <p className="text-gray-700 mb-6">
                 See the complete execution history with timeline, messages, and agent state:
               </p>
 
               <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6">
-                <pre className="text-slate-100 font-mono text-sm">
+                <pre className="text-gray-700 font-mono text-sm">
 {`Timeline:
   [0] user_input: "Send email to John"
   [1] llm_call: 234ms → 2 tool calls requested
@@ -354,16 +354,16 @@ Total: 323ms • 2 steps • 1 iteration`}
                   <HiOutlineArrowPath className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Toggle Step Mode</h3>
-                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
+                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
-              <p className="text-slate-100 mb-6">
+              <p className="text-gray-700 mb-6">
                 Pause at <strong>EVERY tool</strong>, not just <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> tools:
               </p>
 
               <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6">
-                <p className="text-slate-100 text-sm mb-4">Press <code className="bg-gray-800 px-2 py-1 rounded">s</code> in menu to enable:</p>
-                <pre className="text-slate-100 font-mono text-sm">
+                <p className="text-gray-700 text-sm mb-4">Press <code className="bg-gray-800 px-2 py-1 rounded">s</code> in menu to enable:</p>
+                <pre className="text-gray-700 font-mono text-sm">
 {`✓ Step mode enabled - will pause at EVERY tool
 
 → Tool: validate_input(...)    [No @xray, but pauses!]
@@ -383,7 +383,7 @@ Total: 323ms • 2 steps • 1 iteration`}
         <section className="mb-20">
           <h2 className="heading-2">Complete User Journey</h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Let's walk through a full debugging session:
           </p>
 
@@ -451,8 +451,8 @@ Agent: "Sorry, no purple shoes under $100 are available."
           <div className="space-y-6">
             <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-blue-100 mb-4">1. Strategic @xray Placement</h3>
-              <p className="text-slate-100 mb-4">Add <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> to:</p>
-              <ul className="space-y-2 text-slate-100 text-sm">
+              <p className="text-gray-700 mb-4">Add <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> to:</p>
+              <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
                   <HiOutlineCheck className="w-4 h-4 text-green-400 mt-1" />
                   <span>API calls and database operations</span>
@@ -466,14 +466,14 @@ Agent: "Sorry, no purple shoes under $100 are available."
                   <span>Tools that often fail or have important side effects</span>
                 </li>
               </ul>
-              <p className="text-slate-100 mt-4 text-sm">
+              <p className="text-gray-700 mt-4 text-sm">
                 Skip simple utilities and pure functions. Or use step mode to see everything!
               </p>
             </div>
 
             <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-purple-100 mb-4">2. Test Edge Cases in Python Mode</h3>
-              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-slate-100">
+              <h3 className="text-xl font-semibold text-purple-900 mb-4">2. Test Edge Cases in Python Mode</h3>
+              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`>>> # Empty results
 >>> result = []
 
@@ -486,15 +486,15 @@ Agent: "Sorry, no purple shoes under $100 are available."
 >>> # Unicode/special characters
 >>> result = {"name": "用户名", "emoji": "🎉"}`}
               </div>
-              <p className="text-slate-100 mt-4 text-sm">
+              <p className="text-gray-700 mt-4 text-sm">
                 <strong>Time-travel debugging:</strong> Change one variable, see entire agent behavior change.
               </p>
             </div>
 
             <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-green-100 mb-4">3. Use Step Mode for Complex Workflows</h3>
-              <p className="text-slate-100 mb-4">When you don't know which tool is causing problems:</p>
-              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-slate-100">
+              <h3 className="text-xl font-semibold text-green-900 mb-4">3. Use Step Mode for Complex Workflows</h3>
+              <p className="text-gray-700 mb-4">When you don't know which tool is causing problems:</p>
+              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`# Normal: Only @xray breakpoints
 agent.auto_debug()
 
@@ -514,7 +514,7 @@ agent.auto_debug(step=True)
           <h2 className="heading-2">When to Use</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6">
+            <div className="bg-green-500/10 border border-green-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-4 text-green-400 flex items-center gap-2">
                 <HiOutlineCheck className="w-5 h-5" />
                 Perfect For
@@ -543,7 +543,7 @@ agent.auto_debug(step=True)
               </ul>
             </div>
 
-            <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-6">
+            <div className="bg-red-500/10 border border-red-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-4 text-red-400 flex items-center gap-2">
                 <HiOutlineExclamationTriangle className="w-5 h-5" />
                 Not For
@@ -599,7 +599,7 @@ agent.auto_debug(step=True)
             ].map((item, i) => (
               <div key={i} className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
                 <h3 className="font-semibold text-purple-400 mb-2">{item.q}</h3>
-                <p className="text-slate-100">{item.a}</p>
+                <p className="text-gray-700">{item.a}</p>
               </div>
             ))}
           </div>
@@ -609,10 +609,10 @@ agent.auto_debug(step=True)
         <section className="mb-20">
           <div className="bg-purple-950/30 rounded-2xl p-10 border border-purple-400/30 text-center">
             <h2 className="heading-2">Ready to Debug Like a Pro?</h2>
-            <p className="text-xl text-slate-100 mb-8">
+            <p className="text-xl text-gray-700 mb-8">
               Just call <code className="bg-gray-800 px-3 py-1.5 rounded">agent.auto_debug()</code> and explore!
             </p>
-            <p className="text-purple-100 text-lg">
+            <p className="text-purple-900 text-lg">
               The tips will guide you through - no memorization needed. 🔍
             </p>
           </div>

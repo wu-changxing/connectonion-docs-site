@@ -54,10 +54,10 @@ export default function DeployPage() {
                 <HiOutlineCloud className="w-6 h-6" />
                 co deploy (Easiest)
               </h3>
-              <p className="text-slate-100 mb-4">
+              <p className="text-gray-700 mb-4">
                 Quick deployment to ConnectOnion Cloud. Managed hosting, no infrastructure to manage.
               </p>
-              <ul className="space-y-2 text-slate-100 text-sm">
+              <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
                   <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>One command deployment</span>
@@ -78,10 +78,10 @@ export default function DeployPage() {
                 <HiOutlineServer className="w-6 h-6" />
                 Self-Host
               </h3>
-              <p className="text-slate-100 mb-4">
+              <p className="text-gray-700 mb-4">
                 Full control with your own infrastructure. Use Docker, GCP, AWS, or any VPS.
               </p>
-              <ul className="space-y-2 text-slate-100 text-sm">
+              <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
                   <HiOutlineCheck className="w-4 h-4 text-blue-400 mt-0.5" />
                   <span>Full control</span>
@@ -106,7 +106,7 @@ export default function DeployPage() {
             60-Second Quick Start
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Deploy your agent with the CLI - one command:
           </p>
 
@@ -134,8 +134,8 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           />
 
           <div className="mt-6 bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-purple-100 mb-4">co deploy Requirements</h3>
-            <div className="space-y-2 text-slate-100">
+            <h3 className="text-lg font-semibold text-purple-900 mb-4">co deploy Requirements</h3>
+            <div className="space-y-2 text-gray-700">
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
                 <span>Git repository with committed code</span>
@@ -168,7 +168,7 @@ entrypoint = "agent.py"`}
 
           <div className="mt-6">
             <h3 className="text-xl font-semibold mb-4">Secrets</h3>
-            <p className="text-slate-100 mb-4">
+            <p className="text-gray-700 mb-4">
               Secrets from <code className="bg-gray-800 px-2 py-0.5 rounded">.env</code> are securely passed to your agent:
             </p>
             <CodeWithResult
@@ -181,7 +181,7 @@ DATABASE_URL=postgres://...`}
           </div>
 
           <div className="mt-6 bg-amber-950/50 border border-amber-400/40 rounded-lg p-4">
-            <p className="text-amber-200 text-sm">
+            <p className="text-amber-800 text-sm">
               <strong>Note:</strong> URL format is <code className="bg-gray-800 px-2 py-0.5 rounded">{'{project_name}-{your_address[:10]}.agents.openonion.ai'}</code>. Re-deploying updates the same URL.
             </p>
           </div>
@@ -194,7 +194,7 @@ DATABASE_URL=postgres://...`}
             Self-Host with host()
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Deploy to your own infrastructure using <code className="bg-gray-800 px-2 py-1 rounded">host()</code>:
           </p>
 
@@ -229,7 +229,7 @@ gunicorn agent:app -w 4 -k uvicorn.workers.UvicornWorker`}
           </div>
 
           <div className="mt-6 bg-blue-950/50 border border-blue-400/40 rounded-lg p-4">
-            <p className="text-blue-200 text-sm">
+            <p className="text-blue-800 text-sm">
               For full API reference, see <Link href="/host" className="underline hover:text-blue-100">host() documentation</Link>.
             </p>
           </div>
@@ -242,7 +242,7 @@ gunicorn agent:app -w 4 -k uvicorn.workers.UvicornWorker`}
             Docker Deployment
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             The simplest way to deploy - works anywhere Docker runs:
           </p>
 
@@ -322,7 +322,7 @@ Agent serving at: 0x3d4017c3e843895a...`}
             Deploy to Google Cloud Run
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Serverless deployment with automatic scaling:
           </p>
 
@@ -364,7 +364,7 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
 
             <div className="bg-amber-950/50 border border-amber-400/40 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-amber-100 mb-2">Security Note</h3>
-              <p className="text-slate-100">
+              <p className="text-gray-700">
                 Use <code className="bg-gray-800 px-2 py-1 rounded">Secret Manager</code> for API keys in production instead of environment variables.
               </p>
             </div>
@@ -378,20 +378,20 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
             Deploy to AWS
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Multiple options depending on your needs:
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-6">
-            <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-orange-100 mb-4 flex items-center gap-2">
+            <div className="bg-gray-100 border border-gray-700 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-orange-900 mb-4 flex items-center gap-2">
                 <HiOutlineServer className="w-5 h-5" />
                 EC2 / Lightsail
               </h3>
-              <p className="text-slate-100 mb-4">
+              <p className="text-gray-700 mb-4">
                 Simple VPS deployment. Best for always-on agents.
               </p>
-              <ul className="space-y-2 text-slate-100 text-sm">
+              <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
                   <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Full control over environment</span>
@@ -407,15 +407,15 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
               </ul>
             </div>
 
-            <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-purple-100 mb-4 flex items-center gap-2">
+            <div className="bg-gray-100 border border-gray-700 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-purple-900 mb-4 flex items-center gap-2">
                 <HiOutlineSquare3Stack3D className="w-5 h-5" />
                 ECS / Fargate
               </h3>
-              <p className="text-slate-100 mb-4">
+              <p className="text-gray-700 mb-4">
                 Container orchestration. Best for scaling.
               </p>
-              <ul className="space-y-2 text-slate-100 text-sm">
+              <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
                   <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
                   <span>Auto-scaling built in</span>
@@ -459,7 +459,7 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
             Environment Variables
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Configure your agent for different environments:
           </p>
 
@@ -467,42 +467,42 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
             <table className="w-full text-sm">
               <thead className="bg-gray-800">
                 <tr>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Variable</th>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Description</th>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Required</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Variable</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Description</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Required</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-purple-300">OPENAI_API_KEY</td>
-                  <td className="px-4 py-3 text-slate-100">OpenAI API key for GPT models</td>
+                  <td className="px-4 py-3 text-gray-700">OpenAI API key for GPT models</td>
                   <td className="px-4 py-3 text-yellow-400">Yes*</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-purple-300">ANTHROPIC_API_KEY</td>
-                  <td className="px-4 py-3 text-slate-100">Anthropic API key for Claude</td>
+                  <td className="px-4 py-3 text-gray-700">Anthropic API key for Claude</td>
                   <td className="px-4 py-3 text-gray-400">Optional</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-purple-300">GOOGLE_API_KEY</td>
-                  <td className="px-4 py-3 text-slate-100">Google API key for Gemini</td>
+                  <td className="px-4 py-3 text-gray-700">Google API key for Gemini</td>
                   <td className="px-4 py-3 text-gray-400">Optional</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-purple-300">RELAY_URL</td>
-                  <td className="px-4 py-3 text-slate-100">Custom relay server URL</td>
+                  <td className="px-4 py-3 text-gray-700">Custom relay server URL</td>
                   <td className="px-4 py-3 text-gray-400">Optional</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-purple-300">LOG_LEVEL</td>
-                  <td className="px-4 py-3 text-slate-100">Logging verbosity (DEBUG, INFO, WARN)</td>
+                  <td className="px-4 py-3 text-gray-700">Logging verbosity (DEBUG, INFO, WARN)</td>
                   <td className="px-4 py-3 text-gray-400">Optional</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <p className="mt-4 text-sm text-slate-100">
+          <p className="mt-4 text-sm text-gray-700">
             * Or use ConnectOnion managed keys with <code className="bg-gray-800 px-2 py-1 rounded">co auth</code> - no API keys needed!
           </p>
         </section>
@@ -516,8 +516,8 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-green-100 mb-4">Security</h3>
-              <ul className="space-y-2 text-slate-100">
+              <h3 className="text-lg font-semibold text-green-900 mb-4">Security</h3>
+              <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5" />
                   <span>Use secret managers for API keys</span>
@@ -539,7 +539,7 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
 
             <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-blue-100 mb-4">Reliability</h3>
-              <ul className="space-y-2 text-slate-100">
+              <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <HiOutlineCheck className="w-5 h-5 text-blue-400 mt-0.5" />
                   <span>Add health checks to containers</span>
@@ -565,7 +565,7 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
         <section className="mb-20">
           <div className="bg-blue-950/30 rounded-2xl p-10 border border-blue-400/30 text-center">
             <h2 className="heading-2">Ready to Deploy?</h2>
-            <p className="text-xl text-slate-100 mb-8">
+            <p className="text-xl text-gray-700 mb-8">
               Your agents are production-ready. Ship them!
             </p>
             <div className="flex flex-wrap justify-center gap-4">

@@ -8,24 +8,24 @@ export default function WebsiteMaintenancePage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
+      <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
         <Link href="/" className="hover:text-purple-400 transition-colors">
           Docs
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <span className="text-white">Website Maintenance</span>
+        <span className="text-gray-900">Website Maintenance</span>
       </div>
 
       {/* Header */}
       <div className="mb-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl border border-blue-500/30">
+            <div className="p-3 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl border border-blue-200">
               <HiOutlineCog6Tooth className="w-8 h-8 text-blue-400" />
             </div>
             <div>
               <h1 className="heading-1">Website Maintenance</h1>
-              <p className="text-lg text-slate-100">
+              <p className="text-lg text-gray-700">
                 Procedures for updating and maintaining the ConnectOnion documentation site.
               </p>
             </div>
@@ -68,7 +68,7 @@ export default function WebsiteMaintenancePage() {
         {/* Step 1: Create Tutorial */}
         <section>
           <h2 className="heading-2">Step 1: Create Tutorial Content</h2>
-          <p className="text-gray-600 dark:text-slate-100 mb-4">
+          <p className="text-gray-600 dark:text-gray-700 mb-4">
             Start by writing your documentation as a markdown file:
           </p>
           <CommandBlock commands={['touch docs-site/public/tutorials/your-feature.md']} />
@@ -99,7 +99,7 @@ Detailed technical documentation.`}</code>
         {/* Step 2: Create Page */}
         <section>
           <h2 className="heading-2">Step 2: Create Page Component</h2>
-          <p className="text-gray-600 dark:text-slate-100 mb-4">
+          <p className="text-gray-600 dark:text-gray-700 mb-4">
             Create a Next.js page for your feature:
           </p>
           <CommandBlock commands={[
@@ -140,7 +140,7 @@ export default function YourFeaturePage() {
           <div className="space-y-6">
             <div>
               <h3 className="text-lg font-medium mb-4">Add to Sidebar</h3>
-              <p className="text-gray-600 dark:text-slate-100 mb-4">
+              <p className="text-gray-600 dark:text-gray-700 mb-4">
                 Edit <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">DocsSidebar.tsx</code>:
               </p>
               <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
@@ -162,7 +162,7 @@ export default function YourFeaturePage() {
 
             <div>
               <h3 className="text-lg font-medium mb-4">Update Search Mapping</h3>
-              <p className="text-gray-600 dark:text-slate-100 mb-4">
+              <p className="text-gray-600 dark:text-gray-700 mb-4">
                 Edit <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">markdownLoader.ts</code>:
               </p>
               <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">

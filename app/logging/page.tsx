@@ -27,7 +27,7 @@ export default function LoggingPage() {
         {copiedCode === id ? (
           <HiOutlineCheck className="w-4 h-4 text-green-400" />
         ) : (
-          <HiOutlineClipboard className="w-4 h-4 text-slate-100" />
+          <HiOutlineClipboard className="w-4 h-4 text-gray-700" />
         )}
       </button>
       <SyntaxHighlighter
@@ -48,7 +48,7 @@ export default function LoggingPage() {
   )
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="bg-white text-gray-900">
       <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
         <PageHeader
           breadcrumbs={[
@@ -73,7 +73,7 @@ export default function LoggingPage() {
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-8 border border-purple-500/20 mb-12">
+          <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-8 border border-purple-200 mb-12">
             <CodeBlock
               code={`# Default: logs to .co/logs/{name}.log + .co/sessions/{name}_{timestamp}.yaml
 agent = Agent("assistant")
@@ -101,13 +101,13 @@ agent = Agent("assistant", log="debug.log")`}
           <div className="overflow-hidden rounded-xl border border-gray-700 bg-gray-900/50 backdrop-blur mb-8">
             <table className="w-full text-left text-sm">
               <thead>
-                <tr className="border-b border-gray-700 bg-gray-800/50">
-                  <th className="p-4 font-medium text-slate-100">quiet</th>
-                  <th className="p-4 font-medium text-slate-100">log</th>
-                  <th className="p-4 font-medium text-slate-100">Console</th>
-                  <th className="p-4 font-medium text-slate-100">Plain Text</th>
-                  <th className="p-4 font-medium text-slate-100">Sessions</th>
-                  <th className="p-4 font-medium text-slate-100">Use Case</th>
+                <tr className="border-b border-gray-700 bg-gray-100">
+                  <th className="p-4 font-medium text-gray-700">quiet</th>
+                  <th className="p-4 font-medium text-gray-700">log</th>
+                  <th className="p-4 font-medium text-gray-700">Console</th>
+                  <th className="p-4 font-medium text-gray-700">Plain Text</th>
+                  <th className="p-4 font-medium text-gray-700">Sessions</th>
+                  <th className="p-4 font-medium text-gray-700">Use Case</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700/50">
@@ -125,7 +125,7 @@ agent = Agent("assistant", log="debug.log")`}
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-green-400">Yes</td>
-                  <td className="p-4 text-slate-100">Eval/testing</td>
+                  <td className="p-4 text-gray-700">Eval/testing</td>
                 </tr>
                 <tr className="hover:bg-gray-800/30 transition-colors">
                   <td className="p-4 font-mono text-gray-400">False</td>
@@ -133,15 +133,15 @@ agent = Agent("assistant", log="debug.log")`}
                   <td className="p-4 text-green-400">Yes</td>
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-gray-500">No</td>
-                  <td className="p-4 text-slate-100">Benchmarking</td>
+                  <td className="p-4 text-gray-700">Benchmarking</td>
                 </tr>
                 <tr className="hover:bg-gray-800/30 transition-colors">
                   <td className="p-4 font-mono text-gray-400">False</td>
                   <td className="p-4 font-mono text-gray-400">"path"</td>
                   <td className="p-4 text-green-400">Yes</td>
-                  <td className="p-4 text-slate-100">custom</td>
+                  <td className="p-4 text-gray-700">custom</td>
                   <td className="p-4 text-green-400">Yes</td>
-                  <td className="p-4 text-slate-100">Custom log path</td>
+                  <td className="p-4 text-gray-700">Custom log path</td>
                 </tr>
               </tbody>
             </table>
@@ -201,7 +201,7 @@ Session started: 2024-12-02 10:32:14
           </div>
 
           <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6 mb-6">
-            <p className="text-slate-100 mb-4">Sessions are saved as YAML for replay and eval:</p>
+            <p className="text-gray-700 mb-4">Sessions are saved as YAML for replay and eval:</p>
             <CodeBlock
               code={`name: assistant
 timestamp: 2024-12-02 10:32:14
@@ -222,7 +222,7 @@ turns:
 
           <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 text-purple-300">Use Cases</h3>
-            <ul className="space-y-3 text-sm text-slate-100">
+            <ul className="space-y-3 text-sm text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="text-purple-400 font-bold">Session replay:</span>
                 <span>Restore context from saved sessions</span>
@@ -248,22 +248,22 @@ turns:
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-slate-100">Watch plain text logs in real-time</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Watch plain text logs in real-time</h3>
               <CommandBlock commands={['tail -f .co/logs/assistant.log']} />
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-slate-100">Search for errors</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Search for errors</h3>
               <CommandBlock commands={['grep ERROR .co/logs/assistant.log']} />
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-slate-100">See all tool calls</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">See all tool calls</h3>
               <CommandBlock commands={['grep "Tool:" .co/logs/assistant.log']} />
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-slate-100">List sessions</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">List sessions</h3>
               <CommandBlock commands={['ls -la .co/sessions/']} />
             </div>
           </div>
@@ -277,7 +277,7 @@ turns:
           </div>
 
           <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-            <p className="text-slate-100 mb-4">Override log file via environment (highest priority):</p>
+            <p className="text-gray-700 mb-4">Override log file via environment (highest priority):</p>
             <CommandBlock commands={['CONNECTONION_LOG=debug.log python agent.py']} />
           </div>
         </section>
@@ -296,8 +296,8 @@ turns:
               </div>
               <div className="space-y-4 w-full">
                 <div>
-                  <p className="text-yellow-200/80 text-sm mb-4">
-                    Add to your <code className="text-yellow-200">.gitignore</code>:
+                  <p className="text-yellow-800/80 text-sm mb-4">
+                    Add to your <code className="text-yellow-800">.gitignore</code>:
                   </p>
                 </div>
 
@@ -317,21 +317,21 @@ turns:
 
         {/* Parameters */}
         <section className="mb-16">
-          <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-10 border border-purple-500/20">
+          <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-10 border border-purple-200">
             <h2 className="heading-2 mb-6">Parameters</h2>
 
             <div className="space-y-6">
               <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-                <p className="text-slate-100">
+                <p className="text-gray-700">
                   <code className="text-purple-400 font-semibold">quiet</code> (bool): Suppress console output. Sessions still recorded. Default: <code className="text-gray-400">False</code>
                 </p>
               </div>
 
               <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-                <p className="text-slate-100 mb-3">
+                <p className="text-gray-700 mb-3">
                   <code className="text-purple-400 font-semibold">log</code> (bool|str|Path): Control file logging
                 </p>
-                <ul className="space-y-2 text-sm text-slate-100 ml-4">
+                <ul className="space-y-2 text-sm text-gray-700 ml-4">
                   <li className="flex items-start gap-2">
                     <code className="text-gray-400">None</code>/<code className="text-gray-400">True</code>:
                     <span>Default <code className="text-purple-300">.co/logs/{'{name}'}.log</code></span>

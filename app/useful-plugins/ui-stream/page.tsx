@@ -51,7 +51,7 @@ host(agent, port=8000)  # WebSocket clients receive completion events`}
         {/* What it sends */}
         <section className="mb-20">
           <h2 className="heading-2">Completion event payload</h2>
-          <p className="text-slate-100 mb-4">Sent to the WebSocket client when each turn completes:</p>
+          <p className="text-gray-700 mb-4">Sent to the WebSocket client when each turn completes:</p>
           <CodeWithResult
             code={`{
   "type": "complete",
@@ -66,38 +66,38 @@ host(agent, port=8000)  # WebSocket clients receive completion events`}
         {/* What other events exist */}
         <section className="mb-20">
           <h2 className="heading-2">Other streaming events</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             Individual events are emitted directly from their sources — <code className="bg-gray-800 px-2 py-1 rounded">ui_stream</code> only adds the final summary:
           </p>
           <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-gray-800">
                 <tr>
-                  <th className="text-left px-4 py-3 text-slate-100">Event type</th>
-                  <th className="text-left px-4 py-3 text-slate-100">Emitted by</th>
-                  <th className="text-left px-4 py-3 text-slate-100">When</th>
+                  <th className="text-left px-4 py-3 text-gray-700">Event type</th>
+                  <th className="text-left px-4 py-3 text-gray-700">Emitted by</th>
+                  <th className="text-left px-4 py-3 text-gray-700">When</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-emerald-300">thinking</td>
                   <td className="px-4 py-3 text-slate-300">agent.py</td>
-                  <td className="px-4 py-3 text-slate-100">Before each LLM call</td>
+                  <td className="px-4 py-3 text-gray-700">Before each LLM call</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-emerald-300">tool_result</td>
                   <td className="px-4 py-3 text-slate-300">tool_executor.py</td>
-                  <td className="px-4 py-3 text-slate-100">After each tool call</td>
+                  <td className="px-4 py-3 text-gray-700">After each tool call</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-emerald-300">assistant</td>
                   <td className="px-4 py-3 text-slate-300">agent.py</td>
-                  <td className="px-4 py-3 text-slate-100">When agent responds</td>
+                  <td className="px-4 py-3 text-gray-700">When agent responds</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-emerald-300">complete</td>
                   <td className="px-4 py-3 text-slate-300">ui_stream plugin</td>
-                  <td className="px-4 py-3 text-slate-100">When turn finishes</td>
+                  <td className="px-4 py-3 text-gray-700">When turn finishes</td>
                 </tr>
               </tbody>
             </table>
@@ -108,20 +108,20 @@ host(agent, port=8000)  # WebSocket clients receive completion events`}
         {/* Events */}
         <section className="mb-20">
           <h2 className="heading-2">Events used</h2>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-slate-100">Event</th>
-                  <th className="text-left py-2 text-slate-100">Handler</th>
-                  <th className="text-left py-2 text-slate-100">Purpose</th>
+                  <th className="text-left py-2 text-gray-700">Event</th>
+                  <th className="text-left py-2 text-gray-700">Handler</th>
+                  <th className="text-left py-2 text-gray-700">Purpose</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td className="py-2"><code className="text-emerald-300">on_complete</code></td>
                   <td className="py-2 text-slate-300">stream_complete</td>
-                  <td className="py-2 text-slate-100">Send completion summary to WebSocket</td>
+                  <td className="py-2 text-gray-700">Send completion summary to WebSocket</td>
                 </tr>
               </tbody>
             </table>

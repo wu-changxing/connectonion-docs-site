@@ -164,7 +164,7 @@ ${expectedOutput}
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">4</span>
+              <span className="text-2xl font-bold text-gray-900">4</span>
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
@@ -174,7 +174,7 @@ ${expectedOutput}
                   Advanced
                 </span>
               </div>
-              <p className="text-xl text-slate-100">
+              <p className="text-xl text-gray-700">
                 Master systematic code review methodology with prioritized feedback and technical expertise.
               </p>
             </div>
@@ -189,8 +189,8 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-purple-900/20 border border-purple-500/30 rounded-xl">
-        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+      <div className="mb-12 p-6 bg-purple-900/20 border border-purple-200 rounded-xl">
+        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
           <HiOutlineLightBulb className="w-6 h-6 text-purple-400" />
           Key Learning Concepts
         </h2>
@@ -198,22 +198,22 @@ ${expectedOutput}
           <div className="flex items-start gap-3">
             <HiOutlineViewfinderCircle className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Review Framework</h3>
-              <p className="text-purple-200 text-sm">5 systematic focus areas ensure comprehensive code analysis</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Review Framework</h3>
+              <p className="text-purple-800 text-sm">5 systematic focus areas ensure comprehensive code analysis</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <HiOutlineCheckCircle className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Priority Classification</h3>
-              <p className="text-purple-200 text-sm">Critical/Major/Minor system helps developers focus on important issues</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Priority Classification</h3>
+              <p className="text-purple-800 text-sm">Critical/Major/Minor system helps developers focus on important issues</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Constructive Feedback</h3>
-              <p className="text-purple-200 text-sm">Balance criticism with positive recognition and actionable suggestions</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Constructive Feedback</h3>
+              <p className="text-purple-800 text-sm">Balance criticism with positive recognition and actionable suggestions</p>
             </div>
           </div>
         </div>
@@ -224,10 +224,10 @@ ${expectedOutput}
         <div className="space-y-8">
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">System Prompt</h3>
+              <h3 className="text-xl font-semibold text-gray-900">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -271,10 +271,10 @@ ${expectedOutput}
           {/* Usage Example */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">Usage Example</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -320,12 +320,12 @@ ${expectedOutput}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
               <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-purple-400" />
-              <h3 className="text-xl font-semibold text-white">Expected Output</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
             <div className="p-6">
               <div className="bg-black/50 rounded-lg p-4 font-mono text-sm">
-                <pre className="text-purple-200 whitespace-pre-wrap">
+                <pre className="text-purple-800 whitespace-pre-wrap">
                   {expectedOutput}
                 </pre>
               </div>
@@ -334,26 +334,26 @@ ${expectedOutput}
 
           {/* Analysis */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">Professional Techniques</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Professional Techniques</h3>
             <div className="space-y-4 text-sm">
               <div>
                 <h4 className="font-semibold text-purple-400 mb-2">🎯 Systematic Analysis</h4>
-                <p className="text-slate-100">5 focus areas ensure no important aspects are missed during review.</p>
+                <p className="text-gray-700">5 focus areas ensure no important aspects are missed during review.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-purple-400 mb-2">🚦 Priority System</h4>
-                <p className="text-slate-100">Color-coded severity levels help developers prioritize their fixes effectively.</p>
+                <p className="text-gray-700">Color-coded severity levels help developers prioritize their fixes effectively.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-purple-400 mb-2">💡 Solution-Oriented</h4>
-                <p className="text-slate-100">Provides concrete code examples and actionable improvement suggestions.</p>
+                <p className="text-gray-700">Provides concrete code examples and actionable improvement suggestions.</p>
               </div>
             </div>
           </div>
 
           {/* Download Options */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Download & Customize</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Download & Customize</h3>
             <div className="space-y-3">
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(promptContent)}`}
@@ -363,7 +363,7 @@ ${expectedOutput}
                 <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File
               </a>
-              <p className="text-xs text-slate-100 text-center">
+              <p className="text-xs text-gray-700 text-center">
                 Perfect for automated code review and development workflows
               </p>
             </div>

@@ -49,7 +49,7 @@ export default function ConnectPage() {
             60-Second Quick Start
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Connect to a remote agent with one function call:
           </p>
 
@@ -69,8 +69,8 @@ library reference, and language specifications.`}
           />
 
           <div className="mt-6 bg-green-950/50 border border-green-400/40 rounded-lg p-6">
-            <p className="text-lg font-semibold text-green-100 mb-4">What Just Happened?</p>
-            <div className="space-y-2 text-slate-100">
+            <p className="text-lg font-semibold text-green-900 mb-4">What Just Happened?</p>
+            <div className="space-y-2 text-gray-700">
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                 <span><strong>Created proxy agent</strong> → Acts like a local Agent instance</span>
@@ -168,8 +168,8 @@ Weather in Seattle: Sunny, 72°F`}
 
           <div className="space-y-8">
             <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-purple-100 mb-4">1. Connect to Multiple Agents</h3>
-              <p className="text-slate-100 mb-4">
+              <h3 className="text-xl font-semibold text-purple-900 mb-4">1. Connect to Multiple Agents</h3>
+              <p className="text-gray-700 mb-4">
                 Build workflows with specialized remote agents:
               </p>
               <CodeWithResult
@@ -192,7 +192,7 @@ print(final)`}
 
             <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-blue-100 mb-4">2. Retry on Connection Failure</h3>
-              <p className="text-slate-100 mb-4">
+              <p className="text-gray-700 mb-4">
                 Handle network failures gracefully:
               </p>
               <CodeWithResult
@@ -216,8 +216,8 @@ agent = connect_with_retry("0x7a8f...")`}
             </div>
 
             <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-green-100 mb-4">3. Agent Pool (Load Balancing)</h3>
-              <p className="text-slate-100 mb-4">
+              <h3 className="text-xl font-semibold text-green-900 mb-4">3. Agent Pool (Load Balancing)</h3>
+              <p className="text-gray-700 mb-4">
                 Distribute load across multiple identical agents:
               </p>
               <CodeWithResult
@@ -255,7 +255,7 @@ result3 = get_agent().input("Task 3")`}
             Multi-Turn Conversations
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Remote agents maintain conversation state across multiple <code className="bg-gray-800 px-2 py-1 rounded">input()</code> calls:
           </p>
 
@@ -283,7 +283,7 @@ The result is 300`}
             Real-World: Distributed Workflow
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Local orchestrator using remote specialized agents:
           </p>
 
@@ -430,7 +430,7 @@ result = agent.input("task")`}
             TypeScript SDK
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             The <code className="bg-gray-800 px-2 py-1 rounded">connectonion</code> npm package provides the same <code className="bg-gray-800 px-2 py-1 rounded">connect()</code> interface for TypeScript and JavaScript:
           </p>
 
@@ -483,7 +483,7 @@ console.log(response.text)`}
             Streaming Events
           </h2>
 
-          <p className="text-slate-100 mb-4 text-lg">
+          <p className="text-gray-700 mb-4 text-lg">
             While the agent works, events stream in real-time via the <code className="bg-gray-800 px-2 py-1 rounded">ui</code> property. Each event is a <code className="bg-gray-800 px-2 py-1 rounded">ChatItem</code>:
           </p>
 
@@ -536,7 +536,7 @@ console.log(response.text)`}
             React Hook: useAgentForHuman()
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             The SDK includes a React hook that wraps <code className="bg-gray-800 px-2 py-1 rounded">connect()</code> with state management and localStorage persistence:
           </p>
 
@@ -599,7 +599,7 @@ function ChatPage() {
             Interactive Features
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Agents can ask questions, request approval for dangerous tools, and present plans for review. Here{"'"}s how to handle each:
           </p>
 
@@ -661,7 +661,7 @@ respondToPlanReview("Skip step 2, go straight to report")`}
             Sending Files
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             All SDKs support sending files alongside prompts. Files are base64-encoded and sent inline as data URLs.
           </p>
 
@@ -798,7 +798,7 @@ function Chat() {
             oo-chat: Open-Source Reference Client
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             <Link href="https://github.com/openonion/oo-chat" className="text-emerald-400 hover:text-emerald-300 underline">oo-chat</Link> is an open-source Next.js chat client built on the TypeScript SDK. It{"'"}s a complete working example of how to build a chat UI for ConnectOnion agents.
           </p>
 
@@ -893,7 +893,7 @@ export default function ChatSession({ params }) {
         <section className="mb-20">
           <div className="bg-blue-950/30 rounded-2xl p-10 border border-blue-400/30 text-center">
             <h2 className="heading-2">Ready to Use Remote Agents?</h2>
-            <p className="text-xl text-slate-100 mb-8">
+            <p className="text-xl text-gray-700 mb-8">
               Python, TypeScript, or React — connect to any agent with one function call.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

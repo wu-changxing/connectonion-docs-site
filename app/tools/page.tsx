@@ -265,7 +265,7 @@ Based on my search, here are some excellent Python tutorials for you:
       {/* Function Tools */}
       <section className="mb-14">
         <h2 className="heading-2"><HiOutlineCodeBracket className="w-5 h-5 text-blue-400"/>Function Tools</h2>
-        <p className="text-slate-100 mb-4">Use Python type hints as your interface. Keep signatures explicit and return structures when needed.</p>
+        <p className="text-gray-700 mb-4">Use Python type hints as your interface. Keep signatures explicit and return structures when needed.</p>
         <div className="grid grid-cols-1 gap-6">
           <CodeWithResult 
             code={functionTool}
@@ -313,7 +313,7 @@ I'll search for the top 3 results about vector databases.
       <section className="mb-16">
         <h2 className="heading-2"><HiOutlineCog6Tooth className="w-5 h-5 text-amber-400"/>Class Instance vs Individual Methods</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-6">
+          <div className="bg-green-900/20 border border-green-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
               <FaCheckCircle className="inline-flex w-5 h-5 text-green-400" />
               Recommended: Class Instance
@@ -333,7 +333,7 @@ agent = Agent("browser_agent", tools=[browser])`}
               className="text-sm"
             />
           </div>
-          <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-6">
+          <div className="bg-red-900/20 border border-red-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-red-400 mb-4 flex items-center gap-2">
               <FaTimes className="inline-flex w-5 h-5 text-red-400" />
               Verbose: Individual Methods

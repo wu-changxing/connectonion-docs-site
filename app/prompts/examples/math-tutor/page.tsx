@@ -100,14 +100,14 @@ ${expectedOutput}
   return (
     <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+      <nav className="flex items-center gap-2 text-sm text-gray-700 mb-8">
+        <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
+        <Link href="/prompts" className="hover:text-gray-900 transition-colors">System Prompts</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts/examples" className="hover:text-white transition-colors">Examples</Link>
+        <Link href="/prompts/examples" className="hover:text-gray-900 transition-colors">Examples</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <span className="text-white">Math Tutor</span>
+        <span className="text-gray-900">Math Tutor</span>
       </nav>
 
       {/* Header */}
@@ -115,7 +115,7 @@ ${expectedOutput}
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">2</span>
+              <span className="text-2xl font-bold text-gray-900">2</span>
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
@@ -125,7 +125,7 @@ ${expectedOutput}
                   Beginner
                 </span>
               </div>
-              <p className="text-xl text-slate-100">
+              <p className="text-xl text-gray-700">
                 Learn structured teaching approaches and educational interaction patterns with this patient math tutor.
               </p>
             </div>
@@ -140,8 +140,8 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-blue-900/20 border border-blue-500/30 rounded-xl">
-        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+      <div className="mb-12 p-6 bg-blue-900/20 border border-blue-200 rounded-xl">
+        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
           <HiOutlineLightBulb className="w-6 h-6 text-blue-400" />
           Key Learning Concepts
         </h2>
@@ -149,22 +149,22 @@ ${expectedOutput}
           <div className="flex items-start gap-3">
             <HiOutlineBookOpen className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Teaching Philosophy</h3>
-              <p className="text-blue-200 text-sm">Core beliefs that shape every interaction and build student confidence</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Teaching Philosophy</h3>
+              <p className="text-blue-800 text-sm">Core beliefs that shape every interaction and build student confidence</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <HiOutlineViewfinderCircle className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Structured Method</h3>
-              <p className="text-blue-200 text-sm">5-step process ensures consistent, effective teaching approach</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Structured Method</h3>
+              <p className="text-blue-800 text-sm">5-step process ensures consistent, effective teaching approach</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Encouraging Language</h3>
-              <p className="text-blue-200 text-sm">Specific phrases and communication patterns that motivate learning</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Encouraging Language</h3>
+              <p className="text-blue-800 text-sm">Specific phrases and communication patterns that motivate learning</p>
             </div>
           </div>
         </div>
@@ -175,10 +175,10 @@ ${expectedOutput}
         <div className="space-y-8">
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">System Prompt</h3>
+              <h3 className="text-xl font-semibold text-gray-900">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -222,10 +222,10 @@ ${expectedOutput}
           {/* Usage Example */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">Usage Example</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -271,12 +271,12 @@ ${expectedOutput}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
               <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-blue-400" />
-              <h3 className="text-xl font-semibold text-white">Expected Output</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
             <div className="p-6">
               <div className="bg-black/50 rounded-lg p-4 font-mono text-sm">
-                <pre className="text-blue-200 whitespace-pre-wrap">
+                <pre className="text-blue-800 whitespace-pre-wrap">
                   {expectedOutput}
                 </pre>
               </div>
@@ -285,26 +285,26 @@ ${expectedOutput}
 
           {/* Analysis */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">What's New Here</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">What's New Here</h3>
             <div className="space-y-4 text-sm">
               <div>
                 <h4 className="font-semibold text-blue-400 mb-2">📚 Educational Framework</h4>
-                <p className="text-slate-100">Moves beyond basic personality to include structured teaching methodology.</p>
+                <p className="text-gray-700">Moves beyond basic personality to include structured teaching methodology.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-blue-400 mb-2">🎯 Step-by-Step Process</h4>
-                <p className="text-slate-100">5-step method provides consistent approach to any learning situation.</p>
+                <p className="text-gray-700">5-step method provides consistent approach to any learning situation.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-blue-400 mb-2">💪 Encouragement Patterns</h4>
-                <p className="text-slate-100">Specific language examples that build confidence and motivation.</p>
+                <p className="text-gray-700">Specific language examples that build confidence and motivation.</p>
               </div>
             </div>
           </div>
 
           {/* Download Options */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Download & Customize</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Download & Customize</h3>
             <div className="space-y-3">
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(promptContent)}`}
@@ -314,7 +314,7 @@ ${expectedOutput}
                 <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File
               </a>
-              <p className="text-xs text-slate-100 text-center">
+              <p className="text-xs text-gray-700 text-center">
                 Perfect for educational applications and tutoring systems
               </p>
             </div>
@@ -325,20 +325,20 @@ ${expectedOutput}
       {/* Navigation */}
       <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Previous in series</p>
+          <p className="text-sm text-gray-700 mb-1">Previous in series</p>
           <Link 
             href="/prompts/examples/friendly-assistant" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+            className="flex items-center gap-2 text-white hover:text-gray-700 transition-colors font-medium"
           >
             <HiOutlineArrowLeft className="w-4 h-4" />
             1. Friendly Assistant
           </Link>
         </div>
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Next in series</p>
+          <p className="text-sm text-gray-700 mb-1">Next in series</p>
           <Link 
             href="/prompts/examples/customer-support" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+            className="flex items-center gap-2 text-white hover:text-gray-700 transition-colors font-medium"
           >
             3. Customer Support
             <HiOutlineArrowRight className="w-4 h-4" />

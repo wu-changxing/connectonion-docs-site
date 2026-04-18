@@ -217,14 +217,14 @@ ${expectedOutput}
   return (
     <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+      <nav className="flex items-center gap-2 text-sm text-gray-700 mb-8">
+        <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
+        <Link href="/prompts" className="hover:text-gray-900 transition-colors">System Prompts</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts/examples" className="hover:text-white transition-colors">Examples</Link>
+        <Link href="/prompts/examples" className="hover:text-gray-900 transition-colors">Examples</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <span className="text-white">Business Strategist</span>
+        <span className="text-gray-900">Business Strategist</span>
       </nav>
 
       {/* Header */}
@@ -232,7 +232,7 @@ ${expectedOutput}
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-16 h-16 bg-pink-600 rounded-xl flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">8</span>
+              <span className="text-2xl font-bold text-gray-900">8</span>
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
@@ -242,7 +242,7 @@ ${expectedOutput}
                   Expert
                 </span>
               </div>
-              <p className="text-xl text-slate-100">
+              <p className="text-xl text-gray-700">
                 Master strategic thinking frameworks with comprehensive market analysis and executive decision-making.
               </p>
             </div>
@@ -257,8 +257,8 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-pink-900/20 border border-pink-500/30 rounded-xl">
-        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+      <div className="mb-12 p-6 bg-pink-900/20 border border-pink-200 rounded-xl">
+        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
           <HiOutlineLightBulb className="w-6 h-6 text-pink-400" />
           Key Learning Concepts
         </h2>
@@ -266,22 +266,22 @@ ${expectedOutput}
           <div className="flex items-start gap-3">
             <HiOutlineViewfinderCircle className="w-5 h-5 text-pink-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Strategic Framework</h3>
-              <p className="text-pink-200 text-sm">3-pillar analysis framework for comprehensive strategic evaluation</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Strategic Framework</h3>
+              <p className="text-pink-800 text-sm">3-pillar analysis framework for comprehensive strategic evaluation</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <HiOutlineChartBar className="w-5 h-5 text-pink-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Decision Matrix</h3>
-              <p className="text-pink-200 text-sm">Weighted criteria system for objective strategy comparison</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Decision Matrix</h3>
+              <p className="text-pink-800 text-sm">Weighted criteria system for objective strategy comparison</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-pink-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Executive Communication</h3>
-              <p className="text-pink-200 text-sm">Structure optimized for C-level strategic decision making</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Executive Communication</h3>
+              <p className="text-pink-800 text-sm">Structure optimized for C-level strategic decision making</p>
             </div>
           </div>
         </div>
@@ -292,10 +292,10 @@ ${expectedOutput}
         <div className="space-y-8">
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">System Prompt</h3>
+              <h3 className="text-xl font-semibold text-gray-900">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -339,10 +339,10 @@ ${expectedOutput}
           {/* Usage Example */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">Usage Example</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -388,12 +388,12 @@ ${expectedOutput}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
               <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-pink-400" />
-              <h3 className="text-xl font-semibold text-white">Expected Output</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
             <div className="p-6">
               <div className="bg-black/50 rounded-lg p-4 font-mono text-sm ">
-                <pre className="text-pink-200 whitespace-pre-wrap">
+                <pre className="text-pink-800 whitespace-pre-wrap">
                   {expectedOutput}
                 </pre>
               </div>
@@ -402,26 +402,26 @@ ${expectedOutput}
 
           {/* Analysis */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">Strategic Leadership Techniques</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Strategic Leadership Techniques</h3>
             <div className="space-y-4 text-sm">
               <div>
                 <h4 className="font-semibold text-pink-400 mb-2">📊 Data-Driven Decisions</h4>
-                <p className="text-slate-100">Quantitative analysis with market sizing and financial projections for credible recommendations.</p>
+                <p className="text-gray-700">Quantitative analysis with market sizing and financial projections for credible recommendations.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-pink-400 mb-2">⚖️ Comparative Analysis</h4>
-                <p className="text-slate-100">Side-by-side strategy evaluation with weighted scoring for objective decision-making.</p>
+                <p className="text-gray-700">Side-by-side strategy evaluation with weighted scoring for objective decision-making.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-pink-400 mb-2">🛡️ Risk Management</h4>
-                <p className="text-slate-100">Proactive identification of risks with specific mitigation strategies and contingency plans.</p>
+                <p className="text-gray-700">Proactive identification of risks with specific mitigation strategies and contingency plans.</p>
               </div>
             </div>
           </div>
 
           {/* Download Options */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Download & Customize</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Download & Customize</h3>
             <div className="space-y-3">
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(promptContent)}`}
@@ -431,7 +431,7 @@ ${expectedOutput}
                 <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File
               </a>
-              <p className="text-xs text-slate-100 text-center">
+              <p className="text-xs text-gray-700 text-center">
                 Perfect for strategic planning and business analysis applications
               </p>
             </div>
@@ -442,20 +442,20 @@ ${expectedOutput}
       {/* Navigation */}
       <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Previous in series</p>
+          <p className="text-sm text-gray-700 mb-1">Previous in series</p>
           <Link 
             href="/prompts/examples/security-analyst" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+            className="flex items-center gap-2 text-white hover:text-gray-700 transition-colors font-medium"
           >
             <HiOutlineArrowLeft className="w-4 h-4" />
             7. Security Analyst
           </Link>
         </div>
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Complete!</p>
+          <p className="text-sm text-gray-700 mb-1">Complete!</p>
           <Link 
             href="/prompts/examples" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+            className="flex items-center gap-2 text-white hover:text-gray-700 transition-colors font-medium"
           >
             View All Examples
             <HiOutlineArrowRight className="w-4 h-4" />

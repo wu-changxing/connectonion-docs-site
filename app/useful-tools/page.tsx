@@ -121,7 +121,7 @@ export default function UsefulToolsPage() {
         />
 
         {/* Quick Usage */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/20">
+        <div className="mb-12 p-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-200">
           <h2 className="heading-2 flex items-center gap-2">
             <HiOutlineCodeBracket className="w-5 h-5 text-purple-400" />
             Quick Usage
@@ -150,8 +150,8 @@ agent.input("Search my emails for invoices from last week")`}
                   <category.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white">{category.title}</h3>
-                  <p className="text-sm text-slate-100">{category.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-900">{category.title}</h3>
+                  <p className="text-sm text-gray-700">{category.description}</p>
                 </div>
               </div>
 
@@ -160,12 +160,12 @@ agent.input("Search my emails for invoices from last week")`}
                   <Link
                     key={tool.name}
                     href={tool.href}
-                    className={`group block p-4 rounded-lg bg-gray-800/50 hover:bg-gray-800 hover:border-purple-400/30 border border-transparent transition-all min-h-[48px] ${
+                    className={`group block p-4 rounded-lg bg-gray-100 hover:bg-gray-800 hover:border-purple-400/30 border border-transparent transition-all min-h-[48px] ${
                       tool.status === 'coming-soon' ? 'opacity-60 pointer-events-none' : ''
                     }`}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="font-semibold text-white group-hover:text-purple-300 transition-colors">
+                      <h3 className="font-semibold text-gray-900 group-hover:text-purple-300 transition-colors">
                         {tool.name}
                       </h3>
                       {tool.status === 'coming-soon' ? (
@@ -173,10 +173,10 @@ agent.input("Search my emails for invoices from last week")`}
                           Coming Soon
                         </span>
                       ) : (
-                        <HiOutlineArrowRight className="w-4 h-4 text-slate-100 group-hover:text-white transition-colors" />
+                        <HiOutlineArrowRight className="w-4 h-4 text-gray-700 group-hover:text-gray-900 transition-colors" />
                       )}
                     </div>
-                    <p className="text-sm text-slate-100">{tool.description}</p>
+                    <p className="text-sm text-gray-700">{tool.description}</p>
                   </Link>
                 ))}
               </div>
@@ -187,7 +187,7 @@ agent.input("Search my emails for invoices from last week")`}
         {/* Customizing Built-in Tools */}
         <div className="mb-12 p-6 bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg border border-green-500/20">
           <h2 className="heading-2">Customizing Built-in Tools</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Need to modify a built-in tool? Copy it to your project:
           </p>
           <CodeWithResult
@@ -201,7 +201,7 @@ co copy shell memory gmail`}
 ✓ Copied: ./tools/gmail.py`}
             language="bash"
           />
-          <p className="text-slate-100 mt-4 mb-4">
+          <p className="text-gray-700 mt-4 mb-4">
             Then import from your local copy and customize:
           </p>
           <CodeWithResult
@@ -213,7 +213,7 @@ from tools.shell import Shell  # Customize freely!`}
             result=""
             language="python"
           />
-          <p className="text-sm text-slate-100 mt-4">
+          <p className="text-sm text-gray-700 mt-4">
             See <Link href="/cli" className="text-purple-400 hover:text-purple-300">co copy</Link> for full details.
           </p>
         </div>
@@ -221,7 +221,7 @@ from tools.shell import Shell  # Customize freely!`}
         {/* Building Custom Tools */}
         <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-500/20">
           <h2 className="heading-2">Building Custom Tools</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Any Python function can be a tool. Just pass it to the Agent:
           </p>
           <CodeWithResult
@@ -233,7 +233,7 @@ agent = Agent("assistant", tools=[my_custom_tool])`}
             result=""
             language="python"
           />
-          <p className="text-sm text-slate-100 mt-4">
+          <p className="text-sm text-gray-700 mt-4">
             Learn more in the <Link href="/tools" className="text-purple-400 hover:text-purple-300">Tools documentation</Link>.
           </p>
         </div>

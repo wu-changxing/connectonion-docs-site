@@ -43,7 +43,7 @@ prompt = cmd.prompt
 commands = SlashCommand.list_all()`}
             language="python"
           />
-          <p className="text-slate-100 mt-4 text-sm">
+          <p className="text-gray-700 mt-4 text-sm">
             Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy slash_command</code></Link> to get an editable copy.
           </p>
         </section>
@@ -51,7 +51,7 @@ commands = SlashCommand.list_all()`}
         {/* Command File Format */}
         <section className="mb-12">
           <h2 className="heading-2">Command File Format</h2>
-          <p className="text-slate-100 mb-4">Create <code className="bg-slate-800 px-2 py-1 rounded text-pink-300">.co/commands/today.md</code>:</p>
+          <p className="text-gray-700 mb-4">Create <code className="bg-slate-800 px-2 py-1 rounded text-pink-300">.co/commands/today.md</code>:</p>
           <CodeWithResult
             code={`---
 name: today
@@ -85,17 +85,17 @@ Focus on:
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-pink-300">name</td>
                   <td className="px-4 py-3 text-green-400">Yes</td>
-                  <td className="px-4 py-3 text-slate-100">Command name</td>
+                  <td className="px-4 py-3 text-gray-700">Command name</td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-pink-300">description</td>
                   <td className="px-4 py-3 text-green-400">Yes</td>
-                  <td className="px-4 py-3 text-slate-100">Short description</td>
+                  <td className="px-4 py-3 text-gray-700">Short description</td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-pink-300">tools</td>
                   <td className="px-4 py-3 text-slate-400">No</td>
-                  <td className="px-4 py-3 text-slate-100">Allowed tools (all if omitted)</td>
+                  <td className="px-4 py-3 text-gray-700">Allowed tools (all if omitted)</td>
                 </tr>
               </tbody>
             </table>
@@ -105,7 +105,7 @@ Focus on:
         {/* Tool Filtering */}
         <section className="mb-12">
           <h2 className="heading-2">Tool Filtering</h2>
-          <p className="text-slate-100 mb-4">Limit which tools the command can use:</p>
+          <p className="text-gray-700 mb-4">Limit which tools the command can use:</p>
           <CodeWithResult
             code={`tools:
   - Gmail.search_emails    # Specific method
@@ -118,8 +118,8 @@ Focus on:
         {/* Locations */}
         <section className="mb-12">
           <h2 className="heading-2">Locations</h2>
-          <p className="text-slate-100 mb-4">Commands are loaded from:</p>
-          <ol className="list-decimal list-inside space-y-2 text-slate-100">
+          <p className="text-gray-700 mb-4">Commands are loaded from:</p>
+          <ol className="list-decimal list-inside space-y-2 text-gray-700">
             <li><code className="bg-slate-800 px-2 py-1 rounded text-pink-300">.co/commands/*.md</code> (user commands - priority)</li>
             <li><code className="bg-slate-800 px-2 py-1 rounded text-pink-300">commands/*.md</code> (built-in commands)</li>
           </ol>

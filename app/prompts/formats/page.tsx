@@ -28,14 +28,14 @@ agent = Agent("bot", system_prompt="prompts/assistant")          # No extension`
       {/* Header */}
       <header className="mb-12">
         <h1 className="heading-1 mb-4">Prompt File Formats</h1>
-        <p className="text-xl text-slate-100">
+        <p className="text-xl text-gray-700">
           Use any text file format. ConnectOnion just reads the content.
         </p>
       </header>
 
       {/* Key Point */}
       <section className="mb-12">
-        <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
+        <div className="bg-blue-900/20 border border-blue-200 rounded-xl p-6">
           <p className="text-lg text-blue-100">
             <strong className="text-blue-300">Key Point:</strong> ConnectOnion doesn't parse formats - it just reads text and passes it to the LLM. Use whatever format your team prefers.
           </p>
@@ -46,10 +46,10 @@ agent = Agent("bot", system_prompt="prompts/assistant")          # No extension`
       <section className="mb-12">
         <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
           <div className="flex items-center justify-between bg-gray-800 border-b border-gray-700 px-4 py-3">
-            <span className="text-sm text-slate-100 font-mono">Supported Formats</span>
+            <span className="text-sm text-gray-700 font-mono">Supported Formats</span>
             <button
               onClick={() => copyToClipboard(codeExample, 'code')}
-              className="p-2 rounded-lg text-slate-100 hover:text-white hover:bg-gray-700 transition-colors"
+              className="p-2 rounded-lg text-gray-700 hover:text-white hover:bg-gray-700 transition-colors"
             >
               {copiedId === 'code' ? (
                 <HiOutlineCheck className="w-4 h-4 text-green-400" />
@@ -79,8 +79,8 @@ agent = Agent("bot", system_prompt="prompts/assistant")          # No extension`
 
       {/* Benefits */}
       <section>
-        <h2 className="text-xl font-semibold text-white mb-4">Why This Matters</h2>
-        <ul className="space-y-3 text-slate-100">
+        <h2 className="text-xl font-semibold text-gray-900 mb-4">Why This Matters</h2>
+        <ul className="space-y-3 text-gray-700">
           <li className="flex items-start gap-3">
             <span className="text-green-400">&#10003;</span>
             <span><strong>No lock-in</strong> - Use any format your team prefers</span>

@@ -34,7 +34,7 @@ export default function CliAiPage() {
           />
 
           <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-            <p className="text-lg font-semibold text-purple-100">
+            <p className="text-lg font-semibold text-purple-900">
               <strong>Quick Start:</strong> Run <code className="bg-gray-800 px-2 py-1 rounded">co ai</code> in your project — it opens a web chat connected to a coding agent that can read and edit your files.
             </p>
           </div>
@@ -48,7 +48,7 @@ export default function CliAiPage() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-4 mb-8">
-            <div className="bg-gray-900 border border-purple-500/30 rounded-lg p-5">
+            <div className="bg-gray-900 border border-purple-200 rounded-lg p-5">
               <h3 className="font-semibold text-purple-300 mb-2">Web Chat (default)</h3>
               <code className="text-sm text-slate-300">co ai</code>
               <p className="text-slate-400 text-sm mt-2">Starts a local agent server, opens <code className="text-purple-300">chat.openonion.ai</code> in your browser. Chat conversationally — best for extended sessions.</p>
@@ -68,7 +68,7 @@ export default function CliAiPage() {
             Web Chat Mode
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Run <code className="bg-gray-800 px-2 py-1 rounded">co ai</code> in your project directory:
           </p>
 
@@ -82,7 +82,7 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
 
           <div className="mt-6 bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-emerald-100 mb-3">What happens</h3>
-            <div className="space-y-2 text-slate-100">
+            <div className="space-y-2 text-gray-700">
               <div className="flex items-start gap-2">
                 <span className="text-emerald-300">1.</span>
                 <span>Agent server starts on <code className="bg-gray-800 px-1 rounded">localhost:8000</code></span>
@@ -110,7 +110,7 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
             One-Shot Mode
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Pass a prompt directly — the agent runs, prints the result, and exits:
           </p>
 
@@ -156,7 +156,7 @@ co ai "write pytest tests for models/user.py"`}
             Project Context
           </h2>
 
-          <p className="text-slate-100 mb-6 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             When started, the agent automatically loads context from your project — no setup required:
           </p>
 
@@ -164,30 +164,30 @@ co ai "write pytest tests for models/user.py"`}
             <table className="w-full text-sm">
               <thead className="bg-gray-800">
                 <tr>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Source</th>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Purpose</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Source</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Purpose</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-amber-300">.co/OO.md</td>
-                  <td className="px-4 py-3 text-slate-100">Project instructions (primary)</td>
+                  <td className="px-4 py-3 text-gray-700">Project instructions (primary)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-amber-300">CLAUDE.md</td>
-                  <td className="px-4 py-3 text-slate-100">Claude Code compatibility</td>
+                  <td className="px-4 py-3 text-gray-700">Claude Code compatibility</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-amber-300">README.md</td>
-                  <td className="px-4 py-3 text-slate-100">Project overview</td>
+                  <td className="px-4 py-3 text-gray-700">Project overview</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-amber-300">~/.claude/skills/</td>
-                  <td className="px-4 py-3 text-slate-100">User-defined skills</td>
+                  <td className="px-4 py-3 text-gray-700">User-defined skills</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-amber-300">git status</td>
-                  <td className="px-4 py-3 text-slate-100">Current branch, changes, recent commits</td>
+                  <td className="px-4 py-3 text-gray-700">Current branch, changes, recent commits</td>
                 </tr>
               </tbody>
             </table>
@@ -264,10 +264,10 @@ EOF`}
             <table className="w-full text-sm">
               <thead className="bg-gray-800">
                 <tr>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Option</th>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Short</th>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Default</th>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Description</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Option</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Short</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Default</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Description</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
@@ -275,19 +275,19 @@ EOF`}
                   <td className="px-4 py-3 font-mono text-purple-300">--port</td>
                   <td className="px-4 py-3 font-mono text-slate-400">-p</td>
                   <td className="px-4 py-3 text-slate-300">8000</td>
-                  <td className="px-4 py-3 text-slate-100">Web server port</td>
+                  <td className="px-4 py-3 text-gray-700">Web server port</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-purple-300">--model</td>
                   <td className="px-4 py-3 font-mono text-slate-400">-m</td>
                   <td className="px-4 py-3 text-slate-300">co/claude-opus-4-5</td>
-                  <td className="px-4 py-3 text-slate-100">LLM model to use</td>
+                  <td className="px-4 py-3 text-gray-700">LLM model to use</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-purple-300">--max-iterations</td>
                   <td className="px-4 py-3 font-mono text-slate-400">-i</td>
                   <td className="px-4 py-3 text-slate-300">100</td>
-                  <td className="px-4 py-3 text-slate-100">Max tool iterations per turn</td>
+                  <td className="px-4 py-3 text-gray-700">Max tool iterations per turn</td>
                 </tr>
               </tbody>
             </table>

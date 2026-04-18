@@ -9,6 +9,7 @@
 import { DocsSidebar } from './DocsSidebar'
 import { MobileDocsNav } from './MobileDocsNav'
 import Footer from './Footer'
+import { OnThisPage } from './OnThisPage'
 
 export default function ClientLayout({
   children,
@@ -26,10 +27,15 @@ export default function ClientLayout({
           <DocsSidebar />
         </div>
 
-        {/* Main Content */}
+        {/* Main Content + On This Page */}
         <main className="flex-1 min-w-0 flex flex-col">
-          <div className="flex-1">
-            {children}
+          <div className="flex-1 flex">
+            <div className="flex-1 min-w-0">
+              {children}
+            </div>
+            <div className="px-6 py-24">
+              <OnThisPage />
+            </div>
           </div>
           <Footer />
         </main>

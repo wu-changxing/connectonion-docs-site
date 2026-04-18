@@ -45,7 +45,7 @@ matched, score, positions = fuzzy_match("gp", "gpt-4")
         {/* fuzzy_match */}
         <section className="mb-12">
           <h2 className="heading-2">fuzzy_match</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Match query against text with scoring:
           </p>
           <CodeWithResult
@@ -56,26 +56,26 @@ matched, score, positions = fuzzy_match(query, text)`}
           />
 
           <h3 className="heading-3 mt-8">Scoring</h3>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-slate-100">Bonus</th>
-                  <th className="text-left py-2 text-slate-100">Description</th>
+                  <th className="text-left py-2 text-gray-700">Bonus</th>
+                  <th className="text-left py-2 text-gray-700">Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2 text-yellow-400">+1</td>
-                  <td className="py-2 text-slate-100">Per matched character</td>
+                  <td className="py-2 text-gray-700">Per matched character</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2 text-yellow-400">+10</td>
-                  <td className="py-2 text-slate-100">Consecutive character bonus</td>
+                  <td className="py-2 text-gray-700">Consecutive character bonus</td>
                 </tr>
                 <tr>
                   <td className="py-2 text-yellow-400">+5</td>
-                  <td className="py-2 text-slate-100">Word boundary bonus (after <code>/_-. </code>)</td>
+                  <td className="py-2 text-gray-700">Word boundary bonus (after <code>/_-. </code>)</td>
                 </tr>
               </tbody>
             </table>
@@ -94,7 +94,7 @@ fuzzy_match("", "anything")    # (True, 0, [])`}
         {/* highlight_match */}
         <section className="mb-12">
           <h2 className="heading-2">highlight_match</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Highlight matched characters in Rich Text:
           </p>
           <CodeWithResult

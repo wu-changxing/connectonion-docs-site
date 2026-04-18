@@ -36,7 +36,7 @@ export default function DiffWriterPage() {
 writer = DiffWriter()`}
             language="python"
           />
-          <p className="text-slate-100 mt-4 text-sm">
+          <p className="text-gray-700 mt-4 text-sm">
             Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy diff_writer</code></Link> to get an editable copy.
           </p>
         </section>
@@ -45,8 +45,8 @@ writer = DiffWriter()`}
         <section className="mb-12">
           <h2 className="heading-2">API</h2>
 
-          <h3 className="text-lg font-semibold text-white mb-3">write(path, content)</h3>
-          <p className="text-slate-100 mb-4">Write content to a file with diff display and user approval.</p>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">write(path, content)</h3>
+          <p className="text-gray-700 mb-4">Write content to a file with diff display and user approval.</p>
           <CodeWithResult
             code={`result = writer.write("hello.py", "print('hello')")
 # Shows colorized diff
@@ -55,16 +55,16 @@ writer = DiffWriter()`}
             language="python"
           />
 
-          <h3 className="text-lg font-semibold text-white mb-3 mt-8">diff(path, content)</h3>
-          <p className="text-slate-100 mb-4">Show diff without writing (preview mode).</p>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-8">diff(path, content)</h3>
+          <p className="text-gray-700 mb-4">Show diff without writing (preview mode).</p>
           <CodeWithResult
             code={`diff_text = writer.diff("hello.py", "print('hello')")
 # Returns the diff string without writing`}
             language="python"
           />
 
-          <h3 className="text-lg font-semibold text-white mb-3 mt-8">read(path)</h3>
-          <p className="text-slate-100 mb-4">Read file contents.</p>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-8">read(path)</h3>
+          <p className="text-gray-700 mb-4">Read file contents.</p>
           <CodeWithResult
             code={`content = writer.read("hello.py")
 # Returns: "print('hello')"`}
@@ -75,17 +75,17 @@ writer = DiffWriter()`}
         {/* Approval Options */}
         <section className="mb-12">
           <h2 className="heading-2">Approval Options</h2>
-          <p className="text-slate-100 mb-4">When a file change is proposed, user sees:</p>
+          <p className="text-gray-700 mb-4">When a file change is proposed, user sees:</p>
           <div className="bg-slate-900 border border-slate-700 rounded-lg p-4 font-mono text-sm mb-4">
             <div className="text-slate-400">╭─── Changes to hello.py ────────────────────────╮</div>
-            <div className="text-slate-100">│ --- a/hello.py                                 │</div>
-            <div className="text-slate-100">│ +++ b/hello.py                                 │</div>
-            <div className="text-slate-100">│ @@ -1,2 +1,3 @@                                │</div>
-            <div className="text-slate-100">│  def hello():                                  │</div>
+            <div className="text-gray-700">│ --- a/hello.py                                 │</div>
+            <div className="text-gray-700">│ +++ b/hello.py                                 │</div>
+            <div className="text-gray-700">│ @@ -1,2 +1,3 @@                                │</div>
+            <div className="text-gray-700">│  def hello():                                  │</div>
             <div className="text-red-400">│ -    pass                                      │</div>
             <div className="text-green-400">│ +    print("Hello!")                           │</div>
             <div className="text-slate-400">╰────────────────────────────────────────────────╯</div>
-            <div className="mt-4 text-slate-100">
+            <div className="mt-4 text-gray-700">
               Choose an option:<br/>
               &nbsp;&nbsp;1 - Yes, apply this change<br/>
               &nbsp;&nbsp;2 - Yes to all (auto-approve for this session)<br/>
@@ -106,15 +106,15 @@ writer = DiffWriter()`}
               <tbody className="divide-y divide-slate-700">
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-pink-300">1</td>
-                  <td className="px-4 py-3 text-slate-100">Apply this change, ask again for next change</td>
+                  <td className="px-4 py-3 text-gray-700">Apply this change, ask again for next change</td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-pink-300">2</td>
-                  <td className="px-4 py-3 text-slate-100">Apply this and all future changes (session-wide)</td>
+                  <td className="px-4 py-3 text-gray-700">Apply this and all future changes (session-wide)</td>
                 </tr>
                 <tr className="bg-slate-900/30">
                   <td className="px-4 py-3 font-mono text-pink-300">3</td>
-                  <td className="px-4 py-3 text-slate-100">Reject + provide feedback for agent to try again</td>
+                  <td className="px-4 py-3 text-gray-700">Reject + provide feedback for agent to try again</td>
                 </tr>
               </tbody>
             </table>
@@ -125,8 +125,8 @@ writer = DiffWriter()`}
         <section className="mb-12">
           <h2 className="heading-2">Options</h2>
 
-          <h3 className="text-lg font-semibold text-white mb-3">auto_approve</h3>
-          <p className="text-slate-100 mb-4">Skip approval prompts (for automation).</p>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">auto_approve</h3>
+          <p className="text-gray-700 mb-4">Skip approval prompts (for automation).</p>
           <CodeWithResult
             code={`# Ask for approval (default)
 writer = DiffWriter(auto_approve=False)
@@ -157,8 +157,8 @@ agent.input("create a hello.py file with a hello world function")
         {/* Feedback Flow */}
         <section className="mb-12">
           <h2 className="heading-2">Feedback Flow</h2>
-          <p className="text-slate-100 mb-4">When user chooses option 3 (reject):</p>
-          <ol className="list-decimal list-inside space-y-2 text-slate-100">
+          <p className="text-gray-700 mb-4">When user chooses option 3 (reject):</p>
+          <ol className="list-decimal list-inside space-y-2 text-gray-700">
             <li>User is prompted: "What should the agent do instead?"</li>
             <li>User types feedback, e.g., "use snake_case for function names"</li>
             <li>Agent receives: <code className="bg-slate-800 px-2 py-1 rounded text-pink-300">"User rejected changes to hello.py. Feedback: use snake_case for function names"</code></li>

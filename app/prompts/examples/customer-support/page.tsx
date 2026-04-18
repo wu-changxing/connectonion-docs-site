@@ -102,14 +102,14 @@ ${expectedOutput}
   return (
     <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+      <nav className="flex items-center gap-2 text-sm text-gray-700 mb-8">
+        <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
+        <Link href="/prompts" className="hover:text-gray-900 transition-colors">System Prompts</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts/examples" className="hover:text-white transition-colors">Examples</Link>
+        <Link href="/prompts/examples" className="hover:text-gray-900 transition-colors">Examples</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <span className="text-white">Customer Support</span>
+        <span className="text-gray-900">Customer Support</span>
       </nav>
 
       {/* Header */}
@@ -117,7 +117,7 @@ ${expectedOutput}
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">3</span>
+              <span className="text-2xl font-bold text-gray-900">3</span>
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
@@ -127,7 +127,7 @@ ${expectedOutput}
                   Intermediate
                 </span>
               </div>
-              <p className="text-xl text-slate-100">
+              <p className="text-xl text-gray-700">
                 Learn professional frameworks and structured problem-solving with this empathetic support specialist.
               </p>
             </div>
@@ -142,8 +142,8 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-orange-900/20 border border-orange-500/30 rounded-xl">
-        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+      <div className="mb-12 p-6 bg-orange-900/20 border border-orange-200 rounded-xl">
+        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
           <HiOutlineLightBulb className="w-6 h-6 text-orange-400" />
           Key Learning Concepts
         </h2>
@@ -151,22 +151,22 @@ ${expectedOutput}
           <div className="flex items-start gap-3">
             <HiOutlineShieldCheck className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Professional Framework</h3>
-              <p className="text-orange-200 text-sm">Core principles that guide every customer interaction professionally</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Professional Framework</h3>
+              <p className="text-orange-800 text-sm">Core principles that guide every customer interaction professionally</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <HiOutlineCog6Tooth className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Response Structure</h3>
-              <p className="text-orange-200 text-sm">5-step framework ensures consistent, effective problem resolution</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Response Structure</h3>
+              <p className="text-orange-800 text-sm">5-step framework ensures consistent, effective problem resolution</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Escalation Rules</h3>
-              <p className="text-orange-200 text-sm">Clear triggers for when to escalate issues to higher levels</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Escalation Rules</h3>
+              <p className="text-orange-800 text-sm">Clear triggers for when to escalate issues to higher levels</p>
             </div>
           </div>
         </div>
@@ -177,10 +177,10 @@ ${expectedOutput}
         <div className="space-y-8">
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">System Prompt</h3>
+              <h3 className="text-xl font-semibold text-gray-900">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -224,10 +224,10 @@ ${expectedOutput}
           {/* Usage Example */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">Usage Example</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -273,12 +273,12 @@ ${expectedOutput}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
               <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-orange-400" />
-              <h3 className="text-xl font-semibold text-white">Expected Output</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
             <div className="p-6">
               <div className="bg-black/50 rounded-lg p-4 font-mono text-sm">
-                <pre className="text-orange-200 whitespace-pre-wrap">
+                <pre className="text-orange-800 whitespace-pre-wrap">
                   {expectedOutput}
                 </pre>
               </div>
@@ -287,26 +287,26 @@ ${expectedOutput}
 
           {/* Analysis */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">Advanced Techniques</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Advanced Techniques</h3>
             <div className="space-y-4 text-sm">
               <div>
                 <h4 className="font-semibold text-orange-400 mb-2">🏗️ Structured Framework</h4>
-                <p className="text-slate-100">5-step response process ensures consistent, professional service quality.</p>
+                <p className="text-gray-700">5-step response process ensures consistent, professional service quality.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-orange-400 mb-2">⚡ Escalation Triggers</h4>
-                <p className="text-slate-100">Clear rules prevent issues from escalating unnecessarily while catching serious problems.</p>
+                <p className="text-gray-700">Clear rules prevent issues from escalating unnecessarily while catching serious problems.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-orange-400 mb-2">📝 Good vs Bad Examples</h4>
-                <p className="text-slate-100">Shows contrasting approaches to demonstrate effective communication patterns.</p>
+                <p className="text-gray-700">Shows contrasting approaches to demonstrate effective communication patterns.</p>
               </div>
             </div>
           </div>
 
           {/* Download Options */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Download & Customize</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Download & Customize</h3>
             <div className="space-y-3">
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(promptContent)}`}
@@ -316,7 +316,7 @@ ${expectedOutput}
                 <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File
               </a>
-              <p className="text-xs text-slate-100 text-center">
+              <p className="text-xs text-gray-700 text-center">
                 Ideal for customer service and support applications
               </p>
             </div>
@@ -327,20 +327,20 @@ ${expectedOutput}
       {/* Navigation */}
       <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Previous in series</p>
+          <p className="text-sm text-gray-700 mb-1">Previous in series</p>
           <Link 
             href="/prompts/examples/math-tutor" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+            className="flex items-center gap-2 text-white hover:text-gray-700 transition-colors font-medium"
           >
             <HiOutlineArrowLeft className="w-4 h-4" />
             2. Math Tutor
           </Link>
         </div>
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Next in series</p>
+          <p className="text-sm text-gray-700 mb-1">Next in series</p>
           <Link 
             href="/prompts/examples/code-reviewer" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+            className="flex items-center gap-2 text-white hover:text-gray-700 transition-colors font-medium"
           >
             4. Code Reviewer
             <HiOutlineArrowRight className="w-4 h-4" />

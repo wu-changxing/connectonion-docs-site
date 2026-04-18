@@ -84,21 +84,21 @@ export default function CLIPage() {
         />
       
       {/* Quick Command Cheat Sheet */}
-      <div className="mb-12 p-4 bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/30 rounded-lg">
-        <h2 className="text-base font-semibold text-white mb-4 flex items-center gap-2">
+      <div className="mb-12 p-4 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg">
+        <h2 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
           <HiOutlineBookOpen className="w-4 h-4 text-blue-400" />
           Quick Reference
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-          <div className="font-mono text-blue-300">co create <span className="text-slate-100">→ New project</span></div>
-          <div className="font-mono text-blue-300">co init <span className="text-slate-100">→ Current directory</span></div>
-          <div className="font-mono text-blue-300">co ai <span className="text-slate-100">→ AI coding agent</span></div>
-          <div className="font-mono text-blue-300">co browser <span className="text-slate-100">→ Screenshots & automation</span></div>
-          <div className="font-mono text-blue-300">co auth <span className="text-slate-100">→ Managed keys (free credits)</span></div>
-          <div className="font-mono text-blue-300">co deploy <span className="text-slate-100">→ Deploy to cloud</span></div>
-          <div className="font-mono text-blue-300">co status <span className="text-slate-100">→ Check balance</span></div>
-          <div className="font-mono text-blue-300">co reset <span className="text-slate-100">→ Reset account</span></div>
-          <div className="font-mono text-blue-300">co doctor <span className="text-slate-100">→ Diagnose issues</span></div>
+          <div className="font-mono text-blue-300">co create <span className="text-gray-700">→ New project</span></div>
+          <div className="font-mono text-blue-300">co init <span className="text-gray-700">→ Current directory</span></div>
+          <div className="font-mono text-blue-300">co ai <span className="text-gray-700">→ AI coding agent</span></div>
+          <div className="font-mono text-blue-300">co browser <span className="text-gray-700">→ Screenshots & automation</span></div>
+          <div className="font-mono text-blue-300">co auth <span className="text-gray-700">→ Managed keys (free credits)</span></div>
+          <div className="font-mono text-blue-300">co deploy <span className="text-gray-700">→ Deploy to cloud</span></div>
+          <div className="font-mono text-blue-300">co status <span className="text-gray-700">→ Check balance</span></div>
+          <div className="font-mono text-blue-300">co reset <span className="text-gray-700">→ Reset account</span></div>
+          <div className="font-mono text-blue-300">co doctor <span className="text-gray-700">→ Diagnose issues</span></div>
         </div>
       </div>
 
@@ -109,7 +109,7 @@ export default function CLIPage() {
           Installation
         </h2>
         
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           The CLI is automatically installed when you install ConnectOnion:
         </p>
 
@@ -117,8 +117,8 @@ export default function CLIPage() {
           commands={['pip install connectonion']}
         />
 
-        <div className="bg-gradient-to-b from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-lg p-4 mt-6">
-          <p className="text-blue-200">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
+          <p className="text-blue-800">
             This provides two equivalent commands: <code className="bg-black/30 px-2 py-1 rounded">co</code> (short form) 
             and <code className="bg-black/30 px-2 py-1 rounded">connectonion</code> (full form)
           </p>
@@ -132,35 +132,35 @@ export default function CLIPage() {
           Commands Overview
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           ConnectOnion provides two main commands for project creation:
         </p>
 
         <div className="grid md:grid-cols-2 gap-4 mb-8">
-          <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
+          <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-200 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
               <HiOutlineSparkles className="w-5 h-5 text-green-400" />
-              <h3 className="text-lg font-semibold text-white">co create [name]</h3>
+              <h3 className="text-lg font-semibold text-gray-900">co create [name]</h3>
             </div>
-            <p className="text-slate-100 text-sm">
+            <p className="text-gray-700 text-sm">
               Creates a new project directory with all necessary files
             </p>
           </div>
 
-          <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
+          <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
               <HiOutlineFolderOpen className="w-5 h-5 text-purple-400" />
-              <h3 className="text-lg font-semibold text-white">co init</h3>
+              <h3 className="text-lg font-semibold text-gray-900">co init</h3>
             </div>
-            <p className="text-slate-100 text-sm">
+            <p className="text-gray-700 text-sm">
               Initializes the current directory as a ConnectOnion project
             </p>
           </div>
         </div>
 
         <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-          <p className="text-slate-100 mb-4">Both commands share the same interactive flow:</p>
-          <ol className="space-y-2 text-slate-100">
+          <p className="text-gray-700 mb-4">Both commands share the same interactive flow:</p>
+          <ol className="space-y-2 text-gray-700">
             <li className="flex items-center gap-3">
               <span className="flex-shrink-0 w-6 h-6 bg-blue-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-300">1</span>
               <span>AI feature toggle (Yes/No)</span>
@@ -184,13 +184,13 @@ export default function CLIPage() {
           co create [name]
         </h2>
         
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           Create a new ConnectOnion project in a new directory.
         </p>
 
         {/* Basic Usage */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4">Basic Usage</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Basic Usage</h3>
           
           <div className="space-y-4">
             <CommandBlock 
@@ -212,32 +212,32 @@ export default function CLIPage() {
 
         {/* Options Table */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4">Options</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Options</h3>
           
           <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-800 border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-100 font-medium">Option</th>
-                  <th className="text-left px-4 py-3 text-slate-100 font-medium">Description</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-medium">Option</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-medium">Description</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">[name]</td>
-                  <td className="px-4 py-3 text-slate-100">Optional project name (creates directory)</td>
+                  <td className="px-4 py-3 text-gray-700">Optional project name (creates directory)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">--ai/--no-ai</td>
-                  <td className="px-4 py-3 text-slate-100">Enable or disable AI features</td>
+                  <td className="px-4 py-3 text-gray-700">Enable or disable AI features</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">--key</td>
-                  <td className="px-4 py-3 text-slate-100">API key for AI provider (auto-detects provider)</td>
+                  <td className="px-4 py-3 text-gray-700">API key for AI provider (auto-detects provider)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">--template</td>
-                  <td className="px-4 py-3 text-slate-100">
+                  <td className="px-4 py-3 text-gray-700">
                     Choose template: <code className="bg-gray-800 px-2 py-1 rounded text-xs">minimal</code>,
                     <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">playwright</code>,
                     <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">email-agent</code>,
@@ -248,11 +248,11 @@ export default function CLIPage() {
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">--description</td>
-                  <td className="px-4 py-3 text-slate-100">Description for custom template (requires AI)</td>
+                  <td className="px-4 py-3 text-gray-700">Description for custom template (requires AI)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-blue-300">--yes, -y</td>
-                  <td className="px-4 py-3 text-slate-100">Skip all prompts, use defaults</td>
+                  <td className="px-4 py-3 text-gray-700">Skip all prompts, use defaults</td>
                 </tr>
               </tbody>
             </table>
@@ -261,14 +261,14 @@ export default function CLIPage() {
 
         {/* Interactive Flow Example */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4">Interactive Flow Example</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Interactive Flow Example</h3>
           
           <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
             <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
-              <span className="text-sm text-slate-100 font-mono">Terminal Output</span>
+              <span className="text-sm text-gray-700 font-mono">Terminal Output</span>
             </div>
             <div className="p-6">
-              <pre className="text-sm text-slate-100 font-mono">
+              <pre className="text-sm text-gray-700 font-mono">
 {`$ co create
 
 ✔ Project name: … my-agent
@@ -301,13 +301,13 @@ Next steps:
           co init
         </h2>
         
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           Initialize a ConnectOnion project in the current directory.
         </p>
 
         {/* Basic Usage */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4">Basic Usage</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Basic Usage</h3>
           
           <div className="space-y-4">
             <CommandBlock 
@@ -322,8 +322,8 @@ Next steps:
           </div>
         </div>
 
-        <div className="bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg p-4">
-          <p className="text-purple-200">
+        <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+          <p className="text-purple-800">
             <strong>Note:</strong> Options are the same as <code className="bg-black/30 px-2 py-1 rounded">co create</code>,
             except no <code className="bg-black/30 px-2 py-1 rounded">[name]</code> parameter (uses current directory name).
           </p>
@@ -337,18 +337,18 @@ Next steps:
           co auth
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           Authenticate for managed LLM keys with free credits included.
         </p>
 
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4">Basic Usage</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Basic Usage</h3>
           <CommandBlock commands={['co auth']} />
         </div>
 
-        <div className="bg-gradient-to-b from-amber-900/20 to-amber-800/10 border border-amber-500/30 rounded-lg p-6 mb-6">
+        <div className="bg-gradient-to-b from-amber-900/20 to-amber-800/10 border border-amber-200 rounded-lg p-6 mb-6">
           <h3 className="text-lg font-semibold text-amber-100 mb-4">What It Does</h3>
-          <ol className="space-y-2 text-slate-100">
+          <ol className="space-y-2 text-gray-700">
             <li className="flex items-center gap-3">
               <span className="flex-shrink-0 w-6 h-6 bg-amber-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">1</span>
               <span>Signs message with your Ed25519 key</span>
@@ -365,8 +365,8 @@ Next steps:
         </div>
 
         <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">Using Managed Keys</h3>
-          <div className="bg-black/30 rounded-lg p-4 font-mono text-sm text-slate-100">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Using Managed Keys</h3>
+          <div className="bg-black/30 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`from connectonion import llm_do
 
 # Use co/ prefix for managed models
@@ -384,15 +384,15 @@ response = llm_do("Hello", model="co/gemini-2.5-pro")`}
           co status
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           Check your account balance and managed keys usage.
         </p>
 
         <CommandBlock commands={['co status']} />
 
         <div className="mt-6 bg-gray-900 border border-gray-700 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">Example Output</h3>
-          <pre className="text-sm text-slate-100 font-mono">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Example Output</h3>
+          <pre className="text-sm text-gray-700 font-mono">
 {`ConnectOnion Account Status
 ============================
 
@@ -410,7 +410,7 @@ Balance:  $5.00`}
           co reset
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           <strong className="text-red-400">⚠️ Destructive:</strong> Reset your account and create a new identity.
         </p>
 
@@ -418,7 +418,7 @@ Balance:  $5.00`}
 
         <div className="mt-6 bg-red-950/50 border border-red-400/40 rounded-lg p-6 mb-6">
           <h3 className="text-lg font-semibold text-red-100 mb-4">What It Does</h3>
-          <ul className="space-y-2 text-slate-100">
+          <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
               <HiOutlineChevronRight className="w-4 h-4 text-red-400 mt-1" />
               <span>Deletes your account data</span>
@@ -439,8 +439,8 @@ Balance:  $5.00`}
         </div>
 
         <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">Example Output</h3>
-          <pre className="text-sm text-slate-100 font-mono">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Example Output</h3>
+          <pre className="text-sm text-gray-700 font-mono">
 {`$ co reset
 
 ⚠️  WARNING: This will delete ALL your data
@@ -458,7 +458,7 @@ Continue? (y/N): y
         </div>
 
         <div className="mt-6 bg-amber-950/50 border border-amber-400/40 rounded-lg p-4">
-          <p className="text-amber-200 text-sm">
+          <p className="text-amber-800 text-sm">
             <strong>When to use:</strong> Starting completely fresh, testing account creation, or removing old identity.
           </p>
         </div>
@@ -471,7 +471,7 @@ Continue? (y/N): y
           co deploy
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           Deploy your agent to ConnectOnion Cloud.
         </p>
 
@@ -479,7 +479,7 @@ Continue? (y/N): y
 
         <div className="mt-6 bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6 mb-6">
           <h3 className="text-lg font-semibold text-emerald-100 mb-4">Requirements</h3>
-          <ul className="space-y-2 text-slate-100">
+          <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
               <HiOutlineChevronRight className="w-4 h-4 text-emerald-400 mt-1" />
               <span>Git repository with committed code</span>
@@ -496,8 +496,8 @@ Continue? (y/N): y
         </div>
 
         <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">Example Output</h3>
-          <pre className="text-sm text-slate-100 font-mono">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Example Output</h3>
+          <pre className="text-sm text-gray-700 font-mono">
 {`$ co deploy
 
 Deploying to ConnectOnion Cloud...
@@ -514,7 +514,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
         </div>
 
         <div className="mt-6 bg-amber-950/50 border border-amber-400/40 rounded-lg p-4">
-          <p className="text-amber-200 text-sm">
+          <p className="text-amber-800 text-sm">
             <strong>Beta:</strong> This feature is in beta. See the <Link href="/deploy" className="underline hover:text-amber-100">Deploy Guide</Link> for more details.
           </p>
         </div>
@@ -527,34 +527,34 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           co doctor
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           Comprehensive diagnostics for your ConnectOnion installation.
         </p>
 
         <CommandBlock commands={['co doctor']} />
 
         <div className="mt-6 bg-gray-900 border border-gray-700 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">What It Checks</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">What It Checks</h3>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-gray-800/50 rounded-lg p-4">
+            <div className="bg-gray-100 rounded-lg p-4">
               <h4 className="font-semibold text-blue-300 mb-2">System</h4>
-              <ul className="text-sm text-slate-100 space-y-1">
+              <ul className="text-sm text-gray-700 space-y-1">
                 <li>• Version</li>
                 <li>• Python</li>
                 <li>• Environment</li>
               </ul>
             </div>
-            <div className="bg-gray-800/50 rounded-lg p-4">
+            <div className="bg-gray-100 rounded-lg p-4">
               <h4 className="font-semibold text-purple-300 mb-2">Configuration</h4>
-              <ul className="text-sm text-slate-100 space-y-1">
+              <ul className="text-sm text-gray-700 space-y-1">
                 <li>• Config files</li>
                 <li>• Keys</li>
                 <li>• API keys</li>
               </ul>
             </div>
-            <div className="bg-gray-800/50 rounded-lg p-4">
+            <div className="bg-gray-100 rounded-lg p-4">
               <h4 className="font-semibold text-green-300 mb-2">Connectivity</h4>
-              <ul className="text-sm text-slate-100 space-y-1">
+              <ul className="text-sm text-gray-700 space-y-1">
                 <li>• Backend</li>
                 <li>• Authentication</li>
                 <li>• Network</li>
@@ -571,7 +571,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           co ai
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           AI coding agent in your terminal. Run one-shot prompts or start an interactive agent with full tool access.
         </p>
 
@@ -592,10 +592,10 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           />
         </div>
 
-        <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
-          <p className="text-purple-200">
+        <div className="bg-purple-900/20 border border-purple-200 rounded-lg p-4">
+          <p className="text-purple-800">
             <strong>Learn more:</strong> See the complete{' '}
-            <Link href="/cli/ai" className="text-purple-300 hover:text-purple-100 underline">
+            <Link href="/cli/ai" className="text-purple-300 hover:text-purple-900 underline">
               co ai documentation
             </Link>{' '}
             for advanced features, model selection, and use cases.
@@ -610,11 +610,11 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           co browser
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           Quick browser screenshots and automation. Use <code className="bg-gray-800 px-2 py-1 rounded">-b</code> (short for browser) or the full <code className="bg-gray-800 px-2 py-1 rounded">browser</code> subcommand:
         </p>
 
-        <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 mb-6">
+        <div className="bg-blue-900/20 border border-blue-200 rounded-lg p-4 mb-6">
           <p className="text-sm text-blue-300">
             <span className="font-semibold inline-flex items-center gap-1">
               <FaLightbulb className="text-yellow-400 text-sm" />
@@ -641,26 +641,26 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
         </div>
 
         {/* Device Presets */}
-        <div className="bg-gradient-to-b from-yellow-900/30 to-yellow-800/10 border border-yellow-500/30 rounded-lg p-6 mb-6">
-          <h3 className="text-lg font-semibold text-white mb-4">Device Presets</h3>
+        <div className="bg-amber-50 border border-yellow-200 rounded-lg p-6 mb-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Device Presets</h3>
           <div className="grid grid-cols-3 gap-4 text-sm">
             <div>
-              <span className="font-semibold text-yellow-200">iPhone</span>
-              <p className="text-slate-100">390×844</p>
+              <span className="font-semibold text-yellow-800">iPhone</span>
+              <p className="text-gray-700">390×844</p>
             </div>
             <div>
-              <span className="font-semibold text-yellow-200">iPad</span>
-              <p className="text-slate-100">768×1024</p>
+              <span className="font-semibold text-yellow-800">iPad</span>
+              <p className="text-gray-700">768×1024</p>
             </div>
             <div>
-              <span className="font-semibold text-yellow-200">Desktop</span>
-              <p className="text-slate-100">1920×1080 (default)</p>
+              <span className="font-semibold text-yellow-800">Desktop</span>
+              <p className="text-gray-700">1920×1080 (default)</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
-          <p className="text-blue-200">
+        <div className="bg-blue-900/20 border border-blue-200 rounded-lg p-4">
+          <p className="text-blue-800">
             <strong>Learn more:</strong> See the complete{' '}
             <Link href="/cli/browser-command" className="text-blue-300 hover:text-blue-100 underline">
               co browser documentation
@@ -679,15 +679,15 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
 
         <div className="space-y-6">
           {/* Minimal Template */}
-          <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+          <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
               Minimal
             </h3>
-            <p className="text-slate-100 mb-4">
+            <p className="text-gray-700 mb-4">
               Basic agent structure with essential components:
             </p>
-            <ul className="space-y-2 text-slate-100 text-sm">
+            <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-blue-400" />
                 Simple agent.py with basic tools
@@ -704,15 +704,15 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Web Research Template */}
-          <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+          <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-200 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full"></div>
               Web Research
             </h3>
-            <p className="text-slate-100 mb-4">
+            <p className="text-gray-700 mb-4">
               Advanced template for data analysis and web scraping:
             </p>
-            <ul className="space-y-2 text-slate-100 text-sm">
+            <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-green-400" />
                 Web scraping tools
@@ -733,15 +733,15 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Playwright Template */}
-          <div className="bg-gradient-to-b from-yellow-900/20 to-yellow-800/10 border border-yellow-500/30 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+          <div className="bg-gradient-to-b from-yellow-900/20 to-yellow-800/10 border border-yellow-200 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
               Playwright
             </h3>
-            <p className="text-slate-100 mb-4">
+            <p className="text-gray-700 mb-4">
               Browser automation agent with stateful web tools:
             </p>
-            <ul className="space-y-2 text-slate-100 text-sm">
+            <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-yellow-400" />
                 Stateful browser (start, navigate, click, fill)
@@ -758,15 +758,15 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Email Agent Template */}
-          <div className="bg-gradient-to-b from-pink-900/20 to-pink-800/10 border border-pink-500/30 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+          <div className="bg-gradient-to-b from-pink-900/20 to-pink-800/10 border border-pink-200 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
               Email Agent
             </h3>
-            <p className="text-slate-100 mb-4">
+            <p className="text-gray-700 mb-4">
               Email automation with send, receive, and management:
             </p>
-            <ul className="space-y-2 text-slate-100 text-sm">
+            <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-pink-400" />
                 SMTP sending and IMAP reading
@@ -784,14 +784,14 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
 
           {/* Meta Agent Template */}
           <div className="bg-gradient-to-b from-cyan-900/20 to-cyan-800/10 border border-cyan-500/30 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
               Meta Agent
             </h3>
-            <p className="text-slate-100 mb-4">
+            <p className="text-gray-700 mb-4">
               An agent that knows ConnectOnion and helps you build agents:
             </p>
-            <ul className="space-y-2 text-slate-100 text-sm">
+            <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-cyan-400" />
                 Built-in framework knowledge
@@ -808,16 +808,16 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Custom Template */}
-          <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+          <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
               Custom (AI-only)
             </h3>
-            <p className="text-slate-100 mb-4">
+            <p className="text-gray-700 mb-4">
               Only available when AI is enabled. Generates a complete custom template based on your description:
             </p>
             <div className="bg-black/30 rounded-lg p-4">
-              <pre className="text-sm text-slate-100 font-mono">
+              <pre className="text-sm text-gray-700 font-mono">
 {`✔ Choose template: Custom
 ✔ Describe what you want to build: …
   I need an agent that monitors GitHub repos and
@@ -838,7 +838,7 @@ Generating custom template with AI...
           API Key Detection
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           The CLI automatically detects your API provider from the key format:
         </p>
 
@@ -846,38 +846,38 @@ Generating custom template with AI...
           <table className="w-full">
             <thead>
               <tr className="bg-gray-800 border-b border-gray-700">
-                <th className="text-left px-4 py-3 text-slate-100 font-medium">Provider</th>
-                <th className="text-left px-4 py-3 text-slate-100 font-medium">Key Format</th>
-                <th className="text-left px-4 py-3 text-slate-100 font-medium">Example</th>
+                <th className="text-left px-4 py-3 text-gray-700 font-medium">Provider</th>
+                <th className="text-left px-4 py-3 text-gray-700 font-medium">Key Format</th>
+                <th className="text-left px-4 py-3 text-gray-700 font-medium">Example</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-700">
               <tr>
                 <td className="px-4 py-3 text-white font-medium">OpenAI</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">sk-... or sk-proj-...</td>
-                <td className="px-4 py-3 font-mono text-xs text-slate-100">sk-proj-abc123...</td>
+                <td className="px-4 py-3 font-mono text-xs text-gray-700">sk-proj-abc123...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Anthropic</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">sk-ant-...</td>
-                <td className="px-4 py-3 font-mono text-xs text-slate-100">sk-ant-api03-xyz...</td>
+                <td className="px-4 py-3 font-mono text-xs text-gray-700">sk-ant-api03-xyz...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Google</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">AIza...</td>
-                <td className="px-4 py-3 font-mono text-xs text-slate-100">AIzaSyAbc123...</td>
+                <td className="px-4 py-3 font-mono text-xs text-gray-700">AIzaSyAbc123...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Groq</td>
                 <td className="px-4 py-3 font-mono text-sm text-blue-300">gsk_...</td>
-                <td className="px-4 py-3 font-mono text-xs text-slate-100">gsk_abc123...</td>
+                <td className="px-4 py-3 font-mono text-xs text-gray-700">gsk_abc123...</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div className="bg-gradient-to-b from-orange-900/30 to-orange-800/10 border border-orange-500/30 rounded-lg p-4 mt-6">
-          <p className="text-orange-200 text-sm">
+        <div className="bg-gradient-to-b from-orange-900/30 to-orange-800/10 border border-orange-200 rounded-lg p-4 mt-6">
+          <p className="text-orange-800 text-sm">
             The appropriate environment variables and model configurations are set automatically.
           </p>
         </div>
@@ -892,7 +892,7 @@ Generating custom template with AI...
 
         {/* Project Structure */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4">Project Structure</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Project Structure</h3>
           
           <FileTree 
             structure={[
@@ -948,37 +948,37 @@ Generating custom template with AI...
         </div>
 
         {/* Agent Identity */}
-        <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+        <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
             <HiOutlineShieldCheck className="w-5 h-5 text-purple-400" />
             Agent Identity
           </h3>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Every project automatically gets:
           </p>
-          <ul className="space-y-2 text-slate-100">
+          <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
               <HiOutlineKey className="w-4 h-4 text-purple-400 mt-0.5" />
               <div>
-                <strong className="text-purple-200">Ed25519 cryptographic keys</strong> for agent identity
+                <strong className="text-purple-800">Ed25519 cryptographic keys</strong> for agent identity
               </div>
             </li>
             <li className="flex items-start gap-2">
               <HiOutlineKey className="w-4 h-4 text-purple-400 mt-0.5" />
               <div>
-                <strong className="text-purple-200">Unique address</strong> (hex-encoded public key)
+                <strong className="text-purple-800">Unique address</strong> (hex-encoded public key)
               </div>
             </li>
             <li className="flex items-start gap-2">
               <HiOutlineKey className="w-4 h-4 text-purple-400 mt-0.5" />
               <div>
-                <strong className="text-purple-200">12-word recovery phrase</strong> for key restoration
+                <strong className="text-purple-800">12-word recovery phrase</strong> for key restoration
               </div>
             </li>
           </ul>
           <div className="mt-4 p-3 bg-black/30 rounded-lg flex items-center gap-2">
             <HiOutlineExclamationCircle className="w-4 h-4 text-yellow-400" />
-            <p className="text-yellow-200 text-sm">
+            <p className="text-yellow-800 text-sm">
               Keys are stored in <code className="bg-black/30 px-2 py-1 rounded">.co/keys/</code> and auto-added to <code className="bg-black/30 px-2 py-1 rounded">.gitignore</code>
             </p>
           </div>
@@ -1020,35 +1020,35 @@ Generating custom template with AI...
         <h2 className="heading-2">Best Practices</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
+          <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-6">
             <HiOutlineCommandLine className="w-8 h-8 text-purple-400 mb-4" />
-            <h3 className="text-lg font-semibold text-white mb-2">Choose the Right Command</h3>
-            <p className="text-slate-100 text-sm">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Choose the Right Command</h3>
+            <p className="text-gray-700 text-sm">
               Use <code className="bg-black/30 px-2 py-1 rounded">co create</code> for new projects, 
               <code className="bg-black/30 px-2 py-1 rounded ml-1">co init</code> for existing directories.
             </p>
           </div>
 
-          <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
+          <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-200 rounded-lg p-6">
             <HiOutlineKey className="w-8 h-8 text-green-400 mb-4" />
-            <h3 className="text-lg font-semibold text-white mb-2">API Key Security</h3>
-            <p className="text-slate-100 text-sm">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">API Key Security</h3>
+            <p className="text-gray-700 text-sm">
               Never commit <code className="bg-black/30 px-2 py-1 rounded">.env</code> files. Store API keys securely.
             </p>
           </div>
 
-          <div className="bg-gradient-to-b from-orange-900/20 to-orange-800/10 border border-orange-500/30 rounded-lg p-6">
+          <div className="bg-gradient-to-b from-orange-900/20 to-orange-800/10 border border-orange-200 rounded-lg p-6">
             <HiOutlineCodeBracket className="w-8 h-8 text-orange-400 mb-4" />
-            <h3 className="text-lg font-semibold text-white mb-2">Template Selection</h3>
-            <p className="text-slate-100 text-sm">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Template Selection</h3>
+            <p className="text-gray-700 text-sm">
               Start with Minimal for learning. Use Custom (with AI) for specific needs.
             </p>
           </div>
 
-          <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-6">
+          <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg p-6">
             <HiOutlineShieldCheck className="w-8 h-8 text-blue-400 mb-4" />
-            <h3 className="text-lg font-semibold text-white mb-2">Agent Keys</h3>
-            <p className="text-slate-100 text-sm">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Agent Keys</h3>
+            <p className="text-gray-700 text-sm">
               Never share <code className="bg-black/30 px-2 py-1 rounded">.co/keys/</code> directory. Backup your recovery phrase.
             </p>
           </div>
@@ -1061,8 +1061,8 @@ Generating custom template with AI...
 
         <div className="space-y-6">
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Command Not Found</h3>
-            <p className="text-slate-100 mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Command Not Found</h3>
+            <p className="text-gray-700 mb-4">
               If <code className="bg-gray-800 px-2 py-1 rounded">co</code> command is not found after installation:
             </p>
             <CommandBlock 
@@ -1078,8 +1078,8 @@ Generating custom template with AI...
           </div>
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Python Version</h3>
-            <p className="text-slate-100 mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Python Version</h3>
+            <p className="text-gray-700 mb-4">
               ConnectOnion requires Python 3.9 or higher. Check your version:
             </p>
             <CommandBlock 
@@ -1088,18 +1088,18 @@ Generating custom template with AI...
           </div>
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">API Key Issues</h3>
-            <ul className="space-y-2 text-slate-100">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">API Key Issues</h3>
+            <ul className="space-y-2 text-gray-700">
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-slate-100" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-700" />
                 Check key format matches your provider
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-slate-100" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-700" />
                 Ensure key is active and has credits
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-slate-100" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-700" />
                 Try pasting without quotes or spaces
               </li>
             </ul>

@@ -101,22 +101,22 @@ The best tool is one you forget you're using. That's what we built.`
               <h1 className="heading-1">
                 Why We Choose Progressive Disclosure Over Configuration Questionnaires
               </h1>
-              <p className="text-slate-100 text-lg">September 2025 • Design Decision #006</p>
+              <p className="text-gray-700 text-lg">September 2025 • Design Decision #006</p>
             </div>
             <CopyMarkdownButton content={content} />
           </div>
 
           <div className="mt-8 space-y-6 text-gray-200">
-            <p className="text-lg leading-relaxed text-slate-100 italic">
+            <p className="text-lg leading-relaxed text-gray-700 italic">
               Most framework CLIs bombard users with questions that don't matter yet.
               We chose progressive disclosure: start fast, decide later, respect intelligence.
             </p>
 
             <h2 className="heading-2">The Problem with Traditional CLIs</h2>
 
-            <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-6 my-6">
-              <p className="text-slate-100 mb-4">Typical framework initialization:</p>
-              <ul className="space-y-3 text-slate-100">
+            <div className="bg-red-900/20 border border-red-200 rounded-lg p-6 my-6">
+              <p className="text-gray-700 mb-4">Typical framework initialization:</p>
+              <ul className="space-y-3 text-gray-700">
                 <li>What's your project description? <span className="text-gray-500 italic">(I don't know, I just started)</span></li>
                 <li>Choose your testing framework? <span className="text-gray-500 italic">(Let me build something first)</span></li>
                 <li>Configure your linter settings? <span className="text-gray-500 italic">(Please, just let me code)</span></li>
@@ -131,17 +131,17 @@ The best tool is one you forget you're using. That's what we built.`
             <h2 className="heading-2">Our Philosophy: Progressive Disclosure</h2>
 
             <div className="grid md:grid-cols-3 gap-6 my-8">
-              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-xl p-6 text-center">
+              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-200 rounded-xl p-6 text-center">
                 <div className="text-4xl font-bold text-purple-400 mb-2">&lt; 30s</div>
-                <p className="text-slate-100">To working code</p>
+                <p className="text-gray-700">To working code</p>
               </div>
-              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-xl p-6 text-center">
+              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-200 rounded-xl p-6 text-center">
                 <div className="text-4xl font-bold text-purple-400 mb-2">3</div>
-                <p className="text-slate-100">Questions maximum</p>
+                <p className="text-gray-700">Questions maximum</p>
               </div>
-              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-xl p-6 text-center">
+              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-200 rounded-xl p-6 text-center">
                 <div className="text-4xl font-bold text-purple-400 mb-2">0</div>
-                <p className="text-slate-100">Required configs</p>
+                <p className="text-gray-700">Required configs</p>
               </div>
             </div>
 
@@ -149,7 +149,7 @@ The best tool is one you forget you're using. That's what we built.`
 
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden my-6">
               <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
-                <span className="text-sm text-slate-100 font-mono">terminal</span>
+                <span className="text-sm text-gray-700 font-mono">terminal</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
                 <code className="text-purple-300">{`# Outside a project
@@ -164,7 +164,7 @@ co init             # Uses current directory`}</code>
               Why both? Because <strong className="text-white">context matters</strong>:
             </p>
 
-            <ul className="list-disc list-inside space-y-2 ml-4 text-slate-100">
+            <ul className="list-disc list-inside space-y-2 ml-4 text-gray-700">
               <li>Outside: Users want to create a new space</li>
               <li>Inside: Users have already decided where to work</li>
             </ul>
@@ -176,14 +176,14 @@ co init             # Uses current directory`}</code>
 
             <h2 className="heading-2">Minimal Questions, Maximum Intelligence</h2>
 
-            <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-xl p-6 my-8">
+            <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-200 rounded-xl p-6 my-8">
               <p className="text-purple-300 font-semibold mb-4">Our setup asks only what matters RIGHT NOW:</p>
-              <ol className="space-y-3 text-slate-100">
+              <ol className="space-y-3 text-gray-700">
                 <li><span className="text-purple-400 font-bold">1.</span> <strong className="text-white">Enable AI?</strong> - Determines available templates</li>
                 <li><span className="text-purple-400 font-bold">2.</span> <strong className="text-white">API key</strong> - Only if AI enabled, with auto-detection</li>
                 <li><span className="text-purple-400 font-bold">3.</span> <strong className="text-white">Template</strong> - With previews so users know what they get</li>
               </ol>
-              <p className="text-slate-100 text-sm mt-4 italic">That's it. Three decisions max.</p>
+              <p className="text-gray-700 text-sm mt-4 italic">That's it. Three decisions max.</p>
             </div>
 
             <p>
@@ -195,7 +195,7 @@ co init             # Uses current directory`}</code>
 
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden my-6">
               <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
-                <span className="text-sm text-slate-100 font-mono">api_detection.py</span>
+                <span className="text-sm text-gray-700 font-mono">api_detection.py</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
                 <code className="text-purple-300">{`if api_key.startswith('sk-proj-'):
@@ -214,7 +214,7 @@ elif api_key.startswith('gsk_'):
             <h2 className="heading-2">Template Preview, Not Template Guessing</h2>
 
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6 font-mono text-sm">
-              <pre className="text-slate-100">{`📦 Minimal - Simple starting point
+              <pre className="text-gray-700">{`📦 Minimal - Simple starting point
   ├── agent.py (50 lines) - Basic agent with example tool
   ├── .env - API key configuration
   └── .co/ - Agent identity & metadata`}</pre>
@@ -229,7 +229,7 @@ elif api_key.startswith('gsk_'):
             <div className="grid md:grid-cols-2 gap-6 my-8">
               <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-6">
                 <h3 className="text-red-400 font-semibold mb-4">We Skip</h3>
-                <ul className="space-y-2 text-slate-100 text-sm">
+                <ul className="space-y-2 text-gray-700 text-sm">
                   <li>Project description</li>
                   <li>Author name</li>
                   <li>License type</li>
@@ -241,7 +241,7 @@ elif api_key.startswith('gsk_'):
 
               <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-6">
                 <h3 className="text-green-400 font-semibold mb-4">We Do</h3>
-                <ul className="space-y-2 text-slate-100 text-sm">
+                <ul className="space-y-2 text-gray-700 text-sm">
                   <li>Create working code immediately</li>
                   <li>Use sensible defaults everywhere</li>
                   <li>Show clear next steps</li>
@@ -253,23 +253,23 @@ elif api_key.startswith('gsk_'):
             <h2 className="heading-2">Beautiful by Default</h2>
 
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6">
-              <p className="text-slate-100 mb-4">We use colors and emojis for <strong className="text-white">clarity</strong>, not decoration:</p>
+              <p className="text-gray-700 mb-4">We use colors and emojis for <strong className="text-white">clarity</strong>, not decoration:</p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
                   <span className="text-green-400 text-xl">✅</span>
-                  <span className="text-slate-100">Green = Success</span>
+                  <span className="text-gray-700">Green = Success</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-yellow-400 text-xl">⚠️</span>
-                  <span className="text-slate-100">Yellow = Warning</span>
+                  <span className="text-gray-700">Yellow = Warning</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-red-400 text-xl">❌</span>
-                  <span className="text-slate-100">Red = Error</span>
+                  <span className="text-gray-700">Red = Error</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-xl">📁</span>
-                  <span className="text-slate-100">Icons = Visual scanning</span>
+                  <span className="text-gray-700">Icons = Visual scanning</span>
                 </div>
               </div>
             </div>
@@ -281,43 +281,43 @@ elif api_key.startswith('gsk_'):
 
             <h2 className="heading-2">Results: User Delight</h2>
 
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-8 border border-purple-500/20 my-8">
+            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-8 border border-purple-200 my-8">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-purple-400">30s</div>
-                  <p className="text-slate-100 text-sm">to running agent</p>
+                  <p className="text-gray-700 text-sm">to running agent</p>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-400">3</div>
-                  <p className="text-slate-100 text-sm">questions max</p>
+                  <p className="text-gray-700 text-sm">questions max</p>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-400">0</div>
-                  <p className="text-slate-100 text-sm">required configs</p>
+                  <p className="text-gray-700 text-sm">required configs</p>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-400">1</div>
-                  <p className="text-slate-100 text-sm">command to start</p>
+                  <p className="text-gray-700 text-sm">command to start</p>
                 </div>
               </div>
             </div>
 
             <h2 className="heading-2">Conclusion</h2>
 
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-500/20">
-              <p className="text-lg text-slate-100 leading-relaxed mb-4">
+            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-200">
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 Good CLI UX isn't about asking fewer questions - it's about asking the
                 <strong className="text-white"> RIGHT </strong> questions at the
                 <strong className="text-white"> RIGHT </strong> time. Everything else should be
                 invisible, automatic, or optional.
               </p>
-              <p className="text-slate-100">
+              <p className="text-gray-700">
                 The best tool is one you forget you're using. That's what we built.
               </p>
             </div>
 
             <div className="border-t border-gray-800 mt-16 pt-8">
-              <p className="text-slate-100 italic text-lg">
+              <p className="text-gray-700 italic text-lg">
                 Simplicity is the ultimate sophistication in CLI design.
               </p>
             </div>

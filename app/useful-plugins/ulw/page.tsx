@@ -27,7 +27,7 @@ export default function UlwPage() {
         />
 
         <div className="bg-orange-950/50 border border-orange-400/40 rounded-lg p-6 mb-16">
-          <p className="text-lg font-semibold text-orange-100">
+          <p className="text-lg font-semibold text-orange-900">
             Tell the agent to "just do it" — no approval prompts, no interruptions. Agent works until done or until the turn limit.
           </p>
         </div>
@@ -54,7 +54,7 @@ agent = Agent("worker", plugins=[tool_approval, ulw], model="co/claude-opus-4-5"
           </h2>
 
           <h3 className="text-xl font-semibold mb-4">From the web UI</h3>
-          <p className="text-slate-100 mb-4">In <code className="bg-gray-800 px-2 py-1 rounded">co ai</code>, use the mode selector to switch to ULW mode. The frontend sends:</p>
+          <p className="text-gray-700 mb-4">In <code className="bg-gray-800 px-2 py-1 rounded">co ai</code>, use the mode selector to switch to ULW mode. The frontend sends:</p>
           <CodeWithResult
             code={`{ "type": "mode_change", "mode": "ulw", "turns": 10 }`}
             language="json"
@@ -76,12 +76,12 @@ agent.input("Refactor all Python files to use type annotations")`}
             <HiOutlineShieldCheck className="w-8 h-8 text-green-400" />
             Turn Checkpoints
           </h2>
-          <p className="text-slate-100 mb-6">When the agent reaches <code className="bg-gray-800 px-2 py-1 rounded">ulw_turns</code>, it pauses and the frontend receives:</p>
+          <p className="text-gray-700 mb-6">When the agent reaches <code className="bg-gray-800 px-2 py-1 rounded">ulw_turns</code>, it pauses and the frontend receives:</p>
           <CodeWithResult
             code={`{ "type": "ulw_turns_reached", "turns_used": 10, "max_turns": 10 }`}
             language="json"
           />
-          <p className="text-slate-100 mt-6 mb-4">The user can respond with:</p>
+          <p className="text-gray-700 mt-6 mb-4">The user can respond with:</p>
           <div className="space-y-3">
             <div className="p-4 bg-gray-900 border border-gray-700 rounded-lg">
               <code className="text-orange-300">{"{ \"action\": \"continue\", \"turns\": 10 }"}</code>
@@ -97,7 +97,7 @@ agent.input("Refactor all Python files to use type annotations")`}
         {/* Prompt update */}
         <section className="mb-20">
           <h2 className="heading-2">Updating goal mid-session</h2>
-          <p className="text-slate-100 mb-4">Send a <code className="bg-gray-800 px-2 py-1 rounded">prompt_update</code> message to steer the agent while it works:</p>
+          <p className="text-gray-700 mb-4">Send a <code className="bg-gray-800 px-2 py-1 rounded">prompt_update</code> message to steer the agent while it works:</p>
           <CodeWithResult
             code={`{ "type": "prompt_update", "prompt": "Focus on the authentication module" }`}
             language="json"
@@ -108,30 +108,30 @@ agent.input("Refactor all Python files to use type annotations")`}
         {/* Events */}
         <section className="mb-20">
           <h2 className="heading-2">Events used</h2>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-slate-100">Event</th>
-                  <th className="text-left py-2 text-slate-100">Handler</th>
-                  <th className="text-left py-2 text-slate-100">Purpose</th>
+                  <th className="text-left py-2 text-gray-700">Event</th>
+                  <th className="text-left py-2 text-gray-700">Handler</th>
+                  <th className="text-left py-2 text-gray-700">Purpose</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700/50">
                 <tr>
                   <td className="py-2"><code className="text-orange-300">on_complete</code></td>
                   <td className="py-2 text-slate-300">ulw_keep_working</td>
-                  <td className="py-2 text-slate-100">Start next turn if turns remain</td>
+                  <td className="py-2 text-gray-700">Start next turn if turns remain</td>
                 </tr>
                 <tr>
                   <td className="py-2"><code className="text-orange-300">before_iteration</code></td>
                   <td className="py-2 text-slate-300">poll_prompt_update</td>
-                  <td className="py-2 text-slate-100">Check for goal updates from frontend</td>
+                  <td className="py-2 text-gray-700">Check for goal updates from frontend</td>
                 </tr>
                 <tr>
                   <td className="py-2"><code className="text-orange-300">before_llm</code></td>
                   <td className="py-2 text-slate-300">inject_ulw_prompt</td>
-                  <td className="py-2 text-slate-100">Inject current goal into system prompt</td>
+                  <td className="py-2 text-gray-700">Inject current goal into system prompt</td>
                 </tr>
               </tbody>
             </table>

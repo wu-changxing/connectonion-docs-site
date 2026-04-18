@@ -72,12 +72,12 @@ export default function WebSocketProtocolPage() {
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-cyan-300">CONNECT</td>
-                  <td className="px-4 py-3 text-slate-100">&quot;Authenticate me, restore my session&quot;</td>
+                  <td className="px-4 py-3 text-gray-700">&quot;Authenticate me, restore my session&quot;</td>
                   <td className="px-4 py-3 text-slate-300">First message on every WebSocket</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-green-300">INPUT</td>
-                  <td className="px-4 py-3 text-slate-100">&quot;Run this prompt&quot;</td>
+                  <td className="px-4 py-3 text-gray-700">&quot;Run this prompt&quot;</td>
                   <td className="px-4 py-3 text-slate-300">After CONNECT</td>
                 </tr>
               </tbody>
@@ -154,7 +154,7 @@ export default function WebSocketProtocolPage() {
             Protocol Flows
           </h2>
 
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">New Session</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">New Session</h3>
           <Diagram label="First connection — no session_id">
 {`Client                                    Server
   │                                         │
@@ -183,7 +183,7 @@ export default function WebSocketProtocolPage() {
   │◄── OUTPUT ─────────────────────────────│`}
           </Diagram>
 
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Resume After Page Refresh (agent still running)</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Resume After Page Refresh (agent still running)</h3>
           <Diagram label="Reconnect to executing agent">
 {`Client                                    Server
   │                                         │
@@ -203,7 +203,7 @@ export default function WebSocketProtocolPage() {
   │◄── OUTPUT ─────────────────────────────│`}
           </Diagram>
 
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Resume After Page Refresh (agent finished)</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Resume After Page Refresh (agent finished)</h3>
           <Diagram label="Reconnect to idle session">
 {`Client                                    Server
   │                                         │
@@ -229,7 +229,7 @@ export default function WebSocketProtocolPage() {
   │◄── OUTPUT ─────────────────────────────│`}
           </Diagram>
 
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Session Not Found (expired or never existed)</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Session Not Found (expired or never existed)</h3>
           <Diagram label="Graceful fallback to new session">
 {`Client                                    Server
   │                                         │
@@ -249,10 +249,10 @@ export default function WebSocketProtocolPage() {
           </h2>
 
           {/* Client → Server */}
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Client → Server</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Client → Server</h3>
 
           <h4 className="text-lg font-semibold text-cyan-300 mt-6 mb-2">CONNECT</h4>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Authenticate, restore session, and sync conversation. <strong>Always the first message.</strong>
           </p>
           <JsonBlock>{`{
@@ -303,7 +303,7 @@ export default function WebSocketProtocolPage() {
             </table>
           </div>
 
-          <p className="text-slate-100 mt-6 mb-2 font-semibold">Server response based on state:</p>
+          <p className="text-gray-700 mt-6 mb-2 font-semibold">Server response based on state:</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -344,7 +344,7 @@ export default function WebSocketProtocolPage() {
           </div>
 
           <h4 className="text-lg font-semibold text-green-300 mt-8 mb-2">INPUT</h4>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Send a prompt. Only valid after CONNECTED. <strong>No session data — just the prompt.</strong>
           </p>
           <JsonBlock>{`{
@@ -385,7 +385,7 @@ export default function WebSocketProtocolPage() {
 
           {/* File Upload Protocol */}
           <div className="mt-6 bg-gray-900/50 border border-gray-700 rounded-lg p-6">
-            <h5 className="text-base font-semibold text-white mb-3">File Upload Protocol</h5>
+            <h5 className="text-base font-semibold text-gray-900 mb-3">File Upload Protocol</h5>
             <p className="text-sm text-slate-300 mb-3">Files are sent inline as base64-encoded data URLs:</p>
             <JsonBlock>{`{
   "name": "report.pdf",
@@ -397,7 +397,7 @@ export default function WebSocketProtocolPage() {
               <p>3. Adds file paths to the agent&apos;s message as a system reminder</p>
               <p>4. Agent uses <code className="bg-gray-800 px-1 rounded">read_file</code> or other tools to process the files</p>
             </div>
-            <div className="mt-4 bg-blue-950/30 border border-blue-500/30 rounded-lg p-3">
+            <div className="mt-4 bg-blue-950/30 border border-blue-200 rounded-lg p-3">
               <p className="text-sm text-slate-300">
                 <strong className="text-blue-300">Images vs Files:</strong> Images are passed directly to the LLM as visual content (multimodal). Files are saved to disk and read by tools.
               </p>
@@ -414,10 +414,10 @@ export default function WebSocketProtocolPage() {
           <JsonBlock>{`{ "type": "APPROVAL_RESPONSE", "approved": true, "scope": "once" }`}</JsonBlock>
 
           {/* Server → Client */}
-          <h3 className="text-xl font-semibold text-white mt-12 mb-4">Server → Client</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-12 mb-4">Server → Client</h3>
 
           <h4 className="text-lg font-semibold text-cyan-300 mt-6 mb-2">CONNECTED</h4>
-          <p className="text-slate-100 mb-4">Response to CONNECT.</p>
+          <p className="text-gray-700 mb-4">Response to CONNECT.</p>
           <JsonBlock>{`{
   "type": "CONNECTED",
   "session_id": "550e8400-...",
@@ -439,17 +439,17 @@ export default function WebSocketProtocolPage() {
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-green-300">&quot;new&quot;</td>
-                  <td className="px-4 py-3 text-slate-100">Fresh session</td>
+                  <td className="px-4 py-3 text-gray-700">Fresh session</td>
                   <td className="px-4 py-3 text-slate-300">Send INPUT when ready</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-cyan-300">&quot;connected&quot;</td>
-                  <td className="px-4 py-3 text-slate-100">Session alive, idle</td>
+                  <td className="px-4 py-3 text-gray-700">Session alive, idle</td>
                   <td className="px-4 py-3 text-slate-300">Send INPUT when ready</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-yellow-300">&quot;executing&quot;</td>
-                  <td className="px-4 py-3 text-slate-100">Agent still running</td>
+                  <td className="px-4 py-3 text-gray-700">Agent still running</td>
                   <td className="px-4 py-3 text-slate-300">Wait for events/OUTPUT</td>
                 </tr>
               </tbody>
@@ -461,7 +461,7 @@ export default function WebSocketProtocolPage() {
           </p>
 
           <h4 className="text-lg font-semibold text-green-300 mt-8 mb-2">OUTPUT</h4>
-          <p className="text-slate-100 mb-4">Execution completed. <strong>Session stays alive for next INPUT.</strong></p>
+          <p className="text-gray-700 mb-4">Execution completed. <strong>Session stays alive for next INPUT.</strong></p>
           <JsonBlock>{`{
   "type": "OUTPUT",
   "result": "Hola",
@@ -566,7 +566,7 @@ export default function WebSocketProtocolPage() {
             Authentication
           </h2>
 
-          <p className="text-slate-100 mb-4 text-lg">
+          <p className="text-gray-700 mb-4 text-lg">
             Authentication happens once, on CONNECT. All subsequent INPUT messages on the same WebSocket are trusted.
           </p>
 
@@ -643,7 +643,7 @@ signature → OK             (same WS, already authenticated)`}
               <pre className="text-sm font-mono text-slate-300">{`WS open → CONNECT { auth, session_id? } → CONNECTED { status }
          INPUT { prompt, session }     → events → OUTPUT → session dies`}</pre>
             </div>
-            <div className="bg-blue-950/30 border border-blue-500/30 rounded-lg p-4">
+            <div className="bg-blue-950/30 border border-blue-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-blue-300 mb-2">v0.11.x — Session survives execution (current)</p>
               <pre className="text-sm font-mono text-slate-200">{`WS open → CONNECT { auth, session_id?, session }
          → CONNECTED { status: new/connected/executing }
@@ -664,7 +664,7 @@ WS close → 10min grace → session cleaned up`}</pre>
             Server Console Output
           </h2>
 
-          <p className="text-slate-100 mb-4 text-lg">
+          <p className="text-gray-700 mb-4 text-lg">
             Structured status lines designed for quick scanning. Routine messages are compact, data flow events are indented sub-lines.
           </p>
 

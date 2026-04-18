@@ -78,10 +78,10 @@ export default function QuickStartPage() {
             { label: 'Quick Start' }
           ]}
           icon={HiOutlinePlay}
-          iconColor="text-green-400"
-          iconBgFrom="from-green-600/20"
-          iconBgTo="to-emerald-600/20"
-          iconBorderColor="border-green-500/30"
+          iconColor="text-green-600"
+          iconBgFrom="from-green-50"
+          iconBgTo="to-green-100"
+          iconBorderColor="border-green-200"
           title="Quick Start Guide"
           description="Get up and running with ConnectOnion in under 2 minutes."
           markdownPath="/quickstart/quickstart.md"
@@ -89,17 +89,17 @@ export default function QuickStartPage() {
         />
 
         {/* Time Estimate */}
-        <div className="flex items-center gap-2 mb-12 p-4 bg-gradient-to-b from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-lg">
-          <HiOutlineClock className="w-5 h-5 text-blue-400" />
-          <span className="text-blue-200">
+        <div className="flex items-center gap-2 mb-12 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <HiOutlineClock className="w-5 h-5 text-blue-600" />
+          <span className="text-blue-800">
             <strong>Estimated time:</strong> 2 minutes to first working agent
           </span>
         </div>
 
       {/* Installation */}
-      <section className="mb-16">
-        <h2 className="heading-2">
-          <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">1</div>
+      <section className="mb-16" id="install">
+        <h2 id="install" className="heading-2 flex items-center gap-3">
+          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">1</span>
           Install ConnectOnion
         </h2>
         
@@ -109,13 +109,13 @@ export default function QuickStartPage() {
       </section>
 
       {/* Create Agent */}
-      <section className="mb-16">
-        <h2 className="heading-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">2</div>
+      <section className="mb-16" id="create-agent">
+        <h2 id="create-agent" className="heading-2 flex items-center gap-3">
+          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">2</span>
           Create Your First Agent
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-600 mb-6">
           Create a new agent project with automatic setup:
         </p>
 
@@ -159,23 +159,23 @@ export default function QuickStartPage() {
           className="mb-8"
         />
 
-        <div className="bg-gradient-to-b from-green-900/30 to-green-800/10 border border-green-500/30 rounded-lg p-6 mb-8">
-          <h3 className="text-lg font-semibold text-green-200 mb-4">✨ The CLI handles:</h3>
-          <ul className="space-y-2 text-green-100">
+        <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+          <h3 className="text-lg font-semibold text-green-800 mb-4">✨ The CLI handles:</h3>
+          <ul className="space-y-2 text-green-900">
             <li className="flex items-start gap-2">
-              <span className="text-green-400 mt-1">•</span>
+              <span className="text-green-600 mt-1">•</span>
               <span><strong>API key setup</strong> - Automatic detection from environment or interactive input</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-green-400 mt-1">•</span>
+              <span className="text-green-600 mt-1">•</span>
               <span><strong>Project structure</strong> - All files created and configured</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-green-400 mt-1">•</span>
+              <span className="text-green-600 mt-1">•</span>
               <span><strong>Documentation</strong> - Complete framework docs included</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-green-400 mt-1">•</span>
+              <span className="text-green-600 mt-1">•</span>
               <span><strong>Git configuration</strong> - .gitignore ready for version control</span>
             </li>
           </ul>
@@ -183,9 +183,9 @@ export default function QuickStartPage() {
       </section>
 
       {/* Run Your Agent */}
-      <section className="mb-16">
-        <h2 className="heading-2">
-          <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold">3</div>
+      <section className="mb-16" id="run">
+        <h2 id="run" className="heading-2 flex items-center gap-3">
+          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">3</span>
           Run Your Agent
         </h2>
 
@@ -195,19 +195,19 @@ export default function QuickStartPage() {
           />
         </div>
 
-        <p className="text-slate-100 mb-4">
+        <p className="text-gray-600 mb-4">
           Your agent is ready to use! The minimal template includes example tools to get you started.
         </p>
       </section>
 
       {/* Customize */}
-      <section className="mb-16">
-        <h2 className="heading-2">
-          <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">4</div>
+      <section className="mb-16" id="customize">
+        <h2 id="customize" className="heading-2 flex items-center gap-3">
+          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">4</span>
           Customize Your Agent
         </h2>
         
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-600 mb-6">
           Your meta-agent can help you build ConnectOnion projects:
         </p>
 
@@ -316,13 +316,13 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
       </section>
 
       {/* Playwright Template */}
-      <section className="mb-16">
-        <h2 className="heading-2">
-          <div className="w-8 h-8 bg-yellow-600 rounded-lg flex items-center justify-center text-white font-bold">5</div>
+      <section className="mb-16" id="playwright">
+        <h2 id="playwright" className="heading-2 flex items-center gap-3">
+          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">5</span>
           Alternative: Playwright Web Automation
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-600 mb-6">
           For web automation tasks, use the Playwright template:
         </p>
 
@@ -335,56 +335,56 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
           />
         </div>
 
-        <div className="bg-gradient-to-b from-yellow-900/30 to-yellow-800/10 border border-yellow-500/30 rounded-lg p-6 mb-8">
-          <h3 className="text-lg font-semibold text-yellow-200 mb-4">Stateful browser tools included:</h3>
-          <div className="grid sm:grid-cols-2 gap-3 text-yellow-100 text-sm">
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 mb-8">
+          <h3 className="text-lg font-semibold text-amber-800 mb-4">Stateful browser tools included:</h3>
+          <div className="grid sm:grid-cols-2 gap-3 text-amber-900 text-sm">
             <div className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-amber-600 mt-1">•</span>
               <span><strong>start_browser()</strong> - Launch browser</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-amber-600 mt-1">•</span>
               <span><strong>navigate()</strong> - Go to URLs</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-amber-600 mt-1">•</span>
               <span><strong>scrape_content()</strong> - Extract content</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-amber-600 mt-1">•</span>
               <span><strong>fill_form()</strong> - Complete forms</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-amber-600 mt-1">•</span>
               <span><strong>take_screenshot()</strong> - Capture pages</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-amber-600 mt-1">•</span>
               <span><strong>extract_links()</strong> - Get all links</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-amber-600 mt-1">•</span>
               <span><strong>click()</strong> - Click elements</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-amber-600 mt-1">•</span>
               <span><strong>execute_javascript()</strong> - Run JS</span>
             </div>
           </div>
-          <p className="text-yellow-200 mt-4 text-sm">
-            <strong>Note:</strong> Requires <code className="bg-black/30 px-2 py-1 rounded">pip install playwright && playwright install</code>
+          <p className="text-amber-700 mt-4 text-sm">
+            <strong>Note:</strong> Requires <code className="bg-amber-100 px-2 py-1 rounded font-mono">pip install playwright && playwright install</code>
           </p>
         </div>
       </section>
 
       {/* Custom Tool Example */}
-      <section className="mb-16">
-        <h2 className="heading-2">
-          <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">6</div>
+      <section className="mb-16" id="custom-tool">
+        <h2 id="custom-tool" className="heading-2 flex items-center gap-3">
+          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">6</span>
           Create a Custom Tool Agent
         </h2>
         
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-600 mb-6">
           You can also create agents from scratch with custom tools:
         </p>
 
@@ -426,13 +426,13 @@ The answer is 739.`}
       </section>
 
       {/* Debugging with @xray */}
-      <section className="mb-16">
-        <h2 className="heading-2">
-          <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center text-white font-bold">7</div>
+      <section className="mb-16" id="xray">
+        <h2 id="xray" className="heading-2 flex items-center gap-3">
+          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">7</span>
           Debugging with @xray
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-600 mb-6">
           Use the @xray decorator to see what your agent is thinking:
         </p>
 
@@ -464,13 +464,13 @@ The result is 80.`}
       </section>
 
       {/* Interactive Debugging */}
-      <section className="mb-16">
-        <h2 className="heading-2">
-          <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold">8</div>
+      <section className="mb-16" id="interactive-debug">
+        <h2 id="interactive-debug" className="heading-2 flex items-center gap-3">
+          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">8</span>
           Interactive Debugging
         </h2>
 
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-600 mb-6">
           Debug your agents interactively - pause at breakpoints, inspect state, and test "what if" scenarios:
         </p>
 
@@ -522,30 +522,30 @@ What do you want to do?
           className="mb-8"
         />
 
-        <div className="bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-purple-200 mb-4">🔍 Why use interactive debugging?</h3>
-          <div className="grid sm:grid-cols-2 gap-4 text-purple-100 text-sm">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Why use interactive debugging?</h3>
+          <div className="grid sm:grid-cols-2 gap-4 text-gray-700 text-sm">
             <div className="flex items-start gap-2">
-              <span className="text-purple-400 mt-1">•</span>
+              <span className="text-green-600 mt-1">•</span>
               <span><strong>Pause at breakpoints</strong> - Inspect state at any tool</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-purple-400 mt-1">•</span>
+              <span className="text-green-600 mt-1">•</span>
               <span><strong>Test edge cases</strong> - Modify variables to explore "what if"</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-purple-400 mt-1">•</span>
+              <span className="text-green-600 mt-1">•</span>
               <span><strong>Python REPL access</strong> - Full runtime inspection</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-purple-400 mt-1">•</span>
+              <span className="text-green-600 mt-1">•</span>
               <span><strong>Step through execution</strong> - See every tool call</span>
             </div>
           </div>
-          <div className="mt-4 pt-4 border-t border-purple-500/30">
+          <div className="mt-4 pt-4 border-t border-gray-200">
             <Link
               href="/auto-debug"
-              className="text-purple-300 hover:text-purple-200 transition-colors flex items-center gap-2 text-sm"
+              className="text-green-700 hover:text-green-800 transition-colors flex items-center gap-2 text-sm font-medium"
             >
               Learn more about interactive debugging
               <HiOutlineArrowRight className="w-4 h-4" />
@@ -555,89 +555,89 @@ What do you want to do?
       </section>
 
       {/* Next Steps */}
-      <section className="mb-16">
-        <h2 className="heading-2">
-          <FaBullseye className="text-blue-400" />
+      <section className="mb-16" id="whats-next">
+        <h2 id="whats-next" className="heading-2 flex items-center gap-3">
+          <FaBullseye className="text-green-600 flex-shrink-0" />
           <span>What's Next?</span>
         </h2>
-        
+
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
           <Link
             href="/auto-debug"
-            className="group bg-gradient-to-r from-purple-900/20 to-purple-800/20 border border-purple-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all"
+            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center">
-                <HiOutlineBugAnt className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                <HiOutlineBugAnt className="w-6 h-6 text-purple-600" />
               </div>
-              <HiOutlineArrowRight className="w-5 h-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
+              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Interactive Debugging</h3>
-            <p className="text-purple-100 text-sm">
+            <h3 className="text-base font-semibold text-gray-900 mb-2">Interactive Debugging</h3>
+            <p className="text-gray-500 text-sm">
               Master breakpoints, Python REPL, and "what if" scenario testing for your agents.
             </p>
           </Link>
 
           <Link
             href="/prompts"
-            className="group bg-gradient-to-r from-pink-900/20 to-pink-800/20 border border-pink-500/30 rounded-xl p-6 hover:border-pink-400/50 transition-all"
+            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-pink-600 rounded-xl flex items-center justify-center">
-                <HiOutlineDocumentText className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center">
+                <HiOutlineDocumentText className="w-6 h-6 text-pink-600" />
               </div>
-              <HiOutlineArrowRight className="w-5 h-5 text-pink-400 group-hover:translate-x-1 transition-transform" />
+              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Master System Prompts</h3>
-            <p className="text-pink-100 text-sm">
+            <h3 className="text-base font-semibold text-gray-900 mb-2">Master System Prompts</h3>
+            <p className="text-gray-500 text-sm">
               Learn advanced prompting techniques to create expert agents for any domain.
             </p>
           </Link>
 
           <Link
             href="/xray"
-            className="group bg-gradient-to-r from-green-900/20 to-green-800/20 border border-green-500/30 rounded-xl p-6 hover:border-green-400/50 transition-all"
+            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center">
-                <HiOutlineBolt className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                <HiOutlineBolt className="w-6 h-6 text-green-600" />
               </div>
-              <HiOutlineArrowRight className="w-5 h-5 text-green-400 group-hover:translate-x-1 transition-transform" />
+              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Deep Dive into @xray</h3>
-            <p className="text-green-100 text-sm">
+            <h3 className="text-base font-semibold text-gray-900 mb-2">Deep Dive into @xray</h3>
+            <p className="text-gray-500 text-sm">
               Master debugging and get complete visibility into your agent's decision-making.
             </p>
           </Link>
 
           <Link
             href="/examples"
-            className="group bg-gradient-to-r from-blue-900/20 to-blue-800/20 border border-blue-500/30 rounded-xl p-6 hover:border-blue-400/50 transition-all"
+            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-                <HiOutlineCodeBracket className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <HiOutlineCodeBracket className="w-6 h-6 text-blue-600" />
               </div>
-              <HiOutlineArrowRight className="w-5 h-5 text-blue-400 group-hover:translate-x-1 transition-transform" />
+              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Real-World Examples</h3>
-            <p className="text-blue-100 text-sm">
+            <h3 className="text-base font-semibold text-gray-900 mb-2">Real-World Examples</h3>
+            <p className="text-gray-500 text-sm">
               See complete agent implementations for various use cases.
             </p>
           </Link>
 
           <Link
             href="/tools"
-            className="group bg-gradient-to-r from-orange-900/20 to-orange-800/20 border border-orange-500/30 rounded-xl p-6 hover:border-orange-400/50 transition-all"
+            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center">
-                <HiOutlineWrench className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                <HiOutlineWrench className="w-6 h-6 text-orange-600" />
               </div>
-              <HiOutlineArrowRight className="w-5 h-5 text-orange-400 group-hover:translate-x-1 transition-transform" />
+              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Build Custom Tools</h3>
-            <p className="text-orange-100 text-sm">
+            <h3 className="text-base font-semibold text-gray-900 mb-2">Build Custom Tools</h3>
+            <p className="text-gray-500 text-sm">
               Learn how to create powerful tools for your agents.
             </p>
           </Link>

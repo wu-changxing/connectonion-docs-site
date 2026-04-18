@@ -99,57 +99,57 @@ export default function PromptsExamplesPage() {
   return (
     <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+      <nav className="flex items-center gap-2 text-sm text-gray-700 mb-8">
+        <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
+        <Link href="/prompts" className="hover:text-gray-900 transition-colors">System Prompts</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <span className="text-white">Examples</span>
+        <span className="text-gray-900">Examples</span>
       </nav>
 
       {/* Header */}
       <div className="mb-16">
         <h1 className="heading-1">Progressive Prompt Examples</h1>
-        <p className="text-xl text-slate-100 max-w-3xl">
+        <p className="text-xl text-gray-700 max-w-3xl">
           Master system prompt design through 8 carefully crafted examples, progressing from simple conversational agents 
           to complex professional roles. Each example demonstrates advanced techniques and real-world applications.
         </p>
       </div>
 
       {/* Learning Path Overview */}
-      <div className="mb-16 p-8 bg-gradient-to-r from-green-900/20 to-red-900/20 border border-green-500/30 rounded-xl">
+      <div className="mb-16 p-8 bg-gradient-to-r from-green-900/20 to-red-900/20 border border-green-200 rounded-xl">
         <h2 className="heading-2">🎯 Prompt Design Learning Path</h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-4 bg-green-600 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">🟢</span>
+              <span className="text-2xl font-bold text-gray-900">🟢</span>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Beginner</h3>
-            <p className="text-green-200 text-sm">Basic personality and conversation patterns</p>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Beginner</h3>
+            <p className="text-green-800 text-sm">Basic personality and conversation patterns</p>
             <p className="text-green-300 text-xs mt-2">Examples 1-2</p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-4 bg-yellow-600 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">🟡</span>
+              <span className="text-2xl font-bold text-gray-900">🟡</span>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Intermediate</h3>
-            <p className="text-yellow-200 text-sm">Structured responses and domain knowledge</p>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Intermediate</h3>
+            <p className="text-yellow-800 text-sm">Structured responses and domain knowledge</p>
             <p className="text-yellow-300 text-xs mt-2">Example 3</p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-4 bg-orange-600 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">🟠</span>
+              <span className="text-2xl font-bold text-gray-900">🟠</span>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Advanced</h3>
-            <p className="text-orange-200 text-sm">Professional frameworks and methodologies</p>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Advanced</h3>
+            <p className="text-orange-800 text-sm">Professional frameworks and methodologies</p>
             <p className="text-orange-300 text-xs mt-2">Examples 4-5</p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-4 bg-red-600 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">🔴</span>
+              <span className="text-2xl font-bold text-gray-900">🔴</span>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Expert</h3>
-            <p className="text-red-200 text-sm">Complex decision frameworks and strategic thinking</p>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Expert</h3>
+            <p className="text-red-800 text-sm">Complex decision frameworks and strategic thinking</p>
             <p className="text-red-300 text-xs mt-2">Examples 6-8</p>
           </div>
         </div>
@@ -179,7 +179,7 @@ export default function PromptsExamplesPage() {
                   {/* Header */}
                   <div className="flex items-center gap-3 mb-4">
                     <IconComponent className={`w-6 h-6 ${example.color}`} />
-                    <h3 className="text-xl font-bold text-white group-hover:text-white/90">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-white/90">
                       {example.title}
                     </h3>
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
@@ -192,18 +192,18 @@ export default function PromptsExamplesPage() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-slate-100 mb-4 text-sm leading-relaxed">
+                  <p className="text-gray-700 mb-4 text-sm leading-relaxed">
                     {example.description}
                   </p>
 
                   {/* Key Concepts */}
                   <div className="space-y-2">
-                    <p className="text-slate-100 text-xs font-medium uppercase tracking-wide">Key Concepts</p>
+                    <p className="text-gray-700 text-xs font-medium uppercase tracking-wide">Key Concepts</p>
                     <div className="flex flex-wrap gap-2">
                       {example.concepts.map((concept) => (
                         <span 
                           key={concept}
-                          className="px-2 py-1 bg-gray-800 text-slate-100 rounded text-xs"
+                          className="px-2 py-1 bg-gray-800 text-gray-700 rounded text-xs"
                         >
                           {concept}
                         </span>
@@ -223,19 +223,19 @@ export default function PromptsExamplesPage() {
       </div>
 
       {/* Why Progressive Learning */}
-      <div className="mt-16 p-8 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/30 rounded-xl">
+      <div className="mt-16 p-8 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-200 rounded-xl">
         <h2 className="heading-2">💡 Why Progressive Learning?</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Building Complexity</h3>
-            <p className="text-slate-100 text-sm leading-relaxed">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Building Complexity</h3>
+            <p className="text-gray-700 text-sm leading-relaxed">
               Each example introduces new prompt engineering concepts while building on previous knowledge. 
               Start with basic personality definition, then add structured responses, professional frameworks, and finally complex decision-making processes.
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Real-World Applications</h3>
-            <p className="text-slate-100 text-sm leading-relaxed">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Real-World Applications</h3>
+            <p className="text-gray-700 text-sm leading-relaxed">
               Every prompt is designed for actual business use cases. From customer support to security analysis, 
               these examples solve real problems and can be immediately deployed in production environments.
             </p>
@@ -247,14 +247,14 @@ export default function PromptsExamplesPage() {
       <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
         <Link 
           href="/prompts" 
-          className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
         >
           <HiOutlineArrowRight className="w-4 h-4 rotate-180" />
           System Prompts
         </Link>
         <Link 
           href="/prompts/formats" 
-          className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
         >
           Prompt Formats
           <HiOutlineArrowRight className="w-4 h-4" />

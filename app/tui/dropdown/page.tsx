@@ -49,7 +49,7 @@ dropdown = Dropdown(items, max_visible=5, style="modern")`}
         {/* DropdownItem */}
         <section className="mb-12">
           <h2 className="heading-2">DropdownItem</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Structured item with rich metadata:
           </p>
 
@@ -120,37 +120,37 @@ item = DropdownItem(display="/today", value="/today")`}
         {/* File Icons */}
         <section className="mb-12">
           <h2 className="heading-2">File Icons</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Built-in icons for common file types:
           </p>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-slate-100">Icon</th>
-                  <th className="text-left py-2 text-slate-100">Type</th>
+                  <th className="text-left py-2 text-gray-700">Icon</th>
+                  <th className="text-left py-2 text-gray-700">Type</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2 text-2xl">📁</td>
-                  <td className="py-2 text-slate-100">folder</td>
+                  <td className="py-2 text-gray-700">folder</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2 text-2xl">📄</td>
-                  <td className="py-2 text-slate-100">file (default)</td>
+                  <td className="py-2 text-gray-700">file (default)</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2 text-2xl">🐍</td>
-                  <td className="py-2 text-slate-100">.py</td>
+                  <td className="py-2 text-gray-700">.py</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
                   <td className="py-2 text-2xl">📜</td>
-                  <td className="py-2 text-slate-100">.js, .ts</td>
+                  <td className="py-2 text-gray-700">.js, .ts</td>
                 </tr>
                 <tr>
                   <td className="py-2 text-2xl">⚙️</td>
-                  <td className="py-2 text-slate-100">.json, .yaml</td>
+                  <td className="py-2 text-gray-700">.json, .yaml</td>
                 </tr>
               </tbody>
             </table>

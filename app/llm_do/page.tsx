@@ -90,7 +90,7 @@ answer = llm_do("What's 2+2?", model="claude-haiku-4-5")`}
                 className="mb-6"
               />
               
-              <p className="text-slate-100">That's it! One function for any LLM task across multiple providers.</p>
+              <p className="text-gray-700">That's it! One function for any LLM task across multiple providers.</p>
             </section>
 
             {/* With Structured Output */}
@@ -238,7 +238,7 @@ llm_do("Hello", model="claude-opus-4-5")`}
             <section className="mb-12">
               <h2 className="heading-2">Structured Output Compatibility</h2>
 
-              <p className="text-slate-100 mb-4">
+              <p className="text-gray-700 mb-4">
                 When using <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">output=</code> with Pydantic models,
                 note these compatibility differences:
               </p>
@@ -253,22 +253,22 @@ llm_do("Hello", model="claude-opus-4-5")`}
                   </thead>
                   <tbody>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100"><strong>OpenAI</strong></td>
-                      <td className="py-3 px-4 text-slate-100">All models</td>
+                      <td className="py-3 px-4 text-gray-700"><strong>OpenAI</strong></td>
+                      <td className="py-3 px-4 text-gray-700">All models</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100"><strong>Google Gemini</strong></td>
-                      <td className="py-3 px-4 text-slate-100">All models</td>
+                      <td className="py-3 px-4 text-gray-700"><strong>Google Gemini</strong></td>
+                      <td className="py-3 px-4 text-gray-700">All models</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100"><strong>Anthropic Claude</strong></td>
-                      <td className="py-3 px-4 text-slate-100">Only 4.5/4.1 series (claude-sonnet-4-5, claude-opus-4-5, claude-opus-4-1, claude-haiku-4-5)</td>
+                      <td className="py-3 px-4 text-gray-700"><strong>Anthropic Claude</strong></td>
+                      <td className="py-3 px-4 text-gray-700">Only 4.5/4.1 series (claude-sonnet-4-5, claude-opus-4-5, claude-opus-4-1, claude-haiku-4-5)</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-4 mb-6">
+              <div className="bg-yellow-900/20 border border-yellow-200 rounded-xl p-4 mb-6">
                 <p className="text-sm text-yellow-300">
                   <strong>Note:</strong> Legacy Claude models (claude-sonnet-4, claude-opus-4) do NOT support structured outputs.
                   Use Claude 4.5 or 4.1 series for structured output tasks.
@@ -311,33 +311,33 @@ Answer(result=4)`}
                   <tbody>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">input</code></td>
-                      <td className="py-3 px-4 text-slate-100">str</td>
-                      <td className="py-3 px-4 text-slate-100">required</td>
-                      <td className="py-3 px-4 text-slate-100">The input text/question</td>
+                      <td className="py-3 px-4 text-gray-700">str</td>
+                      <td className="py-3 px-4 text-gray-700">required</td>
+                      <td className="py-3 px-4 text-gray-700">The input text/question</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">output</code></td>
-                      <td className="py-3 px-4 text-slate-100">BaseModel</td>
-                      <td className="py-3 px-4 text-slate-100">None</td>
-                      <td className="py-3 px-4 text-slate-100">Pydantic model for structured output</td>
+                      <td className="py-3 px-4 text-gray-700">BaseModel</td>
+                      <td className="py-3 px-4 text-gray-700">None</td>
+                      <td className="py-3 px-4 text-gray-700">Pydantic model for structured output</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">prompt</code></td>
-                      <td className="py-3 px-4 text-slate-100">str|Path</td>
-                      <td className="py-3 px-4 text-slate-100">None</td>
-                      <td className="py-3 px-4 text-slate-100">System prompt (string or file path)</td>
+                      <td className="py-3 px-4 text-gray-700">str|Path</td>
+                      <td className="py-3 px-4 text-gray-700">None</td>
+                      <td className="py-3 px-4 text-gray-700">System prompt (string or file path)</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">model</code></td>
-                      <td className="py-3 px-4 text-slate-100">str</td>
-                      <td className="py-3 px-4 text-slate-100">"co/gemini-2.5-flash"</td>
-                      <td className="py-3 px-4 text-slate-100">Model to use (supports OpenAI, Gemini, Claude)</td>
+                      <td className="py-3 px-4 text-gray-700">str</td>
+                      <td className="py-3 px-4 text-gray-700">"co/gemini-2.5-flash"</td>
+                      <td className="py-3 px-4 text-gray-700">Model to use (supports OpenAI, Gemini, Claude)</td>
                     </tr>
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-4"><code className="text-purple-400">temperature</code></td>
-                      <td className="py-3 px-4 text-slate-100">float</td>
-                      <td className="py-3 px-4 text-slate-100">0.1</td>
-                      <td className="py-3 px-4 text-slate-100">Randomness (0=deterministic, 2=creative)</td>
+                      <td className="py-3 px-4 text-gray-700">float</td>
+                      <td className="py-3 px-4 text-gray-700">0.1</td>
+                      <td className="py-3 px-4 text-gray-700">Randomness (0=deterministic, 2=creative)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -358,7 +358,7 @@ Answer(result=4)`}
                 ].map((item, i) => (
                   <div key={i} className="bg-gray-900 rounded-lg p-4 flex items-start gap-3">
                     <span className="text-2xl">{item.icon}</span>
-                    <span className="text-slate-100">{item.text}</span>
+                    <span className="text-gray-700">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -451,19 +451,19 @@ False`}
                 <ol className="space-y-3">
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">1.</span>
-                    <span className="text-slate-100"><strong>Use low temperature (0-0.3) for consistent results</strong></span>
+                    <span className="text-gray-700"><strong>Use low temperature (0-0.3) for consistent results</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">2.</span>
-                    <span className="text-slate-100"><strong>Provide examples in your prompt for better accuracy</strong></span>
+                    <span className="text-gray-700"><strong>Provide examples in your prompt for better accuracy</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">3.</span>
-                    <span className="text-slate-100"><strong>Use Pydantic models for anything structured</strong></span>
+                    <span className="text-gray-700"><strong>Use Pydantic models for anything structured</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">4.</span>
-                    <span className="text-slate-100"><strong>Cache prompts in files for reusability</strong></span>
+                    <span className="text-gray-700"><strong>Cache prompts in files for reusability</strong></span>
                   </li>
                 </ol>
               </div>
@@ -484,29 +484,29 @@ False`}
                   </thead>
                   <tbody>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100">Purpose</td>
-                      <td className="py-3 px-4 text-slate-100">One-shot calls</td>
-                      <td className="py-3 px-4 text-slate-100">Multi-step workflows</td>
+                      <td className="py-3 px-4 text-gray-700">Purpose</td>
+                      <td className="py-3 px-4 text-gray-700">One-shot calls</td>
+                      <td className="py-3 px-4 text-gray-700">Multi-step workflows</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100">Tools</td>
-                      <td className="py-3 px-4 text-slate-100">No</td>
-                      <td className="py-3 px-4 text-slate-100">Yes</td>
+                      <td className="py-3 px-4 text-gray-700">Tools</td>
+                      <td className="py-3 px-4 text-gray-700">No</td>
+                      <td className="py-3 px-4 text-gray-700">Yes</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100">Iterations</td>
-                      <td className="py-3 px-4 text-slate-100">Always 1</td>
-                      <td className="py-3 px-4 text-slate-100">Up to max_iterations</td>
+                      <td className="py-3 px-4 text-gray-700">Iterations</td>
+                      <td className="py-3 px-4 text-gray-700">Always 1</td>
+                      <td className="py-3 px-4 text-gray-700">Up to max_iterations</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100">State</td>
-                      <td className="py-3 px-4 text-slate-100">Stateless</td>
-                      <td className="py-3 px-4 text-slate-100">Maintains history</td>
+                      <td className="py-3 px-4 text-gray-700">State</td>
+                      <td className="py-3 px-4 text-gray-700">Stateless</td>
+                      <td className="py-3 px-4 text-gray-700">Maintains history</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100">Best for</td>
-                      <td className="py-3 px-4 text-slate-100">Quick tasks</td>
-                      <td className="py-3 px-4 text-slate-100">Complex automation</td>
+                      <td className="py-3 px-4 text-gray-700">Best for</td>
+                      <td className="py-3 px-4 text-gray-700">Quick tasks</td>
+                      <td className="py-3 px-4 text-gray-700">Complex automation</td>
                     </tr>
                   </tbody>
                 </table>
@@ -559,16 +559,16 @@ Output didn't match model: 2 validation errors for ComplexModel...`}
               
               <div className="grid md:grid-cols-3 gap-4">
                 <Link href="/agents" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
-                  <h3 className="text-lg font-semibold text-white mb-2">Learn about Agents</h3>
-                  <p className="text-sm text-slate-100">For multi-step workflows</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Learn about Agents</h3>
+                  <p className="text-sm text-gray-700">For multi-step workflows</p>
                 </Link>
                 <Link href="/tools" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
-                  <h3 className="text-lg font-semibold text-white mb-2">Explore Tools</h3>
-                  <p className="text-sm text-slate-100">For extending agents</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Explore Tools</h3>
+                  <p className="text-sm text-gray-700">For extending agents</p>
                 </Link>
                 <Link href="/xray" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
-                  <h3 className="text-lg font-semibold text-white mb-2">See @xray</h3>
-                  <p className="text-sm text-slate-100">For debugging</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">See @xray</h3>
+                  <p className="text-sm text-gray-700">For debugging</p>
                 </Link>
               </div>
             </section>

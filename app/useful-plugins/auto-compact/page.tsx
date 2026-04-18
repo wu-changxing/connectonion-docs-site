@@ -85,10 +85,10 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
             <table className="w-full text-sm">
               <thead className="bg-gray-800">
                 <tr>
-                  <th className="text-left px-4 py-3 text-slate-100">Threshold</th>
-                  <th className="text-left px-4 py-3 text-slate-100">Min messages</th>
-                  <th className="text-left px-4 py-3 text-slate-100">Messages kept</th>
-                  <th className="text-left px-4 py-3 text-slate-100">Summary model</th>
+                  <th className="text-left px-4 py-3 text-gray-700">Threshold</th>
+                  <th className="text-left px-4 py-3 text-gray-700">Min messages</th>
+                  <th className="text-left px-4 py-3 text-gray-700">Messages kept</th>
+                  <th className="text-left px-4 py-3 text-gray-700">Summary model</th>
                 </tr>
               </thead>
               <tbody>
@@ -129,20 +129,20 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
         {/* Events */}
         <section className="mb-20">
           <h2 className="heading-2">Events used</h2>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-slate-100">Event</th>
-                  <th className="text-left py-2 text-slate-100">Handler</th>
-                  <th className="text-left py-2 text-slate-100">Purpose</th>
+                  <th className="text-left py-2 text-gray-700">Event</th>
+                  <th className="text-left py-2 text-gray-700">Handler</th>
+                  <th className="text-left py-2 text-gray-700">Purpose</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td className="py-2"><code className="text-cyan-300">after_llm</code></td>
                   <td className="py-2 text-slate-300">check_and_compact</td>
-                  <td className="py-2 text-slate-100">Check usage, compact if &gt;= 90%</td>
+                  <td className="py-2 text-gray-700">Check usage, compact if &gt;= 90%</td>
                 </tr>
               </tbody>
             </table>

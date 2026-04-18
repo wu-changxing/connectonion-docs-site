@@ -40,28 +40,28 @@ export default function XrayPage() {
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-green-900/50 border border-green-500 rounded-lg flex items-center justify-center">
                   <HiOutlineCodeBracket className="text-green-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <span className="text-slate-100">Your Function</span>
+                <span className="text-gray-700">Your Function</span>
               </div>
               <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-900/50 border border-purple-500 rounded-lg flex items-center justify-center">
                   <HiOutlineBugAnt className="text-purple-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <span className="text-slate-100">@xray decorator</span>
+                <span className="text-gray-700">@xray decorator</span>
               </div>
               <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-900/50 border border-blue-500 rounded-lg flex items-center justify-center">
                   <HiOutlineCpuChip className="text-blue-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <span className="text-slate-100">Agent Context</span>
+                <span className="text-gray-700">Agent Context</span>
               </div>
               <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-900/50 border border-yellow-500 rounded-lg flex items-center justify-center">
                   <HiOutlineEye className="text-yellow-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <span className="text-slate-100">Full Visibility</span>
+                <span className="text-gray-700">Full Visibility</span>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default function XrayPage() {
                 <HiOutlineEye className="w-6 h-6 text-green-400" />
                 Basic Usage
               </h3>
-              <p className="text-slate-100 mb-6">
+              <p className="text-gray-700 mb-6">
                 Add the @xray decorator to see inside the agent's mind. Access agent name, task, and iteration count.
               </p>
               <CodeWithResult
@@ -112,7 +112,7 @@ Processed: sample data`}
                 <HiOutlineClock className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
                 Execution Trace
               </h3>
-              <p className="text-slate-100 mb-6">
+              <p className="text-gray-700 mb-6">
                 Call xray.trace() to see the complete execution flow of your agent. Perfect for understanding multi-step processes.
               </p>
               <CodeWithResult
@@ -148,7 +148,7 @@ Analysis complete`}
                 <HiOutlineBugAnt className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
                 IDE Debug
               </h3>
-              <p className="text-slate-100 mb-6">
+              <p className="text-gray-700 mb-6">
                 Set breakpoints in your IDE and inspect the xray context. Access the full agent state including messages and previous tool calls.
               </p>
               <CodeWithResult
@@ -198,20 +198,20 @@ positive`}
               </h3>
             </div>
             <div className="grid md:grid-cols-3 gap-4 text-sm">
-              <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 text-center">
+              <div className="bg-blue-900/20 border border-blue-200 rounded-lg p-4 text-center">
                 <HiOutlineCpuChip className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mx-auto mb-2" />
                 <div className="font-mono text-blue-300">xray.agent</div>
-                <div className="text-slate-100 text-xs mt-1">Agent Instance</div>
+                <div className="text-gray-700 text-xs mt-1">Agent Instance</div>
               </div>
-              <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4 text-center">
+              <div className="bg-green-900/20 border border-green-200 rounded-lg p-4 text-center">
                 <HiOutlineChatBubbleOvalLeft className="w-8 h-8 text-green-400 mx-auto mb-2" />
                 <div className="font-mono text-green-300">xray.task</div>
-                <div className="text-slate-100 text-xs mt-1">User Request</div>
+                <div className="text-gray-700 text-xs mt-1">User Request</div>
               </div>
-              <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 text-center">
+              <div className="bg-purple-900/20 border border-purple-200 rounded-lg p-4 text-center">
                 <HiOutlineClock className="w-8 h-8 text-purple-400 mx-auto mb-2" />
                 <div className="font-mono text-purple-300">xray.messages</div>
-                <div className="text-slate-100 text-xs mt-1">Chat History</div>
+                <div className="text-gray-700 text-xs mt-1">Chat History</div>
               </div>
             </div>
           </div>
@@ -237,7 +237,7 @@ positive`}
                     </div>
                     <div>
                       <h3 className={`font-mono ${item.color} font-bold mb-2`}>{item.name}</h3>
-                      <p className="text-slate-100">{item.desc}</p>
+                      <p className="text-gray-700">{item.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -257,7 +257,7 @@ positive`}
             {/* Understand Context */}
             <div>
               <h3 className="font-bold text-xl mb-2">Understand Context</h3>
-              <p className="text-slate-100 mb-4">See why a tool was called and what led to it</p>
+              <p className="text-gray-700 mb-4">See why a tool was called and what led to it</p>
               <CodeWithResult
                 code={`@xray
 def emergency_shutdown():
@@ -278,7 +278,7 @@ System shutdown complete`}
             {/* Adaptive Behavior */}
             <div>
               <h3 className="font-bold text-xl mb-2">Adaptive Behavior</h3>
-              <p className="text-slate-100 mb-4">Change tool behavior based on execution context</p>
+              <p className="text-gray-700 mb-4">Change tool behavior based on execution context</p>
               <CodeWithResult
                 code={`@xray
 def fetch_data(source: str) -> str:
@@ -299,7 +299,7 @@ Using cached data`}
             {/* Debug Complex Flows */}
             <div>
               <h3 className="font-bold text-xl mb-2">Debug Complex Flows</h3>
-              <p className="text-slate-100 mb-4">Get full visibility into multi-step agent processes</p>
+              <p className="text-gray-700 mb-4">Get full visibility into multi-step agent processes</p>
               <CodeWithResult
                 code={`@xray
 def process_order(order_id: str) -> str:
@@ -340,7 +340,7 @@ Order ABC123 processed`}
                 <span className="text-2xl">{tip.icon}</span>
                 <div>
                   <h4 className="font-bold text-purple-400">{tip.tip}</h4>
-                  <p className="text-slate-100">{tip.detail}</p>
+                  <p className="text-gray-700">{tip.detail}</p>
                 </div>
               </motion.div>
             ))}

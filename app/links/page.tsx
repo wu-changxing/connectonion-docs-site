@@ -92,7 +92,7 @@ export default function LinksPage() {
           url: 'https://github.com/wu-changxing/connectonion',
           icon: FaGithub,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -103,7 +103,7 @@ export default function LinksPage() {
           url: 'https://pypi.org/project/connectonion/',
           icon: HiOutlineCube,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -114,7 +114,7 @@ export default function LinksPage() {
           url: 'https://docs.connectonion.com',
           icon: HiOutlineBookOpen,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -136,7 +136,7 @@ export default function LinksPage() {
           url: 'https://discord.gg/4xfD9k8AUF',
           icon: FaDiscord,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -147,7 +147,7 @@ export default function LinksPage() {
           url: 'https://github.com/wu-changxing/connectonion/discussions',
           icon: FaUsers,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -169,7 +169,7 @@ export default function LinksPage() {
           url: 'https://x.com/ConnectOnionAI',
           icon: FaTwitter,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -180,7 +180,7 @@ export default function LinksPage() {
           url: 'https://www.youtube.com/@openonionai',
           icon: FaYoutube,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -191,7 +191,7 @@ export default function LinksPage() {
           url: 'https://www.linkedin.com/company/openonion/',
           icon: FaLinkedin,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -202,7 +202,7 @@ export default function LinksPage() {
           url: 'https://www.instagram.com/openonionai/',
           icon: FaInstagram,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -213,7 +213,7 @@ export default function LinksPage() {
           url: 'https://www.tiktok.com/@closeonion',
           icon: FaTiktok,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -235,7 +235,7 @@ export default function LinksPage() {
           url: 'https://docs.connectonion.com/blog',
           icon: HiOutlineDocumentText,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -246,7 +246,7 @@ export default function LinksPage() {
           url: 'https://docs.connectonion.com/examples',
           icon: HiOutlineCodeBracket,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -257,7 +257,7 @@ export default function LinksPage() {
           url: 'https://docs.connectonion.com/tools',
           icon: HiOutlineDocumentText,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -279,7 +279,7 @@ export default function LinksPage() {
           url: 'https://github.com/wu-changxing/connectonion/issues',
           icon: HiOutlineSparkles,
           color: 'text-purple-400',
-          bgColor: 'bg-gray-800/50',
+          bgColor: 'bg-gray-100',
           borderColor: 'border-purple-500/30',
           external: true,
           available: true
@@ -289,7 +289,7 @@ export default function LinksPage() {
           description: 'Reach out directly',
           url: 'mailto:contact@connectonion.com',
           icon: HiOutlineEnvelope,
-          color: 'text-slate-100',
+          color: 'text-gray-700',
           bgColor: 'bg-gray-800/30',
           borderColor: 'border-gray-600/30',
           external: true,
@@ -311,7 +311,7 @@ export default function LinksPage() {
       <div className={cardClasses}>
         {!link.available && (
           <div className="absolute -top-2 -right-2 px-3 py-1 bg-gray-800 border border-gray-600 rounded-full flex items-center gap-1">
-            <span className="text-xs font-medium text-slate-100">🔒 Coming Soon</span>
+            <span className="text-xs font-medium text-gray-700">🔒 Coming Soon</span>
           </div>
         )}
         
@@ -324,13 +324,13 @@ export default function LinksPage() {
               {link.title}
               {link.external && isClickable && (
                 <>
-                  <HiOutlineArrowTopRightOnSquare className="w-4 h-4 text-slate-100" />
+                  <HiOutlineArrowTopRightOnSquare className="w-4 h-4 text-gray-700" />
                   <span className="sr-only">opens in new tab</span>
                 </>
               )}
             </h3>
             {link.description && (
-              <p className="text-sm text-slate-100">{link.description}</p>
+              <p className="text-sm text-gray-700">{link.description}</p>
             )}
           </div>
         </div>
@@ -349,7 +349,7 @@ export default function LinksPage() {
             {copiedUrl === link.title ? (
               <HiOutlineCheck className="w-4 h-4 text-green-400" />
             ) : (
-              <HiOutlineClipboard className="w-4 h-4 text-slate-100 group-hover:text-white" />
+              <HiOutlineClipboard className="w-4 h-4 text-gray-700 group-hover:text-white" />
             )}
           </button>
         )}
@@ -383,23 +383,23 @@ export default function LinksPage() {
   return (
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
-        <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
+        <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
           <Link href="/" className="hover:text-purple-400 transition-colors">
             Docs
           </Link>
           <HiOutlineArrowRight className="w-4 h-4" />
-          <span className="text-white">Links</span>
+          <span className="text-gray-900">Links</span>
         </div>
 
         <div className="mb-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
+              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-200">
                 <LinkIcon className="w-8 h-8 text-purple-400" />
               </div>
               <div>
                 <h1 className="heading-1">ConnectOnion Links</h1>
-                <p className="text-lg text-slate-100">
+                <p className="text-lg text-gray-700">
                   All our platforms and resources in one place. Build AI agents with simple, powerful Python code.
                 </p>
               </div>
@@ -468,7 +468,7 @@ export default function LinksPage() {
                           <HiOutlineSparkles className="w-3 h-3" />
                           <span>Quick Access</span>
                         </div>
-                        <div className="text-slate-100">•</div>
+                        <div className="text-gray-700">•</div>
                         <div className="flex items-center gap-1 text-xs text-gray-500">
                           <LinkIcon className="w-3 h-3" />
                           <span>All Links</span>
@@ -494,7 +494,7 @@ export default function LinksPage() {
                   {section.title}
                 </h2>
                 {section.description && (
-                  <p className="text-base text-slate-100">{section.description}</p>
+                  <p className="text-base text-gray-700">{section.description}</p>
                 )}
               </div>
               
@@ -508,7 +508,7 @@ export default function LinksPage() {
         </div>
         
         <div className="mt-16 pt-8 border-t border-gray-700 text-center">
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             ConnectOnion is open source and community-driven
           </p>
           <div className="flex items-center justify-center gap-2 text-sm text-gray-500">

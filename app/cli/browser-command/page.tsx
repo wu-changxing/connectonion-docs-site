@@ -72,7 +72,7 @@ export default function CliBrowserCommandPage() {
             </code>
           </div>
 
-          <p className="text-slate-100 mb-4">All parts except URL are optional.</p>
+          <p className="text-gray-700 mb-4">All parts except URL are optional.</p>
 
           <div className="space-y-6">
             <div>
@@ -137,30 +137,30 @@ co browser "screenshot localhost:3000 size desktop"`}
             <table className="w-full text-sm border border-gray-700 rounded-lg">
               <thead className="bg-gray-800">
                 <tr>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Preset</th>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Dimensions</th>
-                  <th className="text-left px-4 py-3 text-slate-100 font-semibold">Device</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Preset</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Dimensions</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Device</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-blue-300">iphone</td>
-                  <td className="px-4 py-3 text-slate-100">390x844</td>
+                  <td className="px-4 py-3 text-gray-700">390x844</td>
                   <td className="px-4 py-3 text-slate-300">iPhone 14/15</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-green-300">android</td>
-                  <td className="px-4 py-3 text-slate-100">360x800</td>
+                  <td className="px-4 py-3 text-gray-700">360x800</td>
                   <td className="px-4 py-3 text-slate-300">Common Android</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-purple-300">ipad</td>
-                  <td className="px-4 py-3 text-slate-100">768x1024</td>
+                  <td className="px-4 py-3 text-gray-700">768x1024</td>
                   <td className="px-4 py-3 text-slate-300">iPad</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-yellow-300">desktop</td>
-                  <td className="px-4 py-3 text-slate-100">1920x1080</td>
+                  <td className="px-4 py-3 text-gray-700">1920x1080</td>
                   <td className="px-4 py-3 text-slate-300">Full HD Desktop</td>
                 </tr>
               </tbody>
@@ -212,7 +212,7 @@ co browser "screenshot localhost:3000 save to desktop.png size 1920x1080"`}
             URL Handling
           </h2>
 
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             The command intelligently handles URLs:
           </p>
 
@@ -350,7 +350,7 @@ co browser "screenshot localhost:3000 size iphone"`}
             Installation
           </h2>
 
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             Browser features require Playwright:
           </p>
 
@@ -405,8 +405,8 @@ pip install connectonion[browser]`}
         {/* Tips */}
         <section className="mb-20">
           <div className="bg-yellow-950/50 border border-yellow-400/40 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-yellow-100 mb-4">Tips & Best Practices</h3>
-            <div className="space-y-3 text-slate-100">
+            <h3 className="text-lg font-semibold text-yellow-900 mb-4">Tips & Best Practices</h3>
+            <div className="space-y-3 text-gray-700">
               <div>
                 <strong className="text-green-300">Quick Debug:</strong> Just <code className="bg-gray-800 px-2 py-1 rounded">co browser "screenshot localhost:3000"</code> for instant feedback
               </div>

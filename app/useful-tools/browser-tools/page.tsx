@@ -127,7 +127,7 @@ with BrowserAutomation() as browser:
             <HiOutlineCpuChip className="w-8 h-8 text-indigo-400" />
             Persistent Sessions
           </h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             Log in once — cookies and sessions persist to <code className="bg-gray-800 px-2 py-1 rounded">~/.co/browser_profile/</code> automatically:
           </p>
           <CodeWithResult
