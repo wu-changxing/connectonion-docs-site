@@ -10,20 +10,23 @@
  */
 'use client'
 
-import { useState, useEffect } from 'react'
-import { HiOutlineBars3, HiOutlineXMark, HiOutlineBookOpen, HiOutlineClipboard, HiOutlineCheck, HiOutlineArrowPath } from 'react-icons/hi2'
+import { useState, useEffect, useMemo } from 'react'
+import { HiOutlineBars3, HiOutlineXMark, HiOutlineBookOpen, HiOutlineClipboard, HiOutlineCheck, HiOutlineArrowPath, HiOutlineChevronRight } from 'react-icons/hi2'
 import { DocsSidebar } from './DocsSidebar'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useCopyMarkdown } from '../hooks/useCopyMarkdown'
 import { hasMarkdownContent } from '../lib/markdownMapping'
+import { navigation as navData } from '../lib/navigation'
 
 export function MobileDocsNav() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
   const { copyMarkdown, status } = useCopyMarkdown(pathname)
   const hasMarkdown = hasMarkdownContent(pathname)
+
+  const currentPage = useMemo(() => navData.find(p => p.href === pathname), [pathname])
   
   // Auto-close menu when route changes
   useEffect(() => {
@@ -55,10 +58,19 @@ export function MobileDocsNav() {
             {isOpen ? <HiOutlineXMark className="w-5 h-5" /> : <HiOutlineBars3 className="w-5 h-5" />}
           </button>
 
-          <Link href="/" className="flex items-center gap-2">
-            <img src="/onion-logo.png" alt="ConnectOnion" className="w-6 h-6 rounded-md object-cover" />
-            <span className="font-semibold text-gray-900">ConnectOnion</span>
-          </Link>
+          {/* Current page breadcrumb — spatial context for mobile developers */}
+          {currentPage ? (
+            <div className="flex items-center gap-1 text-xs min-w-0 overflow-hidden">
+              <span className="text-gray-400 truncate flex-shrink-0 max-w-[72px]">{currentPage.section}</span>
+              <HiOutlineChevronRight className="w-3 h-3 text-gray-300 flex-shrink-0" />
+              <span className="text-gray-800 font-semibold truncate">{currentPage.title}</span>
+            </div>
+          ) : (
+            <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+              <img src="/onion-logo.png" alt="ConnectOnion" className="w-6 h-6 rounded-md object-cover" />
+              <span className="font-semibold text-gray-900 text-sm">ConnectOnion</span>
+            </Link>
+          )}
 
           {/* Copy button - only shows if current page has markdown */}
           {hasMarkdown ? (
