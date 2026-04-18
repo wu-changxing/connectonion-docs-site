@@ -134,34 +134,34 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
           <div className="overflow-x-auto mb-8">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="py-3 px-4 font-semibold text-gray-900">Scope</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">Purpose</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">What agents can do</th>
                 </tr>
               </thead>
               <tbody className="text-gray-700">
-                <tr className="border-b border-gray-800">
+                <tr className="border-b border-gray-200">
                   <td className="py-3 px-4 font-mono text-sm text-gray-500">Mail.Read</td>
                   <td className="py-3 px-4">Read user emails</td>
                   <td className="py-3 px-4">Read inbox, search emails</td>
                 </tr>
-                <tr className="border-b border-gray-800">
+                <tr className="border-b border-gray-200">
                   <td className="py-3 px-4 font-mono text-sm text-gray-500">Mail.Send</td>
                   <td className="py-3 px-4">Send emails on your behalf</td>
                   <td className="py-3 px-4">Send emails via Outlook</td>
                 </tr>
-                <tr className="border-b border-gray-800">
+                <tr className="border-b border-gray-200">
                   <td className="py-3 px-4 font-mono text-sm text-gray-500">Calendars.Read</td>
                   <td className="py-3 px-4">Read calendar events</td>
                   <td className="py-3 px-4">Read your calendar to check availability</td>
                 </tr>
-                <tr className="border-b border-gray-800">
+                <tr className="border-b border-gray-200">
                   <td className="py-3 px-4 font-mono text-sm text-gray-500">Calendars.ReadWrite</td>
                   <td className="py-3 px-4">Create/modify events</td>
                   <td className="py-3 px-4">Create and update calendar events</td>
                 </tr>
-                <tr className="border-b border-gray-800">
+                <tr className="border-b border-gray-200">
                   <td className="py-3 px-4 font-mono text-sm text-gray-500">User.Read</td>
                   <td className="py-3 px-4">Get your profile</td>
                   <td className="py-3 px-4">Identify which Microsoft account is connected</td>
@@ -388,29 +388,29 @@ cat ~/.co/keys.env | grep MICROSOFT_`}
           <div className="overflow-x-auto mb-8">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="py-3 px-4 font-semibold text-gray-900">Feature</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">Google</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">Microsoft</th>
                 </tr>
               </thead>
               <tbody className="text-gray-700">
-                <tr className="border-b border-gray-800">
+                <tr className="border-b border-gray-200">
                   <td className="py-3 px-4">Command</td>
                   <td className="py-3 px-4 font-mono text-sm">co auth google</td>
                   <td className="py-3 px-4 font-mono text-sm">co auth microsoft</td>
                 </tr>
-                <tr className="border-b border-gray-800">
+                <tr className="border-b border-gray-200">
                   <td className="py-3 px-4">Email</td>
                   <td className="py-3 px-4">Gmail</td>
                   <td className="py-3 px-4">Outlook</td>
                 </tr>
-                <tr className="border-b border-gray-800">
+                <tr className="border-b border-gray-200">
                   <td className="py-3 px-4">Calendar</td>
                   <td className="py-3 px-4">Google Calendar</td>
                   <td className="py-3 px-4">Microsoft Calendar</td>
                 </tr>
-                <tr className="border-b border-gray-800">
+                <tr className="border-b border-gray-200">
                   <td className="py-3 px-4">API</td>
                   <td className="py-3 px-4">Google APIs</td>
                   <td className="py-3 px-4">Microsoft Graph API</td>

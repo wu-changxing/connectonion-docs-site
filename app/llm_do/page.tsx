@@ -243,21 +243,21 @@ llm_do("Hello", model="claude-opus-4-5")`}
               <div className="table-wrapper mb-6">
                 <table className="min-w-full border-collapse">
                   <thead>
-                    <tr className="border-b border-gray-700">
-                      <th className="text-left py-3 px-4 text-green-400">Provider</th>
-                      <th className="text-left py-3 px-4 text-green-400">Structured Output Support</th>
+                    <tr className="border-b border-gray-200">
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Provider</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Structured Output Support</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4 text-gray-700"><strong>OpenAI</strong></td>
                       <td className="py-3 px-4 text-gray-700">All models</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4 text-gray-700"><strong>Google Gemini</strong></td>
                       <td className="py-3 px-4 text-gray-700">All models</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4 text-gray-700"><strong>Anthropic Claude</strong></td>
                       <td className="py-3 px-4 text-gray-700">Only 4.5/4.1 series (claude-sonnet-4-5, claude-opus-4-5, claude-opus-4-1, claude-haiku-4-5)</td>
                     </tr>
@@ -298,39 +298,39 @@ Answer(result=4)`}
               <div className="table-wrapper">
                 <table className="min-w-full border-collapse">
                   <thead>
-                    <tr className="border-b border-gray-700">
-                      <th className="text-left py-3 px-4 text-green-400">Parameter</th>
-                      <th className="text-left py-3 px-4 text-green-400">Type</th>
-                      <th className="text-left py-3 px-4 text-green-400">Default</th>
-                      <th className="text-left py-3 px-4 text-green-400">Description</th>
+                    <tr className="border-b border-gray-200">
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Parameter</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Type</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Default</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Description</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4"><code className="text-gray-500">input</code></td>
                       <td className="py-3 px-4 text-gray-700">str</td>
                       <td className="py-3 px-4 text-gray-700">required</td>
                       <td className="py-3 px-4 text-gray-700">The input text/question</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4"><code className="text-gray-500">output</code></td>
                       <td className="py-3 px-4 text-gray-700">BaseModel</td>
                       <td className="py-3 px-4 text-gray-700">None</td>
                       <td className="py-3 px-4 text-gray-700">Pydantic model for structured output</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4"><code className="text-gray-500">prompt</code></td>
                       <td className="py-3 px-4 text-gray-700">str|Path</td>
                       <td className="py-3 px-4 text-gray-700">None</td>
                       <td className="py-3 px-4 text-gray-700">System prompt (string or file path)</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4"><code className="text-gray-500">model</code></td>
                       <td className="py-3 px-4 text-gray-700">str</td>
                       <td className="py-3 px-4 text-gray-700">"co/gemini-2.5-flash"</td>
                       <td className="py-3 px-4 text-gray-700">Model to use (supports OpenAI, Gemini, Claude)</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4"><code className="text-gray-500">temperature</code></td>
                       <td className="py-3 px-4 text-gray-700">float</td>
                       <td className="py-3 px-4 text-gray-700">0.1</td>
@@ -473,34 +473,34 @@ False`}
               <div className="table-wrapper">
                 <table className="min-w-full border-collapse">
                   <thead>
-                    <tr className="border-b border-gray-700">
-                      <th className="text-left py-3 px-4 text-green-400">Feature</th>
-                      <th className="text-left py-3 px-4 text-green-400">llm_do()</th>
-                      <th className="text-left py-3 px-4 text-green-400">Agent()</th>
+                    <tr className="border-b border-gray-200">
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Feature</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">llm_do()</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Agent()</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4 text-gray-700">Purpose</td>
                       <td className="py-3 px-4 text-gray-700">One-shot calls</td>
                       <td className="py-3 px-4 text-gray-700">Multi-step workflows</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4 text-gray-700">Tools</td>
                       <td className="py-3 px-4 text-gray-700">No</td>
                       <td className="py-3 px-4 text-gray-700">Yes</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4 text-gray-700">Iterations</td>
                       <td className="py-3 px-4 text-gray-700">Always 1</td>
                       <td className="py-3 px-4 text-gray-700">Up to max_iterations</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4 text-gray-700">State</td>
                       <td className="py-3 px-4 text-gray-700">Stateless</td>
                       <td className="py-3 px-4 text-gray-700">Maintains history</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
+                    <tr className="border-b border-gray-200">
                       <td className="py-3 px-4 text-gray-700">Best for</td>
                       <td className="py-3 px-4 text-gray-700">Quick tasks</td>
                       <td className="py-3 px-4 text-gray-700">Complex automation</td>
