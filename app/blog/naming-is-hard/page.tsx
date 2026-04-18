@@ -83,7 +83,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
   return (
     <div className="w-full">
       <main className="p-4 lg:p-8 lg:px-16 pb-20">
-        <article className="prose prose-invert max-w-none">
+        <article className="prose prose-gray max-w-none">
           <div className="mb-8 flex justify-between items-start">
             <div>
               <h1 className="heading-1">
@@ -123,7 +123,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
 
             <p className="text-lg leading-relaxed">
               Everyone understands addresses. Your house has one. Your email has one. Your server has one.
-              An address is simply <strong className="text-white">where to find something</strong>.
+              An address is simply <strong className="text-gray-900">where to find something</strong>.
             </p>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -238,7 +238,7 @@ send_message(to=address, content=data)
 
             <div className="bg-gradient-to-r from-gray-500/10 to-gray-500/10 rounded-lg p-6 border border-gray-200">
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                We call it an <strong className="text-white">address</strong> because that's what it is:
+                We call it an <strong className="text-gray-900">address</strong> because that's what it is:
                 a way to reach an agent. Nothing more, nothing less.
               </p>
               <p className="text-gray-700">

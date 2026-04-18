@@ -18,10 +18,7 @@ export default function PermissionsPage() {
             { label: 'Permissions' },
           ]}
           icon={HiOutlineShieldCheck}
-          iconColor="text-green-400"
-          iconBgFrom="from-gray-100"
-          iconBgTo="to-teal-600/20"
-          iconBorderColor="border-gray-200"
+          iconColor="icon-ui"
           title="Permissions"
           description="Balance safety and automation with unified permission system"
           markdownPath="/permissions.md"
@@ -99,36 +96,36 @@ agent.input("Read the README")
           <h2 className="heading-2">Unified Permission Structure</h2>
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
             <p className="text-gray-700 mb-4">
-              All permissions use the same 4-field structure, stored in <code className="px-2 py-1 bg-gray-800 rounded text-gray-400">session['permissions']</code>
+              All permissions use the same 4-field structure, stored in <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">session['permissions']</code>
             </p>
             <div className="grid md:grid-cols-2 gap-4">
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <div className="flex items-center gap-2 mb-2">
-                  <HiOutlineShieldCheck className="w-5 h-5 text-green-400" />
-                  <span className="font-semibold text-green-300">allowed</span>
+                  <HiOutlineShieldCheck className="w-5 h-5 icon-ui" />
+                  <span className="font-semibold text-gray-900">allowed</span>
                 </div>
-                <p className="text-sm text-slate-300">True/False - Is this tool allowed?</p>
+                <p className="text-sm text-gray-600">True/False - Is this tool allowed?</p>
               </div>
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <div className="flex items-center gap-2 mb-2">
-                  <HiOutlineCube className="w-5 h-5 text-blue-400" />
-                  <span className="font-semibold text-blue-300">source</span>
+                  <HiOutlineCube className="w-5 h-5 icon-ui" />
+                  <span className="font-semibold text-gray-900">source</span>
                 </div>
-                <p className="text-sm text-slate-300">"safe" | "skill" | "user"</p>
+                <p className="text-sm text-gray-600">"safe" | "skill" | "user"</p>
               </div>
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <div className="flex items-center gap-2 mb-2">
-                  <HiOutlineDocumentText className="w-5 h-5 text-yellow-400" />
-                  <span className="font-semibold text-yellow-300">reason</span>
+                  <HiOutlineDocumentText className="w-5 h-5 icon-ui" />
+                  <span className="font-semibold text-gray-900">reason</span>
                 </div>
-                <p className="text-sm text-slate-300">Human-readable explanation</p>
+                <p className="text-sm text-gray-600">Human-readable explanation</p>
               </div>
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <div className="flex items-center gap-2 mb-2">
-                  <HiOutlineLockClosed className="w-5 h-5 text-red-400" />
-                  <span className="font-semibold text-red-300">expires</span>
+                  <HiOutlineLockClosed className="w-5 h-5 icon-ui" />
+                  <span className="font-semibold text-gray-900">expires</span>
                 </div>
-                <p className="text-sm text-slate-300">"never" | "turn_end" | "session_end"</p>
+                <p className="text-sm text-gray-600">"never" | "turn_end" | "session_end"</p>
               </div>
             </div>
           </div>
@@ -166,7 +163,7 @@ session['permissions'] = {
           <h2 className="heading-2">Config Files Use Bash() Pattern</h2>
 
           <p className="text-gray-700 mb-6">
-            User-facing config files (<code className="px-2 py-1 bg-gray-800 rounded text-gray-400">.co/host.yaml</code>) use a friendly <code className="px-2 py-1 bg-gray-800 rounded text-green-300">Bash()</code> pattern that automatically converts to the unified format at runtime:
+            User-facing config files (<code className="px-2 py-1 bg-gray-100 rounded text-gray-700">.co/host.yaml</code>) use a friendly <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">Bash()</code> pattern that automatically converts to the unified format at runtime:
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -199,9 +196,9 @@ session['permissions'] = {
             </div>
           </div>
 
-          <div className="bg-gray-900/20 border border-gray-200 rounded-lg p-4">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
             <p className="text-gray-700">
-              <strong className="text-gray-400">Automatic conversion:</strong> You write <code className="px-2 py-1 bg-gray-800 rounded text-green-300">Bash(git status)</code> in config, it becomes <code className="px-2 py-1 bg-gray-800 rounded text-gray-400">bash</code> with <code className="px-2 py-1 bg-gray-800 rounded text-blue-300">when:{'{command: "git status"}'}</code> at runtime.
+              <strong>Automatic conversion:</strong> You write <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">Bash(git status)</code> in config, it becomes <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">bash</code> with <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">when:{'{command: "git status"}'}</code> at runtime.
             </p>
           </div>
         </section>
@@ -210,18 +207,18 @@ session['permissions'] = {
         <section className="mb-12">
           <h2 className="heading-2">Tool-Level vs Granular Permissions</h2>
 
-          <div className="bg-yellow-900/20 border border-gray-200 rounded-lg p-6 mb-6">
-            <h3 className="font-semibold text-yellow-300 mb-3 flex items-center gap-2">
-              <HiOutlineKey className="w-5 h-5" />
+          <div className="callout mb-6">
+            <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <HiOutlineKey className="w-5 h-5 icon-ui" />
               Critical Difference
             </h3>
             <p className="text-gray-700 mb-4">
-              User approvals are <strong className="text-yellow-300">tool-level</strong>, not command-specific. This is different from config/skill permissions.
+              User approvals are <strong>tool-level</strong>, not command-specific. This is different from config/skill permissions.
             </p>
 
             <div className="space-y-4">
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-200">
-                <h4 className="font-semibold text-green-300 mb-2">Config/Skill Permissions: Granular</h4>
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <h4 className="font-semibold text-gray-900 mb-2">Config/Skill Permissions: Granular</h4>
                 <CodeWithResult
                   code={`# Can use 'when' field for parameter matching
 session['permissions']['bash'] = {
@@ -232,8 +229,8 @@ session['permissions']['bash'] = {
                 />
               </div>
 
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-200">
-                <h4 className="font-semibold text-blue-300 mb-2">User Approvals: Tool-Level</h4>
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <h4 className="font-semibold text-gray-900 mb-2">User Approvals: Tool-Level</h4>
                 <CodeWithResult
                   code={`# When user approves "bash npm install" → Stored as:
 session['permissions']['bash'] = {
@@ -249,16 +246,16 @@ session['permissions']['bash'] = {
 
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 className="font-semibold text-blue-300 mb-2">Why Tool-Level?</h3>
-              <ul className="space-y-2 text-sm text-slate-300">
+              <h3 className="font-semibold text-gray-700 mb-2">Why Tool-Level?</h3>
+              <ul className="space-y-2 text-sm text-gray-600">
                 <li>✅ Convenience for development workflows</li>
                 <li>✅ Don't re-approve every npm/pytest/git command</li>
                 <li>✅ Clear intent: "I trust bash for this session"</li>
               </ul>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 className="font-semibold text-green-300 mb-2">Security</h3>
-              <ul className="space-y-2 text-sm text-slate-300">
+              <h3 className="font-semibold text-gray-700 mb-2">Security</h3>
+              <ul className="space-y-2 text-sm text-gray-600">
                 <li>✅ Config uses granular 'when' field</li>
                 <li>✅ Skills use granular 'when' field</li>
                 <li>✅ User approvals are simpler</li>
@@ -271,7 +268,7 @@ session['permissions']['bash'] = {
         <section className="mb-12">
           <h2 className="heading-2">Snapshot/Restore - Preserving User Approvals</h2>
           <p className="text-gray-700 mb-6">
-            Skills use a <strong className="text-gray-400">snapshot → grant → restore</strong> pattern to ensure user approvals are never lost:
+            Skills use a <strong>snapshot → grant → restore</strong> pattern to ensure user approvals are never lost:
           </p>
 
           <div className="space-y-6">
@@ -282,7 +279,7 @@ session['permissions']['bash'] = {
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 border border-gray-300 flex items-center justify-center text-gray-700 font-semibold">1</div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Turn 3: User Approves</h3>
-                    <p className="text-sm text-slate-300">User approves <code className="px-2 py-1 bg-gray-800 rounded text-green-300">write</code> for session (tool-level approval)</p>
+                    <p className="text-sm text-gray-600">User approves <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">write</code> for session (tool-level approval)</p>
                   </div>
                 </div>
 
@@ -290,7 +287,7 @@ session['permissions']['bash'] = {
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-500/20 border border-gray-400 flex items-center justify-center text-gray-400 font-semibold">2</div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Turn 5: /commit Skill</h3>
-                    <div className="text-sm text-slate-300 space-y-2">
+                    <div className="text-sm text-gray-600 space-y-2">
                       <div>📸 <strong>Snapshot</strong> current permissions (write saved)</div>
                       <div>➕ <strong>Grant</strong> skill permissions (bash with when:{'{command: "git *"}'} added)</div>
                       <div>⚡ <strong>Execute</strong> tools with both user + skill permissions</div>
@@ -303,9 +300,9 @@ session['permissions']['bash'] = {
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 border border-gray-300 flex items-center justify-center text-gray-700 font-semibold">3</div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Turn 6: Continue</h3>
-                    <div className="text-sm text-slate-300 space-y-1">
-                      <div>✅ <code className="px-2 py-1 bg-gray-800 rounded text-green-300">write</code> still works (user approval preserved)</div>
-                      <div>❌ <code className="px-2 py-1 bg-gray-800 rounded text-red-300">bash</code> requires approval (skill cleared)</div>
+                    <div className="text-sm text-gray-600 space-y-1">
+                      <div>✅ <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">write</code> still works (user approval preserved)</div>
+                      <div>❌ <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">bash</code> requires approval (skill cleared)</div>
                     </div>
                   </div>
                 </div>
@@ -350,12 +347,12 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
             />
           </div>
 
-          <div className="mt-6 bg-gray-900/5 border border-gray-200 rounded-lg p-4">
-            <h3 className="font-semibold text-green-300 mb-2 flex items-center gap-2">
-              <HiOutlineShieldCheck className="w-5 h-5" />
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
+            <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+              <HiOutlineShieldCheck className="w-5 h-5 icon-ui" />
               Security Benefits
             </h3>
-            <ul className="space-y-2 text-sm text-slate-300">
+            <ul className="space-y-2 text-sm text-gray-600">
               <li>✅ User approvals never overwritten by skills</li>
               <li>✅ Skills add temporary permissions, don't replace</li>
               <li>✅ Clean lifecycle - snapshot/restore is predictable</li>
@@ -379,9 +376,9 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
 ]`}
             language="python"
           />
-          <div className="mt-4 bg-gray-900/5 border border-gray-200 rounded-lg p-4">
+          <div className="mt-4 bg-gray-50 border border-gray-200 rounded-lg p-4">
             <p className="text-gray-700">
-              <strong className="text-blue-300">No approval needed</strong> - these tools are always safe to execute.
+              <strong>No approval needed</strong> - these tools are always safe to execute.
             </p>
           </div>
 
@@ -403,22 +400,22 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
           <div className="grid md:grid-cols-3 gap-4 mb-6">
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-300/50 transition-all">
               <HiOutlineLockClosed className="w-6 h-6 text-gray-500 mb-2" />
-              <h3 className="font-semibold text-gray-400 mb-2">Turn-Based</h3>
-              <p className="text-sm text-slate-300">Permissions tied to specific turn number</p>
+              <h3 className="font-semibold text-gray-700 mb-2">Turn-Based</h3>
+              <p className="text-sm text-gray-600">Permissions tied to specific turn number</p>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
-              <HiOutlineKey className="w-6 h-6 text-blue-400 mb-2" />
-              <h3 className="font-semibold text-blue-300 mb-2">Auto-Cleanup</h3>
-              <p className="text-sm text-slate-300">Cleared when turn completes</p>
+              <HiOutlineKey className="w-6 h-6 icon-ui mb-2" />
+              <h3 className="font-semibold text-gray-700 mb-2">Auto-Cleanup</h3>
+              <p className="text-sm text-gray-600">Cleared when turn completes</p>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
-              <HiOutlineShieldCheck className="w-6 h-6 text-green-400 mb-2" />
-              <h3 className="font-semibold text-green-300 mb-2">Secure</h3>
-              <p className="text-sm text-slate-300">No permission escalation across turns</p>
+              <HiOutlineShieldCheck className="w-6 h-6 icon-ui mb-2" />
+              <h3 className="font-semibold text-gray-700 mb-2">Secure</h3>
+              <p className="text-sm text-gray-600">No permission escalation across turns</p>
             </div>
           </div>
           <div>
-            <Link href="/useful-plugins/skills" className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-500 text-white rounded-lg transition-all">
+            <Link href="/useful-plugins/skills" className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white rounded-lg transition-all">
               Learn more about Skills →
             </Link>
           </div>
@@ -443,13 +440,13 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
         <section className="mb-12">
           <h2 className="heading-2">Related</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/useful-plugins/skills" className="p-6 bg-gray-50 border border-gray-700 hover:border-gray-400/50 rounded-lg transition-all group">
+            <Link href="/useful-plugins/skills" className="p-6 bg-gray-50 border border-gray-200 hover:border-gray-400 rounded-lg transition-all group">
               <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">Skills Plugin</h3>
-              <p className="text-sm text-slate-300">Pre-packaged workflows with automatic permissions</p>
+              <p className="text-sm text-gray-600">Pre-packaged workflows with automatic permissions</p>
             </Link>
-            <Link href="/concepts/skills" className="p-6 bg-gray-50 border border-gray-700 hover:border-gray-400 rounded-lg transition-all group">
-              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-green-300 transition-colors">Skills Concepts</h3>
-              <p className="text-sm text-slate-300">Complete skills documentation</p>
+            <Link href="/concepts/skills" className="p-6 bg-gray-50 border border-gray-200 hover:border-gray-400 rounded-lg transition-all group">
+              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">Skills Concepts</h3>
+              <p className="text-sm text-gray-600">Complete skills documentation</p>
             </Link>
           </div>
         </section>

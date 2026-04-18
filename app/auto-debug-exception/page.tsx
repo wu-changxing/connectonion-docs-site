@@ -230,7 +230,7 @@ result = calculate_metrics([])  # 💥 Multiple issues!`}
               />
 
               <div className="mt-6 bg-gray-900/70 border border-red-200 rounded-lg p-6">
-                <p className="font-semibold text-red-300 mb-4">AI Runtime Debug Analysis:</p>
+                <p className="font-semibold text-gray-700 mb-4">AI Runtime Debug Analysis:</p>
                 <div className="space-y-4 text-sm">
                   <div>
                     <p className="font-semibold text-gray-500 mb-2">What I found:</p>
@@ -292,7 +292,7 @@ theme = response['data']['user']['settings']['theme']  # 💥 KeyError!`}
               />
 
               <div className="mt-6 bg-gray-900/70 border border-red-200 rounded-lg p-6">
-                <p className="font-semibold text-red-300 mb-4">AI Runtime Debug Analysis:</p>
+                <p className="font-semibold text-gray-700 mb-4">AI Runtime Debug Analysis:</p>
                 <div className="space-y-4 text-sm">
                   <div>
                     <p className="font-semibold text-gray-500 mb-2">What I found:</p>
@@ -348,7 +348,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
               />
 
               <div className="mt-6 bg-gray-500/10 border border-gray-200 rounded-lg p-6">
-                <p className="font-semibold text-blue-300 mb-2">💡 Pro Tip:</p>
+                <p className="font-semibold text-gray-700 mb-2">💡 Pro Tip:</p>
                 <p className="text-gray-700 text-sm">
                   Use <code className="bg-gray-800 px-2 py-0.5 rounded">assert</code> statements to catch logic errors and wrong AI outputs.
                   When an assertion fails, auto_debug_exception kicks in with full runtime access to help you understand what went wrong.

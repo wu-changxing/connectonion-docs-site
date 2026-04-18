@@ -233,7 +233,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
 
           <div className="bg-gradient-to-r from-gray-500/5 to-gray-500/5 border border-gray-200 rounded-xl p-8 mb-12">
             <p className="mb-6 text-lg">Every agent automatically gets an email address:</p>
-            <div className="bg-gray-900 rounded-lg p-6 font-mono text-gray-500 text-xl text-center mb-8">
+            <div className="bg-gray-900 rounded-lg p-6 font-mono text-gray-300 text-xl text-center mb-8">
               0x1234abcd@mail.openonion.ai
             </div>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
@@ -327,7 +327,7 @@ Email activated! Your agent can now send emails.</span>
           <div className="bg-gradient-to-r from-gray-500/10 to-gray-500/10 rounded-xl p-6 border border-gray-200 mt-10">
             <h3 className="text-lg font-semibold mb-4">Want a custom name?</h3>
             <p className="text-gray-700 mb-4">Upgrade to a custom email for $0.99:</p>
-            <div className="bg-gray-900 rounded-lg p-4 font-mono text-gray-500 space-y-1">
+            <div className="bg-gray-900 rounded-lg p-4 font-mono text-gray-300 space-y-1">
               <div>mybot@mail.openonion.ai</div>
               <div>ai-assistant@mail.openonion.ai</div>
               <div>support@mail.openonion.ai</div>

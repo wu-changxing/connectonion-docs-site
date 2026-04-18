@@ -126,7 +126,7 @@ export default function PromptsExamplesPage() {
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Beginner</h3>
             <p className="text-green-800 text-sm">Basic personality and conversation patterns</p>
-            <p className="text-green-300 text-xs mt-2">Examples 1-2</p>
+            <p className="text-gray-900 text-xs mt-2">Examples 1-2</p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-4 bg-yellow-600 rounded-full flex items-center justify-center">

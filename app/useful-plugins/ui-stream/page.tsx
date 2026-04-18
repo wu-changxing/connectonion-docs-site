@@ -67,7 +67,7 @@ host(agent, port=8000)  # WebSocket clients receive completion events`}
         <section className="mb-20">
           <h2 className="heading-2">Other streaming events</h2>
           <p className="text-gray-700 mb-6">
-            Individual events are emitted directly from their sources — <code className="bg-gray-800 px-2 py-1 rounded">ui_stream</code> only adds the final summary:
+            Individual events are emitted directly from their sources — <code className="bg-gray-100 px-2 py-1 rounded">ui_stream</code> only adds the final summary:
           </p>
           <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
             <table className="w-full text-sm">
@@ -102,7 +102,7 @@ host(agent, port=8000)  # WebSocket clients receive completion events`}
               </tbody>
             </table>
           </div>
-          <p className="text-gray-500 text-sm mt-4">Does nothing when agent runs locally without a WebSocket connection (<code className="bg-gray-800 px-1 rounded">if not agent.io: return</code>).</p>
+          <p className="text-gray-500 text-sm mt-4">Does nothing when agent runs locally without a WebSocket connection (<code className="bg-gray-100 px-1 rounded">if not agent.io: return</code>).</p>
         </section>
 
         {/* Events */}
@@ -111,7 +111,7 @@ host(agent, port=8000)  # WebSocket clients receive completion events`}
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left py-2 text-gray-700">Event</th>
                   <th className="text-left py-2 text-gray-700">Handler</th>
                   <th className="text-left py-2 text-gray-700">Purpose</th>

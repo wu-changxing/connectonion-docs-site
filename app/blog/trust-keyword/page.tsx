@@ -174,7 +174,7 @@ Sometimes the best technical decisions are the least technical ones.`
   return (
     <div className="w-full">
       <main className="p-4 lg:p-8 lg:px-16 pb-20">
-          <article className="prose prose-invert max-w-none">
+          <article className="prose prose-gray max-w-none">
             <div className="mb-8 flex justify-between items-start">
               <div>
                 <h1 className="heading-1">

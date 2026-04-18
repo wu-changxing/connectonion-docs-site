@@ -17,10 +17,6 @@ export default function MemoryPage() {
             { label: 'Memory' }
           ]}
           icon={HiOutlineCpuChip}
-          iconColor="text-amber-400"
-          iconBgFrom="from-amber-600/20"
-          iconBgTo="to-orange-600/20"
-          iconBorderColor="border-amber-500/30"
           title="Memory System"
           description="Give your agents persistent memory using markdown-based storage."
           markdownPath="/memory.md"
@@ -92,13 +88,13 @@ agent.input("What do I know about Alice?")`}
             </div>
           </div>
 
-          <div className="bg-gray-900/5 border border-gray-200 rounded-xl p-6">
-            <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-blue-400">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+            <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-gray-900">
               <HiOutlineFolderOpen className="w-5 h-5" />
               Storage Strategy
             </h3>
             <p className="text-gray-700">
-              Memories start in a single <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">memory.md</code> file. When the file exceeds 3000 lines, it automatically splits into a directory structure with separate <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.md</code> files per memory key.
+              Memories start in a single <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">memory.md</code> file. When the file exceeds 3000 lines, it automatically splits into a directory structure with separate <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.md</code> files per memory key.
             </p>
           </div>
         </section>
@@ -326,19 +322,19 @@ agent.input("What did I learn about Python's history?")`}
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-2xl font-semibold mb-4">Single File (Default)</h3>
-              <p className="text-gray-700 mb-4">Memories start in a single <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">memory.md</code> file using section headers:</p>
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-sm text-gray-700">
-                <div className="text-gray-500 font-bold">## alice-notes</div>
+              <p className="text-gray-700 mb-4">Memories start in a single <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">memory.md</code> file using section headers:</p>
+              <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-sm text-gray-300">
+                <div className="text-gray-400 font-bold">## alice-notes</div>
                 <div className="mt-2">Alice prefers email communication<br/>Works at TechCorp</div>
-                <div className="text-gray-500 font-bold mt-4">## bob-notes</div>
+                <div className="text-gray-400 font-bold mt-4">## bob-notes</div>
                 <div className="mt-2">Bob from Marketing<br/>Prefers phone calls</div>
               </div>
             </div>
 
             <div>
               <h3 className="text-2xl font-semibold mb-4">Auto-Split to Directory</h3>
-              <p className="text-gray-700 mb-4">When <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">memory.md</code> exceeds 3000 lines, it automatically migrates:</p>
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-sm text-gray-700">
+              <p className="text-gray-700 mb-4">When <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">memory.md</code> exceeds 3000 lines, it automatically migrates:</p>
+              <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-sm text-gray-300">
                 <div>memory/</div>
                 <div className="pl-4">├── alice-notes.md</div>
                 <div className="pl-4">├── bob-notes.md</div>

@@ -212,17 +212,12 @@ agent.input("What's the weather in NYC?")`}
         </div>
       </section>
 
-      {/* Philosophy */}
+      {/* Stats */}
       <section className="py-16 md:py-24 px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="text-2xl md:text-3xl font-bold mb-8 leading-relaxed text-gray-800">
-            "<span className="text-green-700">Keep simple things simple</span>,
-            <span className="text-gray-900"> make complicated things possible</span>"
-          </div>
-
+        <div className="max-w-3xl mx-auto">
           <div className="grid md:grid-cols-3 gap-5 text-left">
             <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
-              <div className="text-2xl font-bold text-green-700 mb-2">8 lines</div>
+              <div className="text-2xl font-bold text-gray-900 mb-2">8 lines</div>
               <p className="text-sm text-gray-600">For basic agents. No boilerplate.</p>
             </div>
             <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">

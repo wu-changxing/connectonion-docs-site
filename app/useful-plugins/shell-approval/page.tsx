@@ -35,7 +35,7 @@ export default function ShellApprovalPage() {
             Before executing shell commands, this plugin:
           </p>
           <div className="space-y-4">
-            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">Auto-approves safe commands</h3>
@@ -80,7 +80,7 @@ Execute this command?
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-400"><code className="bg-gray-800 px-2 py-1 rounded">co copy shell_approval</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-400"><code className="bg-gray-100 px-2 py-1 rounded">co copy shell_approval</code></Link> to get an editable copy.
           </p>
         </section>
 
@@ -137,21 +137,21 @@ Execute this command?
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
               <span className="text-green-400 font-mono">1.</span>
               <div>
-                <strong className="text-white">Yes, execute</strong>
+                <strong className="text-gray-900">Yes, execute</strong>
                 <p className="text-sm text-gray-700">Execute this specific command</p>
               </div>
             </div>
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
               <span className="text-green-400 font-mono">2.</span>
               <div>
-                <strong className="text-white">Auto approve '{'{cmd}'}'</strong>
+                <strong className="text-gray-900">Auto approve '{'{cmd}'}'</strong>
                 <p className="text-sm text-gray-700">Auto-approve all commands starting with this (e.g., all <code>rm</code> commands for this session)</p>
               </div>
             </div>
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
               <span className="text-green-400 font-mono">3.</span>
               <div>
-                <strong className="text-white">No, tell agent what I want</strong>
+                <strong className="text-gray-900">No, tell agent what I want</strong>
                 <p className="text-sm text-gray-700">Reject and provide feedback to the agent</p>
               </div>
             </div>
@@ -203,7 +203,7 @@ def _check_approval(agent):
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th scope="col" className="text-left py-2 text-gray-700">Event</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Handler</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Purpose</th>
@@ -224,7 +224,7 @@ def _check_approval(agent):
         <section className="mb-12">
           <h2 className="heading-2">Source</h2>
           <p className="text-gray-700">
-            <code className="bg-gray-800 px-2 py-1 rounded">connectonion/useful_plugins/shell_approval.py</code>
+            <code className="bg-gray-100 px-2 py-1 rounded">connectonion/useful_plugins/shell_approval.py</code>
           </p>
           <CodeWithResult
             code={`# The plugin is just a list with one event handler

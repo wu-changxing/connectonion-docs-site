@@ -184,7 +184,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
         {/* Quick Start Card */}
         <div className="mb-12 p-6 bg-gradient-to-r from-gray-50 to-gray-50 border border-gray-200 rounded-lg">
           <div className="flex items-center gap-3 mb-4">
-            <HiOutlineCamera className="w-6 h-6 text-blue-400" />
+            <HiOutlineCamera className="w-6 h-6 icon-ui" />
             <h2 className="text-xl font-semibold text-gray-900">Quick Start</h2>
           </div>
           <p className="text-gray-700 mb-4">
@@ -221,7 +221,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
           </h2>
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mb-6">
-            <div className="font-mono text-lg text-blue-300 mb-4">
+            <div className="font-mono text-lg text-gray-700 mb-4">
               co -b "screenshot <span className="text-yellow-300">[URL]</span> <span className="text-gray-500">[save to PATH]</span> <span className="text-gray-500">[size SIZE]</span>"
             </div>
             <div className="space-y-2 text-sm">
@@ -269,7 +269,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             {/* Save Locations */}
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <HiOutlineDocumentText className="w-5 h-5 text-blue-400" />
+                <HiOutlineDocumentText className="w-5 h-5 icon-ui" />
                 Save to Specific Path
               </h3>
               <CommandBlock 
@@ -319,7 +319,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
           <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
             <table className="w-full">
               <thead>
-                <tr className="bg-gray-800 border-b border-gray-700">
+                <tr className="bg-gray-100 border-b border-gray-200">
                   <th className="text-left px-4 py-3 text-gray-700 font-medium">Preset</th>
                   <th className="text-left px-4 py-3 text-gray-700 font-medium">Dimensions</th>
                   <th className="text-left px-4 py-3 text-gray-700 font-medium">Device</th>
@@ -328,25 +328,25 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-blue-300">iphone</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">iphone</td>
                   <td className="px-4 py-3 text-gray-700">390×844</td>
                   <td className="px-4 py-3 text-gray-700">iPhone 14/15</td>
                   <td className="px-4 py-3"><HiOutlineDevicePhoneMobile className="w-4 h-4 text-gray-700" /></td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-blue-300">android</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">android</td>
                   <td className="px-4 py-3 text-gray-700">360×800</td>
                   <td className="px-4 py-3 text-gray-700">Common Android</td>
                   <td className="px-4 py-3"><HiOutlineDevicePhoneMobile className="w-4 h-4 text-gray-700" /></td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-blue-300">ipad</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">ipad</td>
                   <td className="px-4 py-3 text-gray-700">768×1024</td>
                   <td className="px-4 py-3 text-gray-700">iPad</td>
                   <td className="px-4 py-3"><HiOutlineDeviceTablet className="w-4 h-4 text-gray-700" /></td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-blue-300">desktop</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">desktop</td>
                   <td className="px-4 py-3 text-gray-700">1920×1080</td>
                   <td className="px-4 py-3 text-gray-700">Full HD Desktop</td>
                   <td className="px-4 py-3"><HiOutlineComputerDesktop className="w-4 h-4 text-gray-700" /></td>
@@ -468,24 +468,24 @@ done`}
             
             <div className="space-y-3">
               <div className="flex items-center gap-4 font-mono text-sm">
-                <span className="text-blue-300">localhost</span>
+                <span className="text-gray-700">localhost</span>
                 <span className="text-gray-500">→</span>
-                <span className="text-green-300">http://localhost</span>
+                <span className="text-gray-900">http://localhost</span>
               </div>
               <div className="flex items-center gap-4 font-mono text-sm">
-                <span className="text-blue-300">localhost:3000</span>
+                <span className="text-gray-700">localhost:3000</span>
                 <span className="text-gray-500">→</span>
-                <span className="text-green-300">http://localhost:3000</span>
+                <span className="text-gray-900">http://localhost:3000</span>
               </div>
               <div className="flex items-center gap-4 font-mono text-sm">
-                <span className="text-blue-300">example.com</span>
+                <span className="text-gray-700">example.com</span>
                 <span className="text-gray-500">→</span>
-                <span className="text-green-300">https://example.com</span>
+                <span className="text-gray-900">https://example.com</span>
               </div>
               <div className="flex items-center gap-4 font-mono text-sm">
-                <span className="text-blue-300">http://example.com</span>
+                <span className="text-gray-700">http://example.com</span>
                 <span className="text-gray-500">→</span>
-                <span className="text-green-300">http://example.com</span>
+                <span className="text-gray-900">http://example.com</span>
                 <span className="text-gray-700 text-xs ml-2">(unchanged)</span>
               </div>
             </div>

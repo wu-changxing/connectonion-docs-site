@@ -38,10 +38,10 @@ interface PageHeaderProps {
 export function PageHeader({
   breadcrumbs,
   icon: Icon,
-  iconColor = 'text-green-600',
-  iconBgFrom = 'from-gray-50',
-  iconBgTo = 'to-gray-100',
-  iconBorderColor = 'border-gray-200',
+  iconColor = 'icon-ui',
+  iconBgFrom,
+  iconBgTo,
+  iconBorderColor,
   title,
   description,
   badge,
@@ -56,7 +56,7 @@ export function PageHeader({
           <span key={index} className="flex items-center gap-2">
             {index > 0 && <HiOutlineArrowRight className="w-3.5 h-3.5" />}
             {crumb.href ? (
-              <Link href={crumb.href} className="hover:text-green-700 transition-colors">
+              <Link href={crumb.href} className="hover:text-gray-700 transition-colors">
                 {crumb.label}
               </Link>
             ) : (
@@ -70,7 +70,7 @@ export function PageHeader({
       <div className="mb-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className={`p-3 bg-gradient-to-br ${iconBgFrom} ${iconBgTo} rounded-xl border ${iconBorderColor}`}>
+            <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
               <Icon className={`w-8 h-8 ${iconColor}`} />
             </div>
             <div>

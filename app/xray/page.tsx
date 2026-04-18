@@ -38,7 +38,7 @@ export default function XrayPage() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs md:text-sm">
               <div className="flex flex-col items-center gap-2">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 border border-gray-300 rounded-lg flex items-center justify-center">
-                  <HiOutlineCodeBracket className="text-green-400 w-5 h-5 md:w-6 md:h-6" />
+                  <HiOutlineCodeBracket className="icon-ui w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-gray-700">Your Function</span>
               </div>
@@ -51,15 +51,15 @@ export default function XrayPage() {
               </div>
               <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-900/50 border border-blue-500 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-50 border border-blue-500 rounded-lg flex items-center justify-center">
                   <HiOutlineCpuChip className="text-blue-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-gray-700">Agent Context</span>
               </div>
               <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-900/50 border border-yellow-500 rounded-lg flex items-center justify-center">
-                  <HiOutlineEye className="text-yellow-400 w-5 h-5 md:w-6 md:h-6" />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center">
+                  <HiOutlineEye className="icon-ui w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-gray-700">Full Visibility</span>
               </div>
@@ -78,7 +78,7 @@ export default function XrayPage() {
             {/* Basic Usage */}
             <div>
               <h3 className="heading-3">
-                <HiOutlineEye className="w-6 h-6 text-green-400" />
+                <HiOutlineEye className="w-6 h-6 icon-ui" />
                 Basic Usage
               </h3>
               <p className="text-gray-700 mb-6">
@@ -204,8 +204,8 @@ positive`}
                 <div className="text-gray-700 text-xs mt-1">Agent Instance</div>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
-                <HiOutlineChatBubbleOvalLeft className="w-8 h-8 text-green-400 mx-auto mb-2" />
-                <div className="font-mono text-green-300">xray.task</div>
+                <HiOutlineChatBubbleOvalLeft className="w-8 h-8 icon-ui mx-auto mb-2" />
+                <div className="font-mono text-gray-700">xray.task</div>
                 <div className="text-gray-700 text-xs mt-1">User Request</div>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
@@ -219,10 +219,10 @@ positive`}
           <div className="grid md:grid-cols-2 gap-6">
             {[
               { name: 'xray.agent', desc: 'The Agent instance calling this tool', icon: HiOutlineCpuChip, color: 'text-blue-400' },
-              { name: 'xray.task', desc: 'Original request from user', icon: HiOutlineChatBubbleOvalLeft, color: 'text-green-400' },
+              { name: 'xray.task', desc: 'Original request from user', icon: HiOutlineChatBubbleOvalLeft, color: 'icon-ui' },
               { name: 'xray.messages', desc: 'Full conversation history', icon: HiOutlineClock, color: 'text-gray-500' },
-              { name: 'xray.iteration', desc: 'Which round of tool calls (1-10)', icon: HiOutlineArrowPath, color: 'text-yellow-400' },
-              { name: 'xray.previous_tools', desc: 'Tools called before this one', icon: HiOutlineSquare3Stack3D, color: 'text-cyan-400' },
+              { name: 'xray.iteration', desc: 'Which round of tool calls (1-10)', icon: HiOutlineArrowPath, color: 'icon-ui' },
+              { name: 'xray.previous_tools', desc: 'Tools called before this one', icon: HiOutlineSquare3Stack3D, color: 'icon-ui' },
               { name: 'xray.trace()', desc: 'Visual execution trace', icon: HiOutlineChartBar, color: 'text-gray-500' }
             ].map((item) => {
               const IconComponent = item.icon;
@@ -326,9 +326,9 @@ Order ABC123 processed`}
           <div className="space-y-4">
             {[
               { icon: <FaRocket className="text-blue-400" />, tip: 'Development Only', detail: 'Remove @xray in production for best performance' },
-              { icon: <FaSearch className="text-green-400" />, tip: 'Combine with IDE', detail: 'Set breakpoints for interactive debugging' },
+              { icon: <FaSearch className="icon-ui" />, tip: 'Combine with IDE', detail: 'Set breakpoints for interactive debugging' },
               { icon: <FaChartBar className="text-gray-500" />, tip: 'Use trace()', detail: 'Call xray.trace() after runs to see full flow' },
-              { icon: <FaShieldAlt className="text-yellow-400" />, tip: 'Check context', detail: 'Always verify xray.agent exists before using' }
+              { icon: <FaShieldAlt className="icon-ui" />, tip: 'Check context', detail: 'Always verify xray.agent exists before using' }
             ].map((tip, i) => (
               <motion.div
                 key={i}

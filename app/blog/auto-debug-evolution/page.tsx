@@ -357,7 +357,7 @@ agent.input("Send email to John")
             language="python"
           />
           <p className="text-gray-700 mt-4">
-            We needed a way to <strong className="text-white">see inside agent execution</strong>, understand decisions, and test "what if" scenarios. The question was: <strong className="text-white">how?</strong>
+            We needed a way to <strong className="text-gray-900">see inside agent execution</strong>, understand decisions, and test "what if" scenarios. The question was: <strong className="text-gray-900">how?</strong>
           </p>
         </section>
 
@@ -426,7 +426,7 @@ agent.input("Send email to John")
               The Breakthrough Question
             </h2>
             <p className="text-gray-700 text-lg">
-              "What would <strong className="text-white">Unix creators</strong> or <strong className="text-white">Steve Jobs</strong> design?"
+              "What would <strong className="text-gray-900">Unix creators</strong> or <strong className="text-gray-900">Steve Jobs</strong> design?"
             </p>
           </div>
           <p className="text-gray-700 mb-4">
@@ -465,12 +465,12 @@ agent.input("Send email to John")
           <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
             <div className="text-green-400 font-semibold mb-4">Why This Works:</div>
             <ul className="text-gray-700 space-y-2 text-sm">
-              <li>✅ <strong className="text-white">Agent-first by default</strong> - Press Enter to continue (simplest action)</li>
-              <li>✅ <strong className="text-white">Progressive disclosure</strong> - See options, discover gradually</li>
-              <li>✅ <strong className="text-white">Multiple input methods</strong> - Arrow keys (beginner) OR shortcuts (expert)</li>
-              <li>✅ <strong className="text-white">Always visible help</strong> - Tips on every screen, zero memorization</li>
-              <li>✅ <strong className="text-white">Universal commands</strong> - <code className="bg-gray-800 px-1 rounded">/menu</code> and <code className="bg-gray-800 px-1 rounded">/continue</code> work everywhere</li>
-              <li>✅ <strong className="text-white">No dead ends</strong> - Always a way back or forward</li>
+              <li>✅ <strong className="text-gray-900">Agent-first by default</strong> - Press Enter to continue (simplest action)</li>
+              <li>✅ <strong className="text-gray-900">Progressive disclosure</strong> - See options, discover gradually</li>
+              <li>✅ <strong className="text-gray-900">Multiple input methods</strong> - Arrow keys (beginner) OR shortcuts (expert)</li>
+              <li>✅ <strong className="text-gray-900">Always visible help</strong> - Tips on every screen, zero memorization</li>
+              <li>✅ <strong className="text-gray-900">Universal commands</strong> - <code className="bg-gray-100 px-1 rounded">/menu</code> and <code className="bg-gray-100 px-1 rounded">/continue</code> work everywhere</li>
+              <li>✅ <strong className="text-gray-900">No dead ends</strong> - Always a way back or forward</li>
             </ul>
           </div>
         </section>
@@ -520,7 +520,7 @@ agent.input("Send email to John")
             <h2 className="heading-2">Try It Yourself</h2>
             <CodeWithResult code={codeUsage} language="python" className="mb-4" />
             <p className="text-gray-700 text-sm">
-              Press Enter to continue, or explore the menu. <strong className="text-white">No manual required.</strong>
+              Press Enter to continue, or explore the menu. <strong className="text-gray-900">No manual required.</strong>
             </p>
           </div>
         </section>

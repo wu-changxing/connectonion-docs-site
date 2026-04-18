@@ -95,7 +95,7 @@ The best tool is one you forget you're using. That's what we built.`
   return (
     <div className="w-full">
       <main className="p-4 lg:p-8 lg:px-16 pb-20">
-        <article className="prose prose-invert max-w-none">
+        <article className="prose prose-gray max-w-none">
           <div className="mb-8 flex justify-between items-start">
             <div>
               <h1 className="heading-1">
@@ -161,7 +161,7 @@ co init             # Uses current directory`}</code>
             </div>
 
             <p>
-              Why both? Because <strong className="text-white">context matters</strong>:
+              Why both? Because <strong className="text-gray-900">context matters</strong>:
             </p>
 
             <ul className="list-disc list-inside space-y-2 ml-4 text-gray-700">
@@ -179,9 +179,9 @@ co init             # Uses current directory`}</code>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
               <p className="text-gray-400 font-semibold mb-4">Our setup asks only what matters RIGHT NOW:</p>
               <ol className="space-y-3 text-gray-700">
-                <li><span className="text-gray-500 font-bold">1.</span> <strong className="text-white">Enable AI?</strong> - Determines available templates</li>
-                <li><span className="text-gray-500 font-bold">2.</span> <strong className="text-white">API key</strong> - Only if AI enabled, with auto-detection</li>
-                <li><span className="text-gray-500 font-bold">3.</span> <strong className="text-white">Template</strong> - With previews so users know what they get</li>
+                <li><span className="text-gray-500 font-bold">1.</span> <strong className="text-gray-900">Enable AI?</strong> - Determines available templates</li>
+                <li><span className="text-gray-500 font-bold">2.</span> <strong className="text-gray-900">API key</strong> - Only if AI enabled, with auto-detection</li>
+                <li><span className="text-gray-500 font-bold">3.</span> <strong className="text-gray-900">Template</strong> - With previews so users know what they get</li>
               </ol>
               <p className="text-gray-700 text-sm mt-4 italic">That's it. Three decisions max.</p>
             </div>
@@ -253,7 +253,7 @@ elif api_key.startswith('gsk_'):
             <h2 className="heading-2">Beautiful by Default</h2>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-6">
-              <p className="text-gray-700 mb-4">We use colors and emojis for <strong className="text-white">clarity</strong>, not decoration:</p>
+              <p className="text-gray-700 mb-4">We use colors and emojis for <strong className="text-gray-900">clarity</strong>, not decoration:</p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
                   <span className="text-green-400 text-xl">✅</span>
@@ -307,8 +307,8 @@ elif api_key.startswith('gsk_'):
             <div className="bg-gradient-to-r from-gray-500/10 to-gray-500/10 rounded-lg p-6 border border-gray-200">
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 Good CLI UX isn't about asking fewer questions - it's about asking the
-                <strong className="text-white"> RIGHT </strong> questions at the
-                <strong className="text-white"> RIGHT </strong> time. Everything else should be
+                <strong className="text-gray-900"> RIGHT </strong> questions at the
+                <strong className="text-gray-900"> RIGHT </strong> time. Everything else should be
                 invisible, automatic, or optional.
               </p>
               <p className="text-gray-700">

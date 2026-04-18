@@ -235,13 +235,9 @@ export default function RoadmapPage() {
             { label: 'Roadmap' }
           ]}
           icon={HiOutlineRocketLaunch}
-          iconColor="text-gray-500"
-          iconBgFrom="from-gray-700/20"
-          iconBgTo="to-pink-600/20"
-          iconBorderColor="border-gray-400/30"
           title="Roadmap"
           description="Track our progress from v0.0.1 to v1.0 and beyond."
-          badge={<span className="px-2 py-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs font-semibold rounded-full">v0.6.6</span>}
+          badge={<span className="px-2 py-1 bg-gray-900 text-white text-xs font-semibold rounded-full">v0.6.6</span>}
           markdownPath="/roadmap.md"
           markdownFilename="roadmap.md"
         />
@@ -252,8 +248,8 @@ export default function RoadmapPage() {
             onClick={() => setSelectedCategory(null)}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
               !selectedCategory 
-                ? 'bg-gray-800 text-white' 
-                : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
+                ? 'bg-gray-900 text-white' 
+                : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
             }`}
           >
             All
@@ -266,8 +262,8 @@ export default function RoadmapPage() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                   selectedCategory === category.id
-                    ? 'bg-gray-800 text-white'
-                    : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
+                    ? 'bg-gray-900 text-white'
+                    : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -355,7 +351,7 @@ export default function RoadmapPage() {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-8 p-6 md:p-8 bg-gray-800/30 rounded-xl border border-gray-700 text-center">
+        <div className="mt-8 p-6 md:p-8 bg-gray-50 border border-gray-200 rounded-xl text-center">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Want to Shape Our Roadmap?</h2>
           <p className="text-gray-700 text-sm mb-6 max-w-xl mx-auto">
             We're building ConnectOnion with our community. Your feedback helps prioritize features.

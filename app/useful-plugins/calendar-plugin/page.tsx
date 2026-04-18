@@ -35,16 +35,16 @@ export default function CalendarPluginPage() {
             Before any calendar modification, this plugin shows a preview and asks for confirmation:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlinePlus className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">Create Events</h3>
               </div>
               <p className="text-sm text-gray-700">Shows title, time, attendees (who will receive invites!)</p>
             </div>
-            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlinePencil className="w-5 h-5 text-blue-400" />
+                <HiOutlinePencil className="w-5 h-5 icon-ui" />
                 <h3 className="font-semibold">Update Events</h3>
               </div>
               <p className="text-sm text-gray-700">Shows what's changing (time, attendees, etc.)</p>
@@ -56,7 +56,7 @@ export default function CalendarPluginPage() {
               </div>
               <p className="text-sm text-gray-700">Warns that deletion is permanent</p>
             </div>
-            <div className="p-4 bg-gray-900/20 border border-gray-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineCalendar className="w-5 h-5 text-gray-500" />
                 <h3 className="font-semibold">Create Meetings</h3>
@@ -92,7 +92,7 @@ Proceed with create event?
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-400"><code className="bg-gray-800 px-2 py-1 rounded">co copy calendar_plugin</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-400"><code className="bg-gray-100 px-2 py-1 rounded">co copy calendar_plugin</code></Link> to get an editable copy.
           </p>
         </section>
 
@@ -105,24 +105,24 @@ Proceed with create event?
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th scope="col" className="text-left py-2 text-gray-700">Method</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Action</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Preview Shows</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200/50">
                   <td className="py-2"><code>create_event</code></td>
                   <td className="py-2 text-gray-700">Create calendar event</td>
                   <td className="py-2 text-gray-700">Title, time, attendees, location</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200/50">
                   <td className="py-2"><code>create_meet</code></td>
                   <td className="py-2 text-gray-700">Create Google Meet</td>
                   <td className="py-2 text-gray-700">Title, time, attendees</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200/50">
                   <td className="py-2"><code>update_event</code></td>
                   <td className="py-2 text-gray-700">Modify existing event</td>
                   <td className="py-2 text-gray-700">Event ID, changed fields</td>
@@ -147,21 +147,21 @@ Proceed with create event?
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
               <HiOutlineCheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <div>
-                <strong className="text-white">Yes, {'{action}'}</strong>
+                <strong className="text-gray-900">Yes, {'{action}'}</strong>
                 <p className="text-sm text-gray-700">Proceed with this specific action</p>
               </div>
             </div>
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
               <HiOutlineCheckCircle className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
               <div>
-                <strong className="text-white">Auto approve all calendar actions this session</strong>
+                <strong className="text-gray-900">Auto approve all calendar actions this session</strong>
                 <p className="text-sm text-gray-700">Skip approval for all calendar operations</p>
               </div>
             </div>
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
               <HiOutlineCheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
               <div>
-                <strong className="text-white">No, tell agent what I want</strong>
+                <strong className="text-gray-900">No, tell agent what I want</strong>
                 <p className="text-sm text-gray-700">Reject and provide alternative instructions</p>
               </div>
             </div>
@@ -217,7 +217,7 @@ def check_calendar_approval(agent):
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th scope="col" className="text-left py-2 text-gray-700">Event</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Handler</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Purpose</th>
@@ -239,11 +239,11 @@ def check_calendar_approval(agent):
           <h2 className="heading-2">Related</h2>
           <div className="flex flex-wrap gap-4">
             <Link href="/google-integration" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 transition-colors">
-              <strong className="text-white">Google Calendar Tool</strong>
+              <strong className="text-gray-900">Google Calendar Tool</strong>
               <p className="text-sm text-gray-700">Learn about the GoogleCalendar tool</p>
             </Link>
             <Link href="/useful-plugins/gmail-plugin" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 transition-colors">
-              <strong className="text-white">Gmail Plugin</strong>
+              <strong className="text-gray-900">Gmail Plugin</strong>
               <p className="text-sm text-gray-700">Similar approval flow for emails</p>
             </Link>
           </div>
@@ -253,7 +253,7 @@ def check_calendar_approval(agent):
         <section className="mb-12">
           <h2 className="heading-2">Source</h2>
           <p className="text-gray-700">
-            <code className="bg-gray-800 px-2 py-1 rounded">connectonion/useful_plugins/calendar_plugin.py</code>
+            <code className="bg-gray-100 px-2 py-1 rounded">connectonion/useful_plugins/calendar_plugin.py</code>
           </p>
           <CodeWithResult
             code={`# Bundle as plugin

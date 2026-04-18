@@ -54,7 +54,7 @@ export default function GoogleIntegrationPage() {
               <ol className="list-decimal list-inside space-y-2 text-gray-700 ml-2">
                 <li>Opens browser to Google OAuth consent screen</li>
                 <li>You authorize Gmail Send + Calendar Read permissions</li>
-                <li>Credentials saved to <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> (both local and global <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code>)</li>
+                <li>Credentials saved to <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> (both local and global <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code>)</li>
                 <li>Ready to use Gmail and Calendar tools immediately</li>
               </ol>
             </div>
@@ -72,11 +72,11 @@ export default function GoogleIntegrationPage() {
         <section className="mb-16">
           <h2 className="heading-2">Prerequisites</h2>
           <p className="text-gray-700 mb-6">
-            Before running <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth google</code>, you must authenticate with OpenOnion:
+            Before running <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth google</code>, you must authenticate with OpenOnion:
           </p>
           <CommandBlock commands={['co auth']} />
           <p className="text-gray-700 mt-4">
-            This creates your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code> which is required for Google OAuth to work.
+            This creates your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code> which is required for Google OAuth to work.
           </p>
         </section>
 
@@ -84,7 +84,7 @@ export default function GoogleIntegrationPage() {
         <section className="mb-16">
           <h2 className="heading-2">What Gets Saved</h2>
           <p className="text-gray-700 mb-6">
-            After successful authentication, your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> file contains:
+            After successful authentication, your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> file contains:
           </p>
 
           <CodeWithResult 
@@ -106,11 +106,11 @@ GOOGLE_EMAIL=your.email@gmail.com`}
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
-                <span>Credentials are saved to both local <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> and <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></span>
+                <span>Credentials are saved to both local <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> and <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
-                <span>File permissions set to <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">0600</code> (read/write for owner only) on Unix systems</span>
+                <span>File permissions set to <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">0600</code> (read/write for owner only) on Unix systems</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
@@ -128,7 +128,7 @@ GOOGLE_EMAIL=your.email@gmail.com`}
         <section className="mb-16">
           <h2 className="heading-2">Permissions Requested</h2>
           <p className="text-gray-700 mb-6">
-            When you run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth google</code>, we request these Google scopes:
+            When you run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth google</code>, we request these Google scopes:
           </p>
 
           <div className="overflow-x-auto mb-8">
@@ -144,7 +144,7 @@ GOOGLE_EMAIL=your.email@gmail.com`}
                 <tr className="border-b border-gray-800">
                   <td className="py-3 px-4 font-mono text-sm text-gray-500">gmail.send</td>
                   <td className="py-3 px-4">Send emails on your behalf</td>
-                  <td className="py-3 px-4">Use <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">send_email()</code> tool to send emails</td>
+                  <td className="py-3 px-4">Use <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">send_email()</code> tool to send emails</td>
                 </tr>
                 <tr className="border-b border-gray-800">
                   <td className="py-3 px-4 font-mono text-sm text-gray-500">calendar.readonly</td>
@@ -169,7 +169,7 @@ GOOGLE_EMAIL=your.email@gmail.com`}
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="text-red-400">✕</span>
-                <span>Read your inbox (use built-in <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">get_emails()</code> for that)</span>
+                <span>Read your inbox (use built-in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">get_emails()</code> for that)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-red-400">✕</span>
@@ -389,7 +389,7 @@ for tomorrow at 2pm. Subject: Q4 Planning Discussion
           <div className="space-y-8">
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-red-400">"Not authenticated with OpenOnion"</h3>
-              <p className="text-gray-700 mb-4">You need to run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
+              <p className="text-gray-700 mb-4">You need to run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
               <CommandBlock commands={['co auth', 'co auth google']} />
             </div>
 

@@ -74,8 +74,8 @@ agent.input("Find emails from alice@example.com")`}
                   <h4 className="font-semibold text-blue-700 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
                   <p className="text-gray-700 text-sm mb-4">Read emails from inbox</p>
                   <ul className="text-sm text-gray-700 space-y-1">
-                    <li><code className="bg-gray-800 px-1 rounded">last</code> - Number of emails (default: 10)</li>
-                    <li><code className="bg-gray-800 px-1 rounded">unread</code> - Only unread emails (default: False)</li>
+                    <li><code className="bg-gray-100 px-1 rounded">last</code> - Number of emails (default: 10)</li>
+                    <li><code className="bg-gray-100 px-1 rounded">unread</code> - Only unread emails (default: False)</li>
                   </ul>
                 </div>
 
@@ -208,7 +208,7 @@ agent.input("Find emails from alice@example.com")`}
                   <p className="text-gray-700 text-sm mb-2">Analyze specific contact using LLM</p>
                   <ul className="text-sm text-gray-700 space-y-1">
                     <li>Provides relationship context, topics, patterns, tags</li>
-                    <li>Example: <code className="bg-gray-800 px-1 rounded">gmail.analyze_contact("alice@example.com")</code></li>
+                    <li>Example: <code className="bg-gray-100 px-1 rounded">gmail.analyze_contact("alice@example.com")</code></li>
                   </ul>
                 </div>
               </div>
@@ -249,11 +249,11 @@ agent.input("Analyze my relationship with bob@company.com")`}
 
           <div className="space-y-4">
             <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-              <h4 className="font-semibold text-red-300 mb-2">Missing gmail.readonly scope</h4>
+              <h4 className="font-semibold text-gray-700 mb-2">Missing gmail.readonly scope</h4>
               <p className="text-gray-700 text-sm">Run <code className="bg-gray-800 px-2 py-0.5 rounded">co auth google</code></p>
             </div>
             <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-              <h4 className="font-semibold text-red-300 mb-2">Credentials not found</h4>
+              <h4 className="font-semibold text-gray-700 mb-2">Credentials not found</h4>
               <p className="text-gray-700 text-sm">Run <code className="bg-gray-800 px-2 py-0.5 rounded">co auth google</code></p>
             </div>
           </div>

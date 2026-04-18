@@ -13,9 +13,9 @@ import { PageHeader } from '../../components/PageHeader'
 function Diagram({ children, label }: { children: React.ReactNode; label?: string }) {
   return (
     <div className="my-6">
-      {label && <p className="text-xs text-slate-400 mb-2 uppercase tracking-wider">{label}</p>}
+      {label && <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">{label}</p>}
       <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 sm:p-6 overflow-x-auto">
-        <pre className="text-sm font-mono text-slate-200 whitespace-pre leading-relaxed">{children}</pre>
+        <pre className="text-sm font-mono text-gray-300 whitespace-pre leading-relaxed">{children}</pre>
       </div>
     </div>
   )
@@ -34,18 +34,14 @@ export default function SessionReconnectPage() {
               { label: 'Session Reconnect' }
             ]}
             icon={HiOutlineArrowPath}
-            iconColor="text-cyan-400"
-            iconBgFrom="from-cyan-600/20"
-            iconBgTo="to-blue-600/20"
-            iconBorderColor="border-cyan-500/30"
             title="Session Reconnect"
             description="WebSocket connections drop. Agents keep running. Here's how reconnection works."
             markdownPath="/network/session-reconnect.md"
             markdownFilename="session-reconnect.md"
           />
 
-          <div className="bg-cyan-950/50 border border-cyan-400/40 rounded-lg p-6">
-            <p className="text-lg font-semibold text-cyan-100">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <p className="text-lg font-semibold text-gray-900">
               <strong>Key insight:</strong> The agent thread and its IO queues survive the WebSocket. When a client reconnects, the same queues are reattached to the new connection. The agent never knows the difference.
             </p>
           </div>
@@ -79,11 +75,11 @@ export default function SessionReconnectPage() {
           <div className="grid md:grid-cols-2 gap-4 mt-6">
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-gray-400 mb-2">In-Memory</p>
-              <p className="text-sm text-slate-300">Keeps the agent thread and IO queues alive so a reconnecting client resumes mid-execution.</p>
+              <p className="text-sm text-gray-600">Keeps the agent thread and IO queues alive so a reconnecting client resumes mid-execution.</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-emerald-300 mb-2">Disk (JSONL)</p>
-              <p className="text-sm text-slate-300">Stores final results so a client that never reconnects can poll later.</p>
+              <p className="text-sm text-gray-600">Stores final results so a client that never reconnects can poll later.</p>
             </div>
           </div>
         </section>
@@ -114,36 +110,36 @@ export default function SessionReconnectPage() {
             <table className="w-full text-sm mt-6">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">Transition</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Trigger</th>
-                  <th className="text-left px-4 py-3 text-slate-400">What happens</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Transition</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Trigger</th>
+                  <th className="text-left px-4 py-3 text-gray-500">What happens</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-cyan-300">→ RUNNING</td>
                   <td className="px-4 py-3 text-gray-700">register()</td>
-                  <td className="px-4 py-3 text-slate-300">Agent thread spawned, IO queues created</td>
+                  <td className="px-4 py-3 text-gray-600">Agent thread spawned, IO queues created</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-yellow-300">→ SUSPENDED</td>
                   <td className="px-4 py-3 text-gray-700">Client WebSocket drops</td>
-                  <td className="px-4 py-3 text-slate-300">Agent keeps running, queues buffer events</td>
+                  <td className="px-4 py-3 text-gray-600">Agent keeps running, queues buffer events</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-cyan-300">→ RUNNING</td>
                   <td className="px-4 py-3 text-gray-700">Client reconnects (same session_id)</td>
-                  <td className="px-4 py-3 text-slate-300">Same IO queues reattached to new WebSocket</td>
+                  <td className="px-4 py-3 text-gray-600">Same IO queues reattached to new WebSocket</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-green-300">→ COMPLETED</td>
                   <td className="px-4 py-3 text-gray-700">Agent finishes</td>
-                  <td className="px-4 py-3 text-slate-300">Result saved to JSONL, session stays in memory</td>
+                  <td className="px-4 py-3 text-gray-600">Result saved to JSONL, session stays in memory</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-red-300">→ REMOVED</td>
                   <td className="px-4 py-3 text-gray-700">10min idle (no client ping)</td>
-                  <td className="px-4 py-3 text-slate-300">Freed from memory</td>
+                  <td className="px-4 py-3 text-gray-600">Freed from memory</td>
                 </tr>
               </tbody>
             </table>
@@ -189,8 +185,8 @@ T+35                        ◄────────────────�
           </Diagram>
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-4">
-            <p className="text-sm text-slate-300">
-              <strong className="text-white">What happened:</strong> Agent asked for approval at T+15, blocked waiting.
+            <p className="text-sm text-gray-600">
+              <strong className="text-gray-900">What happened:</strong> Agent asked for approval at T+15, blocked waiting.
               Client disconnected at T+20 — agent stayed blocked, events buffered.
               Client reconnected at T+25 — got buffered events, sent approval.
               Agent unblocked and finished normally.
@@ -222,13 +218,13 @@ T+35                        ◄────────────────�
           </Diagram>
 
           <div className="grid md:grid-cols-2 gap-4 mt-4">
-            <div className="bg-red-950/30 border border-red-200 rounded-lg p-4">
+            <div className="bg-gray-50 border border-red-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-red-300 mb-1">On disconnect</p>
-              <p className="text-sm text-slate-300"><code className="bg-gray-800 px-1 rounded">io.close()</code> sets <code className="bg-gray-800 px-1 rounded">_closed = True</code> and puts a sentinel in the incoming queue, unblocking any waiting <code className="bg-gray-800 px-1 rounded">receive()</code>. After close, <code className="bg-gray-800 px-1 rounded">io.send()</code> silently drops events.</p>
+              <p className="text-sm text-gray-600"><code className="bg-gray-100 px-1 rounded">io.close()</code> sets <code className="bg-gray-100 px-1 rounded">_closed = True</code> and puts a sentinel in the incoming queue, unblocking any waiting <code className="bg-gray-100 px-1 rounded">receive()</code>. After close, <code className="bg-gray-100 px-1 rounded">io.send()</code> silently drops events.</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-green-300 mb-1">On reconnect</p>
-              <p className="text-sm text-slate-300">The <strong>same io object</strong> is reused. A new WebSocket handler pumps the same queues. <strong>Caveat:</strong> IO must be reopened (<code className="bg-gray-800 px-1 rounded">_closed = False</code>) for the agent to send again.</p>
+              <p className="text-sm text-gray-600">The <strong>same io object</strong> is reused. A new WebSocket handler pumps the same queues. <strong>Caveat:</strong> IO must be reopened (<code className="bg-gray-100 px-1 rounded">_closed = False</code>) for the agent to send again.</p>
             </div>
           </div>
         </section>
@@ -241,7 +237,7 @@ T+35                        ◄────────────────�
           </h2>
 
           <p className="text-gray-700 mb-4 text-lg">
-            Server sends PING every 30s. Client responds with PONG. Each message updates <code className="bg-gray-800 px-2 py-1 rounded">last_ping</code> in the registry.
+            Server sends PING every 30s. Client responds with PONG. Each message updates <code className="bg-gray-100 px-2 py-1 rounded">last_ping</code> in the registry.
           </p>
 
           <Diagram label="PING/PONG heartbeat">
@@ -293,7 +289,7 @@ T+35                        ◄────────────────�
             ].map(({ label, desc }) => (
               <div key={label} className="flex items-start gap-3">
                 <span className="text-cyan-400 mt-0.5">&#x2022;</span>
-                <p className="text-sm text-slate-300"><strong className="text-white">{label}.</strong> {desc}</p>
+                <p className="text-sm text-gray-600"><strong className="text-gray-900">{label}.</strong> {desc}</p>
               </div>
             ))}
           </div>
@@ -329,7 +325,7 @@ Client returns (hours later)  │
   │◄── result ────────────────│`}
           </Diagram>
 
-          <p className="text-slate-300 text-sm">No data loss. The JSONL file is the durable record.</p>
+          <p className="text-gray-600 text-sm">No data loss. The JSONL file is the durable record.</p>
         </section>
 
         {/* Session Merge */}
@@ -340,7 +336,7 @@ Client returns (hours later)  │
           </h2>
 
           <p className="text-gray-700 mb-4 text-lg">
-            When a client reconnects and both sides have session state, <code className="bg-gray-800 px-2 py-1 rounded">merge_sessions()</code> resolves the conflict using iteration count (incremented on each LLM call):
+            When a client reconnects and both sides have session state, <code className="bg-gray-100 px-2 py-1 rounded">merge_sessions()</code> resolves the conflict using iteration count (incremented on each LLM call):
           </p>
 
           <Diagram label="Iteration-based conflict resolution">
@@ -358,8 +354,8 @@ iteration: 5                iteration: 10
             <table className="w-full text-sm mt-4">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">Scenario</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Resolution</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Scenario</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Resolution</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
@@ -383,7 +379,7 @@ iteration: 5                iteration: 10
         {/* Server Console Output */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCommandLine className="w-8 h-8 text-slate-400" />
+            <HiOutlineCommandLine className="w-8 h-8 text-gray-500" />
             Server Console Output
           </h2>
 
@@ -412,12 +408,12 @@ iteration: 5                iteration: 10
 
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="text-sm font-semibold text-slate-300 mb-1">Suppressed</p>
-              <p className="text-sm text-slate-400">CONNECT, INPUT, SESSION_STATUS, PONG — these have their own status lines.</p>
+              <p className="text-sm font-semibold text-gray-600 mb-1">Suppressed</p>
+              <p className="text-sm text-gray-500">CONNECT, INPUT, SESSION_STATUS, PONG — these have their own status lines.</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="text-sm font-semibold text-slate-300 mb-1">Still logged</p>
-              <p className="text-sm text-slate-400">ADMIN_*, ONBOARD_SUBMIT, and unexpected types print <code className="bg-gray-800 px-1 rounded">← WS recv:</code>.</p>
+              <p className="text-sm font-semibold text-gray-600 mb-1">Still logged</p>
+              <p className="text-sm text-gray-500">ADMIN_*, ONBOARD_SUBMIT, and unexpected types print <code className="bg-gray-100 px-1 rounded">← WS recv:</code>.</p>
             </div>
           </div>
         </section>
@@ -458,14 +454,14 @@ T+10   New WebSocket connects → CONNECT { session_id }
             ].map(({ label, desc }) => (
               <div key={label} className="flex items-start gap-3">
                 <span className="text-amber-400 mt-0.5">&#x2022;</span>
-                <p className="text-sm text-slate-300"><strong className="text-white">{label}.</strong> {desc}</p>
+                <p className="text-sm text-gray-600"><strong className="text-gray-900">{label}.</strong> {desc}</p>
               </div>
             ))}
           </div>
 
-          <div className="bg-amber-950/30 border border-gray-200 rounded-lg p-4 mt-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-6">
             <p className="text-sm font-semibold text-amber-300 mb-2">Fix plan</p>
-            <div className="space-y-2 text-sm text-slate-300">
+            <div className="space-y-2 text-sm text-gray-600">
               <p>1. <strong>run_agent()</strong>: wrap in try/finally — always set agent_finished, capture error in error_holder.</p>
               <p>2. <strong>Reattach</strong>: reopen IO — reset io._closed = False so agent can send events through new WebSocket.</p>
               <p>3. <strong>Old _pipe_ws_io</strong>: detect superseded — when new connection reattaches, old pipe should exit cleanly.</p>
@@ -481,30 +477,30 @@ T+10   New WebSocket connects → CONNECT { session_id }
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">File</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Role</th>
+                  <th className="text-left px-4 py-3 text-gray-500">File</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Role</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">network/host/session/active.py</td>
-                  <td className="px-4 py-3 text-slate-300">ActiveSessionRegistry — in-memory session tracking</td>
+                  <td className="px-4 py-3 text-gray-600">ActiveSessionRegistry — in-memory session tracking</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">network/io/websocket.py</td>
-                  <td className="px-4 py-3 text-slate-300">WebSocketIO — queue bridge between async/sync</td>
+                  <td className="px-4 py-3 text-gray-600">WebSocketIO — queue bridge between async/sync</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">network/host/session/storage.py</td>
-                  <td className="px-4 py-3 text-slate-300">SessionStorage — JSONL persistence</td>
+                  <td className="px-4 py-3 text-gray-600">SessionStorage — JSONL persistence</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">network/host/session/merge.py</td>
-                  <td className="px-4 py-3 text-slate-300">Session merge conflict resolution</td>
+                  <td className="px-4 py-3 text-gray-600">Session merge conflict resolution</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">network/asgi/websocket.py</td>
-                  <td className="px-4 py-3 text-slate-300">WebSocket handler — orchestrates reconnection</td>
+                  <td className="px-4 py-3 text-gray-600">WebSocket handler — orchestrates reconnection</td>
                 </tr>
               </tbody>
             </table>

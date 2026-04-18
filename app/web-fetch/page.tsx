@@ -17,10 +17,7 @@ export default function WebFetchPage() {
             { label: 'WebFetch' }
           ]}
           icon={HiOutlineGlobeAlt}
-          iconColor="text-green-400"
-          iconBgFrom="from-gray-100"
-          iconBgTo="to-teal-600/20"
-          iconBorderColor="border-gray-200"
+          iconColor="icon-ui"
           title="WebFetch"
           description="Give your agents web scraping powers. Fetch, parse, and analyze web pages."
           markdownPath="/web-fetch.md"
@@ -30,7 +27,7 @@ export default function WebFetchPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 icon-ui" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -197,53 +194,53 @@ agent.input("Compare what stripe.com and square.com offer")`}
           <h2 className="heading-2">API Reference</h2>
 
           <div className="overflow-x-auto">
-            <table className="w-full border border-gray-700 rounded-lg overflow-hidden">
-              <thead className="bg-gray-800">
+            <table className="w-full border border-gray-200 rounded-lg overflow-hidden">
+              <thead className="bg-gray-100">
                 <tr>
-                  <th className="text-left px-4 py-3 text-sm font-semibold">Method</th>
-                  <th className="text-left px-4 py-3 text-sm font-semibold">Type</th>
-                  <th className="text-left px-4 py-3 text-sm font-semibold">Description</th>
+                  <th className="text-left px-4 py-3 text-sm font-semibold text-gray-700">Method</th>
+                  <th className="text-left px-4 py-3 text-sm font-semibold text-gray-700">Type</th>
+                  <th className="text-left px-4 py-3 text-sm font-semibold text-gray-700">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
-                <tr className="bg-gray-900/50">
-                  <td className="px-4 py-3 font-mono text-sm text-green-300">fetch(url)</td>
-                  <td className="px-4 py-3 text-sm text-gray-700">Low-level</td>
+              <tbody className="divide-y divide-gray-200">
+                <tr>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-800">fetch(url)</td>
+                  <td className="px-4 py-3 text-sm text-gray-600">Low-level</td>
                   <td className="px-4 py-3 text-sm text-gray-700">HTTP GET, returns raw HTML</td>
                 </tr>
-                <tr className="bg-gray-900/30">
-                  <td className="px-4 py-3 font-mono text-sm text-green-300">strip_tags(html)</td>
-                  <td className="px-4 py-3 text-sm text-gray-700">Low-level</td>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-sm text-gray-800">strip_tags(html)</td>
+                  <td className="px-4 py-3 text-sm text-gray-600">Low-level</td>
                   <td className="px-4 py-3 text-sm text-gray-700">Remove HTML tags, return text</td>
                 </tr>
-                <tr className="bg-gray-900/50">
-                  <td className="px-4 py-3 font-mono text-sm text-green-300">get_title(html)</td>
-                  <td className="px-4 py-3 text-sm text-gray-700">Low-level</td>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-800">get_title(html)</td>
+                  <td className="px-4 py-3 text-sm text-gray-600">Low-level</td>
                   <td className="px-4 py-3 text-sm text-gray-700">Extract page title</td>
                 </tr>
-                <tr className="bg-gray-900/30">
-                  <td className="px-4 py-3 font-mono text-sm text-blue-300">get_links(html)</td>
-                  <td className="px-4 py-3 text-sm text-gray-700">Low-level</td>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-sm text-gray-800">get_links(html)</td>
+                  <td className="px-4 py-3 text-sm text-gray-600">Low-level</td>
                   <td className="px-4 py-3 text-sm text-gray-700">Extract all links</td>
                 </tr>
-                <tr className="bg-gray-900/50">
-                  <td className="px-4 py-3 font-mono text-sm text-gray-400">get_emails(html)</td>
-                  <td className="px-4 py-3 text-sm text-gray-700">Low-level</td>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-800">get_emails(html)</td>
+                  <td className="px-4 py-3 text-sm text-gray-600">Low-level</td>
                   <td className="px-4 py-3 text-sm text-gray-700">Extract email addresses</td>
                 </tr>
-                <tr className="bg-gray-900/30">
-                  <td className="px-4 py-3 font-mono text-sm text-gray-500">get_social_links(html)</td>
-                  <td className="px-4 py-3 text-sm text-gray-700">Low-level</td>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-sm text-gray-800">get_social_links(html)</td>
+                  <td className="px-4 py-3 text-sm text-gray-600">Low-level</td>
                   <td className="px-4 py-3 text-sm text-gray-700">Extract social media links</td>
                 </tr>
-                <tr className="bg-gray-900/50">
-                  <td className="px-4 py-3 font-mono text-sm text-yellow-300">analyze_page(url)</td>
-                  <td className="px-4 py-3 text-sm text-gray-500">LLM</td>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-800">analyze_page(url)</td>
+                  <td className="px-4 py-3 text-sm text-gray-600">LLM</td>
                   <td className="px-4 py-3 text-sm text-gray-700">AI analysis of what page/company does</td>
                 </tr>
-                <tr className="bg-gray-900/30">
-                  <td className="px-4 py-3 font-mono text-sm text-yellow-300">get_contact_info(url)</td>
-                  <td className="px-4 py-3 text-sm text-gray-500">LLM</td>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-sm text-gray-800">get_contact_info(url)</td>
+                  <td className="px-4 py-3 text-sm text-gray-600">LLM</td>
                   <td className="px-4 py-3 text-sm text-gray-700">AI extraction of contact info</td>
                 </tr>
               </tbody>

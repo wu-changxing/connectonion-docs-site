@@ -10,8 +10,7 @@ export default function TrustPage() {
   return (
     <div className="bg-white text-gray-900">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-gray-900/20 to-gray-950">
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px]" />
+      <div className="relative overflow-hidden bg-gray-50 border-b border-gray-200">
         <div className="relative max-w-4xl mx-auto px-8 py-16">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div>
@@ -29,11 +28,11 @@ export default function TrustPage() {
           {/* Why Trust Blog Link */}
           <Link
             href="/blog/trust-keyword"
-            className="inline-flex items-center gap-2 mt-6 px-4 py-2 bg-gray-900/30 border border-purple-800 rounded-lg hover:bg-gray-900/50 transition-colors group"
+            className="inline-flex items-center gap-2 mt-6 px-4 py-2 bg-white border border-gray-200 rounded-lg hover:border-gray-400 hover:shadow-sm transition-all group"
           >
-            <HiOutlineBookOpen className="w-4 h-4 text-gray-500" />
-            <span className="text-sm text-gray-400">Read: Why we chose "trust" as our keyword</span>
-            <span className="text-gray-500 group-hover:translate-x-1 transition-transform">→</span>
+            <HiOutlineBookOpen className="w-4 h-4 icon-ui" />
+            <span className="text-sm text-gray-600">Read: Why we chose "trust" as our keyword</span>
+            <span className="text-gray-400 group-hover:translate-x-1 transition-transform">→</span>
           </Link>
         </div>
       </div>
@@ -76,9 +75,9 @@ agent = Agent(
 
               {/* 1. Trust Levels */}
               <div className="mb-8">
-                <div className="bg-gray-50 border border-green-800/50 rounded-lg p-6 mb-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                    <span className="text-green-400">1.</span> Trust Levels (String)
+                    <span className="text-gray-400">1.</span> Trust Levels (String)
                   </h3>
                   <p className="text-gray-700 mb-4">Simple predefined levels for common scenarios:</p>
                 </div>
@@ -117,8 +116,8 @@ translator = need("translate", trust="""
 translator = need("translate", trust="./trust_policy.md")`}
                   result=""
                 />
-                <div className="mt-4 bg-gray-900 border border-gray-800 rounded-lg p-4">
-                  <p className="text-sm text-gray-700 mb-2 font-semibold">Example trust policy file:</p>
+                <div className="mt-4 bg-gray-900 border border-gray-700 rounded-lg p-4">
+                  <p className="text-sm text-gray-400 mb-2 font-semibold">Example trust policy file:</p>
                   <pre className="text-xs text-gray-400 overflow-x-auto"><code>{`# My Trust Requirements
 
 I trust agents that meet ALL of these criteria:
@@ -135,7 +134,7 @@ I immediately reject agents that:
 
               {/* 3. Trust Agent */}
               <div className="mb-8">
-                <div className="bg-gray-50 border border-purple-800/50 rounded-lg p-6 mb-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                     <HiOutlineCpuChip className="w-5 h-5 text-gray-500" />
                     <span className="text-gray-500">3.</span> Trust Agent
@@ -178,9 +177,9 @@ payment = need("payment processor", trust=trust_agent)`}
                 <HiOutlineUsers className="w-7 h-7 text-green-400" />
                 Bidirectional Trust
               </h2>
-              <div className="bg-gray-50 border border-green-800/50 rounded-lg p-6 mb-4">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
                 <p className="text-gray-700 mb-4">
-                  The same <code className="text-gray-500 bg-gray-900 px-2 py-1 rounded">trust</code> parameter works in both directions:
+                  The same <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">trust</code> parameter works in both directions:
                 </p>
               </div>
               <CodeWithResult
@@ -287,38 +286,38 @@ payment = need("process payment", trust="strict") # High risk`}
             {/* Security Best Practices */}
             <section>
               <h2 className="heading-2">Security Best Practices</h2>
-              <div className="bg-red-900/20 border border-red-800 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <HiOutlineCheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <HiOutlineCheckCircle className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-gray-900">Production = Strict:</span>
-                      <span className="text-gray-700"> Always use <code className="text-red-400 bg-gray-900 px-2 py-1 rounded">trust="strict"</code> in production</span>
+                      <span className="text-gray-700"> Always use <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">trust="strict"</code> in production</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <HiOutlineCheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <HiOutlineCheckCircle className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-gray-900">Test Sensitive Operations:</span>
                       <span className="text-gray-700"> Payment, data modification, etc.</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <HiOutlineCheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <HiOutlineCheckCircle className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-gray-900">Whitelist Critical Services:</span>
                       <span className="text-gray-700"> Manually verify and whitelist</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <HiOutlineCheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <HiOutlineCheckCircle className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-gray-900">Monitor Trust Decisions:</span>
                       <span className="text-gray-700"> Log all trust evaluations</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <HiOutlineCheckCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <HiOutlineCheckCircle className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-gray-900">Regular Audits:</span>
                       <span className="text-gray-700"> Review whitelist and trust policies</span>
@@ -332,25 +331,25 @@ payment = need("process payment", trust="strict") # High risk`}
             <section>
               <h2 className="heading-2">FAQ</h2>
               <div className="space-y-4">
-                <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
                   <p className="font-semibold text-gray-900 mb-2">Q: What's the default trust level?</p>
-                  <p className="text-gray-700 text-sm">A: <code className="text-yellow-400 bg-gray-950 px-2 py-1 rounded">"tested"</code> - agents are tested before first use</p>
+                  <p className="text-gray-700 text-sm">A: <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">"tested"</code> - agents are tested before first use</p>
                 </div>
-                <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
                   <p className="font-semibold text-gray-900 mb-2">Q: Can I change trust after agent creation?</p>
-                  <p className="text-gray-700 text-sm">A: Yes: <code className="text-gray-500 bg-gray-950 px-2 py-1 rounded">agent.trust = new_trust_agent</code></p>
+                  <p className="text-gray-700 text-sm">A: Yes: <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">agent.trust = new_trust_agent</code></p>
                 </div>
-                <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
                   <p className="font-semibold text-gray-900 mb-2">Q: How do trust agents communicate?</p>
                   <p className="text-gray-700 text-sm">A: They're regular ConnectOnion agents - they talk naturally</p>
                 </div>
-                <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
                   <p className="font-semibold text-gray-900 mb-2">Q: What if both agents have strict trust?</p>
                   <p className="text-gray-700 text-sm">A: Both requirements must be met - most restrictive wins</p>
                 </div>
-                <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
                   <p className="font-semibold text-gray-900 mb-2">Q: Can I disable trust completely?</p>
-                  <p className="text-gray-700 text-sm">A: Yes: <code className="text-green-400 bg-gray-950 px-2 py-1 rounded">trust="open"</code> accepts everyone without checks</p>
+                  <p className="text-gray-700 text-sm">A: Yes: <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">trust="open"</code> accepts everyone without checks</p>
                 </div>
               </div>
             </section>
@@ -359,38 +358,38 @@ payment = need("process payment", trust="strict") # High risk`}
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Trust Decision Helper */}
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 sticky top-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 sticky top-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <HiOutlineShieldCheck className="w-5 h-5 text-gray-500" />
+                <HiOutlineShieldCheck className="w-5 h-5 icon-ui" />
                 Choose Your Trust Level
               </h3>
               <div className="space-y-3">
-                <div className="p-3 bg-gray-900/5 border border-green-800 rounded-lg">
-                  <p className="text-sm font-medium text-white mb-1">Development?</p>
-                  <code className="text-xs text-green-400">trust="open"</code>
-                  <p className="text-xs text-gray-400 mt-1">Trust everyone, iterate fast</p>
+                <div className="p-3 bg-white border border-gray-200 rounded-lg">
+                  <p className="text-sm font-medium text-gray-900 mb-1">Development?</p>
+                  <code className="text-xs text-gray-700 font-mono">trust="open"</code>
+                  <p className="text-xs text-gray-500 mt-1">Trust everyone, iterate fast</p>
                 </div>
-                <div className="p-3 bg-yellow-900/20 border border-yellow-800 rounded-lg">
-                  <p className="text-sm font-medium text-white mb-1">Testing/Staging?</p>
-                  <code className="text-xs text-yellow-400">trust="tested"</code>
-                  <p className="text-xs text-gray-400 mt-1">Test before trusting (default)</p>
+                <div className="p-3 bg-white border border-gray-200 rounded-lg">
+                  <p className="text-sm font-medium text-gray-900 mb-1">Testing/Staging?</p>
+                  <code className="text-xs text-gray-700 font-mono">trust="tested"</code>
+                  <p className="text-xs text-gray-500 mt-1">Test before trusting (default)</p>
                 </div>
-                <div className="p-3 bg-red-900/20 border border-red-800 rounded-lg">
-                  <p className="text-sm font-medium text-white mb-1">Production?</p>
-                  <code className="text-xs text-red-400">trust="strict"</code>
-                  <p className="text-xs text-gray-400 mt-1">Verified agents only</p>
+                <div className="p-3 bg-white border border-gray-200 rounded-lg">
+                  <p className="text-sm font-medium text-gray-900 mb-1">Production?</p>
+                  <code className="text-xs text-gray-700 font-mono">trust="strict"</code>
+                  <p className="text-xs text-gray-500 mt-1">Verified agents only</p>
                 </div>
               </div>
             </div>
 
             {/* Warning */}
-            <div className="bg-yellow-900/20 border border-yellow-800 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <div className="flex items-start gap-3">
-                <HiOutlineExclamationCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineExclamationCircle className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-sm font-medium text-yellow-800 mb-1">Security Note</p>
-                  <p className="text-xs text-yellow-300/80">
-                    Always use <code className="bg-yellow-950 px-1.5 py-0.5 rounded">trust="strict"</code> in production environments to prevent unauthorized access.
+                  <p className="text-sm font-medium text-gray-900 mb-1">Security Note</p>
+                  <p className="text-xs text-gray-600">
+                    Always use <code className="bg-gray-100 px-1.5 py-0.5 rounded">trust="strict"</code> in production environments to prevent unauthorized access.
                   </p>
                 </div>
               </div>

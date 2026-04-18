@@ -252,7 +252,7 @@ agent.input("Check my inbox and summarize what's there")`}
               <ul className="space-y-2 text-sm text-gray-700">
                 <li>Full Gmail class with many methods</li>
                 <li>Gmail-specific features (labels, archive, star)</li>
-                <li>Uses <code className="bg-gray-800 px-1 rounded">co auth google</code></li>
+                <li>Uses <code className="bg-gray-100 px-1 rounded">co auth google</code></li>
                 <li>Search, CRM, contact analysis</li>
                 <li>Best for advanced Gmail automation</li>
               </ul>

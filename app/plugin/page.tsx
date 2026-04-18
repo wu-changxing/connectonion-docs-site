@@ -273,7 +273,7 @@ writer = Agent("writer", tools=[generate], plugins=[logger])`}
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 llm_do
               </h3>
-              <p className="text-blue-100 text-sm">
+              <p className="text-gray-900 text-sm">
                 Use LLM in handlers
               </p>
             </Link>

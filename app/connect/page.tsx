@@ -27,7 +27,7 @@ export default function ConnectPage() {
             iconColor="text-blue-400"
             iconBgFrom="from-blue-600/20"
             iconBgTo="to-cyan-600/20"
-            iconBorderColor="border-blue-500/30"
+            iconBorderColor="border-gray-200"
             title="Connect to Agents"
             description="Use any agent, anywhere, as if local. Create a proxy to a remote agent with the same interface."
             markdownPath="/network/connect.md"
@@ -35,8 +35,8 @@ export default function ConnectPage() {
           />
 
           {/* Key Benefit */}
-          <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
-            <p className="text-lg font-semibold text-blue-100">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <p className="text-lg font-semibold text-gray-900">
               <strong>Why connect?</strong> Access specialized agents from anywhere, build distributed workflows, scale horizontally across multiple machines.
             </p>
           </div>
@@ -45,7 +45,7 @@ export default function ConnectPage() {
         {/* 60-Second Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+            <HiOutlineBolt className="w-8 h-8 icon-ui" />
             60-Second Quick Start
           </h2>
 
@@ -77,7 +77,7 @@ library reference, and language specifications.`}
               </div>
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                <span><strong>Connected to relay</strong> → WebSocket at <code className="bg-gray-800 px-2 py-1 rounded">wss://oo.openonion.ai/ws/announce</code></span>
+                <span><strong>Connected to relay</strong> → WebSocket at <code className="bg-gray-100 px-2 py-1 rounded">wss://oo.openonion.ai/ws/announce</code></span>
               </div>
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
@@ -190,8 +190,8 @@ print(final)`}
               />
             </div>
 
-            <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-blue-100 mb-4">2. Retry on Connection Failure</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">2. Retry on Connection Failure</h3>
               <p className="text-gray-700 mb-4">
                 Handle network failures gracefully:
               </p>
@@ -256,7 +256,7 @@ result3 = get_agent().input("Task 3")`}
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            Remote agents maintain conversation state across multiple <code className="bg-gray-800 px-2 py-1 rounded">input()</code> calls:
+            Remote agents maintain conversation state across multiple <code className="bg-gray-100 px-2 py-1 rounded">input()</code> calls:
           </p>
 
           <CodeWithResult
@@ -279,7 +279,7 @@ The result is 300`}
         {/* Real-World Example */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCpuChip className="w-8 h-8 text-orange-400" />
+            <HiOutlineCpuChip className="w-8 h-8 icon-ui" />
             Real-World: Distributed Workflow
           </h2>
 
@@ -368,8 +368,8 @@ agent = connect("0x7a8f...", relay_url=relay_url)`}
           <h2 className="heading-2">Local vs Remote Agents</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-emerald-100 mb-4">Local Agent</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Local Agent</h3>
               <CodeWithResult
                 code={`from connectonion import Agent
 
@@ -395,8 +395,8 @@ result = agent.input("task")`}
               </div>
             </div>
 
-            <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-blue-100 mb-4">Remote Agent</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Remote Agent</h3>
               <CodeWithResult
                 code={`from connectonion import connect
 
@@ -431,7 +431,7 @@ result = agent.input("task")`}
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            The <code className="bg-gray-800 px-2 py-1 rounded">connectonion</code> npm package provides the same <code className="bg-gray-800 px-2 py-1 rounded">connect()</code> interface for TypeScript and JavaScript:
+            The <code className="bg-gray-100 px-2 py-1 rounded">connectonion</code> npm package provides the same <code className="bg-gray-100 px-2 py-1 rounded">connect()</code> interface for TypeScript and JavaScript:
           </p>
 
           <CodeWithResult
@@ -484,45 +484,45 @@ console.log(response.text)`}
           </h2>
 
           <p className="text-gray-700 mb-4 text-lg">
-            While the agent works, events stream in real-time via the <code className="bg-gray-800 px-2 py-1 rounded">ui</code> property. Each event is a <code className="bg-gray-800 px-2 py-1 rounded">ChatItem</code>:
+            While the agent works, events stream in real-time via the <code className="bg-gray-100 px-2 py-1 rounded">ui</code> property. Each event is a <code className="bg-gray-100 px-2 py-1 rounded">ChatItem</code>:
           </p>
 
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">Event Type</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Description</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Event Type</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Description</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-blue-300">user</td>
-                  <td className="px-4 py-3 text-slate-300">User message</td>
+                  <td className="px-4 py-3 text-gray-600">User message</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-green-300">agent</td>
-                  <td className="px-4 py-3 text-slate-300">Agent response text</td>
+                  <td className="px-4 py-3 text-gray-600">Agent response text</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">thinking</td>
-                  <td className="px-4 py-3 text-slate-300">LLM thinking/reasoning</td>
+                  <td className="px-4 py-3 text-gray-600">LLM thinking/reasoning</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-orange-300">tool_call</td>
-                  <td className="px-4 py-3 text-slate-300">Tool execution with name, args, result</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">tool_call</td>
+                  <td className="px-4 py-3 text-gray-600">Tool execution with name, args, result</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-yellow-300">ask_user</td>
-                  <td className="px-4 py-3 text-slate-300">Agent asking a question (with options)</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">ask_user</td>
+                  <td className="px-4 py-3 text-gray-600">Agent asking a question (with options)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-red-300">approval_needed</td>
-                  <td className="px-4 py-3 text-slate-300">Tool requires user approval before running</td>
+                  <td className="px-4 py-3 text-gray-600">Tool requires user approval before running</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-cyan-300">plan_review</td>
-                  <td className="px-4 py-3 text-slate-300">Agent presenting a plan for review</td>
+                  <td className="px-4 py-3 text-gray-600">Agent presenting a plan for review</td>
                 </tr>
               </tbody>
             </table>
@@ -537,7 +537,7 @@ console.log(response.text)`}
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            The SDK includes a React hook that wraps <code className="bg-gray-800 px-2 py-1 rounded">connect()</code> with state management and localStorage persistence:
+            The SDK includes a React hook that wraps <code className="bg-gray-100 px-2 py-1 rounded">connect()</code> with state management and localStorage persistence:
           </p>
 
           <CodeWithResult
@@ -585,9 +585,9 @@ function ChatPage() {
             fileName="ChatPage.tsx"
           />
 
-          <div className="mt-6 bg-cyan-950/50 border border-cyan-400/40 rounded-lg p-6">
-            <p className="text-sm text-cyan-100">
-              <strong>Session persistence:</strong> The hook automatically saves conversation state to <code className="bg-gray-800 px-1 rounded">localStorage</code> using the sessionId. Page refreshes restore the full conversation.
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <p className="text-sm text-gray-900">
+              <strong>Session persistence:</strong> The hook automatically saves conversation state to <code className="bg-gray-100 px-1 rounded">localStorage</code> using the sessionId. Page refreshes restore the full conversation.
             </p>
           </div>
         </section>
@@ -595,7 +595,7 @@ function ChatPage() {
         {/* Interactive Features */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineUsers className="w-8 h-8 text-amber-400" />
+            <HiOutlineUsers className="w-8 h-8 icon-ui" />
             Interactive Features
           </h2>
 
@@ -605,8 +605,8 @@ function ChatPage() {
 
           <div className="space-y-8">
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-yellow-300 mb-4">Ask User</h3>
-              <p className="text-sm text-slate-300 mb-4">Agent needs information from the user:</p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Ask User</h3>
+              <p className="text-sm text-gray-600 mb-4">Agent needs information from the user:</p>
               <CodeWithResult
                 code={`// Agent sends: { type: 'ask_user', text: 'Which city?', options: ['Sydney', 'Tokyo'] }
 
@@ -621,7 +621,7 @@ respond(["Sydney", "Tokyo"])`}
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-red-300 mb-4">Tool Approval</h3>
-              <p className="text-sm text-slate-300 mb-4">Agent wants to run a tool that needs permission:</p>
+              <p className="text-sm text-gray-600 mb-4">Agent wants to run a tool that needs permission:</p>
               <CodeWithResult
                 code={`// Agent sends: { type: 'approval_needed', tool: 'shell', arguments: { cmd: 'rm -rf /tmp' } }
 
@@ -639,7 +639,7 @@ respondToApproval(false, 'once', 'reject_explain', 'Too dangerous')`}
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-violet-300 mb-4">Plan Review</h3>
-              <p className="text-sm text-slate-300 mb-4">Agent presenting a plan before executing:</p>
+              <p className="text-sm text-gray-600 mb-4">Agent presenting a plan before executing:</p>
               <CodeWithResult
                 code={`// Agent sends: { type: 'plan_review', plan_content: '1. Research\\n2. Analyze\\n3. Report' }
 
@@ -761,7 +761,7 @@ function Chat() {
           <div className="mt-6 space-y-4">
             <h3 className="text-xl font-semibold mb-3">How It Works</h3>
             <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 sm:p-6 overflow-x-auto">
-              <pre className="text-sm font-mono text-slate-200 whitespace-pre leading-relaxed">{`Client                              Server
+              <pre className="text-sm font-mono text-gray-700 whitespace-pre leading-relaxed">{`Client                              Server
   │                                    │
   │  Convert file to base64 data URL   │
   │                                    │
@@ -784,9 +784,9 @@ function Chat() {
             </div>
           </div>
 
-          <div className="mt-6 bg-teal-950/50 border border-teal-400/40 rounded-lg p-6">
-            <p className="text-sm text-teal-100">
-              <strong>File limits:</strong> Default 10MB per file, 10 files per request. Check agent limits via <code className="bg-gray-800 px-1 rounded">GET /info</code> → <code className="bg-gray-800 px-1 rounded">accepted_inputs.files</code>. Server-side, files are saved to <code className="bg-gray-800 px-1 rounded">.co/uploads/</code> and the agent reads them via tools. See <Link href="/host" className="text-teal-300 hover:text-teal-200 underline">host()</Link> for server-side details.
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <p className="text-sm text-gray-900">
+              <strong>File limits:</strong> Default 10MB per file, 10 files per request. Check agent limits via <code className="bg-gray-100 px-1 rounded">GET /info</code> → <code className="bg-gray-100 px-1 rounded">accepted_inputs.files</code>. Server-side, files are saved to <code className="bg-gray-100 px-1 rounded">.co/uploads/</code> and the agent reads them via tools. See <Link href="/host" className="text-teal-300 hover:text-teal-200 underline">host()</Link> for server-side details.
             </p>
           </div>
         </section>
@@ -803,7 +803,7 @@ function Chat() {
           </p>
 
           <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 sm:p-6 overflow-x-auto mb-6">
-            <pre className="text-sm font-mono text-slate-200 whitespace-pre leading-relaxed">{`oo-chat/
+            <pre className="text-sm font-mono text-gray-700 whitespace-pre leading-relaxed">{`oo-chat/
 ├── app/[address]/[sessionId]/page.tsx   ← session page (uses useAgentForHumanSDK)
 ├── components/chat/
 │   ├── chat.tsx                         ← main Chat component
@@ -862,10 +862,10 @@ export default function ChatSession({ params }) {
             fileName="app/[address]/[sessionId]/page.tsx"
           />
 
-          <div className="mt-6 bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
-            <p className="text-lg font-semibold text-emerald-100 mb-4">Architecture</p>
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <p className="text-lg font-semibold text-gray-900 mb-4">Architecture</p>
             <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 overflow-x-auto">
-              <pre className="text-sm font-mono text-slate-200 whitespace-pre leading-relaxed">{`┌──────────────────────────────────────────────────┐
+              <pre className="text-sm font-mono text-gray-700 whitespace-pre leading-relaxed">{`┌──────────────────────────────────────────────────┐
 │  oo-chat (Next.js)                               │
 │                                                   │
 │  page.tsx                                         │
@@ -891,7 +891,7 @@ export default function ChatSession({ params }) {
 
         {/* CTA Section */}
         <section className="mb-20">
-          <div className="bg-blue-950/30 rounded-2xl p-10 border border-blue-400/30 text-center">
+          <div className="bg-gray-50 rounded-2xl p-10 border border-gray-200 text-center">
             <h2 className="heading-2">Ready to Use Remote Agents?</h2>
             <p className="text-xl text-gray-700 mb-8">
               Python, TypeScript, or React — connect to any agent with one function call.

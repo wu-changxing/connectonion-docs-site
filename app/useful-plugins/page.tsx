@@ -151,7 +151,7 @@ export default function UsefulPluginsPage() {
                   </span>
                 </div>
                 <p className="text-lg text-gray-700">
-                  Pre-built plugins from <code className="bg-gray-800 px-2 py-1 rounded text-gray-400 text-sm break-all">connectonion.useful_plugins</code>
+                  Pre-built plugins from <code className="bg-gray-100 px-2 py-1 rounded text-gray-400 text-sm break-all">connectonion.useful_plugins</code>
                 </p>
               </div>
             </div>
@@ -163,7 +163,7 @@ export default function UsefulPluginsPage() {
         <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="heading-2">What is a Plugin?</h2>
           <p className="text-gray-700 mb-4">
-            A plugin is a reusable list of event handlers. Use <code className="bg-gray-800 px-2 py-1 rounded">plugins=[...]</code> to add pre-packaged functionality to any agent.
+            A plugin is a reusable list of event handlers. Use <code className="bg-gray-100 px-2 py-1 rounded">plugins=[...]</code> to add pre-packaged functionality to any agent.
           </p>
           <CodeWithResult
             code={`from connectonion import Agent

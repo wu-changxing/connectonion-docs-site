@@ -75,8 +75,8 @@ agent.input("Send an email to alice@example.com saying hello")`}
                   <h4 className="font-semibold text-blue-700 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
                   <p className="text-gray-700 text-sm mb-4">Read emails from inbox</p>
                   <ul className="text-sm text-gray-700 space-y-1">
-                    <li><code className="bg-gray-800 px-1 rounded">last</code> - Number of emails (default: 10)</li>
-                    <li><code className="bg-gray-800 px-1 rounded">unread</code> - Only unread emails (default: False)</li>
+                    <li><code className="bg-gray-100 px-1 rounded">last</code> - Number of emails (default: 10)</li>
+                    <li><code className="bg-gray-100 px-1 rounded">unread</code> - Only unread emails (default: False)</li>
                   </ul>
                 </div>
 
@@ -125,11 +125,11 @@ agent.input("Send an email to alice@example.com saying hello")`}
                   <h4 className="font-semibold text-emerald-300 font-mono mb-2">send(to, subject, body, cc=None, bcc=None)</h4>
                   <p className="text-gray-700 text-sm mb-4">Send email via Microsoft Graph API</p>
                   <ul className="text-sm text-gray-700 space-y-1">
-                    <li><code className="bg-gray-800 px-1 rounded">to</code> - Recipient email (comma-separated for multiple)</li>
-                    <li><code className="bg-gray-800 px-1 rounded">subject</code> - Email subject</li>
-                    <li><code className="bg-gray-800 px-1 rounded">body</code> - Email body (plain text)</li>
-                    <li><code className="bg-gray-800 px-1 rounded">cc</code> - Optional CC recipients</li>
-                    <li><code className="bg-gray-800 px-1 rounded">bcc</code> - Optional BCC recipients</li>
+                    <li><code className="bg-gray-100 px-1 rounded">to</code> - Recipient email (comma-separated for multiple)</li>
+                    <li><code className="bg-gray-100 px-1 rounded">subject</code> - Email subject</li>
+                    <li><code className="bg-gray-100 px-1 rounded">body</code> - Email body (plain text)</li>
+                    <li><code className="bg-gray-100 px-1 rounded">cc</code> - Optional CC recipients</li>
+                    <li><code className="bg-gray-100 px-1 rounded">bcc</code> - Optional BCC recipients</li>
                   </ul>
                 </div>
 

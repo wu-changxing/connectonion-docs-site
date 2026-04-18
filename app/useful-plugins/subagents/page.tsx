@@ -28,7 +28,7 @@ export default function SubagentsPage() {
 
         <div className="bg-violet-950/50 border border-violet-400/40 rounded-lg p-6 mb-16">
           <p className="text-lg font-semibold text-violet-100">
-            Parent agent calls <code className="bg-gray-800 px-2 py-1 rounded">task(prompt, agent_type)</code> → sub-agent runs and returns result. Built-in agents included.
+            Parent agent calls <code className="bg-gray-100 px-2 py-1 rounded">task(prompt, agent_type)</code> → sub-agent runs and returns result. Built-in agents included.
           </p>
         </div>
 
@@ -65,7 +65,7 @@ Architecture summary:
             <HiOutlineDocumentText className="w-8 h-8 text-amber-400" />
             AGENT.md Format
           </h2>
-          <p className="text-gray-700 mb-6">Create a file at <code className="bg-gray-800 px-2 py-1 rounded">.co/agents/name/AGENT.md</code>:</p>
+          <p className="text-gray-700 mb-6">Create a file at <code className="bg-gray-100 px-2 py-1 rounded">.co/agents/name/AGENT.md</code>:</p>
           <CodeWithResult
             code={`---
 name: reviewer
@@ -83,7 +83,7 @@ Return a structured report with findings and line numbers.`}
             language="yaml"
           />
 
-          <div className="mt-6 bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+          <div className="mt-6 bg-gray-900 border border-gray-200 rounded-lg overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-gray-800">
                 <tr>
@@ -95,35 +95,35 @@ Return a structured report with findings and line numbers.`}
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-violet-300">name</td>
-                  <td className="px-4 py-3 text-slate-300">yes</td>
+                  <td className="px-4 py-3 text-gray-600">yes</td>
                   <td className="px-4 py-3 text-gray-700">Agent identifier (used in task() calls)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-violet-300">description</td>
-                  <td className="px-4 py-3 text-slate-300">yes</td>
+                  <td className="px-4 py-3 text-gray-600">yes</td>
                   <td className="px-4 py-3 text-gray-700">Shown to parent agent when choosing sub-agent</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-violet-300">model</td>
-                  <td className="px-4 py-3 text-slate-300">no</td>
+                  <td className="px-4 py-3 text-gray-600">no</td>
                   <td className="px-4 py-3 text-gray-700">Default: co/gemini-2.5-pro</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-violet-300">max_iterations</td>
-                  <td className="px-4 py-3 text-slate-300">no</td>
+                  <td className="px-4 py-3 text-gray-600">no</td>
                   <td className="px-4 py-3 text-gray-700">Default: 10</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-violet-300">tools</td>
-                  <td className="px-4 py-3 text-slate-300">no</td>
+                  <td className="px-4 py-3 text-gray-600">no</td>
                   <td className="px-4 py-3 text-gray-700">List of tool names to give the sub-agent</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <div className="mt-4 p-4 bg-gray-900 border border-gray-700 rounded-lg">
-            <p className="text-sm text-slate-300 font-semibold mb-2">Available tool names:</p>
+          <div className="mt-4 p-4 bg-gray-900 border border-gray-200 rounded-lg">
+            <p className="text-sm text-gray-600 font-semibold mb-2">Available tool names:</p>
             <p className="font-mono text-sm text-slate-400">glob, grep, read_file, edit, multi_edit, write, bash, WebFetch, Memory, Browser</p>
           </div>
         </section>
@@ -131,7 +131,7 @@ Return a structured report with findings and line numbers.`}
         {/* Discovery */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCpuChip className="w-8 h-8 text-blue-400" />
+            <HiOutlineCpuChip className="w-8 h-8 icon-ui" />
             Agent Discovery
           </h2>
           <p className="text-gray-700 mb-4">Agents are discovered in priority order:</p>
@@ -141,7 +141,7 @@ Return a structured report with findings and line numbers.`}
 builtin/{name}/AGENT.md         # Built-in agents (lowest priority)`}
             language="bash"
           />
-          <p className="text-slate-300 mt-4 text-sm">Project-level agents override built-ins. Built-in agents are bundled with <code className="bg-gray-800 px-1 rounded">co ai</code> for common tasks like codebase exploration and planning.</p>
+          <p className="text-gray-600 mt-4 text-sm">Project-level agents override built-ins. Built-in agents are bundled with <code className="bg-gray-100 px-1 rounded">co ai</code> for common tasks like codebase exploration and planning.</p>
         </section>
 
         {/* Events */}
@@ -150,7 +150,7 @@ builtin/{name}/AGENT.md         # Built-in agents (lowest priority)`}
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left py-2 text-gray-700">Event</th>
                   <th className="text-left py-2 text-gray-700">Handler</th>
                   <th className="text-left py-2 text-gray-700">Purpose</th>
@@ -159,7 +159,7 @@ builtin/{name}/AGENT.md         # Built-in agents (lowest priority)`}
               <tbody>
                 <tr>
                   <td className="py-2"><code className="text-violet-300">on_agent_ready</code></td>
-                  <td className="py-2 text-slate-300">initialize_subagents</td>
+                  <td className="py-2 text-gray-600">initialize_subagents</td>
                   <td className="py-2 text-gray-700">Discover agents, register task() tool</td>
                 </tr>
               </tbody>

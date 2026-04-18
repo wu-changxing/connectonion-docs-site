@@ -239,7 +239,7 @@ llm_do("Hello", model="claude-opus-4-5")`}
               <h2 className="heading-2">Structured Output Compatibility</h2>
 
               <p className="text-gray-700 mb-4">
-                When using <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">output=</code> with Pydantic models,
+                When using <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">output=</code> with Pydantic models,
                 note these compatibility differences:
               </p>
 

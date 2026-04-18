@@ -53,7 +53,7 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
         {/* How it works */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCpuChip className="w-8 h-8 text-blue-400" />
+            <HiOutlineCpuChip className="w-8 h-8 icon-ui" />
             How it works
           </h2>
 
@@ -62,14 +62,14 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
               <span className="text-cyan-400 font-bold text-lg w-6 flex-shrink-0">1</span>
               <div>
                 <div className="font-semibold mb-1">Monitor after every LLM call</div>
-                <p className="text-gray-600 text-sm">After each response, checks <code className="bg-gray-800 px-1 rounded">context_percent</code>. Requires at least 8 messages before activating.</p>
+                <p className="text-gray-600 text-sm">After each response, checks <code className="bg-gray-100 px-1 rounded">context_percent</code>. Requires at least 8 messages before activating.</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <span className="text-cyan-400 font-bold text-lg w-6 flex-shrink-0">2</span>
               <div>
                 <div className="font-semibold mb-1">Summarize old messages</div>
-                <p className="text-gray-600 text-sm">Calls <code className="bg-gray-800 px-1 rounded">co/gemini-2.5-flash</code> to generate a compact summary of earlier turns (max 800 words).</p>
+                <p className="text-gray-600 text-sm">Calls <code className="bg-gray-100 px-1 rounded">co/gemini-2.5-flash</code> to generate a compact summary of earlier turns (max 800 words).</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
@@ -117,7 +117,7 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="font-semibold text-cyan-300 mb-1">co ai sessions</div>
-              <p className="text-sm text-gray-600">Already included by default in <code className="bg-gray-800 px-1 rounded">co ai</code></p>
+              <p className="text-sm text-gray-600">Already included by default in <code className="bg-gray-100 px-1 rounded">co ai</code></p>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="font-semibold text-cyan-300 mb-1">Research agents</div>
@@ -132,7 +132,7 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left py-2 text-gray-700">Event</th>
                   <th className="text-left py-2 text-gray-700">Handler</th>
                   <th className="text-left py-2 text-gray-700">Purpose</th>

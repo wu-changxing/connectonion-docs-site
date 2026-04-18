@@ -24,10 +24,6 @@ export default function HostPage() {
               { label: 'host()' }
             ]}
             icon={HiOutlineWifi}
-            iconColor="text-emerald-400"
-            iconBgFrom="from-emerald-600/20"
-            iconBgTo="to-cyan-600/20"
-            iconBorderColor="border-emerald-500/30"
             title="host()"
             description="Make your agent accessible over the network. One function call. HTTP, WebSocket, and P2P relay."
             markdownPath="/network/host.md"
@@ -35,8 +31,8 @@ export default function HostPage() {
           />
 
           {/* Key Benefit */}
-          <div className="bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6">
-            <p className="text-lg font-semibold text-emerald-100">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <p className="text-lg font-semibold text-gray-900">
               <strong>Why host()?</strong> Turn local agents into network services. HTTP API, WebSocket, P2P relay - all with one function call.
             </p>
           </div>
@@ -45,12 +41,12 @@ export default function HostPage() {
         {/* 60-Second Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+            <HiOutlineBolt className="w-8 h-8 icon-ui" />
             60-Second Quick Start
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            Create an agent and call <code className="bg-gray-800 px-2 py-1 rounded">host(agent)</code> - that's it:
+            Create an agent and call <code className="bg-gray-100 px-2 py-1 rounded">host(agent)</code> - that's it:
           </p>
 
           <CodeWithResult
@@ -85,45 +81,45 @@ Waiting for tasks...`}
             fileName="host_agent.py"
           />
 
-          <div className="mt-6 bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-blue-100 mb-4">What You Get</h3>
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">What You Get</h3>
             <div className="space-y-2 text-gray-700">
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                 <span><strong>HTTP API</strong> → POST /input, GET /sessions, GET /health</span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                 <span><strong>WebSocket</strong> → Real-time streaming at /ws</span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                 <span><strong>Interactive UI</strong> → Test your agent at /docs</span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                 <span><strong>P2P Relay</strong> → Connect from anywhere via relay</span>
               </div>
             </div>
           </div>
 
           {/* Worker Isolation */}
-          <div className="mt-8 bg-emerald-950/30 border border-emerald-400/30 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-emerald-100 mb-4">Worker Isolation</h3>
+          <div className="mt-8 bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Worker Isolation</h3>
             <p className="text-gray-700 mb-4">
               Each request gets a <strong>fresh deep copy</strong> of your agent:
             </p>
             <div className="space-y-2 text-gray-700">
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                 <span><strong>No shared state</strong> between concurrent requests</span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                 <span><strong>Stateful tools work correctly</strong> (browser, file handles)</span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
                 <span><strong>Complete isolation</strong> - one request can't affect another</span>
               </div>
             </div>
@@ -133,7 +129,7 @@ Waiting for tasks...`}
         {/* HTTP API */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineServerStack className="w-8 h-8 text-cyan-400" />
+            <HiOutlineServerStack className="w-8 h-8 icon-ui" />
             HTTP API
           </h2>
 
@@ -158,7 +154,7 @@ Waiting for tasks...`}
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Multi-turn Conversations</h3>
               <p className="text-gray-700 mb-4">
-                Pass the <code className="bg-gray-800 px-2 py-1 rounded">session</code> from the response to continue:
+                Pass the <code className="bg-gray-100 px-2 py-1 rounded">session</code> from the response to continue:
               </p>
               <CodeWithResult
                 code={`# First request
@@ -177,8 +173,8 @@ print(response.json()["result"])  # "Your name is John"`}
               />
             </div>
 
-            <div className="bg-teal-950/50 border border-teal-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-teal-100 mb-4">Sending Images & Files</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Sending Images & Files</h3>
               <p className="text-gray-700 mb-4">
                 Both HTTP and WebSocket accept images and files alongside text prompts:
               </p>
@@ -202,10 +198,10 @@ curl -X POST http://localhost:8000/input \\
   }'`}
                 language="bash"
               />
-              <div className="mt-4 space-y-2 text-sm text-slate-300">
-                <p><strong className="text-teal-700">Images</strong> are passed directly to the LLM as visual content (multimodal).</p>
-                <p><strong className="text-teal-700">Files</strong> are decoded from base64, saved to <code className="bg-gray-800 px-1 rounded">.co/uploads/</code>, and the agent reads them via tools like <code className="bg-gray-800 px-1 rounded">read_file</code>.</p>
-                <p><strong className="text-teal-700">Limits:</strong> Default 10MB per file, 10 files per request. Configure in <code className="bg-gray-800 px-1 rounded">.co/host.yaml</code> or via <code className="bg-gray-800 px-1 rounded">host()</code> params.</p>
+              <div className="mt-4 space-y-2 text-sm text-gray-600">
+                <p><strong className="text-gray-700 font-semibold">Images</strong> are passed directly to the LLM as visual content (multimodal).</p>
+                <p><strong className="text-gray-700 font-semibold">Files</strong> are decoded from base64, saved to <code className="bg-gray-100 px-1 rounded">.co/uploads/</code>, and the agent reads them via tools like <code className="bg-gray-100 px-1 rounded">read_file</code>.</p>
+                <p><strong className="text-gray-700 font-semibold">Limits:</strong> Default 10MB per file, 10 files per request. Configure in <code className="bg-gray-100 px-1 rounded">.co/host.yaml</code> or via <code className="bg-gray-100 px-1 rounded">host()</code> params.</p>
               </div>
             </div>
 
@@ -271,8 +267,8 @@ curl -X POST http://localhost:8000/input \\
 }`}
                 language="bash"
               />
-              <p className="text-sm text-slate-400 mt-2">
-                The <code className="bg-gray-800 px-1 rounded">accepted_inputs</code> field tells clients what input types the agent supports and file size limits.
+              <p className="text-sm text-gray-500 mt-2">
+                The <code className="bg-gray-100 px-1 rounded">accepted_inputs</code> field tells clients what input types the agent supports and file size limits.
               </p>
             </div>
           </div>
@@ -281,7 +277,7 @@ curl -X POST http://localhost:8000/input \\
         {/* WebSocket */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineGlobeAlt className="w-8 h-8 text-blue-400" />
+            <HiOutlineGlobeAlt className="w-8 h-8 icon-ui" />
             WebSocket API
           </h2>
 
@@ -317,25 +313,25 @@ ws.onmessage = (event) => {
           />
 
           <div className="mt-6 grid md:grid-cols-2 gap-4">
-            <div className="bg-cyan-950/50 border border-cyan-400/40 rounded-lg p-4">
-              <h4 className="font-semibold text-cyan-100 mb-2">CONNECT → Server</h4>
-              <p className="text-sm text-slate-300">Authenticate + find/create session (one message for new and resume)</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <h4 className="font-semibold text-gray-900 mb-2">CONNECT → Server</h4>
+              <p className="text-sm text-gray-600">Authenticate + find/create session (one message for new and resume)</p>
             </div>
-            <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-4">
-              <h4 className="font-semibold text-blue-100 mb-2">INPUT → Agent</h4>
-              <p className="text-sm text-slate-300">Send prompts (after CONNECT)</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <h4 className="font-semibold text-gray-900 mb-2">INPUT → Agent</h4>
+              <p className="text-sm text-gray-600">Send prompts (after CONNECT)</p>
             </div>
-            <div className="bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-4">
-              <h4 className="font-semibold text-emerald-100 mb-2">OUTPUT ← Agent</h4>
-              <p className="text-sm text-slate-300">Receive final results</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <h4 className="font-semibold text-gray-900 mb-2">OUTPUT ← Agent</h4>
+              <p className="text-sm text-gray-600">Receive final results</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h4 className="font-semibold text-gray-900 mb-2">STREAM ← Agent</h4>
-              <p className="text-sm text-slate-300">Streaming chunks</p>
+              <p className="text-sm text-gray-600">Streaming chunks</p>
             </div>
-            <div className="bg-red-950/50 border border-red-400/40 rounded-lg p-4">
-              <h4 className="font-semibold text-red-100 mb-2">ERROR ← Agent</h4>
-              <p className="text-sm text-slate-300">Error messages</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <h4 className="font-semibold text-gray-900 mb-2">ERROR ← Agent</h4>
+              <p className="text-sm text-gray-600">Error messages</p>
             </div>
           </div>
         </section>
@@ -343,7 +339,7 @@ ws.onmessage = (event) => {
         {/* Trust Parameter */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineShieldCheck className="w-8 h-8 text-amber-400" />
+            <HiOutlineShieldCheck className="w-8 h-8 icon-ui" />
             Trust & Access Control
           </h2>
 
@@ -418,14 +414,14 @@ I trust requests that:
               <h3 className="text-xl font-semibold mb-4">Development vs Production</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-green-900 mb-2">Development</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">Development</h4>
                   <CodeWithResult
                     code={`host(agent, reload=True, trust="open")`}
                     language="python"
                   />
                 </div>
-                <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-4">
-                  <h4 className="font-semibold text-blue-100 mb-2">Production</h4>
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">Production</h4>
                   <CodeWithResult
                     code={`host(agent, workers=4, trust="strict")`}
                     language="python"
@@ -439,12 +435,12 @@ I trust requests that:
         {/* host.yaml Configuration */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineDocumentText className="w-8 h-8 text-cyan-400" />
+            <HiOutlineDocumentText className="w-8 h-8 icon-ui" />
             host.yaml Configuration
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            Store configuration in a YAML file instead of code parameters. Generated by <code className="bg-gray-800 px-2 py-1 rounded">co init</code> or <code className="bg-gray-800 px-2 py-1 rounded">co create</code>.
+            Store configuration in a YAML file instead of code parameters. Generated by <code className="bg-gray-100 px-2 py-1 rounded">co init</code> or <code className="bg-gray-100 px-2 py-1 rounded">co create</code>.
           </p>
 
           <div className="space-y-8">
@@ -482,11 +478,11 @@ host(create_agent)  # Reads .co/host.yaml automatically`}
               <div className="space-y-2 text-gray-700">
                 <div className="flex items-start gap-2">
                   <span className="text-gray-400 font-semibold">1.</span>
-                  <span><strong>Code parameters</strong> - <code className="bg-gray-800 px-2 py-1 rounded">host(agent, port=9000)</code></span>
+                  <span><strong>Code parameters</strong> - <code className="bg-gray-100 px-2 py-1 rounded">host(agent, port=9000)</code></span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-gray-400 font-semibold">2.</span>
-                  <span><strong>Config file</strong> - <code className="bg-gray-800 px-2 py-1 rounded">.co/host.yaml</code></span>
+                  <span><strong>Config file</strong> - <code className="bg-gray-100 px-2 py-1 rounded">.co/host.yaml</code></span>
                 </div>
               </div>
             </div>
@@ -494,7 +490,7 @@ host(create_agent)  # Reads .co/host.yaml automatically`}
             <div>
               <h3 className="text-xl font-semibold mb-4">Agent Metadata</h3>
               <p className="text-gray-700 mb-4">
-                Used by <code className="bg-gray-800 px-2 py-1 rounded">/info</code> endpoint and ANNOUNCE messages for agent discovery:
+                Used by <code className="bg-gray-100 px-2 py-1 rounded">/info</code> endpoint and ANNOUNCE messages for agent discovery:
               </p>
               <CodeWithResult
                 code={`# Natural language description
@@ -512,29 +508,29 @@ examples:
             <div>
               <h3 className="text-xl font-semibold mb-4">Trust Levels</h3>
               <div className="overflow-x-auto">
-                <table className="w-full text-sm border border-gray-700 rounded-lg">
-                  <thead className="bg-gray-100">
+                <table className="w-full text-sm border border-gray-200 rounded-lg">
+                  <thead className="bg-gray-50">
                     <tr>
                       <th className="text-left px-4 py-3 text-gray-700 font-semibold">Level</th>
                       <th className="text-left px-4 py-3 text-gray-700 font-semibold">Behavior</th>
                       <th className="text-left px-4 py-3 text-gray-700 font-semibold">Use Case</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-700">
+                  <tbody className="divide-y divide-gray-200">
                     <tr>
-                      <td className="px-4 py-3 font-mono text-green-700">open</td>
+                      <td className="px-4 py-3 font-mono text-gray-900">open</td>
                       <td className="px-4 py-3 text-gray-700">Accept all requests</td>
-                      <td className="px-4 py-3 text-slate-300">Development</td>
+                      <td className="px-4 py-3 text-gray-600">Development</td>
                     </tr>
                     <tr>
-                      <td className="px-4 py-3 font-mono text-yellow-300">careful</td>
+                      <td className="px-4 py-3 font-mono text-gray-700">careful</td>
                       <td className="px-4 py-3 text-gray-700">Recommend signature, accept unsigned</td>
-                      <td className="px-4 py-3 text-slate-300">Staging/Default</td>
+                      <td className="px-4 py-3 text-gray-600">Staging/Default</td>
                     </tr>
                     <tr>
-                      <td className="px-4 py-3 font-mono text-red-700">strict</td>
+                      <td className="px-4 py-3 font-mono text-gray-700">strict</td>
                       <td className="px-4 py-3 text-gray-700">Require valid signature</td>
-                      <td className="px-4 py-3 text-slate-300">Production</td>
+                      <td className="px-4 py-3 text-gray-600">Production</td>
                     </tr>
                   </tbody>
                 </table>
@@ -620,7 +616,7 @@ co_dir: null`}
             <div>
               <h3 className="text-xl font-semibold mb-4">File Upload Limits</h3>
               <p className="text-gray-700 mb-4">
-                Control file upload sizes for <code className="bg-gray-800 px-2 py-1 rounded">/input</code> endpoint and <code className="bg-gray-800 px-2 py-1 rounded">/ws</code> WebSocket:
+                Control file upload sizes for <code className="bg-gray-100 px-2 py-1 rounded">/input</code> endpoint and <code className="bg-gray-100 px-2 py-1 rounded">/ws</code> WebSocket:
               </p>
               <CodeWithResult
                 code={`# Maximum file size in MB (default: 10)
@@ -633,8 +629,8 @@ max_files_per_request: 10`}
               />
 
               <div className="mt-6 grid md:grid-cols-3 gap-4">
-                <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-4">
-                  <h4 className="font-semibold text-blue-100 mb-2">Image Processing</h4>
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">Image Processing</h4>
                   <CodeWithResult
                     code={`max_file_size: 5
 max_files_per_request: 20`}
@@ -649,8 +645,8 @@ max_files_per_request: 5`}
                     language="yaml"
                   />
                 </div>
-                <div className="bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-4">
-                  <h4 className="font-semibold text-emerald-100 mb-2">Document Processing</h4>
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">Document Processing</h4>
                   <CodeWithResult
                     code={`max_file_size: 10
 max_files_per_request: 50`}
@@ -696,21 +692,13 @@ blacklist: blacklist.txt`}
               />
             </div>
 
-            <div className="bg-yellow-950/50 border border-yellow-400/40 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-yellow-900 mb-4">Best Practices</h3>
-              <div className="space-y-3 text-gray-700">
-                <div>
-                  <strong className="text-green-700">✅ DO:</strong> Commit <code className="bg-gray-800 px-2 py-1 rounded">host.yaml</code> to version control
-                </div>
-                <div>
-                  <strong className="text-red-700">❌ DON'T:</strong> Put secrets in <code className="bg-gray-800 px-2 py-1 rounded">host.yaml</code> - use <code className="bg-gray-800 px-2 py-1 rounded">.env</code> instead
-                </div>
-                <div>
-                  <strong className="text-green-700">✅ DO:</strong> Start simple, add complexity as needed
-                </div>
-                <div>
-                  <strong className="text-red-700">❌ DON'T:</strong> Commit <code className="bg-gray-800 px-2 py-1 rounded">whitelist.txt</code> or <code className="bg-gray-800 px-2 py-1 rounded">blacklist.txt</code> to git
-                </div>
+            <div className="callout">
+              <h3 className="text-base font-semibold text-gray-900 mb-3">Best Practices</h3>
+              <div className="space-y-2 text-gray-600 text-sm">
+                <div><strong className="text-gray-900">✓ DO:</strong> Commit <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">host.yaml</code> to version control</div>
+                <div><strong className="text-gray-900">✗ DON'T:</strong> Put secrets in <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">host.yaml</code> — use <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">.env</code> instead</div>
+                <div><strong className="text-gray-900">✓ DO:</strong> Start simple, add complexity as needed</div>
+                <div><strong className="text-gray-900">✗ DON'T:</strong> Commit <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">whitelist.txt</code> or <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">blacklist.txt</code> to git</div>
               </div>
             </div>
           </div>
@@ -736,56 +724,56 @@ blacklist: blacklist.txt`}
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">agent</td>
-                  <td className="px-4 py-3 text-slate-300">Agent</td>
+                  <td className="px-4 py-3 text-gray-600">Agent</td>
                   <td className="px-4 py-3 text-red-400">required</td>
                   <td className="px-4 py-3 text-gray-700">The agent to host</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">trust</td>
-                  <td className="px-4 py-3 text-slate-300">str | Agent</td>
-                  <td className="px-4 py-3 text-slate-300">{'"careful"'}</td>
+                  <td className="px-4 py-3 text-gray-600">str | Agent</td>
+                  <td className="px-4 py-3 text-gray-600">{'"careful"'}</td>
                   <td className="px-4 py-3 text-gray-700">Trust level, policy, or agent</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">blacklist</td>
-                  <td className="px-4 py-3 text-slate-300">list</td>
-                  <td className="px-4 py-3 text-slate-300">None</td>
+                  <td className="px-4 py-3 text-gray-600">list</td>
+                  <td className="px-4 py-3 text-gray-600">None</td>
                   <td className="px-4 py-3 text-gray-700">Addresses to always reject</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">whitelist</td>
-                  <td className="px-4 py-3 text-slate-300">list</td>
-                  <td className="px-4 py-3 text-slate-300">None</td>
+                  <td className="px-4 py-3 text-gray-600">list</td>
+                  <td className="px-4 py-3 text-gray-600">None</td>
                   <td className="px-4 py-3 text-gray-700">Addresses to always accept</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">port</td>
-                  <td className="px-4 py-3 text-slate-300">int</td>
-                  <td className="px-4 py-3 text-slate-300">8000</td>
+                  <td className="px-4 py-3 text-gray-600">int</td>
+                  <td className="px-4 py-3 text-gray-600">8000</td>
                   <td className="px-4 py-3 text-gray-700">HTTP server port</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">workers</td>
-                  <td className="px-4 py-3 text-slate-300">int</td>
-                  <td className="px-4 py-3 text-slate-300">1</td>
+                  <td className="px-4 py-3 text-gray-600">int</td>
+                  <td className="px-4 py-3 text-gray-600">1</td>
                   <td className="px-4 py-3 text-gray-700">Number of worker processes</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">result_ttl</td>
-                  <td className="px-4 py-3 text-slate-300">int</td>
-                  <td className="px-4 py-3 text-slate-300">86400</td>
+                  <td className="px-4 py-3 text-gray-600">int</td>
+                  <td className="px-4 py-3 text-gray-600">86400</td>
                   <td className="px-4 py-3 text-gray-700">Result storage TTL (24h default)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">relay_url</td>
-                  <td className="px-4 py-3 text-slate-300">str</td>
-                  <td className="px-4 py-3 text-slate-300">production</td>
+                  <td className="px-4 py-3 text-gray-600">str</td>
+                  <td className="px-4 py-3 text-gray-600">production</td>
                   <td className="px-4 py-3 text-gray-700">P2P relay server URL</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">reload</td>
-                  <td className="px-4 py-3 text-slate-300">bool</td>
-                  <td className="px-4 py-3 text-slate-300">False</td>
+                  <td className="px-4 py-3 text-gray-600">bool</td>
+                  <td className="px-4 py-3 text-gray-600">False</td>
                   <td className="px-4 py-3 text-gray-700">Auto-reload on code changes</td>
                 </tr>
               </tbody>
@@ -881,22 +869,22 @@ sudo systemctl start myagent`}
 
         {/* CTA Section */}
         <section className="mb-20">
-          <div className="bg-emerald-950/30 rounded-2xl p-10 border border-emerald-400/30 text-center">
+          <div className="bg-gray-50 rounded-xl p-10 border border-gray-200 text-center">
             <h2 className="heading-2">Ready to Host Your Agents?</h2>
-            <p className="text-xl text-gray-700 mb-8">
-              Just call <code className="bg-gray-800 px-3 py-1.5 rounded">host(agent)</code> and your agent goes live!
+            <p className="text-lg text-gray-600 mb-8">
+              Just call <code className="bg-gray-200 px-2 py-1 rounded text-gray-800">host(agent)</code> and your agent goes live.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/connect"
-                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
                 <HiOutlineServerStack className="w-5 h-5" />
                 Connect to Agents
               </Link>
               <Link
                 href="/agent"
-                className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-lg font-semibold border border-gray-200 transition-colors"
               >
                 <HiOutlineCodeBracket className="w-5 h-5" />
                 Learn About Agents

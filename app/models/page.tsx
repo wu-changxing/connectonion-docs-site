@@ -247,7 +247,7 @@ response = agent.input("Explain quantum computing")`}
               Agent Default
             </h3>
             <p className="text-sm text-gray-700 mb-4">
-              For <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">Agent()</code> class
+              For <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Agent()</code> class
             </p>
             <CodeWithResult
               code={`# Default: co/gemini-2.5-pro
@@ -268,7 +268,7 @@ agent = Agent("assistant", model="co/gemini-2.5-pro")`}
               llm_do Default
             </h3>
             <p className="text-sm text-gray-700 mb-4">
-              For <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">llm_do()</code> function
+              For <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">llm_do()</code> function
             </p>
             <CodeWithResult
               code={`from connectonion import llm_do
@@ -288,8 +288,8 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
         <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
           <p className="text-sm text-gray-600">
-            <strong>Note:</strong> Default models require authentication with <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code>.
-            To use your own API keys without the <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co/</code> prefix, set <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">GEMINI_API_KEY</code> environment variable.
+            <strong>Note:</strong> Default models require authentication with <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth</code>.
+            To use your own API keys without the <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co/</code> prefix, set <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">GEMINI_API_KEY</code> environment variable.
           </p>
         </div>
       </section>
@@ -488,7 +488,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               <div className="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
                 <p className="text-xs text-gray-500">
                   ⚠️ Legacy models (claude-sonnet-4, claude-opus-4) do NOT support structured output.
-                  Use 4.5 or 4.1 series for <code className="bg-gray-800 px-1 rounded">llm_do(..., output=Model)</code>
+                  Use 4.5 or 4.1 series for <code className="bg-gray-100 px-1 rounded">llm_do(..., output=Model)</code>
                 </p>
               </div>
             </div>
@@ -518,8 +518,8 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               </div>
               <div className="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
                 <p className="text-xs text-gray-500">
-                  ⚠️ Mistral models require your own API key (<code className="bg-gray-800 px-1 rounded">MISTRAL_API_KEY</code>).
-                  Managed keys (<code className="bg-gray-800 px-1 rounded">co/</code> prefix) are not yet available for Mistral.
+                  ⚠️ Mistral models require your own API key (<code className="bg-gray-100 px-1 rounded">MISTRAL_API_KEY</code>).
+                  Managed keys (<code className="bg-gray-100 px-1 rounded">co/</code> prefix) are not yet available for Mistral.
                 </p>
               </div>
             </div>

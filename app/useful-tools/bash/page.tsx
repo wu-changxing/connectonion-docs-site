@@ -148,7 +148,7 @@ agent.input("read main.py, fix the import error, then run it to verify")`}
               <p>• Output truncated at 10,000 characters to prevent token overflow</p>
               <p>• stdout and stderr are merged in the returned string</p>
               <p>• Non-zero exit codes included in output (<code className="bg-gray-100 px-1 rounded">Exit code: 1</code>)</p>
-              <p>• Unix/Mac only — use <a href="/useful-tools/shell" className="text-yellow-300 hover:underline">Shell</a> for cross-platform</p>
+              <p>• Unix/Mac only — use <a href="/useful-tools/shell" className="text-gray-700 hover:underline">Shell</a> for cross-platform</p>
             </div>
           </div>
         </section>

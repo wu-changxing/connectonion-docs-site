@@ -54,7 +54,7 @@ export default function MicrosoftIntegrationPage() {
               <ol className="list-decimal list-inside space-y-2 text-gray-700 ml-2">
                 <li>Opens browser to Microsoft OAuth consent screen</li>
                 <li>You authorize Mail + Calendar permissions</li>
-                <li>Credentials saved to <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> (both local and global <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code>)</li>
+                <li>Credentials saved to <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> (both local and global <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code>)</li>
                 <li>Ready to use Outlook and Calendar tools immediately</li>
               </ol>
             </div>
@@ -72,11 +72,11 @@ export default function MicrosoftIntegrationPage() {
         <section className="mb-16">
           <h2 className="heading-2">Prerequisites</h2>
           <p className="text-gray-700 mb-6">
-            Before running <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth microsoft</code>, you must authenticate with OpenOnion:
+            Before running <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth microsoft</code>, you must authenticate with OpenOnion:
           </p>
           <CommandBlock commands={['co auth']} />
           <p className="text-gray-700 mt-4">
-            This creates your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code> which is required for Microsoft OAuth to work.
+            This creates your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code> which is required for Microsoft OAuth to work.
           </p>
         </section>
 
@@ -84,7 +84,7 @@ export default function MicrosoftIntegrationPage() {
         <section className="mb-16">
           <h2 className="heading-2">What Gets Saved</h2>
           <p className="text-gray-700 mb-6">
-            After successful authentication, your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> file contains:
+            After successful authentication, your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> file contains:
           </p>
 
           <CodeWithResult
@@ -106,11 +106,11 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
-                <span>Credentials are saved to both local <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> and <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></span>
+                <span>Credentials are saved to both local <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> and <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
-                <span>File permissions set to <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">0600</code> (read/write for owner only) on Unix systems</span>
+                <span>File permissions set to <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">0600</code> (read/write for owner only) on Unix systems</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
@@ -128,7 +128,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
         <section className="mb-16">
           <h2 className="heading-2">Permissions Requested</h2>
           <p className="text-gray-700 mb-6">
-            When you run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth microsoft</code>, we request these Microsoft Graph API scopes:
+            When you run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth microsoft</code>, we request these Microsoft Graph API scopes:
           </p>
 
           <div className="overflow-x-auto mb-8">
@@ -247,7 +247,7 @@ agent.input("What's on my calendar this week?")`}
         <section className="mb-16">
           <h2 className="heading-2">Outlook Tool Methods</h2>
           <p className="text-gray-700 mb-6">
-            The <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">Outlook</code> tool provides these capabilities:
+            The <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Outlook</code> tool provides these capabilities:
           </p>
 
           <CodeWithResult
@@ -283,7 +283,7 @@ outlook.get_my_email()          # Get connected Microsoft email address`}
         <section className="mb-16">
           <h2 className="heading-2">Microsoft Calendar Tool Methods</h2>
           <p className="text-gray-700 mb-6">
-            The <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">MicrosoftCalendar</code> tool provides:
+            The <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">MicrosoftCalendar</code> tool provides:
           </p>
 
           <CodeWithResult
@@ -334,7 +334,7 @@ calendar.check_availability("2025-01-15 14:00")  # Check if specific time is fre
           <div className="space-y-8">
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-red-400">"Not authenticated with OpenOnion"</h3>
-              <p className="text-gray-700 mb-4">You need to run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
+              <p className="text-gray-700 mb-4">You need to run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
               <CommandBlock commands={['co auth', 'co auth microsoft']} />
             </div>
 
