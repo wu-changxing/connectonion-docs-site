@@ -342,7 +342,7 @@ calendar.check_availability("2025-01-15 14:00")  # Check if specific time is fre
               <h3 className="text-lg font-semibold mb-4 text-gray-500">Authorization Timeout</h3>
               <p className="text-gray-700 mb-4">If the browser window doesn't complete authorization within 5 minutes:</p>
               <CommandBlock commands={['co auth microsoft']} />
-              <p className="text-sm text-gray-400 mt-2">The command polls the backend every 5 seconds waiting for your authorization.</p>
+              <p className="text-sm text-gray-600 mt-2">The command polls the backend every 5 seconds waiting for your authorization.</p>
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">

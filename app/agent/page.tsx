@@ -438,7 +438,7 @@ result = agent.input(
                   <p className="text-xs text-gray-500 mt-0.5">Stateful web automation — navigate, screenshot, scrape with Playwright</p>
                 </div>
               </div>
-              <span className="text-xs text-gray-400 whitespace-nowrap flex-shrink-0 ml-4">github.com/openonion ↗</span>
+              <span className="text-xs text-gray-500 whitespace-nowrap flex-shrink-0 ml-4">github.com/openonion ↗</span>
             </a>
             <a
               href="https://github.com/openonion/oo-chat"
@@ -453,7 +453,7 @@ result = agent.input(
                   <p className="text-xs text-gray-500 mt-0.5">Open-source chat UI for AI agents — self-hostable, React-based</p>
                 </div>
               </div>
-              <span className="text-xs text-gray-400 whitespace-nowrap flex-shrink-0 ml-4">github.com/openonion ↗</span>
+              <span className="text-xs text-gray-500 whitespace-nowrap flex-shrink-0 ml-4">github.com/openonion ↗</span>
             </a>
           </div>
         </section>

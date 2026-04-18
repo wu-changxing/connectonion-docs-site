@@ -223,7 +223,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               
               <div className="grid md:grid-cols-2 gap-6 my-8">
                 <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-                  <h3 className="text-xl font-bold text-gray-400 mb-4">Public Discovery Layer (ANNOUNCE/FIND)</h3>
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">Public Discovery Layer (ANNOUNCE/FIND)</h3>
                   <ul className="space-y-2">
                     <li>• Unencrypted broadcasts</li>
                     <li>• Shows what agents exist and their capabilities</li>
@@ -274,22 +274,22 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-400 mb-4">1. ANNOUNCE = Heartbeat = Discovery</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">1. ANNOUNCE = Heartbeat = Discovery</h3>
                   <p>We started with separate HEARTBEAT and ANNOUNCE messages. Then realized: they're the same thing. One message type, multiple purposes.</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-400 mb-4">2. Behavioral Trust Over Cryptographic Trust</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">2. Behavioral Trust Over Cryptographic Trust</h3>
                   <p>We don't verify identities. We verify behavior. If an agent successfully completes tasks, it becomes a "contact". Trust through proven work, not certificates.</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-400 mb-4">3. Developer-Controlled Broadcasting</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">3. Developer-Controlled Broadcasting</h3>
                   <p>Agents only announce when developers explicitly call <code className="bg-gray-100 text-gray-400 px-2 py-1 rounded font-mono text-sm">announce()</code>. No hidden network activity, no automatic broadcasts. Developers stay in control.</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-400 mb-4">4. No Global State</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">4. No Global State</h3>
                   <p>Each agent only knows its local neighborhood. No global directory, no consensus required. The network scales infinitely because there's nothing global to coordinate.</p>
                 </div>
               </div>
@@ -354,7 +354,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
 
               <div className="border-t border-gray-800 mt-16 pt-8">
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
-                  <h3 className="text-lg font-bold text-gray-400 mb-4">📖 Complete Technical Specification</h3>
+                  <h3 className="text-lg font-bold text-gray-800 mb-4">📖 Complete Technical Specification</h3>
                   <p className="text-gray-700 mb-4">
                     This article covers the design philosophy and evolution of our network protocol. For the complete technical specification including message formats, data structures, and implementation details, see:
                   </p>

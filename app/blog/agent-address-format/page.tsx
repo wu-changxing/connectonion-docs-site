@@ -152,7 +152,7 @@ Don't pretend to be something you're not. Our addresses aren't Ethereum addresse
               </div>
 
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-400 mb-4">Simplicity</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">Simplicity</h3>
                 <ul className="text-gray-700 text-sm space-y-1">
                   <li>Fixed 32B keys, 64B sigs</li>
                   <li>Simple, clean API</li>

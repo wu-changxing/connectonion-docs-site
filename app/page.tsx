@@ -141,7 +141,7 @@ agent.input("What's the weather in NYC?")`}
       {/* Docs Quick Access — jump straight into documentation */}
       <section className="py-10 px-4 md:px-6 border-b border-gray-100">
         <div className="max-w-5xl mx-auto">
-          <p className="text-[11px] font-semibold text-gray-400 tracking-[0.12em] uppercase mb-5">Documentation</p>
+          <p className="text-[11px] font-semibold text-gray-500 tracking-[0.12em] uppercase mb-5">Documentation</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
             {[
               { href: '/quickstart', icon: HiOutlineRocketLaunch, label: 'Quick Start', sub: 'Get running in 60s' },

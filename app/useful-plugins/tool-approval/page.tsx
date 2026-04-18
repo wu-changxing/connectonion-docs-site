@@ -296,7 +296,7 @@ permissions:
         <section className="mb-12">
           <h2 className="heading-2">Bash Command Chain Permissions</h2>
           <p className="text-gray-700 mb-6">
-            Uses <strong className="text-gray-400">bashlex</strong> to parse and validate command chains - ALL commands must be permitted.
+            Uses <strong className="text-gray-700">bashlex</strong> to parse and validate command chains - ALL commands must be permitted.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">

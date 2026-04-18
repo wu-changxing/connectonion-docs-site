@@ -87,7 +87,7 @@ export default function CLIPage() {
         {/* Daily use — bold */}
         <div className="border-b border-gray-100">
           <div className="px-4 py-2 bg-white">
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Daily Use</span>
+            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Daily Use</span>
           </div>
           <div className="divide-y divide-gray-50">
             {[
@@ -105,7 +105,7 @@ export default function CLIPage() {
         {/* Setup — medium weight */}
         <div className="border-b border-gray-100">
           <div className="px-4 py-2 bg-white">
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Project Setup</span>
+            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Project Setup</span>
           </div>
           <div className="divide-y divide-gray-50">
             {[
@@ -124,7 +124,7 @@ export default function CLIPage() {
         {/* Utility — muted */}
         <div>
           <div className="px-4 py-2 bg-white">
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Utilities</span>
+            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Utilities</span>
           </div>
           <div className="divide-y divide-gray-50">
             {[

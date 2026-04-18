@@ -77,7 +77,7 @@ agent = Agent(
               <div className="mb-8">
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                    <span className="text-gray-400">1.</span> Trust Levels (String)
+                    <span className="text-gray-500">1.</span> Trust Levels (String)
                   </h3>
                   <p className="text-gray-700 mb-4">Simple predefined levels for common scenarios:</p>
                 </div>
@@ -99,7 +99,7 @@ agent = need("service", trust="strict")`}
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                     <HiOutlineDocumentText className="w-5 h-5 text-gray-400" />
-                    <span className="text-gray-400">2.</span> Trust Policy (Natural Language)
+                    <span className="text-gray-500">2.</span> Trust Policy (Natural Language)
                   </h3>
                   <p className="text-gray-700 mb-2">Express complex requirements in plain English:</p>
                 </div>

@@ -123,57 +123,57 @@ agent = Agent("a", plugins=[re_act, logger])`}
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-400">re_act</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">re_act</td>
                   <td className="px-4 py-3 text-gray-700">Planning + reflection (ReAct pattern)</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/re-act" className="text-gray-500 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-400">auto_compact</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">auto_compact</td>
                   <td className="px-4 py-3 text-gray-700">Auto-compress context at 90% — prevents hitting token limits</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/auto-compact" className="text-gray-500 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-400">subagents</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">subagents</td>
                   <td className="px-4 py-3 text-gray-700">Load sub-agents from AGENT.md files via task() tool</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/subagents" className="text-gray-500 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-400">ulw</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">ulw</td>
                   <td className="px-4 py-3 text-gray-700">Ultra Light Work — autonomous mode from web UI</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/ulw" className="text-gray-500 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-400">ui_stream</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">ui_stream</td>
                   <td className="px-4 py-3 text-gray-700">WebSocket streaming of completion events to UI</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/ui-stream" className="text-gray-500 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-400">tool_approval</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">tool_approval</td>
                   <td className="px-4 py-3 text-gray-700">Require user approval before each tool call</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/tool-approval" className="text-gray-500 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-400">shell_approval</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">shell_approval</td>
                   <td className="px-4 py-3 text-gray-700">Approve shell commands before execution</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/shell-approval" className="text-gray-500 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-400">prefer_write_tool</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">prefer_write_tool</td>
                   <td className="px-4 py-3 text-gray-700">Encourage agent to use FileTools.write() over bash</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/prefer-write-tool" className="text-gray-500 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-400">system_reminder</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">system_reminder</td>
                   <td className="px-4 py-3 text-gray-700">Inject system reminders into LLM context</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/system-reminder" className="text-gray-500 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-400">image_result_formatter</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">image_result_formatter</td>
                   <td className="px-4 py-3 text-gray-700">Format images for vision models</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/image-result-formatter" className="text-gray-500 hover:underline">docs</Link></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-400">eval</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">eval</td>
                   <td className="px-4 py-3 text-gray-700">Task evaluation for debugging</td>
                   <td className="px-4 py-3"><Link href="/useful-plugins/eval" className="text-gray-500 hover:underline">docs</Link></td>
                 </tr>

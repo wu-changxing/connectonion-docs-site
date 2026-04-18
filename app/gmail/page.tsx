@@ -129,19 +129,19 @@ agent.input("Find emails from alice@example.com")`}
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-gray-400 font-mono text-sm mb-1">mark_read(email_id)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">mark_read(email_id)</h4>
                   <p className="text-gray-700 text-xs">Mark email as read</p>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-gray-400 font-mono text-sm mb-1">mark_unread(email_id)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">mark_unread(email_id)</h4>
                   <p className="text-gray-700 text-xs">Mark email as unread</p>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-gray-400 font-mono text-sm mb-1">archive_email(email_id)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">archive_email(email_id)</h4>
                   <p className="text-gray-700 text-xs">Archive email (remove from inbox)</p>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-gray-400 font-mono text-sm mb-1">star_email(email_id)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">star_email(email_id)</h4>
                   <p className="text-gray-700 text-xs">Add star to email</p>
                 </div>
               </div>

@@ -104,7 +104,7 @@ mark_unread(email_id)                # Mark as unread`}
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="font-semibold mb-4 text-gray-400">Agent Emails (This page)</h3>
+              <h3 className="font-semibold mb-4 text-gray-700">Agent Emails (This page)</h3>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
                   <HiOutlineCheck className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />

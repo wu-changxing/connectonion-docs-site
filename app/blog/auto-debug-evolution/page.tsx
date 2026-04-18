@@ -375,7 +375,7 @@ agent.input("Send email to John")
             <div className="text-gray-700 italic">"I think 4 is too complicated, two or three at most"</div>
           </div>
           <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
-            <div className="text-gray-400 font-semibold mb-2">Lesson #1:</div>
+            <div className="text-gray-700 font-semibold mb-2">Lesson #1:</div>
             <div className="text-gray-700">More features ≠ better UX. High learning curve before being productive.</div>
           </div>
         </section>
@@ -394,7 +394,7 @@ agent.input("Send email to John")
             <div className="text-gray-700 italic">"When we do auto-debug, the input to the agent should default have a mode"</div>
           </div>
           <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
-            <div className="text-gray-400 font-semibold mb-2">Lesson #2:</div>
+            <div className="text-gray-700 font-semibold mb-2">Lesson #2:</div>
             <div className="text-gray-700">Symbolic shortcuts (?, {'>>>'}) require learning. Not discoverable without docs.</div>
           </div>
         </section>
@@ -409,11 +409,11 @@ agent.input("Send email to John")
           </p>
           <CodeWithResult code={codeIteration3} language="text" className="mb-4" />
           <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4 mb-4">
-            <div className="text-gray-400 font-semibold mb-2">User Feedback:</div>
+            <div className="text-gray-700 font-semibold mb-2">User Feedback:</div>
             <div className="text-gray-700 italic">"The AI should be something more intuitive like 'AI Ask' or something like that"</div>
           </div>
           <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
-            <div className="text-gray-400 font-semibold mb-2">Lesson #3:</div>
+            <div className="text-gray-700 font-semibold mb-2">Lesson #3:</div>
             <div className="text-gray-700">Names matter. "AI" is ambiguous - "AI Ask" is self-explanatory. Progress made but still not simple enough.</div>
           </div>
         </section>
@@ -434,7 +434,7 @@ agent.input("Send email to John")
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <div className="text-gray-400 font-semibold mb-2">Unix Philosophy</div>
+              <div className="text-gray-700 font-semibold mb-2">Unix Philosophy</div>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Do one thing well</li>
                 <li>• Compose simply</li>

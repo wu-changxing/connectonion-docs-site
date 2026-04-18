@@ -109,32 +109,32 @@ agent = Agent("assistant", log="debug.log")`}
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr className="hover:bg-gray-50 transition-colors bg-gray-50">
-                  <td className="p-4 font-mono text-gray-400">False</td>
-                  <td className="p-4 font-mono text-gray-400">True/None</td>
+                  <td className="p-4 font-mono text-gray-700">False</td>
+                  <td className="p-4 font-mono text-gray-700">True/None</td>
                   <td className="p-4 text-green-600">Yes</td>
                   <td className="p-4 text-green-600">Yes</td>
                   <td className="p-4 text-green-600">Yes</td>
-                  <td className="p-4 text-gray-400 font-medium">Development (default)</td>
+                  <td className="p-4 text-gray-700 font-medium">Development (default)</td>
                 </tr>
                 <tr className="hover:bg-gray-100 transition-colors">
-                  <td className="p-4 font-mono text-gray-400">True</td>
-                  <td className="p-4 font-mono text-gray-400">True/None</td>
+                  <td className="p-4 font-mono text-gray-700">True</td>
+                  <td className="p-4 font-mono text-gray-700">True/None</td>
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-green-600">Yes</td>
                   <td className="p-4 text-gray-700">Eval/testing</td>
                 </tr>
                 <tr className="hover:bg-gray-100 transition-colors">
-                  <td className="p-4 font-mono text-gray-400">False</td>
-                  <td className="p-4 font-mono text-gray-400">False</td>
+                  <td className="p-4 font-mono text-gray-700">False</td>
+                  <td className="p-4 font-mono text-gray-700">False</td>
                   <td className="p-4 text-green-600">Yes</td>
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-gray-700">Benchmarking</td>
                 </tr>
                 <tr className="hover:bg-gray-100 transition-colors">
-                  <td className="p-4 font-mono text-gray-400">False</td>
-                  <td className="p-4 font-mono text-gray-400">"path"</td>
+                  <td className="p-4 font-mono text-gray-700">False</td>
+                  <td className="p-4 font-mono text-gray-700">"path"</td>
                   <td className="p-4 text-green-600">Yes</td>
                   <td className="p-4 text-gray-700">custom</td>
                   <td className="p-4 text-green-600">Yes</td>
@@ -218,7 +218,7 @@ turns:
           </div>
 
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-            <h3 className="text-lg font-semibold mb-4 text-gray-400">Use Cases</h3>
+            <h3 className="text-lg font-semibold mb-4 text-gray-700">Use Cases</h3>
             <ul className="space-y-3 text-sm text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="text-gray-500 font-bold">Session replay:</span>
@@ -320,7 +320,7 @@ turns:
             <div className="space-y-6">
               <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <p className="text-gray-700">
-                  <code className="text-gray-500 font-semibold">quiet</code> (bool): Suppress console output. Sessions still recorded. Default: <code className="text-gray-400">False</code>
+                  <code className="text-gray-500 font-semibold">quiet</code> (bool): Suppress console output. Sessions still recorded. Default: <code className="text-gray-600">False</code>
                 </p>
               </div>
 
@@ -330,15 +330,15 @@ turns:
                 </p>
                 <ul className="space-y-2 text-sm text-gray-700 ml-4">
                   <li className="flex items-start gap-2">
-                    <code className="text-gray-400">None</code>/<code className="text-gray-400">True</code>:
-                    <span>Default <code className="text-gray-400">.co/logs/{'{name}'}.log</code></span>
+                    <code className="text-gray-600">None</code>/<code className="text-gray-600">True</code>:
+                    <span>Default <code className="text-gray-600">.co/logs/{'{name}'}.log</code></span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <code className="text-gray-400">False</code>:
+                    <code className="text-gray-600">False</code>:
                     <span>Disable all logging</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <code className="text-gray-400">"path/to/file.log"</code>:
+                    <code className="text-gray-600">"path/to/file.log"</code>:
                     <span>Custom log path</span>
                   </li>
                 </ul>

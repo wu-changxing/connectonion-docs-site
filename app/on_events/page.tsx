@@ -1181,7 +1181,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
                 </div>
                 <div>
                   <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">on_stop_signal(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-700 mt-2">Fires when stop_signal is set (cleanup interrupted operations). <strong className="text-gray-400">Mutually exclusive with on_complete.</strong></p>
+                  <p className="text-gray-700 mt-2">Fires when stop_signal is set (cleanup interrupted operations). <strong className="text-gray-700">Mutually exclusive with on_complete.</strong></p>
                 </div>
                 <div>
                   <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">on_complete(func: Callable[[Agent], None]) → EventHandler</code>

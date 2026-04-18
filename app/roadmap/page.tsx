@@ -225,7 +225,7 @@ export default function RoadmapPage() {
             <div className="text-xs text-gray-500 mt-1">In Progress</div>
           </div>
           <div className="p-4 bg-white border border-gray-200 rounded-xl text-center">
-            <div className="text-2xl font-bold text-gray-400">{plannedCount}</div>
+            <div className="text-2xl font-bold text-gray-500">{plannedCount}</div>
             <div className="text-xs text-gray-500 mt-1">Planned</div>
           </div>
           <div className="p-4 bg-white border border-gray-200 rounded-xl text-center">

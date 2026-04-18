@@ -162,12 +162,12 @@ agent.input("Search for Python")
               </thead>
               <tbody>
                 <tr className="border-b border-gray-200/50">
-                  <td className="py-2"><code className="text-gray-400">after_user_input</code></td>
+                  <td className="py-2"><code className="text-gray-600">after_user_input</code></td>
                   <td className="py-2">plan_task</td>
                   <td className="py-2 text-gray-700">Generate initial plan</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><code className="text-gray-400">after_tools</code></td>
+                  <td className="py-2"><code className="text-gray-600">after_tools</code></td>
                   <td className="py-2">reflect</td>
                   <td className="py-2 text-gray-700">Reflect on tool results</td>
                 </tr>

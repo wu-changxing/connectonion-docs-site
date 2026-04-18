@@ -211,7 +211,7 @@ Create a well-formatted git commit for staged changes.
           />
           <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
             <p className="text-gray-700">
-              User types: <code className="bg-gray-100 px-2 py-1 rounded text-gray-400">/commit</code> →
+              User types: <code className="bg-gray-100 px-2 py-1 rounded text-gray-600">/commit</code> →
               git commands auto-approved → commit created → permissions restored
             </p>
           </div>
@@ -271,7 +271,7 @@ Create a well-formatted git commit for staged changes.
                 <div>permissions['bash:pytest'] = {'{'}source: 'user', expires: 'session_end'{'}'}</div>
               </div>
 
-              <div className="text-gray-400">
+              <div className="text-gray-600">
                 <div className="text-gray-500 text-xs mb-1">Turn 5: /commit skill invoked</div>
                 <div>→ Snapshot taken (bash:pytest saved)</div>
                 <div>→ Grant: permissions['Bash(git *)'] = {'{'}source: 'skill', expires: 'turn_end'{'}'}</div>

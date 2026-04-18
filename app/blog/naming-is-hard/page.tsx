@@ -127,7 +127,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
             </p>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
-              <h3 className="text-xl font-semibold text-gray-400 mb-4">Addresses are:</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">Addresses are:</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex items-start gap-3">
                   <span className="text-gray-500 font-bold">Functional</span>

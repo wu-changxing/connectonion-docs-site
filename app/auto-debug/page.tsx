@@ -518,23 +518,23 @@ agent.auto_debug(step=True)
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Development - Building and testing agents</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Debugging - Finding unexpected behavior</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Learning - Understanding agent decisions</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Testing edge cases - "What if" scenarios</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Prompt engineering - Discover what works</span>
                 </li>
               </ul>
@@ -547,19 +547,19 @@ agent.auto_debug(step=True)
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400">✗</span>
+                  <span className="text-red-500">✗</span>
                   <span>Production - Requires human interaction</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400">✗</span>
+                  <span className="text-red-500">✗</span>
                   <span>Automated tests - Use assertions instead</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400">✗</span>
+                  <span className="text-red-500">✗</span>
                   <span>CI/CD pipelines - Not non-interactive</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400">✗</span>
+                  <span className="text-red-500">✗</span>
                   <span>Simple scripts - Overkill for basic tasks</span>
                 </li>
               </ul>

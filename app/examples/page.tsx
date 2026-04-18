@@ -90,7 +90,7 @@ export default function ExamplesPage() {
                     <div className="flex items-start justify-between gap-4 mb-1">
                       <div>
                         <h2 className="text-base font-semibold text-gray-900">{example.title}</h2>
-                        <code className="text-xs text-gray-400 font-mono">{example.repo}</code>
+                        <code className="text-xs text-gray-500 font-mono">{example.repo}</code>
                       </div>
                       <a
                         href={example.github}

@@ -177,7 +177,7 @@ co init             # Uses current directory`}</code>
             <h2 className="heading-2">Minimal Questions, Maximum Intelligence</h2>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
-              <p className="text-gray-400 font-semibold mb-4">Our setup asks only what matters RIGHT NOW:</p>
+              <p className="text-gray-700 font-semibold mb-4">Our setup asks only what matters RIGHT NOW:</p>
               <ol className="space-y-3 text-gray-700">
                 <li><span className="text-gray-500 font-bold">1.</span> <strong className="text-gray-900">Enable AI?</strong> - Determines available templates</li>
                 <li><span className="text-gray-500 font-bold">2.</span> <strong className="text-gray-900">API key</strong> - Only if AI enabled, with auto-detection</li>

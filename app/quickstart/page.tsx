@@ -104,7 +104,7 @@ export default function QuickStartPage() {
               <a key={n} href={href} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors group">
                 <span className="flex-shrink-0 w-5 h-5 rounded bg-gray-100 border border-gray-200 flex items-center justify-center text-[10px] font-bold text-gray-500 group-hover:border-gray-400 group-hover:text-gray-700 transition-colors">{n}</span>
                 <span className="text-sm text-gray-700 group-hover:text-gray-900 flex-1 transition-colors">{label}</span>
-                <span className="text-xs text-gray-400">{time}</span>
+                <span className="text-xs text-gray-500">{time}</span>
               </a>
             ))}
           </div>

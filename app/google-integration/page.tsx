@@ -397,7 +397,7 @@ for tomorrow at 2pm. Subject: Q4 Planning Discussion
               <h3 className="text-lg font-semibold mb-4 text-gray-500">Authorization Timeout</h3>
               <p className="text-gray-700 mb-4">If the browser window doesn't complete authorization within 5 minutes:</p>
               <CommandBlock commands={['co auth google']} />
-              <p className="text-sm text-gray-400 mt-2">The command polls the backend every 2 seconds waiting for your authorization.</p>
+              <p className="text-sm text-gray-600 mt-2">The command polls the backend every 2 seconds waiting for your authorization.</p>
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">

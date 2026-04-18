@@ -67,7 +67,7 @@ export default function AutoDebugExceptionPage() {
           <div className="flex items-start gap-3">
             <HiOutlineExclamationTriangle className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
             <div>
-              <p className="font-semibold text-gray-400 mb-2">Debugs ONLY uncaught exceptions</p>
+              <p className="font-semibold text-gray-700 mb-2">Debugs ONLY uncaught exceptions</p>
               <p className="text-sm text-gray-700">
                 This feature only works for uncaught exceptions - crashes, raised exceptions, and failed assertions.
                 For logic errors that don't crash, use <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-700">raise</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-700">assert</code> to convert them to exceptions.
@@ -412,7 +412,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
           </div>
 
           <div className="mt-8 bg-gray-500/10 border border-gray-200 rounded-lg p-6">
-            <p className="font-semibold text-gray-400 mb-2">Solution:</p>
+            <p className="font-semibold text-gray-700 mb-2">Solution:</p>
             <p className="text-gray-700 text-sm">
               To debug logic errors, convert them to exceptions using <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-700">raise</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-700">assert</code>.
               This triggers auto_debug_exception and gives you AI analysis with runtime inspection.
