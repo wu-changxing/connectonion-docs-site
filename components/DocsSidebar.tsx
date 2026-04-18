@@ -31,7 +31,7 @@ export function DocsSidebar() {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState<SearchResult[]>([])
   const [selectedIndex, setSelectedIndex] = useState(0)
-  const [openSections, setOpenSections] = useState<string[]>(['Getting Started', 'Core Concepts'])
+  const [openSections, setOpenSections] = useState<string[]>([])
   const [isClientMounted, setIsClientMounted] = useState(false)
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copying' | 'success'>('idle')
   const pathname = usePathname()
@@ -63,38 +63,30 @@ export function DocsSidebar() {
   const getChildren = (parentHref: string) =>
     navData.filter(item => (item as any).parent === parentHref && !(item as any).hidden)
 
+  // On mount: open only the current section
   useEffect(() => {
-    let sections = openSections
-    const saved = localStorage.getItem('docs-open-sections')
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved)
-        if (parsed && parsed.length > 0) sections = parsed
-      } catch { /* keep default */ }
-    }
     const currentPage = navData.find(page => page.href === pathname)
-    if (currentPage && !sections.includes(currentPage.section)) {
-      sections = [...sections, currentPage.section]
-    }
-    setOpenSections(sections)
+    setOpenSections(currentPage ? [currentPage.section] : ['Getting Started'])
     setIsClientMounted(true)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // On navigation: collapse other sections, expand current one
   useEffect(() => {
     if (!isClientMounted) return
     const currentPage = navData.find(page => page.href === pathname)
-    if (currentPage && !openSections.includes(currentPage.section)) {
-      setOpenSections(prev => [...prev, currentPage.section])
+    if (currentPage) {
+      setOpenSections(prev => {
+        // Keep any manually-opened sections, but ensure current is open
+        const manuallyOpen = prev.filter(s => s !== currentPage.section)
+        // Only keep manually opened sections if there's just one extra; otherwise reset
+        return manuallyOpen.length <= 1
+          ? [...new Set([currentPage.section, ...manuallyOpen])]
+          : [currentPage.section]
+      })
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, isClientMounted])
-
-  useEffect(() => {
-    if (isClientMounted) {
-      localStorage.setItem('docs-open-sections', JSON.stringify(openSections))
-    }
-  }, [openSections, isClientMounted])
 
   const performSearch = useCallback(async (query: string) => {
     if (!query.trim()) { setSearchResults([]); return }
