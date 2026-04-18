@@ -303,38 +303,37 @@ export default function LinksPage() {
     const Icon = link.icon
     const isClickable = link.available && link.url !== '#'
     
-    const cardClasses = "relative group w-full p-6 rounded-2xl transition-all duration-300 " +
-      link.bgColor + " " + link.borderColor + " border-2 backdrop-blur-sm " +
-      (isClickable ? "hover:bg-gray-800 hover:border-gray-400 hover:shadow-xl cursor-pointer" : "opacity-50 cursor-not-allowed")
+    const cardClasses = "relative group w-full p-6 rounded-2xl transition-all duration-300 bg-white border border-gray-200 " +
+      (isClickable ? "hover:border-gray-400 hover:shadow-md cursor-pointer" : "opacity-60 cursor-not-allowed")
 
     const content = (
       <div className={cardClasses}>
         {!link.available && (
-          <div className="absolute -top-2 -right-2 px-3 py-1 bg-gray-800 border border-gray-600 rounded-full flex items-center gap-1">
-            <span className="text-xs font-medium text-gray-700">🔒 Coming Soon</span>
+          <div className="absolute -top-2 -right-2 px-3 py-1 bg-amber-100 border border-amber-300 rounded-full flex items-center gap-1">
+            <span className="text-xs font-medium text-amber-800">🔒 Coming Soon</span>
           </div>
         )}
-        
+
         <div className="flex items-start gap-4">
-          <div className="p-3 rounded-xl bg-gray-900/80 backdrop-blur-sm border border-gray-700/50">
-            <Icon className={"w-6 h-6 " + link.color} />
+          <div className="p-3 rounded-xl bg-gray-100 border border-gray-300 group-hover:border-gray-400 transition-colors">
+            <Icon className="w-6 h-6 text-gray-700" />
           </div>
-          <div className="flex-1">
-            <h3 className="heading-4 text-white mb-1 flex items-center gap-2">
-              {link.title}
+          <div className="flex-1 min-w-0">
+            <h3 className="heading-4 text-gray-900 mb-1 flex items-baseline gap-1.5 flex-wrap">
+              <span>{link.title}</span>
               {link.external && isClickable && (
                 <>
-                  <HiOutlineArrowTopRightOnSquare className="w-4 h-4 text-gray-700" />
+                  <HiOutlineArrowTopRightOnSquare className="w-3.5 h-3.5 text-gray-400 flex-shrink-0 self-center" />
                   <span className="sr-only">opens in new tab</span>
                 </>
               )}
             </h3>
             {link.description && (
-              <p className="text-sm text-gray-700">{link.description}</p>
+              <p className="text-sm text-gray-600">{link.description}</p>
             )}
           </div>
         </div>
-        
+
         {isClickable && (
           <button
             onClick={(e) => {
@@ -342,14 +341,14 @@ export default function LinksPage() {
               e.stopPropagation()
               handleCopyLink(link.url, link.title)
             }}
-            className="absolute top-4 right-4 p-2 min-w-[44px] min-h-[44px] rounded-lg bg-gray-50 border border-gray-200/50 hover:bg-gray-900/80 hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-gray-400/50 transition-all flex items-center justify-center"
+            className="absolute top-4 right-4 p-2 min-w-[44px] min-h-[44px] rounded-lg bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100"
             aria-label={"Copy " + link.title + " link"}
             title={"Copy " + link.title + " link"}
           >
             {copiedUrl === link.title ? (
-              <HiOutlineCheck className="w-4 h-4 text-green-400" />
+              <HiOutlineCheck className="w-4 h-4 text-green-600" />
             ) : (
-              <HiOutlineClipboard className="w-4 h-4 text-gray-700 group-hover:text-white" />
+              <HiOutlineClipboard className="w-4 h-4 text-gray-600" />
             )}
           </button>
         )}
@@ -411,7 +410,7 @@ export default function LinksPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={handleSharePage}
-              className="flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-800 text-white rounded-lg transition-colors font-medium min-h-[44px]"
+              className="flex items-center gap-2 px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors font-medium min-h-[44px] shadow-sm"
               aria-label="Share this page via system share menu or copy link"
             >
               <HiOutlineShare className="w-5 h-5" />
@@ -419,7 +418,7 @@ export default function LinksPage() {
             </button>
             <button
               onClick={() => setShowQR(!showQR)}
-              className="flex items-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors font-medium min-h-[44px]"
+              className="flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 rounded-lg transition-colors font-medium min-h-[44px]"
               aria-expanded={showQR}
               aria-label={showQR ? "Hide QR code" : "Show QR code for this page"}
             >
@@ -507,7 +506,7 @@ export default function LinksPage() {
           ))}
         </div>
         
-        <div className="mt-16 pt-8 border-t border-gray-700 text-center">
+        <div className="mt-16 pt-8 border-t border-gray-200 text-center">
           <p className="text-gray-700 mb-4">
             ConnectOnion is open source and community-driven
           </p>
