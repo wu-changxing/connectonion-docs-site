@@ -13,6 +13,8 @@ const plugins = [
     name: 're_act',
     title: 'ReAct Pattern',
     description: 'Implements Reason + Act pattern with planning before action and reflection after tool execution',
+    whenToUse: 'When your agent needs to reason step-by-step before acting. Improves accuracy on multi-step tasks.',
+    setup: 'zero-config',
     icon: HiOutlineCpuChip,
     color: 'text-gray-500',
     bgColor: 'bg-white',
@@ -29,6 +31,8 @@ agent = Agent("assistant", tools=[search], plugins=[re_act])`,
     name: 'eval',
     title: 'Code Evaluation',
     description: 'Safe code evaluation and execution in a sandboxed environment',
+    whenToUse: 'When your agent generates and runs Python code. Add this to safely execute LLM-generated scripts.',
+    setup: 'zero-config',
     icon: HiOutlineCodeBracket,
     color: 'text-gray-500',
     bgColor: 'bg-white',
@@ -45,6 +49,8 @@ agent = Agent("assistant", tools=[generate_code], plugins=[eval])`,
     name: 'image_result_formatter',
     title: 'Image Result Formatter',
     description: 'Automatically formats base64 images in tool results for vision models (GPT-4o, etc.)',
+    whenToUse: 'When a tool returns a screenshot or image and you want the vision model to actually see it.',
+    setup: 'zero-config',
     icon: HiOutlinePhoto,
     color: 'text-gray-500',
     bgColor: 'bg-white',
@@ -61,6 +67,8 @@ agent = Agent("assistant", tools=[screenshot], plugins=[image_result_formatter])
     name: 'gmail_plugin',
     title: 'Gmail Plugin',
     description: 'Pre-configured event handlers for Gmail integration workflows',
+    whenToUse: 'When building an email assistant. Handles read/reply/label workflows out of the box.',
+    setup: 'needs Gmail auth',
     icon: HiOutlineEnvelope,
     color: 'text-gray-500',
     bgColor: 'bg-white',
@@ -77,6 +85,8 @@ agent = Agent("email_assistant", plugins=[gmail_plugin])`,
     name: 'calendar_plugin',
     title: 'Calendar Plugin',
     description: 'Pre-configured event handlers for calendar management workflows',
+    whenToUse: 'When building a scheduling assistant. Handles event creation and availability checks.',
+    setup: 'needs Google auth',
     icon: HiOutlineCalendar,
     color: 'text-gray-500',
     bgColor: 'bg-white',
@@ -93,6 +103,8 @@ agent = Agent("scheduler", plugins=[calendar_plugin])`,
     name: 'shell_approval',
     title: 'Shell Approval',
     description: 'Requires user confirmation before executing shell commands for safety',
+    whenToUse: 'Essential when your agent runs shell commands in production. Prevents accidental destructive ops.',
+    setup: 'zero-config',
     icon: HiOutlineShieldCheck,
     color: 'text-gray-500',
     bgColor: 'bg-white',
@@ -109,6 +121,8 @@ agent = Agent("devops", tools=[run_command], plugins=[shell_approval])`,
     name: 'system_reminder',
     title: 'System Reminder',
     description: 'Injects contextual guidance into tool results to nudge agent behavior',
+    whenToUse: 'When the agent keeps making the same mistake. Inject a correction reminder after each tool call.',
+    setup: 'zero-config',
     icon: HiOutlineChatBubbleBottomCenterText,
     color: 'text-gray-500',
     bgColor: 'bg-white',
@@ -204,15 +218,22 @@ agent = Agent(
                 <HiOutlineArrowRight className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors flex-shrink-0" />
               </div>
 
-              <p className="text-sm sm:text-base text-gray-700 mb-3 line-clamp-2">
+              <p className="text-sm text-gray-500 mb-2 line-clamp-1">
                 {plugin.description}
               </p>
 
-              <div className="flex flex-wrap gap-2">
+              <p className="text-sm text-gray-900 mb-3 font-medium leading-snug">
+                {plugin.whenToUse}
+              </p>
+
+              <div className="flex flex-wrap gap-2 items-center">
+                <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${plugin.setup === 'zero-config' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-amber-50 text-amber-700 border border-amber-200'}`}>
+                  {plugin.setup}
+                </span>
                 {plugin.events.map((event, i) => (
                   <span
                     key={i}
-                    className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded font-mono"
+                    className="text-xs px-2 py-0.5 bg-gray-100 text-gray-600 rounded font-mono"
                   >
                     {event}
                   </span>
