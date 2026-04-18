@@ -1,7 +1,7 @@
 'use client'
 
 import { FaDiscord, FaGithub } from 'react-icons/fa'
-import { HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineCheckCircle, HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineBugAnt, HiOutlineSparkles } from 'react-icons/hi2'
+import { HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineCheckCircle, HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineBugAnt, HiOutlineSparkles, HiOutlineCpuChip, HiOutlineTableCells, HiOutlineDocumentText, HiOutlinePuzzlePiece, HiOutlineArrowRight } from 'react-icons/hi2'
 import Link from 'next/link'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -112,6 +112,44 @@ agent.input("What's the weather in NYC?")`}
           <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
+        </div>
+      </section>
+
+      {/* Docs Quick Access — jump straight into documentation */}
+      <section className="py-10 px-4 md:px-6 border-b border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-[11px] font-semibold text-gray-400 tracking-[0.12em] uppercase mb-5">Documentation</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+            {[
+              { href: '/quickstart', icon: HiOutlineRocketLaunch, label: 'Quick Start', sub: 'Get running in 60s' },
+              { href: '/agent', icon: HiOutlineCpuChip, label: 'Agent API', sub: 'Core class + methods' },
+              { href: '/cli', icon: HiOutlineCommandLine, label: 'CLI Reference', sub: 'co commands & flags' },
+              { href: '/models', icon: HiOutlineTableCells, label: 'Models', sub: 'GPT / Claude / Gemini' },
+              { href: '/useful-plugins', icon: HiOutlinePuzzlePiece, label: 'Plugins', sub: 'ReAct, Eval, Shell...' },
+              { href: '/tui', icon: HiOutlineCommandLine, label: 'TUI Components', sub: 'pick, chat, fuzzy...' },
+              { href: '/auto-debug', icon: HiOutlineBugAnt, label: 'Auto Debug', sub: 'Interactive breakpoints' },
+              { href: '/logging', icon: HiOutlineDocumentText, label: 'Logging', sub: 'Logs, sessions, YAML' },
+            ].map(({ href, icon: Icon, label, sub }) => (
+              <Link
+                key={href}
+                href={href}
+                className="group flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-gray-400 hover:bg-gray-50 transition-all"
+              >
+                <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-md flex items-center justify-center group-hover:bg-white group-hover:border group-hover:border-gray-300 transition-all">
+                  <Icon className="w-4 h-4 text-gray-500 group-hover:text-gray-700" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-sm font-medium text-gray-900 leading-tight">{label}</div>
+                  <div className="text-xs text-gray-500 truncate">{sub}</div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-4 text-right">
+            <Link href="/agent" className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-gray-800 transition-colors">
+              All documentation <HiOutlineArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
         </div>
       </section>
 
