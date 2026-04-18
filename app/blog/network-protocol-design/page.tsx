@@ -174,7 +174,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
   return (
     <div className="w-full">
       <main className="p-4 lg:p-8 lg:px-16 pb-20">
-          <article className="prose prose-gray max-w-none">
+          <article className="prose prose-gray max-w-2xl mx-auto">
             <div className="mb-8 flex justify-between items-start">
               <div>
                 <h1 className="heading-1">

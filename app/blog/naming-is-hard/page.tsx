@@ -83,7 +83,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
   return (
     <div className="w-full">
       <main className="p-4 lg:p-8 lg:px-16 pb-20">
-        <article className="prose prose-gray max-w-none">
+        <article className="prose prose-gray max-w-2xl mx-auto">
           <div className="mb-8 flex justify-between items-start">
             <div>
               <h1 className="heading-1">
@@ -152,7 +152,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
               <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-6">
-                <h3 className="text-red-400 font-semibold mb-4">With "Identity"</h3>
+                <h3 className="text-red-700 font-semibold mb-4">With "Identity"</h3>
                 <ul className="space-y-2 text-gray-700 text-sm">
                   <li>"Generate an identity for the agent"</li>
                   <li>"Verify the agent's identity"</li>
@@ -162,7 +162,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
               </div>
 
               <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-6">
-                <h3 className="text-green-400 font-semibold mb-4">With "Address"</h3>
+                <h3 className="text-green-700 font-semibold mb-4">With "Address"</h3>
                 <ul className="space-y-2 text-gray-700 text-sm">
                   <li>"Generate an address for the agent"</li>
                   <li>"Send message to this address"</li>

@@ -295,7 +295,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
     <div className="w-full">
       <main className="p-4 lg:p-8 lg:px-16 pb-20">
         <div>
-          <article className="prose prose-gray max-w-none">
+          <article className="prose prose-gray max-w-2xl mx-auto">
             <div className="mb-8 flex justify-between items-start">
               <div>
                 <h1 className="heading-1">
