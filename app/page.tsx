@@ -42,9 +42,8 @@ export default function HomePage() {
           </div>
 
           {/* Quick Code Example */}
-          <div className="bg-gray-900 rounded-xl border border-gray-700 overflow-hidden mb-8 max-w-lg mx-auto text-left shadow-sm">
-            <div className="overflow-x-auto">
-              <SyntaxHighlighter
+          <div className="bg-gray-900 rounded-xl border border-gray-700 overflow-x-auto mb-8 max-w-lg mx-auto text-left shadow-sm">
+            <SyntaxHighlighter
                 language="python"
                 style={monokai}
                 customStyle={{
@@ -53,7 +52,6 @@ export default function HomePage() {
                   margin: 0,
                   fontSize: '0.8125rem',
                   lineHeight: '1.7',
-                  minWidth: 'max-content'
                 }}
               >
 {`from connectonion import Agent
@@ -61,7 +59,6 @@ export default function HomePage() {
 agent = Agent("You are helpful", tools=[get_weather])
 agent.input("What's the weather in NYC?")`}
               </SyntaxHighlighter>
-            </div>
           </div>
 
           {/* CTAs */}
