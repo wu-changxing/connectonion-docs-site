@@ -68,7 +68,7 @@ todo = TodoList()`}
         <section className="mb-12">
           <h2 className="heading-2">When to Use</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="text-green-400 font-semibold mb-2">Use when:</h3>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Task requires <strong>3+ distinct steps</strong></li>
@@ -137,29 +137,29 @@ todo.add("Update docs", "Updating docs")`}
         {/* Task States */}
         <section className="mb-12">
           <h2 className="heading-2">Task States</h2>
-          <div className="overflow-x-auto rounded-lg border border-slate-700">
+          <div className="overflow-x-auto rounded-lg border border-gray-200">
             <table className="w-full text-sm text-left">
-              <thead className="text-xs uppercase bg-slate-800/50">
+              <thead className="text-xs uppercase bg-gray-100">
                 <tr>
-                  <th className="px-4 py-3 text-slate-200">Icon</th>
-                  <th className="px-4 py-3 text-slate-200">Status</th>
-                  <th className="px-4 py-3 text-slate-200">Description</th>
+                  <th className="px-4 py-3 text-gray-700">Icon</th>
+                  <th className="px-4 py-3 text-gray-700">Status</th>
+                  <th className="px-4 py-3 text-gray-700">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-700">
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 text-2xl">○</td>
-                  <td className="px-4 py-3 font-mono text-yellow-300">pending</td>
+              <tbody className="divide-y divide-gray-200 bg-white">
+                <tr>
+                  <td className="px-4 py-3 text-2xl text-gray-400">○</td>
+                  <td className="px-4 py-3 font-mono text-amber-700">pending</td>
                   <td className="px-4 py-3 text-gray-700">Not yet started</td>
                 </tr>
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 text-2xl">◐</td>
-                  <td className="px-4 py-3 font-mono text-yellow-300">in_progress</td>
+                <tr>
+                  <td className="px-4 py-3 text-2xl text-amber-600">◐</td>
+                  <td className="px-4 py-3 font-mono text-amber-700">in_progress</td>
                   <td className="px-4 py-3 text-gray-700">Currently working on</td>
                 </tr>
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 text-2xl">●</td>
-                  <td className="px-4 py-3 font-mono text-yellow-300">completed</td>
+                <tr>
+                  <td className="px-4 py-3 text-2xl text-green-600">●</td>
+                  <td className="px-4 py-3 font-mono text-green-700">completed</td>
                   <td className="px-4 py-3 text-gray-700">Finished</td>
                 </tr>
               </tbody>
