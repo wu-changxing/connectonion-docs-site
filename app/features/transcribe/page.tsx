@@ -217,10 +217,10 @@ The team discussed the Q4 roadmap and agreed to...`}
       <section className="mb-12">
         <h2 className="heading-2">Supported Formats</h2>
 
-        <div className="bg-gray-900 rounded-lg p-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <div className="flex flex-wrap gap-3 mb-4">
             {['WAV', 'MP3', 'AIFF', 'AAC', 'OGG', 'FLAC', 'M4A', 'WebM'].map((format) => (
-              <span key={format} className="px-3 py-1 bg-gray-800 rounded-full text-green-400 text-sm font-mono">
+              <span key={format} className="px-3 py-1 bg-gray-100 border border-gray-300 rounded-full text-green-700 text-sm font-mono">
                 {format}
               </span>
             ))}
@@ -264,7 +264,7 @@ transcribe("audio.mp3", model="gemini-2.5-flash")`}
             { text: "Timestamps - Optional time markers in output", icon: <FaCheckCircle className="text-green-400" /> },
             { text: "Managed keys - Works out of the box with co/ models", icon: <FaCheckCircle className="text-green-400" /> }
           ].map((item, i) => (
-            <div key={i} className="bg-gray-900 rounded-lg p-4 flex items-start gap-3">
+            <div key={i} className="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-start gap-3">
               <span className="text-2xl">{item.icon}</span>
               <span className="text-gray-700">{item.text}</span>
             </div>
@@ -355,15 +355,15 @@ Audio file not found`}
         <h2 className="heading-2">Next Steps</h2>
 
         <div className="grid md:grid-cols-3 gap-4">
-          <Link href="/llm_do" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
+          <Link href="/llm_do" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Learn about llm_do()</h3>
             <p className="text-sm text-gray-700">For one-shot LLM calls</p>
           </Link>
-          <Link href="/agent" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
+          <Link href="/agent" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Explore Agents</h3>
             <p className="text-sm text-gray-700">For multi-step workflows</p>
           </Link>
-          <Link href="/tools" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
+          <Link href="/tools" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">See Tools</h3>
             <p className="text-sm text-gray-700">For extending agents</p>
           </Link>

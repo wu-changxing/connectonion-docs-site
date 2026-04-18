@@ -133,7 +133,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             fileName="Terminal"
           />
 
-          <div className="mt-6 bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">co deploy Requirements</h3>
             <div className="space-y-2 text-gray-700">
               <div className="flex items-start gap-2">
@@ -463,9 +463,9 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
             Configure your agent for different environments:
           </p>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
             <table className="w-full text-sm">
-              <thead className="bg-gray-800">
+              <thead className="bg-gray-100">
                 <tr>
                   <th className="text-left px-4 py-3 text-gray-700 font-semibold">Variable</th>
                   <th className="text-left px-4 py-3 text-gray-700 font-semibold">Description</th>

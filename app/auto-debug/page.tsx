@@ -143,7 +143,7 @@ What do you want to do?
             At every <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> breakpoint, you see this menu:
           </p>
 
-          <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6 mb-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
             <pre className="text-gray-700 font-mono text-sm">
 {`What do you want to do?
   → Continue execution 🚀       [c or Enter]
@@ -156,7 +156,7 @@ What do you want to do?
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-blue-300 mb-4">Method 1: Arrow Keys (Beginner-friendly)</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
@@ -170,7 +170,7 @@ What do you want to do?
               </ul>
             </div>
 
-            <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-green-300 mb-4">Method 2: Shortcuts (Power user)</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
@@ -189,7 +189,7 @@ What do you want to do?
             </div>
           </div>
 
-          <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <p className="text-gray-900">
               <strong>Both methods do exactly the same thing</strong> - use whichever feels natural!
             </p>
@@ -271,7 +271,7 @@ Available variables: query, result, tool_args
 ✓ Complete`}
               />
 
-              <div className="mt-6 bg-gray-900/5 border border-gray-200 rounded-lg p-4">
+              <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
                 <p className="text-blue-300 text-sm">
                   <strong>Test any scenario:</strong> Empty results, large datasets, error cases, edge cases - just modify the variables and see how your agent handles it!
                 </p>
@@ -292,7 +292,7 @@ Available variables: query, result, tool_args
                 Get context-aware help from AI about what's happening. The AI knows your code, execution state, and history:
               </p>
 
-              <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <pre className="text-gray-700 font-mono text-sm">
 {`> a
 
@@ -334,7 +334,7 @@ ai> /continue [Resume execution]`}
                 See the complete execution history with timeline, messages, and agent state:
               </p>
 
-              <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <pre className="text-gray-700 font-mono text-sm">
 {`Timeline:
   [0] user_input: "Send email to John"
@@ -361,7 +361,7 @@ Total: 323ms • 2 steps • 1 iteration`}
                 Pause at <strong>EVERY tool</strong>, not just <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> tools:
               </p>
 
-              <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <p className="text-gray-700 text-sm mb-4">Press <code className="bg-gray-800 px-2 py-1 rounded">s</code> in menu to enable:</p>
                 <pre className="text-gray-700 font-mono text-sm">
 {`✓ Step mode enabled - will pause at EVERY tool
@@ -471,7 +471,7 @@ Agent: "Sorry, no purple shoes under $100 are available."
               </p>
             </div>
 
-            <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">2. Test Edge Cases in Python Mode</h3>
               <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`>>> # Empty results

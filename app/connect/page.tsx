@@ -167,7 +167,7 @@ Weather in Seattle: Sunny, 72°F`}
           </h2>
 
           <div className="space-y-8">
-            <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">1. Connect to Multiple Agents</h3>
               <p className="text-gray-700 mb-4">
                 Build workflows with specialized remote agents:
