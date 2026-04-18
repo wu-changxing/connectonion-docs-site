@@ -79,24 +79,14 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="px-4 md:px-8 py-16 md:py-24">
-      <div className="max-w-4xl mx-auto">
+    <div className="px-6 md:px-12 py-14 md:py-20">
+      <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors mb-8"
-          >
-            <HiOutlineArrowLeft className="w-4 h-4" />
-            Back to Docs
-          </Link>
-          
-          <div className="flex items-center gap-3 mb-4">
-            <HiOutlineBookOpen className="w-8 h-8 text-gray-500" />
-            <h1 className="text-3xl font-bold text-gray-900">Blog</h1>
-          </div>
-          <p className="text-gray-700">
-            Design decisions and insights from building ConnectOnion
+          <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-4">Design Journal</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-3">Building ConnectOnion</h1>
+          <p className="text-gray-500 text-base">
+            Design decisions, lessons learned, and the thinking behind the framework.
           </p>
         </div>
 

@@ -9,11 +9,21 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { FaGithub, FaDiscord } from 'react-icons/fa'
+import { HiOutlineArrowLeft } from 'react-icons/hi2'
 import { DocsSidebar } from './DocsSidebar'
 import { MobileDocsNav } from './MobileDocsNav'
 import { MobileSectionJump } from './MobileSectionJump'
 import Footer from './Footer'
 import { OnThisPage } from './OnThisPage'
+
+const docNavItems = [
+  { href: '/quickstart', label: 'Quickstart', prefixes: ['/quickstart', '/vibe-coding', '/cli'] },
+  { href: '/agent', label: 'Agent API', prefixes: ['/agent', '/prompts', '/tools', '/models', '/llm_do', '/on_events', '/plugin'] },
+  { href: '/host', label: 'Network', prefixes: ['/host', '/connect', '/websocket', '/session-reconnect', '/threat-model'] },
+  { href: '/useful-tools', label: 'Tools', prefixes: ['/useful-tools', '/memory', '/web-fetch', '/agent-emails', '/gmail', '/outlook'] },
+  { href: '/examples', label: 'Examples', prefixes: ['/examples'] },
+  { href: '/blog', label: 'Blog', prefixes: ['/blog'] },
+]
 
 export default function ClientLayout({
   children,
@@ -22,6 +32,7 @@ export default function ClientLayout({
 }) {
   const pathname = usePathname()
   const isHomepage = pathname === '/'
+  const isBlog = pathname.startsWith('/blog')
 
   if (isHomepage) {
     return (
@@ -29,6 +40,45 @@ export default function ClientLayout({
         <main>{children}</main>
         <Footer />
       </>
+    )
+  }
+
+  // Editorial layout for blog — no sidebar, clean reading column
+  if (isBlog) {
+    const isBlogPost = pathname !== '/blog'
+    return (
+      <div className="min-h-screen bg-white flex flex-col">
+        {/* Blog top bar */}
+        <header className="sticky top-0 z-50 h-10 flex items-center justify-between px-6 bg-white border-b border-gray-100">
+          <Link href="/" className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors" aria-label="ConnectOnion — back to home">
+            <img src="/onion-logo.png" alt="" className="w-5 h-5 rounded" />
+            ConnectOnion
+          </Link>
+          {isBlogPost ? (
+            <Link href="/blog" className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-700 transition-colors">
+              <HiOutlineArrowLeft className="w-3.5 h-3.5" />
+              All Posts
+            </Link>
+          ) : (
+            <Link href="/" className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-700 transition-colors">
+              <HiOutlineArrowLeft className="w-3.5 h-3.5" />
+              Back to Docs
+            </Link>
+          )}
+          <div className="flex items-center gap-1">
+            <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener noreferrer" className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors" aria-label="GitHub">
+              <FaGithub className="w-3.5 h-3.5" />
+            </a>
+            <a href="https://discord.gg/4xfD9k8AUF" target="_blank" rel="noopener noreferrer" className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors" aria-label="Discord">
+              <FaDiscord className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </header>
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
+      </div>
     )
   }
 
@@ -40,17 +90,10 @@ export default function ClientLayout({
           <img src="/onion-logo.png" alt="" className="w-5 h-5 rounded" />
           ConnectOnion
         </Link>
-        {/* Center nav — key sections for quick orientation */}
+        {/* Center nav — section-level orientation for developers */}
         <nav className="flex items-center gap-0.5" aria-label="Top navigation">
-          {[
-            { href: '/quickstart', label: 'Guide' },
-            { href: '/agent', label: 'API' },
-            { href: '/tools', label: 'Tools' },
-            { href: '/examples', label: 'Examples' },
-            { href: '/plugin', label: 'Plugins' },
-            { href: '/blog', label: 'Blog' },
-          ].map(({ href, label }) => {
-            const isActive = pathname === href || (href !== '/' && pathname.startsWith(href))
+          {docNavItems.map(({ href, label, prefixes }) => {
+            const isActive = prefixes.some(p => pathname === p || pathname.startsWith(p + '/'))
             return (
               <Link
                 key={href}
