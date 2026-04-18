@@ -179,6 +179,27 @@ h3 .heading-anchor:focus {
   opacity: 0.8;
 }
 
+/* ── Reference-page heading variant — CLI, API reference pages ───────── */
+/* Pages with 10+ command entries use .doc-content--reference on the     */
+/* content wrapper. Headings shift to a compact monospace style; the     */
+/* editorial green bar becomes a neutral gray tick — less picket fence.  */
+.doc-content--reference .heading-2 {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.9375rem;       /* 15px — compact reference size */
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #111827;
+  padding-left: 0.875rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+.doc-content--reference .heading-2::before {
+  background: #9ca3af;        /* gray-400 — neutral, not green */
+  height: 0.75em;
+  width: 2px;
+  opacity: 0.6;
+}
+
 /* ── Code blocks: visible scrollbar on mobile — prevents silent clip ── */
 @media (max-width: 768px) {
   pre {

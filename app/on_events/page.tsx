@@ -498,7 +498,7 @@ agent = Agent(
                     <HiOutlinePlay className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">after_user_input</h3>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">after_user_input</h3>
                     <p className="text-sm text-gray-700">Fires once per turn, after user input is added</p>
                   </div>
                 </div>
@@ -527,7 +527,7 @@ agent = Agent("assistant", on_events=[
                     <HiOutlineClock className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">before_iteration</h3>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">before_iteration</h3>
                     <p className="text-sm text-gray-700">Fires before each iteration starts (poll IO, check mode changes)</p>
                   </div>
                 </div>
@@ -557,7 +557,7 @@ agent = Agent("assistant", on_events=[
                     <HiOutlineChartBar className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">after_llm</h3>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">after_llm</h3>
                     <p className="text-sm text-gray-700">Fires after each LLM response (multiple times per turn)</p>
                   </div>
                 </div>
@@ -607,7 +607,7 @@ agent = Agent("assistant", tools=[search], on_events=[
                     <HiOutlineBolt className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">before_each_tool</h3>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">before_each_tool</h3>
                     <p className="text-sm text-gray-700">Fires before EACH individual tool execution</p>
                   </div>
                 </div>
@@ -635,7 +635,7 @@ agent = Agent("assistant", tools=[search], on_events=[
                     <HiOutlineSquare3Stack3D className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">before_tools</h3>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">before_tools</h3>
                     <p className="text-sm text-gray-700">Fires ONCE before ALL tools in a batch</p>
                   </div>
                 </div>
@@ -660,7 +660,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
                     <HiOutlineClock className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">after_each_tool</h3>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">after_each_tool</h3>
                     <p className="text-sm text-gray-700">Fires after EACH tool (logging only, NOT for messages)</p>
                   </div>
                 </div>
@@ -694,7 +694,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
                     <HiOutlineChartBar className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">after_tools</h3>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">after_tools</h3>
                     <p className="text-sm text-gray-700">Fires ONCE after ALL tools complete (safe for messages)</p>
                   </div>
                 </div>
@@ -730,7 +730,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
                     <HiOutlineSquare3Stack3D className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">on_error</h3>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">on_error</h3>
                     <p className="text-sm text-gray-700">Fires when tool execution fails or tool not found</p>
                   </div>
                 </div>
@@ -762,7 +762,7 @@ agent = Agent("assistant", tools=[api_call], on_events=[
                     <HiOutlineChartBar className="text-gray-500 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">after_iteration</h3>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">after_iteration</h3>
                     <p className="text-sm text-gray-700">Fires after each iteration (checkpoints, can control loop continuation)</p>
                   </div>
                 </div>
@@ -798,7 +798,7 @@ agent = Agent("assistant", tools=[search], on_events=[
                     <HiOutlineShieldCheck className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">on_stop_signal</h3>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">on_stop_signal</h3>
                     <p className="text-sm text-gray-700">Fires when stop_signal is set (cleanup interrupted operations)</p>
                   </div>
                 </div>
@@ -842,7 +842,7 @@ agent = Agent("assistant", tools=[write, read], on_events=[
                     <HiOutlineClock className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">on_complete</h3>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">on_complete</h3>
                     <p className="text-sm text-gray-700">Fires once after agent finishes task</p>
                   </div>
                 </div>

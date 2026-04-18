@@ -134,7 +134,7 @@ export function NonObviousAdvantages() {
                           customStyle={{
                             margin: 0,
                             padding: '0.75rem',
-                            background: '#1a1a2e',
+                            background: '#111827',
                             fontSize: '0.75rem',
                             lineHeight: '1.5'
                           }}

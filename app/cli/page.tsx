@@ -65,7 +65,7 @@ export default function CLIPage() {
 
 
   return (
-    <div className="px-4 md:px-8 py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24 doc-content--reference">
       <div className="max-w-4xl mx-auto">
         <PageHeader
           breadcrumbs={[
@@ -181,7 +181,7 @@ export default function CLIPage() {
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
               <HiOutlineSparkles className="w-5 h-5 icon-ui" />
-              <h3 className="text-lg font-semibold text-gray-900">co create [name]</h3>
+              <h3 className="text-sm font-bold font-mono text-gray-900">co create [name]</h3>
             </div>
             <p className="text-gray-700 text-sm">
               Creates a new project directory with all necessary files
@@ -191,7 +191,7 @@ export default function CLIPage() {
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
               <HiOutlineFolderOpen className="w-5 h-5 text-gray-500" />
-              <h3 className="text-lg font-semibold text-gray-900">co init</h3>
+              <h3 className="text-sm font-bold font-mono text-gray-900">co init</h3>
             </div>
             <p className="text-gray-700 text-sm">
               Initializes the current directory as a ConnectOnion project

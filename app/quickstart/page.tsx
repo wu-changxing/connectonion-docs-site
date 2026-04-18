@@ -332,8 +332,19 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
         </div>
       </section>
 
+      {/* Going Further divider */}
+      <div className="my-16 flex items-center gap-4">
+        <div className="flex-1 border-t border-dashed border-gray-200" />
+        <div className="flex items-center gap-2 px-4 py-1.5 bg-gray-50 border border-gray-200 rounded-full">
+          <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest font-mono">Going Further</span>
+        </div>
+        <div className="flex-1 border-t border-dashed border-gray-200" />
+      </div>
+      <p className="text-sm text-gray-500 mb-12 -mt-8 text-center">
+        Steps 5–7 are optional specialization paths — pick what matches your use case.
+      </p>
+
       {/* Playwright Template */}
-      <hr className="border-dashed border-gray-300 mb-16" />
       <section className="mb-16 pt-4" id="playwright">
         <h2 id="playwright" className="heading-2 flex items-center gap-3 mb-5">
           <span className="inline-flex items-center px-2 py-0.5 bg-gray-100 text-gray-500 text-xs font-mono rounded border border-gray-200 flex-shrink-0">alt</span>
