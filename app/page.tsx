@@ -140,7 +140,7 @@ agent.input("What's the weather in NYC?")`}
                 </div>
                 <div className="min-w-0">
                   <div className="text-sm font-medium text-gray-900 leading-tight">{label}</div>
-                  <div className="text-xs text-gray-500 truncate">{sub}</div>
+                  <div className="text-xs text-gray-500 leading-tight">{sub}</div>
                 </div>
               </Link>
             ))}
