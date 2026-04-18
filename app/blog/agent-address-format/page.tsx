@@ -189,7 +189,7 @@ Don't pretend to be something you're not. Our addresses aren't Ethereum addresse
                 <span className="text-sm text-gray-700 font-mono">address.py</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
-                <code className="text-gray-400">{`# Generate
+                <code className="text-gray-600">{`# Generate
 address = "0x" + public_key.hex()
 
 # Validate
@@ -205,7 +205,7 @@ if address.startswith("0x") and len(address) == 66:
             <h2 className="heading-2">Visual Truncation</h2>
 
             <p>
-              For display, we show: <code className="bg-gray-100 text-gray-400 px-2 py-1 rounded font-mono text-sm">0x2b9d...3fdf</code>
+              For display, we show: <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded font-mono text-sm">0x2b9d...3fdf</code>
             </p>
 
             <p>

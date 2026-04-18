@@ -478,22 +478,22 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">ANTHROPIC_API_KEY</td>
                   <td className="px-4 py-3 text-gray-700">Anthropic API key for Claude</td>
-                  <td className="px-4 py-3 text-gray-600">Optional/td>
+                  <td className="px-4 py-3 text-gray-600">Optional</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">GOOGLE_API_KEY</td>
                   <td className="px-4 py-3 text-gray-700">Google API key for Gemini</td>
-                  <td className="px-4 py-3 text-gray-600">Optional/td>
+                  <td className="px-4 py-3 text-gray-600">Optional</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">RELAY_URL</td>
                   <td className="px-4 py-3 text-gray-700">Custom relay server URL</td>
-                  <td className="px-4 py-3 text-gray-600">Optional/td>
+                  <td className="px-4 py-3 text-gray-600">Optional</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">LOG_LEVEL</td>
                   <td className="px-4 py-3 text-gray-700">Logging verbosity (DEBUG, INFO, WARN)</td>
-                  <td className="px-4 py-3 text-gray-600">Optional/td>
+                  <td className="px-4 py-3 text-gray-600">Optional</td>
                 </tr>
               </tbody>
             </table>

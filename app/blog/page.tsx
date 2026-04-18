@@ -83,7 +83,7 @@ export default function BlogPage() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-4">Design Journal</p>
+          <p className="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">Design Journal</p>
           <h1 className="text-3xl font-bold text-gray-900 mb-3">Building ConnectOnion</h1>
           <p className="text-gray-500 text-base">
             Design decisions, lessons learned, and the thinking behind the framework.
@@ -114,7 +114,7 @@ export default function BlogPage() {
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       {/* Meta */}
-                      <div className="flex flex-wrap items-center gap-3 mb-1 text-xs text-gray-400">
+                      <div className="flex flex-wrap items-center gap-3 mb-1 text-xs text-gray-500">
                         <span>{post.date}</span>
                         <span>·</span>
                         <span>{post.readTime}</span>

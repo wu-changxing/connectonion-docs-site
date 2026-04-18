@@ -285,7 +285,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-4">3. Developer-Controlled Broadcasting</h3>
-                  <p>Agents only announce when developers explicitly call <code className="bg-gray-100 text-gray-400 px-2 py-1 rounded font-mono text-sm">announce()</code>. No hidden network activity, no automatic broadcasts. Developers stay in control.</p>
+                  <p>Agents only announce when developers explicitly call <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded font-mono text-sm">announce()</code>. No hidden network activity, no automatic broadcasts. Developers stay in control.</p>
                 </div>
                 
                 <div>

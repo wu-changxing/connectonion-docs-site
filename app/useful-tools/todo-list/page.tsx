@@ -145,7 +145,7 @@ todo.add("Update docs", "Updating docs")`}
               </thead>
               <tbody className="divide-y divide-gray-200 bg-white">
                 <tr>
-                  <td className="px-4 py-3 text-2xl text-gray-400">○</td>
+                  <td className="px-4 py-3 text-2xl text-gray-500">○</td>
                   <td className="px-4 py-3 font-mono text-gray-700">pending</td>
                   <td className="px-4 py-3 text-gray-700">Not yet started</td>
                 </tr>

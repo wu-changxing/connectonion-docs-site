@@ -416,23 +416,23 @@ Form submitted successfully`}
         </h2>
         <ul className="space-y-2 text-gray-700">
           <li className="flex items-start gap-2">
-            <span className="text-gray-400">•</span>
+            <span className="text-gray-500">•</span>
             <span>Use headless mode for production to save resources</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-gray-400">•</span>
+            <span className="text-gray-500">•</span>
             <span>Add waits for dynamic content: <code className="bg-gray-800 px-2 py-0.5 rounded text-sm">page.wait_for_selector()</code></span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-gray-400">•</span>
+            <span className="text-gray-500">•</span>
             <span>Handle errors gracefully with try-except blocks</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-gray-400">•</span>
+            <span className="text-gray-500">•</span>
             <span>Use specific selectors for reliable element targeting</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-gray-400">•</span>
+            <span className="text-gray-500">•</span>
             <span>Clean up resources with <code className="bg-gray-800 px-2 py-0.5 rounded text-sm">browser.close()</code></span>
           </li>
         </ul>

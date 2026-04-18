@@ -144,23 +144,23 @@ agent = Agent(
               </h3>
               <div className="space-y-2 font-mono text-sm text-gray-600">
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-400">&bull;</span>
+                  <span className="text-gray-500">&bull;</span>
                   <code>cat file.txt</code> - standalone cat (not piped)
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-400">&bull;</span>
+                  <span className="text-gray-500">&bull;</span>
                   <code>head file.txt</code> - read first lines
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-400">&bull;</span>
+                  <span className="text-gray-500">&bull;</span>
                   <code>tail file.log</code> - read last lines
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-400">&bull;</span>
+                  <span className="text-gray-500">&bull;</span>
                   <code>less file.txt</code> - page through file
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-400">&bull;</span>
+                  <span className="text-gray-500">&bull;</span>
                   <code>more file.txt</code> - page through file
                 </div>
               </div>

@@ -91,15 +91,15 @@ status = StatusBar([
           <h2 className="heading-2">Styles</h2>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
-              <span className="text-gray-400">•</span>
+              <span className="text-gray-500">•</span>
               <span>Uses powerline arrows for segment transitions</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-gray-400">•</span>
+              <span className="text-gray-500">•</span>
               <span>Falls back to unicode on terminals without powerline fonts</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-gray-400">•</span>
+              <span className="text-gray-500">•</span>
               <span>Works on both light and dark terminals</span>
             </li>
           </ul>

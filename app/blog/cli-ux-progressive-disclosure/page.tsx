@@ -152,7 +152,7 @@ The best tool is one you forget you're using. That's what we built.`
                 <span className="text-sm text-gray-700 font-mono">terminal</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
-                <code className="text-gray-400">{`# Outside a project
+                <code className="text-gray-600">{`# Outside a project
 co create my-agent  # Creates new directory
 
 # Inside a project
@@ -198,7 +198,7 @@ co init             # Uses current directory`}</code>
                 <span className="text-sm text-gray-700 font-mono">api_detection.py</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
-                <code className="text-gray-400">{`if api_key.startswith('sk-proj-'):
+                <code className="text-gray-600">{`if api_key.startswith('sk-proj-'):
     # OpenAI project key
 elif api_key.startswith('sk-ant-'):
     # Anthropic

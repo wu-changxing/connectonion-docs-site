@@ -197,7 +197,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
                 <span className="text-sm text-gray-700 font-mono">address.py</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
-                <code className="text-gray-400">{`# What we generate
+                <code className="text-gray-600">{`# What we generate
 address = "0x" + public_key.hex()
 
 # What it does
@@ -218,7 +218,7 @@ send_message(to=address, content=data)
             <h2 className="heading-2">When We Almost Used "Identity"</h2>
 
             <p>
-              For 48 hours, our code used <code className="bg-gray-100 text-gray-400 px-2 py-1 rounded font-mono text-sm">agent_identity</code>.
+              For 48 hours, our code used <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded font-mono text-sm">agent_identity</code>.
               Then a user asked:
             </p>
 

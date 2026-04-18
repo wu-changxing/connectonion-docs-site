@@ -55,7 +55,7 @@ export default function HomePage() {
           {/* Brand eyebrow */}
           <div className="flex items-center justify-center gap-2 mb-5">
             <span className="text-sm font-medium text-gray-500">ConnectOnion</span>
-            <span className="text-gray-300">·</span>
+            <span className="text-gray-400">·</span>
             <span className="px-2 py-0.5 bg-gray-100 text-green-700 text-xs font-semibold rounded-full">v{VERSION}</span>
           </div>
 

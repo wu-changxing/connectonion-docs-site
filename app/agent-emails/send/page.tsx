@@ -247,7 +247,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
                 <span>Generated during <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co init</code></span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-gray-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span className="text-gray-700 font-semibold">Activated with <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co auth</code></span>
               </div>
             </div>
