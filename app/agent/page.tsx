@@ -309,7 +309,7 @@ result = agent.input(
         <section className="mb-16">
           <div className="p-6 bg-gray-50 rounded-xl border border-gray-200">
             <h2 className="heading-2">
-              <HiOutlineCodeBracket className="w-6 h-6 text-green-600" />
+              <HiOutlineCodeBracket className="w-6 h-6 icon-ui" />
               Complete Documentation
             </h2>
             <p className="text-gray-700 mb-4">

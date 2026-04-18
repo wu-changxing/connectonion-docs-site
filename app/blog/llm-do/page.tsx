@@ -385,28 +385,28 @@ Sometimes the best API decisions are the ones that make developers forget they'r
               
               <div className="space-y-4">
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">1</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">1</div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Functions Are Actions</h3>
                     <p className="text-gray-700">If it does something, name it with a verb. No exceptions.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">2</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">2</div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">"Do" Is the Ultimate Verb</h3>
                     <p className="text-gray-700">When you need a verb that works for any action, "do" is unbeatable.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">3</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">3</div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Readability {'>'} Brevity</h3>
                     <p className="text-gray-700">Three extra characters is a small price for natural reading.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">4</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">4</div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Test by Reading Aloud</h3>
                     <p className="text-gray-700">If it sounds wrong when spoken, it's wrong in code.</p>

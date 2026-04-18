@@ -709,19 +709,19 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-green-600" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
                 Web scraping tools
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-green-600" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
                 Data extraction utilities
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-green-600" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
                 Browser automation support
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-green-600" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
                 API integration examples
               </li>
             </ul>
