@@ -90,15 +90,15 @@ export default function CLIPage() {
           Quick Reference
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-          <div className="font-mono text-blue-300">co create <span className="text-gray-700">→ New project</span></div>
-          <div className="font-mono text-blue-300">co init <span className="text-gray-700">→ Current directory</span></div>
-          <div className="font-mono text-blue-300">co ai <span className="text-gray-700">→ AI coding agent</span></div>
-          <div className="font-mono text-blue-300">co browser <span className="text-gray-700">→ Screenshots & automation</span></div>
-          <div className="font-mono text-blue-300">co auth <span className="text-gray-700">→ Managed keys (free credits)</span></div>
-          <div className="font-mono text-blue-300">co deploy <span className="text-gray-700">→ Deploy to cloud</span></div>
-          <div className="font-mono text-blue-300">co status <span className="text-gray-700">→ Check balance</span></div>
-          <div className="font-mono text-blue-300">co reset <span className="text-gray-700">→ Reset account</span></div>
-          <div className="font-mono text-blue-300">co doctor <span className="text-gray-700">→ Diagnose issues</span></div>
+          <div className="font-mono text-blue-700">co create <span className="text-gray-700">→ New project</span></div>
+          <div className="font-mono text-blue-700">co init <span className="text-gray-700">→ Current directory</span></div>
+          <div className="font-mono text-blue-700">co ai <span className="text-gray-700">→ AI coding agent</span></div>
+          <div className="font-mono text-blue-700">co browser <span className="text-gray-700">→ Screenshots & automation</span></div>
+          <div className="font-mono text-blue-700">co auth <span className="text-gray-700">→ Managed keys (free credits)</span></div>
+          <div className="font-mono text-blue-700">co deploy <span className="text-gray-700">→ Deploy to cloud</span></div>
+          <div className="font-mono text-blue-700">co status <span className="text-gray-700">→ Check balance</span></div>
+          <div className="font-mono text-blue-700">co reset <span className="text-gray-700">→ Reset account</span></div>
+          <div className="font-mono text-blue-700">co doctor <span className="text-gray-700">→ Diagnose issues</span></div>
         </div>
       </div>
 
@@ -158,19 +158,19 @@ export default function CLIPage() {
           </div>
         </div>
 
-        <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <p className="text-gray-700 mb-4">Both commands share the same interactive flow:</p>
           <ol className="space-y-2 text-gray-700">
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-300">1</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-700">1</span>
               <span>AI feature toggle (Yes/No)</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-300">2</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-700">2</span>
               <span>API key input (with auto-detection)</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-300">3</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-700">3</span>
               <span>Template selection</span>
             </li>
           </ol>
@@ -214,29 +214,29 @@ export default function CLIPage() {
         <div className="mb-8">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Options</h3>
           
-          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
             <table className="w-full">
               <thead>
-                <tr className="bg-gray-800 border-b border-gray-700">
+                <tr className="bg-gray-100 border-b border-gray-200">
                   <th className="text-left px-4 py-3 text-gray-700 font-medium">Option</th>
                   <th className="text-left px-4 py-3 text-gray-700 font-medium">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-300">[name]</td>
+                  <td className="px-4 py-3 font-mono text-sm text-blue-700">[name]</td>
                   <td className="px-4 py-3 text-gray-700">Optional project name (creates directory)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-300">--ai/--no-ai</td>
+                  <td className="px-4 py-3 font-mono text-sm text-blue-700">--ai/--no-ai</td>
                   <td className="px-4 py-3 text-gray-700">Enable or disable AI features</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-300">--key</td>
+                  <td className="px-4 py-3 font-mono text-sm text-blue-700">--key</td>
                   <td className="px-4 py-3 text-gray-700">API key for AI provider (auto-detects provider)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-300">--template</td>
+                  <td className="px-4 py-3 font-mono text-sm text-blue-700">--template</td>
                   <td className="px-4 py-3 text-gray-700">
                     Choose template: <code className="bg-gray-800 px-2 py-1 rounded text-xs">minimal</code>,
                     <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">playwright</code>,
@@ -247,11 +247,11 @@ export default function CLIPage() {
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-300">--description</td>
+                  <td className="px-4 py-3 font-mono text-sm text-blue-700">--description</td>
                   <td className="px-4 py-3 text-gray-700">Description for custom template (requires AI)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-300">--yes, -y</td>
+                  <td className="px-4 py-3 font-mono text-sm text-blue-700">--yes, -y</td>
                   <td className="px-4 py-3 text-gray-700">Skip all prompts, use defaults</td>
                 </tr>
               </tbody>
@@ -263,7 +263,7 @@ export default function CLIPage() {
         <div className="mb-8">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Interactive Flow Example</h3>
           
-          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
             <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
               <span className="text-sm text-gray-700 font-mono">Terminal Output</span>
             </div>
@@ -364,7 +364,7 @@ Next steps:
           </ol>
         </div>
 
-        <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Using Managed Keys</h3>
           <div className="bg-black/30 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`from connectonion import llm_do
@@ -390,7 +390,7 @@ response = llm_do("Hello", model="co/gemini-2.5-pro")`}
 
         <CommandBlock commands={['co status']} />
 
-        <div className="mt-6 bg-gray-900 border border-gray-700 rounded-lg p-6">
+        <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Example Output</h3>
           <pre className="text-sm text-gray-700 font-mono">
 {`ConnectOnion Account Status
@@ -438,7 +438,7 @@ Balance:  $5.00`}
           </ul>
         </div>
 
-        <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Example Output</h3>
           <pre className="text-sm text-gray-700 font-mono">
 {`$ co reset
@@ -495,7 +495,7 @@ Continue? (y/N): y
           </ul>
         </div>
 
-        <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Example Output</h3>
           <pre className="text-sm text-gray-700 font-mono">
 {`$ co deploy
@@ -533,11 +533,11 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
 
         <CommandBlock commands={['co doctor']} />
 
-        <div className="mt-6 bg-gray-900 border border-gray-700 rounded-lg p-6">
+        <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">What It Checks</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gray-100 rounded-lg p-4">
-              <h4 className="font-semibold text-blue-300 mb-2">System</h4>
+              <h4 className="font-semibold text-blue-700 mb-2">System</h4>
               <ul className="text-sm text-gray-700 space-y-1">
                 <li>• Version</li>
                 <li>• Python</li>
@@ -615,7 +615,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
         </p>
 
         <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-4 mb-6">
-          <p className="text-sm text-blue-300">
+          <p className="text-sm text-blue-700">
             <span className="font-semibold inline-flex items-center gap-1">
               <FaLightbulb className="text-yellow-400 text-sm" />
               <span>Tip:</span>
@@ -662,7 +662,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
         <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-4">
           <p className="text-blue-800">
             <strong>Learn more:</strong> See the complete{' '}
-            <Link href="/cli/browser-command" className="text-blue-300 hover:text-blue-100 underline">
+            <Link href="/cli/browser-command" className="text-blue-700 hover:text-blue-100 underline">
               co browser documentation
             </Link>{' '}
             for URL handling, framework examples, and advanced usage.
@@ -842,34 +842,34 @@ Generating custom template with AI...
           The CLI automatically detects your API provider from the key format:
         </p>
 
-        <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+        <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
           <table className="w-full">
             <thead>
-              <tr className="bg-gray-800 border-b border-gray-700">
+              <tr className="bg-gray-100 border-b border-gray-200">
                 <th className="text-left px-4 py-3 text-gray-700 font-medium">Provider</th>
                 <th className="text-left px-4 py-3 text-gray-700 font-medium">Key Format</th>
                 <th className="text-left px-4 py-3 text-gray-700 font-medium">Example</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-700">
+            <tbody className="divide-y divide-gray-200">
               <tr>
                 <td className="px-4 py-3 text-white font-medium">OpenAI</td>
-                <td className="px-4 py-3 font-mono text-sm text-blue-300">sk-... or sk-proj-...</td>
+                <td className="px-4 py-3 font-mono text-sm text-blue-700">sk-... or sk-proj-...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">sk-proj-abc123...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Anthropic</td>
-                <td className="px-4 py-3 font-mono text-sm text-blue-300">sk-ant-...</td>
+                <td className="px-4 py-3 font-mono text-sm text-blue-700">sk-ant-...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">sk-ant-api03-xyz...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Google</td>
-                <td className="px-4 py-3 font-mono text-sm text-blue-300">AIza...</td>
+                <td className="px-4 py-3 font-mono text-sm text-blue-700">AIza...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">AIzaSyAbc123...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Groq</td>
-                <td className="px-4 py-3 font-mono text-sm text-blue-300">gsk_...</td>
+                <td className="px-4 py-3 font-mono text-sm text-blue-700">gsk_...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">gsk_abc123...</td>
               </tr>
             </tbody>
@@ -1060,7 +1060,7 @@ Generating custom template with AI...
         <h2 className="heading-2">Troubleshooting</h2>
 
         <div className="space-y-6">
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Command Not Found</h3>
             <p className="text-gray-700 mb-4">
               If <code className="bg-gray-800 px-2 py-1 rounded">co</code> command is not found after installation:
@@ -1077,7 +1077,7 @@ Generating custom template with AI...
             />
           </div>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Python Version</h3>
             <p className="text-gray-700 mb-4">
               ConnectOnion requires Python 3.9 or higher. Check your version:
@@ -1087,7 +1087,7 @@ Generating custom template with AI...
             />
           </div>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">API Key Issues</h3>
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-center gap-2">

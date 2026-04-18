@@ -30,7 +30,7 @@ export default function XrayPage() {
 
         {/* Visual Flow Diagram */}
         <section className="mb-16">
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 md:p-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 md:p-8">
             <h3 className="text-base md:text-lg font-semibold mb-4 md:mb-6 flex items-center gap-2">
               <HiOutlineCodeBracket className="text-blue-400 w-4 h-4 md:w-5 md:h-5" />
               How @xray works
@@ -44,7 +44,7 @@ export default function XrayPage() {
               </div>
               <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-900/50 border border-gray-400 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 border border-gray-300 rounded-lg flex items-center justify-center">
                   <HiOutlineBugAnt className="text-gray-500 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-gray-700">@xray decorator</span>
@@ -190,7 +190,7 @@ positive`}
           </h2>
 
           {/* Visual API Map */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mb-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
             <div className="text-center mb-6">
               <h3 className="text-lg font-semibold flex items-center justify-center gap-2">
                 <HiOutlineCodeBracket className="text-blue-400" />
@@ -198,17 +198,17 @@ positive`}
               </h3>
             </div>
             <div className="grid md:grid-cols-3 gap-4 text-sm">
-              <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-4 text-center">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
                 <HiOutlineCpuChip className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mx-auto mb-2" />
                 <div className="font-mono text-blue-300">xray.agent</div>
                 <div className="text-gray-700 text-xs mt-1">Agent Instance</div>
               </div>
-              <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-4 text-center">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
                 <HiOutlineChatBubbleOvalLeft className="w-8 h-8 text-green-400 mx-auto mb-2" />
                 <div className="font-mono text-green-300">xray.task</div>
                 <div className="text-gray-700 text-xs mt-1">User Request</div>
               </div>
-              <div className="bg-gray-900/20 border border-gray-200 rounded-lg p-4 text-center">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
                 <HiOutlineClock className="w-8 h-8 text-gray-500 mx-auto mb-2" />
                 <div className="font-mono text-gray-400">xray.messages</div>
                 <div className="text-gray-700 text-xs mt-1">Chat History</div>
@@ -229,10 +229,10 @@ positive`}
               return (
                 <div
                   key={item.name}
-                  className="bg-gray-900 border border-gray-700 rounded-lg p-6 hover:border-gray-600 transition-colors"
+                  className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all"
                 >
                   <div className="flex items-start gap-3">
-                    <div className={`p-2 rounded-lg bg-gray-800 ${item.color}`}>
+                    <div className={`p-2 rounded-lg bg-gray-100 ${item.color}`}>
                       <IconComponent className="w-4 h-4 md:w-5 md:h-5" />
                     </div>
                     <div>

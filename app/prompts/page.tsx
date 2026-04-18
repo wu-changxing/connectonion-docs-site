@@ -265,8 +265,8 @@ Explore ready-to-use prompt templates:
         </div>
 
         <div className="grid grid-cols-1 gap-6">
-          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
-            <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div className="flex items-center justify-between bg-gray-100 px-4 py-3 border-b border-gray-200">
               <span className="text-sm text-gray-700 font-mono flex items-center gap-2"><HiOutlineFolderOpen className="w-4 h-4"/>project structure</span>
               <button
                 onClick={() => copyToClipboard(folderTree, 'folderTree')}
@@ -291,8 +291,8 @@ Explore ready-to-use prompt templates:
             </div>
           </div>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700 bg-gray-800">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-gray-100">
               <span className="text-sm text-gray-700 font-mono">prompts/assistant.md</span>
               <button
                 onClick={() => copyToClipboard(recommendedMarkdown, 'recommendedMarkdown')}
@@ -317,8 +317,8 @@ Explore ready-to-use prompt templates:
             </div>
           </div>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700 bg-gray-800">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-gray-100">
               <span className="text-sm text-gray-700 font-mono">load_markdown.py</span>
               <button
                 onClick={() => copyToClipboard(loadFromMarkdown, 'loadFromMarkdown')}
@@ -364,7 +364,7 @@ Explore ready-to-use prompt templates:
 
         <div className="grid grid-cols-1 gap-8 mb-8">
           <div className="space-y-6">
-            <div className="flex items-start gap-3 p-4 bg-gray-900 border border-gray-700 rounded-lg">
+            <div className="flex items-start gap-3 p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="w-8 h-8 bg-gray-100 border border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0">
                 <span className="text-green-400 font-bold text-sm">1</span>
               </div>
@@ -376,7 +376,7 @@ Explore ready-to-use prompt templates:
               </div>
             </div>
             
-            <div className="flex items-start gap-3 p-4 bg-gray-900 border border-gray-700 rounded-lg">
+            <div className="flex items-start gap-3 p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="w-8 h-8 bg-blue-900/50 border border-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
                 <span className="text-blue-400 font-bold text-sm">2</span>
               </div>
@@ -388,8 +388,8 @@ Explore ready-to-use prompt templates:
               </div>
             </div>
             
-            <div className="flex items-start gap-3 p-4 bg-gray-900 border border-gray-700 rounded-lg">
-              <div className="w-8 h-8 bg-gray-900/50 border border-gray-400 rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-3 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+              <div className="w-8 h-8 bg-gray-100 border border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0">
                 <span className="text-gray-500 font-bold text-sm">3</span>
               </div>
               <div>
@@ -401,7 +401,7 @@ Explore ready-to-use prompt templates:
             </div>
           </div>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg">
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700">
               <span className="text-sm text-gray-700 font-mono">quick_start.py</span>
               <button
@@ -443,7 +443,7 @@ Explore ready-to-use prompt templates:
           You can set a default iteration limit on the agent, and still override it for specific tasks.
         </p>
 
-        <div className="bg-gray-900 border border-gray-700 rounded-lg">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg">
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700">
             <span className="text-sm text-gray-700 font-mono">iterations.py</span>
             <button
@@ -482,7 +482,7 @@ Explore ready-to-use prompt templates:
             { ext: '.txt', name: 'Plain Text', desc: 'Simple text prompts', color: 'text-yellow-400' },
             { ext: 'none', name: 'No Extension', desc: 'Any text file works', color: 'text-gray-700' },
           ].map((format) => (
-            <div key={format.ext} className="bg-gray-900 border border-gray-700 rounded-lg p-4 hover:border-gray-600 transition-colors">
+            <div key={format.ext} className="bg-white border border-gray-200 rounded-lg p-4 hover:border-gray-400 transition-colors">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineDocumentText className={`w-5 h-5 ${format.color}`} />
                 <span className={`font-mono font-bold ${format.color}`}>
@@ -503,7 +503,7 @@ Explore ready-to-use prompt templates:
         <div className="grid md:grid-cols-2 gap-6">
           <Link 
             href="/prompts/examples" 
-            className="group bg-gray-900 border border-gray-700 rounded-lg p-6 hover:border-blue-500/50 transition-all"
+            className="group bg-white border border-gray-200 rounded-lg p-6 hover:border-blue-400 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-gray-900">Prompt Examples</h3>
@@ -517,7 +517,7 @@ Explore ready-to-use prompt templates:
 
           <Link 
             href="/prompts/examples" 
-            className="group bg-gray-900 border border-gray-700 rounded-lg p-6 hover:border-gray-400 transition-all"
+            className="group bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-gray-900">Examples</h3>

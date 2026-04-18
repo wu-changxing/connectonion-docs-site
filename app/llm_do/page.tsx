@@ -269,7 +269,7 @@ llm_do("Hello", model="claude-opus-4-5")`}
               </div>
 
               <div className="bg-yellow-900/20 border border-gray-200 rounded-xl p-4 mb-6">
-                <p className="text-sm text-yellow-300">
+                <p className="text-sm text-amber-700">
                   <strong>Note:</strong> Legacy Claude models (claude-sonnet-4, claude-opus-4) do NOT support structured outputs.
                   Use Claude 4.5 or 4.1 series for structured output tasks.
                 </p>
@@ -356,7 +356,7 @@ Answer(result=4)`}
                   { text: "Smart defaults - Fast model, low temperature", icon: <FaCheckCircle className="text-green-400" /> },
                   { text: "Clean errors - Clear messages when things go wrong", icon: <FaCheckCircle className="text-green-400" /> }
                 ].map((item, i) => (
-                  <div key={i} className="bg-gray-900 rounded-lg p-4 flex items-start gap-3">
+                  <div key={i} className="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-start gap-3">
                     <span className="text-2xl">{item.icon}</span>
                     <span className="text-gray-700">{item.text}</span>
                   </div>
@@ -447,7 +447,7 @@ False`}
             <section className="mb-12">
               <h2 className="heading-2">Tips</h2>
               
-              <div className="bg-gray-900 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <ol className="space-y-3">
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">1.</span>
@@ -558,15 +558,15 @@ Output didn't match model: 2 validation errors for ComplexModel...`}
               <h2 className="heading-2">Next Steps</h2>
               
               <div className="grid md:grid-cols-3 gap-4">
-                <Link href="/agents" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
+                <Link href="/agents" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Learn about Agents</h3>
                   <p className="text-sm text-gray-700">For multi-step workflows</p>
                 </Link>
-                <Link href="/tools" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
+                <Link href="/tools" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Explore Tools</h3>
                   <p className="text-sm text-gray-700">For extending agents</p>
                 </Link>
-                <Link href="/xray" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
+                <Link href="/xray" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">See @xray</h3>
                   <p className="text-sm text-gray-700">For debugging</p>
                 </Link>

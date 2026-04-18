@@ -155,7 +155,7 @@ Waiting for tasks...`}
               />
             </div>
 
-            <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Multi-turn Conversations</h3>
               <p className="text-gray-700 mb-4">
                 Pass the <code className="bg-gray-800 px-2 py-1 rounded">session</code> from the response to continue:
@@ -203,9 +203,9 @@ curl -X POST http://localhost:8000/input \\
                 language="bash"
               />
               <div className="mt-4 space-y-2 text-sm text-slate-300">
-                <p><strong className="text-teal-200">Images</strong> are passed directly to the LLM as visual content (multimodal).</p>
-                <p><strong className="text-teal-200">Files</strong> are decoded from base64, saved to <code className="bg-gray-800 px-1 rounded">.co/uploads/</code>, and the agent reads them via tools like <code className="bg-gray-800 px-1 rounded">read_file</code>.</p>
-                <p><strong className="text-teal-200">Limits:</strong> Default 10MB per file, 10 files per request. Configure in <code className="bg-gray-800 px-1 rounded">.co/host.yaml</code> or via <code className="bg-gray-800 px-1 rounded">host()</code> params.</p>
+                <p><strong className="text-teal-700">Images</strong> are passed directly to the LLM as visual content (multimodal).</p>
+                <p><strong className="text-teal-700">Files</strong> are decoded from base64, saved to <code className="bg-gray-800 px-1 rounded">.co/uploads/</code>, and the agent reads them via tools like <code className="bg-gray-800 px-1 rounded">read_file</code>.</p>
+                <p><strong className="text-teal-700">Limits:</strong> Default 10MB per file, 10 files per request. Configure in <code className="bg-gray-800 px-1 rounded">.co/host.yaml</code> or via <code className="bg-gray-800 px-1 rounded">host()</code> params.</p>
               </div>
             </div>
 
@@ -329,7 +329,7 @@ ws.onmessage = (event) => {
               <h4 className="font-semibold text-emerald-100 mb-2">OUTPUT ← Agent</h4>
               <p className="text-sm text-slate-300">Receive final results</p>
             </div>
-            <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h4 className="font-semibold text-gray-900 mb-2">STREAM ← Agent</h4>
               <p className="text-sm text-slate-300">Streaming chunks</p>
             </div>
@@ -474,7 +474,7 @@ host(create_agent)  # Reads .co/host.yaml automatically`}
               />
             </div>
 
-            <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Configuration Priority</h3>
               <p className="text-gray-700 mb-4">
                 Settings are loaded in order (highest priority first):
@@ -513,7 +513,7 @@ examples:
               <h3 className="text-xl font-semibold mb-4">Trust Levels</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border border-gray-700 rounded-lg">
-                  <thead className="bg-gray-800">
+                  <thead className="bg-gray-100">
                     <tr>
                       <th className="text-left px-4 py-3 text-gray-700 font-semibold">Level</th>
                       <th className="text-left px-4 py-3 text-gray-700 font-semibold">Behavior</th>
@@ -522,7 +522,7 @@ examples:
                   </thead>
                   <tbody className="divide-y divide-gray-700">
                     <tr>
-                      <td className="px-4 py-3 font-mono text-green-300">open</td>
+                      <td className="px-4 py-3 font-mono text-green-700">open</td>
                       <td className="px-4 py-3 text-gray-700">Accept all requests</td>
                       <td className="px-4 py-3 text-slate-300">Development</td>
                     </tr>
@@ -532,7 +532,7 @@ examples:
                       <td className="px-4 py-3 text-slate-300">Staging/Default</td>
                     </tr>
                     <tr>
-                      <td className="px-4 py-3 font-mono text-red-300">strict</td>
+                      <td className="px-4 py-3 font-mono text-red-700">strict</td>
                       <td className="px-4 py-3 text-gray-700">Require valid signature</td>
                       <td className="px-4 py-3 text-slate-300">Production</td>
                     </tr>
@@ -641,7 +641,7 @@ max_files_per_request: 20`}
                     language="yaml"
                   />
                 </div>
-                <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                   <h4 className="font-semibold text-gray-900 mb-2">Video Analysis</h4>
                   <CodeWithResult
                     code={`max_file_size: 500
@@ -700,16 +700,16 @@ blacklist: blacklist.txt`}
               <h3 className="text-lg font-semibold text-yellow-900 mb-4">Best Practices</h3>
               <div className="space-y-3 text-gray-700">
                 <div>
-                  <strong className="text-green-300">✅ DO:</strong> Commit <code className="bg-gray-800 px-2 py-1 rounded">host.yaml</code> to version control
+                  <strong className="text-green-700">✅ DO:</strong> Commit <code className="bg-gray-800 px-2 py-1 rounded">host.yaml</code> to version control
                 </div>
                 <div>
-                  <strong className="text-red-300">❌ DON'T:</strong> Put secrets in <code className="bg-gray-800 px-2 py-1 rounded">host.yaml</code> - use <code className="bg-gray-800 px-2 py-1 rounded">.env</code> instead
+                  <strong className="text-red-700">❌ DON'T:</strong> Put secrets in <code className="bg-gray-800 px-2 py-1 rounded">host.yaml</code> - use <code className="bg-gray-800 px-2 py-1 rounded">.env</code> instead
                 </div>
                 <div>
-                  <strong className="text-green-300">✅ DO:</strong> Start simple, add complexity as needed
+                  <strong className="text-green-700">✅ DO:</strong> Start simple, add complexity as needed
                 </div>
                 <div>
-                  <strong className="text-red-300">❌ DON'T:</strong> Commit <code className="bg-gray-800 px-2 py-1 rounded">whitelist.txt</code> or <code className="bg-gray-800 px-2 py-1 rounded">blacklist.txt</code> to git
+                  <strong className="text-red-700">❌ DON'T:</strong> Commit <code className="bg-gray-800 px-2 py-1 rounded">whitelist.txt</code> or <code className="bg-gray-800 px-2 py-1 rounded">blacklist.txt</code> to git
                 </div>
               </div>
             </div>
@@ -723,9 +723,9 @@ blacklist: blacklist.txt`}
             API Reference
           </h2>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
             <table className="w-full text-sm">
-              <thead className="bg-gray-800">
+              <thead className="bg-gray-100">
                 <tr>
                   <th className="text-left px-4 py-3 text-gray-700 font-semibold">Parameter</th>
                   <th className="text-left px-4 py-3 text-gray-700 font-semibold">Type</th>
