@@ -105,7 +105,7 @@ export default function BlogPage() {
                   <div className="flex items-start gap-4">
                     {/* Ordinal + Icon stacked */}
                     <div className="flex-shrink-0 flex flex-col items-center gap-1 pt-0.5">
-                      <span className="text-[10px] font-bold text-gray-300 tracking-widest font-mono">{num}</span>
+                      <span className="text-[10px] font-bold text-gray-500 tracking-widest font-mono">{num}</span>
                       <div className="w-9 h-9 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center group-hover:border-gray-400 group-hover:bg-white transition-all">
                         <Icon className="w-4.5 h-4.5 text-gray-500 group-hover:text-gray-700 transition-colors" style={{width: '1.125rem', height: '1.125rem'}} />
                       </div>
