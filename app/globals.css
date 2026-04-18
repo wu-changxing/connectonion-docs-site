@@ -83,6 +83,16 @@ code, pre {
   font-family: var(--font-mono), ui-monospace, monospace;
 }
 
+/* Inline code — pill treatment for bare <code> tags in prose */
+:not(pre) > code:not([class]) {
+  background: #f3f4f6;
+  color: #111827;
+  padding: 0.1em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-weight: 500;
+}
+
 img, video {
   max-width: 100%;
   height: auto;
