@@ -235,11 +235,11 @@ def check_calendar_approval(agent):
         <section className="mb-12">
           <h2 className="heading-2">Related</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/google-integration" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 transition-colors">
+            <Link href="/google-integration" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
               <strong className="text-gray-900">Google Calendar Tool</strong>
               <p className="text-sm text-gray-700">Learn about the GoogleCalendar tool</p>
             </Link>
-            <Link href="/useful-plugins/gmail-plugin" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 transition-colors">
+            <Link href="/useful-plugins/gmail-plugin" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
               <strong className="text-gray-900">Gmail Plugin</strong>
               <p className="text-sm text-gray-700">Similar approval flow for emails</p>
             </Link>

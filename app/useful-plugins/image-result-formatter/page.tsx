@@ -87,7 +87,7 @@ The screenshot shows a simple webpage with the heading "Example Domain"...`}
             <div className="p-4 bg-red-900/20 border border-red-200 rounded-lg">
               <h3 className="font-semibold text-red-400 mb-2">Without Plugin</h3>
               <p className="text-sm text-gray-700 mb-2">The LLM receives raw base64 text:</p>
-              <code className="text-xs text-gray-700 block bg-gray-900 p-2 rounded overflow-x-auto">
+              <code className="text-xs text-gray-700 block bg-gray-100 border border-gray-200 p-2 rounded overflow-x-auto">
                 Tool result: "iVBORw0KGgoAAAANSUhEUgAAA..."
               </code>
               <p className="text-sm text-gray-700 mt-2">LLM cannot interpret this as an image!</p>
@@ -95,7 +95,7 @@ The screenshot shows a simple webpage with the heading "Example Domain"...`}
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-green-400 mb-2">With Plugin</h3>
               <p className="text-sm text-gray-700 mb-2">The LLM receives proper image format:</p>
-              <code className="text-xs text-gray-700 block bg-gray-900 p-2 rounded overflow-x-auto">
+              <code className="text-xs text-gray-700 block bg-gray-100 border border-gray-200 p-2 rounded overflow-x-auto">
                 {`{type: "image_url", url: "data:image/png;..."}`}
               </code>
               <p className="text-sm text-gray-700 mt-2">LLM can see and analyze the image!</p>

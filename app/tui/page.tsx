@@ -210,7 +210,7 @@ console.print(status.render())`}
         {/* Architecture */}
         <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="heading-2">Architecture</h2>
-          <pre className="bg-gray-900 rounded p-4 overflow-x-auto text-sm text-gray-300">
+          <pre className="bg-gray-100 border border-gray-200 rounded p-4 overflow-x-auto text-sm text-gray-700">
 {`User Input → TUI Component → Terminal (Rich) → User
      ↑                              ↓
      └──── Keyboard Events ────────┘`}

@@ -56,7 +56,7 @@ agent = Agent(
           <div className="grid md:grid-cols-3 gap-4">
             <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-300/50 transition-all">
               <HiOutlineCommandLine className="w-7 h-7 text-gray-500 mb-3" />
-              <h3 className="font-semibold text-gray-400 mb-2">Instant Invocation</h3>
+              <h3 className="font-semibold text-gray-600 mb-2">Instant Invocation</h3>
               <p className="text-sm text-gray-600">/command detected in @after_user_input, no LLM overhead</p>
             </div>
             <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
@@ -134,18 +134,18 @@ session['permissions']['Bash(git status)'] = {
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">📸 Snapshot</h3>
                   <p className="text-sm text-gray-600 mb-2">Before granting skill permissions, save current state:</p>
-                  <div className="bg-gray-900 rounded p-3 font-mono text-xs text-gray-400">
+                  <div className="bg-gray-100 border border-gray-200 rounded p-3 font-mono text-xs text-gray-700">
                     snapshot = deepcopy(session['permissions'])
                   </div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gray-500/20 border border-gray-400 flex items-center justify-center text-gray-400 font-semibold text-lg">2</div>
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gray-500/20 border border-gray-400 flex items-center justify-center text-gray-600 font-semibold text-lg">2</div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">➕ Grant</h3>
                   <p className="text-sm text-gray-600 mb-2">Add skill permissions to existing permissions:</p>
-                  <div className="bg-gray-900 rounded p-3 font-mono text-xs text-gray-300">
+                  <div className="bg-gray-100 border border-gray-200 rounded p-3 font-mono text-xs text-gray-700">
                     session['permissions']['Bash(git *)'] = {'{'}...{'}'}
                   </div>
                 </div>
@@ -164,7 +164,7 @@ session['permissions']['Bash(git status)'] = {
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">🔄 Restore</h3>
                   <p className="text-sm text-gray-600 mb-2">When turn ends, restore the snapshot:</p>
-                  <div className="bg-gray-900 rounded p-3 font-mono text-xs text-gray-300">
+                  <div className="bg-gray-100 border border-gray-200 rounded p-3 font-mono text-xs text-gray-700">
                     session['permissions'] = snapshot
                   </div>
                 </div>
@@ -265,32 +265,32 @@ Create a well-formatted git commit for staged changes.
               <HiOutlineLockClosed className="w-6 h-6 text-red-400" />
               Turn-Based Expiration
             </h3>
-            <div className="bg-gray-900 rounded-lg p-5 font-mono text-sm space-y-3">
-              <div className="text-gray-300">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 font-mono text-sm space-y-3">
+              <div className="text-gray-700">
                 <div className="text-gray-500 text-xs mb-1">Turn 3: User approves write for session (tool-level)</div>
                 <div>permissions['write'] = {'{'}source: 'user', expires: 'session_end'{'}'}</div>
               </div>
 
-              <div className="text-gray-400">
+              <div className="text-gray-600">
                 <div className="text-gray-500 text-xs mb-1">Turn 5: /commit skill invoked</div>
                 <div>→ Snapshot taken (write saved)</div>
                 <div>→ Grant: permissions['bash'] = {'{'}source: 'skill', when: {'{'}command: 'git *'{'}'}, expires: 'turn_end'{'}'}</div>
               </div>
 
-              <div className="text-gray-300">
+              <div className="text-gray-700">
                 <div className="text-gray-500 text-xs mb-1">During turn 5:</div>
                 <div>→ git status ✓ (skill permission with when:{'{'}command: 'git *'{'}'})</div>
                 <div>→ write("foo.txt") ✓ (user permission, tool-level)</div>
               </div>
 
-              <div className="text-gray-300">
+              <div className="text-gray-700">
                 <div className="text-gray-500 text-xs mb-1">Turn 5 ends (@on_complete):</div>
                 <div>→ Restore snapshot</div>
                 <div>→ bash permissions cleared ✓</div>
                 <div>→ write preserved ✓</div>
               </div>
 
-              <div className="text-gray-300">
+              <div className="text-gray-700">
                 <div className="text-gray-500 text-xs mb-1">Turn 6: Normal operation</div>
                 <div>→ bash commands require approval ✗</div>
                 <div>→ write still works ✓</div>
@@ -363,8 +363,8 @@ EOF`}
             </Link>
             <Link href="/concepts/skills" className="p-6 bg-gray-50 border border-gray-200 hover:border-gray-400 rounded-lg transition-all group">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineCodeBracket className="w-6 h-6 text-gray-500 group-hover:text-gray-400 transition-colors" />
-                <h3 className="font-semibold text-gray-900 group-hover:text-gray-400 transition-colors">Skills Concepts</h3>
+                <HiOutlineCodeBracket className="w-6 h-6 text-gray-500 group-hover:text-gray-600 transition-colors" />
+                <h3 className="font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">Skills Concepts</h3>
               </div>
               <p className="text-sm text-gray-600">Detailed skills documentation</p>
             </Link>

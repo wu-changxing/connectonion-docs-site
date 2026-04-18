@@ -36,12 +36,37 @@ export default function ClientLayout({
     <>
       {/* Slim persistent top bar — shared chrome across all doc pages */}
       <header className="hidden md:flex sticky top-0 z-50 h-10 items-center justify-between px-4 bg-white border-b border-gray-100">
-        <Link href="/" className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors" aria-label="ConnectOnion — back to home">
+        <Link href="/" className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors flex-shrink-0" aria-label="ConnectOnion — back to home">
           <img src="/onion-logo.png" alt="" className="w-5 h-5 rounded" />
           ConnectOnion
         </Link>
-        <div className="flex items-center gap-1">
-          <Link href="/quickstart" className="text-xs text-gray-500 hover:text-gray-900 px-2.5 py-1 rounded hover:bg-gray-100 transition-colors">Quickstart</Link>
+        {/* Center nav — key sections for quick orientation */}
+        <nav className="flex items-center gap-0.5" aria-label="Top navigation">
+          {[
+            { href: '/quickstart', label: 'Guide' },
+            { href: '/agent', label: 'API' },
+            { href: '/tools', label: 'Tools' },
+            { href: '/examples', label: 'Examples' },
+            { href: '/plugin', label: 'Plugins' },
+            { href: '/blog', label: 'Blog' },
+          ].map(({ href, label }) => {
+            const isActive = pathname === href || (href !== '/' && pathname.startsWith(href))
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`text-xs px-2.5 py-1 rounded transition-colors ${
+                  isActive
+                    ? 'text-gray-900 font-semibold bg-gray-100'
+                    : 'text-gray-400 hover:text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                {label}
+              </Link>
+            )
+          })}
+        </nav>
+        <div className="flex items-center gap-1 flex-shrink-0">
           <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener noreferrer" className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors" aria-label="GitHub">
             <FaGithub className="w-3.5 h-3.5" />
           </a>

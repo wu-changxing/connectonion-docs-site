@@ -80,38 +80,38 @@ Return a structured report with findings and line numbers.`}
             language="yaml"
           />
 
-          <div className="mt-6 bg-gray-900 border border-gray-200 rounded-lg overflow-hidden">
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg overflow-hidden">
             <table className="w-full text-sm">
-              <thead className="bg-gray-800">
+              <thead className="bg-gray-100">
                 <tr>
                   <th className="text-left px-4 py-3 text-gray-700">Field</th>
                   <th className="text-left px-4 py-3 text-gray-700">Required</th>
                   <th className="text-left px-4 py-3 text-gray-700">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-violet-300">name</td>
+                  <td className="px-4 py-3 font-mono text-violet-700">name</td>
                   <td className="px-4 py-3 text-gray-600">yes</td>
                   <td className="px-4 py-3 text-gray-700">Agent identifier (used in task() calls)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-violet-300">description</td>
+                  <td className="px-4 py-3 font-mono text-violet-700">description</td>
                   <td className="px-4 py-3 text-gray-600">yes</td>
                   <td className="px-4 py-3 text-gray-700">Shown to parent agent when choosing sub-agent</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-violet-300">model</td>
+                  <td className="px-4 py-3 font-mono text-violet-700">model</td>
                   <td className="px-4 py-3 text-gray-600">no</td>
                   <td className="px-4 py-3 text-gray-700">Default: co/gemini-2.5-pro</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-violet-300">max_iterations</td>
+                  <td className="px-4 py-3 font-mono text-violet-700">max_iterations</td>
                   <td className="px-4 py-3 text-gray-600">no</td>
                   <td className="px-4 py-3 text-gray-700">Default: 10</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-violet-300">tools</td>
+                  <td className="px-4 py-3 font-mono text-violet-700">tools</td>
                   <td className="px-4 py-3 text-gray-600">no</td>
                   <td className="px-4 py-3 text-gray-700">List of tool names to give the sub-agent</td>
                 </tr>
@@ -119,9 +119,9 @@ Return a structured report with findings and line numbers.`}
             </table>
           </div>
 
-          <div className="mt-4 p-4 bg-gray-900 border border-gray-200 rounded-lg">
+          <div className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
             <p className="text-sm text-gray-600 font-semibold mb-2">Available tool names:</p>
-            <p className="font-mono text-sm text-slate-400">glob, grep, read_file, edit, multi_edit, write, bash, WebFetch, Memory, Browser</p>
+            <p className="font-mono text-sm text-gray-700">glob, grep, read_file, edit, multi_edit, write, bash, WebFetch, Memory, Browser</p>
           </div>
         </section>
 

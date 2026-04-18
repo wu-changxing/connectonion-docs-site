@@ -80,12 +80,12 @@ agent.input("Refactor all Python files to use type annotations")`}
           />
           <p className="text-gray-700 mt-6 mb-4">The user can respond with:</p>
           <div className="space-y-3">
-            <div className="p-4 bg-gray-900 border border-gray-200 rounded-lg">
-              <code className="text-orange-300">{"{ \"action\": \"continue\", \"turns\": 10 }"}</code>
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+              <code className="text-orange-700">{"{ \"action\": \"continue\", \"turns\": 10 }"}</code>
               <p className="text-gray-600 text-sm mt-1">Extend by N more turns and keep going</p>
             </div>
-            <div className="p-4 bg-gray-900 border border-gray-200 rounded-lg">
-              <code className="text-orange-300">{"{ \"action\": \"switch_mode\", \"mode\": \"safe\" }"}</code>
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+              <code className="text-orange-700">{"{ \"action\": \"switch_mode\", \"mode\": \"safe\" }"}</code>
               <p className="text-gray-600 text-sm mt-1">Return to safe mode (approval prompts back on)</p>
             </div>
           </div>
@@ -116,17 +116,17 @@ agent.input("Refactor all Python files to use type annotations")`}
               </thead>
               <tbody className="divide-y divide-gray-700/50">
                 <tr>
-                  <td className="py-2"><code className="text-orange-300">on_complete</code></td>
+                  <td className="py-2"><code className="text-orange-700">on_complete</code></td>
                   <td className="py-2 text-gray-600">ulw_keep_working</td>
                   <td className="py-2 text-gray-700">Start next turn if turns remain</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><code className="text-orange-300">before_iteration</code></td>
+                  <td className="py-2"><code className="text-orange-700">before_iteration</code></td>
                   <td className="py-2 text-gray-600">poll_prompt_update</td>
                   <td className="py-2 text-gray-700">Check for goal updates from frontend</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><code className="text-orange-300">before_llm</code></td>
+                  <td className="py-2"><code className="text-orange-700">before_llm</code></td>
                   <td className="py-2 text-gray-600">inject_ulw_prompt</td>
                   <td className="py-2 text-gray-700">Inject current goal into system prompt</td>
                 </tr>

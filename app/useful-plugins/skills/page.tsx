@@ -134,7 +134,7 @@ session['permissions']['Bash(git status)'] = {
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">📸 Snapshot</h3>
                   <p className="text-sm text-gray-600 mb-2">Before granting skill permissions, save current state:</p>
-                  <div className="bg-gray-900 rounded p-3 font-mono text-xs text-gray-300">
+                  <div className="bg-gray-100 border border-gray-200 rounded p-3 font-mono text-xs text-gray-700">
                     snapshot = deepcopy(session['permissions'])
                   </div>
                 </div>
@@ -145,7 +145,7 @@ session['permissions']['Bash(git status)'] = {
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">➕ Grant</h3>
                   <p className="text-sm text-gray-600 mb-2">Add skill permissions to existing permissions:</p>
-                  <div className="bg-gray-900 rounded p-3 font-mono text-xs text-gray-300">
+                  <div className="bg-gray-100 border border-gray-200 rounded p-3 font-mono text-xs text-gray-700">
                     session['permissions']['Bash(git *)'] = {'{'}...{'}'}
                   </div>
                 </div>
@@ -164,7 +164,7 @@ session['permissions']['Bash(git status)'] = {
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">🔄 Restore</h3>
                   <p className="text-sm text-gray-600 mb-2">When turn ends, restore the snapshot:</p>
-                  <div className="bg-gray-900 rounded p-3 font-mono text-xs text-gray-300">
+                  <div className="bg-gray-100 border border-gray-200 rounded p-3 font-mono text-xs text-gray-700">
                     session['permissions'] = snapshot
                   </div>
                 </div>
@@ -265,7 +265,7 @@ Create a well-formatted git commit for staged changes.
               <HiOutlineLockClosed className="w-6 h-6 text-red-400" />
               Turn-Based Expiration
             </h3>
-            <div className="bg-gray-900 rounded-lg p-5 font-mono text-sm space-y-3">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 font-mono text-sm space-y-3">
               <div className="text-gray-700">
                 <div className="text-slate-400 text-xs mb-1">Turn 3: User approves bash:pytest for session</div>
                 <div>permissions['bash:pytest'] = {'{'}source: 'user', expires: 'session_end'{'}'}</div>

@@ -60,7 +60,7 @@ head -n 10 README.md`}
             </div>
           </div>
 
-          <div className="mt-6 bg-slate-800/50 border border-slate-700 rounded-lg p-5">
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-5">
             <p className="text-gray-700">
               File creation via bash bypasses tool UI/diffs/approval flow and has escaping issues.
               File reading via bash works but misses line numbers, formatting, and control that <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">read_file</code> provides.
@@ -164,7 +164,7 @@ agent = Agent(
                   <code>more file.txt</code> - page through file
                 </div>
               </div>
-              <p className="mt-4 text-xs text-slate-400">
+              <p className="mt-4 text-xs text-gray-600">
                 Note: <code>cat file | grep pattern</code> (piped cat) is not detected — piping is legitimate bash usage.
               </p>
             </div>
@@ -228,14 +228,14 @@ Why: read_file provides line numbers, proper formatting, and better control.
             The plugin exports two event handlers:
           </p>
           <div className="space-y-3">
-            <div className="p-4 bg-slate-800/50 border border-slate-700 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <p className="text-gray-700">
-                <code className="px-2 py-1 bg-gray-800 rounded text-orange-300">block_bash_file_creation</code> (<code className="text-slate-400">before_each_tool</code>) — detects file creation patterns and raises ValueError. For file reading, sets a session flag.
+                <code className="px-2 py-1 bg-orange-50 rounded text-orange-700">block_bash_file_creation</code> (<code className="text-gray-600">before_each_tool</code>) — detects file creation patterns and raises ValueError. For file reading, sets a session flag.
               </p>
             </div>
-            <div className="p-4 bg-slate-800/50 border border-slate-700 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <p className="text-gray-700">
-                <code className="px-2 py-1 bg-gray-800 rounded text-orange-300">remind_read_file</code> (<code className="text-slate-400">after_each_tool</code>) — if the flag is set, appends a system reminder to the tool result message.
+                <code className="px-2 py-1 bg-orange-50 rounded text-orange-700">remind_read_file</code> (<code className="text-gray-600">after_each_tool</code>) — if the flag is set, appends a system reminder to the tool result message.
               </p>
             </div>
           </div>
@@ -260,7 +260,7 @@ agent = Agent(
           <div className="mt-4 bg-yellow-900/20 border border-gray-200 rounded-lg p-4">
             <h3 className="font-semibold text-gray-700 mb-2">Order Matters</h3>
             <p className="text-gray-700">
-              <code className="px-2 py-1 bg-gray-800 rounded text-orange-300">prefer_write_tool</code> should come first to block file creation before <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">tool_approval</code> prompts for approval.
+              <code className="px-2 py-1 bg-orange-50 rounded text-orange-700">prefer_write_tool</code> should come first to block file creation before <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">tool_approval</code> prompts for approval.
             </p>
           </div>
         </section>

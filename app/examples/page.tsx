@@ -146,7 +146,7 @@ export default function ExamplesPage() {
                   {example.concepts.map((concept, i) => (
                     <span
                       key={i}
-                      className="text-xs px-2 py-1 bg-gray-800 text-gray-700 rounded"
+                      className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded"
                     >
                       {concept}
                     </span>

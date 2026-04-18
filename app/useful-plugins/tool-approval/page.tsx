@@ -94,7 +94,7 @@ tool_executor iterates sequentially:
         <section className="mb-12">
           <h2 className="heading-2">Rejection Modes</h2>
           <p className="text-gray-700 mb-6">
-            When the client rejects a tool, the <code className="px-2 py-1 bg-gray-800 rounded text-gray-400">mode</code> field determines what happens next:
+            When the client rejects a tool, the <code className="px-2 py-1 bg-gray-100 text-gray-700 rounded">mode</code> field determines what happens next:
           </p>
 
           <div className="space-y-6">
@@ -129,13 +129,13 @@ tool_executor iterates sequentially:
               />
               <ul className="mt-4 space-y-2 text-sm text-gray-600">
                 <li>• Current tool is skipped (raises ValueError)</li>
-                <li>• <code className="px-2 py-1 bg-gray-800 rounded text-red-700">stop_signal</code> flag is set in session</li>
+                <li>• <code className="px-2 py-1 bg-red-50 text-red-700 rounded">stop_signal</code> flag is set in session</li>
                 <li>• All remaining tools in the batch are auto-rejected</li>
                 <li>• Agent loop stops — LLM does NOT get another turn</li>
                 <li>• User must send a new message to continue</li>
               </ul>
               <div className="mt-4 text-sm text-slate-400">
-                Default mode when <code className="px-2 py-1 bg-gray-800 rounded">mode</code> is not provided: <code className="px-2 py-1 bg-gray-800 rounded text-red-700">reject_hard</code>
+                Default mode when <code className="px-2 py-1 bg-gray-100 text-gray-700 rounded">mode</code> is not provided: <code className="px-2 py-1 bg-red-50 text-red-700 rounded">reject_hard</code>
               </div>
             </div>
           </div>
@@ -153,7 +153,7 @@ tool_executor iterates sequentially:
                 Safe Tools (No Approval)
               </h3>
               <p className="text-gray-700 mb-3">Read-only operations that never modify state:</p>
-              <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-gray-600">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm text-gray-700">
                 read, read_file, glob, grep, search<br/>
                 list_files, get_file_info, task, load_guide<br/>
                 enter_plan_mode, exit_plan_mode, write_plan<br/>
@@ -168,7 +168,7 @@ tool_executor iterates sequentially:
                 Dangerous Tools (Require Approval)
               </h3>
               <p className="text-gray-700 mb-3">Operations that can modify files or have side effects:</p>
-              <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-gray-600">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm text-gray-700">
                 bash, shell, run, run_in_dir<br/>
                 write, edit, multi_edit<br/>
                 run_background, kill_task<br/>
@@ -188,7 +188,7 @@ tool_executor iterates sequentially:
         <section className="mb-12">
           <h2 className="heading-2">Config-Based Auto-Approval</h2>
           <p className="text-gray-700 mb-6">
-            Auto-approve safe commands permanently via <code className="px-2 py-1 bg-gray-800 rounded text-gray-400">host.yaml</code> configuration. Config permissions never expire and apply to all sessions.
+            Auto-approve safe commands permanently via <code className="px-2 py-1 bg-gray-100 text-gray-700 rounded">host.yaml</code> configuration. Config permissions never expire and apply to all sessions.
           </p>
 
           <h3 className="heading-3 mt-6">Configuration Example</h3>
@@ -373,7 +373,7 @@ pwd && rm -rf /
             <p className="text-gray-700">
               <strong>Whitelist-first:</strong> One dangerous command = whole chain rejected.
             </p>
-            <div className="mt-3 bg-gray-900 rounded p-3 font-mono text-sm text-red-700">
+            <div className="mt-3 bg-red-50 border border-red-200 rounded p-3 font-mono text-sm text-red-700">
               # ❌ REJECTED even though pwd is safe<br/>
               pwd && rm -rf /
             </div>

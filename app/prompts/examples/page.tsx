@@ -203,7 +203,7 @@ export default function PromptsExamplesPage() {
                       {example.concepts.map((concept) => (
                         <span 
                           key={concept}
-                          className="px-2 py-1 bg-gray-800 text-gray-700 rounded text-xs"
+                          className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs"
                         >
                           {concept}
                         </span>

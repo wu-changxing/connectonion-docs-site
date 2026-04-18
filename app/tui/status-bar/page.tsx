@@ -108,7 +108,7 @@ status = StatusBar([
         {/* Example Output */}
         <section className="mb-12">
           <h2 className="heading-2">Example Output</h2>
-          <pre className="bg-gray-900 rounded-lg p-4 text-sm text-gray-300 overflow-x-auto">
+          <pre className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-sm text-gray-700 overflow-x-auto">
 {`🤖 co/gemini-2.5-pro  📊 50%   main`}
           </pre>
         </section>

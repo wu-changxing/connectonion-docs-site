@@ -361,7 +361,7 @@ Next steps:
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Using Managed Keys</h3>
-          <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-gray-700">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`from connectonion import llm_do
 
 # Use co/ prefix for managed models
@@ -811,7 +811,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             <p className="text-gray-700 mb-4">
               Only available when AI is enabled. Generates a complete custom template based on your description:
             </p>
-            <div className="bg-gray-900 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <pre className="text-sm text-gray-700 font-mono">
 {`✔ Choose template: Custom
 ✔ Describe what you want to build: …
