@@ -157,15 +157,15 @@ export default function CLIPage() {
           <p className="text-gray-700 mb-4">Both commands share the same interactive flow:</p>
           <ol className="space-y-2 text-gray-700">
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700">1</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-100 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700">1</span>
               <span>AI feature toggle (Yes/No)</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700">2</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-100 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700">2</span>
               <span>API key input (with auto-detection)</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700">3</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-100 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700">3</span>
               <span>Template selection</span>
             </li>
           </ol>
