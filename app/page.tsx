@@ -44,19 +44,25 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="flex items-center justify-center px-4 md:px-6 py-20 md:py-32 relative border-b border-gray-100">
         <div className="w-full max-w-2xl mx-auto text-center relative z-10">
-          <h1 className="heading-1 mb-2">
-            ConnectOnion
+          {/* Brand eyebrow */}
+          <div className="flex items-center justify-center gap-2 mb-5">
+            <span className="text-sm font-medium text-gray-500">ConnectOnion</span>
+            <span className="text-gray-300">·</span>
+            <span className="px-2 py-0.5 bg-gray-100 text-green-700 text-xs font-semibold rounded-full">v{VERSION}</span>
+          </div>
+
+          {/* Value proposition headline */}
+          <h1 className="heading-1 mb-4 text-balance">
+            Build AI Agents in{' '}
+            <span className="accent-italic text-[1.05em]">2 lines</span>{' '}
+            of Python
           </h1>
 
-          <div className="mb-4">
-            <span className="px-3 py-1 bg-gray-100 text-green-700 text-sm font-semibold rounded-full">v{VERSION}</span>
-          </div>
-
-          {/* Philosophy — editorial italic accent */}
-          <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 leading-relaxed font-bold text-gray-900 text-balance">
-            Keep simple things <span className="accent-italic text-[1.1em]">simple</span>,{' '}
-            make complicated things possible
-          </div>
+          {/* Philosophy — now secondary */}
+          <p className="text-base sm:text-lg text-gray-500 mb-8 leading-relaxed text-balance">
+            Keep simple things simple, make complicated things possible.
+            No boilerplate. No framework lock-in. Just Python.
+          </p>
 
           {/* Install Command */}
           <div className="mb-6 max-w-md mx-auto">

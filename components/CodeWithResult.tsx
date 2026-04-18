@@ -187,14 +187,17 @@ export default function CodeWithResult({
                 </div>
               )}
             </div>
-            <button
-              onClick={handleCopy}
-              className="text-gray-400 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors p-2.5 rounded hover:bg-gray-700 min-h-[44px] min-w-[44px] flex items-center justify-center"
-              title="Copy code"
-              aria-label="Copy code to clipboard"
-            >
-              {copied ? <HiOutlineCheck className="w-5 h-5 text-green-400" /> : <HiOutlineClipboard className="w-5 h-5" />}
-            </button>
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-mono text-gray-500 select-none hidden sm:block">{language}</span>
+              <button
+                onClick={handleCopy}
+                className="text-gray-400 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors p-2.5 rounded hover:bg-gray-700 min-h-[44px] min-w-[44px] flex items-center justify-center"
+                title="Copy code"
+                aria-label="Copy code to clipboard"
+              >
+                {copied ? <HiOutlineCheck className="w-5 h-5 text-green-400" /> : <HiOutlineClipboard className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
           <div className="relative">
           <div className="p-4 md:p-6 overflow-x-auto custom-scrollbar">
