@@ -8,136 +8,16 @@ import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import CodeWithResult from '../../components/CodeWithResult'
 
 const components = [
-  {
-    id: 'chat',
-    name: 'Chat',
-    title: 'Chat',
-    description: 'Full chat interface with agent integration',
-    icon: HiOutlineCommandLine,
-    color: 'text-emerald-400',
-    bgColor: 'bg-gray-50',
-    borderColor: 'border-gray-200',
-    href: '/tui/chat',
-    usage: 'Chat(agent=agent).run()',
-    category: 'input'
-  },
-  {
-    id: 'pick',
-    name: 'pick',
-    title: 'pick',
-    description: 'Single-select menu with keyboard navigation',
-    icon: HiOutlineChevronDown,
-    color: 'text-gray-500',
-    bgColor: 'bg-gray-50',
-    borderColor: 'border-gray-200',
-    href: '/tui/pick',
-    usage: 'pick("Select model", ["gpt-4", "claude-3"])',
-    category: 'input'
-  },
-  {
-    id: 'input',
-    name: 'Input',
-    title: 'Input',
-    description: 'Smart text input with trigger-based autocomplete',
-    icon: HiOutlineLanguage,
-    color: 'text-blue-400',
-    bgColor: 'bg-gray-50',
-    borderColor: 'border-gray-200',
-    href: '/tui/input',
-    usage: 'Input(triggers={"@": FileProvider()}).run()',
-    category: 'input'
-  },
-  {
-    id: 'dropdown',
-    name: 'Dropdown',
-    title: 'Dropdown',
-    description: 'Selection list component for autocomplete menus',
-    icon: HiOutlineChevronDown,
-    color: 'text-green-400',
-    bgColor: 'bg-gray-900/5',
-    borderColor: 'border-gray-200',
-    href: '/tui/dropdown',
-    usage: 'Dropdown(items, max_visible=5)',
-    category: 'input'
-  },
-  {
-    id: 'status-bar',
-    name: 'StatusBar',
-    title: 'StatusBar',
-    description: 'Powerline-style status bar with colored segments',
-    icon: HiOutlineChartBar,
-    color: 'text-cyan-400',
-    bgColor: 'bg-cyan-900/20',
-    borderColor: 'border-cyan-500/30',
-    href: '/tui/status-bar',
-    usage: 'StatusBar([("model", "gpt-4", "magenta")])',
-    category: 'display'
-  },
-  {
-    id: 'footer',
-    name: 'Footer',
-    title: 'Footer',
-    description: 'Simple footer with tips/hints display',
-    icon: HiOutlineRectangleGroup,
-    color: 'text-orange-400',
-    bgColor: 'bg-orange-900/20',
-    borderColor: 'border-orange-500/30',
-    href: '/tui/footer',
-    usage: 'Footer(["? help", "/ commands"])',
-    category: 'display'
-  },
-  {
-    id: 'divider',
-    name: 'Divider',
-    title: 'Divider',
-    description: 'Simple horizontal line separator',
-    icon: HiOutlineMinus,
-    color: 'text-gray-500',
-    bgColor: 'bg-gray-50',
-    borderColor: 'border-slate-500/30',
-    href: '/tui/divider',
-    usage: 'Divider(width=40)',
-    category: 'display'
-  },
-  {
-    id: 'fuzzy',
-    name: 'fuzzy_match',
-    title: 'Fuzzy Matching',
-    description: 'Fuzzy matching utilities for autocomplete',
-    icon: HiOutlineMagnifyingGlass,
-    color: 'text-yellow-400',
-    bgColor: 'bg-yellow-900/20',
-    borderColor: 'border-yellow-500/30',
-    href: '/tui/fuzzy',
-    usage: 'fuzzy_match("gp", "gpt-4")',
-    category: 'utility'
-  },
-  {
-    id: 'keys',
-    name: 'getch / read_key',
-    title: 'Keyboard Input',
-    description: 'Low-level keyboard input primitives',
-    icon: HiOutlineCommandLine,
-    color: 'text-red-400',
-    bgColor: 'bg-red-900/20',
-    borderColor: 'border-red-500/30',
-    href: '/tui/keys',
-    usage: 'key = read_key()  # "up", "down", etc.',
-    category: 'utility'
-  },
-  {
-    id: 'providers',
-    name: 'Providers',
-    title: 'Autocomplete Providers',
-    description: 'Data providers for autocomplete (FileProvider, StaticProvider)',
-    icon: HiOutlineCircleStack,
-    color: 'text-gray-500',
-    bgColor: 'bg-pink-900/20',
-    borderColor: 'border-pink-500/30',
-    href: '/tui/providers',
-    usage: 'FileProvider(root="src/")',
-    category: 'utility'
-  },
+  { id: 'chat', name: 'Chat', title: 'Chat', description: 'Full chat interface with agent integration', icon: HiOutlineCommandLine, href: '/tui/chat', usage: 'Chat(agent=agent).run()', category: 'input' },
+  { id: 'pick', name: 'pick', title: 'pick', description: 'Single-select menu with keyboard navigation', icon: HiOutlineChevronDown, href: '/tui/pick', usage: 'pick("Select model", ["gpt-4", "claude-3"])', category: 'input' },
+  { id: 'input', name: 'Input', title: 'Input', description: 'Smart text input with trigger-based autocomplete', icon: HiOutlineLanguage, href: '/tui/input', usage: 'Input(triggers={"@": FileProvider()}).run()', category: 'input' },
+  { id: 'dropdown', name: 'Dropdown', title: 'Dropdown', description: 'Selection list component for autocomplete menus', icon: HiOutlineChevronDown, href: '/tui/dropdown', usage: 'Dropdown(items, max_visible=5)', category: 'input' },
+  { id: 'status-bar', name: 'StatusBar', title: 'StatusBar', description: 'Powerline-style status bar with colored segments', icon: HiOutlineChartBar, href: '/tui/status-bar', usage: 'StatusBar([("model", "gpt-4", "magenta")])', category: 'display' },
+  { id: 'footer', name: 'Footer', title: 'Footer', description: 'Simple footer with tips/hints display', icon: HiOutlineRectangleGroup, href: '/tui/footer', usage: 'Footer(["? help", "/ commands"])', category: 'display' },
+  { id: 'divider', name: 'Divider', title: 'Divider', description: 'Simple horizontal line separator', icon: HiOutlineMinus, href: '/tui/divider', usage: 'Divider(width=40)', category: 'display' },
+  { id: 'fuzzy', name: 'fuzzy_match', title: 'Fuzzy Matching', description: 'Fuzzy matching utilities for autocomplete', icon: HiOutlineMagnifyingGlass, href: '/tui/fuzzy', usage: 'fuzzy_match("gp", "gpt-4")', category: 'utility' },
+  { id: 'keys', name: 'getch / read_key', title: 'Keyboard Input', description: 'Low-level keyboard input primitives', icon: HiOutlineCommandLine, href: '/tui/keys', usage: 'key = read_key()  # "up", "down", etc.', category: 'utility' },
+  { id: 'providers', name: 'Providers', title: 'Autocomplete Providers', description: 'Data providers for autocomplete (FileProvider, StaticProvider)', icon: HiOutlineCircleStack, href: '/tui/providers', usage: 'FileProvider(root="src/")', category: 'utility' },
 ]
 
 const categories = [
@@ -163,7 +43,7 @@ export default function TUIPage() {
         <div className="mb-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-gray-700/20 to-cyan-600/20 rounded-xl border border-gray-200">
+              <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
                 <HiOutlineCommandLine className="w-8 h-8 text-gray-500" />
               </div>
               <div>
@@ -233,11 +113,11 @@ console.print(status.render())`}
                   <Link
                     key={component.id}
                     href={component.href}
-                    className={`group block p-4 rounded-lg border ${component.borderColor} ${component.bgColor} hover:border-gray-300/50 hover:bg-gray-100 transition-all min-h-[48px]`}
+                    className="group block p-4 rounded-lg border border-gray-200 bg-white hover:border-gray-400 hover:shadow-sm transition-all"
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <div className={`p-2 rounded-lg bg-gray-100 ${component.color}`}>
-                        <component.icon className="w-5 h-5" />
+                      <div className="w-9 h-9 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center group-hover:border-gray-400 transition-colors">
+                        <component.icon className="w-4.5 h-4.5 text-gray-500 group-hover:text-gray-700 transition-colors" style={{width:'1.125rem',height:'1.125rem'}} />
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">
