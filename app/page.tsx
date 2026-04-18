@@ -28,11 +28,11 @@ export default function HomePage() {
             <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-semibold rounded-full">v{VERSION}</span>
           </div>
 
-          {/* Philosophy */}
-          <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 leading-relaxed">
-            <span className="text-green-700 font-bold block sm:inline">Keep simple things simple</span>
-            <span className="text-gray-300 hidden sm:inline mx-2">,</span>
-            <span className="text-gray-700 font-bold block sm:inline">make complicated things possible</span>
+          {/* Philosophy — editorial italic accent */}
+          <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 leading-relaxed font-bold text-gray-900">
+            Keep simple things <span className="accent-italic text-[1.1em]">simple</span>
+            <span className="text-gray-300 mx-2">,</span>
+            make complicated things possible
           </div>
 
           {/* Install Command */}
@@ -52,8 +52,8 @@ export default function HomePage() {
                   background: 'transparent',
                   padding: '0.75rem',
                   margin: 0,
-                  fontSize: '0.7rem',
-                  lineHeight: '1.6',
+                  fontSize: '0.8125rem',
+                  lineHeight: '1.7',
                   minWidth: 'max-content'
                 }}
               >
@@ -85,21 +85,16 @@ agent.input("What's the weather in NYC?")`}
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-8 md:py-10 px-4 md:px-6 border-b border-gray-100 bg-gray-50">
+      <section className="py-6 px-4 md:px-6 border-b border-gray-100 bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-3 sm:gap-4">
-            <a href="https://connectonion.com" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center justify-center">
-              <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=flat-square" alt="Production Ready" className="h-5" />
-            </a>
-            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center justify-center">
-              <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="MIT License" className="h-5" />
-            </a>
-            <a href="https://python.org" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center justify-center">
-              <img src="https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python" alt="Python 3.9+" className="h-5" />
-            </a>
-            <a href="https://pepy.tech/projects/connectonion" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center justify-center">
-              <img src="https://static.pepy.tech/personalized-badge/connectonion?period=total&units=international_system&left_color=black&right_color=green&left_text=downloads" alt="PyPI Downloads" className="h-5" />
-            </a>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-500 font-medium tracking-wide">
+            <span>MIT License</span>
+            <span className="text-gray-300">·</span>
+            <span>Python 3.9+</span>
+            <span className="text-gray-300">·</span>
+            <span>OpenAI · Anthropic · Gemini</span>
+            <span className="text-gray-300">·</span>
+            <span className="text-green-700 font-semibold">$5 free credits</span>
           </div>
         </div>
       </section>
@@ -119,7 +114,7 @@ agent.input("What's the weather in NYC?")`}
       {/* Free Credits Banner */}
       <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-50 border-y border-gray-100">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl p-6 border border-green-200 shadow-sm relative overflow-hidden">
+          <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm relative overflow-hidden">
             <div className="absolute top-3 right-3">
               <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">FREE</span>
             </div>
@@ -148,7 +143,7 @@ agent.input("What's the weather in NYC?")`}
 
           <div className="grid md:grid-cols-3 gap-5">
             <div className="card-interactive rounded-xl p-6 border border-gray-200">
-              <HiOutlineBolt className="w-7 h-7 text-green-600 mb-4" />
+              <HiOutlineBolt className="w-7 h-7 text-gray-500 mb-4" />
               <h3 className="text-base font-bold text-gray-900 mb-3">Functions = Tools</h3>
               <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs mb-4">
                 <div className="text-gray-100">def search(q: str):</div>
@@ -158,7 +153,7 @@ agent.input("What's the weather in NYC?")`}
             </div>
 
             <div className="card-interactive rounded-xl p-6 border border-gray-200">
-              <HiOutlineGlobeAlt className="w-7 h-7 text-green-600 mb-4" />
+              <HiOutlineGlobeAlt className="w-7 h-7 text-gray-500 mb-4" />
               <h3 className="text-base font-bold text-gray-900 mb-3">Deploy Anywhere</h3>
               <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs mb-4">
                 <div className="text-green-400">agent.serve()</div>
@@ -168,7 +163,7 @@ agent.input("What's the weather in NYC?")`}
             </div>
 
             <div className="card-interactive rounded-xl p-6 border border-gray-200">
-              <HiOutlineRocketLaunch className="w-7 h-7 text-green-600 mb-4" />
+              <HiOutlineRocketLaunch className="w-7 h-7 text-gray-500 mb-4" />
               <h3 className="text-base font-bold text-gray-900 mb-3">Connect Agents</h3>
               <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs mb-4">
                 <div className="text-green-400">other = connect("0x...")</div>

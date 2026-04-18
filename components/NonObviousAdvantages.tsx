@@ -99,12 +99,12 @@ export function NonObviousAdvantages() {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-4">
-            <div className="h-px w-12 bg-green-300" />
-            <span className="text-green-700 text-sm font-mono uppercase tracking-wider">Beyond Code Comparison</span>
-            <div className="h-px w-12 bg-green-300" />
+            <div className="h-px w-12 bg-gray-300" />
+            <span className="text-gray-500 text-xs font-mono uppercase tracking-widest">Beyond Code Comparison</span>
+            <div className="h-px w-12 bg-gray-300" />
           </div>
           <h2 className="heading-2 mb-4">
-            What Other Frameworks <span className="text-green-700">Don&apos;t Have</span>
+            What Other Frameworks <span className="accent-italic text-[1.05em]">Don&apos;t Have</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
             These aren&apos;t about writing less code. They&apos;re capabilities other frameworks haven&apos;t built at all.

@@ -307,12 +307,12 @@ export function FrameworkComparison() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-4">
-            <div className="h-px w-12 bg-green-300" />
-            <span className="text-green-700 text-sm font-mono uppercase tracking-wider">Why ConnectOnion</span>
-            <div className="h-px w-12 bg-green-300" />
+            <div className="h-px w-12 bg-gray-300" />
+            <span className="text-gray-500 text-xs font-mono uppercase tracking-widest">Why ConnectOnion</span>
+            <div className="h-px w-12 bg-gray-300" />
           </div>
           <h2 className="heading-2 mb-4">
-            See the <span className="text-green-700">Difference</span>
+            See the <span className="accent-italic text-[1.05em]">Difference</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
             Same task, dramatically different complexity. Scroll to see real code comparisons.

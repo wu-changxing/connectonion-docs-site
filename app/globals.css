@@ -2,6 +2,7 @@
 
 :root {
   --font-sans: var(--font-inter);
+  --font-display: var(--font-instrument-serif);
   --font-mono: var(--font-jetbrains-mono);
 
   /* Brand Colors — Green */
@@ -98,6 +99,18 @@ pre {
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar:hover { scrollbar-width: thin; }
 .hide-scrollbar:hover::-webkit-scrollbar { display: block; }
+
+/* ── Editorial accent — Instrument Serif italic in accent color ── */
+
+/* One italic serif word per headline — the editorial signature */
+.accent-italic {
+  font-family: var(--font-display), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #15803d;  /* green-700 */
+  letter-spacing: 0;
+  font-optical-sizing: auto;
+}
 
 /* ── Typography ─────────────────────────────────────────────── */
 

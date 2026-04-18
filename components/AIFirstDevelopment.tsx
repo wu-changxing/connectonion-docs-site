@@ -8,16 +8,16 @@ export function AIFirstDevelopment() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-full mb-5">
-            <HiOutlineSparkles className="w-4 h-4 text-green-600" />
-            <span className="text-sm font-semibold text-green-700">The Future is AI-First</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 border border-gray-200 rounded-full mb-5">
+            <HiOutlineSparkles className="w-4 h-4 text-gray-500" />
+            <span className="text-sm font-semibold text-gray-600">The Future is AI-First</span>
           </div>
 
-          <h2 className="heading-2 mb-4">AI Agents Building AI Agents</h2>
+          <h2 className="heading-2 mb-4">AI Agents Building <span className="accent-italic text-[1.05em]">AI Agents</span></h2>
 
           <p className="text-lg text-gray-500 max-w-3xl mx-auto">
             Why write code when you can describe what you want? ConnectOnion enables{' '}
-            <span className="text-green-700 font-semibold">meta-agents</span> that build, test, and deploy other agents.
+            <span className="font-semibold text-gray-900">meta-agents</span> that build, test, and deploy other agents.
           </p>
         </div>
 
