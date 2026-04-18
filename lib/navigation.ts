@@ -44,13 +44,14 @@ export const navigation = [
     section: 'Getting Started',
     keywords: ['cursor', 'ai', 'vibe', 'coding', 'drag', 'drop', 'docs'],
     prev: { href: '/quickstart', title: 'Quick Start' },
-    next: { href: '/cli', title: 'CLI Reference' }
+    next: { href: '/agent', title: 'Agent' }
   },
+  // ─── CLI ───────────────────────────────────────────────────────
   {
     title: 'CLI Reference',
     href: '/cli',
     icon: HiOutlineCommandLine,
-    section: 'Getting Started',
+    section: 'CLI',
     keywords: ['command', 'terminal', 'co', 'commands', 'cli'],
     prev: { href: '/vibe-coding', title: 'Vibe Coding Guide' },
     next: { href: '/cli/ai', title: 'co ai' }
@@ -59,8 +60,7 @@ export const navigation = [
     title: 'co ai',
     href: '/cli/ai',
     icon: HiOutlineSparkles,
-    section: 'Getting Started',
-    parent: '/cli',
+    section: 'CLI',
     keywords: ['ai', 'coding', 'agent', 'terminal', 'one-shot', 'interactive', 'web', 'server'],
     prev: { href: '/cli', title: 'CLI Reference' },
     next: { href: '/cli/browser-command', title: 'co browser' }
@@ -69,8 +69,7 @@ export const navigation = [
     title: 'co browser',
     href: '/cli/browser-command',
     icon: HiOutlineCamera,
-    section: 'Getting Started',
-    parent: '/cli',
+    section: 'CLI',
     keywords: ['browser', 'screenshot', 'automation', 'debug', 'playwright', 'viewport'],
     prev: { href: '/cli/ai', title: 'co ai' },
     next: { href: '/agent', title: 'Agent' }

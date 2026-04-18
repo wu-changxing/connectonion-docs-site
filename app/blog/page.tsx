@@ -168,8 +168,6 @@ export default function BlogPage() {
           </div>
         </div>
 
-        {/* Navigation */}
-        <ContentNavigation />
       </div>
     </div>
   )

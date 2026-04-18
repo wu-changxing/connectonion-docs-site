@@ -357,7 +357,7 @@ Errors: 0
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
             <div className="flex-1">
               <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full">
-                <HiOutlineSparkles className="w-4 h-4 text-green-600" />
+                <HiOutlineSparkles className="w-4 h-4 text-gray-500" />
                 <span className="text-xs font-medium text-gray-700">New in v0.9</span>
               </div>
 
@@ -443,9 +443,9 @@ agent.input("Search for Python")`}
               language="python"
             />
 
-            <div className="bg-gray-50 border-l-4 border-blue-500 p-4 my-6 rounded-r">
+            <div className="bg-gray-50 border-l-4 border-gray-300 p-4 my-6 rounded-r">
               <p className="text-sm text-gray-700">
-                <strong className="text-blue-700">Tip:</strong> Event handlers receive the <code className="text-gray-700 bg-gray-100 px-1 rounded">agent</code> instance, giving you full access to <code className="text-gray-700 bg-gray-100 px-1 rounded">current_session</code>, messages, trace, and more.
+                <strong className="text-gray-700">Tip:</strong> Event handlers receive the <code className="text-gray-700 bg-gray-100 px-1 rounded">agent</code> instance, giving you full access to <code className="text-gray-700 bg-gray-100 px-1 rounded">current_session</code>, messages, trace, and more.
               </p>
             </div>
 
@@ -495,7 +495,7 @@ agent = Agent(
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-50 border border-gray-200 rounded flex items-center justify-center">
-                    <HiOutlinePlay className="text-blue-700 w-5 h-5" />
+                    <HiOutlinePlay className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">after_user_input</h3>
@@ -524,7 +524,7 @@ agent = Agent("assistant", on_events=[
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
-                    <HiOutlineClock className="text-indigo-400 w-5 h-5" />
+                    <HiOutlineClock className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">before_iteration</h3>
@@ -554,7 +554,7 @@ agent = Agent("assistant", on_events=[
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-100 border border-gray-300 rounded flex items-center justify-center">
-                    <HiOutlineChartBar className="text-green-700 w-5 h-5" />
+                    <HiOutlineChartBar className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">after_llm</h3>
@@ -604,7 +604,7 @@ agent = Agent("assistant", tools=[search], on_events=[
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-100 border border-gray-300 rounded flex items-center justify-center">
-                    <HiOutlineBolt className="text-yellow-400 w-5 h-5" />
+                    <HiOutlineBolt className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">before_each_tool</h3>
@@ -632,7 +632,7 @@ agent = Agent("assistant", tools=[search], on_events=[
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
-                    <HiOutlineSquare3Stack3D className="text-orange-400 w-5 h-5" />
+                    <HiOutlineSquare3Stack3D className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">before_tools</h3>
@@ -657,7 +657,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
-                    <HiOutlineClock className="text-cyan-400 w-5 h-5" />
+                    <HiOutlineClock className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">after_each_tool</h3>
@@ -691,7 +691,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
-                    <HiOutlineChartBar className="text-teal-400 w-5 h-5" />
+                    <HiOutlineChartBar className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">after_tools</h3>
@@ -727,7 +727,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-100 border border-gray-300 rounded flex items-center justify-center">
-                    <HiOutlineSquare3Stack3D className="text-red-400 w-5 h-5" />
+                    <HiOutlineSquare3Stack3D className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">on_error</h3>
@@ -795,7 +795,7 @@ agent = Agent("assistant", tools=[search], on_events=[
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
-                    <HiOutlineShieldCheck className="text-amber-400 w-5 h-5" />
+                    <HiOutlineShieldCheck className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">on_stop_signal</h3>
@@ -804,7 +804,7 @@ agent = Agent("assistant", tools=[search], on_events=[
                 </div>
                 <div className="bg-gray-50 border-l-4 border-gray-400 p-4 mb-4 rounded-r">
                   <p className="text-sm text-gray-700">
-                    <strong className="text-yellow-400">Note:</strong> Mutually exclusive with on_complete - either this fires (interrupted) OR on_complete fires (normal completion), never both.
+                    <strong className="text-gray-700">Note:</strong> Mutually exclusive with on_complete - either this fires (interrupted) OR on_complete fires (normal completion), never both.
                   </p>
                 </div>
                 <CodeWithResult
@@ -839,7 +839,7 @@ agent = Agent("assistant", tools=[write, read], on_events=[
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-50 border border-gray-200 rounded flex items-center justify-center">
-                    <HiOutlineClock className="text-emerald-400 w-5 h-5" />
+                    <HiOutlineClock className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">on_complete</h3>

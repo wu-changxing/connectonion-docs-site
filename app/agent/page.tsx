@@ -18,7 +18,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import { HiOutlineClipboard, HiOutlineCheck, HiOutlineUsers, HiOutlineRocketLaunch, HiOutlineArrowRight, HiOutlineBolt, HiOutlineCodeBracket, HiOutlineCog6Tooth, HiOutlineArrowPath, HiOutlinePlay } from 'react-icons/hi2'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineUsers, HiOutlineRocketLaunch, HiOutlineArrowRight, HiOutlineBolt, HiOutlineCodeBracket, HiOutlineCog6Tooth, HiOutlineArrowPath, HiOutlinePlay, HiOutlineChatBubbleBottomCenterText, HiOutlineDocumentText, HiOutlineCpuChip, HiOutlineSparkles, HiOutlineChartBarSquare, HiOutlinePuzzlePiece } from 'react-icons/hi2'
 import CodeWithResult from '../../components/CodeWithResult'
 import { CommandBlock } from '../../components/CommandBlock'
 import { PageHeader } from '../../components/PageHeader'
@@ -347,60 +347,52 @@ result = agent.input(
           </div>
         </section>
 
-        {/* Learn More Section */}
+        {/* Core Concepts Section */}
         <section className="mb-16">
-          <h2 className="heading-2">Learn More</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Link
-              href="/tools"
-              className="card-interactive p-6 rounded-lg border border-gray-200 group"
-            >
-              <HiOutlineCodeBracket className="w-8 h-8 icon-ui mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
-                Tools
-              </h3>
-              <p className="text-sm text-gray-600">
-                Learn how to create powerful tools for your agents
-              </p>
+          <h2 className="heading-2">Core Concepts</h2>
+          <p className="text-gray-600 mb-6">Everything the Agent class can do, in depth.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <Link href="/prompts" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlineChatBubbleBottomCenterText className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">System Prompts</h3>
+                <p className="text-xs text-gray-500">Give your agent a personality and behavior</p>
+              </div>
             </Link>
-
-            <a
-              href="#max-iterations"
-              className="card-interactive p-6 rounded-lg border border-gray-200 group"
-            >
-              <HiOutlineArrowPath className="w-8 h-8 icon-ui mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
-                max_iterations
-              </h3>
-              <p className="text-sm text-gray-600">
-                Control how many tool calls your agent can make
-              </p>
-            </a>
-
-            <Link
-              href="/prompts"
-              className="card-interactive p-6 rounded-lg border border-gray-200 group"
-            >
-              <HiOutlineCog6Tooth className="w-8 h-8 icon-ui mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
-                System Prompts
-              </h3>
-              <p className="text-sm text-gray-600">
-                Give your agent a personality and behavior
-              </p>
+            <Link href="/tools" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlineCodeBracket className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">Tools</h3>
+                <p className="text-xs text-gray-500">Create functions your agent can call</p>
+              </div>
             </Link>
-
-            <Link
-              href="/xray"
-              className="card-interactive p-6 rounded-lg border border-gray-200 group"
-            >
-              <HiOutlineBolt className="w-8 h-8 icon-ui mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
-                Debug with @xray
-              </h3>
-              <p className="text-sm text-gray-600">
-                See what your agent is thinking during execution
-              </p>
+            <Link href="/models" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlineCpuChip className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">Models</h3>
+                <p className="text-xs text-gray-500">GPT-4o, Gemini, Claude, and managed co/ models</p>
+              </div>
+            </Link>
+            <Link href="/llm_do" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlineSparkles className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">LLM Function</h3>
+                <p className="text-xs text-gray-500">Call LLMs directly without an agent loop</p>
+              </div>
+            </Link>
+            <Link href="/on_events" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlineChartBarSquare className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">Event System</h3>
+                <p className="text-xs text-gray-500">Hooks into agent lifecycle: before/after LLM, tools, errors</p>
+              </div>
+            </Link>
+            <Link href="/plugin" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlinePuzzlePiece className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">Plugin System</h3>
+                <p className="text-xs text-gray-500">Reusable event handler bundles for your agents</p>
+              </div>
             </Link>
           </div>
         </section>
