@@ -18,7 +18,7 @@ export default function InputPage() {
             { label: 'Input' },
           ]}
           icon={HiOutlineLanguage}
-          iconColor="text-blue-400"
+          iconColor="icon-ui"
           iconBgFrom="from-blue-600/20"
           iconBgTo="to-cyan-600/20"
           iconBorderColor="border-blue-500/30"
@@ -98,21 +98,21 @@ text = Input(triggers={"/": commands}).run()`}
         <section className="mb-12">
           <h2 className="heading-2">Styles</h2>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="p-4 bg-gray-900/20 border border-gray-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineSwatch className="w-5 h-5 text-gray-500" />
                 <h3 className="font-semibold">modern</h3>
               </div>
               <p className="text-sm text-gray-700">Magenta prompt, clean design</p>
             </div>
-            <div className="p-4 bg-gray-100 border border-gray-700 rounded-lg">
+            <div className="p-4 bg-gray-100 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineSwatch className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">minimal</h3>
               </div>
               <p className="text-sm text-gray-700">Bare bones, no decorations</p>
             </div>
-            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineSwatch className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">classic</h3>
@@ -126,12 +126,12 @@ text = Input(triggers={"/": commands}).run()`}
         <section className="mb-12">
           <h2 className="heading-2">Related</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/tui/providers" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
-              <strong className="text-white">Providers</strong>
+            <Link href="/tui/providers" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-200 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
+              <strong className="text-gray-900">Providers</strong>
               <p className="text-sm text-gray-700">Learn about FileProvider and StaticProvider</p>
             </Link>
-            <Link href="/tui/dropdown" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
-              <strong className="text-white">Dropdown</strong>
+            <Link href="/tui/dropdown" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-200 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
+              <strong className="text-gray-900">Dropdown</strong>
               <p className="text-sm text-gray-700">The dropdown component used by Input</p>
             </Link>
           </div>

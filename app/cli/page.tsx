@@ -73,7 +73,7 @@ export default function CLIPage() {
             { label: 'CLI Reference' }
           ]}
           icon={HiOutlineCommandLine}
-          iconColor="text-green-400"
+          iconColor="icon-ui"
           iconBgFrom="from-gray-100"
           iconBgTo="to-teal-600/20"
           iconBorderColor="border-gray-200"
@@ -86,7 +86,7 @@ export default function CLIPage() {
       {/* Quick Command Cheat Sheet */}
       <div className="mb-12 p-4 bg-gradient-to-r from-gray-50 to-gray-50 border border-gray-200 rounded-lg">
         <h2 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
-          <HiOutlineBookOpen className="w-4 h-4 text-blue-400" />
+          <HiOutlineBookOpen className="w-4 h-4 icon-ui" />
           Quick Reference
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
@@ -105,7 +105,7 @@ export default function CLIPage() {
       {/* Installation */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineCube className="w-6 h-6 text-blue-400" />
+          <HiOutlineCube className="w-6 h-6 icon-ui" />
           Installation
         </h2>
         
@@ -128,7 +128,7 @@ export default function CLIPage() {
       {/* Commands Overview */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineCommandLine className="w-6 h-6 text-green-400" />
+          <HiOutlineCommandLine className="w-6 h-6 icon-ui" />
           Commands Overview
         </h2>
 
@@ -139,7 +139,7 @@ export default function CLIPage() {
         <div className="grid md:grid-cols-2 gap-4 mb-8">
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
-              <HiOutlineSparkles className="w-5 h-5 text-green-400" />
+              <HiOutlineSparkles className="w-5 h-5 icon-ui" />
               <h3 className="text-lg font-semibold text-gray-900">co create [name]</h3>
             </div>
             <p className="text-gray-700 text-sm">
@@ -162,15 +162,15 @@ export default function CLIPage() {
           <p className="text-gray-700 mb-4">Both commands share the same interactive flow:</p>
           <ol className="space-y-2 text-gray-700">
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-700">1</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-blue-700">1</span>
               <span>AI feature toggle (Yes/No)</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-700">2</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-blue-700">2</span>
               <span>API key input (with auto-detection)</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-700">3</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-blue-700">3</span>
               <span>Template selection</span>
             </li>
           </ol>
@@ -180,7 +180,7 @@ export default function CLIPage() {
       {/* co create Command */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineSparkles className="w-6 h-6 text-green-400" />
+          <HiOutlineSparkles className="w-6 h-6 icon-ui" />
           co create [name]
         </h2>
         
@@ -224,34 +224,34 @@ export default function CLIPage() {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-700">[name]</td>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-700">[name]</td>
                   <td className="px-4 py-3 text-gray-700">Optional project name (creates directory)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-700">--ai/--no-ai</td>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-700">--ai/--no-ai</td>
                   <td className="px-4 py-3 text-gray-700">Enable or disable AI features</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-700">--key</td>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-700">--key</td>
                   <td className="px-4 py-3 text-gray-700">API key for AI provider (auto-detects provider)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-700">--template</td>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-700">--template</td>
                   <td className="px-4 py-3 text-gray-700">
-                    Choose template: <code className="bg-gray-800 px-2 py-1 rounded text-xs">minimal</code>,
-                    <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">playwright</code>,
-                    <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">email-agent</code>,
-                    <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">meta-agent</code>,
-                    <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">web-research</code>,
-                    <code className="bg-gray-800 px-2 py-1 rounded text-xs ml-2">custom</code>
+                    Choose template: <code className="bg-gray-100 px-2 py-1 rounded text-xs">minimal</code>,
+                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">playwright</code>,
+                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">email-agent</code>,
+                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">meta-agent</code>,
+                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">web-research</code>,
+                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">custom</code>
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-700">--description</td>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-700">--description</td>
                   <td className="px-4 py-3 text-gray-700">Description for custom template (requires AI)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-sm text-blue-700">--yes, -y</td>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-700">--yes, -y</td>
                   <td className="px-4 py-3 text-gray-700">Skip all prompts, use defaults</td>
                 </tr>
               </tbody>
@@ -380,7 +380,7 @@ response = llm_do("Hello", model="co/gemini-2.5-pro")`}
       {/* co status Command */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineDocumentText className="w-6 h-6 text-cyan-400" />
+          <HiOutlineDocumentText className="w-6 h-6 icon-ui" />
           co status
         </h2>
 
@@ -416,8 +416,8 @@ Balance:  $5.00`}
 
         <CommandBlock commands={['co reset']} />
 
-        <div className="mt-6 bg-red-950/50 border border-red-400/40 rounded-lg p-6 mb-6">
-          <h3 className="text-lg font-semibold text-red-100 mb-4">What It Does</h3>
+        <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">What It Does</h3>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
               <HiOutlineChevronRight className="w-4 h-4 text-red-400 mt-1" />
@@ -457,7 +457,7 @@ Continue? (y/N): y
           </pre>
         </div>
 
-        <div className="mt-6 bg-amber-950/50 border border-amber-400/40 rounded-lg p-4">
+        <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
           <p className="text-amber-800 text-sm">
             <strong>When to use:</strong> Starting completely fresh, testing account creation, or removing old identity.
           </p>
@@ -467,7 +467,7 @@ Continue? (y/N): y
       {/* co deploy Command */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineCube className="w-6 h-6 text-emerald-400" />
+          <HiOutlineCube className="w-6 h-6 icon-ui" />
           co deploy
         </h2>
 
@@ -477,19 +477,19 @@ Continue? (y/N): y
 
         <CommandBlock commands={['co deploy']} />
 
-        <div className="mt-6 bg-emerald-950/50 border border-emerald-400/40 rounded-lg p-6 mb-6">
-          <h3 className="text-lg font-semibold text-emerald-100 mb-4">Requirements</h3>
+        <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Requirements</h3>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
-              <HiOutlineChevronRight className="w-4 h-4 text-emerald-400 mt-1" />
+              <HiOutlineChevronRight className="w-4 h-4 icon-ui mt-1" />
               <span>Git repository with committed code</span>
             </li>
             <li className="flex items-start gap-2">
-              <HiOutlineChevronRight className="w-4 h-4 text-emerald-400 mt-1" />
+              <HiOutlineChevronRight className="w-4 h-4 icon-ui mt-1" />
               <span><code className="bg-black/30 px-2 py-1 rounded">.co/config.toml</code> (created by <code className="bg-black/30 px-2 py-1 rounded">co create</code> or <code className="bg-black/30 px-2 py-1 rounded">co init</code>)</span>
             </li>
             <li className="flex items-start gap-2">
-              <HiOutlineChevronRight className="w-4 h-4 text-emerald-400 mt-1" />
+              <HiOutlineChevronRight className="w-4 h-4 icon-ui mt-1" />
               <span>Authenticated (<code className="bg-black/30 px-2 py-1 rounded">co auth</code>)</span>
             </li>
           </ul>
@@ -513,7 +513,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </pre>
         </div>
 
-        <div className="mt-6 bg-amber-950/50 border border-amber-400/40 rounded-lg p-4">
+        <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
           <p className="text-amber-800 text-sm">
             <strong>Beta:</strong> This feature is in beta. See the <Link href="/deploy" className="underline hover:text-amber-100">Deploy Guide</Link> for more details.
           </p>
@@ -537,7 +537,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           <h3 className="text-lg font-semibold text-gray-900 mb-4">What It Checks</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gray-100 rounded-lg p-4">
-              <h4 className="font-semibold text-blue-700 mb-2">System</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">System</h4>
               <ul className="text-sm text-gray-700 space-y-1">
                 <li>• Version</li>
                 <li>• Python</li>
@@ -545,7 +545,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
               </ul>
             </div>
             <div className="bg-gray-100 rounded-lg p-4">
-              <h4 className="font-semibold text-gray-400 mb-2">Configuration</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">Configuration</h4>
               <ul className="text-sm text-gray-700 space-y-1">
                 <li>• Config files</li>
                 <li>• Keys</li>
@@ -553,7 +553,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
               </ul>
             </div>
             <div className="bg-gray-100 rounded-lg p-4">
-              <h4 className="font-semibold text-green-300 mb-2">Connectivity</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">Connectivity</h4>
               <ul className="text-sm text-gray-700 space-y-1">
                 <li>• Backend</li>
                 <li>• Authentication</li>
@@ -611,15 +611,15 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
         </h2>
 
         <p className="text-gray-700 mb-6">
-          Quick browser screenshots and automation. Use <code className="bg-gray-800 px-2 py-1 rounded">-b</code> (short for browser) or the full <code className="bg-gray-800 px-2 py-1 rounded">browser</code> subcommand:
+          Quick browser screenshots and automation. Use <code className="bg-gray-100 px-2 py-1 rounded">-b</code> (short for browser) or the full <code className="bg-gray-100 px-2 py-1 rounded">browser</code> subcommand:
         </p>
 
         <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-4 mb-6">
-          <p className="text-sm text-blue-700">
+          <p className="text-sm text-gray-600">
             <span className="font-semibold inline-flex items-center gap-1">
               <FaLightbulb className="text-yellow-400 text-sm" />
               <span>Tip:</span>
-            </span> <code className="bg-blue-900/50 px-1 rounded">co -b</code> is short for <code className="bg-blue-900/50 px-1 rounded">co browser</code>. Both syntaxes work the same way!
+            </span> <code className="bg-gray-50 px-1 rounded">co -b</code> is short for <code className="bg-gray-50 px-1 rounded">co browser</code>. Both syntaxes work the same way!
           </p>
         </div>
 
@@ -662,7 +662,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
         <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-4">
           <p className="text-blue-800">
             <strong>Learn more:</strong> See the complete{' '}
-            <Link href="/cli/browser-command" className="text-blue-700 hover:text-blue-100 underline">
+            <Link href="/cli/browser-command" className="text-blue-700 hover:text-gray-900 underline">
               co browser documentation
             </Link>{' '}
             for URL handling, framework examples, and advanced usage.
@@ -681,7 +681,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           {/* Minimal Template */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
               Minimal
             </h3>
             <p className="text-gray-700 mb-4">
@@ -689,15 +689,15 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-blue-400" />
+                <HiOutlineChevronRight className="w-4 h-4 icon-ui" />
                 Simple agent.py with basic tools
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-blue-400" />
+                <HiOutlineChevronRight className="w-4 h-4 icon-ui" />
                 Minimal dependencies
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-blue-400" />
+                <HiOutlineChevronRight className="w-4 h-4 icon-ui" />
                 Quick start configuration
               </li>
             </ul>
@@ -706,7 +706,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           {/* Web Research Template */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
               Web Research
             </h3>
             <p className="text-gray-700 mb-4">
@@ -854,22 +854,22 @@ Generating custom template with AI...
             <tbody className="divide-y divide-gray-200">
               <tr>
                 <td className="px-4 py-3 text-white font-medium">OpenAI</td>
-                <td className="px-4 py-3 font-mono text-sm text-blue-700">sk-... or sk-proj-...</td>
+                <td className="px-4 py-3 font-mono text-sm text-gray-700">sk-... or sk-proj-...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">sk-proj-abc123...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Anthropic</td>
-                <td className="px-4 py-3 font-mono text-sm text-blue-700">sk-ant-...</td>
+                <td className="px-4 py-3 font-mono text-sm text-gray-700">sk-ant-...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">sk-ant-api03-xyz...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Google</td>
-                <td className="px-4 py-3 font-mono text-sm text-blue-700">AIza...</td>
+                <td className="px-4 py-3 font-mono text-sm text-gray-700">AIza...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">AIzaSyAbc123...</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-white font-medium">Groq</td>
-                <td className="px-4 py-3 font-mono text-sm text-blue-700">gsk_...</td>
+                <td className="px-4 py-3 font-mono text-sm text-gray-700">gsk_...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">gsk_abc123...</td>
               </tr>
             </tbody>
@@ -886,7 +886,7 @@ Generating custom template with AI...
       {/* What Gets Created */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineDocumentText className="w-6 h-6 text-blue-400" />
+          <HiOutlineDocumentText className="w-6 h-6 icon-ui" />
           What Gets Created
         </h2>
 
@@ -1063,7 +1063,7 @@ Generating custom template with AI...
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Command Not Found</h3>
             <p className="text-gray-700 mb-4">
-              If <code className="bg-gray-800 px-2 py-1 rounded">co</code> command is not found after installation:
+              If <code className="bg-gray-100 px-2 py-1 rounded">co</code> command is not found after installation:
             </p>
             <CommandBlock 
               commands={[

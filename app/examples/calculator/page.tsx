@@ -400,7 +400,7 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
           </div>
 
           {/* Security Features */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Security Features</h3>
             <div className="space-y-4 text-sm">
               <div>
@@ -425,11 +425,11 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
           </div>
 
           {/* Advanced Features */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Advanced Features</h3>
             <div className="space-y-3 text-sm">
               <div className="p-3 bg-gray-900/5 border border-gray-200 rounded">
-                <p className="text-blue-300 font-medium mb-1 flex items-center gap-2">
+                <p className="text-blue-700 font-medium mb-1 flex items-center gap-2">
                   <FaWrench className="w-4 h-4" />
                   <span>Multiple Tools</span>
                 </p>
@@ -440,7 +440,7 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
                 </ul>
               </div>
               <div className="p-3 bg-gray-900/5 border border-gray-200 rounded">
-                <p className="text-blue-300 font-medium mb-1 flex items-center gap-2">
+                <p className="text-blue-700 font-medium mb-1 flex items-center gap-2">
                   <FaBullseye className="w-4 h-4" />
                   <span>System Prompt</span>
                 </p>
@@ -450,7 +450,7 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
           </div>
 
           {/* Download */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Try It Yourself</h3>
             <div className="space-y-3">
               <a

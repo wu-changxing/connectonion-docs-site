@@ -67,45 +67,45 @@ pip install textual textual-autocomplete`}
           <div className="bg-gray-100 rounded-lg p-4 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left py-2 text-gray-700">Parameter</th>
                   <th className="text-left py-2 text-gray-700">Type</th>
                   <th className="text-left py-2 text-gray-700">Description</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">agent</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">agent</td>
                   <td className="py-2 text-gray-700">Agent</td>
                   <td className="py-2 text-gray-700">ConnectOnion agent instance</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">handler</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">handler</td>
                   <td className="py-2 text-gray-700">Callable</td>
                   <td className="py-2 text-gray-700">Custom message handler (alternative to agent)</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">title</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">title</td>
                   <td className="py-2 text-gray-700">str</td>
                   <td className="py-2 text-gray-700">Window title</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">welcome</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">welcome</td>
                   <td className="py-2 text-gray-700">str</td>
                   <td className="py-2 text-gray-700">Welcome message (markdown supported)</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">hints</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">hints</td>
                   <td className="py-2 text-gray-700">list[str]</td>
                   <td className="py-2 text-gray-700">Footer hints</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">triggers</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">triggers</td>
                   <td className="py-2 text-gray-700">dict</td>
                   <td className="py-2 text-gray-700">Autocomplete triggers (/, @)</td>
                 </tr>
                 <tr>
-                  <td className="py-2 text-gray-400">on_error</td>
+                  <td className="py-2 text-gray-600">on_error</td>
                   <td className="py-2 text-gray-700">Callable</td>
                   <td className="py-2 text-gray-700">Custom error handler</td>
                 </tr>
@@ -240,32 +240,32 @@ chat.run()`}
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">ChatStatusBar</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">ChatStatusBar</td>
                   <td className="py-2 text-gray-700">Top status bar</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">HintsFooter</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">HintsFooter</td>
                   <td className="py-2 text-gray-700">Bottom hints</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">WelcomeMessage</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">WelcomeMessage</td>
                   <td className="py-2 text-gray-700">Initial welcome</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">UserMessage</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">UserMessage</td>
                   <td className="py-2 text-gray-700">User message bubble</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">AssistantMessage</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">AssistantMessage</td>
                   <td className="py-2 text-gray-700">Agent response</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-gray-400">ThinkingIndicator</td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2 text-gray-600">ThinkingIndicator</td>
                   <td className="py-2 text-gray-700">Processing animation</td>
                 </tr>
                 <tr>
-                  <td className="py-2 text-gray-400">TriggerAutoComplete</td>
+                  <td className="py-2 text-gray-600">TriggerAutoComplete</td>
                   <td className="py-2 text-gray-700">Trigger-based autocomplete</td>
                 </tr>
               </tbody>

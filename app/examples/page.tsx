@@ -37,8 +37,8 @@ const examples = [
     description: 'Control web browsers with natural language using Playwright integration for screenshots, scraping, and automation',
     icon: FaChrome,
     color: 'text-gray-500',
-    bgColor: 'bg-gray-900/20',
-    borderColor: 'border-gray-400/30',
+    bgColor: 'bg-gray-50',
+    borderColor: 'border-gray-200',
     difficulty: 'Intermediate',
     concepts: ['Browser control', 'Screenshots', 'Web scraping', 'Natural language commands'],
     href: '/examples/browser',
@@ -155,7 +155,7 @@ export default function ExamplesPage() {
               </div>
               
               {/* Code Preview */}
-              <div className="bg-gray-900 rounded p-3 overflow-hidden">
+              <div className="bg-gray-100 rounded p-3 overflow-hidden">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-gray-500">Code Preview</span>
                   <HiOutlinePlay className="w-3 h-3 text-gray-500" />

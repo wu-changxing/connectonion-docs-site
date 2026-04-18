@@ -20,16 +20,16 @@ export default function BrowserToolsPage() {
           iconColor="text-blue-400"
           iconBgFrom="from-blue-600/20"
           iconBgTo="to-cyan-600/20"
-          iconBorderColor="border-blue-500/30"
+          iconBorderColor="border-gray-200"
           title="BrowserAutomation"
           description="Natural language browser automation via Playwright. Navigate, click, type, screenshot — describe what you want, no CSS selectors needed."
           markdownPath="/useful-tools/browser_tools.md"
           markdownFilename="browser_tools.md"
         />
 
-        <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6 mb-16">
-          <p className="text-lg font-semibold text-blue-100">
-            Log in once, sessions persist in <code className="bg-gray-800 px-2 py-1 rounded">~/.co/browser_profile/</code>. Uses a vision LLM to find elements by description.
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-16">
+          <p className="text-lg font-semibold text-gray-900">
+            Log in once, sessions persist in <code className="bg-gray-100 px-2 py-1 rounded">~/.co/browser_profile/</code>. Uses a vision LLM to find elements by description.
           </p>
         </div>
 
@@ -84,34 +84,34 @@ with BrowserAutomation() as browser:
           </h2>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
-              <h3 className="font-semibold text-blue-300 mb-2">Navigation</h3>
-              <ul className="text-sm text-slate-300 space-y-1 font-mono">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <h3 className="font-semibold text-gray-700 mb-2">Navigation</h3>
+              <ul className="text-sm text-gray-600 space-y-1 font-mono">
                 <li>go_to(url)</li>
                 <li>get_current_url()</li>
                 <li>get_text()</li>
                 <li>get_links_from_page(filter?)</li>
               </ul>
             </div>
-            <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
-              <h3 className="font-semibold text-green-300 mb-2">Interaction</h3>
-              <ul className="text-sm text-slate-300 space-y-1 font-mono">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <h3 className="font-semibold text-gray-900 mb-2">Interaction</h3>
+              <ul className="text-sm text-gray-600 space-y-1 font-mono">
                 <li>click(description)</li>
                 <li>keyboard_type(text)</li>
                 <li>keyboard_press(key)</li>
                 <li>scroll(times?, description?)</li>
               </ul>
             </div>
-            <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-cyan-300 mb-2">Screenshot</h3>
-              <ul className="text-sm text-slate-300 space-y-1 font-mono">
+              <ul className="text-sm text-gray-600 space-y-1 font-mono">
                 <li>take_screenshot(path?, full_page?)</li>
                 <li>set_viewport(width, height)</li>
               </ul>
             </div>
-            <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-amber-300 mb-2">Waiting</h3>
-              <ul className="text-sm text-slate-300 space-y-1 font-mono">
+              <ul className="text-sm text-gray-600 space-y-1 font-mono">
                 <li>wait(seconds)</li>
                 <li>wait_for_element(description)</li>
                 <li>wait_for_text(text)</li>
@@ -128,7 +128,7 @@ with BrowserAutomation() as browser:
             Persistent Sessions
           </h2>
           <p className="text-gray-700 mb-6">
-            Log in once — cookies and sessions persist to <code className="bg-gray-800 px-2 py-1 rounded">~/.co/browser_profile/</code> automatically:
+            Log in once — cookies and sessions persist to <code className="bg-gray-100 px-2 py-1 rounded">~/.co/browser_profile/</code> automatically:
           </p>
           <CodeWithResult
             code={`# First run — log in manually

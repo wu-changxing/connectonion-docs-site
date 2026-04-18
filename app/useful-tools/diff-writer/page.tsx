@@ -37,7 +37,7 @@ writer = DiffWriter()`}
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-400"><code className="bg-gray-800 px-2 py-1 rounded">co copy diff_writer</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-700"><code className="bg-gray-100 px-2 py-1 rounded">co copy diff_writer</code></Link> to get an editable copy.
           </p>
         </section>
 

@@ -126,25 +126,25 @@ item = DropdownItem(display="/today", value="/today")`}
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left py-2 text-gray-700">Icon</th>
                   <th className="text-left py-2 text-gray-700">Type</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">📁</td>
                   <td className="py-2 text-gray-700">folder</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">📄</td>
                   <td className="py-2 text-gray-700">file (default)</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">🐍</td>
                   <td className="py-2 text-gray-700">.py</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">📜</td>
                   <td className="py-2 text-gray-700">.js, .ts</td>
                 </tr>

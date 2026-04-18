@@ -77,35 +77,35 @@ key = read_key()`}
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left py-2 text-gray-700">Input</th>
                   <th className="text-left py-2 text-gray-700">Returns</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><kbd className="bg-gray-700 px-2 py-1 rounded text-xs">Arrow Up</kbd></td>
-                  <td className="py-2"><code className="text-red-300">'up'</code></td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Arrow Up</kbd></td>
+                  <td className="py-2"><code className="text-red-600">'up'</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><kbd className="bg-gray-700 px-2 py-1 rounded text-xs">Arrow Down</kbd></td>
-                  <td className="py-2"><code className="text-red-300">'down'</code></td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Arrow Down</kbd></td>
+                  <td className="py-2"><code className="text-red-600">'down'</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><kbd className="bg-gray-700 px-2 py-1 rounded text-xs">Arrow Left</kbd></td>
-                  <td className="py-2"><code className="text-red-300">'left'</code></td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Arrow Left</kbd></td>
+                  <td className="py-2"><code className="text-red-600">'left'</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><kbd className="bg-gray-700 px-2 py-1 rounded text-xs">Arrow Right</kbd></td>
-                  <td className="py-2"><code className="text-red-300">'right'</code></td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Arrow Right</kbd></td>
+                  <td className="py-2"><code className="text-red-600">'right'</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><kbd className="bg-gray-700 px-2 py-1 rounded text-xs">Escape</kbd></td>
-                  <td className="py-2"><code className="text-red-300">'esc'</code></td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Escape</kbd></td>
+                  <td className="py-2"><code className="text-red-600">'esc'</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><kbd className="bg-gray-700 px-2 py-1 rounded text-xs">Enter</kbd></td>
-                  <td className="py-2"><code className="text-red-300">'\\n'</code> or <code className="text-red-300">'\\r'</code></td>
+                <tr className="border-b border-gray-200">
+                  <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Enter</kbd></td>
+                  <td className="py-2"><code className="text-red-600">'\\n'</code> or <code className="text-red-600">'\\r'</code></td>
                 </tr>
                 <tr>
                   <td className="py-2">Regular char</td>

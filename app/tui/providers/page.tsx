@@ -165,12 +165,12 @@ class MyProvider:
         <section className="mb-12">
           <h2 className="heading-2">Related</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/tui/input" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
-              <strong className="text-white">Input</strong>
+            <Link href="/tui/input" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-200 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
+              <strong className="text-gray-900">Input</strong>
               <p className="text-sm text-gray-700">Text input with trigger-based autocomplete</p>
             </Link>
-            <Link href="/tui/dropdown" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
-              <strong className="text-white">Dropdown</strong>
+            <Link href="/tui/dropdown" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-200 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
+              <strong className="text-gray-900">Dropdown</strong>
               <p className="text-sm text-gray-700">The dropdown component that displays results</p>
             </Link>
           </div>
