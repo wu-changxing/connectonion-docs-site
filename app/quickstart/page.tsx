@@ -106,7 +106,7 @@ export default function QuickStartPage() {
       </section>
 
       {/* Create Agent */}
-      <hr className="border-gray-100 mb-16" />
+      <hr className="border-dashed border-gray-300 mb-16" />
       <section className="mb-16 pt-4" id="create-agent">
         <h2 id="create-agent" className="heading-2 flex items-center gap-3 mb-5">
           <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">2</span>
@@ -181,7 +181,7 @@ export default function QuickStartPage() {
       </section>
 
       {/* Run Your Agent */}
-      <hr className="border-gray-100 mb-16" />
+      <hr className="border-dashed border-gray-300 mb-16" />
       <section className="mb-16 pt-4" id="run">
         <h2 id="run" className="heading-2 flex items-center gap-3 mb-5">
           <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">3</span>
@@ -200,7 +200,7 @@ export default function QuickStartPage() {
       </section>
 
       {/* Customize */}
-      <hr className="border-gray-100 mb-16" />
+      <hr className="border-dashed border-gray-300 mb-16" />
       <section className="mb-16 pt-4" id="customize">
         <h2 id="customize" className="heading-2 flex items-center gap-3 mb-5">
           <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">4</span>
@@ -316,7 +316,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
       </section>
 
       {/* Playwright Template */}
-      <hr className="border-gray-100 mb-16" />
+      <hr className="border-dashed border-gray-300 mb-16" />
       <section className="mb-16 pt-4" id="playwright">
         <h2 id="playwright" className="heading-2 flex items-center gap-3 mb-5">
           <span className="inline-flex items-center px-2 py-0.5 bg-gray-100 text-gray-500 text-xs font-mono rounded border border-gray-200 flex-shrink-0">alt</span>
@@ -379,7 +379,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
       </section>
 
       {/* Custom Tool Example */}
-      <hr className="border-gray-100 mb-16" />
+      <hr className="border-dashed border-gray-300 mb-16" />
       <section className="mb-16 pt-4" id="custom-tool">
         <h2 id="custom-tool" className="heading-2 flex items-center gap-3 mb-5">
           <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">5</span>
@@ -428,7 +428,7 @@ The answer is 739.`}
       </section>
 
       {/* Debugging with @xray */}
-      <hr className="border-gray-100 mb-16" />
+      <hr className="border-dashed border-gray-300 mb-16" />
       <section className="mb-16 pt-4" id="xray">
         <h2 id="xray" className="heading-2 flex items-center gap-3 mb-5">
           <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">6</span>
@@ -466,7 +466,7 @@ The result is 80.`}
         />
       </section>
 
-      <hr className="border-gray-100 mb-16" />
+      <hr className="border-dashed border-gray-300 mb-16" />
       {/* Interactive Debugging */}
       <section className="mb-16 pt-4" id="interactive-debug">
         <h2 id="interactive-debug" className="heading-2 flex items-center gap-3 mb-5">
@@ -559,7 +559,7 @@ What do you want to do?
       </section>
 
       {/* Next Steps */}
-      <hr className="border-gray-100 mb-16" />
+      <hr className="border-dashed border-gray-300 mb-16" />
       <section className="mb-16 pt-4" id="whats-next">
         <h2 id="whats-next" className="heading-2 flex items-center gap-3 mb-5">
           <FaBullseye className="text-gray-400 flex-shrink-0" />
