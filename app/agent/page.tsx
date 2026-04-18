@@ -47,8 +47,31 @@ export default function AgentDocsPage() {
           markdownFilename="agent.md"
         />
 
+        {/* On This Page */}
+        <nav className="mb-12 border border-gray-200 rounded-xl overflow-hidden">
+          <div className="px-4 py-2.5 bg-gray-50 border-b border-gray-200">
+            <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">On this page</span>
+          </div>
+          <div className="divide-y divide-gray-100">
+            {[
+              { href: '#quick-start', label: 'Quick Start' },
+              { href: '#api-overview', label: 'Full API Overview' },
+              { href: '#max-iterations', label: 'max_iterations' },
+              { href: '#complete-docs', label: 'Complete Documentation' },
+              { href: '#agents', label: 'Related — Agents' },
+              { href: '#examples', label: 'Real-World Examples' },
+              { href: '#philosophy', label: 'Philosophy' },
+            ].map(({ href, label }) => (
+              <a key={href} href={href} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors group">
+                <span className="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-gray-600 transition-colors flex-shrink-0" />
+                {label}
+              </a>
+            ))}
+          </div>
+        </nav>
+
         {/* Quick Start Section */}
-        <section className="mb-16">
+        <section className="mb-16" id="quick-start">
           <h2 className="heading-2">Quick Start (60 Seconds)</h2>
 
           <CodeWithResult
@@ -77,7 +100,7 @@ The result is 714.`}
         </section>
 
         {/* Full API Overview */}
-        <section className="mb-16">
+        <section className="mb-16" id="api-overview">
           <h2 className="heading-2">What Agent Can Do — Full API Overview</h2>
 
           <p className="text-gray-700 mb-6">
@@ -306,7 +329,7 @@ result = agent.input(
         </section>
 
         {/* Full Documentation Note */}
-        <section className="mb-16">
+        <section className="mb-16" id="complete-docs">
           <div className="p-6 bg-gray-50 rounded-xl border border-gray-200">
             <h2 className="heading-2">
               <HiOutlineCodeBracket className="w-6 h-6 icon-ui" />
@@ -348,7 +371,7 @@ result = agent.input(
         </section>
 
         {/* Core Concepts Section */}
-        <section className="mb-16">
+        <section className="mb-16" id="agents">
           <h2 className="heading-2">Agents</h2>
           <p className="text-gray-600 mb-6">Everything the Agent class can do, in depth.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -398,7 +421,7 @@ result = agent.input(
         </section>
 
         {/* Real-World Examples */}
-        <section className="mb-16">
+        <section className="mb-16" id="examples">
           <h2 className="heading-2">Real-World Examples</h2>
           <p className="text-gray-600 mb-6">Open-source agents built with ConnectOnion.</p>
           <div className="divide-y divide-gray-100 border border-gray-200 rounded-xl overflow-hidden">
@@ -436,7 +459,7 @@ result = agent.input(
         </section>
 
         {/* Philosophy */}
-        <section className="mb-16">
+        <section className="mb-16" id="philosophy">
           <div className="p-8 bg-gray-50 rounded-xl border border-gray-200">
             <h2 className="heading-2">Philosophy</h2>
             <p className="text-xl font-semibold text-gray-900 mb-6 accent-italic">

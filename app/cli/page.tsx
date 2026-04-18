@@ -78,22 +78,65 @@ export default function CLIPage() {
           description="Quickly scaffold and manage ConnectOnion agent projects with the CLI."
         />
       
-      {/* Quick Command Cheat Sheet */}
-      <div className="mb-12 p-4 bg-gradient-to-r from-gray-50 to-gray-50 border border-gray-200 rounded-lg">
-        <h2 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
+      {/* Quick Command Cheat Sheet — tiered by daily use */}
+      <div className="mb-12 border border-gray-200 rounded-xl overflow-hidden">
+        <div className="px-4 py-2.5 bg-gray-50 border-b border-gray-200 flex items-center gap-2">
           <HiOutlineBookOpen className="w-4 h-4 icon-ui" />
-          Quick Reference
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-          <div className="font-mono text-gray-900">co create <span className="text-gray-700">→ New project</span></div>
-          <div className="font-mono text-gray-900">co init <span className="text-gray-700">→ Current directory</span></div>
-          <div className="font-mono text-gray-900">co ai <span className="text-gray-700">→ AI coding agent</span></div>
-          <div className="font-mono text-gray-900">co browser <span className="text-gray-700">→ Screenshots & automation</span></div>
-          <div className="font-mono text-gray-900">co auth <span className="text-gray-700">→ Managed keys (free credits)</span></div>
-          <div className="font-mono text-gray-900">co deploy <span className="text-gray-700">→ Deploy to cloud</span></div>
-          <div className="font-mono text-gray-900">co status <span className="text-gray-700">→ Check balance</span></div>
-          <div className="font-mono text-gray-900">co reset <span className="text-gray-700">→ Reset account</span></div>
-          <div className="font-mono text-gray-900">co doctor <span className="text-gray-700">→ Diagnose issues</span></div>
+          <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">Command Reference</span>
+        </div>
+        {/* Daily use — bold */}
+        <div className="border-b border-gray-100">
+          <div className="px-4 py-2 bg-white">
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Daily Use</span>
+          </div>
+          <div className="divide-y divide-gray-50">
+            {[
+              { cmd: 'co ai', desc: 'AI coding agent in your terminal' },
+              { cmd: 'co browser', desc: 'Screenshots, scraping & automation' },
+            ].map(({ cmd, desc }) => (
+              <div key={cmd} className="flex items-center gap-3 px-4 py-2.5">
+                <code className="font-mono text-sm font-semibold text-gray-900 w-32 flex-shrink-0">{cmd}</code>
+                <span className="text-sm text-gray-600">{desc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Setup — medium weight */}
+        <div className="border-b border-gray-100">
+          <div className="px-4 py-2 bg-white">
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Project Setup</span>
+          </div>
+          <div className="divide-y divide-gray-50">
+            {[
+              { cmd: 'co create [name]', desc: 'Scaffold a new agent project' },
+              { cmd: 'co init', desc: 'Add ConnectOnion to current directory' },
+              { cmd: 'co auth', desc: 'Get managed keys + $5 free credits' },
+            ].map(({ cmd, desc }) => (
+              <div key={cmd} className="flex items-center gap-3 px-4 py-2.5">
+                <code className="font-mono text-sm text-gray-700 w-32 flex-shrink-0">{cmd}</code>
+                <span className="text-sm text-gray-600">{desc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Utility — muted */}
+        <div>
+          <div className="px-4 py-2 bg-white">
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Utilities</span>
+          </div>
+          <div className="divide-y divide-gray-50">
+            {[
+              { cmd: 'co status', desc: 'Check credit balance' },
+              { cmd: 'co deploy', desc: 'Deploy agent to cloud' },
+              { cmd: 'co doctor', desc: 'Diagnose config issues' },
+              { cmd: 'co reset', desc: 'Reset account' },
+            ].map(({ cmd, desc }) => (
+              <div key={cmd} className="flex items-center gap-3 px-4 py-2.5">
+                <code className="font-mono text-sm text-gray-500 w-32 flex-shrink-0">{cmd}</code>
+                <span className="text-sm text-gray-500">{desc}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
