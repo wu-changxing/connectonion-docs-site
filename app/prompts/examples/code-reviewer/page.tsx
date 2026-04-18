@@ -163,14 +163,14 @@ ${expectedOutput}
       <div className="flex items-start justify-between mb-12">
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center">
+            <div className="w-16 h-16 bg-gray-800 rounded-xl flex items-center justify-center">
               <span className="text-2xl font-bold text-gray-900">4</span>
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <HiOutlineCodeBracket className="w-8 h-8 text-purple-400" />
+                <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
                 <h1 className="heading-1">Senior Code Reviewer</h1>
-                <span className="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm font-medium">
+                <span className="px-3 py-1 bg-gray-900/50 text-gray-400 rounded-full text-sm font-medium">
                   Advanced
                 </span>
               </div>
@@ -189,31 +189,31 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-purple-900/20 border border-purple-200 rounded-xl">
+      <div className="mb-12 p-6 bg-gray-900/20 border border-gray-200 rounded-xl">
         <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-          <HiOutlineLightBulb className="w-6 h-6 text-purple-400" />
+          <HiOutlineLightBulb className="w-6 h-6 text-gray-500" />
           Key Learning Concepts
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-3">
-            <HiOutlineViewfinderCircle className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+            <HiOutlineViewfinderCircle className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Review Framework</h3>
-              <p className="text-purple-800 text-sm">5 systematic focus areas ensure comprehensive code analysis</p>
+              <p className="text-gray-800 text-sm">5 systematic focus areas ensure comprehensive code analysis</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineCheckCircle className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+            <HiOutlineCheckCircle className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Priority Classification</h3>
-              <p className="text-purple-800 text-sm">Critical/Major/Minor system helps developers focus on important issues</p>
+              <p className="text-gray-800 text-sm">Critical/Major/Minor system helps developers focus on important issues</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Constructive Feedback</h3>
-              <p className="text-purple-800 text-sm">Balance criticism with positive recognition and actionable suggestions</p>
+              <p className="text-gray-800 text-sm">Balance criticism with positive recognition and actionable suggestions</p>
             </div>
           </div>
         </div>
@@ -319,13 +319,13 @@ ${expectedOutput}
           {/* Expected Output */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
-              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-purple-400" />
+              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500" />
               <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
             <div className="p-6">
               <div className="bg-black/50 rounded-lg p-4 font-mono text-sm">
-                <pre className="text-purple-800 whitespace-pre-wrap">
+                <pre className="text-gray-800 whitespace-pre-wrap">
                   {expectedOutput}
                 </pre>
               </div>
@@ -337,15 +337,15 @@ ${expectedOutput}
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Professional Techniques</h3>
             <div className="space-y-4 text-sm">
               <div>
-                <h4 className="font-semibold text-purple-400 mb-2">🎯 Systematic Analysis</h4>
+                <h4 className="font-semibold text-gray-500 mb-2">🎯 Systematic Analysis</h4>
                 <p className="text-gray-700">5 focus areas ensure no important aspects are missed during review.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-purple-400 mb-2">🚦 Priority System</h4>
+                <h4 className="font-semibold text-gray-500 mb-2">🚦 Priority System</h4>
                 <p className="text-gray-700">Color-coded severity levels help developers prioritize their fixes effectively.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-purple-400 mb-2">💡 Solution-Oriented</h4>
+                <h4 className="font-semibold text-gray-500 mb-2">💡 Solution-Oriented</h4>
                 <p className="text-gray-700">Provides concrete code examples and actionable improvement suggestions.</p>
               </div>
             </div>
@@ -358,7 +358,7 @@ ${expectedOutput}
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(promptContent)}`}
                 download="code_reviewer.md"
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-white transition-colors font-medium"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 hover:bg-gray-800 rounded-lg text-white transition-colors font-medium"
               >
                 <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File

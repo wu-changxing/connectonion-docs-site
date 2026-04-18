@@ -26,18 +26,18 @@ export default function PricingPage() {
       {/* How It Works */}
       <section className="mb-12">
         <h2 className="heading-2">How Managed Keys Work</h2>
-        <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-xl border border-purple-200 mb-6">
+        <div className="bg-gradient-to-br from-gray-900/20 to-blue-900/20 p-6 rounded-xl border border-gray-200 mb-6">
           <div className="space-y-4 text-gray-700">
             <div className="flex items-start gap-3">
-              <span className="text-purple-400 font-bold text-lg">1.</span>
-              <p>Add credits to your account — <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-purple-400 hover:text-purple-300 underline">buy credits here</a> or run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co purchase</code></p>
+              <span className="text-gray-500 font-bold text-lg">1.</span>
+              <p>Add credits to your account — <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-400 underline">buy credits here</a> or run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co purchase</code></p>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-purple-400 font-bold text-lg">2.</span>
+              <span className="text-gray-500 font-bold text-lg">2.</span>
               <p>Use any model with the <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co/</code> prefix: <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">model=&quot;co/gpt-5&quot;</code></p>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-purple-400 font-bold text-lg">3.</span>
+              <span className="text-gray-500 font-bold text-lg">3.</span>
               <p>Credits are deducted per-token at official API rates. No expiration.</p>
             </div>
           </div>
@@ -50,7 +50,7 @@ export default function PricingPage() {
           href="https://o.openonion.ai/purchase"
           target="_blank"
           rel="noopener"
-          className="flex items-center justify-between p-5 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-200 rounded-xl hover:border-blue-400/50 transition-colors group"
+          className="flex items-center justify-between p-5 bg-gradient-to-r from-blue-600/20 to-gray-700/20 border border-blue-200 rounded-xl hover:border-blue-400/50 transition-colors group"
         >
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-1">Add Credits to Your Account</h3>
@@ -242,7 +242,7 @@ export default function PricingPage() {
           </div>
           <div className="bg-gray-900 border border-gray-700 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">How do I check my balance?</h3>
-            <p className="text-slate-300 text-sm">Run <code className="bg-gray-800 px-1.5 py-0.5 rounded">co status</code> in your terminal, or visit the <a href="https://o.openonion.ai/dashboard" className="text-purple-400 hover:text-purple-300 underline">dashboard</a>.</p>
+            <p className="text-slate-300 text-sm">Run <code className="bg-gray-800 px-1.5 py-0.5 rounded">co status</code> in your terminal, or visit the <a href="https://o.openonion.ai/dashboard" className="text-gray-500 hover:text-gray-400 underline">dashboard</a>.</p>
           </div>
           <div className="bg-gray-900 border border-gray-700 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">Can I switch between managed keys and my own keys?</h3>
@@ -252,15 +252,15 @@ export default function PricingPage() {
       </section>
 
       {/* Bottom CTA */}
-      <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-lg border border-purple-200 mb-16">
+      <div className="bg-gradient-to-br from-gray-900/20 to-blue-900/20 p-6 rounded-lg border border-gray-200 mb-16">
         <h3 className="font-semibold mb-2 flex items-center text-white">
-          <HiOutlineBolt className="mr-2 h-5 w-5 text-purple-400" />
+          <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-500" />
           Get Started
         </h3>
         <ul className="space-y-2 text-sm text-gray-700">
-          <li>• <strong>Free credits:</strong> <a href="https://github.com/wu-changxing/connectonion" target="_blank" rel="noopener" className="text-purple-400 hover:text-purple-300 underline">Star our repo</a> for $0.90 free credit</li>
-          <li>• <strong>Add credits:</strong> <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-purple-400 hover:text-purple-300 underline">Purchase credits</a> starting from $0.99</li>
-          <li>• <strong>All models:</strong> See the full <a href="/models" className="text-purple-400 hover:text-purple-300 underline">model catalog</a> for capabilities and selection guide</li>
+          <li>• <strong>Free credits:</strong> <a href="https://github.com/wu-changxing/connectonion" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-400 underline">Star our repo</a> for $0.90 free credit</li>
+          <li>• <strong>Add credits:</strong> <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-400 underline">Purchase credits</a> starting from $0.99</li>
+          <li>• <strong>All models:</strong> See the full <a href="/models" className="text-gray-500 hover:text-gray-400 underline">model catalog</a> for capabilities and selection guide</li>
         </ul>
       </div>
 

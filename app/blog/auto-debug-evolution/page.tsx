@@ -322,8 +322,8 @@ Press Enter to continue, or explore the menu. No manual required.
         {/* Header */}
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl border border-purple-200">
-              <HiOutlineBugAnt className="w-8 h-8 text-purple-400" />
+            <div className="p-3 bg-gradient-to-br from-gray-500/20 to-gray-500/20 rounded-xl border border-gray-200">
+              <HiOutlineBugAnt className="w-8 h-8 text-gray-500" />
             </div>
             <div>
               <div className="text-sm text-gray-700 mb-1">Design Decision</div>
@@ -420,7 +420,7 @@ agent.input("Send email to John")
 
         {/* The Breakthrough */}
         <section className="mb-12">
-          <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-200 rounded-lg p-6 mb-6">
+          <div className="bg-gradient-to-r from-gray-500/20 to-gray-500/20 border border-gray-200 rounded-lg p-6 mb-6">
             <h2 className="heading-2">
               <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
               The Breakthrough Question
@@ -442,7 +442,7 @@ agent.input("Send email to John")
               </ul>
             </div>
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4">
-              <div className="text-purple-400 font-semibold mb-2">Steve Jobs</div>
+              <div className="text-gray-500 font-semibold mb-2">Steve Jobs</div>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Eliminate unnecessary</li>
                 <li>• Focus on essence</li>
@@ -516,7 +516,7 @@ agent.input("Send email to John")
 
         {/* Try It */}
         <section className="mb-12">
-          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-200 rounded-lg p-8">
+          <div className="bg-gradient-to-r from-blue-500/20 to-gray-500/20 border border-blue-200 rounded-lg p-8">
             <h2 className="heading-2">Try It Yourself</h2>
             <CodeWithResult code={codeUsage} language="python" className="mb-4" />
             <p className="text-gray-700 text-sm">

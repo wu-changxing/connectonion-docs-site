@@ -276,8 +276,8 @@ agent = Agent(
               <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-green-300 transition-colors">tool_approval</h3>
               <p className="text-sm text-slate-300">Web-based approval for dangerous tools</p>
             </Link>
-            <Link href="/features/permissions" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-purple-500/50 rounded-lg transition-all group">
-              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">Permissions System</h3>
+            <Link href="/features/permissions" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-gray-400/50 rounded-lg transition-all group">
+              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">Permissions System</h3>
               <p className="text-sm text-slate-300">Complete permission system overview</p>
             </Link>
           </div>

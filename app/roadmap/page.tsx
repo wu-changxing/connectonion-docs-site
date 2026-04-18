@@ -235,10 +235,10 @@ export default function RoadmapPage() {
             { label: 'Roadmap' }
           ]}
           icon={HiOutlineRocketLaunch}
-          iconColor="text-purple-400"
-          iconBgFrom="from-purple-600/20"
+          iconColor="text-gray-500"
+          iconBgFrom="from-gray-700/20"
           iconBgTo="to-pink-600/20"
-          iconBorderColor="border-purple-500/30"
+          iconBorderColor="border-gray-400/30"
           title="Roadmap"
           description="Track our progress from v0.0.1 to v1.0 and beyond."
           badge={<span className="px-2 py-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs font-semibold rounded-full">v0.6.6</span>}
@@ -252,7 +252,7 @@ export default function RoadmapPage() {
             onClick={() => setSelectedCategory(null)}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
               !selectedCategory 
-                ? 'bg-purple-600 text-white' 
+                ? 'bg-gray-800 text-white' 
                 : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
             }`}
           >
@@ -266,7 +266,7 @@ export default function RoadmapPage() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                   selectedCategory === category.id
-                    ? 'bg-purple-600 text-white'
+                    ? 'bg-gray-800 text-white'
                     : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
                 }`}
               >
@@ -288,7 +288,7 @@ export default function RoadmapPage() {
                 {/* Category Header */}
                 {!selectedCategory && (
                   <div className="flex items-center gap-2 mb-4">
-                    <category.icon className="w-5 h-5 text-purple-400" />
+                    <category.icon className="w-5 h-5 text-gray-500" />
                     <h2 className="text-lg font-semibold text-gray-900">{category.name} Features</h2>
                   </div>
                 )}
@@ -298,7 +298,7 @@ export default function RoadmapPage() {
                   {categoryFeatures.map((feature, index) => (
                     <div
                       key={index}
-                      className="p-4 md:p-5 bg-gray-100 rounded-xl border border-gray-700 hover:border-purple-500/30 transition-all"
+                      className="p-4 md:p-5 bg-gray-100 rounded-xl border border-gray-700 hover:border-gray-400/30 transition-all"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                         <div className="flex items-start gap-3">
@@ -308,7 +308,7 @@ export default function RoadmapPage() {
                             <p className="text-gray-700 text-sm break-words">{feature.description}</p>
                           </div>
                         </div>
-                        <span className="text-xs text-purple-400 font-medium whitespace-nowrap ml-7 sm:ml-0">{feature.targetDate}</span>
+                        <span className="text-xs text-gray-500 font-medium whitespace-nowrap ml-7 sm:ml-0">{feature.targetDate}</span>
                       </div>
 
                       {/* Progress Bar - Larger touch target on mobile */}
@@ -348,7 +348,7 @@ export default function RoadmapPage() {
               <div className="text-xs text-gray-700">Planned</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-purple-400">v0.6.6</div>
+              <div className="text-2xl font-bold text-gray-500">v0.6.6</div>
               <div className="text-xs text-gray-700">Current Version</div>
             </div>
           </div>
@@ -365,7 +365,7 @@ export default function RoadmapPage() {
               href="https://github.com/wu-changxing/connectonion/issues"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors"
+              className="px-4 py-2 bg-gray-800 text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
             >
               Request Feature
             </a>

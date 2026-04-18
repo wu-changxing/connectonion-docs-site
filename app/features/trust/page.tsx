@@ -10,12 +10,12 @@ export default function TrustPage() {
   return (
     <div className="bg-white text-gray-900">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-purple-900/20 to-gray-950">
+      <div className="relative overflow-hidden bg-gradient-to-b from-gray-900/20 to-gray-950">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px]" />
         <div className="relative max-w-4xl mx-auto px-8 py-16">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div>
-              <div className="text-sm text-purple-400 font-medium mb-4">Core Feature</div>
+              <div className="text-sm text-gray-500 font-medium mb-4">Core Feature</div>
               <h1 className="heading-1">
                 Trust in ConnectOnion
               </h1>
@@ -29,11 +29,11 @@ export default function TrustPage() {
           {/* Why Trust Blog Link */}
           <Link
             href="/blog/trust-keyword"
-            className="inline-flex items-center gap-2 mt-6 px-4 py-2 bg-purple-900/30 border border-purple-800 rounded-lg hover:bg-purple-900/50 transition-colors group"
+            className="inline-flex items-center gap-2 mt-6 px-4 py-2 bg-gray-900/30 border border-purple-800 rounded-lg hover:bg-gray-900/50 transition-colors group"
           >
-            <HiOutlineBookOpen className="w-4 h-4 text-purple-400" />
-            <span className="text-sm text-purple-300">Read: Why we chose "trust" as our keyword</span>
-            <span className="text-purple-400 group-hover:translate-x-1 transition-transform">→</span>
+            <HiOutlineBookOpen className="w-4 h-4 text-gray-500" />
+            <span className="text-sm text-gray-400">Read: Why we chose "trust" as our keyword</span>
+            <span className="text-gray-500 group-hover:translate-x-1 transition-transform">→</span>
           </Link>
         </div>
       </div>
@@ -135,10 +135,10 @@ I immediately reject agents that:
 
               {/* 3. Trust Agent */}
               <div className="mb-8">
-                <div className="bg-gradient-to-br from-purple-900/20 to-purple-900/5 border border-purple-800/50 rounded-lg p-6 mb-4">
+                <div className="bg-gradient-to-br from-gray-900/20 to-gray-900/5 border border-purple-800/50 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                    <HiOutlineCpuChip className="w-5 h-5 text-purple-400" />
-                    <span className="text-purple-400">3.</span> Trust Agent
+                    <HiOutlineCpuChip className="w-5 h-5 text-gray-500" />
+                    <span className="text-gray-500">3.</span> Trust Agent
                   </h3>
                   <p className="text-gray-700 mb-2">For maximum control, use a custom trust agent:</p>
                 </div>
@@ -180,7 +180,7 @@ payment = need("payment processor", trust=trust_agent)`}
               </h2>
               <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 border border-green-800/50 rounded-lg p-6 mb-4">
                 <p className="text-gray-700 mb-4">
-                  The same <code className="text-purple-400 bg-gray-900 px-2 py-1 rounded">trust</code> parameter works in both directions:
+                  The same <code className="text-gray-500 bg-gray-900 px-2 py-1 rounded">trust</code> parameter works in both directions:
                 </p>
               </div>
               <CodeWithResult
@@ -338,7 +338,7 @@ payment = need("process payment", trust="strict") # High risk`}
                 </div>
                 <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
                   <p className="font-semibold text-gray-900 mb-2">Q: Can I change trust after agent creation?</p>
-                  <p className="text-gray-700 text-sm">A: Yes: <code className="text-purple-400 bg-gray-950 px-2 py-1 rounded">agent.trust = new_trust_agent</code></p>
+                  <p className="text-gray-700 text-sm">A: Yes: <code className="text-gray-500 bg-gray-950 px-2 py-1 rounded">agent.trust = new_trust_agent</code></p>
                 </div>
                 <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
                   <p className="font-semibold text-gray-900 mb-2">Q: How do trust agents communicate?</p>
@@ -361,7 +361,7 @@ payment = need("process payment", trust="strict") # High risk`}
             {/* Trust Decision Helper */}
             <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 sticky top-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <HiOutlineShieldCheck className="w-5 h-5 text-purple-400" />
+                <HiOutlineShieldCheck className="w-5 h-5 text-gray-500" />
                 Choose Your Trust Level
               </h3>
               <div className="space-y-3">

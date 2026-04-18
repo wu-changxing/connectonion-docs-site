@@ -18,10 +18,10 @@ export default function XrayPage() {
             { label: '@xray Debugging' }
           ]}
           icon={HiOutlineBugAnt}
-          iconColor="text-purple-400"
-          iconBgFrom="from-purple-600/20"
+          iconColor="text-gray-500"
+          iconBgFrom="from-gray-700/20"
           iconBgTo="to-pink-600/20"
-          iconBorderColor="border-purple-500/30"
+          iconBorderColor="border-gray-400/30"
           title="@xray Debugging"
           description="See what your AI agent is thinking. Add one decorator and unlock debugging superpowers."
           markdownPath="/debug/xray.md"
@@ -44,8 +44,8 @@ export default function XrayPage() {
               </div>
               <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-900/50 border border-purple-500 rounded-lg flex items-center justify-center">
-                  <HiOutlineBugAnt className="text-purple-400 w-5 h-5 md:w-6 md:h-6" />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-900/50 border border-gray-400 rounded-lg flex items-center justify-center">
+                  <HiOutlineBugAnt className="text-gray-500 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-gray-700">@xray decorator</span>
               </div>
@@ -70,7 +70,7 @@ export default function XrayPage() {
         {/* Examples Section */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <HiOutlineChartBar className="w-6 h-6 text-purple-400" />
+            <HiOutlineChartBar className="w-6 h-6 text-gray-500" />
             Examples
           </h2>
 
@@ -145,7 +145,7 @@ Analysis complete`}
             {/* IDE Debug */}
             <div>
               <h3 className="heading-3">
-                <HiOutlineBugAnt className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
+                <HiOutlineBugAnt className="w-5 h-5 md:w-6 md:h-6 text-gray-500" />
                 IDE Debug
               </h3>
               <p className="text-gray-700 mb-6">
@@ -185,7 +185,7 @@ positive`}
         {/* What You Can Access Section */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-6 h-6 text-purple-400" />
+            <HiOutlineCodeBracket className="w-6 h-6 text-gray-500" />
             What You Can Access
           </h2>
 
@@ -208,9 +208,9 @@ positive`}
                 <div className="font-mono text-green-300">xray.task</div>
                 <div className="text-gray-700 text-xs mt-1">User Request</div>
               </div>
-              <div className="bg-purple-900/20 border border-purple-200 rounded-lg p-4 text-center">
-                <HiOutlineClock className="w-8 h-8 text-purple-400 mx-auto mb-2" />
-                <div className="font-mono text-purple-300">xray.messages</div>
+              <div className="bg-gray-900/20 border border-gray-200 rounded-lg p-4 text-center">
+                <HiOutlineClock className="w-8 h-8 text-gray-500 mx-auto mb-2" />
+                <div className="font-mono text-gray-400">xray.messages</div>
                 <div className="text-gray-700 text-xs mt-1">Chat History</div>
               </div>
             </div>
@@ -220,10 +220,10 @@ positive`}
             {[
               { name: 'xray.agent', desc: 'The Agent instance calling this tool', icon: HiOutlineCpuChip, color: 'text-blue-400' },
               { name: 'xray.task', desc: 'Original request from user', icon: HiOutlineChatBubbleOvalLeft, color: 'text-green-400' },
-              { name: 'xray.messages', desc: 'Full conversation history', icon: HiOutlineClock, color: 'text-purple-400' },
+              { name: 'xray.messages', desc: 'Full conversation history', icon: HiOutlineClock, color: 'text-gray-500' },
               { name: 'xray.iteration', desc: 'Which round of tool calls (1-10)', icon: HiOutlineArrowPath, color: 'text-yellow-400' },
               { name: 'xray.previous_tools', desc: 'Tools called before this one', icon: HiOutlineSquare3Stack3D, color: 'text-cyan-400' },
-              { name: 'xray.trace()', desc: 'Visual execution trace', icon: HiOutlineChartBar, color: 'text-pink-400' }
+              { name: 'xray.trace()', desc: 'Visual execution trace', icon: HiOutlineChartBar, color: 'text-gray-500' }
             ].map((item) => {
               const IconComponent = item.icon;
               return (
@@ -249,7 +249,7 @@ positive`}
         {/* Use Cases Section */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <HiOutlineBolt className="w-6 h-6 text-purple-400" />
+            <HiOutlineBolt className="w-6 h-6 text-gray-500" />
             Practical Use Cases
           </h2>
 
@@ -327,7 +327,7 @@ Order ABC123 processed`}
             {[
               { icon: <FaRocket className="text-blue-400" />, tip: 'Development Only', detail: 'Remove @xray in production for best performance' },
               { icon: <FaSearch className="text-green-400" />, tip: 'Combine with IDE', detail: 'Set breakpoints for interactive debugging' },
-              { icon: <FaChartBar className="text-purple-400" />, tip: 'Use trace()', detail: 'Call xray.trace() after runs to see full flow' },
+              { icon: <FaChartBar className="text-gray-500" />, tip: 'Use trace()', detail: 'Call xray.trace() after runs to see full flow' },
               { icon: <FaShieldAlt className="text-yellow-400" />, tip: 'Check context', detail: 'Always verify xray.agent exists before using' }
             ].map((tip, i) => (
               <motion.div
@@ -339,7 +339,7 @@ Order ABC123 processed`}
               >
                 <span className="text-2xl">{tip.icon}</span>
                 <div>
-                  <h4 className="font-bold text-purple-400">{tip.tip}</h4>
+                  <h4 className="font-bold text-gray-500">{tip.tip}</h4>
                   <p className="text-gray-700">{tip.detail}</p>
                 </div>
               </motion.div>

@@ -244,7 +244,7 @@ export default function WebSocketProtocolPage() {
         {/* Message Reference */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineServerStack className="w-8 h-8 text-purple-400" />
+            <HiOutlineServerStack className="w-8 h-8 text-gray-500" />
             Message Reference
           </h2>
 
@@ -275,27 +275,27 @@ export default function WebSocketProtocolPage() {
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">session_id</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">session_id</td>
                   <td className="px-4 py-3 text-slate-300">No</td>
                   <td className="px-4 py-3 text-slate-300">Session to resume. Omit for new session.</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">session</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">session</td>
                   <td className="px-4 py-3 text-slate-300">No</td>
                   <td className="px-4 py-3 text-slate-300">Conversation history (messages, mode, etc.)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">payload</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">payload</td>
                   <td className="px-4 py-3 text-slate-300">Yes</td>
                   <td className="px-4 py-3 text-slate-300">Signed payload for authentication</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">from</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">from</td>
                   <td className="px-4 py-3 text-slate-300">Yes</td>
                   <td className="px-4 py-3 text-slate-300">Client&apos;s public address</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">signature</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">signature</td>
                   <td className="px-4 py-3 text-slate-300">Yes</td>
                   <td className="px-4 py-3 text-slate-300">Ed25519 signature of payload</td>
                 </tr>
@@ -365,17 +365,17 @@ export default function WebSocketProtocolPage() {
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">prompt</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">prompt</td>
                   <td className="px-4 py-3 text-slate-300">Yes</td>
                   <td className="px-4 py-3 text-slate-300">The user&apos;s message</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">images</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">images</td>
                   <td className="px-4 py-3 text-slate-300">No</td>
                   <td className="px-4 py-3 text-slate-300">Array of base64 data URLs (passed directly to LLM as visual content)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">files</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">files</td>
                   <td className="px-4 py-3 text-slate-300">No</td>
                   <td className="px-4 py-3 text-slate-300">Array of file objects (saved to disk, agent reads via tools)</td>
                 </tr>
@@ -494,7 +494,7 @@ export default function WebSocketProtocolPage() {
                   ['compact', 'Context compaction'],
                 ].map(([type, desc]) => (
                   <tr key={type}>
-                    <td className="px-4 py-3 font-mono text-purple-300">{type}</td>
+                    <td className="px-4 py-3 font-mono text-gray-400">{type}</td>
                     <td className="px-4 py-3 text-slate-300">{desc}</td>
                   </tr>
                 ))}
@@ -715,7 +715,7 @@ WS close → 10min grace → session cleaned up`}</pre>
                   ['network/host/session/merge.py', 'Session merge conflict resolution'],
                 ].map(([file, role]) => (
                   <tr key={file}>
-                    <td className="px-4 py-3 font-mono text-purple-300">{file}</td>
+                    <td className="px-4 py-3 font-mono text-gray-400">{file}</td>
                     <td className="px-4 py-3 text-slate-300">{role}</td>
                   </tr>
                 ))}

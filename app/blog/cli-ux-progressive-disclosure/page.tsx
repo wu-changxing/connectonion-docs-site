@@ -131,16 +131,16 @@ The best tool is one you forget you're using. That's what we built.`
             <h2 className="heading-2">Our Philosophy: Progressive Disclosure</h2>
 
             <div className="grid md:grid-cols-3 gap-6 my-8">
-              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-200 rounded-xl p-6 text-center">
-                <div className="text-4xl font-bold text-purple-400 mb-2">&lt; 30s</div>
+              <div className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6 text-center">
+                <div className="text-4xl font-bold text-gray-500 mb-2">&lt; 30s</div>
                 <p className="text-gray-700">To working code</p>
               </div>
-              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-200 rounded-xl p-6 text-center">
-                <div className="text-4xl font-bold text-purple-400 mb-2">3</div>
+              <div className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6 text-center">
+                <div className="text-4xl font-bold text-gray-500 mb-2">3</div>
                 <p className="text-gray-700">Questions maximum</p>
               </div>
-              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-200 rounded-xl p-6 text-center">
-                <div className="text-4xl font-bold text-purple-400 mb-2">0</div>
+              <div className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6 text-center">
+                <div className="text-4xl font-bold text-gray-500 mb-2">0</div>
                 <p className="text-gray-700">Required configs</p>
               </div>
             </div>
@@ -152,7 +152,7 @@ The best tool is one you forget you're using. That's what we built.`
                 <span className="text-sm text-gray-700 font-mono">terminal</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
-                <code className="text-purple-300">{`# Outside a project
+                <code className="text-gray-400">{`# Outside a project
 co create my-agent  # Creates new directory
 
 # Inside a project
@@ -176,12 +176,12 @@ co init             # Uses current directory`}</code>
 
             <h2 className="heading-2">Minimal Questions, Maximum Intelligence</h2>
 
-            <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-200 rounded-xl p-6 my-8">
-              <p className="text-purple-300 font-semibold mb-4">Our setup asks only what matters RIGHT NOW:</p>
+            <div className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6 my-8">
+              <p className="text-gray-400 font-semibold mb-4">Our setup asks only what matters RIGHT NOW:</p>
               <ol className="space-y-3 text-gray-700">
-                <li><span className="text-purple-400 font-bold">1.</span> <strong className="text-white">Enable AI?</strong> - Determines available templates</li>
-                <li><span className="text-purple-400 font-bold">2.</span> <strong className="text-white">API key</strong> - Only if AI enabled, with auto-detection</li>
-                <li><span className="text-purple-400 font-bold">3.</span> <strong className="text-white">Template</strong> - With previews so users know what they get</li>
+                <li><span className="text-gray-500 font-bold">1.</span> <strong className="text-white">Enable AI?</strong> - Determines available templates</li>
+                <li><span className="text-gray-500 font-bold">2.</span> <strong className="text-white">API key</strong> - Only if AI enabled, with auto-detection</li>
+                <li><span className="text-gray-500 font-bold">3.</span> <strong className="text-white">Template</strong> - With previews so users know what they get</li>
               </ol>
               <p className="text-gray-700 text-sm mt-4 italic">That's it. Three decisions max.</p>
             </div>
@@ -198,7 +198,7 @@ co init             # Uses current directory`}</code>
                 <span className="text-sm text-gray-700 font-mono">api_detection.py</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
-                <code className="text-purple-300">{`if api_key.startswith('sk-proj-'):
+                <code className="text-gray-400">{`if api_key.startswith('sk-proj-'):
     # OpenAI project key
 elif api_key.startswith('sk-ant-'):
     # Anthropic
@@ -281,22 +281,22 @@ elif api_key.startswith('gsk_'):
 
             <h2 className="heading-2">Results: User Delight</h2>
 
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-8 border border-purple-200 my-8">
+            <div className="bg-gradient-to-r from-gray-500/10 to-gray-500/10 rounded-lg p-8 border border-gray-200 my-8">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-purple-400">30s</div>
+                  <div className="text-3xl font-bold text-gray-500">30s</div>
                   <p className="text-gray-700 text-sm">to running agent</p>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-purple-400">3</div>
+                  <div className="text-3xl font-bold text-gray-500">3</div>
                   <p className="text-gray-700 text-sm">questions max</p>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-purple-400">0</div>
+                  <div className="text-3xl font-bold text-gray-500">0</div>
                   <p className="text-gray-700 text-sm">required configs</p>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-purple-400">1</div>
+                  <div className="text-3xl font-bold text-gray-500">1</div>
                   <p className="text-gray-700 text-sm">command to start</p>
                 </div>
               </div>
@@ -304,7 +304,7 @@ elif api_key.startswith('gsk_'):
 
             <h2 className="heading-2">Conclusion</h2>
 
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-200">
+            <div className="bg-gradient-to-r from-gray-500/10 to-gray-500/10 rounded-lg p-6 border border-gray-200">
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 Good CLI UX isn't about asking fewer questions - it's about asking the
                 <strong className="text-white"> RIGHT </strong> questions at the

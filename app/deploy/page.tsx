@@ -25,7 +25,7 @@ export default function DeployPage() {
           icon={HiOutlineArrowUpTray}
           iconColor="text-blue-400"
           iconBgFrom="from-blue-600/20"
-          iconBgTo="to-purple-600/20"
+          iconBgTo="to-gray-700/20"
           iconBorderColor="border-blue-500/30"
           title="Deploy"
           description="Deploy your ConnectOnion agents to production. Docker, GCP, AWS - your choice."
@@ -44,7 +44,7 @@ export default function DeployPage() {
         {/* Two Options */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowRight className="w-8 h-8 text-purple-400" />
+            <HiOutlineArrowRight className="w-8 h-8 text-gray-500" />
             Two Deployment Options
           </h2>
 
@@ -133,19 +133,19 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             fileName="Terminal"
           />
 
-          <div className="mt-6 bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-purple-900 mb-4">co deploy Requirements</h3>
+          <div className="mt-6 bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">co deploy Requirements</h3>
             <div className="space-y-2 text-gray-700">
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
                 <span>Git repository with committed code</span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
                 <span><code className="bg-gray-800 px-2 py-0.5 rounded">.co/config.toml</code> (created by <code className="bg-gray-800 px-2 py-0.5 rounded">co create</code> or <code className="bg-gray-800 px-2 py-0.5 rounded">co init</code>)</span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
                 <span>Authenticated (<code className="bg-gray-800 px-2 py-0.5 rounded">co auth</code>)</span>
               </div>
             </div>
@@ -408,7 +408,7 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
             </div>
 
             <div className="bg-gray-100 border border-gray-700 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4 flex items-center gap-2">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <HiOutlineSquare3Stack3D className="w-5 h-5" />
                 ECS / Fargate
               </h3>
@@ -474,27 +474,27 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">OPENAI_API_KEY</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">OPENAI_API_KEY</td>
                   <td className="px-4 py-3 text-gray-700">OpenAI API key for GPT models</td>
                   <td className="px-4 py-3 text-yellow-400">Yes*</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">ANTHROPIC_API_KEY</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">ANTHROPIC_API_KEY</td>
                   <td className="px-4 py-3 text-gray-700">Anthropic API key for Claude</td>
                   <td className="px-4 py-3 text-gray-400">Optional</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">GOOGLE_API_KEY</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">GOOGLE_API_KEY</td>
                   <td className="px-4 py-3 text-gray-700">Google API key for Gemini</td>
                   <td className="px-4 py-3 text-gray-400">Optional</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">RELAY_URL</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">RELAY_URL</td>
                   <td className="px-4 py-3 text-gray-700">Custom relay server URL</td>
                   <td className="px-4 py-3 text-gray-400">Optional</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">LOG_LEVEL</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">LOG_LEVEL</td>
                   <td className="px-4 py-3 text-gray-700">Logging verbosity (DEBUG, INFO, WARN)</td>
                   <td className="px-4 py-3 text-gray-400">Optional</td>
                 </tr>

@@ -53,7 +53,7 @@ agent.input("Get contact info from acme.com")`}
           <p className="text-gray-700 mb-6">Direct HTTP and parsing operations</p>
 
           <div className="space-y-6">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="font-semibold text-green-300 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineGlobeAlt className="w-4 h-4" />
                 fetch(url)
@@ -67,7 +67,7 @@ agent.input("Get contact info from acme.com")`}
               />
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="font-semibold text-green-300 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineDocumentText className="w-4 h-4" />
                 strip_tags(html, max_chars=10000)
@@ -82,7 +82,7 @@ text = web.strip_tags(html)
               />
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="font-semibold text-green-300 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineDocumentText className="w-4 h-4" />
                 get_title(html)
@@ -90,7 +90,7 @@ text = web.strip_tags(html)
               <p className="text-gray-700 text-sm">Get page title from HTML</p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="font-semibold text-blue-300 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineLink className="w-4 h-4" />
                 get_links(html)
@@ -98,16 +98,16 @@ text = web.strip_tags(html)
               <p className="text-gray-700 text-sm">Extract all links from HTML</p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
-              <h3 className="font-semibold text-purple-300 font-mono mb-2 flex items-center gap-2">
+            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+              <h3 className="font-semibold text-gray-400 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineEnvelope className="w-4 h-4" />
                 get_emails(html)
               </h3>
               <p className="text-gray-700 text-sm">Extract email addresses from HTML</p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
-              <h3 className="font-semibold text-pink-300 font-mono mb-2 flex items-center gap-2">
+            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+              <h3 className="font-semibold text-gray-500 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineShare className="w-4 h-4" />
                 get_social_links(html)
               </h3>
@@ -122,8 +122,8 @@ text = web.strip_tags(html)
           <p className="text-gray-700 mb-6">AI-powered analysis of web pages</p>
 
           <div className="space-y-6">
-            <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-200 rounded-xl p-6">
-              <h3 className="font-semibold text-purple-300 font-mono mb-2 flex items-center gap-2">
+            <div className="bg-gradient-to-r from-gray-900/30 to-blue-900/30 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold text-gray-400 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineCpuChip className="w-4 h-4" />
                 analyze_page(url)
               </h3>
@@ -136,8 +136,8 @@ text = web.strip_tags(html)
               />
             </div>
 
-            <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-200 rounded-xl p-6">
-              <h3 className="font-semibold text-purple-300 font-mono mb-2 flex items-center gap-2">
+            <div className="bg-gradient-to-r from-gray-900/30 to-blue-900/30 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold text-gray-400 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineMagnifyingGlass className="w-4 h-4" />
                 get_contact_info(url)
               </h3>
@@ -227,23 +227,23 @@ agent.input("Compare what stripe.com and square.com offer")`}
                   <td className="px-4 py-3 text-sm text-gray-700">Extract all links</td>
                 </tr>
                 <tr className="bg-gray-900/50">
-                  <td className="px-4 py-3 font-mono text-sm text-purple-300">get_emails(html)</td>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-400">get_emails(html)</td>
                   <td className="px-4 py-3 text-sm text-gray-700">Low-level</td>
                   <td className="px-4 py-3 text-sm text-gray-700">Extract email addresses</td>
                 </tr>
                 <tr className="bg-gray-900/30">
-                  <td className="px-4 py-3 font-mono text-sm text-pink-300">get_social_links(html)</td>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-500">get_social_links(html)</td>
                   <td className="px-4 py-3 text-sm text-gray-700">Low-level</td>
                   <td className="px-4 py-3 text-sm text-gray-700">Extract social media links</td>
                 </tr>
                 <tr className="bg-gray-900/50">
                   <td className="px-4 py-3 font-mono text-sm text-yellow-300">analyze_page(url)</td>
-                  <td className="px-4 py-3 text-sm text-purple-400">LLM</td>
+                  <td className="px-4 py-3 text-sm text-gray-500">LLM</td>
                   <td className="px-4 py-3 text-sm text-gray-700">AI analysis of what page/company does</td>
                 </tr>
                 <tr className="bg-gray-900/30">
                   <td className="px-4 py-3 font-mono text-sm text-yellow-300">get_contact_info(url)</td>
-                  <td className="px-4 py-3 text-sm text-purple-400">LLM</td>
+                  <td className="px-4 py-3 text-sm text-gray-500">LLM</td>
                   <td className="px-4 py-3 text-sm text-gray-700">AI extraction of contact info</td>
                 </tr>
               </tbody>

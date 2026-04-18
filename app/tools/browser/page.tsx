@@ -182,7 +182,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
         </div>
 
         {/* Quick Start Card */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg">
+        <div className="mb-12 p-6 bg-gradient-to-r from-blue-50 to-gray-50 border border-blue-200 rounded-lg">
           <div className="flex items-center gap-3 mb-4">
             <HiOutlineCamera className="w-6 h-6 text-blue-400" />
             <h2 className="text-xl font-semibold text-gray-900">Quick Start</h2>
@@ -203,7 +203,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
               <span className="text-gray-700">Auto timestamp</span>
             </div>
             <div className="flex items-center gap-2">
-              <HiOutlineSquare3Stack3D className="w-4 h-4 text-purple-400" />
+              <HiOutlineSquare3Stack3D className="w-4 h-4 text-gray-500" />
               <span className="text-gray-700">Device presets</span>
             </div>
             <div className="flex items-center gap-2">
@@ -287,9 +287,9 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             </div>
 
             {/* Device Sizes */}
-            <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-6">
+            <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <HiOutlineDevicePhoneMobile className="w-5 h-5 text-purple-400" />
+                <HiOutlineDevicePhoneMobile className="w-5 h-5 text-gray-500" />
                 Device Sizes
               </h3>
               <CommandBlock 
@@ -312,7 +312,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
         {/* Device Presets Table */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <HiOutlineSquare3Stack3D className="w-6 h-6 text-purple-400" />
+            <HiOutlineSquare3Stack3D className="w-6 h-6 text-gray-500" />
             Device Presets
           </h2>
 
@@ -427,8 +427,8 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             </div>
 
             {/* Test Responsive */}
-            <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-6">
-              <HiOutlineSquare3Stack3D className="w-8 h-8 text-purple-400 mb-4" />
+            <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
+              <HiOutlineSquare3Stack3D className="w-8 h-8 text-gray-500 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Test Responsive Design</h3>
               <p className="text-gray-700 text-sm mb-4">
                 Verify layouts across devices
@@ -508,7 +508,7 @@ done`}
               />
             </div>
 
-            <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-6">
+            <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">With Browser Support</h3>
               <p className="text-gray-700 mb-4">Or install ConnectOnion with browser support:</p>
               <CommandBlock 
@@ -616,7 +616,7 @@ done`}
               </p>
             </div>
 
-            <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-4">
+            <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-2">Test Viewports</h3>
               <p className="text-gray-700 text-sm">
                 Use device names (<code className="bg-black/30 px-2 py-1 rounded">iphone</code>, <code className="bg-black/30 px-2 py-1 rounded">ipad</code>) for common sizes
@@ -666,7 +666,7 @@ done`}
 
         {/* Summary */}
         <section className="mb-16">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-6">
+          <div className="bg-gradient-to-r from-blue-50 to-gray-50 border border-blue-200 rounded-lg p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Summary</h2>
             <p className="text-gray-700">
               The <code className="bg-black/30 px-2 py-1 rounded">-b</code> flag provides dead-simple browser screenshots. 

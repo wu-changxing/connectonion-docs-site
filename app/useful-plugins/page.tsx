@@ -14,9 +14,9 @@ const plugins = [
     title: 'ReAct Pattern',
     description: 'Implements Reason + Act pattern with planning before action and reflection after tool execution',
     icon: HiOutlineCpuChip,
-    color: 'text-purple-400',
-    bgColor: 'bg-purple-900/20',
-    borderColor: 'border-purple-500/30',
+    color: 'text-gray-500',
+    bgColor: 'bg-gray-900/20',
+    borderColor: 'border-gray-400/30',
     href: '/useful-plugins/re-act',
     events: ['after_user_input (plan)', 'after_tools (reflect)'],
     usage: `from connectonion.useful_plugins import re_act
@@ -128,7 +128,7 @@ export default function UsefulPluginsPage() {
       <div className="max-w-4xl mx-auto">
       {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-          <Link href="/" className="hover:text-purple-400 transition-colors">
+          <Link href="/" className="hover:text-gray-500 transition-colors">
             Docs
           </Link>
           <HiOutlineArrowRight className="w-4 h-4" />
@@ -139,19 +139,19 @@ export default function UsefulPluginsPage() {
         <div className="mb-12">
           <div className="flex flex-col gap-4 mb-4">
             <div className="flex items-start gap-3">
-              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-200 flex-shrink-0">
-                <HiOutlineCube className="w-8 h-8 text-purple-400" />
+              <div className="p-3 bg-gradient-to-br from-gray-700/20 to-pink-600/20 rounded-xl border border-gray-200 flex-shrink-0">
+                <HiOutlineCube className="w-8 h-8 text-gray-500" />
               </div>
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <h1 className="heading-1">Useful Plugins</h1>
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">
+                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">
                     <HiOutlineSparkles className="w-3 h-3" />
                     Built-in
                   </span>
                 </div>
                 <p className="text-lg text-gray-700">
-                  Pre-built plugins from <code className="bg-gray-800 px-2 py-1 rounded text-purple-300 text-sm break-all">connectonion.useful_plugins</code>
+                  Pre-built plugins from <code className="bg-gray-800 px-2 py-1 rounded text-gray-400 text-sm break-all">connectonion.useful_plugins</code>
                 </p>
               </div>
             </div>
@@ -160,7 +160,7 @@ export default function UsefulPluginsPage() {
         </div>
 
         {/* What is a Plugin */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-200">
+        <div className="mb-12 p-6 bg-gradient-to-r from-gray-900/30 to-pink-900/30 rounded-lg border border-gray-200">
           <h2 className="heading-2">What is a Plugin?</h2>
           <p className="text-gray-700 mb-4">
             A plugin is a reusable list of event handlers. Use <code className="bg-gray-800 px-2 py-1 rounded">plugins=[...]</code> to add pre-packaged functionality to any agent.
@@ -179,7 +179,7 @@ agent = Agent(
             language="python"
           />
           <p className="text-sm text-gray-700 mt-4">
-            Learn how to build custom plugins in the <Link href="/plugin" className="text-purple-400 hover:text-purple-300">Plugin System documentation</Link>.
+            Learn how to build custom plugins in the <Link href="/plugin" className="text-gray-500 hover:text-gray-400">Plugin System documentation</Link>.
           </p>
         </div>
 
@@ -189,7 +189,7 @@ agent = Agent(
             <Link
               key={plugin.id}
               href={plugin.href}
-              className={`group block p-4 sm:p-6 rounded-lg border ${plugin.borderColor} ${plugin.bgColor} hover:border-purple-400/50 hover:bg-gray-100 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 transition-all duration-200`}
+              className={`group block p-4 sm:p-6 rounded-lg border ${plugin.borderColor} ${plugin.bgColor} hover:border-gray-300/50 hover:bg-gray-100 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 transition-all duration-200`}
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
@@ -223,7 +223,7 @@ agent = Agent(
         </div>
 
         {/* Using Multiple Plugins */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-500/20">
+        <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/30 to-gray-900/30 rounded-lg border border-blue-500/20">
           <h2 className="heading-2">Combining Plugins</h2>
           <p className="text-gray-700 mb-4">
             Plugins can be combined for powerful agent behaviors:
@@ -282,19 +282,19 @@ from plugins.re_act import re_act  # Customize freely!`}
             language="python"
           />
           <p className="text-sm text-gray-700 mt-4">
-            See <Link href="/cli" className="text-purple-400 hover:text-purple-300">co copy</Link> for full details.
+            See <Link href="/cli" className="text-gray-500 hover:text-gray-400">co copy</Link> for full details.
           </p>
         </div>
 
         {/* Call to Action */}
-        <div className="text-center py-8 px-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-200">
+        <div className="text-center py-8 px-6 bg-gradient-to-r from-gray-900/30 to-pink-900/30 rounded-lg border border-gray-200">
           <h2 className="heading-2">Build Your Own Plugin</h2>
           <p className="text-gray-700 mb-6">
             Learn how to create custom plugins using the event system
           </p>
           <Link
             href="/plugin"
-            className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors min-h-[48px]"
+            className="inline-flex items-center gap-2 bg-gray-500 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors min-h-[48px]"
           >
             Plugin System Docs
             <HiOutlineArrowRight className="w-5 h-5" />

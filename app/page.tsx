@@ -87,14 +87,16 @@ agent.input("What's the weather in NYC?")`}
       {/* Trust Indicators */}
       <section className="py-6 px-4 md:px-6 border-b border-gray-100 bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-500 font-medium tracking-wide">
-            <span>MIT License</span>
-            <span className="text-gray-300">·</span>
-            <span>Python 3.9+</span>
-            <span className="text-gray-300">·</span>
-            <span>OpenAI · Anthropic · Gemini</span>
-            <span className="text-gray-300">·</span>
-            <span className="text-green-700 font-semibold">$5 free credits</span>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a href="https://github.com/openonion/connectonion/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License" />
+            </a>
+            <a href="https://pypi.org/project/connectonion/" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python 3.9+" />
+            </a>
+            <a href="https://pepy.tech/projects/connectonion" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/pypi/dm/connectonion?label=PyPI%20downloads" alt="PyPI Downloads" />
+            </a>
           </div>
         </div>
       </section>

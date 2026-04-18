@@ -79,7 +79,7 @@ with BrowserAutomation() as browser:
         {/* API Reference */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-purple-400" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
             API Reference
           </h2>
 
@@ -147,7 +147,7 @@ browser.go_to("https://x.com")  # Session restored`}
         {/* Screenshot */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCamera className="w-8 h-8 text-pink-400" />
+            <HiOutlineCamera className="w-8 h-8 text-gray-500" />
             Screenshots
           </h2>
           <CodeWithResult

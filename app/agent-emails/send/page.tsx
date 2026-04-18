@@ -52,11 +52,11 @@ export default function SendEmailPage() {
   const CodeWithResult = ({ code, result, language = 'python', id }: { code: string; result: string; language?: string; id: string }) => (
     <div className="space-y-4 mb-12 max-w-4xl mx-auto">
       <div>
-        <div className="text-sm font-semibold text-purple-400 mb-2 uppercase tracking-wider">Code</div>
+        <div className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wider">Code</div>
         <CodeBlock code={code} language={language} id={id} />
       </div>
       <div>
-        <div className="text-sm font-semibold text-purple-400 mb-2 uppercase tracking-wider">Result</div>
+        <div className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wider">Result</div>
         <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 overflow-x-auto">
           <pre className="text-sm text-gray-700 whitespace-pre-wrap font-mono">{result}</pre>
         </div>
@@ -74,10 +74,10 @@ export default function SendEmailPage() {
             { label: 'Send' }
           ]}
           icon={HiOutlinePaperAirplane}
-          iconColor="text-purple-400"
-          iconBgFrom="from-purple-600/20"
+          iconColor="text-gray-500"
+          iconBgFrom="from-gray-700/20"
           iconBgTo="to-pink-600/20"
-          iconBorderColor="border-purple-500/30"
+          iconBorderColor="border-gray-400/30"
           title="Send Email"
           description="Send emails with one line of code. No config, no complexity."
           markdownPath="/agent-emails/send.md"
@@ -92,8 +92,8 @@ export default function SendEmailPage() {
             <span className="text-sm text-gray-500 bg-gray-800 px-3 py-1 rounded-full">30 seconds to first email</span>
           </div>
 
-          <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-8 border border-purple-200 mb-8">
-            <p className="text-2xl font-semibold mb-6 text-purple-300">One line. That's it.</p>
+          <div className="bg-gradient-to-r from-gray-500/10 to-gray-500/10 rounded-xl p-8 border border-gray-200 mb-8">
+            <p className="text-2xl font-semibold mb-6 text-gray-400">One line. That's it.</p>
             <CodeBlock 
               code={`from connectonion import send_email
 
@@ -124,31 +124,31 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
           <h2 className="heading-2">Core Concept</h2>
           
           <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-8 mb-12">
-            <h3 className="text-2xl font-semibold mb-6 text-purple-300">What you get:</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-gray-400">What you get:</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-start gap-3">
-                <HiOutlinePaperAirplane className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlinePaperAirplane className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Simple function</p>
                   <code className="text-sm bg-gray-800 px-2 py-0.5 rounded">send_email(to, subject, message)</code>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <HiOutlineShieldCheck className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineShieldCheck className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Zero configuration</p>
                   <p className="text-sm text-gray-700">No API keys to manage</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <HiOutlineEnvelope className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineEnvelope className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Your own email</p>
                   <p className="text-sm text-gray-700">Unique address for every agent</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <HiOutlineGlobeAlt className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineGlobeAlt className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Professional delivery</p>
                   <p className="text-sm text-gray-700">Good reputation & reliability</p>
@@ -175,7 +175,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
           <div className="space-y-12">
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineArrowRight className="w-5 h-5 text-purple-400" />
+                <HiOutlineArrowRight className="w-5 h-5 text-gray-500" />
                 Basic notification
               </h3>
               <CodeWithResult
@@ -187,7 +187,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineArrowRight className="w-5 h-5 text-purple-400" />
+                <HiOutlineArrowRight className="w-5 h-5 text-gray-500" />
                 Verification code
               </h3>
               <CodeWithResult
@@ -199,7 +199,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineArrowRight className="w-5 h-5 text-purple-400" />
+                <HiOutlineArrowRight className="w-5 h-5 text-gray-500" />
                 Status update
               </h3>
               <CodeWithResult
@@ -211,7 +211,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineArrowRight className="w-5 h-5 text-purple-400" />
+                <HiOutlineArrowRight className="w-5 h-5 text-gray-500" />
                 HTML content (automatic)
               </h3>
               <CodeWithResult
@@ -231,22 +231,22 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
         <section className="mb-16">
           <h2 className="heading-2">Your Email Address</h2>
 
-          <div className="bg-gradient-to-r from-purple-500/5 to-pink-500/5 border border-purple-200 rounded-xl p-8 mb-12">
+          <div className="bg-gradient-to-r from-gray-500/5 to-gray-500/5 border border-gray-200 rounded-xl p-8 mb-12">
             <p className="mb-6 text-lg">Every agent automatically gets an email address:</p>
-            <div className="bg-gray-900 rounded-lg p-6 font-mono text-purple-400 text-xl text-center mb-8">
+            <div className="bg-gray-900 rounded-lg p-6 font-mono text-gray-500 text-xl text-center mb-8">
               0x1234abcd@mail.openonion.ai
             </div>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Based on your public key (first 10 characters)</span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Professional domain with good reputation</span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Generated during <code className="bg-gray-800 px-2 py-0.5 rounded">co init</code></span>
               </div>
               <div className="flex items-start gap-2">
@@ -278,21 +278,21 @@ email_active = false  # Becomes true after 'co auth'`}
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-4">
-                  <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full font-bold">1</span>
+                  <span className="bg-gray-500/20 text-gray-500 px-3 py-1 rounded-full font-bold">1</span>
                   <div>
                     <p className="font-semibold">Generated</p>
                     <p className="text-sm text-gray-700">Email address created during <code className="bg-gray-800 px-2 py-0.5 rounded text-xs">co init</code></p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full font-bold">2</span>
+                  <span className="bg-gray-500/20 text-gray-500 px-3 py-1 rounded-full font-bold">2</span>
                   <div>
                     <p className="font-semibold">Activation Prompt</p>
                     <p className="text-sm text-gray-700">You'll be asked to activate your agent's email</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full font-bold">3</span>
+                  <span className="bg-gray-500/20 text-gray-500 px-3 py-1 rounded-full font-bold">3</span>
                   <div>
                     <p className="font-semibold">Active</p>
                     <p className="text-sm text-gray-700">Email is fully functional after authentication</p>
@@ -300,14 +300,14 @@ email_active = false  # Becomes true after 'co auth'`}
                 </div>
               </div>
 
-              <h4 className="font-semibold mb-6 text-purple-300">Two ways to activate:</h4>
+              <h4 className="font-semibold mb-6 text-gray-400">Two ways to activate:</h4>
               
               <div className="space-y-6">
                 <div className="bg-gray-900/50 rounded-lg p-6 border border-gray-700">
-                  <p className="font-semibold text-purple-400 mb-4">Option 1: Immediate activation (recommended)</p>
+                  <p className="font-semibold text-gray-500 mb-4">Option 1: Immediate activation (recommended)</p>
                   <CommandBlock commands={['co init']} />
                   <pre className="text-xs text-gray-700 mt-4 font-mono bg-gray-900 p-3 rounded flex items-start gap-2">
-<FaEnvelope className="text-purple-400 mt-1 flex-shrink-0" />
+<FaEnvelope className="text-gray-500 mt-1 flex-shrink-0" />
 <span>Agent email: 0x1234abcd@mail.openonion.ai (inactive)
 
 Your agent can send emails!
@@ -317,17 +317,17 @@ Email activated! Your agent can now send emails.</span>
                 </div>
 
                 <div className="bg-gray-900/50 rounded-lg p-6 border border-gray-700">
-                  <p className="font-semibold text-purple-400 mb-4">Option 2: Activate later</p>
+                  <p className="font-semibold text-gray-500 mb-4">Option 2: Activate later</p>
                   <CommandBlock commands={['co auth']} />
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-6 border border-purple-200 mt-10">
+          <div className="bg-gradient-to-r from-gray-500/10 to-gray-500/10 rounded-xl p-6 border border-gray-200 mt-10">
             <h3 className="text-lg font-semibold mb-4">Want a custom name?</h3>
             <p className="text-gray-700 mb-4">Upgrade to a custom email for $0.99:</p>
-            <div className="bg-gray-900 rounded-lg p-4 font-mono text-purple-400 space-y-1">
+            <div className="bg-gray-900 rounded-lg p-4 font-mono text-gray-500 space-y-1">
               <div>mybot@mail.openonion.ai</div>
               <div>ai-assistant@mail.openonion.ai</div>
               <div>support@mail.openonion.ai</div>
@@ -490,7 +490,7 @@ print(f"Report sent: {result['success']}")`}
 
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-purple-300">Quotas</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-400">Quotas</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex justify-between">
                   <span className="text-gray-700">Free tier:</span>
@@ -508,43 +508,43 @@ print(f"Report sent: {result['success']}")`}
             </div>
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-purple-300">Rate Limiting</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-400">Rate Limiting</h3>
               <p className="text-gray-700 text-sm mb-4">Automatic rate limiting prevents abuse:</p>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
+                  <span className="text-gray-500">•</span>
                   <span>Returns error on limit exceeded</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
+                  <span className="text-gray-500">•</span>
                   <span>Resets monthly</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
+                  <span className="text-gray-500">•</span>
                   <span>No configuration needed</span>
                 </li>
               </ul>
             </div>
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-purple-300">Content Types</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-400">Content Types</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
+                  <span className="text-gray-500">•</span>
                   <div>
                     <span className="font-medium">Plain text</span>
                     <p className="text-gray-500 text-xs">Just send a string</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
+                  <span className="text-gray-500">•</span>
                   <div>
                     <span className="font-medium">HTML</span>
                     <p className="text-gray-500 text-xs">Auto-detected from tags</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400">•</span>
+                  <span className="text-gray-500">•</span>
                   <div>
                     <span className="font-medium">Mixed</span>
                     <p className="text-gray-500 text-xs">HTML with plain fallback</p>
@@ -554,45 +554,45 @@ print(f"Report sent: {result['success']}")`}
             </div>
 
             <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-purple-300">From Address</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-400">From Address</h3>
               <ul className="space-y-3 text-sm">
                 <li>
                   <span className="text-gray-700">Free tier:</span>
-                  <div className="font-mono text-xs mt-1 text-purple-400">0x{'{key_prefix}'}@mail.openonion.ai</div>
+                  <div className="font-mono text-xs mt-1 text-gray-500">0x{'{key_prefix}'}@mail.openonion.ai</div>
                 </li>
                 <li>
                   <span className="text-gray-700">Custom name:</span>
-                  <div className="font-mono text-xs mt-1 text-purple-400">yourname@mail.openonion.ai</div>
+                  <div className="font-mono text-xs mt-1 text-gray-500">yourname@mail.openonion.ai</div>
                 </li>
               </ul>
             </div>
           </div>
 
           <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-8">
-            <h3 className="text-lg font-semibold mb-6 text-purple-300">Behind the Scenes</h3>
+            <h3 className="text-lg font-semibold mb-6 text-gray-400">Behind the Scenes</h3>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Email configured during <code className="bg-gray-800 px-2 py-0.5 rounded text-xs">co init</code></span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Stored in <code className="bg-gray-800 px-2 py-0.5 rounded text-xs">.co/config.toml</code></span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Uses Resend API for delivery</span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Automatic retry on failures</span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Logs all emails for debugging</span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>SPF/DKIM configured</span>
               </div>
             </div>
@@ -601,16 +601,16 @@ print(f"Report sent: {result['success']}")`}
 
         {/* Philosophy */}
         <section className="mb-16">
-          <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-10 border border-purple-200">
+          <div className="bg-gradient-to-br from-gray-500/10 via-pink-500/10 to-gray-500/10 rounded-2xl p-10 border border-gray-200">
             <h2 className="heading-2">Philosophy</h2>
-            <p className="text-2xl font-semibold text-purple-300 mb-6">
+            <p className="text-2xl font-semibold text-gray-400 mb-6">
               One function, one purpose: Send an email
             </p>
             <p className="text-gray-700 mb-6">
               No templates to learn. No configuration files. No complex APIs.
             </p>
             <p className="text-gray-700 mb-8">
-              Just <code className="bg-gray-800 px-3 py-1.5 rounded text-purple-400">send_email(to, subject, message)</code>.
+              Just <code className="bg-gray-800 px-3 py-1.5 rounded text-gray-500">send_email(to, subject, message)</code>.
             </p>
             <div className="text-center">
               <p className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">

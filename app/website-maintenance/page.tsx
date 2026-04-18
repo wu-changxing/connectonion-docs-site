@@ -9,7 +9,7 @@ export default function WebsiteMaintenancePage() {
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-        <Link href="/" className="hover:text-purple-400 transition-colors">
+        <Link href="/" className="hover:text-gray-500 transition-colors">
           Docs
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />
@@ -41,7 +41,7 @@ export default function WebsiteMaintenancePage() {
             <HiOutlineDocumentText className="mr-2 h-6 w-6 text-blue-500" />
             Three-Step Process
           </h2>
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-blue-200 dark:border-gray-700">
+          <div className="bg-gradient-to-r from-blue-50 to-gray-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-blue-200 dark:border-gray-700">
             <ol className="space-y-3">
               <li className="flex items-start">
                 <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
@@ -50,7 +50,7 @@ export default function WebsiteMaintenancePage() {
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
+                <span className="bg-gray-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
                 <div>
                   <strong>Create Page</strong> - Add component in <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">/app/</code>
                 </div>
@@ -210,7 +210,7 @@ export default function YourFeaturePage() {
         {/* Quick Reference */}
         <section>
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="mr-2 h-6 w-6 text-purple-500" />
+            <HiOutlineCodeBracket className="mr-2 h-6 w-6 text-gray-500" />
             Directory Structure
           </h2>
           

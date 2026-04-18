@@ -62,12 +62,12 @@ export default function CliBrowserCommandPage() {
         {/* Command Format */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-purple-400" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
             Command Format
           </h2>
 
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mb-6">
-            <code className="text-lg text-purple-300">
+            <code className="text-lg text-gray-400">
               co browser "screenshot [URL] [save to PATH] [size SIZE]"
             </code>
           </div>
@@ -154,7 +154,7 @@ co browser "screenshot localhost:3000 size desktop"`}
                   <td className="px-4 py-3 text-slate-300">Common Android</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">ipad</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">ipad</td>
                   <td className="px-4 py-3 text-gray-700">768x1024</td>
                   <td className="px-4 py-3 text-slate-300">iPad</td>
                 </tr>
@@ -300,7 +300,7 @@ co browser "screenshot $DEPLOY_URL save to artifacts/deployed.png"`}
         {/* Framework Examples */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-pink-400" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
             Framework Examples
           </h2>
 

@@ -191,7 +191,7 @@ Sometimes the best technical decisions are the least technical ones.`
               </p>
 
               <p className="text-lg leading-relaxed">
-                When designing ConnectOnion's agent-to-agent authentication system, we faced a crucial decision: what should we call the parameter that controls how agents verify each other? After evaluating 15+ options and extensive discussion, we settled on <code className="bg-gray-100 text-purple-300 px-2 py-1 rounded font-mono text-sm">trust</code>. Here's why.
+                When designing ConnectOnion's agent-to-agent authentication system, we faced a crucial decision: what should we call the parameter that controls how agents verify each other? After evaluating 15+ options and extensive discussion, we settled on <code className="bg-gray-100 text-gray-400 px-2 py-1 rounded font-mono text-sm">trust</code>. Here's why.
               </p>
 
               <h2 className="heading-2">The Challenge: Finding a Bidirectional Word</h2>
@@ -251,8 +251,8 @@ Sometimes the best technical decisions are the least technical ones.`
                     examples: ['Trust is earned through successful interactions, not certificates']
                   }
                 ].map((point, idx) => (
-                  <div key={idx} className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-200 rounded-xl p-6">
-                    <h3 className="text-xl font-semibold text-purple-300 mb-2 flex items-center gap-2">
+                  <div key={idx} className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-gray-400 mb-2 flex items-center gap-2">
                       <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
                       {point.title}
                     </h3>
@@ -275,7 +275,7 @@ Sometimes the best technical decisions are the least technical ones.`
                   <span className="text-sm text-gray-700 font-mono">config.py</span>
                 </div>
                 <pre className="p-4 text-sm overflow-x-auto">
-                  <code className="text-purple-300">{`# Instantly understandable
+                  <code className="text-gray-400">{`# Instantly understandable
 agent = Agent(name="helper", trust="open")
 
 # Compare to alternatives:
@@ -291,7 +291,7 @@ agent = Agent(name="helper", mode="dev")         # Mode of what?`}</code>
               
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden mt-4">
                 <pre className="p-4 text-sm overflow-x-auto">
-                  <code className="text-purple-300">{`# Simple trust + smart prompt = sophisticated behavior
+                  <code className="text-gray-400">{`# Simple trust + smart prompt = sophisticated behavior
 agent = Agent(
     name="analyzer",
     trust="tested",

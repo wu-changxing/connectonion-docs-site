@@ -62,28 +62,28 @@ agent.input("What do I know about Alice?")`}
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-start gap-3">
-                <HiOutlineBookmark className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineBookmark className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Persistent Storage</p>
                   <p className="text-sm text-slate-200">Save information across sessions</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <HiOutlineCircleStack className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineCircleStack className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Key-Value Retrieval</p>
                   <p className="text-sm text-slate-200">Retrieve information by specific keys</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <HiOutlineMagnifyingGlass className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineMagnifyingGlass className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Regex Search</p>
                   <p className="text-sm text-slate-200">Search across all memories with patterns</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <HiOutlineDocumentText className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineDocumentText className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Markdown Format</p>
                   <p className="text-sm text-slate-200">Organize knowledge in human-readable format</p>
@@ -147,19 +147,19 @@ agent = Agent("assistant", tools=[memory])`}
                 <p className="text-gray-700 mb-4">Now your agent has access to 4 memory methods:</p>
                 <ul className="space-y-2 text-sm font-mono text-gray-700">
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-400">write_memory(key, content)</span>
+                    <span className="text-gray-500">write_memory(key, content)</span>
                     <span className="text-gray-500">- Save or update information</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-400">read_memory(key)</span>
+                    <span className="text-gray-500">read_memory(key)</span>
                     <span className="text-gray-500">- Retrieve information</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-400">list_memories()</span>
+                    <span className="text-gray-500">list_memories()</span>
                     <span className="text-gray-500">- Show all stored memories</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-400">search_memory(pattern)</span>
+                    <span className="text-gray-500">search_memory(pattern)</span>
                     <span className="text-gray-500">- Search with regex</span>
                   </li>
                 </ul>
@@ -174,7 +174,7 @@ agent = Agent("assistant", tools=[memory])`}
 
           <div className="space-y-12">
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-purple-300 font-mono">write_memory</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-gray-400 font-mono">write_memory</h3>
               <p className="text-gray-700 mb-4">Save information to memory:</p>
               <CodeWithResult 
                 code={`memory.write_memory("alice-notes", "Alice prefers email\\nAlice works at TechCorp")
@@ -188,7 +188,7 @@ agent = Agent("assistant", tools=[memory])`}
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-purple-300 font-mono">read_memory</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-gray-400 font-mono">read_memory</h3>
               <p className="text-gray-700 mb-4">Retrieve saved information:</p>
               <CodeWithResult 
                 code={`memory.read_memory("alice-notes")
@@ -203,7 +203,7 @@ agent = Agent("assistant", tools=[memory])`}
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-purple-300 font-mono">list_memories</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-gray-400 font-mono">list_memories</h3>
               <p className="text-gray-700 mb-4">Show all stored memories:</p>
               <CodeWithResult 
                 code={`memory.list_memories()
@@ -218,7 +218,7 @@ agent = Agent("assistant", tools=[memory])`}
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-purple-300 font-mono">search_memory</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-gray-400 font-mono">search_memory</h3>
               <p className="text-gray-700 mb-4">Search across all memories using regex:</p>
               <CodeWithResult 
                 code={`# Simple text search (case-sensitive by default)
@@ -328,9 +328,9 @@ agent.input("What did I learn about Python's history?")`}
               <h3 className="text-2xl font-semibold mb-4">Single File (Default)</h3>
               <p className="text-gray-700 mb-4">Memories start in a single <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">memory.md</code> file using section headers:</p>
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-sm text-gray-700">
-                <div className="text-purple-400 font-bold">## alice-notes</div>
+                <div className="text-gray-500 font-bold">## alice-notes</div>
                 <div className="mt-2">Alice prefers email communication<br/>Works at TechCorp</div>
-                <div className="text-purple-400 font-bold mt-4">## bob-notes</div>
+                <div className="text-gray-500 font-bold mt-4">## bob-notes</div>
                 <div className="mt-2">Bob from Marketing<br/>Prefers phone calls</div>
               </div>
             </div>
@@ -354,7 +354,7 @@ agent.input("What did I learn about Python's history?")`}
           
           <div className="space-y-6">
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
-              <h3 className="font-semibold text-purple-300 mb-2">1. Use Descriptive Keys</h3>
+              <h3 className="font-semibold text-gray-400 mb-2">1. Use Descriptive Keys</h3>
               <CodeWithResult 
                 code={`# Good
 memory.write_memory("alice-techcorp-contact-info", content)
@@ -367,7 +367,7 @@ memory.write_memory("note1", content)`}
             </div>
 
             <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
-              <h3 className="font-semibold text-purple-300 mb-2">2. Structure Your Content</h3>
+              <h3 className="font-semibold text-gray-400 mb-2">2. Structure Your Content</h3>
               <p className="text-gray-700 mb-2">Use markdown formatting for better organization:</p>
               <CodeWithResult 
                 code={`content = """# Alice - TechCorp

@@ -166,7 +166,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
         icon={HiOutlineCpuChip}
         iconColor="text-blue-400"
         iconBgFrom="from-blue-600/20"
-        iconBgTo="to-purple-600/20"
+        iconBgTo="to-gray-700/20"
         iconBorderColor="border-blue-500/30"
         title="Models"
         description="Use the latest AI models from OpenAI, Google, Anthropic, and Mistral with a single interface."
@@ -179,9 +179,9 @@ export ANTHROPIC_API_KEY="sk-ant-..."
         <h2 className="heading-2">Quick Start (60 Seconds)</h2>
 
         {/* Managed Keys Path */}
-        <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-xl border border-purple-200 mb-6">
+        <div className="bg-gradient-to-br from-gray-900/20 to-blue-900/20 p-6 rounded-xl border border-gray-200 mb-6">
           <h3 className="text-xl font-semibold mb-4 flex items-center text-white">
-            <HiOutlineBolt className="mr-2 h-5 w-5 text-purple-400" />
+            <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-500" />
             Easiest Way: Use Managed Keys
           </h3>
           <p className="text-gray-700 mb-4">
@@ -201,9 +201,9 @@ response = agent.input("Explain quantum computing")`}
             result={`Quantum computing harnesses quantum mechanical phenomena...`}
           />
 
-          <div className="mt-4 p-3 bg-purple-500/10 rounded border border-purple-200">
-            <p className="text-sm text-purple-300">
-              ⭐ <strong>Bonus:</strong> <a href="https://github.com/wu-changxing/connectonion" target="_blank" rel="noopener" className="underline hover:text-purple-800">Star our repo</a> for an additional 100K tokens!
+          <div className="mt-4 p-3 bg-gray-500/10 rounded border border-gray-200">
+            <p className="text-sm text-gray-400">
+              ⭐ <strong>Bonus:</strong> <a href="https://github.com/wu-changxing/connectonion" target="_blank" rel="noopener" className="underline hover:text-gray-800">Star our repo</a> for an additional 100K tokens!
             </p>
           </div>
         </div>
@@ -301,9 +301,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
         <div className="flex flex-wrap gap-2 mb-6">
           <button
             onClick={() => setActiveProvider('openai')}
-            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
+            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'openai'
-                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
+                ? 'bg-gradient-to-r from-blue-500 to-gray-700 text-white'
                 : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
             }`}
           >
@@ -311,9 +311,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           </button>
           <button
             onClick={() => setActiveProvider('google')}
-            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
+            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'google'
-                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
+                ? 'bg-gradient-to-r from-blue-500 to-gray-700 text-white'
                 : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
             }`}
           >
@@ -321,9 +321,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           </button>
           <button
             onClick={() => setActiveProvider('anthropic')}
-            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
+            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'anthropic'
-                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
+                ? 'bg-gradient-to-r from-blue-500 to-gray-700 text-white'
                 : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
             }`}
           >
@@ -331,9 +331,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           </button>
           <button
             onClick={() => setActiveProvider('mistral')}
-            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
+            className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'mistral'
-                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
+                ? 'bg-gradient-to-r from-blue-500 to-gray-700 text-white'
                 : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
             }`}
           >
@@ -366,12 +366,12 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-purple-400" />
+                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-gray-500" />
                 Reasoning Models
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">o4-mini</code>
+                  <code className="bg-gray-500/20 text-gray-400 px-2 py-1 rounded text-sm mr-3 font-mono">o4-mini</code>
                   <span className="text-gray-700">OpenAI's newest reasoning model</span>
                 </div>
               </div>
@@ -472,16 +472,16 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-purple-400" />
+                <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-gray-500" />
                 Claude 4 Series (Previous Gen)
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4-1</code>
+                  <code className="bg-gray-500/20 text-gray-400 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4-1</code>
                   <span className="text-gray-700">Specialized reasoning - <strong className="text-green-400">supports structured output</strong></span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-sonnet-4</code>
+                  <code className="bg-gray-500/20 text-gray-400 px-2 py-1 rounded text-sm mr-3 font-mono">claude-sonnet-4</code>
                   <span className="text-gray-700">Balanced performance - <strong className="text-yellow-400">no structured output</strong></span>
                 </div>
               </div>
@@ -570,7 +570,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
             <h3 className="font-semibold mb-4 flex items-center text-white">
-              <HiOutlineEye className="mr-2 h-5 w-5 text-purple-400" />
+              <HiOutlineEye className="mr-2 h-5 w-5 text-gray-500" />
               Multimodal
             </h3>
             <CodeWithResult
@@ -588,9 +588,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Managed Keys */}
-          <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-xl border border-purple-200">
+          <div className="bg-gradient-to-br from-gray-900/20 to-blue-900/20 p-6 rounded-xl border border-gray-200">
             <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <HiOutlineBolt className="mr-2 h-5 w-5 text-purple-400" />
+              <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-500" />
               Option 1: Managed Keys
             </h3>
             <p className="text-sm text-gray-700 mb-4">
@@ -610,7 +610,7 @@ agent = Agent("assistant", model="co/claude-opus-4-5")`}
               <p>✓ 100K free tokens to start</p>
               <p>✓ Access to all providers</p>
               <p>✓ No API key management</p>
-              <p className="pt-1"><a href="/models/pricing" className="text-purple-400 hover:text-purple-300 underline text-xs">View pricing →</a></p>
+              <p className="pt-1"><a href="/models/pricing" className="text-gray-500 hover:text-gray-400 underline text-xs">View pricing →</a></p>
             </div>
           </div>
 
@@ -762,15 +762,15 @@ agent = create_agent_with_fallback("assistant")`}
       </section>
 
       {/* Info Box */}
-      <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 rounded-lg border border-purple-200 mb-16">
+      <div className="bg-gradient-to-br from-gray-900/20 to-blue-900/20 p-6 rounded-lg border border-gray-200 mb-16">
         <h3 className="font-semibold mb-2 flex items-center text-white">
-          <HiOutlineBolt className="mr-2 h-5 w-5 text-purple-400" />
+          <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-500" />
           Key Benefits
         </h3>
         <ul className="space-y-2 text-sm text-gray-700">
           <li>• <strong>Get started in 60 seconds</strong> with managed keys (co auth)</li>
           <li>• <strong>100K free tokens</strong> + bonus credits for starring our repo</li>
-          <li>• <strong>Same pricing as official APIs</strong> - see <a href="/models/pricing" className="text-purple-400 hover:text-purple-300 underline">full pricing table</a> or <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-purple-400 hover:text-purple-300 underline">add credits</a></li>
+          <li>• <strong>Same pricing as official APIs</strong> - see <a href="/models/pricing" className="text-gray-500 hover:text-gray-400 underline">full pricing table</a> or <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-400 underline">add credits</a></li>
           <li>• <strong>Same code works everywhere</strong> - just change the model name or add/remove co/ prefix</li>
           <li>• <strong>Tool support identical</strong> across all models and providers</li>
           <li>• <strong>Easy transition</strong> from managed keys to your own keys when ready for production</li>

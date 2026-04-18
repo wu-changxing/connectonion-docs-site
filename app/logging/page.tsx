@@ -56,10 +56,10 @@ export default function LoggingPage() {
             { label: 'Logging' }
           ]}
           icon={HiOutlineDocumentText}
-          iconColor="text-purple-400"
-          iconBgFrom="from-purple-500/20"
-          iconBgTo="to-pink-500/20"
-          iconBorderColor="border-purple-500/30"
+          iconColor="text-gray-500"
+          iconBgFrom="from-gray-500/20"
+          iconBgTo="to-gray-500/20"
+          iconBorderColor="border-gray-400/30"
           title="Logging"
           description="Automatic activity logging for debugging and analysis."
           markdownPath="/debug/log.md"
@@ -69,11 +69,11 @@ export default function LoggingPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlinePlay className="w-6 h-6 text-purple-400" />
+            <HiOutlinePlay className="w-6 h-6 text-gray-500" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-8 border border-purple-200 mb-12">
+          <div className="bg-gradient-to-br from-gray-500/10 via-pink-500/10 to-gray-500/10 rounded-2xl p-8 border border-gray-200 mb-12">
             <CodeBlock
               code={`# Default: logs to .co/logs/{name}.log + .co/sessions/{name}_{timestamp}.yaml
 agent = Agent("assistant")
@@ -94,7 +94,7 @@ agent = Agent("assistant", log="debug.log")`}
         {/* Logging Modes */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineCommandLine className="w-6 h-6 text-purple-400" />
+            <HiOutlineCommandLine className="w-6 h-6 text-gray-500" />
             <h2 className="heading-2">Logging Modes</h2>
           </div>
 
@@ -111,16 +111,16 @@ agent = Agent("assistant", log="debug.log")`}
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700/50">
-                <tr className="hover:bg-gray-800/30 transition-colors bg-purple-500/5">
+                <tr className="hover:bg-gray-800/30 transition-colors bg-gray-500/5">
                   <td className="p-4 font-mono text-gray-400">False</td>
                   <td className="p-4 font-mono text-gray-400">True/None</td>
                   <td className="p-4 text-green-400">Yes</td>
                   <td className="p-4 text-green-400">Yes</td>
                   <td className="p-4 text-green-400">Yes</td>
-                  <td className="p-4 text-purple-300 font-medium">Development (default)</td>
+                  <td className="p-4 text-gray-400 font-medium">Development (default)</td>
                 </tr>
                 <tr className="hover:bg-gray-800/30 transition-colors">
-                  <td className="p-4 font-mono text-purple-300">True</td>
+                  <td className="p-4 font-mono text-gray-400">True</td>
                   <td className="p-4 font-mono text-gray-400">True/None</td>
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-gray-500">No</td>
@@ -151,7 +151,7 @@ agent = Agent("assistant", log="debug.log")`}
         {/* Log Locations */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineFolderOpen className="w-6 h-6 text-purple-400" />
+            <HiOutlineFolderOpen className="w-6 h-6 text-gray-500" />
             <h2 className="heading-2">Log Locations</h2>
           </div>
 
@@ -171,7 +171,7 @@ agent = Agent("assistant", log="debug.log")`}
         {/* Plain Text Format */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineCommandLine className="w-6 h-6 text-purple-400" />
+            <HiOutlineCommandLine className="w-6 h-6 text-gray-500" />
             <h2 className="heading-2">Plain Text Format (.co/logs/)</h2>
           </div>
 
@@ -196,7 +196,7 @@ Session started: 2024-12-02 10:32:14
         {/* Session YAML Format */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineCircleStack className="w-6 h-6 text-purple-400" />
+            <HiOutlineCircleStack className="w-6 h-6 text-gray-500" />
             <h2 className="heading-2">Session YAML Format (.co/sessions/)</h2>
           </div>
 
@@ -221,18 +221,18 @@ turns:
           </div>
 
           <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-            <h3 className="text-lg font-semibold mb-4 text-purple-300">Use Cases</h3>
+            <h3 className="text-lg font-semibold mb-4 text-gray-400">Use Cases</h3>
             <ul className="space-y-3 text-sm text-gray-700">
               <li className="flex items-start gap-2">
-                <span className="text-purple-400 font-bold">Session replay:</span>
+                <span className="text-gray-500 font-bold">Session replay:</span>
                 <span>Restore context from saved sessions</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400 font-bold">Regression testing:</span>
+                <span className="text-gray-500 font-bold">Regression testing:</span>
                 <span>Compare expected vs actual results</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400 font-bold">Development comparison:</span>
+                <span className="text-gray-500 font-bold">Development comparison:</span>
                 <span>See what changed after prompt edits</span>
               </li>
             </ul>
@@ -242,7 +242,7 @@ turns:
         {/* View Logs */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineEye className="w-6 h-6 text-purple-400" />
+            <HiOutlineEye className="w-6 h-6 text-gray-500" />
             <h2 className="heading-2">View Logs</h2>
           </div>
 
@@ -272,7 +272,7 @@ turns:
         {/* Environment Variable */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineCommandLine className="w-6 h-6 text-purple-400" />
+            <HiOutlineCommandLine className="w-6 h-6 text-gray-500" />
             <h2 className="heading-2">Environment Variable</h2>
           </div>
 
@@ -285,7 +285,7 @@ turns:
         {/* Git Ignore */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineFolderOpen className="w-6 h-6 text-purple-400" />
+            <HiOutlineFolderOpen className="w-6 h-6 text-gray-500" />
             <h2 className="heading-2">Git Ignore</h2>
           </div>
 
@@ -317,24 +317,24 @@ turns:
 
         {/* Parameters */}
         <section className="mb-16">
-          <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-10 border border-purple-200">
+          <div className="bg-gradient-to-br from-gray-500/10 via-pink-500/10 to-gray-500/10 rounded-2xl p-10 border border-gray-200">
             <h2 className="heading-2 mb-6">Parameters</h2>
 
             <div className="space-y-6">
               <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
                 <p className="text-gray-700">
-                  <code className="text-purple-400 font-semibold">quiet</code> (bool): Suppress console output. Sessions still recorded. Default: <code className="text-gray-400">False</code>
+                  <code className="text-gray-500 font-semibold">quiet</code> (bool): Suppress console output. Sessions still recorded. Default: <code className="text-gray-400">False</code>
                 </p>
               </div>
 
               <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
                 <p className="text-gray-700 mb-3">
-                  <code className="text-purple-400 font-semibold">log</code> (bool|str|Path): Control file logging
+                  <code className="text-gray-500 font-semibold">log</code> (bool|str|Path): Control file logging
                 </p>
                 <ul className="space-y-2 text-sm text-gray-700 ml-4">
                   <li className="flex items-start gap-2">
                     <code className="text-gray-400">None</code>/<code className="text-gray-400">True</code>:
-                    <span>Default <code className="text-purple-300">.co/logs/{'{name}'}.log</code></span>
+                    <span>Default <code className="text-gray-400">.co/logs/{'{name}'}.log</code></span>
                   </li>
                   <li className="flex items-start gap-2">
                     <code className="text-gray-400">False</code>:

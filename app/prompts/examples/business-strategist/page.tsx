@@ -236,9 +236,9 @@ ${expectedOutput}
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <HiOutlineArrowTrendingUp className="w-8 h-8 text-pink-400" />
+                <HiOutlineArrowTrendingUp className="w-8 h-8 text-gray-500" />
                 <h1 className="heading-1">Business Strategist</h1>
-                <span className="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-sm font-medium">
+                <span className="px-3 py-1 bg-pink-900/50 text-gray-500 rounded-full text-sm font-medium">
                   Expert
                 </span>
               </div>
@@ -257,28 +257,28 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-pink-900/20 border border-pink-200 rounded-xl">
+      <div className="mb-12 p-6 bg-pink-900/20 border border-gray-200 rounded-xl">
         <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-          <HiOutlineLightBulb className="w-6 h-6 text-pink-400" />
+          <HiOutlineLightBulb className="w-6 h-6 text-gray-500" />
           Key Learning Concepts
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-3">
-            <HiOutlineViewfinderCircle className="w-5 h-5 text-pink-400 mt-1 flex-shrink-0" />
+            <HiOutlineViewfinderCircle className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Strategic Framework</h3>
               <p className="text-pink-800 text-sm">3-pillar analysis framework for comprehensive strategic evaluation</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineChartBar className="w-5 h-5 text-pink-400 mt-1 flex-shrink-0" />
+            <HiOutlineChartBar className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Decision Matrix</h3>
               <p className="text-pink-800 text-sm">Weighted criteria system for objective strategy comparison</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-pink-400 mt-1 flex-shrink-0" />
+            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Executive Communication</h3>
               <p className="text-pink-800 text-sm">Structure optimized for C-level strategic decision making</p>
@@ -387,7 +387,7 @@ ${expectedOutput}
           {/* Expected Output */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
-              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-pink-400" />
+              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500" />
               <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
@@ -405,15 +405,15 @@ ${expectedOutput}
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Strategic Leadership Techniques</h3>
             <div className="space-y-4 text-sm">
               <div>
-                <h4 className="font-semibold text-pink-400 mb-2">📊 Data-Driven Decisions</h4>
+                <h4 className="font-semibold text-gray-500 mb-2">📊 Data-Driven Decisions</h4>
                 <p className="text-gray-700">Quantitative analysis with market sizing and financial projections for credible recommendations.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-pink-400 mb-2">⚖️ Comparative Analysis</h4>
+                <h4 className="font-semibold text-gray-500 mb-2">⚖️ Comparative Analysis</h4>
                 <p className="text-gray-700">Side-by-side strategy evaluation with weighted scoring for objective decision-making.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-pink-400 mb-2">🛡️ Risk Management</h4>
+                <h4 className="font-semibold text-gray-500 mb-2">🛡️ Risk Management</h4>
                 <p className="text-gray-700">Proactive identification of risks with specific mitigation strategies and contingency plans.</p>
               </div>
             </div>

@@ -18,7 +18,7 @@ export default function SubagentsPage() {
           icon={HiOutlineUsers}
           iconColor="text-violet-400"
           iconBgFrom="from-violet-600/20"
-          iconBgTo="to-purple-600/20"
+          iconBgTo="to-gray-700/20"
           iconBorderColor="border-violet-500/30"
           title="subagents"
           description="Spawn specialized sub-agents to handle specific tasks. Delegate work to focused agents with their own tools, model, and system prompt."

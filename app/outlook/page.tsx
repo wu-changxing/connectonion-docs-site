@@ -71,7 +71,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
               </h3>
 
               <div className="space-y-6">
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-blue-300 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
                   <p className="text-gray-700 text-sm mb-4">Read emails from inbox</p>
                   <ul className="text-sm text-gray-700 space-y-1">
@@ -80,12 +80,12 @@ agent.input("Send an email to alice@example.com saying hello")`}
                   </ul>
                 </div>
 
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-blue-300 font-mono mb-2">get_sent_emails(max_results=10)</h4>
                   <p className="text-gray-700 text-sm">Get emails you sent</p>
                 </div>
 
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-blue-300 font-mono mb-2">get_email_body(email_id)</h4>
                   <p className="text-gray-700 text-sm">Get full email content with headers</p>
                 </div>
@@ -99,7 +99,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
                 Search
               </h3>
 
-              <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
+              <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                 <h4 className="font-semibold text-green-300 font-mono mb-2">search_emails(query, max_results=10)</h4>
                 <p className="text-gray-700 text-sm mb-4">Search emails using Microsoft Graph search</p>
                 <div className="bg-gray-800 rounded-lg p-4">
@@ -121,7 +121,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
               </h3>
 
               <div className="space-y-4">
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-emerald-300 font-mono mb-2">send(to, subject, body, cc=None, bcc=None)</h4>
                   <p className="text-gray-700 text-sm mb-4">Send email via Microsoft Graph API</p>
                   <ul className="text-sm text-gray-700 space-y-1">
@@ -133,7 +133,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
                   </ul>
                 </div>
 
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-emerald-300 font-mono mb-2">reply(email_id, body)</h4>
                   <p className="text-gray-700 text-sm">Reply to an existing email</p>
                 </div>
@@ -143,21 +143,21 @@ agent.input("Send an email to alice@example.com saying hello")`}
             {/* Actions */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <HiOutlineArchiveBox className="w-5 h-5 text-purple-400" />
+                <HiOutlineArchiveBox className="w-5 h-5 text-gray-500" />
                 Actions
               </h3>
 
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-purple-300 font-mono text-sm mb-1">mark_read(email_id)</h4>
+                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
+                  <h4 className="font-semibold text-gray-400 font-mono text-sm mb-1">mark_read(email_id)</h4>
                   <p className="text-gray-700 text-xs">Mark email as read</p>
                 </div>
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-purple-300 font-mono text-sm mb-1">mark_unread(email_id)</h4>
+                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
+                  <h4 className="font-semibold text-gray-400 font-mono text-sm mb-1">mark_unread(email_id)</h4>
                   <p className="text-gray-700 text-xs">Mark email as unread</p>
                 </div>
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-purple-300 font-mono text-sm mb-1">archive_email(email_id)</h4>
+                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
+                  <h4 className="font-semibold text-gray-400 font-mono text-sm mb-1">archive_email(email_id)</h4>
                   <p className="text-gray-700 text-xs">Move email to archive folder</p>
                 </div>
               </div>
@@ -171,11 +171,11 @@ agent.input("Send an email to alice@example.com saying hello")`}
               </h3>
 
               <div className="space-y-4">
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-4">
+                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
                   <h4 className="font-semibold text-cyan-300 font-mono text-sm mb-1">count_unread()</h4>
                   <p className="text-gray-700 text-xs">Count unread emails in inbox</p>
                 </div>
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-4">
+                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
                   <h4 className="font-semibold text-cyan-300 font-mono text-sm mb-1">get_my_email()</h4>
                   <p className="text-gray-700 text-xs">Get connected Microsoft email address</p>
                 </div>

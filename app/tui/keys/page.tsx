@@ -149,7 +149,7 @@ while True:
               <h3 className="font-semibold text-gray-900 mb-2">Unix/macOS</h3>
               <p className="text-sm text-gray-700">Uses <code>termios</code> + <code>tty</code></p>
             </div>
-            <div className="p-4 bg-purple-900/20 border border-purple-200 rounded-lg">
+            <div className="p-4 bg-gray-900/20 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-900 mb-2">Windows</h3>
               <p className="text-sm text-gray-700">Uses <code>msvcrt</code></p>
             </div>

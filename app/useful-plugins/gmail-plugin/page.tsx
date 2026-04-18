@@ -83,7 +83,7 @@ CRM updated: john@example.com`}
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy gmail_plugin</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-400"><code className="bg-gray-800 px-2 py-1 rounded">co copy gmail_plugin</code></Link> to get an editable copy.
           </p>
         </section>
 
@@ -108,7 +108,7 @@ CRM updated: john@example.com`}
               </div>
             </div>
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
-              <HiOutlinePaperAirplane className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+              <HiOutlinePaperAirplane className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-white">Auto approve all emails this session</strong>
                 <p className="text-sm text-gray-700">Skip approval for all emails (use with caution)</p>

@@ -222,8 +222,8 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               <p>Organizations need transparency to audit AI agent behavior. But actual work needs privacy. We struggled with this tension until we realized: separate them into two layers.</p>
               
               <div className="grid md:grid-cols-2 gap-6 my-8">
-                <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-200 rounded-xl p-6">
-                  <h3 className="text-xl font-bold text-purple-300 mb-4">Public Discovery Layer (ANNOUNCE/FIND)</h3>
+                <div className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6">
+                  <h3 className="text-xl font-bold text-gray-400 mb-4">Public Discovery Layer (ANNOUNCE/FIND)</h3>
                   <ul className="space-y-2">
                     <li>• Unencrypted broadcasts</li>
                     <li>• Shows what agents exist and their capabilities</li>
@@ -232,7 +232,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                   </ul>
                 </div>
                 <div className="bg-gradient-to-br from-pink-900/20 to-transparent border border-pink-500/20 rounded-xl p-6">
-                  <h3 className="text-xl font-bold text-pink-300 mb-4">Private Work Layer (TASK)</h3>
+                  <h3 className="text-xl font-bold text-gray-500 mb-4">Private Work Layer (TASK)</h3>
                   <ul className="space-y-2">
                     <li>• Encrypted point-to-point messages</li>
                     <li>• Actual work remains confidential</li>
@@ -274,22 +274,22 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-purple-300 mb-4">1. ANNOUNCE = Heartbeat = Discovery</h3>
+                  <h3 className="text-xl font-semibold text-gray-400 mb-4">1. ANNOUNCE = Heartbeat = Discovery</h3>
                   <p>We started with separate HEARTBEAT and ANNOUNCE messages. Then realized: they're the same thing. One message type, multiple purposes.</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-semibold text-purple-300 mb-4">2. Behavioral Trust Over Cryptographic Trust</h3>
+                  <h3 className="text-xl font-semibold text-gray-400 mb-4">2. Behavioral Trust Over Cryptographic Trust</h3>
                   <p>We don't verify identities. We verify behavior. If an agent successfully completes tasks, it becomes a "contact". Trust through proven work, not certificates.</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-semibold text-purple-300 mb-4">3. Developer-Controlled Broadcasting</h3>
-                  <p>Agents only announce when developers explicitly call <code className="bg-gray-100 text-purple-300 px-2 py-1 rounded font-mono text-sm">announce()</code>. No hidden network activity, no automatic broadcasts. Developers stay in control.</p>
+                  <h3 className="text-xl font-semibold text-gray-400 mb-4">3. Developer-Controlled Broadcasting</h3>
+                  <p>Agents only announce when developers explicitly call <code className="bg-gray-100 text-gray-400 px-2 py-1 rounded font-mono text-sm">announce()</code>. No hidden network activity, no automatic broadcasts. Developers stay in control.</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-semibold text-purple-300 mb-4">4. No Global State</h3>
+                  <h3 className="text-xl font-semibold text-gray-400 mb-4">4. No Global State</h3>
                   <p>Each agent only knows its local neighborhood. No global directory, no consensus required. The network scales infinitely because there's nothing global to coordinate.</p>
                 </div>
               </div>
@@ -332,12 +332,12 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 <li>Developer control over network activity</li>
               </ul>
               
-              <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-l-4 border-purple-400 p-6 rounded-r-lg my-8">
-                <p className="mb-4 font-medium text-purple-800">We chose message-based architecture not because it's trendy, but because it matches how AI agents actually work: parallel, asynchronous, resilient.</p>
+              <div className="bg-gradient-to-r from-gray-50 to-gray-50 border-l-4 border-gray-300 p-6 rounded-r-lg my-8">
+                <p className="mb-4 font-medium text-gray-800">We chose message-based architecture not because it's trendy, but because it matches how AI agents actually work: parallel, asynchronous, resilient.</p>
                 
-                <p className="mb-4 font-medium text-purple-800">We chose public keys as addresses not because we love cryptography, but because they're unforgeable unique identifiers that require no central authority.</p>
+                <p className="mb-4 font-medium text-gray-800">We chose public keys as addresses not because we love cryptography, but because they're unforgeable unique identifiers that require no central authority.</p>
                 
-                <p className="font-medium text-purple-800">We chose simplicity not because we couldn't build something complex, but because we learned that simple systems are the ones that survive and scale.</p>
+                <p className="font-medium text-gray-800">We chose simplicity not because we couldn't build something complex, but because we learned that simple systems are the ones that survive and scale.</p>
               </div>
 
               <h2 className="heading-2">The ConnectOnion Way</h2>
@@ -353,13 +353,13 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               <p className="mt-6">The best protocol isn't the most sophisticated - it's the one that gets out of the way and lets agents do their work.</p>
 
               <div className="border-t border-gray-800 mt-16 pt-8">
-                <div className="bg-gradient-to-r from-purple-900/10 to-pink-900/10 border border-purple-200 rounded-lg p-6 mb-6">
-                  <h3 className="text-lg font-bold text-purple-300 mb-4">📖 Complete Technical Specification</h3>
+                <div className="bg-gradient-to-r from-gray-900/10 to-pink-900/10 border border-gray-200 rounded-lg p-6 mb-6">
+                  <h3 className="text-lg font-bold text-gray-400 mb-4">📖 Complete Technical Specification</h3>
                   <p className="text-gray-700 mb-4">
                     This article covers the design philosophy and evolution of our network protocol. For the complete technical specification including message formats, data structures, and implementation details, see:
                   </p>
                   <a href="https://github.com/connectonion/connectonion/blob/main/docs/design-decisions/004-designing-agent-network-protocol.md" 
-                     className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium transition-colors">
+                     className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-400 font-medium transition-colors">
                     <span>Full Network Protocol Documentation</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -368,7 +368,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 </div>
                 <p className="text-sm text-gray-700 italic">
                   The ConnectOnion network protocol is open source and available at{' '}
-                  <a href="https://github.com/wu-changxing/connectonion" className="text-purple-400 hover:text-purple-300 hover:underline transition-colors">
+                  <a href="https://github.com/wu-changxing/connectonion" className="text-gray-500 hover:text-gray-400 hover:underline transition-colors">
                     github.com/wu-changxing/connectonion
                   </a>. 
                   We welcome contributions and feedback as we continue to refine and improve the protocol.

@@ -14,7 +14,7 @@ export default function GoogleIntegrationPage() {
       <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-          <Link href="/" className="hover:text-purple-400 transition-colors">
+          <Link href="/" className="hover:text-gray-500 transition-colors">
             Docs
           </Link>
           <HiOutlineArrowRight className="w-4 h-4" />
@@ -100,24 +100,24 @@ GOOGLE_EMAIL=your.email@gmail.com`}
 
           <div className="mt-8 bg-gray-900/50 border border-gray-700 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <HiOutlineLockClosed className="w-5 h-5 text-purple-400" />
+              <HiOutlineLockClosed className="w-5 h-5 text-gray-500" />
               Security notes
             </h3>
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Credentials are saved to both local <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> and <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>File permissions set to <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">0600</code> (read/write for owner only) on Unix systems</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Access tokens expire, but refresh tokens allow automatic renewal</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>You can revoke access anytime via Google Account settings or the dashboard</span>
               </li>
             </ul>
@@ -142,17 +142,17 @@ GOOGLE_EMAIL=your.email@gmail.com`}
               </thead>
               <tbody className="text-gray-700">
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-purple-400">gmail.send</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">gmail.send</td>
                   <td className="py-3 px-4">Send emails on your behalf</td>
                   <td className="py-3 px-4">Use <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">send_email()</code> tool to send emails</td>
                 </tr>
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-purple-400">calendar.readonly</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">calendar.readonly</td>
                   <td className="py-3 px-4">Read calendar events</td>
                   <td className="py-3 px-4">Read your calendar to check availability</td>
                 </tr>
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-purple-400">userinfo.email</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">userinfo.email</td>
                   <td className="py-3 px-4">Get your email address</td>
                   <td className="py-3 px-4">Identify which Google account is connected</td>
                 </tr>
@@ -191,7 +191,7 @@ GOOGLE_EMAIL=your.email@gmail.com`}
           <div className="space-y-12">
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineEnvelope className="w-5 h-5 text-purple-400" />
+                <HiOutlineEnvelope className="w-5 h-5 text-gray-500" />
                 Send Email via Gmail
               </h3>
               <CodeWithResult 
@@ -215,7 +215,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineCalendar className="w-5 h-5 text-purple-400" />
+                <HiOutlineCalendar className="w-5 h-5 text-gray-500" />
                 Read Calendar Events
               </h3>
               <CodeWithResult 

@@ -18,10 +18,10 @@ export default function SkillsPluginPage() {
             { label: 'Skills' },
           ]}
           icon={HiOutlineCommandLine}
-          iconColor="text-purple-400"
-          iconBgFrom="from-purple-600/20"
+          iconColor="text-gray-500"
+          iconBgFrom="from-gray-700/20"
           iconBgTo="to-pink-600/20"
-          iconBorderColor="border-purple-500/30"
+          iconBorderColor="border-gray-400/30"
           title="Skills"
           description="Pre-packaged workflows with snapshot/restore permission management"
           markdownPath="/skills.md"
@@ -57,9 +57,9 @@ agent = Agent(
         <section className="mb-12">
           <h2 className="heading-2">What Skills Do</h2>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="p-5 bg-gradient-to-br from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg hover:border-purple-400/50 transition-all">
-              <HiOutlineCommandLine className="w-7 h-7 text-purple-400 mb-3" />
-              <h3 className="font-semibold text-purple-300 mb-2">Instant Invocation</h3>
+            <div className="p-5 bg-gradient-to-br from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg hover:border-gray-300/50 transition-all">
+              <HiOutlineCommandLine className="w-7 h-7 text-gray-500 mb-3" />
+              <h3 className="font-semibold text-gray-400 mb-2">Instant Invocation</h3>
               <p className="text-sm text-slate-300">/command detected in @after_user_input, no LLM overhead</p>
             </div>
             <div className="p-5 bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg hover:border-blue-400/50 transition-all">
@@ -127,7 +127,7 @@ session['permissions']['Bash(git status)'] = {
         <section className="mb-12">
           <h2 className="heading-2">Snapshot/Restore Flow</h2>
           <p className="text-gray-700 mb-6">
-            Skills preserve user approvals using a <strong className="text-purple-300">snapshot → grant → restore</strong> pattern:
+            Skills preserve user approvals using a <strong className="text-gray-400">snapshot → grant → restore</strong> pattern:
           </p>
 
           <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 mb-6">
@@ -137,14 +137,14 @@ session['permissions']['Bash(git status)'] = {
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">📸 Snapshot</h3>
                   <p className="text-sm text-slate-300 mb-2">Before granting skill permissions, save current state:</p>
-                  <div className="bg-gray-950 rounded p-3 font-mono text-xs text-purple-300">
+                  <div className="bg-gray-950 rounded p-3 font-mono text-xs text-gray-400">
                     snapshot = deepcopy(session['permissions'])
                   </div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-purple-500/20 border border-purple-500 flex items-center justify-center text-purple-300 font-semibold text-lg">2</div>
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gray-500/20 border border-gray-400 flex items-center justify-center text-gray-400 font-semibold text-lg">2</div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">➕ Grant</h3>
                   <p className="text-sm text-slate-300 mb-2">Add skill permissions to existing permissions:</p>
@@ -212,9 +212,9 @@ Create a well-formatted git commit for staged changes.
 3. Create commit with descriptive message`}
             language="yaml"
           />
-          <div className="mt-6 bg-purple-900/20 border border-purple-200 rounded-lg p-4">
+          <div className="mt-6 bg-gray-900/20 border border-gray-200 rounded-lg p-4">
             <p className="text-gray-700">
-              User types: <code className="bg-gray-800 px-2 py-1 rounded text-purple-300">/commit</code> →
+              User types: <code className="bg-gray-800 px-2 py-1 rounded text-gray-400">/commit</code> →
               git commands auto-approved → commit created → permissions restored
             </p>
           </div>
@@ -233,7 +233,7 @@ Create a well-formatted git commit for staged changes.
               <p className="text-xs text-slate-400 mt-2">Only matches "git status"</p>
             </div>
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
-              <h3 className="font-semibold text-purple-300 mb-2">Wildcard Args</h3>
+              <h3 className="font-semibold text-gray-400 mb-2">Wildcard Args</h3>
               <code className="text-sm text-slate-300">Bash(git diff *)</code>
               <p className="text-xs text-slate-400 mt-2">Any git diff command</p>
             </div>
@@ -274,7 +274,7 @@ Create a well-formatted git commit for staged changes.
                 <div>permissions['write'] = {'{'}source: 'user', expires: 'session_end'{'}'}</div>
               </div>
 
-              <div className="text-purple-300">
+              <div className="text-gray-400">
                 <div className="text-slate-400 text-xs mb-1">Turn 5: /commit skill invoked</div>
                 <div>→ Snapshot taken (write saved)</div>
                 <div>→ Grant: permissions['bash'] = {'{'}source: 'skill', when: {'{'}command: 'git *'{'}'}, expires: 'turn_end'{'}'}</div>
@@ -364,10 +364,10 @@ EOF`}
               </div>
               <p className="text-sm text-slate-300">Complete permission system overview</p>
             </Link>
-            <Link href="/concepts/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-purple-500/50 rounded-lg transition-all group">
+            <Link href="/concepts/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-gray-400/50 rounded-lg transition-all group">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineCodeBracket className="w-6 h-6 text-purple-400 group-hover:text-purple-300 transition-colors" />
-                <h3 className="font-semibold text-gray-900 group-hover:text-purple-300 transition-colors">Skills Concepts</h3>
+                <HiOutlineCodeBracket className="w-6 h-6 text-gray-500 group-hover:text-gray-400 transition-colors" />
+                <h3 className="font-semibold text-gray-900 group-hover:text-gray-400 transition-colors">Skills Concepts</h3>
               </div>
               <p className="text-sm text-slate-300">Detailed skills documentation</p>
             </Link>

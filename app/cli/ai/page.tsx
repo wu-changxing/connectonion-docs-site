@@ -23,18 +23,18 @@ export default function CliAiPage() {
               { label: 'co ai' }
             ]}
             icon={HiOutlineSparkles}
-            iconColor="text-purple-400"
-            iconBgFrom="from-purple-600/20"
+            iconColor="text-gray-500"
+            iconBgFrom="from-gray-700/20"
             iconBgTo="to-pink-600/20"
-            iconBorderColor="border-purple-500/30"
+            iconBorderColor="border-gray-400/30"
             title="co ai"
             description="AI coding agent that works in your project. Start a web chat session or run one-shot prompts — with full access to your files, shell, and tools."
             markdownPath="/cli/ai.md"
             markdownFilename="ai.md"
           />
 
-          <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-            <p className="text-lg font-semibold text-purple-900">
+          <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+            <p className="text-lg font-semibold text-gray-900">
               <strong>Quick Start:</strong> Run <code className="bg-gray-800 px-2 py-1 rounded">co ai</code> in your project — it opens a web chat connected to a coding agent that can read and edit your files.
             </p>
           </div>
@@ -48,10 +48,10 @@ export default function CliAiPage() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-4 mb-8">
-            <div className="bg-gray-900 border border-purple-200 rounded-lg p-5">
-              <h3 className="font-semibold text-purple-300 mb-2">Web Chat (default)</h3>
+            <div className="bg-gray-900 border border-gray-200 rounded-lg p-5">
+              <h3 className="font-semibold text-gray-400 mb-2">Web Chat (default)</h3>
               <code className="text-sm text-slate-300">co ai</code>
-              <p className="text-slate-400 text-sm mt-2">Starts a local agent server, opens <code className="text-purple-300">chat.openonion.ai</code> in your browser. Chat conversationally — best for extended sessions.</p>
+              <p className="text-slate-400 text-sm mt-2">Starts a local agent server, opens <code className="text-gray-400">chat.openonion.ai</code> in your browser. Chat conversationally — best for extended sessions.</p>
             </div>
             <div className="bg-gray-900 border border-cyan-500/30 rounded-lg p-5">
               <h3 className="font-semibold text-cyan-300 mb-2">One-Shot</h3>
@@ -236,7 +236,7 @@ EOF`}
             </div>
 
             <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
-              <h3 className="font-semibold text-purple-300 mb-2">Planning</h3>
+              <h3 className="font-semibold text-gray-400 mb-2">Planning</h3>
               <ul className="text-sm text-slate-300 space-y-1">
                 <li>• Enter plan mode, write plans</li>
                 <li>• Exit plan and implement</li>
@@ -244,7 +244,7 @@ EOF`}
             </div>
 
             <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
-              <h3 className="font-semibold text-pink-300 mb-2">Tasks & Skills</h3>
+              <h3 className="font-semibold text-gray-500 mb-2">Tasks & Skills</h3>
               <ul className="text-sm text-slate-300 space-y-1">
                 <li>• Background tasks, todo lists</li>
                 <li>• Load and run user-defined skills</li>
@@ -272,19 +272,19 @@ EOF`}
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">--port</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">--port</td>
                   <td className="px-4 py-3 font-mono text-slate-400">-p</td>
                   <td className="px-4 py-3 text-slate-300">8000</td>
                   <td className="px-4 py-3 text-gray-700">Web server port</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">--model</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">--model</td>
                   <td className="px-4 py-3 font-mono text-slate-400">-m</td>
                   <td className="px-4 py-3 text-slate-300">co/claude-opus-4-5</td>
                   <td className="px-4 py-3 text-gray-700">LLM model to use</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">--max-iterations</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">--max-iterations</td>
                   <td className="px-4 py-3 font-mono text-slate-400">-i</td>
                   <td className="px-4 py-3 text-slate-300">100</td>
                   <td className="px-4 py-3 text-gray-700">Max tool iterations per turn</td>

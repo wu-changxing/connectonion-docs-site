@@ -84,7 +84,7 @@ export default function CLIPage() {
         />
       
       {/* Quick Command Cheat Sheet */}
-      <div className="mb-12 p-4 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg">
+      <div className="mb-12 p-4 bg-gradient-to-r from-blue-50 to-gray-50 border border-blue-200 rounded-lg">
         <h2 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
           <HiOutlineBookOpen className="w-4 h-4 text-blue-400" />
           Quick Reference
@@ -147,9 +147,9 @@ export default function CLIPage() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-6">
+          <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
-              <HiOutlineFolderOpen className="w-5 h-5 text-purple-400" />
+              <HiOutlineFolderOpen className="w-5 h-5 text-gray-500" />
               <h3 className="text-lg font-semibold text-gray-900">co init</h3>
             </div>
             <p className="text-gray-700 text-sm">
@@ -297,7 +297,7 @@ Next steps:
       {/* co init Command */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineFolderOpen className="w-6 h-6 text-purple-400" />
+          <HiOutlineFolderOpen className="w-6 h-6 text-gray-500" />
           co init
         </h2>
         
@@ -322,8 +322,8 @@ Next steps:
           </div>
         </div>
 
-        <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-          <p className="text-purple-800">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+          <p className="text-gray-800">
             <strong>Note:</strong> Options are the same as <code className="bg-black/30 px-2 py-1 rounded">co create</code>,
             except no <code className="bg-black/30 px-2 py-1 rounded">[name]</code> parameter (uses current directory name).
           </p>
@@ -545,7 +545,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
               </ul>
             </div>
             <div className="bg-gray-100 rounded-lg p-4">
-              <h4 className="font-semibold text-purple-300 mb-2">Configuration</h4>
+              <h4 className="font-semibold text-gray-400 mb-2">Configuration</h4>
               <ul className="text-sm text-gray-700 space-y-1">
                 <li>• Config files</li>
                 <li>• Keys</li>
@@ -567,7 +567,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
       {/* co ai Command */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineSparkles className="w-6 h-6 text-purple-400" />
+          <HiOutlineSparkles className="w-6 h-6 text-gray-500" />
           co ai
         </h2>
 
@@ -592,10 +592,10 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           />
         </div>
 
-        <div className="bg-purple-900/20 border border-purple-200 rounded-lg p-4">
-          <p className="text-purple-800">
+        <div className="bg-gray-900/20 border border-gray-200 rounded-lg p-4">
+          <p className="text-gray-800">
             <strong>Learn more:</strong> See the complete{' '}
-            <Link href="/cli/ai" className="text-purple-300 hover:text-purple-900 underline">
+            <Link href="/cli/ai" className="text-gray-400 hover:text-gray-900 underline">
               co ai documentation
             </Link>{' '}
             for advanced features, model selection, and use cases.
@@ -673,7 +673,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
       {/* Templates */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineCodeBracket className="w-6 h-6 text-purple-400" />
+          <HiOutlineCodeBracket className="w-6 h-6 text-gray-500" />
           Templates
         </h2>
 
@@ -758,7 +758,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Email Agent Template */}
-          <div className="bg-gradient-to-b from-pink-900/20 to-pink-800/10 border border-pink-200 rounded-lg p-6">
+          <div className="bg-gradient-to-b from-pink-900/20 to-pink-800/10 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
               Email Agent
@@ -768,15 +768,15 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-pink-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-500" />
                 SMTP sending and IMAP reading
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-pink-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-500" />
                 Gmail and Outlook OAuth integration
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-pink-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-500" />
                 Email filtering and management tools
               </li>
             </ul>
@@ -808,9 +808,9 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Custom Template */}
-          <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-6">
+          <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
               Custom (AI-only)
             </h3>
             <p className="text-gray-700 mb-4">
@@ -948,9 +948,9 @@ Generating custom template with AI...
         </div>
 
         {/* Agent Identity */}
-        <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-6">
+        <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <HiOutlineShieldCheck className="w-5 h-5 text-purple-400" />
+            <HiOutlineShieldCheck className="w-5 h-5 text-gray-500" />
             Agent Identity
           </h3>
           <p className="text-gray-700 mb-4">
@@ -958,21 +958,21 @@ Generating custom template with AI...
           </p>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
-              <HiOutlineKey className="w-4 h-4 text-purple-400 mt-0.5" />
+              <HiOutlineKey className="w-4 h-4 text-gray-500 mt-0.5" />
               <div>
-                <strong className="text-purple-800">Ed25519 cryptographic keys</strong> for agent identity
+                <strong className="text-gray-800">Ed25519 cryptographic keys</strong> for agent identity
               </div>
             </li>
             <li className="flex items-start gap-2">
-              <HiOutlineKey className="w-4 h-4 text-purple-400 mt-0.5" />
+              <HiOutlineKey className="w-4 h-4 text-gray-500 mt-0.5" />
               <div>
-                <strong className="text-purple-800">Unique address</strong> (hex-encoded public key)
+                <strong className="text-gray-800">Unique address</strong> (hex-encoded public key)
               </div>
             </li>
             <li className="flex items-start gap-2">
-              <HiOutlineKey className="w-4 h-4 text-purple-400 mt-0.5" />
+              <HiOutlineKey className="w-4 h-4 text-gray-500 mt-0.5" />
               <div>
-                <strong className="text-purple-800">12-word recovery phrase</strong> for key restoration
+                <strong className="text-gray-800">12-word recovery phrase</strong> for key restoration
               </div>
             </li>
           </ul>
@@ -1020,8 +1020,8 @@ Generating custom template with AI...
         <h2 className="heading-2">Best Practices</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-b from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg p-6">
-            <HiOutlineCommandLine className="w-8 h-8 text-purple-400 mb-4" />
+          <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
+            <HiOutlineCommandLine className="w-8 h-8 text-gray-500 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Choose the Right Command</h3>
             <p className="text-gray-700 text-sm">
               Use <code className="bg-black/30 px-2 py-1 rounded">co create</code> for new projects, 

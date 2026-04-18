@@ -124,7 +124,7 @@ export default function CodeWithResult({
       if (trimmedLine === 'True' || trimmedLine === 'False' || trimmedLine === 'None') {
         return (
           <div key={index} className="font-mono text-[0.8125rem] md:text-sm leading-6">
-            <span className="text-purple-400">{line}</span>
+            <span className="text-gray-500">{line}</span>
           </div>
         )
       }

@@ -97,9 +97,9 @@ agent.input("Read the README")
         {/* Unified Permission Structure */}
         <section className="mb-12">
           <h2 className="heading-2">Unified Permission Structure</h2>
-          <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-purple-200 rounded-lg p-6 mb-6">
+          <div className="bg-gradient-to-br from-gray-900/20 to-blue-900/20 border border-gray-200 rounded-lg p-6 mb-6">
             <p className="text-gray-700 mb-4">
-              All permissions use the same 4-field structure, stored in <code className="px-2 py-1 bg-gray-800 rounded text-purple-300">session['permissions']</code>
+              All permissions use the same 4-field structure, stored in <code className="px-2 py-1 bg-gray-800 rounded text-gray-400">session['permissions']</code>
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
@@ -166,7 +166,7 @@ session['permissions'] = {
           <h2 className="heading-2">Config Files Use Bash() Pattern</h2>
 
           <p className="text-gray-700 mb-6">
-            User-facing config files (<code className="px-2 py-1 bg-gray-800 rounded text-purple-300">.co/host.yaml</code>) use a friendly <code className="px-2 py-1 bg-gray-800 rounded text-green-300">Bash()</code> pattern that automatically converts to the unified format at runtime:
+            User-facing config files (<code className="px-2 py-1 bg-gray-800 rounded text-gray-400">.co/host.yaml</code>) use a friendly <code className="px-2 py-1 bg-gray-800 rounded text-green-300">Bash()</code> pattern that automatically converts to the unified format at runtime:
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -199,9 +199,9 @@ session['permissions'] = {
             </div>
           </div>
 
-          <div className="bg-purple-900/20 border border-purple-200 rounded-lg p-4">
+          <div className="bg-gray-900/20 border border-gray-200 rounded-lg p-4">
             <p className="text-gray-700">
-              <strong className="text-purple-300">Automatic conversion:</strong> You write <code className="px-2 py-1 bg-gray-800 rounded text-green-300">Bash(git status)</code> in config, it becomes <code className="px-2 py-1 bg-gray-800 rounded text-purple-300">bash</code> with <code className="px-2 py-1 bg-gray-800 rounded text-blue-300">when:{'{command: "git status"}'}</code> at runtime.
+              <strong className="text-gray-400">Automatic conversion:</strong> You write <code className="px-2 py-1 bg-gray-800 rounded text-green-300">Bash(git status)</code> in config, it becomes <code className="px-2 py-1 bg-gray-800 rounded text-gray-400">bash</code> with <code className="px-2 py-1 bg-gray-800 rounded text-blue-300">when:{'{command: "git status"}'}</code> at runtime.
             </p>
           </div>
         </section>
@@ -271,7 +271,7 @@ session['permissions']['bash'] = {
         <section className="mb-12">
           <h2 className="heading-2">Snapshot/Restore - Preserving User Approvals</h2>
           <p className="text-gray-700 mb-6">
-            Skills use a <strong className="text-purple-300">snapshot → grant → restore</strong> pattern to ensure user approvals are never lost:
+            Skills use a <strong className="text-gray-400">snapshot → grant → restore</strong> pattern to ensure user approvals are never lost:
           </p>
 
           <div className="space-y-6">
@@ -287,7 +287,7 @@ session['permissions']['bash'] = {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500 flex items-center justify-center text-purple-300 font-semibold">2</div>
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-500/20 border border-gray-400 flex items-center justify-center text-gray-400 font-semibold">2</div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Turn 5: /commit Skill</h3>
                     <div className="text-sm text-slate-300 space-y-2">
@@ -401,9 +401,9 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
             Skills provide one-turn auto-approval with automatic cleanup. Perfect for workflows like git commits, deployments, or reviews.
           </p>
           <div className="grid md:grid-cols-3 gap-4 mb-6">
-            <div className="p-4 bg-gradient-to-br from-purple-900/20 to-purple-800/10 border border-purple-200 rounded-lg hover:border-purple-400/50 transition-all">
-              <HiOutlineLockClosed className="w-6 h-6 text-purple-400 mb-2" />
-              <h3 className="font-semibold text-purple-300 mb-2">Turn-Based</h3>
+            <div className="p-4 bg-gradient-to-br from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg hover:border-gray-300/50 transition-all">
+              <HiOutlineLockClosed className="w-6 h-6 text-gray-500 mb-2" />
+              <h3 className="font-semibold text-gray-400 mb-2">Turn-Based</h3>
               <p className="text-sm text-slate-300">Permissions tied to specific turn number</p>
             </div>
             <div className="p-4 bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg hover:border-blue-400/50 transition-all">
@@ -418,7 +418,7 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
             </div>
           </div>
           <div>
-            <Link href="/useful-plugins/skills" className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-all">
+            <Link href="/useful-plugins/skills" className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-500 text-white rounded-lg transition-all">
               Learn more about Skills →
             </Link>
           </div>
@@ -443,8 +443,8 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
         <section className="mb-12">
           <h2 className="heading-2">Related</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/useful-plugins/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-purple-500/50 rounded-lg transition-all group">
-              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">Skills Plugin</h3>
+            <Link href="/useful-plugins/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-gray-400/50 rounded-lg transition-all group">
+              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">Skills Plugin</h3>
               <p className="text-sm text-slate-300">Pre-packaged workflows with automatic permissions</p>
             </Link>
             <Link href="/concepts/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-green-500/50 rounded-lg transition-all group">

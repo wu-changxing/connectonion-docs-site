@@ -227,10 +227,10 @@ browser.close()`
           <button
             onClick={() => setActiveTab('class')}
             className={`min-h-[44px] px-6 py-3 rounded-lg font-medium transition-all
-              focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2
+              focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2
               focus:ring-offset-gray-900 ${
               activeTab === 'class'
-                ? 'bg-purple-600 text-white shadow-lg'
+                ? 'bg-gray-800 text-white shadow-lg'
                 : 'bg-gray-800 text-gray-200 hover:text-white hover:bg-gray-700'
             }`}
             aria-pressed={activeTab === 'class'}
@@ -243,7 +243,7 @@ browser.close()`
 
       {/* Quick Start */}
       <section className="mb-14">
-        <h2 className="heading-2"><HiOutlineSquare3Stack3D className="w-5 h-5 text-purple-400"/>Quick Start</h2>
+        <h2 className="heading-2"><HiOutlineSquare3Stack3D className="w-5 h-5 text-gray-500"/>Quick Start</h2>
         <CodeWithResult 
           code={quickStart}
           result={`>>> agent = Agent("helper", tools=[search], max_iterations=5)

@@ -126,23 +126,23 @@ If we add identity features later (reputation, attestations, trust scores), thos
               An address is simply <strong className="text-white">where to find something</strong>.
             </p>
 
-            <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-200 rounded-xl p-6 my-8">
-              <h3 className="text-xl font-semibold text-purple-300 mb-4">Addresses are:</h3>
+            <div className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6 my-8">
+              <h3 className="text-xl font-semibold text-gray-400 mb-4">Addresses are:</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex items-start gap-3">
-                  <span className="text-purple-400 font-bold">Functional</span>
+                  <span className="text-gray-500 font-bold">Functional</span>
                   <span className="text-gray-700">They route messages</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-purple-400 font-bold">Simple</span>
+                  <span className="text-gray-500 font-bold">Simple</span>
                   <span className="text-gray-700">Just a string that points somewhere</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-purple-400 font-bold">Temporary</span>
+                  <span className="text-gray-500 font-bold">Temporary</span>
                   <span className="text-gray-700">Can be changed or discarded</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-purple-400 font-bold">Neutral</span>
+                  <span className="text-gray-500 font-bold">Neutral</span>
                   <span className="text-gray-700">No claims about identity or trust</span>
                 </div>
               </div>
@@ -182,7 +182,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
                 { name: 'Email', term: 'Email address (not email identity)' },
               ].map((item, idx) => (
                 <div key={idx} className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 flex items-center gap-4">
-                  <strong className="text-purple-400 min-w-[100px]">{item.name}</strong>
+                  <strong className="text-gray-500 min-w-[100px]">{item.name}</strong>
                   <span className="text-gray-700">{item.term}</span>
                 </div>
               ))}
@@ -197,7 +197,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
                 <span className="text-sm text-gray-700 font-mono">address.py</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
-                <code className="text-purple-300">{`# What we generate
+                <code className="text-gray-400">{`# What we generate
 address = "0x" + public_key.hex()
 
 # What it does
@@ -218,7 +218,7 @@ send_message(to=address, content=data)
             <h2 className="heading-2">When We Almost Used "Identity"</h2>
 
             <p>
-              For 48 hours, our code used <code className="bg-gray-100 text-purple-300 px-2 py-1 rounded font-mono text-sm">agent_identity</code>.
+              For 48 hours, our code used <code className="bg-gray-100 text-gray-400 px-2 py-1 rounded font-mono text-sm">agent_identity</code>.
               Then a user asked:
             </p>
 
@@ -236,7 +236,7 @@ send_message(to=address, content=data)
 
             <h2 className="heading-2">The Final Decision</h2>
 
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-200">
+            <div className="bg-gradient-to-r from-gray-500/10 to-gray-500/10 rounded-lg p-6 border border-gray-200">
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 We call it an <strong className="text-white">address</strong> because that's what it is:
                 a way to reach an agent. Nothing more, nothing less.

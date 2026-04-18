@@ -18,9 +18,9 @@ export default function ProvidersPage() {
             { label: 'Providers' },
           ]}
           icon={HiOutlineCircleStack}
-          iconColor="text-pink-400"
+          iconColor="text-gray-500"
           iconBgFrom="from-pink-600/20"
-          iconBgTo="to-purple-600/20"
+          iconBgTo="to-gray-700/20"
           iconBorderColor="border-pink-500/30"
           title="Autocomplete Providers"
           description="Data providers for autocomplete in Input and CommandPalette"
@@ -144,14 +144,14 @@ class MyProvider:
         <section className="mb-12">
           <h2 className="heading-2">Built-in Providers</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-blue-900/20 border border-blue-200 rounded-lg hover:border-purple-400/50 transition-all">
+            <div className="p-4 bg-blue-900/20 border border-blue-200 rounded-lg hover:border-gray-300/50 transition-all">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineDocumentText className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">FileProvider</h3>
               </div>
               <p className="text-sm text-gray-700">Browse filesystem with type-specific icons</p>
             </div>
-            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg hover:border-purple-400/50 transition-all">
+            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg hover:border-gray-300/50 transition-all">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineListBullet className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">StaticProvider</h3>
@@ -165,11 +165,11 @@ class MyProvider:
         <section className="mb-12">
           <h2 className="heading-2">Related</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/tui/input" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 hover:border-purple-400/50 border border-transparent transition-all min-h-[48px]">
+            <Link href="/tui/input" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
               <strong className="text-white">Input</strong>
               <p className="text-sm text-gray-700">Text input with trigger-based autocomplete</p>
             </Link>
-            <Link href="/tui/dropdown" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 hover:border-purple-400/50 border border-transparent transition-all min-h-[48px]">
+            <Link href="/tui/dropdown" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-800 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
               <strong className="text-white">Dropdown</strong>
               <p className="text-sm text-gray-700">The dropdown component that displays results</p>
             </Link>

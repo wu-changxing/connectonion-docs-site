@@ -92,7 +92,7 @@ export default function BlogPage() {
           </Link>
           
           <div className="flex items-center gap-3 mb-4">
-            <HiOutlineBookOpen className="w-8 h-8 text-purple-400" />
+            <HiOutlineBookOpen className="w-8 h-8 text-gray-500" />
             <h1 className="text-3xl font-bold text-gray-900">Blog</h1>
           </div>
           <p className="text-gray-700">
@@ -110,12 +110,12 @@ export default function BlogPage() {
                 href={post.href}
                 className="block group"
               >
-                <article className="p-6 bg-gray-100 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all">
+                <article className="p-6 bg-gray-100 rounded-xl border border-gray-700 hover:border-gray-400/50 transition-all">
                   <div className="flex items-start gap-4">
                     {/* Icon */}
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 p-[1px]">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-gray-700 to-pink-600 p-[1px]">
                       <div className="w-full h-full bg-gray-900 rounded-lg flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-purple-400" />
+                        <Icon className="w-6 h-6 text-gray-500" />
                       </div>
                     </div>
                     
@@ -134,7 +134,7 @@ export default function BlogPage() {
                       </div>
                       
                       {/* Title */}
-                      <h2 className="text-xl font-semibold text-gray-900 mb-1 group-hover:text-purple-400 transition-colors">
+                      <h2 className="text-xl font-semibold text-gray-900 mb-1 group-hover:text-gray-500 transition-colors">
                         {post.title}
                       </h2>
                       
@@ -161,7 +161,7 @@ export default function BlogPage() {
                           ))}
                         </div>
                         
-                        <span className="inline-flex items-center gap-1 text-sm text-purple-400 group-hover:text-purple-300">
+                        <span className="inline-flex items-center gap-1 text-sm text-gray-500 group-hover:text-gray-400">
                           Read more
                           <HiOutlineArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </span>

@@ -155,8 +155,8 @@ Waiting for tasks...`}
               />
             </div>
 
-            <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4">Multi-turn Conversations</h3>
+            <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Multi-turn Conversations</h3>
               <p className="text-gray-700 mb-4">
                 Pass the <code className="bg-gray-800 px-2 py-1 rounded">session</code> from the response to continue:
               </p>
@@ -329,8 +329,8 @@ ws.onmessage = (event) => {
               <h4 className="font-semibold text-emerald-100 mb-2">OUTPUT ← Agent</h4>
               <p className="text-sm text-slate-300">Receive final results</p>
             </div>
-            <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-4">
-              <h4 className="font-semibold text-purple-900 mb-2">STREAM ← Agent</h4>
+            <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-4">
+              <h4 className="font-semibold text-gray-900 mb-2">STREAM ← Agent</h4>
               <p className="text-sm text-slate-300">Streaming chunks</p>
             </div>
             <div className="bg-red-950/50 border border-red-400/40 rounded-lg p-4">
@@ -391,7 +391,7 @@ I trust requests that:
         {/* Configuration */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineSquare3Stack3D className="w-8 h-8 text-purple-400" />
+            <HiOutlineSquare3Stack3D className="w-8 h-8 text-gray-500" />
             Configuration
           </h2>
 
@@ -474,18 +474,18 @@ host(create_agent)  # Reads .co/host.yaml automatically`}
               />
             </div>
 
-            <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4">Configuration Priority</h3>
+            <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Configuration Priority</h3>
               <p className="text-gray-700 mb-4">
                 Settings are loaded in order (highest priority first):
               </p>
               <div className="space-y-2 text-gray-700">
                 <div className="flex items-start gap-2">
-                  <span className="text-purple-300 font-semibold">1.</span>
+                  <span className="text-gray-400 font-semibold">1.</span>
                   <span><strong>Code parameters</strong> - <code className="bg-gray-800 px-2 py-1 rounded">host(agent, port=9000)</code></span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-purple-300 font-semibold">2.</span>
+                  <span className="text-gray-400 font-semibold">2.</span>
                   <span><strong>Config file</strong> - <code className="bg-gray-800 px-2 py-1 rounded">.co/host.yaml</code></span>
                 </div>
               </div>
@@ -641,8 +641,8 @@ max_files_per_request: 20`}
                     language="yaml"
                   />
                 </div>
-                <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-4">
-                  <h4 className="font-semibold text-purple-900 mb-2">Video Analysis</h4>
+                <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">Video Analysis</h4>
                   <CodeWithResult
                     code={`max_file_size: 500
 max_files_per_request: 5`}
@@ -735,55 +735,55 @@ blacklist: blacklist.txt`}
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">agent</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">agent</td>
                   <td className="px-4 py-3 text-slate-300">Agent</td>
                   <td className="px-4 py-3 text-red-400">required</td>
                   <td className="px-4 py-3 text-gray-700">The agent to host</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">trust</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">trust</td>
                   <td className="px-4 py-3 text-slate-300">str | Agent</td>
                   <td className="px-4 py-3 text-slate-300">{'"careful"'}</td>
                   <td className="px-4 py-3 text-gray-700">Trust level, policy, or agent</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">blacklist</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">blacklist</td>
                   <td className="px-4 py-3 text-slate-300">list</td>
                   <td className="px-4 py-3 text-slate-300">None</td>
                   <td className="px-4 py-3 text-gray-700">Addresses to always reject</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">whitelist</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">whitelist</td>
                   <td className="px-4 py-3 text-slate-300">list</td>
                   <td className="px-4 py-3 text-slate-300">None</td>
                   <td className="px-4 py-3 text-gray-700">Addresses to always accept</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">port</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">port</td>
                   <td className="px-4 py-3 text-slate-300">int</td>
                   <td className="px-4 py-3 text-slate-300">8000</td>
                   <td className="px-4 py-3 text-gray-700">HTTP server port</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">workers</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">workers</td>
                   <td className="px-4 py-3 text-slate-300">int</td>
                   <td className="px-4 py-3 text-slate-300">1</td>
                   <td className="px-4 py-3 text-gray-700">Number of worker processes</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">result_ttl</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">result_ttl</td>
                   <td className="px-4 py-3 text-slate-300">int</td>
                   <td className="px-4 py-3 text-slate-300">86400</td>
                   <td className="px-4 py-3 text-gray-700">Result storage TTL (24h default)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">relay_url</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">relay_url</td>
                   <td className="px-4 py-3 text-slate-300">str</td>
                   <td className="px-4 py-3 text-slate-300">production</td>
                   <td className="px-4 py-3 text-gray-700">P2P relay server URL</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">reload</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">reload</td>
                   <td className="px-4 py-3 text-slate-300">bool</td>
                   <td className="px-4 py-3 text-slate-300">False</td>
                   <td className="px-4 py-3 text-gray-700">Auto-reload on code changes</td>

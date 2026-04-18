@@ -196,11 +196,11 @@ Build on this foundation for more complex agents that need to handle user input 
 
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-        <Link href="/" className="hover:text-purple-400 transition-colors">
+        <Link href="/" className="hover:text-gray-500 transition-colors">
           Docs
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/examples" className="hover:text-purple-400 transition-colors">
+        <Link href="/examples" className="hover:text-gray-500 transition-colors">
           Examples
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />

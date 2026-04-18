@@ -60,7 +60,7 @@ export default function LLMPage() {
         icon={HiOutlineBolt}
         iconColor="text-blue-400"
         iconBgFrom="from-blue-600/20"
-        iconBgTo="to-purple-600/20"
+        iconBgTo="to-gray-700/20"
         iconBorderColor="border-blue-500/30"
         title="One-shot LLM Calls"
         description="Make direct LLM calls with optional structured output. Supports OpenAI, Google Gemini, and Anthropic models through a unified interface."
@@ -310,31 +310,31 @@ Answer(result=4)`}
                   </thead>
                   <tbody>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4"><code className="text-purple-400">input</code></td>
+                      <td className="py-3 px-4"><code className="text-gray-500">input</code></td>
                       <td className="py-3 px-4 text-gray-700">str</td>
                       <td className="py-3 px-4 text-gray-700">required</td>
                       <td className="py-3 px-4 text-gray-700">The input text/question</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4"><code className="text-purple-400">output</code></td>
+                      <td className="py-3 px-4"><code className="text-gray-500">output</code></td>
                       <td className="py-3 px-4 text-gray-700">BaseModel</td>
                       <td className="py-3 px-4 text-gray-700">None</td>
                       <td className="py-3 px-4 text-gray-700">Pydantic model for structured output</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4"><code className="text-purple-400">prompt</code></td>
+                      <td className="py-3 px-4"><code className="text-gray-500">prompt</code></td>
                       <td className="py-3 px-4 text-gray-700">str|Path</td>
                       <td className="py-3 px-4 text-gray-700">None</td>
                       <td className="py-3 px-4 text-gray-700">System prompt (string or file path)</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4"><code className="text-purple-400">model</code></td>
+                      <td className="py-3 px-4"><code className="text-gray-500">model</code></td>
                       <td className="py-3 px-4 text-gray-700">str</td>
                       <td className="py-3 px-4 text-gray-700">"co/gemini-2.5-flash"</td>
                       <td className="py-3 px-4 text-gray-700">Model to use (supports OpenAI, Gemini, Claude)</td>
                     </tr>
                     <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4"><code className="text-purple-400">temperature</code></td>
+                      <td className="py-3 px-4"><code className="text-gray-500">temperature</code></td>
                       <td className="py-3 px-4 text-gray-700">float</td>
                       <td className="py-3 px-4 text-gray-700">0.1</td>
                       <td className="py-3 px-4 text-gray-700">Randomness (0=deterministic, 2=creative)</td>

@@ -36,9 +36,9 @@ const examples = [
     title: 'Browser Automation',
     description: 'Control web browsers with natural language using Playwright integration for screenshots, scraping, and automation',
     icon: FaChrome,
-    color: 'text-purple-400',
-    bgColor: 'bg-purple-900/20',
-    borderColor: 'border-purple-500/30',
+    color: 'text-gray-500',
+    bgColor: 'bg-gray-900/20',
+    borderColor: 'border-gray-400/30',
     difficulty: 'Intermediate',
     concepts: ['Browser control', 'Screenshots', 'Web scraping', 'Natural language commands'],
     href: '/examples/browser',
@@ -56,7 +56,7 @@ export default function ExamplesPage() {
       <div className="max-w-4xl mx-auto">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-          <Link href="/" className="hover:text-purple-400 transition-colors">
+          <Link href="/" className="hover:text-gray-500 transition-colors">
             Docs
           </Link>
           <HiOutlineArrowRight className="w-4 h-4" />
@@ -67,7 +67,7 @@ export default function ExamplesPage() {
         <div className="mb-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-xl border border-blue-200">
+              <div className="p-3 bg-gradient-to-br from-blue-600/20 to-gray-700/20 rounded-xl border border-blue-200">
                 <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
               </div>
               <div>
@@ -82,7 +82,7 @@ export default function ExamplesPage() {
         </div>
 
         {/* Progressive Learning Path */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-500/20">
+        <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/30 to-gray-900/30 rounded-lg border border-blue-500/20">
           <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
             <HiOutlineCodeBracket className="w-5 h-5 text-blue-400" />
             Progressive Learning Path
@@ -97,7 +97,7 @@ export default function ExamplesPage() {
             </div>
             <HiOutlineArrowRight className="w-5 h-5 text-gray-500" />
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">2</div>
+              <div className="w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center text-white font-bold">2</div>
               <div>
                 <div className="font-semibold">Browser</div>
                 <div className="text-sm text-gray-700">Advanced automation</div>
@@ -128,7 +128,7 @@ export default function ExamplesPage() {
                         </span>
                       )}
                     </h3>
-                    <span className={`text-sm ${example.difficulty === 'Beginner' ? 'text-green-400' : 'text-purple-400'}`}>
+                    <span className={`text-sm ${example.difficulty === 'Beginner' ? 'text-green-400' : 'text-gray-500'}`}>
                       {example.difficulty}
                     </span>
                   </div>
@@ -169,7 +169,7 @@ export default function ExamplesPage() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center py-8 px-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-500/20">
+        <div className="text-center py-8 px-6 bg-gradient-to-r from-blue-900/30 to-gray-900/30 rounded-lg border border-blue-500/20">
           <h2 className="heading-2">Ready to Build Your First Agent?</h2>
           <p className="text-gray-700 mb-6">
             Start with the Calculator example to learn the fundamentals, then advance to Browser automation

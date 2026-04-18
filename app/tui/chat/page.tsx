@@ -75,37 +75,37 @@ pip install textual textual-autocomplete`}
               </thead>
               <tbody>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">agent</td>
+                  <td className="py-2 text-gray-400">agent</td>
                   <td className="py-2 text-gray-700">Agent</td>
                   <td className="py-2 text-gray-700">ConnectOnion agent instance</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">handler</td>
+                  <td className="py-2 text-gray-400">handler</td>
                   <td className="py-2 text-gray-700">Callable</td>
                   <td className="py-2 text-gray-700">Custom message handler (alternative to agent)</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">title</td>
+                  <td className="py-2 text-gray-400">title</td>
                   <td className="py-2 text-gray-700">str</td>
                   <td className="py-2 text-gray-700">Window title</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">welcome</td>
+                  <td className="py-2 text-gray-400">welcome</td>
                   <td className="py-2 text-gray-700">str</td>
                   <td className="py-2 text-gray-700">Welcome message (markdown supported)</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">hints</td>
+                  <td className="py-2 text-gray-400">hints</td>
                   <td className="py-2 text-gray-700">list[str]</td>
                   <td className="py-2 text-gray-700">Footer hints</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">triggers</td>
+                  <td className="py-2 text-gray-400">triggers</td>
                   <td className="py-2 text-gray-700">dict</td>
                   <td className="py-2 text-gray-700">Autocomplete triggers (/, @)</td>
                 </tr>
                 <tr>
-                  <td className="py-2 text-purple-300">on_error</td>
+                  <td className="py-2 text-gray-400">on_error</td>
                   <td className="py-2 text-gray-700">Callable</td>
                   <td className="py-2 text-gray-700">Custom error handler</td>
                 </tr>
@@ -241,31 +241,31 @@ chat.run()`}
               </thead>
               <tbody>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">ChatStatusBar</td>
+                  <td className="py-2 text-gray-400">ChatStatusBar</td>
                   <td className="py-2 text-gray-700">Top status bar</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">HintsFooter</td>
+                  <td className="py-2 text-gray-400">HintsFooter</td>
                   <td className="py-2 text-gray-700">Bottom hints</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">WelcomeMessage</td>
+                  <td className="py-2 text-gray-400">WelcomeMessage</td>
                   <td className="py-2 text-gray-700">Initial welcome</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">UserMessage</td>
+                  <td className="py-2 text-gray-400">UserMessage</td>
                   <td className="py-2 text-gray-700">User message bubble</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">AssistantMessage</td>
+                  <td className="py-2 text-gray-400">AssistantMessage</td>
                   <td className="py-2 text-gray-700">Agent response</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2 text-purple-300">ThinkingIndicator</td>
+                  <td className="py-2 text-gray-400">ThinkingIndicator</td>
                   <td className="py-2 text-gray-700">Processing animation</td>
                 </tr>
                 <tr>
-                  <td className="py-2 text-purple-300">TriggerAutoComplete</td>
+                  <td className="py-2 text-gray-400">TriggerAutoComplete</td>
                   <td className="py-2 text-gray-700">Trigger-based autocomplete</td>
                 </tr>
               </tbody>

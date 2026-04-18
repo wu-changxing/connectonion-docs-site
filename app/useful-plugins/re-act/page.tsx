@@ -18,10 +18,10 @@ export default function ReActPluginPage() {
             { label: 're_act' },
           ]}
           icon={HiOutlineCpuChip}
-          iconColor="text-purple-400"
-          iconBgFrom="from-purple-600/20"
+          iconColor="text-gray-500"
+          iconBgFrom="from-gray-700/20"
           iconBgTo="to-pink-600/20"
-          iconBorderColor="border-purple-500/30"
+          iconBorderColor="border-gray-400/30"
           title="re_act"
           description="ReAct (Reason + Act) pattern for intelligent agents"
           markdownPath="/useful-plugins/re_act.md"
@@ -35,9 +35,9 @@ export default function ReActPluginPage() {
             The <code className="bg-gray-800 px-2 py-1 rounded">re_act</code> plugin implements the ReAct pattern:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-purple-900/20 border border-purple-200 rounded-lg">
+            <div className="p-4 bg-gray-900/20 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineLightBulb className="w-5 h-5 text-purple-400" />
+                <HiOutlineLightBulb className="w-5 h-5 text-gray-500" />
                 <h3 className="font-semibold">Plan (after_user_input)</h3>
               </div>
               <p className="text-sm text-gray-700">Before taking any action, the agent plans what to do based on user input and available tools.</p>
@@ -73,7 +73,7 @@ Python is a high-level, interpreted programming language known for its simplicit
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy re_act</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-400"><code className="bg-gray-800 px-2 py-1 rounded">co copy re_act</code></Link> to get an editable copy.
           </p>
         </section>
 
@@ -165,12 +165,12 @@ agent.input("Search for Python")
               </thead>
               <tbody>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><code className="text-purple-300">after_user_input</code></td>
+                  <td className="py-2"><code className="text-gray-400">after_user_input</code></td>
                   <td className="py-2">plan_task</td>
                   <td className="py-2 text-gray-700">Generate initial plan</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><code className="text-purple-300">after_tools</code></td>
+                  <td className="py-2"><code className="text-gray-400">after_tools</code></td>
                   <td className="py-2">reflect</td>
                   <td className="py-2 text-gray-700">Reflect on tool results</td>
                 </tr>

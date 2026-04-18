@@ -567,8 +567,8 @@ What do you want to do?
             className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
-                <HiOutlineBugAnt className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                <HiOutlineBugAnt className="w-6 h-6 text-gray-700" />
               </div>
               <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
             </div>
@@ -583,8 +583,8 @@ What do you want to do?
             className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center">
-                <HiOutlineDocumentText className="w-6 h-6 text-pink-600" />
+              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                <HiOutlineDocumentText className="w-6 h-6 text-gray-700" />
               </div>
               <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
             </div>

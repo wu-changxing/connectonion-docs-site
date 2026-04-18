@@ -56,9 +56,9 @@ export default function CalendarPluginPage() {
               </div>
               <p className="text-sm text-gray-700">Warns that deletion is permanent</p>
             </div>
-            <div className="p-4 bg-purple-900/20 border border-purple-200 rounded-lg">
+            <div className="p-4 bg-gray-900/20 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineCalendar className="w-5 h-5 text-purple-400" />
+                <HiOutlineCalendar className="w-5 h-5 text-gray-500" />
                 <h3 className="font-semibold">Create Meetings</h3>
               </div>
               <p className="text-sm text-gray-700">Google Meet with attendees who will be notified</p>
@@ -92,7 +92,7 @@ Proceed with create event?
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy calendar_plugin</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-400"><code className="bg-gray-800 px-2 py-1 rounded">co copy calendar_plugin</code></Link> to get an editable copy.
           </p>
         </section>
 
@@ -152,7 +152,7 @@ Proceed with create event?
               </div>
             </div>
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
-              <HiOutlineCheckCircle className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCheckCircle className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-white">Auto approve all calendar actions this session</strong>
                 <p className="text-sm text-gray-700">Skip approval for all calendar operations</p>

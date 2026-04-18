@@ -162,13 +162,13 @@ Weather in Seattle: Sunny, 72°F`}
         {/* Common Patterns */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineSquare3Stack3D className="w-8 h-8 text-purple-400" />
+            <HiOutlineSquare3Stack3D className="w-8 h-8 text-gray-500" />
             Common Patterns
           </h2>
 
           <div className="space-y-8">
-            <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4">1. Connect to Multiple Agents</h3>
+            <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">1. Connect to Multiple Agents</h3>
               <p className="text-gray-700 mb-4">
                 Build workflows with specialized remote agents:
               </p>
@@ -505,7 +505,7 @@ console.log(response.text)`}
                   <td className="px-4 py-3 text-slate-300">Agent response text</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">thinking</td>
+                  <td className="px-4 py-3 font-mono text-gray-400">thinking</td>
                   <td className="px-4 py-3 text-slate-300">LLM thinking/reasoning</td>
                 </tr>
                 <tr>

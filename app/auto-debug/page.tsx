@@ -23,10 +23,10 @@ export default function AutoDebugPage() {
               { label: 'Interactive Debugging' }
             ]}
             icon={HiOutlineBugAnt}
-            iconColor="text-purple-400"
-            iconBgFrom="from-purple-600/20"
+            iconColor="text-gray-500"
+            iconBgFrom="from-gray-700/20"
             iconBgTo="to-pink-600/20"
-            iconBorderColor="border-purple-500/30"
+            iconBorderColor="border-gray-400/30"
             title="Interactive Debugging"
             description="Debug your AI agents like code. Pause at breakpoints, inspect state, modify variables, and explore 'what if' scenarios."
             markdownPath="/debug/auto_debug.md"
@@ -135,7 +135,7 @@ What do you want to do?
         {/* The Interactive Menu */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCommandLine className="w-8 h-8 text-purple-400" />
+            <HiOutlineCommandLine className="w-8 h-8 text-gray-500" />
             The Interactive Menu
           </h2>
 
@@ -189,8 +189,8 @@ What do you want to do?
             </div>
           </div>
 
-          <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-            <p className="text-purple-900">
+          <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+            <p className="text-gray-900">
               <strong>Both methods do exactly the same thing</strong> - use whichever feels natural!
             </p>
           </div>
@@ -471,8 +471,8 @@ Agent: "Sorry, no purple shoes under $100 are available."
               </p>
             </div>
 
-            <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4">2. Test Edge Cases in Python Mode</h3>
+            <div className="bg-gray-950/50 border border-gray-300/40 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">2. Test Edge Cases in Python Mode</h3>
               <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`>>> # Empty results
 >>> result = []
@@ -598,7 +598,7 @@ agent.auto_debug(step=True)
               }
             ].map((item, i) => (
               <div key={i} className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
-                <h3 className="font-semibold text-purple-400 mb-2">{item.q}</h3>
+                <h3 className="font-semibold text-gray-500 mb-2">{item.q}</h3>
                 <p className="text-gray-700">{item.a}</p>
               </div>
             ))}
@@ -607,12 +607,12 @@ agent.auto_debug(step=True)
 
         {/* CTA Section */}
         <section className="mb-20">
-          <div className="bg-purple-950/30 rounded-2xl p-10 border border-purple-400/30 text-center">
+          <div className="bg-gray-950/30 rounded-2xl p-10 border border-gray-300/30 text-center">
             <h2 className="heading-2">Ready to Debug Like a Pro?</h2>
             <p className="text-xl text-gray-700 mb-8">
               Just call <code className="bg-gray-800 px-3 py-1.5 rounded">agent.auto_debug()</code> and explore!
             </p>
-            <p className="text-purple-900 text-lg">
+            <p className="text-gray-900 text-lg">
               The tips will guide you through - no memorization needed. 🔍
             </p>
           </div>

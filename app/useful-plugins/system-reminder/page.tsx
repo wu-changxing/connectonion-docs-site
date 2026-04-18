@@ -66,7 +66,7 @@ agent = Agent("assistant", tools=[write_file], plugins=[system_reminder])`}
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy system_reminder</code></Link> to get an editable copy with built-in reminders.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-400"><code className="bg-gray-800 px-2 py-1 rounded">co copy system_reminder</code></Link> to get an editable copy with built-in reminders.
           </p>
         </section>
 
@@ -170,27 +170,27 @@ This is a gentle reminder - ignore if not applicable.
               </thead>
               <tbody>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><code className="text-purple-300">name</code></td>
+                  <td className="py-2"><code className="text-gray-400">name</code></td>
                   <td className="py-2 text-gray-700">Yes</td>
                   <td className="py-2 text-gray-700">Unique identifier</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><code className="text-purple-300">triggers</code></td>
+                  <td className="py-2"><code className="text-gray-400">triggers</code></td>
                   <td className="py-2 text-gray-700">Yes</td>
                   <td className="py-2 text-gray-700">List of trigger conditions</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><code className="text-purple-300">triggers[].tool</code></td>
+                  <td className="py-2"><code className="text-gray-400">triggers[].tool</code></td>
                   <td className="py-2 text-gray-700">No</td>
                   <td className="py-2 text-gray-700">Tool name to match</td>
                 </tr>
                 <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><code className="text-purple-300">triggers[].path_pattern</code></td>
+                  <td className="py-2"><code className="text-gray-400">triggers[].path_pattern</code></td>
                   <td className="py-2 text-gray-700">No</td>
                   <td className="py-2 text-gray-700">Glob pattern(s) for file paths</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><code className="text-purple-300">triggers[].command_pattern</code></td>
+                  <td className="py-2"><code className="text-gray-400">triggers[].command_pattern</code></td>
                   <td className="py-2 text-gray-700">No</td>
                   <td className="py-2 text-gray-700">Glob pattern(s) for commands</td>
                 </tr>
@@ -263,7 +263,7 @@ agent = Agent("assistant", plugins=[system_reminder])`}
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-2"><code className="text-purple-300">after_each_tool</code></td>
+                  <td className="py-2"><code className="text-gray-400">after_each_tool</code></td>
                   <td className="py-2">inject_reminder</td>
                   <td className="py-2 text-gray-700">Append matching reminder to tool result</td>
                 </tr>

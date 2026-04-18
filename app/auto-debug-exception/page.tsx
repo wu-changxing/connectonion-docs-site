@@ -233,7 +233,7 @@ result = calculate_metrics([])  # 💥 Multiple issues!`}
                 <p className="font-semibold text-red-300 mb-4">AI Runtime Debug Analysis:</p>
                 <div className="space-y-4 text-sm">
                   <div>
-                    <p className="font-semibold text-purple-400 mb-2">What I found:</p>
+                    <p className="font-semibold text-gray-500 mb-2">What I found:</p>
                     <ul className="space-y-1 text-gray-700 font-mono text-xs">
                       <li>• Executed: len(scores) → 0</li>
                       <li>• Executed: sum(scores) → 0</li>
@@ -242,7 +242,7 @@ result = calculate_metrics([])  # 💥 Multiple issues!`}
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold text-purple-400 mb-2">Why it failed:</p>
+                    <p className="font-semibold text-gray-500 mb-2">Why it failed:</p>
                     <p className="text-gray-700">Empty list causes division by zero and max()/min() to fail</p>
                   </div>
                   <div>
@@ -295,7 +295,7 @@ theme = response['data']['user']['settings']['theme']  # 💥 KeyError!`}
                 <p className="font-semibold text-red-300 mb-4">AI Runtime Debug Analysis:</p>
                 <div className="space-y-4 text-sm">
                   <div>
-                    <p className="font-semibold text-purple-400 mb-2">What I found:</p>
+                    <p className="font-semibold text-gray-500 mb-2">What I found:</p>
                     <ul className="space-y-1 text-gray-700 font-mono text-xs">
                       <li>• Executed: response['data']['user'].keys() → ['profile']</li>
                       <li>• Missing key: 'settings' not in user dict</li>

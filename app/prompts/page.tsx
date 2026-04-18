@@ -220,7 +220,7 @@ Explore ready-to-use prompt templates:
       <div className="max-w-4xl mx-auto">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-        <Link href="/" className="hover:text-purple-400 transition-colors">
+        <Link href="/" className="hover:text-gray-500 transition-colors">
           Docs
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />
@@ -389,11 +389,11 @@ Explore ready-to-use prompt templates:
             </div>
             
             <div className="flex items-start gap-3 p-4 bg-gray-900 border border-gray-700 rounded-lg">
-              <div className="w-8 h-8 bg-purple-900/50 border border-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-purple-400 font-bold text-sm">3</span>
+              <div className="w-8 h-8 bg-gray-900/50 border border-gray-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                <span className="text-gray-500 font-bold text-sm">3</span>
               </div>
               <div>
-                <h4 className="font-semibold text-purple-400 mb-2">Direct String (for quick demos)</h4>
+                <h4 className="font-semibold text-gray-500 mb-2">Direct String (for quick demos)</h4>
                 <p className="text-gray-700 text-sm">
                   Acceptable for tiny demos or notebooks, but keep production prompts in Markdown files.
                 </p>
@@ -478,7 +478,7 @@ Explore ready-to-use prompt templates:
           {[
             { ext: '.md', name: 'Markdown', desc: 'Human-readable, structured prompts', color: 'text-blue-400' },
             { ext: '.yaml', name: 'YAML', desc: 'Structured data with metadata', color: 'text-green-400' },
-            { ext: '.json', name: 'JSON', desc: 'Machine-readable with schemas', color: 'text-purple-400' },
+            { ext: '.json', name: 'JSON', desc: 'Machine-readable with schemas', color: 'text-gray-500' },
             { ext: '.txt', name: 'Plain Text', desc: 'Simple text prompts', color: 'text-yellow-400' },
             { ext: 'none', name: 'No Extension', desc: 'Any text file works', color: 'text-gray-700' },
           ].map((format) => (

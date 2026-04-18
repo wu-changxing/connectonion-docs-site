@@ -16,10 +16,10 @@ export default function AgentEmailsPage() {
             { label: 'Agent Emails' }
           ]}
           icon={HiOutlineEnvelope}
-          iconColor="text-purple-400"
-          iconBgFrom="from-purple-600/20"
+          iconColor="text-gray-500"
+          iconBgFrom="from-gray-700/20"
           iconBgTo="to-blue-600/20"
-          iconBorderColor="border-purple-500/30"
+          iconBorderColor="border-gray-400/30"
           title="Agent Emails"
           description="Send and receive emails with simple functions. No config, no complexity."
           badge={<span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full border border-green-200">New</span>}
@@ -56,15 +56,15 @@ for email in emails:
           <div className="grid md:grid-cols-2 gap-6">
             <Link
               href="/agent-emails/send"
-              className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-xl p-6 border border-purple-200 hover:border-purple-400/50 hover:bg-purple-500/20 transition-all group"
+              className="bg-gradient-to-br from-gray-500/10 to-gray-500/10 rounded-xl p-6 border border-gray-200 hover:border-gray-300/50 hover:bg-gray-500/20 transition-all group"
             >
               <div className="flex items-center gap-3 mb-4">
-                <HiOutlinePaperAirplane className="w-6 h-6 text-purple-400" />
-                <h3 className="text-2xl font-semibold group-hover:text-purple-300 transition-colors">Send Email</h3>
-                <HiOutlineArrowRight className="w-5 h-5 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
+                <HiOutlinePaperAirplane className="w-6 h-6 text-gray-500" />
+                <h3 className="text-2xl font-semibold group-hover:text-gray-400 transition-colors">Send Email</h3>
+                <HiOutlineArrowRight className="w-5 h-5 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
               </div>
               <p className="text-gray-700 mb-4">Send emails with zero configuration. Your agent gets a unique email address automatically.</p>
-              <code className="text-sm bg-gray-800 px-3 py-1.5 rounded text-purple-300">send_email(to, subject, message)</code>
+              <code className="text-sm bg-gray-800 px-3 py-1.5 rounded text-gray-400">send_email(to, subject, message)</code>
             </Link>
 
             <Link
@@ -86,7 +86,7 @@ for email in emails:
         <section className="mb-16">
           <h2 className="heading-2">All Functions</h2>
 
-          <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-100 transition-all p-8">
+          <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-8">
             <CodeWithResult
               code={`# Sending (via OpenOnion - zero config)
 send_email(to, subject, message)     # Send an email
@@ -106,8 +106,8 @@ mark_unread(email_id)                # Mark as unread`}
           <h2 className="heading-2">Agent Emails vs Gmail</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-purple-900/20 border border-purple-200 rounded-xl p-6">
-              <h3 className="font-semibold mb-4 text-purple-300">Agent Emails (This page)</h3>
+            <div className="bg-gray-900/20 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold mb-4 text-gray-400">Agent Emails (This page)</h3>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
                   <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
@@ -151,7 +151,7 @@ mark_unread(email_id)                # Mark as unread`}
           </div>
 
           <p className="text-center mt-6 text-gray-700">
-            Need more features? Check out <Link href="/gmail" className="text-purple-400 hover:text-purple-300 underline">Gmail</Link> for full inbox management.
+            Need more features? Check out <Link href="/gmail" className="text-gray-500 hover:text-gray-400 underline">Gmail</Link> for full inbox management.
           </p>
         </section>
 

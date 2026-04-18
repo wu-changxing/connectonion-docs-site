@@ -14,7 +14,7 @@ export default function MicrosoftIntegrationPage() {
       <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-          <Link href="/" className="hover:text-purple-400 transition-colors">
+          <Link href="/" className="hover:text-gray-500 transition-colors">
             Docs
           </Link>
           <HiOutlineArrowRight className="w-4 h-4" />
@@ -100,24 +100,24 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
 
           <div className="mt-8 bg-gray-900/50 border border-gray-700 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <HiOutlineLockClosed className="w-5 h-5 text-purple-400" />
+              <HiOutlineLockClosed className="w-5 h-5 text-gray-500" />
               Security notes
             </h3>
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Credentials are saved to both local <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> and <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>File permissions set to <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">0600</code> (read/write for owner only) on Unix systems</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Access tokens expire, but refresh tokens allow automatic renewal</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>You can revoke access anytime via Microsoft Account settings</span>
               </li>
             </ul>
@@ -142,27 +142,27 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
               </thead>
               <tbody className="text-gray-700">
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-purple-400">Mail.Read</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">Mail.Read</td>
                   <td className="py-3 px-4">Read user emails</td>
                   <td className="py-3 px-4">Read inbox, search emails</td>
                 </tr>
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-purple-400">Mail.Send</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">Mail.Send</td>
                   <td className="py-3 px-4">Send emails on your behalf</td>
                   <td className="py-3 px-4">Send emails via Outlook</td>
                 </tr>
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-purple-400">Calendars.Read</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">Calendars.Read</td>
                   <td className="py-3 px-4">Read calendar events</td>
                   <td className="py-3 px-4">Read your calendar to check availability</td>
                 </tr>
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-purple-400">Calendars.ReadWrite</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">Calendars.ReadWrite</td>
                   <td className="py-3 px-4">Create/modify events</td>
                   <td className="py-3 px-4">Create and update calendar events</td>
                 </tr>
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-purple-400">User.Read</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">User.Read</td>
                   <td className="py-3 px-4">Get your profile</td>
                   <td className="py-3 px-4">Identify which Microsoft account is connected</td>
                 </tr>
@@ -201,7 +201,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
           <div className="space-y-12">
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineEnvelope className="w-5 h-5 text-purple-400" />
+                <HiOutlineEnvelope className="w-5 h-5 text-gray-500" />
                 Send Email via Outlook
               </h3>
               <CodeWithResult
@@ -222,7 +222,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineCalendar className="w-5 h-5 text-purple-400" />
+                <HiOutlineCalendar className="w-5 h-5 text-gray-500" />
                 Read Calendar Events
               </h3>
               <CodeWithResult
@@ -366,11 +366,11 @@ cat ~/.co/keys.env | grep MICROSOFT_`}
               <p className="text-gray-700 mb-4">To disconnect your Microsoft account:</p>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400">1.</span>
+                  <span className="text-gray-500">1.</span>
                   <span>Go to <a href="https://account.live.com/consent/Manage" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">Microsoft Account Permissions</a></span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400">2.</span>
+                  <span className="text-gray-500">2.</span>
                   <span>Find "OpenOnion" and click "Remove"</span>
                 </li>
               </ul>

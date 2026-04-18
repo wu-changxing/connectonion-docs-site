@@ -19,10 +19,10 @@ export default function TranscribePage() {
           { label: 'Transcribe' }
         ]}
         icon={HiOutlineMicrophone}
-        iconColor="text-purple-400"
-        iconBgFrom="from-purple-600/20"
+        iconColor="text-gray-500"
+        iconBgFrom="from-gray-700/20"
         iconBgTo="to-pink-600/20"
-        iconBorderColor="border-purple-500/30"
+        iconBorderColor="border-gray-400/30"
         title="Audio Transcription"
         description="Convert audio files to text using Gemini's multimodal capabilities. Simple one-function interface for transcription."
         markdownPath="/transcribe/transcribe.md"
@@ -185,25 +185,25 @@ The team discussed the Q4 roadmap and agreed to...`}
             </thead>
             <tbody>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4"><code className="text-purple-400">audio</code></td>
+                <td className="py-3 px-4"><code className="text-gray-500">audio</code></td>
                 <td className="py-3 px-4 text-gray-700">str</td>
                 <td className="py-3 px-4 text-gray-700">required</td>
                 <td className="py-3 px-4 text-gray-700">Path to audio file</td>
               </tr>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4"><code className="text-purple-400">prompt</code></td>
+                <td className="py-3 px-4"><code className="text-gray-500">prompt</code></td>
                 <td className="py-3 px-4 text-gray-700">str</td>
                 <td className="py-3 px-4 text-gray-700">None</td>
                 <td className="py-3 px-4 text-gray-700">Context hints for accuracy</td>
               </tr>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4"><code className="text-purple-400">model</code></td>
+                <td className="py-3 px-4"><code className="text-gray-500">model</code></td>
                 <td className="py-3 px-4 text-gray-700">str</td>
                 <td className="py-3 px-4 text-gray-700">"co/gemini-3-flash-preview"</td>
                 <td className="py-3 px-4 text-gray-700">Model to use</td>
               </tr>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4"><code className="text-purple-400">timestamps</code></td>
+                <td className="py-3 px-4"><code className="text-gray-500">timestamps</code></td>
                 <td className="py-3 px-4 text-gray-700">bool</td>
                 <td className="py-3 px-4 text-gray-700">False</td>
                 <td className="py-3 px-4 text-gray-700">Include timestamps in output</td>
@@ -226,7 +226,7 @@ The team discussed the Q4 roadmap and agreed to...`}
             ))}
           </div>
           <p className="text-gray-700">
-            <strong className="text-purple-400">Token cost:</strong> 32 tokens per second of audio (1 minute = 1,920 tokens)
+            <strong className="text-gray-500">Token cost:</strong> 32 tokens per second of audio (1 minute = 1,920 tokens)
           </p>
         </div>
       </section>
@@ -355,15 +355,15 @@ Audio file not found`}
         <h2 className="heading-2">Next Steps</h2>
 
         <div className="grid md:grid-cols-3 gap-4">
-          <Link href="/llm_do" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
+          <Link href="/llm_do" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Learn about llm_do()</h3>
             <p className="text-sm text-gray-700">For one-shot LLM calls</p>
           </Link>
-          <Link href="/agent" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
+          <Link href="/agent" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Explore Agents</h3>
             <p className="text-sm text-gray-700">For multi-step workflows</p>
           </Link>
-          <Link href="/tools" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
+          <Link href="/tools" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">See Tools</h3>
             <p className="text-sm text-gray-700">For extending agents</p>
           </Link>

@@ -531,7 +531,7 @@ Works seamlessly with:
           </nav>
 
           <h1 className="heading-1">
-            <HiOutlineEye className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 flex-shrink-0" />
+            <HiOutlineEye className="w-8 h-8 sm:w-10 sm:h-10 text-gray-500 flex-shrink-0" />
             <span>xray.trace()</span>
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-3xl">
@@ -554,7 +554,7 @@ Works seamlessly with:
           {[
             { icon: HiOutlineCommandLine, title: 'Visual Flow', desc: 'See all tool calls in sequence', color: 'text-blue-400' },
             { icon: HiOutlineClock, title: 'Performance', desc: 'Execution timing for each step', color: 'text-green-400' },
-            { icon: HiOutlineEye, title: 'Smart Display', desc: 'Intelligent data truncation', color: 'text-purple-400' },
+            { icon: HiOutlineEye, title: 'Smart Display', desc: 'Intelligent data truncation', color: 'text-gray-500' },
             { icon: HiOutlineBolt, title: 'Error Tracking', desc: 'Clear error display and details', color: 'text-red-400' }
           ].map((feature, i) => {
             const IconComponent = feature.icon
@@ -582,7 +582,7 @@ Works seamlessly with:
               {/* Example Header */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
                 <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                  <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-r from-gray-500 to-gray-500 rounded-lg flex items-center justify-center text-white font-bold text-lg">
                     {index + 1}
                   </div>
                   <div className="min-w-0">
@@ -662,11 +662,11 @@ Works seamlessly with:
                             .replace(/OUT\s*←/g, '<span class="text-green-400">OUT ←</span>')
                             .replace(/ERR\s*✗/g, '<span class="text-red-400">ERR ✗</span>')
                             .replace(/(\d+(?:\.\d+)?)(ms|s)/g, '<span class="text-cyan-300">$1$2</span>')
-                            .replace(/Total:/g, '<span class="text-purple-400 font-semibold">Total:</span>')
+                            .replace(/Total:/g, '<span class="text-gray-500 font-semibold">Total:</span>')
                             .replace(/Context:/g, '<span class="text-yellow-400">Context:</span>')
                             .replace(/\[Starting\]/g, '<span class="text-orange-400">[Starting]</span>')
                             .replace(/Pro tip:/g, '<span class="text-green-300 font-semibold">💡 Pro tip:</span>')
-                            .replace(/IDE Debugging Session:/g, '<span class="text-purple-300 font-bold text-base">💡 IDE Debugging Session:</span>')
+                            .replace(/IDE Debugging Session:/g, '<span class="text-gray-400 font-bold text-base">💡 IDE Debugging Session:</span>')
                             .replace(/Breakpoint at/g, '<span class="text-orange-300">🔸 Breakpoint at</span>')
                             .replace(/Final trace/g, '<span class="text-green-300">🎯 Final trace</span>')
                             .replace(/⚠️\s+SLOW/g, '<span class="text-yellow-400 font-semibold">⚠️ SLOW</span>')

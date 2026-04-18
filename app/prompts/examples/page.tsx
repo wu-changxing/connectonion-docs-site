@@ -43,8 +43,8 @@ const examples = [
     title: '4. Senior Code Reviewer',
     description: 'Expert engineer with systematic review methodology',
     icon: HiOutlineCodeBracket,
-    color: 'text-purple-400',
-    bg: 'bg-purple-900/20 border-purple-500/30',
+    color: 'text-gray-500',
+    bg: 'bg-gray-900/20 border-gray-400/30',
     difficulty: 'Advanced',
     concepts: ['Review frameworks', 'Technical expertise', 'Constructive feedback'],
     href: '/prompts/examples/code-reviewer'
@@ -87,7 +87,7 @@ const examples = [
     title: '8. Business Strategist',
     description: 'Strategic business advisor for complex decision-making and planning',
     icon: HiOutlineArrowTrendingUp,
-    color: 'text-pink-400',
+    color: 'text-gray-500',
     bg: 'bg-pink-900/20 border-pink-500/30',
     difficulty: 'Expert',
     concepts: ['Market analysis', 'Strategic frameworks', 'Financial modeling'],
@@ -223,7 +223,7 @@ export default function PromptsExamplesPage() {
       </div>
 
       {/* Why Progressive Learning */}
-      <div className="mt-16 p-8 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-200 rounded-xl">
+      <div className="mt-16 p-8 bg-gradient-to-r from-gray-900/20 to-blue-900/20 border border-gray-200 rounded-xl">
         <h2 className="heading-2">💡 Why Progressive Learning?</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div>

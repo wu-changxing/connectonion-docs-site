@@ -17,9 +17,9 @@ export default function SlashCommandPage() {
             { label: 'Slash Command' }
           ]}
           icon={HiOutlineCodeBracket}
-          iconColor="text-pink-400"
+          iconColor="text-gray-500"
           iconBgFrom="from-pink-600/20"
-          iconBgTo="to-purple-600/20"
+          iconBgTo="to-gray-700/20"
           iconBorderColor="border-pink-500/30"
           title="SlashCommand"
           description="Load and execute custom commands from markdown files."
@@ -44,14 +44,14 @@ commands = SlashCommand.list_all()`}
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy slash_command</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-400"><code className="bg-gray-800 px-2 py-1 rounded">co copy slash_command</code></Link> to get an editable copy.
           </p>
         </section>
 
         {/* Command File Format */}
         <section className="mb-12">
           <h2 className="heading-2">Command File Format</h2>
-          <p className="text-gray-700 mb-4">Create <code className="bg-slate-800 px-2 py-1 rounded text-pink-300">.co/commands/today.md</code>:</p>
+          <p className="text-gray-700 mb-4">Create <code className="bg-slate-800 px-2 py-1 rounded text-gray-500">.co/commands/today.md</code>:</p>
           <CodeWithResult
             code={`---
 name: today
@@ -83,17 +83,17 @@ Focus on:
               </thead>
               <tbody className="divide-y divide-slate-700">
                 <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-pink-300">name</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">name</td>
                   <td className="px-4 py-3 text-green-400">Yes</td>
                   <td className="px-4 py-3 text-gray-700">Command name</td>
                 </tr>
                 <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-pink-300">description</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">description</td>
                   <td className="px-4 py-3 text-green-400">Yes</td>
                   <td className="px-4 py-3 text-gray-700">Short description</td>
                 </tr>
                 <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-pink-300">tools</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">tools</td>
                   <td className="px-4 py-3 text-slate-400">No</td>
                   <td className="px-4 py-3 text-gray-700">Allowed tools (all if omitted)</td>
                 </tr>
@@ -120,8 +120,8 @@ Focus on:
           <h2 className="heading-2">Locations</h2>
           <p className="text-gray-700 mb-4">Commands are loaded from:</p>
           <ol className="list-decimal list-inside space-y-2 text-gray-700">
-            <li><code className="bg-slate-800 px-2 py-1 rounded text-pink-300">.co/commands/*.md</code> (user commands - priority)</li>
-            <li><code className="bg-slate-800 px-2 py-1 rounded text-pink-300">commands/*.md</code> (built-in commands)</li>
+            <li><code className="bg-slate-800 px-2 py-1 rounded text-gray-500">.co/commands/*.md</code> (user commands - priority)</li>
+            <li><code className="bg-slate-800 px-2 py-1 rounded text-gray-500">commands/*.md</code> (built-in commands)</li>
           </ol>
         </section>
 

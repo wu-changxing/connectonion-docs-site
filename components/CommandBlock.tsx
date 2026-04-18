@@ -81,7 +81,7 @@ export function CommandBlock({ title, commands, id }: CommandBlockProps) {
     if (cmd.startsWith('co init')) {
       return (
         <>
-          <span className="text-purple-400">co</span>
+          <span className="text-gray-500">co</span>
           <span className="text-gray-100"> init</span>
           {cmd.length > 7 && <span className="text-blue-400"> {cmd.slice(8)}</span>}
         </>
@@ -90,7 +90,7 @@ export function CommandBlock({ title, commands, id }: CommandBlockProps) {
     if (cmd.startsWith('co')) {
       return (
         <>
-          <span className="text-purple-400">co</span>
+          <span className="text-gray-500">co</span>
           <span className="text-gray-100"> {cmd.slice(3)}</span>
         </>
       )

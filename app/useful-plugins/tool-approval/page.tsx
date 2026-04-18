@@ -97,7 +97,7 @@ tool_executor iterates sequentially:
         <section className="mb-12">
           <h2 className="heading-2">Rejection Modes</h2>
           <p className="text-gray-700 mb-6">
-            When the client rejects a tool, the <code className="px-2 py-1 bg-gray-800 rounded text-purple-300">mode</code> field determines what happens next:
+            When the client rejects a tool, the <code className="px-2 py-1 bg-gray-800 rounded text-gray-400">mode</code> field determines what happens next:
           </p>
 
           <div className="space-y-6">
@@ -191,7 +191,7 @@ tool_executor iterates sequentially:
         <section className="mb-12">
           <h2 className="heading-2">Config-Based Auto-Approval</h2>
           <p className="text-gray-700 mb-6">
-            Auto-approve safe commands permanently via <code className="px-2 py-1 bg-gray-800 rounded text-purple-300">host.yaml</code> configuration. Config permissions never expire and apply to all sessions.
+            Auto-approve safe commands permanently via <code className="px-2 py-1 bg-gray-800 rounded text-gray-400">host.yaml</code> configuration. Config permissions never expire and apply to all sessions.
           </p>
 
           <h3 className="heading-3 mt-6">Configuration Example</h3>
@@ -274,7 +274,7 @@ permissions:
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-purple-400 font-semibold">3.</span>
+                <span className="text-gray-500 font-semibold">3.</span>
                 <div>
                   <strong>Skill permissions</strong> - Temporary, turn-scoped (<code className="text-xs">source: skill</code>)
                 </div>
@@ -299,7 +299,7 @@ permissions:
         <section className="mb-12">
           <h2 className="heading-2">Bash Command Chain Permissions</h2>
           <p className="text-gray-700 mb-6">
-            Uses <strong className="text-purple-300">bashlex</strong> to parse and validate command chains - ALL commands must be permitted.
+            Uses <strong className="text-gray-400">bashlex</strong> to parse and validate command chains - ALL commands must be permitted.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -449,8 +449,8 @@ pwd && rm -rf /
               <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-green-300 transition-colors">Permissions System</h3>
               <p className="text-sm text-slate-300">Complete permission system overview</p>
             </Link>
-            <Link href="/useful-plugins/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-purple-500/50 rounded-lg transition-all group">
-              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">Skills Plugin</h3>
+            <Link href="/useful-plugins/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-gray-400/50 rounded-lg transition-all group">
+              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">Skills Plugin</h3>
               <p className="text-sm text-slate-300">Pre-packaged workflows with scoped permissions</p>
             </Link>
             <Link href="/useful-plugins/shell-approval" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-orange-500/50 rounded-lg transition-all group">

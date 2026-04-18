@@ -17,9 +17,9 @@ export default function DiffWriterPage() {
             { label: 'Diff Writer' }
           ]}
           icon={HiOutlineCodeBracket}
-          iconColor="text-pink-400"
+          iconColor="text-gray-500"
           iconBgFrom="from-pink-600/20"
-          iconBgTo="to-purple-600/20"
+          iconBgTo="to-gray-700/20"
           iconBorderColor="border-pink-500/30"
           title="DiffWriter"
           description="Human-in-the-loop file writing with diff display and approval."
@@ -37,7 +37,7 @@ writer = DiffWriter()`}
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy diff_writer</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-400"><code className="bg-gray-800 px-2 py-1 rounded">co copy diff_writer</code></Link> to get an editable copy.
           </p>
         </section>
 
@@ -105,15 +105,15 @@ writer = DiffWriter()`}
               </thead>
               <tbody className="divide-y divide-slate-700">
                 <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-pink-300">1</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">1</td>
                   <td className="px-4 py-3 text-gray-700">Apply this change, ask again for next change</td>
                 </tr>
                 <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-pink-300">2</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">2</td>
                   <td className="px-4 py-3 text-gray-700">Apply this and all future changes (session-wide)</td>
                 </tr>
                 <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-pink-300">3</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">3</td>
                   <td className="px-4 py-3 text-gray-700">Reject + provide feedback for agent to try again</td>
                 </tr>
               </tbody>
@@ -161,7 +161,7 @@ agent.input("create a hello.py file with a hello world function")
           <ol className="list-decimal list-inside space-y-2 text-gray-700">
             <li>User is prompted: "What should the agent do instead?"</li>
             <li>User types feedback, e.g., "use snake_case for function names"</li>
-            <li>Agent receives: <code className="bg-slate-800 px-2 py-1 rounded text-pink-300">"User rejected changes to hello.py. Feedback: use snake_case for function names"</code></li>
+            <li>Agent receives: <code className="bg-slate-800 px-2 py-1 rounded text-gray-500">"User rejected changes to hello.py. Feedback: use snake_case for function names"</code></li>
             <li>Agent can retry with the feedback</li>
           </ol>
         </section>
