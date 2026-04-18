@@ -74,7 +74,7 @@ export default function SessionReconnectPage() {
 
           <div className="grid md:grid-cols-2 gap-4 mt-6">
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="text-sm font-semibold text-gray-400 mb-2">In-Memory</p>
+              <p className="text-sm font-semibold text-gray-700 mb-2">In-Memory</p>
               <p className="text-sm text-gray-600">Keeps the agent thread and IO queues alive so a reconnecting client resumes mid-execution.</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
@@ -483,23 +483,23 @@ T+10   New WebSocket connects → CONNECT { session_id }
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">network/host/session/active.py</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">network/host/session/active.py</td>
                   <td className="px-4 py-3 text-gray-600">ActiveSessionRegistry — in-memory session tracking</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">network/io/websocket.py</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">network/io/websocket.py</td>
                   <td className="px-4 py-3 text-gray-600">WebSocketIO — queue bridge between async/sync</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">network/host/session/storage.py</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">network/host/session/storage.py</td>
                   <td className="px-4 py-3 text-gray-600">SessionStorage — JSONL persistence</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">network/host/session/merge.py</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">network/host/session/merge.py</td>
                   <td className="px-4 py-3 text-gray-600">Session merge conflict resolution</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">network/asgi/websocket.py</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">network/asgi/websocket.py</td>
                   <td className="px-4 py-3 text-gray-600">WebSocket handler — orchestrates reconnection</td>
                 </tr>
               </tbody>

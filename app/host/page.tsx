@@ -477,11 +477,11 @@ host(create_agent)  # Reads .co/host.yaml automatically`}
               </p>
               <div className="space-y-2 text-gray-700">
                 <div className="flex items-start gap-2">
-                  <span className="text-gray-400 font-semibold">1.</span>
+                  <span className="text-gray-700 font-semibold">1.</span>
                   <span><strong>Code parameters</strong> - <code className="bg-gray-100 px-2 py-1 rounded">host(agent, port=9000)</code></span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-gray-400 font-semibold">2.</span>
+                  <span className="text-gray-700 font-semibold">2.</span>
                   <span><strong>Config file</strong> - <code className="bg-gray-100 px-2 py-1 rounded">.co/host.yaml</code></span>
                 </div>
               </div>
@@ -723,55 +723,55 @@ blacklist: blacklist.txt`}
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">agent</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">agent</td>
                   <td className="px-4 py-3 text-gray-600">Agent</td>
                   <td className="px-4 py-3 text-red-400">required</td>
                   <td className="px-4 py-3 text-gray-700">The agent to host</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">trust</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">trust</td>
                   <td className="px-4 py-3 text-gray-600">str | Agent</td>
                   <td className="px-4 py-3 text-gray-600">{'"careful"'}</td>
                   <td className="px-4 py-3 text-gray-700">Trust level, policy, or agent</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">blacklist</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">blacklist</td>
                   <td className="px-4 py-3 text-gray-600">list</td>
                   <td className="px-4 py-3 text-gray-600">None</td>
                   <td className="px-4 py-3 text-gray-700">Addresses to always reject</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">whitelist</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">whitelist</td>
                   <td className="px-4 py-3 text-gray-600">list</td>
                   <td className="px-4 py-3 text-gray-600">None</td>
                   <td className="px-4 py-3 text-gray-700">Addresses to always accept</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">port</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">port</td>
                   <td className="px-4 py-3 text-gray-600">int</td>
                   <td className="px-4 py-3 text-gray-600">8000</td>
                   <td className="px-4 py-3 text-gray-700">HTTP server port</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">workers</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">workers</td>
                   <td className="px-4 py-3 text-gray-600">int</td>
                   <td className="px-4 py-3 text-gray-600">1</td>
                   <td className="px-4 py-3 text-gray-700">Number of worker processes</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">result_ttl</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">result_ttl</td>
                   <td className="px-4 py-3 text-gray-600">int</td>
                   <td className="px-4 py-3 text-gray-600">86400</td>
                   <td className="px-4 py-3 text-gray-700">Result storage TTL (24h default)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">relay_url</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">relay_url</td>
                   <td className="px-4 py-3 text-gray-600">str</td>
                   <td className="px-4 py-3 text-gray-600">production</td>
                   <td className="px-4 py-3 text-gray-700">P2P relay server URL</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">reload</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">reload</td>
                   <td className="px-4 py-3 text-gray-600">bool</td>
                   <td className="px-4 py-3 text-gray-600">False</td>
                   <td className="px-4 py-3 text-gray-700">Auto-reload on code changes</td>

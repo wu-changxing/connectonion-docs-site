@@ -324,9 +324,9 @@ agent.input("What did I learn about Python's history?")`}
               <h3 className="text-2xl font-semibold mb-4">Single File (Default)</h3>
               <p className="text-gray-700 mb-4">Memories start in a single <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">memory.md</code> file using section headers:</p>
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm text-gray-700">
-                <div className="text-gray-500 font-bold">## alice-notes</div>
+                <div className="text-gray-700 font-bold">## alice-notes</div>
                 <div className="mt-2">Alice prefers email communication<br/>Works at TechCorp</div>
-                <div className="text-gray-500 font-bold mt-4">## bob-notes</div>
+                <div className="text-gray-700 font-bold mt-4">## bob-notes</div>
                 <div className="mt-2">Bob from Marketing<br/>Prefers phone calls</div>
               </div>
             </div>
