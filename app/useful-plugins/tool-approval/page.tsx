@@ -49,7 +49,7 @@ agent.input("Install dependencies")
         {/* Lifecycle */}
         <section className="mb-12">
           <h2 className="heading-2">Lifecycle</h2>
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 font-mono text-sm overflow-x-auto shadow-xl">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 font-mono text-sm overflow-x-auto shadow-xl">
             <pre className="text-gray-700 whitespace-pre">{`User sends prompt
     ↓
 Agent calls LLM
@@ -102,7 +102,7 @@ tool_executor iterates sequentially:
 
           <div className="space-y-6">
             {/* reject_soft */}
-            <div className="p-6 bg-gradient-to-br from-yellow-900/20 to-yellow-800/10 border border-yellow-200 rounded-lg">
+            <div className="p-6 bg-gray-50 border border-yellow-200 rounded-lg">
               <h3 className="font-semibold text-yellow-300 mb-3 flex items-center gap-2">
                 <HiOutlineCheckCircle className="w-5 h-5" />
                 reject_soft (Skip)
@@ -120,7 +120,7 @@ tool_executor iterates sequentially:
             </div>
 
             {/* reject_hard */}
-            <div className="p-6 bg-gradient-to-br from-red-900/20 to-red-800/10 border border-red-200 rounded-lg">
+            <div className="p-6 bg-gray-50 border border-red-200 rounded-lg">
               <h3 className="font-semibold text-red-300 mb-3 flex items-center gap-2">
                 <HiOutlineXCircle className="w-5 h-5" />
                 reject_hard (Stop)
@@ -150,7 +150,7 @@ tool_executor iterates sequentially:
 
           <div className="space-y-6">
             {/* Safe Tools */}
-            <div className="p-5 bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-200 rounded-lg">
+            <div className="p-5 bg-gray-50 border border-green-200 rounded-lg">
               <h3 className="font-semibold text-green-300 mb-3 flex items-center gap-2">
                 <HiOutlineCheckCircle className="w-5 h-5" />
                 Safe Tools (No Approval)
@@ -165,7 +165,7 @@ tool_executor iterates sequentially:
             </div>
 
             {/* Dangerous Tools */}
-            <div className="p-5 bg-gradient-to-br from-red-900/20 to-red-800/10 border border-red-200 rounded-lg">
+            <div className="p-5 bg-gray-50 border border-red-200 rounded-lg">
               <h3 className="font-semibold text-red-300 mb-3 flex items-center gap-2">
                 <HiOutlineXCircle className="w-5 h-5" />
                 Dangerous Tools (Require Approval)
@@ -180,7 +180,7 @@ tool_executor iterates sequentially:
             </div>
 
             {/* Unknown Tools */}
-            <div className="p-5 bg-gradient-to-br from-gray-900/20 to-gray-800/10 border border-gray-500/30 rounded-lg">
+            <div className="p-5 bg-gray-50 border border-gray-500/30 rounded-lg">
               <h3 className="font-semibold text-slate-300 mb-3">Unknown Tools</h3>
               <p className="text-gray-700">Tools not in either list are treated as safe (no approval needed).</p>
             </div>
@@ -445,15 +445,15 @@ pwd && rm -rf /
         <section className="mb-12">
           <h2 className="heading-2">See Also</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/features/permissions" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-green-500/50 rounded-lg transition-all group">
+            <Link href="/features/permissions" className="p-6 bg-gray-50 border border-gray-700 hover:border-gray-400 rounded-lg transition-all group">
               <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-green-300 transition-colors">Permissions System</h3>
               <p className="text-sm text-slate-300">Complete permission system overview</p>
             </Link>
-            <Link href="/useful-plugins/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-gray-400/50 rounded-lg transition-all group">
+            <Link href="/useful-plugins/skills" className="p-6 bg-gray-50 border border-gray-700 hover:border-gray-400/50 rounded-lg transition-all group">
               <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">Skills Plugin</h3>
               <p className="text-sm text-slate-300">Pre-packaged workflows with scoped permissions</p>
             </Link>
-            <Link href="/useful-plugins/shell-approval" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-orange-500/50 rounded-lg transition-all group">
+            <Link href="/useful-plugins/shell-approval" className="p-6 bg-gray-50 border border-gray-700 hover:border-orange-500/50 rounded-lg transition-all group">
               <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-orange-300 transition-colors">shell_approval</h3>
               <p className="text-sm text-slate-300">Terminal-based approval for shell commands</p>
             </Link>

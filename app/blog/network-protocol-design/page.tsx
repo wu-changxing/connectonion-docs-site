@@ -222,7 +222,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               <p>Organizations need transparency to audit AI agent behavior. But actual work needs privacy. We struggled with this tension until we realized: separate them into two layers.</p>
               
               <div className="grid md:grid-cols-2 gap-6 my-8">
-                <div className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
                   <h3 className="text-xl font-bold text-gray-400 mb-4">Public Discovery Layer (ANNOUNCE/FIND)</h3>
                   <ul className="space-y-2">
                     <li>• Unencrypted broadcasts</li>
@@ -231,7 +231,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                     <li>• Like a public phone book</li>
                   </ul>
                 </div>
-                <div className="bg-gradient-to-br from-pink-900/20 to-transparent border border-pink-500/20 rounded-xl p-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
                   <h3 className="text-xl font-bold text-gray-500 mb-4">Private Work Layer (TASK)</h3>
                   <ul className="space-y-2">
                     <li>• Encrypted point-to-point messages</li>
@@ -353,7 +353,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               <p className="mt-6">The best protocol isn't the most sophisticated - it's the one that gets out of the way and lets agents do their work.</p>
 
               <div className="border-t border-gray-800 mt-16 pt-8">
-                <div className="bg-gradient-to-r from-gray-900/10 to-pink-900/10 border border-gray-200 rounded-lg p-6 mb-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
                   <h3 className="text-lg font-bold text-gray-400 mb-4">📖 Complete Technical Specification</h3>
                   <p className="text-gray-700 mb-4">
                     This article covers the design philosophy and evolution of our network protocol. For the complete technical specification including message formats, data structures, and implementation details, see:

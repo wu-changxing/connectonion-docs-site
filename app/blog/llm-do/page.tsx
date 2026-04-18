@@ -334,7 +334,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
 
               <CodeWithResult code={codeExample2} language="python" className="my-6" />
 
-              <div className="bg-gradient-to-br from-green-900/20 to-transparent border border-green-500/20 rounded-xl p-6 my-8">
+              <div className="bg-gray-50 border border-green-500/20 rounded-xl p-6 my-8">
                 <p className="text-green-800 font-semibold text-lg">
                   The beauty of "do" is that it doesn't prescribe HOW the task is performed, just THAT it's performed.
                 </p>

@@ -69,7 +69,7 @@ for email in emails:
 
             <Link
               href="/agent-emails/receive"
-              className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-xl p-6 border border-blue-500/20 hover:border-blue-400/50 hover:bg-blue-500/20 transition-all group"
+              className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-xl p-6 border border-blue-500/20 hover:border-gray-400 hover:bg-blue-500/20 transition-all group"
             >
               <div className="flex items-center gap-3 mb-4">
                 <HiOutlineInbox className="w-6 h-6 text-blue-400" />

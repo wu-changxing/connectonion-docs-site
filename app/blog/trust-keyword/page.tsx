@@ -251,7 +251,7 @@ Sometimes the best technical decisions are the least technical ones.`
                     examples: ['Trust is earned through successful interactions, not certificates']
                   }
                 ].map((point, idx) => (
-                  <div key={idx} className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6">
+                  <div key={idx} className="bg-gray-50 border border-gray-200 rounded-xl p-6">
                     <h3 className="text-xl font-semibold text-gray-400 mb-2 flex items-center gap-2">
                       <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
                       {point.title}

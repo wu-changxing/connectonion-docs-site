@@ -57,17 +57,17 @@ agent = Agent(
         <section className="mb-12">
           <h2 className="heading-2">What Skills Do</h2>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="p-5 bg-gradient-to-br from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg hover:border-gray-300/50 transition-all">
+            <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-300/50 transition-all">
               <HiOutlineCommandLine className="w-7 h-7 text-gray-500 mb-3" />
               <h3 className="font-semibold text-gray-400 mb-2">Instant Invocation</h3>
               <p className="text-sm text-slate-300">/command detected in @after_user_input, no LLM overhead</p>
             </div>
-            <div className="p-5 bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg hover:border-blue-400/50 transition-all">
+            <div className="p-5 bg-gray-50 border border-blue-200 rounded-lg hover:border-gray-400 transition-all">
               <HiOutlineShieldCheck className="w-7 h-7 text-blue-400 mb-3" />
               <h3 className="font-semibold text-blue-300 mb-2">Snapshot/Restore</h3>
               <p className="text-sm text-slate-300">Preserves user approvals while granting temporary permissions</p>
             </div>
-            <div className="p-5 bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-200 rounded-lg hover:border-green-400/50 transition-all">
+            <div className="p-5 bg-gray-50 border border-green-200 rounded-lg hover:border-gray-400 transition-all">
               <HiOutlineLockClosed className="w-7 h-7 text-green-400 mb-3" />
               <h3 className="font-semibold text-green-300 mb-2">Security</h3>
               <p className="text-sm text-slate-300">Permissions auto-clear after turn completes</p>
@@ -130,10 +130,10 @@ session['permissions']['Bash(git status)'] = {
             Skills preserve user approvals using a <strong className="text-gray-400">snapshot → grant → restore</strong> pattern:
           </p>
 
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 mb-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
             <div className="space-y-5">
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-blue-500/20 border border-blue-500 flex items-center justify-center text-blue-300 font-semibold text-lg">1</div>
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gray-100 border border-gray-300 flex items-center justify-center text-gray-700 font-semibold text-lg">1</div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">📸 Snapshot</h3>
                   <p className="text-sm text-slate-300 mb-2">Before granting skill permissions, save current state:</p>
@@ -155,7 +155,7 @@ session['permissions']['Bash(git status)'] = {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-green-500/20 border border-green-500 flex items-center justify-center text-green-300 font-semibold text-lg">3</div>
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gray-100 border border-gray-300 flex items-center justify-center text-gray-700 font-semibold text-lg">3</div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">⚡ Execute</h3>
                   <p className="text-sm text-slate-300">Agent runs with both user and skill permissions active</p>
@@ -263,7 +263,7 @@ Create a well-formatted git commit for staged changes.
         {/* Security Model */}
         <section className="mb-12">
           <h2 className="heading-2">Security Model - One Turn Only</h2>
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <HiOutlineLockClosed className="w-6 h-6 text-red-400" />
               Turn-Based Expiration
@@ -357,14 +357,14 @@ EOF`}
         <section className="mb-12">
           <h2 className="heading-2">Related</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/concepts/permissions" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-green-500/50 rounded-lg transition-all group">
+            <Link href="/concepts/permissions" className="p-6 bg-gray-50 border border-gray-700 hover:border-gray-400 rounded-lg transition-all group">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineShieldCheck className="w-6 h-6 text-green-400 group-hover:text-green-300 transition-colors" />
                 <h3 className="font-semibold text-gray-900 group-hover:text-green-300 transition-colors">Permissions</h3>
               </div>
               <p className="text-sm text-slate-300">Complete permission system overview</p>
             </Link>
-            <Link href="/concepts/skills" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-gray-400/50 rounded-lg transition-all group">
+            <Link href="/concepts/skills" className="p-6 bg-gray-50 border border-gray-700 hover:border-gray-400/50 rounded-lg transition-all group">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineCodeBracket className="w-6 h-6 text-gray-500 group-hover:text-gray-400 transition-colors" />
                 <h3 className="font-semibold text-gray-900 group-hover:text-gray-400 transition-colors">Skills Concepts</h3>

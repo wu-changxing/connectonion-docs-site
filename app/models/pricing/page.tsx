@@ -50,7 +50,7 @@ export default function PricingPage() {
           href="https://o.openonion.ai/purchase"
           target="_blank"
           rel="noopener"
-          className="flex items-center justify-between p-5 bg-gradient-to-r from-blue-600/20 to-gray-700/20 border border-blue-200 rounded-xl hover:border-blue-400/50 transition-colors group"
+          className="flex items-center justify-between p-5 bg-gradient-to-r from-blue-600/20 to-gray-700/20 border border-blue-200 rounded-xl hover:border-gray-400 transition-colors group"
         >
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-1">Add Credits to Your Account</h3>

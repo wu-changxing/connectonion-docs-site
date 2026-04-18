@@ -517,7 +517,7 @@ Explore ready-to-use prompt templates:
 
           <Link 
             href="/prompts/examples" 
-            className="group bg-gray-900 border border-gray-700 rounded-lg p-6 hover:border-green-500/50 transition-all"
+            className="group bg-gray-900 border border-gray-700 rounded-lg p-6 hover:border-gray-400 transition-all"
           >
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-gray-900">Examples</h3>

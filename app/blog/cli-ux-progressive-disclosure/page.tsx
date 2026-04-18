@@ -131,15 +131,15 @@ The best tool is one you forget you're using. That's what we built.`
             <h2 className="heading-2">Our Philosophy: Progressive Disclosure</h2>
 
             <div className="grid md:grid-cols-3 gap-6 my-8">
-              <div className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6 text-center">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
                 <div className="text-4xl font-bold text-gray-500 mb-2">&lt; 30s</div>
                 <p className="text-gray-700">To working code</p>
               </div>
-              <div className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6 text-center">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
                 <div className="text-4xl font-bold text-gray-500 mb-2">3</div>
                 <p className="text-gray-700">Questions maximum</p>
               </div>
-              <div className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6 text-center">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
                 <div className="text-4xl font-bold text-gray-500 mb-2">0</div>
                 <p className="text-gray-700">Required configs</p>
               </div>
@@ -176,7 +176,7 @@ co init             # Uses current directory`}</code>
 
             <h2 className="heading-2">Minimal Questions, Maximum Intelligence</h2>
 
-            <div className="bg-gradient-to-br from-gray-900/20 to-transparent border border-gray-200 rounded-xl p-6 my-8">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
               <p className="text-gray-400 font-semibold mb-4">Our setup asks only what matters RIGHT NOW:</p>
               <ol className="space-y-3 text-gray-700">
                 <li><span className="text-gray-500 font-bold">1.</span> <strong className="text-white">Enable AI?</strong> - Determines available templates</li>

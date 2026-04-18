@@ -106,7 +106,7 @@ agent = Agent(
 
           <div className="space-y-6">
             {/* File Creation */}
-            <div className="p-5 bg-gradient-to-br from-red-900/20 to-red-800/10 border border-red-200 rounded-lg">
+            <div className="p-5 bg-gray-50 border border-red-200 rounded-lg">
               <h3 className="font-semibold text-red-300 mb-4 flex items-center gap-2">
                 <HiOutlineXCircle className="w-5 h-5" />
                 File Creation (hard blocked)
@@ -140,7 +140,7 @@ agent = Agent(
             </div>
 
             {/* File Reading */}
-            <div className="p-5 bg-gradient-to-br from-yellow-900/20 to-yellow-800/10 border border-yellow-200 rounded-lg">
+            <div className="p-5 bg-gray-50 border border-yellow-200 rounded-lg">
               <h3 className="font-semibold text-yellow-300 mb-4 flex items-center gap-2">
                 <HiOutlineBell className="w-5 h-5" />
                 File Reading (soft reminder)
@@ -182,7 +182,7 @@ agent = Agent(
             {/* For file creation */}
             <div>
               <h3 className="heading-3">For file creation (blocked)</h3>
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 font-mono text-sm">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 font-mono text-sm">
                 <pre className="text-gray-700 whitespace-pre-wrap">{`Bash file creation blocked.
 
 <system-reminder>
@@ -200,7 +200,7 @@ For editing existing files:
             {/* For file reading */}
             <div>
               <h3 className="heading-3">For file reading (soft reminder)</h3>
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 font-mono text-sm">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 font-mono text-sm">
                 <pre className="text-gray-700 whitespace-pre-wrap">{`[actual command output here]
 
 <system-reminder>
@@ -272,11 +272,11 @@ agent = Agent(
         <section className="mb-12">
           <h2 className="heading-2">See Also</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/useful-plugins/tool-approval" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-green-500/50 rounded-lg transition-all group">
+            <Link href="/useful-plugins/tool-approval" className="p-6 bg-gray-50 border border-gray-700 hover:border-gray-400 rounded-lg transition-all group">
               <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-green-300 transition-colors">tool_approval</h3>
               <p className="text-sm text-slate-300">Web-based approval for dangerous tools</p>
             </Link>
-            <Link href="/features/permissions" className="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-gray-400/50 rounded-lg transition-all group">
+            <Link href="/features/permissions" className="p-6 bg-gray-50 border border-gray-700 hover:border-gray-400/50 rounded-lg transition-all group">
               <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">Permissions System</h3>
               <p className="text-sm text-slate-300">Complete permission system overview</p>
             </Link>

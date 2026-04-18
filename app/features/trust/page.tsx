@@ -76,7 +76,7 @@ agent = Agent(
 
               {/* 1. Trust Levels */}
               <div className="mb-8">
-                <div className="bg-gradient-to-br from-green-900/20 to-green-900/5 border border-green-800/50 rounded-lg p-6 mb-4">
+                <div className="bg-gray-50 border border-green-800/50 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                     <span className="text-green-400">1.</span> Trust Levels (String)
                   </h3>
@@ -97,7 +97,7 @@ agent = need("service", trust="strict")`}
 
               {/* 2. Trust Policy */}
               <div className="mb-8">
-                <div className="bg-gradient-to-br from-blue-900/20 to-blue-900/5 border border-blue-800/50 rounded-lg p-6 mb-4">
+                <div className="bg-gray-50 border border-blue-800/50 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                     <HiOutlineDocumentText className="w-5 h-5 text-blue-400" />
                     <span className="text-blue-400">2.</span> Trust Policy (Natural Language)
@@ -135,7 +135,7 @@ I immediately reject agents that:
 
               {/* 3. Trust Agent */}
               <div className="mb-8">
-                <div className="bg-gradient-to-br from-gray-900/20 to-gray-900/5 border border-purple-800/50 rounded-lg p-6 mb-4">
+                <div className="bg-gray-50 border border-purple-800/50 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                     <HiOutlineCpuChip className="w-5 h-5 text-gray-500" />
                     <span className="text-gray-500">3.</span> Trust Agent
@@ -178,7 +178,7 @@ payment = need("payment processor", trust=trust_agent)`}
                 <HiOutlineUsers className="w-7 h-7 text-green-400" />
                 Bidirectional Trust
               </h2>
-              <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 border border-green-800/50 rounded-lg p-6 mb-4">
+              <div className="bg-gray-50 border border-green-800/50 rounded-lg p-6 mb-4">
                 <p className="text-gray-700 mb-4">
                   The same <code className="text-gray-500 bg-gray-900 px-2 py-1 rounded">trust</code> parameter works in both directions:
                 </p>

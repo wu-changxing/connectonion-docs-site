@@ -117,7 +117,7 @@ export default function PromptsExamplesPage() {
       </div>
 
       {/* Learning Path Overview */}
-      <div className="mb-16 p-8 bg-gradient-to-r from-green-900/20 to-red-900/20 border border-green-200 rounded-xl">
+      <div className="mb-16 p-8 bg-gray-50 border border-green-200 rounded-xl">
         <h2 className="heading-2">🎯 Prompt Design Learning Path</h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
@@ -223,7 +223,7 @@ export default function PromptsExamplesPage() {
       </div>
 
       {/* Why Progressive Learning */}
-      <div className="mt-16 p-8 bg-gradient-to-r from-gray-900/20 to-blue-900/20 border border-gray-200 rounded-xl">
+      <div className="mt-16 p-8 bg-gray-50 border border-gray-200 rounded-xl">
         <h2 className="heading-2">💡 Why Progressive Learning?</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div>

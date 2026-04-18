@@ -356,7 +356,7 @@ Errors: 0
 
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
             <div className="flex-1">
-              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gradient-to-r from-green-900/30 to-green-800/10 border border-green-200 rounded-full">
+              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gray-50 border border-green-200 rounded-full">
                 <HiOutlineSparkles className="w-4 h-4 text-green-400" />
                 <span className="text-xs font-medium text-green-800">NEW</span>
               </div>

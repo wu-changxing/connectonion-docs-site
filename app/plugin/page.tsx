@@ -265,7 +265,7 @@ writer = Agent("writer", tools=[generate], plugins=[logger])`}
 
             <Link
               href="/llm_do"
-              className="group bg-blue-50 border border-blue-200 rounded-xl p-6 hover:border-blue-400/50 transition-all"
+              className="group bg-blue-50 border border-blue-200 rounded-xl p-6 hover:border-gray-400 transition-all"
             >
               <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
                 <HiOutlineCodeBracket className="text-white w-6 h-6" />
@@ -280,7 +280,7 @@ writer = Agent("writer", tools=[generate], plugins=[logger])`}
 
             <Link
               href="/examples"
-              className="group bg-green-50 border border-green-200 rounded-xl p-6 hover:border-green-400/50 transition-all"
+              className="group bg-green-50 border border-green-200 rounded-xl p-6 hover:border-gray-400 transition-all"
             >
               <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4">
                 <HiOutlineSparkles className="text-white w-6 h-6" />

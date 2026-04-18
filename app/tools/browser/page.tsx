@@ -247,7 +247,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 
           <div className="grid gap-6">
             {/* Basic Screenshots */}
-            <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-green-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <HiOutlineCamera className="w-5 h-5 text-green-400" />
                 Basic Screenshots
@@ -267,7 +267,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             </div>
 
             {/* Save Locations */}
-            <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-blue-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <HiOutlineDocumentText className="w-5 h-5 text-blue-400" />
                 Save to Specific Path
@@ -287,7 +287,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             </div>
 
             {/* Device Sizes */}
-            <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <HiOutlineDevicePhoneMobile className="w-5 h-5 text-gray-500" />
                 Device Sizes
@@ -391,7 +391,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Debug Development */}
-            <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-green-200 rounded-lg p-6">
               <HiOutlineBugAnt className="w-8 h-8 text-green-400 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Debug Local Development</h3>
               <p className="text-gray-700 text-sm mb-4">
@@ -409,7 +409,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             </div>
 
             {/* Document Bugs */}
-            <div className="bg-gradient-to-b from-red-900/20 to-red-800/10 border border-red-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-red-200 rounded-lg p-6">
               <HiOutlineExclamationCircle className="w-8 h-8 text-red-400 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Document Bugs</h3>
               <p className="text-gray-700 text-sm mb-4">
@@ -427,7 +427,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             </div>
 
             {/* Test Responsive */}
-            <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <HiOutlineSquare3Stack3D className="w-8 h-8 text-gray-500 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Test Responsive Design</h3>
               <p className="text-gray-700 text-sm mb-4">
@@ -443,7 +443,7 @@ done`}
             </div>
 
             {/* CI/CD Integration */}
-            <div className="bg-gradient-to-b from-orange-900/20 to-orange-800/10 border border-orange-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-orange-200 rounded-lg p-6">
               <HiOutlineBolt className="w-8 h-8 text-orange-400 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">CI/CD Integration</h3>
               <p className="text-gray-700 text-sm mb-4">
@@ -497,7 +497,7 @@ done`}
           <h2 className="heading-2">Installation</h2>
 
           <div className="space-y-6">
-            <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-blue-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Standard Installation</h3>
               <p className="text-gray-700 mb-4">Browser features require Playwright:</p>
               <CommandBlock 
@@ -508,7 +508,7 @@ done`}
               />
             </div>
 
-            <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">With Browser Support</h3>
               <p className="text-gray-700 mb-4">Or install ConnectOnion with browser support:</p>
               <CommandBlock 
@@ -602,28 +602,28 @@ done`}
           <h2 className="heading-2">Tips</h2>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg p-4">
+            <div className="bg-gray-50 border border-blue-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-2">Quick Debug</h3>
               <p className="text-gray-700 text-sm">
                 Just <code className="bg-black/30 px-2 py-1 rounded">co -b "screenshot localhost:3000"</code> for instant feedback
               </p>
             </div>
 
-            <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-200 rounded-lg p-4">
+            <div className="bg-gray-50 border border-green-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-2">Organize Screenshots</h3>
               <p className="text-gray-700 text-sm">
                 Use descriptive paths like <code className="bg-black/30 px-2 py-1 rounded">save to bugs/issue-123.png</code>
               </p>
             </div>
 
-            <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-2">Test Viewports</h3>
               <p className="text-gray-700 text-sm">
                 Use device names (<code className="bg-black/30 px-2 py-1 rounded">iphone</code>, <code className="bg-black/30 px-2 py-1 rounded">ipad</code>) for common sizes
               </p>
             </div>
 
-            <div className="bg-gradient-to-b from-orange-900/20 to-orange-800/10 border border-orange-200 rounded-lg p-4">
+            <div className="bg-gray-50 border border-orange-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-2">Timestamps</h3>
               <p className="text-gray-700 text-sm">
                 Default filenames include timestamp for versioning

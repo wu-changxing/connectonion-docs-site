@@ -439,7 +439,7 @@ Form submitted successfully`}
       </div>
 
       {/* Next Steps */}
-      <div className="bg-gradient-to-r from-gray-900/30 to-blue-900/30 border border-gray-200 rounded-lg p-8 text-center mb-12">
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center mb-12">
         <h2 className="heading-2">Ready to Automate the Web?</h2>
         <p className="text-gray-700 mb-6">
           Start building your own browser automation agents with ConnectOnion

@@ -209,7 +209,7 @@ export default function CodeWithResult({
                 overflow: 'visible',
                 fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace'
               }}
-              showLineNumbers={true}
+              showLineNumbers={false}
               wrapLines={false}
               wrapLongLines={false}
               PreTag="div"

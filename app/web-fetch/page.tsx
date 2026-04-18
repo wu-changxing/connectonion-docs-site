@@ -122,7 +122,7 @@ text = web.strip_tags(html)
           <p className="text-gray-700 mb-6">AI-powered analysis of web pages</p>
 
           <div className="space-y-6">
-            <div className="bg-gradient-to-r from-gray-900/30 to-blue-900/30 border border-gray-200 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="font-semibold text-gray-400 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineCpuChip className="w-4 h-4" />
                 analyze_page(url)
@@ -136,7 +136,7 @@ text = web.strip_tags(html)
               />
             </div>
 
-            <div className="bg-gradient-to-r from-gray-900/30 to-blue-900/30 border border-gray-200 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="font-semibold text-gray-400 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineMagnifyingGlass className="w-4 h-4" />
                 get_contact_info(url)

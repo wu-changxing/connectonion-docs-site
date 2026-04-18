@@ -137,7 +137,7 @@ export default function CLIPage() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-4 mb-8">
-          <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-green-200 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
               <HiOutlineSparkles className="w-5 h-5 text-green-400" />
               <h3 className="text-lg font-semibold text-gray-900">co create [name]</h3>
@@ -147,7 +147,7 @@ export default function CLIPage() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
               <HiOutlineFolderOpen className="w-5 h-5 text-gray-500" />
               <h3 className="text-lg font-semibold text-gray-900">co init</h3>
@@ -346,7 +346,7 @@ Next steps:
           <CommandBlock commands={['co auth']} />
         </div>
 
-        <div className="bg-gradient-to-b from-amber-900/20 to-amber-800/10 border border-amber-200 rounded-lg p-6 mb-6">
+        <div className="bg-gray-50 border border-amber-200 rounded-lg p-6 mb-6">
           <h3 className="text-lg font-semibold text-amber-100 mb-4">What It Does</h3>
           <ol className="space-y-2 text-gray-700">
             <li className="flex items-center gap-3">
@@ -679,7 +679,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
 
         <div className="space-y-6">
           {/* Minimal Template */}
-          <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-blue-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
               Minimal
@@ -704,7 +704,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Web Research Template */}
-          <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-green-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full"></div>
               Web Research
@@ -733,7 +733,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Playwright Template */}
-          <div className="bg-gradient-to-b from-yellow-900/20 to-yellow-800/10 border border-yellow-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-yellow-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
               Playwright
@@ -758,7 +758,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Email Agent Template */}
-          <div className="bg-gradient-to-b from-pink-900/20 to-pink-800/10 border border-gray-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
               Email Agent
@@ -783,7 +783,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Meta Agent Template */}
-          <div className="bg-gradient-to-b from-cyan-900/20 to-cyan-800/10 border border-cyan-500/30 rounded-lg p-6">
+          <div className="bg-gray-50 border border-cyan-500/30 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
               Meta Agent
@@ -808,7 +808,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Custom Template */}
-          <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
               Custom (AI-only)
@@ -876,7 +876,7 @@ Generating custom template with AI...
           </table>
         </div>
 
-        <div className="bg-gradient-to-b from-orange-900/30 to-orange-800/10 border border-orange-200 rounded-lg p-4 mt-6">
+        <div className="bg-gray-50 border border-orange-200 rounded-lg p-4 mt-6">
           <p className="text-orange-800 text-sm">
             The appropriate environment variables and model configurations are set automatically.
           </p>
@@ -948,7 +948,7 @@ Generating custom template with AI...
         </div>
 
         {/* Agent Identity */}
-        <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
             <HiOutlineShieldCheck className="w-5 h-5 text-gray-500" />
             Agent Identity
@@ -1020,7 +1020,7 @@ Generating custom template with AI...
         <h2 className="heading-2">Best Practices</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-b from-gray-900/20 to-gray-900/10 border border-gray-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <HiOutlineCommandLine className="w-8 h-8 text-gray-500 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Choose the Right Command</h3>
             <p className="text-gray-700 text-sm">
@@ -1029,7 +1029,7 @@ Generating custom template with AI...
             </p>
           </div>
 
-          <div className="bg-gradient-to-b from-green-900/20 to-green-800/10 border border-green-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-green-200 rounded-lg p-6">
             <HiOutlineKey className="w-8 h-8 text-green-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">API Key Security</h3>
             <p className="text-gray-700 text-sm">
@@ -1037,7 +1037,7 @@ Generating custom template with AI...
             </p>
           </div>
 
-          <div className="bg-gradient-to-b from-orange-900/20 to-orange-800/10 border border-orange-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-orange-200 rounded-lg p-6">
             <HiOutlineCodeBracket className="w-8 h-8 text-orange-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Template Selection</h3>
             <p className="text-gray-700 text-sm">
@@ -1045,7 +1045,7 @@ Generating custom template with AI...
             </p>
           </div>
 
-          <div className="bg-gradient-to-b from-blue-900/20 to-blue-800/10 border border-blue-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-blue-200 rounded-lg p-6">
             <HiOutlineShieldCheck className="w-8 h-8 text-blue-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Agent Keys</h3>
             <p className="text-gray-700 text-sm">

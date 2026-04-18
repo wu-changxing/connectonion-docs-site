@@ -301,7 +301,7 @@ Sometimes the best API design decision is the one that makes developers forget t
 
               <h2 className="heading-2">The Deeper Principle</h2>
               
-              <div className="bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-500/20 rounded-xl p-6 my-8">
+              <div className="bg-gray-50 border border-blue-500/20 rounded-xl p-6 my-8">
                 <p className="text-blue-800 font-semibold text-lg mb-4">
                   Design APIs from the user's perspective, not the system's perspective.
                 </p>
@@ -312,19 +312,19 @@ Sometimes the best API design decision is the one that makes developers forget t
               <h2 className="heading-2">Measuring Success</h2>
               
               <div className="grid md:grid-cols-2 gap-6 my-8">
-                <div className="bg-gradient-to-br from-green-900/20 to-transparent border border-green-500/20 rounded-xl p-6">
+                <div className="bg-gray-50 border border-green-500/20 rounded-xl p-6">
                   <div className="text-3xl font-bold text-green-400 mb-2">60%</div>
                   <p className="text-green-800">Fewer "how do I use?" questions</p>
                 </div>
-                <div className="bg-gradient-to-br from-green-900/20 to-transparent border border-green-500/20 rounded-xl p-6">
+                <div className="bg-gray-50 border border-green-500/20 rounded-xl p-6">
                   <div className="text-3xl font-bold text-green-400 mb-2">89%</div>
                   <p className="text-green-800">First-time success rate (up from 67%)</p>
                 </div>
-                <div className="bg-gradient-to-br from-green-900/20 to-transparent border border-green-500/20 rounded-xl p-6">
+                <div className="bg-gray-50 border border-green-500/20 rounded-xl p-6">
                   <div className="text-3xl font-bold text-green-400 mb-2">40%</div>
                   <p className="text-green-800">Faster time to first successful call</p>
                 </div>
-                <div className="bg-gradient-to-br from-green-900/20 to-transparent border border-green-500/20 rounded-xl p-6">
+                <div className="bg-gray-50 border border-green-500/20 rounded-xl p-6">
                   <div className="text-3xl font-bold text-green-400 mb-2">55%</div>
                   <p className="text-green-800">Fewer documentation lookups</p>
                 </div>
