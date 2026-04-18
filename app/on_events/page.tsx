@@ -378,134 +378,34 @@ Errors: 0
           </div>
         </div>
 
-        {/* 12 Event Types Visual */}
+        {/* 12 Event Types — definition list */}
         <section className="mb-12">
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 md:p-8">
-            <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
-              <HiOutlineCodeBracket className="text-blue-400 w-5 h-5" />
-              12 Event Types
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-50 border border-gray-200 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlinePlay className="icon-ui w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">after_user_input</div>
-                  <div className="text-gray-700 text-xs">Fires once per turn</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-100 border border-gray-200 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineClock className="icon-ui w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">before_iteration</div>
-                  <div className="text-gray-700 text-xs">Before each iteration starts</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-100 border border-gray-300 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineCodeBracket className="text-gray-500 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">before_llm</div>
-                  <div className="text-gray-700 text-xs">Before each LLM call</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-100 border border-gray-300 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineChartBar className="text-green-400 w-5 h-5" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">after_llm</div>
-                  <div className="text-gray-700 text-xs">After each LLM response</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-100 border border-gray-300 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineBolt className="text-yellow-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">before_each_tool</div>
-                  <div className="text-gray-700 text-xs">Before each individual tool</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-100 border border-gray-200 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineSquare3Stack3D className="icon-ui w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">before_tools</div>
-                  <div className="text-gray-700 text-xs">Once before all tools in batch</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-100 border border-gray-200 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineClock className="icon-ui w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">after_each_tool</div>
-                  <div className="text-gray-700 text-xs">After each tool (logging only)</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-100 border border-gray-200 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineChartBar className="icon-ui w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">after_tools</div>
-                  <div className="text-gray-700 text-xs">Once after all tools (safe for messages)</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-100 border border-gray-300 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineSquare3Stack3D className="text-red-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">on_error</div>
-                  <div className="text-gray-700 text-xs">When tool execution fails</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-100 border border-gray-200 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineChartBar className="text-gray-500 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">after_iteration</div>
-                  <div className="text-gray-700 text-xs">After iteration (checkpoints, can stop)</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-100 border border-gray-200 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineShieldCheck className="icon-ui w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">on_stop_signal</div>
-                  <div className="text-gray-700 text-xs">When interrupted (cleanup)</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gray-50 border border-gray-200 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineClock className="icon-ui w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">on_complete</div>
-                  <div className="text-gray-700 text-xs">After agent finishes task</div>
-                </div>
-              </div>
+          <div className="border border-gray-200 rounded-lg overflow-hidden">
+            <div className="bg-gray-50 border-b border-gray-200 px-4 py-2.5 flex items-center gap-2">
+              <HiOutlineCodeBracket className="text-gray-400 w-4 h-4" />
+              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">12 Event Types</span>
             </div>
+            <dl className="divide-y divide-gray-100">
+              {[
+                { name: 'after_user_input', desc: 'Fires once per turn, after user input is added' },
+                { name: 'before_iteration', desc: 'Before each iteration starts — poll IO, check mode changes' },
+                { name: 'before_llm', desc: 'Before each LLM call — inject context, modify messages' },
+                { name: 'after_llm', desc: 'After each LLM response — track latency, log outputs' },
+                { name: 'before_each_tool', desc: 'Before each individual tool execution' },
+                { name: 'before_tools', desc: 'Once before all tools in a batch fire' },
+                { name: 'after_each_tool', desc: 'After each individual tool — logging only, don\'t add messages' },
+                { name: 'after_tools', desc: 'Once after all tools complete — safe place to add messages' },
+                { name: 'on_error', desc: 'When tool execution fails or tool is not found' },
+                { name: 'after_iteration', desc: 'After each iteration — checkpoints, can stop the loop' },
+                { name: 'on_stop_signal', desc: 'When stop_signal is set — cleanup interrupted operations' },
+                { name: 'on_complete', desc: 'Fires once after agent finishes the task' },
+              ].map(({ name, desc }) => (
+                <div key={name} className="flex items-baseline gap-4 px-4 py-2.5 hover:bg-gray-50 transition-colors">
+                  <code className="font-mono text-sm text-gray-900 min-w-[10rem] flex-shrink-0">{name}</code>
+                  <span className="text-sm text-gray-500">{desc}</span>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 

@@ -16,10 +16,7 @@ export function OnThisPage() {
     // Only pick real section headings (.heading-2 / .heading-3), not stray
     // h2/h3 inside cards. Falls back to plain h2 if no .heading-2 exists
     // (some pages haven't migrated to the design-system class yet).
-    let elements = Array.from(document.querySelectorAll('h2.heading-2, h3.heading-3'))
-    if (elements.length === 0) {
-      elements = Array.from(document.querySelectorAll('main h2'))
-    }
+    const elements = Array.from(document.querySelectorAll('h2.heading-2'))
 
     const items: Heading[] = elements.map(el => {
       if (!el.id) {

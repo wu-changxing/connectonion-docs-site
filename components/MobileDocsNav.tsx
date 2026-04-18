@@ -64,17 +64,18 @@ export function MobileDocsNav() {
           {hasMarkdown ? (
             <button
               onClick={() => copyMarkdown()}
-              className="p-2 rounded-md bg-gray-100 text-gray-600 border border-gray-200 hover:bg-gray-200 transition-colors"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-gray-100 text-gray-600 border border-gray-200 hover:bg-gray-200 transition-colors text-xs font-medium"
               title="Copy page as markdown"
               aria-label="Copy page as markdown"
             >
               {status === 'loading' ? (
-                <HiOutlineArrowPath className="w-5 h-5 animate-spin" />
+                <HiOutlineArrowPath className="w-4 h-4 animate-spin" />
               ) : status === 'success' ? (
-                <HiOutlineCheck className="w-5 h-5 text-green-600" />
+                <HiOutlineCheck className="w-4 h-4 text-green-600" />
               ) : (
-                <HiOutlineClipboard className="w-5 h-5" />
+                <HiOutlineClipboard className="w-4 h-4" />
               )}
+              <span>{status === 'success' ? 'Copied' : 'Copy'}</span>
             </button>
           ) : (
             <div className="w-10" />
