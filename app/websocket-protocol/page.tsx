@@ -69,7 +69,7 @@ export default function WebSocketProtocolPage() {
                   <th className="text-left px-4 py-3 text-gray-500">When</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-mono text-cyan-700">CONNECT</td>
                   <td className="px-4 py-3 text-gray-700">&quot;Authenticate me, restore my session&quot;</td>
@@ -273,7 +273,7 @@ export default function WebSocketProtocolPage() {
                   <th className="text-left px-4 py-3 text-gray-500">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">session_id</td>
                   <td className="px-4 py-3 text-gray-600">No</td>
@@ -314,7 +314,7 @@ export default function WebSocketProtocolPage() {
                   <th className="text-left px-4 py-3 text-gray-500">Server action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 text-gray-600">Not provided</td>
                   <td className="px-4 py-3 text-gray-600">&mdash;</td>
@@ -363,7 +363,7 @@ export default function WebSocketProtocolPage() {
                   <th className="text-left px-4 py-3 text-gray-500">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">prompt</td>
                   <td className="px-4 py-3 text-gray-600">Yes</td>
@@ -436,7 +436,7 @@ export default function WebSocketProtocolPage() {
                   <th className="text-left px-4 py-3 text-gray-500">Client action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">&quot;new&quot;</td>
                   <td className="px-4 py-3 text-gray-700">Fresh session</td>
@@ -483,7 +483,7 @@ export default function WebSocketProtocolPage() {
                   <th className="text-left px-4 py-3 text-gray-500">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 {[
                   ['thinking', 'Agent reasoning'],
                   ['tool_call', 'Tool execution started'],
@@ -586,7 +586,7 @@ signature → OK             (same WS, already authenticated)`}
                   <th className="text-left px-4 py-3 text-gray-500">CONNECT Behavior</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">open</td>
                   <td className="px-4 py-3 text-gray-600">Accept without signature</td>
@@ -706,7 +706,7 @@ WS close → 10min grace → session cleaned up`}</pre>
                   <th className="text-left px-4 py-3 text-gray-500">Role</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 {[
                   ['network/asgi/websocket.py', 'WebSocket handler — CONNECT/INPUT routing'],
                   ['network/host/session/active.py', 'ActiveSessionRegistry — in-memory session tracking'],

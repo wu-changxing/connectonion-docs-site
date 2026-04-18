@@ -46,7 +46,7 @@ export default function MicrosoftIntegrationPage() {
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
-          <div className="bg-gradient-to-r from-gray-500/10 to-cyan-500/10 rounded-xl p-8 border border-gray-700 mb-8">
+          <div className="bg-gradient-to-r from-gray-500/10 to-cyan-500/10 rounded-xl p-8 border border-gray-200 mb-8">
             <CommandBlock commands={['co auth microsoft']} />
 
             <div className="mt-8 space-y-4">

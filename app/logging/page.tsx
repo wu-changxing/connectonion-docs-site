@@ -107,7 +107,7 @@ agent = Agent("assistant", log="debug.log")`}
                   <th className="p-4 font-medium text-gray-700">Use Case</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700/50">
+              <tbody className="divide-y divide-gray-200">
                 <tr className="hover:bg-gray-50 transition-colors bg-gray-50">
                   <td className="p-4 font-mono text-gray-400">False</td>
                   <td className="p-4 font-mono text-gray-400">True/None</td>

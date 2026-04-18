@@ -115,7 +115,7 @@ export default function SessionReconnectPage() {
                   <th className="text-left px-4 py-3 text-gray-500">What happens</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-mono text-cyan-700">→ RUNNING</td>
                   <td className="px-4 py-3 text-gray-700">register()</td>
@@ -358,7 +358,7 @@ iteration: 5                iteration: 10
                   <th className="text-left px-4 py-3 text-gray-500">Resolution</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 text-gray-700">Server continued (iteration 10 vs 5)</td>
                   <td className="px-4 py-3 font-mono text-gray-700">Server wins</td>
@@ -481,7 +481,7 @@ T+10   New WebSocket connects → CONNECT { session_id }
                   <th className="text-left px-4 py-3 text-gray-500">Role</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">network/host/session/active.py</td>
                   <td className="px-4 py-3 text-gray-600">ActiveSessionRegistry — in-memory session tracking</td>

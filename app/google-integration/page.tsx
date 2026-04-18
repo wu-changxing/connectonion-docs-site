@@ -46,7 +46,7 @@ export default function GoogleIntegrationPage() {
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
-          <div className="bg-gradient-to-r from-red-500/10 to-blue-500/10 rounded-xl p-8 border border-gray-700 mb-8">
+          <div className="bg-gradient-to-r from-red-500/10 to-blue-500/10 rounded-xl p-8 border border-gray-200 mb-8">
             <CommandBlock commands={['co auth google']} />
             
             <div className="mt-8 space-y-4">

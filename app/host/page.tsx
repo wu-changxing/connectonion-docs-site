@@ -721,7 +721,7 @@ blacklist: blacklist.txt`}
                   <th className="text-left px-4 py-3 text-gray-700 font-semibold">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-400">agent</td>
                   <td className="px-4 py-3 text-gray-600">Agent</td>

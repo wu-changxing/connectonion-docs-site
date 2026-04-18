@@ -114,7 +114,7 @@ agent.input("Refactor all Python files to use type annotations")`}
                   <th className="text-left py-2 text-gray-700">Purpose</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700/50">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="py-2"><code className="text-orange-700">on_complete</code></td>
                   <td className="py-2 text-gray-600">ulw_keep_working</td>

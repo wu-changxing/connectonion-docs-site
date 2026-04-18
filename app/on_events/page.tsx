@@ -472,9 +472,9 @@ agent = Agent(
               language="python"
             />
 
-            <div className="bg-gray-100 border border-gray-700 p-4 my-6 rounded-lg">
+            <div className="bg-gray-100 border border-gray-200 p-4 my-6 rounded-lg">
               <p className="text-sm text-gray-700">
-                <strong className="text-gray-300">Note: Decorator Syntax</strong><br/>
+                <strong className="text-gray-700">Note: Decorator Syntax</strong><br/>
                 You can also use <code className="text-gray-700 bg-gray-100 px-1 rounded">@before_each_tool</code> decorator instead of <code className="text-gray-700 bg-gray-100 px-1 rounded">before_each_tool(fn)</code>.
                 We recommend wrapper style because it's easier for LLMs to understand when reading your code.
                 But if you prefer decorators, they work too.

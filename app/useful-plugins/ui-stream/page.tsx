@@ -75,7 +75,7 @@ host(agent, port=8000)  # WebSocket clients receive completion events`}
                   <th className="text-left px-4 py-3 text-gray-700">When</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-mono text-emerald-700">thinking</td>
                   <td className="px-4 py-3 text-gray-600">agent.py</td>

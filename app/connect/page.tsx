@@ -492,7 +492,7 @@ console.log(response.text)`}
                   <th className="text-left px-4 py-3 text-gray-500">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">user</td>
                   <td className="px-4 py-3 text-gray-600">User message</td>
@@ -502,7 +502,7 @@ console.log(response.text)`}
                   <td className="px-4 py-3 text-gray-600">Agent response text</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-400">thinking</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">thinking</td>
                   <td className="px-4 py-3 text-gray-600">LLM thinking/reasoning</td>
                 </tr>
                 <tr>
