@@ -11,6 +11,7 @@ import Link from 'next/link'
 import { FaGithub, FaDiscord } from 'react-icons/fa'
 import { DocsSidebar } from './DocsSidebar'
 import { MobileDocsNav } from './MobileDocsNav'
+import { MobileSectionJump } from './MobileSectionJump'
 import Footer from './Footer'
 import { OnThisPage } from './OnThisPage'
 
@@ -52,6 +53,7 @@ export default function ClientLayout({
 
       {/* Mobile Documentation Navigation */}
       <MobileDocsNav />
+      <MobileSectionJump />
 
       <div className="flex min-h-screen">
         {/* Desktop Sidebar - always visible for navigation */}
