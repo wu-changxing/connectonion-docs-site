@@ -309,8 +309,8 @@ export default function LinksPage() {
     const content = (
       <div className={cardClasses}>
         {!link.available && (
-          <div className="absolute -top-2 -right-2 px-3 py-1 bg-amber-100 border border-amber-300 rounded-full flex items-center gap-1">
-            <span className="text-xs font-medium text-amber-800">🔒 Coming Soon</span>
+          <div className="absolute -top-2 -right-2 px-3 py-1 bg-gray-100 border border-gray-200 rounded-full flex items-center gap-1">
+            <span className="text-xs font-medium text-gray-500">Coming Soon</span>
           </div>
         )}
 

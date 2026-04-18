@@ -342,18 +342,18 @@ Next steps:
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
-          <h3 className="text-lg font-semibold text-amber-700 mb-4">What It Does</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">What It Does</h3>
           <ol className="space-y-2 text-gray-700">
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-amber-50 border border-amber-300 rounded-full flex items-center justify-center text-xs text-amber-700 font-semibold">1</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-100 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700 font-semibold">1</span>
               <span>Signs message with your Ed25519 key</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-amber-50 border border-amber-300 rounded-full flex items-center justify-center text-xs text-amber-700 font-semibold">2</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-100 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700 font-semibold">2</span>
               <span>Authenticates with OpenOnion backend</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-amber-50 border border-amber-300 rounded-full flex items-center justify-center text-xs text-amber-700 font-semibold">3</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-100 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700 font-semibold">3</span>
               <span>Saves <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">OPENONION_API_KEY</code> to <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">~/.co/keys.env</code></span>
             </li>
           </ol>
@@ -453,7 +453,7 @@ Continue? (y/N): y
         </div>
 
         <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
-          <p className="text-amber-800 text-sm">
+          <p className="text-gray-700 text-sm">
             <strong>When to use:</strong> Starting completely fresh, testing account creation, or removing old identity.
           </p>
         </div>
@@ -509,8 +509,8 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
         </div>
 
         <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
-          <p className="text-amber-800 text-sm">
-            <strong>Beta:</strong> This feature is in beta. See the <Link href="/deploy" className="underline hover:text-amber-700">Deploy Guide</Link> for more details.
+          <p className="text-gray-700 text-sm">
+            <strong>Beta:</strong> This feature is in beta. See the <Link href="/deploy" className="underline hover:text-gray-900">Deploy Guide</Link> for more details.
           </p>
         </div>
       </section>
@@ -518,7 +518,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
       {/* co doctor Command */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineExclamationCircle className="w-6 h-6 text-red-400" />
+          <HiOutlineExclamationCircle className="w-6 h-6 icon-ui" />
           co doctor
         </h2>
 
@@ -640,24 +640,24 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Device Presets</h3>
           <div className="grid grid-cols-3 gap-4 text-sm">
             <div>
-              <span className="font-semibold text-yellow-800">iPhone</span>
+              <span className="font-semibold text-gray-900">iPhone</span>
               <p className="text-gray-700">390×844</p>
             </div>
             <div>
-              <span className="font-semibold text-yellow-800">iPad</span>
+              <span className="font-semibold text-gray-900">iPad</span>
               <p className="text-gray-700">768×1024</p>
             </div>
             <div>
-              <span className="font-semibold text-yellow-800">Desktop</span>
+              <span className="font-semibold text-gray-900">Desktop</span>
               <p className="text-gray-700">1920×1080 (default)</p>
             </div>
           </div>
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-          <p className="text-blue-800">
+          <p className="text-gray-700">
             <strong>Learn more:</strong> See the complete{' '}
-            <Link href="/cli/browser-command" className="text-blue-700 hover:text-gray-900 underline">
+            <Link href="/cli/browser-command" className="text-gray-700 hover:text-gray-900 underline">
               co browser documentation
             </Link>{' '}
             for URL handling, framework examples, and advanced usage.
@@ -730,7 +730,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           {/* Playwright Template */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
               Playwright
             </h3>
             <p className="text-gray-700 mb-4">
@@ -871,8 +871,8 @@ Generating custom template with AI...
           </table>
         </div>
 
-        <div className="bg-gray-50 border border-orange-200 rounded-lg p-4 mt-6">
-          <p className="text-orange-800 text-sm">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-6">
+          <p className="text-gray-700 text-sm">
             The appropriate environment variables and model configurations are set automatically.
           </p>
         </div>
@@ -971,9 +971,9 @@ Generating custom template with AI...
               </div>
             </li>
           </ul>
-          <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg flex items-center gap-2">
+          <div className="mt-4 p-3 bg-gray-50 border border-gray-200 rounded-lg flex items-center gap-2">
             <HiOutlineExclamationCircle className="w-4 h-4 text-gray-400" />
-            <p className="text-yellow-800 text-sm">
+            <p className="text-gray-700 text-sm">
               Keys are stored in <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.co/keys/</code> and auto-added to <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.gitignore</code>
             </p>
           </div>
