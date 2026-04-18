@@ -40,53 +40,37 @@ export function DocsSidebar() {
   const activeItemRef = useRef<HTMLLIElement>(null)
   const { copyMarkdown, status: itemCopyStatus, copiedPath } = useCopyMarkdown()
 
-  // Group navigation items by section for sidebar display, with parent-child relationships
   const navigationSections = useMemo(() => {
     const sections: Record<string, typeof navData> = {}
-    const childItems = new Set<string>() // Track items that are children
+    const childItems = new Set<string>()
 
-    // First pass: identify all child items
     navData.forEach(item => {
-      if ((item as any).parent) {
-        childItems.add(item.href)
-      }
+      if ((item as any).parent) childItems.add(item.href)
     })
 
-    // Second pass: build sections with only top-level items
     navData.forEach(item => {
-      // Skip admin pages, hidden pages, and child items (they'll be rendered under parents)
       if (item.section === 'Admin') return
       if ((item as any).hidden) return
       if (childItems.has(item.href)) return
 
-      if (!sections[item.section]) {
-        sections[item.section] = []
-      }
+      if (!sections[item.section]) sections[item.section] = []
       sections[item.section].push(item)
     })
     return sections
   }, [])
 
-  // Get children of a navigation item
-  const getChildren = (parentHref: string) => {
-    return navData.filter(item => (item as any).parent === parentHref && !(item as any).hidden)
-  }
+  const getChildren = (parentHref: string) =>
+    navData.filter(item => (item as any).parent === parentHref && !(item as any).hidden)
 
-  // Initialize from localStorage, then auto-expand current section (single effect to avoid race)
   useEffect(() => {
     let sections = openSections
     const saved = localStorage.getItem('docs-open-sections')
     if (saved) {
       try {
         const parsed = JSON.parse(saved)
-        if (parsed && parsed.length > 0) {
-          sections = parsed
-        }
-      } catch {
-        // Keep default if parsing fails
-      }
+        if (parsed && parsed.length > 0) sections = parsed
+      } catch { /* keep default */ }
     }
-    // Auto-expand section containing current page
     const currentPage = navData.find(page => page.href === pathname)
     if (currentPage && !sections.includes(currentPage.section)) {
       sections = [...sections, currentPage.section]
@@ -96,7 +80,6 @@ export function DocsSidebar() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Auto-expand section on navigation (after initial mount)
   useEffect(() => {
     if (!isClientMounted) return
     const currentPage = navData.find(page => page.href === pathname)
@@ -106,76 +89,45 @@ export function DocsSidebar() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, isClientMounted])
 
-  // Save to localStorage whenever sections change
   useEffect(() => {
     if (isClientMounted) {
       localStorage.setItem('docs-open-sections', JSON.stringify(openSections))
     }
   }, [openSections, isClientMounted])
 
-  // Enhanced search
   const performSearch = useCallback(async (query: string) => {
-    if (!query.trim()) {
-      setSearchResults([])
-      return
-    }
+    if (!query.trim()) { setSearchResults([]); return }
 
     const markdownResults = await searchMarkdownDocuments(query)
     const enhancedResults = searchPages(query)
-    
     const results: SearchResult[] = []
     const processedHrefs = new Set<string>()
-    
-    // Process markdown search results first (with snippets)
+
     markdownResults.forEach(docResult => {
       const navItem = navData.find(item => item.href === docResult.href)
       if (navItem && !processedHrefs.has(navItem.href)) {
         processedHrefs.add(navItem.href)
-        const snippet = getMatchSnippet(docResult.content, query, 100)
-        results.push({
-          item: navItem,
-          score: 150,
-          matches: ['documentation'],
-          snippet
-        })
+        results.push({ item: navItem, score: 150, matches: ['documentation'], snippet: getMatchSnippet(docResult.content, query, 100) })
       }
     })
-    
-    // Process enhanced search results
+
     enhancedResults.forEach(pageResult => {
       const navItem = navData.find(item => item.href === pageResult.href)
       if (navItem && !processedHrefs.has(navItem.href)) {
         processedHrefs.add(navItem.href)
-        results.push({
-          item: navItem,
-          score: 100,
-          matches: ['content']
-        })
+        results.push({ item: navItem, score: 100, matches: ['content'] })
       }
     })
 
-    // Check navigation items directly
     if (results.length < 5) {
       const q = query.toLowerCase()
       navData.forEach(item => {
         if (processedHrefs.has(item.href)) return
-        
         let score = 0
         const matches: string[] = []
-
-        if (item.title.toLowerCase().includes(q)) {
-          score += 10
-          matches.push('title')
-        }
-
-        if (item.keywords?.some(k => k.includes(q))) {
-          score += 5
-          matches.push('keywords')
-        }
-
-        if (score > 0 && results.length < 10) {
-          results.push({ item, score, matches })
-        }
+        if (item.title.toLowerCase().includes(q)) { score += 10; matches.push('title') }
+        if (item.keywords?.some(k => k.includes(q))) { score += 5; matches.push('keywords') }
+        if (score > 0 && results.length < 10) results.push({ item, score, matches })
       })
     }
 
@@ -184,7 +136,6 @@ export function DocsSidebar() {
     setSelectedIndex(0)
   }, [])
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -192,21 +143,12 @@ export function DocsSidebar() {
         searchInputRef.current?.focus()
         return
       }
-
-      // Only handle arrow/enter/escape when the sidebar search input is focused
-      const activeEl = document.activeElement
-      const isSearchFocused = activeEl === searchInputRef.current
+      const isSearchFocused = document.activeElement === searchInputRef.current
       if (!searchQuery || !isSearchFocused) return
 
       switch(e.key) {
-        case 'ArrowDown':
-          e.preventDefault()
-          setSelectedIndex(i => Math.min(i + 1, searchResults.length - 1))
-          break
-        case 'ArrowUp':
-          e.preventDefault()
-          setSelectedIndex(i => Math.max(i - 1, 0))
-          break
+        case 'ArrowDown': e.preventDefault(); setSelectedIndex(i => Math.min(i + 1, searchResults.length - 1)); break
+        case 'ArrowUp':   e.preventDefault(); setSelectedIndex(i => Math.max(i - 1, 0)); break
         case 'Enter':
           e.preventDefault()
           if (searchResults[selectedIndex]) {
@@ -222,28 +164,21 @@ export function DocsSidebar() {
           break
       }
     }
-
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [searchQuery, searchResults, selectedIndex, router])
 
-  // Debounced search
   useEffect(() => {
-    const timer = setTimeout(() => {
-      performSearch(searchQuery)
-    }, 150)
+    const timer = setTimeout(() => performSearch(searchQuery), 150)
     return () => clearTimeout(timer)
   }, [searchQuery, performSearch])
 
   const toggleSection = (section: string) => {
-    setOpenSections(prev => 
-      prev.includes(section) 
-        ? prev.filter(s => s !== section)
-        : [...prev, section]
+    setOpenSections(prev =>
+      prev.includes(section) ? prev.filter(s => s !== section) : [...prev, section]
     )
   }
 
-  // Auto-scroll to active sidebar item on mount and navigation
   useEffect(() => {
     if (activeItemRef.current) {
       activeItemRef.current.scrollIntoView({ block: 'center', behavior: 'smooth' })
@@ -252,37 +187,32 @@ export function DocsSidebar() {
 
   const handleCopyAllDocs = async () => {
     setCopyStatus('copying')
-    try {
-      const success = await copyAllDocsToClipboard()
-      if (success) {
-        setCopyStatus('success')
-        setTimeout(() => setCopyStatus('idle'), 3000)
-      } else {
-        setCopyStatus('idle')
-      }
-    } catch (error) {
-      console.error('Failed to copy docs:', error)
+    const success = await copyAllDocsToClipboard()
+    if (success) {
+      setCopyStatus('success')
+      setTimeout(() => setCopyStatus('idle'), 3000)
+    } else {
       setCopyStatus('idle')
     }
   }
 
   return (
-    <div className="w-full sm:w-64 lg:w-72 xl:w-80 bg-gray-900 border-r border-gray-700/50 flex flex-col h-screen sticky top-0 z-40">
+    <div className="w-full sm:w-64 lg:w-72 xl:w-80 bg-white border-r border-gray-200 flex flex-col h-screen sticky top-0 z-40">
       {/* Header */}
-      <div className="p-4 border-b border-gray-700/50">
+      <div className="p-4 border-b border-gray-200">
         <Link href="/" className="flex items-center gap-3 group">
           <img src="/onion-logo.png" alt="ConnectOnion Logo" className="w-8 h-8 rounded-lg object-cover" />
           <div>
-            <div className="text-lg font-bold text-white">ConnectOnion</div>
-            <div className="text-sm text-gray-300">Documentation</div>
+            <div className="text-base font-semibold text-gray-900">ConnectOnion</div>
+            <div className="text-xs text-gray-500">Documentation</div>
           </div>
         </Link>
       </div>
 
       {/* Search */}
-      <div className="p-4 pb-2 bg-gray-800/30">
+      <div className="p-3 pb-2 bg-gray-50 border-b border-gray-200">
         <div className="relative group">
-          <HiOutlineMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 transition-colors group-focus-within:text-purple-400" aria-hidden="true" />
+          <HiOutlineMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 transition-colors group-focus-within:text-green-600" aria-hidden="true" />
           <input
             ref={searchInputRef}
             type="text"
@@ -291,79 +221,61 @@ export function DocsSidebar() {
             aria-describedby="search-hint"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-8 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-gray-100 placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all text-sm font-normal"
+            className="w-full pl-9 pr-8 py-2 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-green-500 focus:ring-2 focus:ring-green-500/15 focus:outline-none transition-all text-sm"
           />
           {searchQuery ? (
             <button
-              onClick={() => {
-                setSearchQuery('')
-                setSearchResults([])
-              }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 hover:bg-gray-700 rounded transition-colors"
+              onClick={() => { setSearchQuery(''); setSearchResults([]) }}
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 hover:bg-gray-100 rounded transition-colors"
               aria-label="Clear search"
             >
-              <HiOutlineXMark className="w-4 h-4 text-gray-400 hover:text-white" />
+              <HiOutlineXMark className="w-3.5 h-3.5 text-gray-400" />
             </button>
           ) : (
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-500 font-mono px-1.5 py-0.5 bg-gray-700 rounded">
+            <div className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 font-mono px-1.5 py-0.5 bg-gray-100 rounded border border-gray-200">
               ⌘K
             </div>
           )}
         </div>
-        
+
         {!searchQuery && (
-          <div id="search-hint" className="mt-1.5 text-xs text-gray-500">
-            Search everything • Typo-tolerant • Smart matching
+          <div id="search-hint" className="mt-1.5 text-xs text-gray-400">
+            Typo-tolerant · Smart matching
           </div>
         )}
-        
         {searchQuery && (
-          <div className="mt-1.5">
-            <div className="text-[11px] text-gray-500">
-              {searchResults.length === 0 
-                ? 'No results found' 
-                : `${searchResults.length} result${searchResults.length !== 1 ? 's' : ''} • Use arrow keys`
-              }
-            </div>
+          <div className="mt-1.5 text-[11px] text-gray-400">
+            {searchResults.length === 0 ? 'No results found' : `${searchResults.length} result${searchResults.length !== 1 ? 's' : ''} · Arrow keys to navigate`}
           </div>
         )}
       </div>
 
-      {/* Quick Actions */}
-      <div className="px-3 py-2 border-b border-gray-700/50">
+      {/* Copy All Docs */}
+      <div className="px-3 py-2 border-b border-gray-200">
         <button
           onClick={handleCopyAllDocs}
           disabled={copyStatus === 'copying'}
-          className="w-full min-h-[44px] flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-purple-600/80 to-pink-600/80 hover:from-purple-600 hover:to-pink-600 disabled:from-gray-600 disabled:to-gray-700 rounded-lg text-white font-medium text-sm transition-all transform hover:scale-[1.02] shadow-lg shadow-purple-500/20"
-          aria-label={copyStatus === 'copying' ? 'Copying all documentation' : copyStatus === 'success' ? 'All documentation copied to clipboard' : 'Copy all documentation to clipboard'}
+          className="w-full min-h-[40px] flex items-center justify-center gap-2 py-2 px-4 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 rounded-lg text-white font-medium text-sm transition-colors"
+          aria-label={copyStatus === 'copying' ? 'Copying documentation' : copyStatus === 'success' ? 'Copied!' : 'Copy all docs to clipboard'}
         >
           {copyStatus === 'copying' ? (
-            <>
-              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" aria-hidden="true" />
-              <span>Copying...</span>
-            </>
+            <><div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" /><span>Copying...</span></>
           ) : copyStatus === 'success' ? (
-            <>
-              <HiOutlineCheck className="w-4 h-4" aria-hidden="true" />
-              <span>Copied to Clipboard!</span>
-            </>
+            <><HiOutlineCheck className="w-4 h-4" /><span>Copied!</span></>
           ) : (
-            <>
-              <HiOutlineClipboard className="w-4 h-4" aria-hidden="true" />
-              <span>Copy All Docs</span>
-            </>
+            <><HiOutlineClipboard className="w-4 h-4" /><span>Copy All Docs</span></>
           )}
         </button>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto py-4 px-2 custom-scrollbar bg-gray-900/50">
-        {/* Search Results Preview */}
+      <nav className="flex-1 overflow-y-auto py-3 px-2 custom-scrollbar bg-white">
+        {/* Search Results */}
         {searchQuery && searchResults.length > 0 && (
-          <div className="mb-4 mx-1">
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-3 border border-purple-500/20">
-              <div className="text-xs font-medium text-purple-400 mb-2">
-                Top Matches ({searchResults.length} found)
+          <div className="mb-3 mx-1">
+            <div className="bg-green-50 rounded-lg p-3 border border-green-100">
+              <div className="text-xs font-semibold text-green-700 mb-2">
+                {searchResults.length} result{searchResults.length !== 1 ? 's' : ''}
               </div>
               <div className="space-y-1">
                 {searchResults.map((result, idx) => (
@@ -371,26 +283,23 @@ export function DocsSidebar() {
                     key={result.item.href}
                     href={result.item.href}
                     className={`block px-3 py-2 rounded-md text-sm transition-all ${
-                      idx === selectedIndex 
-                        ? 'bg-purple-500/20 text-purple-100' 
-                        : 'hover:bg-purple-500/10 text-gray-300 hover:text-purple-200'
+                      idx === selectedIndex
+                        ? 'bg-green-600 text-white'
+                        : 'hover:bg-green-100 text-gray-700 hover:text-green-800'
                     }`}
                   >
                     <div className="flex items-start gap-2">
-                      {result.item.icon && <result.item.icon className={`w-4 h-4 mt-0.5 flex-shrink-0 ${idx === selectedIndex ? 'text-purple-300' : 'text-gray-500'}`} />}
+                      {result.item.icon && (
+                        <result.item.icon className={`w-4 h-4 mt-0.5 flex-shrink-0 ${idx === selectedIndex ? 'text-white' : 'text-gray-400'}`} />
+                      )}
                       <div className="flex-1 min-w-0">
-                        <SearchHighlight
-                          text={result.item.title}
-                          query={searchQuery}
-                        />
+                        <SearchHighlight text={result.item.title} query={searchQuery} />
                         {result.snippet && (
                           <p className="text-search-snippet mt-1 line-clamp-2">
                             <SearchHighlight text={result.snippet} query={searchQuery} />
                           </p>
                         )}
-                        <div className="flex items-center gap-2 mt-1">
-                          <span className="text-[10px] text-gray-500">{result.item.section}</span>
-                        </div>
+                        <div className="text-[10px] text-gray-400 mt-1">{result.item.section}</div>
                       </div>
                     </div>
                   </Link>
@@ -402,24 +311,20 @@ export function DocsSidebar() {
 
         {/* Regular Navigation */}
         {Object.entries(navigationSections).map(([section, items]) => (
-          <div key={section} className="mb-2">
+          <div key={section} className="mb-1">
             <button
               onClick={() => toggleSection(section)}
-              className="w-full flex items-center justify-between px-3 py-2 mb-2 text-left text-xs font-bold text-gray-400 uppercase tracking-wider hover:text-gray-200 transition-colors"
+              className="w-full flex items-center justify-between px-3 py-1.5 mb-1 text-left text-[11px] font-semibold text-gray-400 uppercase tracking-wider hover:text-gray-600 transition-colors"
             >
               <span className="flex-1 truncate">
-                <SearchHighlight
-                  text={section}
-                  query={searchQuery}
-                />
+                <SearchHighlight text={section} query={searchQuery} />
               </span>
-              {openSections.includes(section) ? (
-                <HiOutlineChevronDown className="w-3 h-3 flex-shrink-0" />
-              ) : (
-                <HiOutlineChevronRight className="w-3 h-3 flex-shrink-0" />
-              )}
+              {openSections.includes(section)
+                ? <HiOutlineChevronDown className="w-3 h-3 flex-shrink-0" />
+                : <HiOutlineChevronRight className="w-3 h-3 flex-shrink-0" />
+              }
             </button>
-            
+
             {openSections.includes(section) && (
               <ul className="space-y-0.5" role="list">
                 {items.map((item) => {
@@ -432,33 +337,24 @@ export function DocsSidebar() {
                       <div className="relative group">
                         <Link
                           href={item.href}
-                          className={`block px-4 py-3 text-sm font-normal rounded-lg mx-1 transition-all relative ${
+                          className={`block px-3 py-2 text-sm rounded-lg mx-1 transition-all ${
                             isActive
-                              ? 'bg-purple-500/25 text-white font-medium shadow-sm ring-1 ring-purple-400/30'
-                              : 'text-gray-300 hover:text-white hover:bg-gray-700/40'
+                              ? 'bg-green-50 text-green-800 font-medium border-l-2 border-green-600 pl-2.5'
+                              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                           }`}
                           aria-current={isActive ? 'page' : undefined}
                         >
-                          <div className="flex items-center gap-2.5">
+                          <div className="flex items-center gap-2">
                             {IconComponent && (
-                              <IconComponent className={`w-4 h-4 flex-shrink-0 ${
-                                isActive ? 'text-purple-300' : 'text-gray-400'
-                              }`} />
+                              <IconComponent className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-green-600' : 'text-gray-400'}`} />
                             )}
-                            <SearchHighlight
-                              text={item.title}
-                              query={searchQuery}
-                              className="truncate flex-1"
-                            />
+                            <SearchHighlight text={item.title} query={searchQuery} className="truncate flex-1" />
                             {item.difficulty && (
-                              <span className={`text-xs px-2 py-0.5 rounded-full font-medium flex-shrink-0 ${
-                                item.difficulty === 'Start Here'
-                                  ? 'bg-purple-500/20 text-purple-400'
-                                  : item.difficulty === 'Beginner'
-                                  ? 'bg-green-500/20 text-green-400'
-                                  : item.difficulty === 'Intermediate'
-                                  ? 'bg-yellow-500/20 text-yellow-400'
-                                  : 'bg-gray-500/20 text-gray-400'
+                              <span className={`text-xs px-1.5 py-0.5 rounded-full font-medium flex-shrink-0 ${
+                                item.difficulty === 'Start Here'   ? 'bg-green-100 text-green-700'
+                                : item.difficulty === 'Beginner'  ? 'bg-blue-50 text-blue-600'
+                                : item.difficulty === 'Intermediate' ? 'bg-amber-50 text-amber-600'
+                                : 'bg-gray-100 text-gray-500'
                               }`}>
                                 {item.difficulty}
                               </span>
@@ -466,35 +362,29 @@ export function DocsSidebar() {
                           </div>
                         </Link>
 
-                        {/* Copy button */}
                         {hasMarkdownContent(item.href) && (
                           <button
-                            onClick={(e) => {
-                              e.preventDefault()
-                              e.stopPropagation()
-                              copyMarkdown(item.href)
-                            }}
+                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); copyMarkdown(item.href) }}
                             className="absolute right-2 top-1/2 -translate-y-1/2
                                        opacity-0 group-hover:opacity-100
                                        transition-opacity duration-200
-                                       min-h-[44px] min-w-[44px] p-2 rounded-md hover:bg-gray-600/50
+                                       min-h-[44px] min-w-[44px] p-2 rounded-md hover:bg-gray-100
                                        hidden lg:block"
                             aria-label={`Copy ${item.title} as markdown`}
                           >
                             {itemCopyStatus === 'loading' && copiedPath === item.href ? (
-                              <HiOutlineArrowPath className="w-4 h-4 text-gray-400 animate-spin" aria-hidden="true" />
+                              <HiOutlineArrowPath className="w-4 h-4 text-gray-400 animate-spin" />
                             ) : itemCopyStatus === 'success' && copiedPath === item.href ? (
-                              <HiOutlineCheck className="w-4 h-4 text-green-400" aria-hidden="true" />
+                              <HiOutlineCheck className="w-4 h-4 text-green-600" />
                             ) : (
-                              <HiOutlineClipboard className="w-4 h-4 text-gray-400 hover:text-white" aria-hidden="true" />
+                              <HiOutlineClipboard className="w-4 h-4 text-gray-400 hover:text-gray-600" />
                             )}
                           </button>
                         )}
                       </div>
 
-                      {/* Nested children */}
                       {children.length > 0 && (
-                        <ul className="ml-4 mt-0.5 space-y-0.5 border-l border-gray-700/50 pl-2" role="list">
+                        <ul className="ml-4 mt-0.5 space-y-0.5 border-l border-gray-200 pl-2" role="list">
                           {children.map((child) => {
                             const isChildActive = pathname === child.href
                             const ChildIcon = child.icon
@@ -502,33 +392,18 @@ export function DocsSidebar() {
                               <li key={child.href} role="listitem" className="relative group">
                                 <Link
                                   href={child.href}
-                                  className={`block px-3 py-2 text-sm font-normal rounded-lg transition-all relative ${
+                                  className={`block px-3 py-1.5 text-sm rounded-lg transition-all ${
                                     isChildActive
-                                      ? 'bg-purple-500/25 text-white font-medium shadow-sm ring-1 ring-purple-400/30'
-                                      : 'text-gray-400 hover:text-white hover:bg-gray-700/40'
+                                      ? 'bg-green-50 text-green-800 font-medium'
+                                      : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50'
                                   }`}
                                   aria-current={isChildActive ? 'page' : undefined}
                                 >
                                   <div className="flex items-center gap-2">
                                     {ChildIcon && (
-                                      <ChildIcon className={`w-3.5 h-3.5 flex-shrink-0 ${
-                                        isChildActive ? 'text-purple-300' : 'text-gray-500'
-                                      }`} />
+                                      <ChildIcon className={`w-3.5 h-3.5 flex-shrink-0 ${isChildActive ? 'text-green-600' : 'text-gray-400'}`} />
                                     )}
-                                    <SearchHighlight
-                                      text={child.title}
-                                      query={searchQuery}
-                                      className="truncate flex-1 text-xs"
-                                    />
-                                    {child.difficulty && (
-                                      <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium flex-shrink-0 ${
-                                        child.difficulty === 'Start Here'
-                                          ? 'bg-purple-500/20 text-purple-400'
-                                          : 'bg-gray-500/20 text-gray-400'
-                                      }`}>
-                                        {child.difficulty}
-                                      </span>
-                                    )}
+                                    <SearchHighlight text={child.title} query={searchQuery} className="truncate flex-1 text-xs" />
                                   </div>
                                 </Link>
                               </li>
@@ -544,48 +419,32 @@ export function DocsSidebar() {
           </div>
         ))}
 
-        {/* No Results */}
         {searchQuery && searchResults.length === 0 && (
           <div className="px-4 py-8 text-center">
-            <div className="text-gray-500 mb-2">No results found</div>
-            <div className="text-xs text-gray-600">Try different keywords</div>
+            <div className="text-gray-400 mb-1">No results found</div>
+            <div className="text-xs text-gray-300">Try different keywords</div>
           </div>
         )}
       </nav>
 
       {/* Footer */}
-      <div className="border-t border-gray-700/50 bg-gray-800/30">
+      <div className="border-t border-gray-200 bg-gray-50">
         <div className="flex items-center justify-around py-2 px-2">
-          <a
-            href="https://github.com/wu-changxing/connectonion"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-lg text-gray-400 hover:text-purple-300 hover:bg-gray-700/50 transition-all"
-            title="GitHub"
-          >
+          <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener noreferrer"
+            className="p-2 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all" title="GitHub">
             <FaGithub className="w-4 h-4" />
           </a>
-          <a
-            href="https://pypi.org/project/connectonion/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-lg text-gray-400 hover:text-purple-300 hover:bg-gray-700/50 transition-all"
-            title="PyPI"
-          >
+          <a href="https://pypi.org/project/connectonion/" target="_blank" rel="noopener noreferrer"
+            className="p-2 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all" title="PyPI">
             <FaPython className="w-4 h-4" />
           </a>
-          <a
-            href="https://discord.gg/4xfD9k8AUF"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-lg text-gray-400 hover:text-purple-300 hover:bg-gray-700/50 transition-all"
-            title="Discord"
-          >
+          <a href="https://discord.gg/4xfD9k8AUF" target="_blank" rel="noopener noreferrer"
+            className="p-2 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all" title="Discord">
             <FaDiscord className="w-4 h-4" />
           </a>
-          <div className="flex items-center gap-2 px-2">
+          <div className="flex items-center gap-1.5 px-2">
             <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-            <span className="text-sm font-medium text-gray-400">v{VERSION}</span>
+            <span className="text-xs text-gray-400">v{VERSION}</span>
           </div>
         </div>
       </div>

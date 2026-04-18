@@ -27,7 +27,7 @@ export function ContentNavigation() {
   const examplePages = isExample ? getExamplePages() : []
   
   return (
-    <div className="mt-16 pt-8 border-t border-gray-700">
+    <div className="mt-16 pt-8 border-t border-gray-200">
       {/* Example Series Dots */}
       {isExample && examplePages.length > 0 && (
         <div className="flex items-center justify-center gap-2 mb-8">
@@ -35,44 +35,44 @@ export function ContentNavigation() {
             <Link
               key={example.href}
               href={example.href}
-              className={`w-2 h-2 rounded-full transition-all ${
+              className={`h-2 rounded-full transition-all ${
                 idx === currentPage.exampleIndex
-                  ? 'bg-purple-400 w-6'
-                  : 'bg-gray-600 hover:bg-gray-500'
+                  ? 'bg-green-600 w-6'
+                  : 'bg-gray-300 w-2 hover:bg-gray-400'
               }`}
               title={example.title}
             />
           ))}
         </div>
       )}
-      
+
       {/* Navigation Buttons */}
       <div className="flex items-center justify-between">
         {prev ? (
           <Link
             href={prev.href}
-            className="group flex items-center gap-3 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all"
+            className="group flex items-center gap-3 px-5 py-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg transition-all"
           >
-            <HiOutlineArrowLeft className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+            <HiOutlineArrowLeft className="w-4 h-4 text-gray-400 group-hover:text-gray-700 transition-colors" />
             <div className="text-left">
-              <div className="text-xs text-gray-400 mb-1">Previous</div>
-              <div className="text-sm font-medium text-white">{prev.title}</div>
+              <div className="text-xs text-gray-400 mb-0.5">Previous</div>
+              <div className="text-sm font-medium text-gray-900">{prev.title}</div>
             </div>
           </Link>
         ) : (
           <div />
         )}
-        
+
         {next ? (
           <Link
             href={next.href}
-            className="group flex items-center gap-3 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all"
+            className="group flex items-center gap-3 px-5 py-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg transition-all"
           >
             <div className="text-right">
-              <div className="text-xs text-gray-400 mb-1">Next</div>
-              <div className="text-sm font-medium text-white">{next.title}</div>
+              <div className="text-xs text-gray-400 mb-0.5">Next</div>
+              <div className="text-sm font-medium text-gray-900">{next.title}</div>
             </div>
-            <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+            <HiOutlineArrowRight className="w-4 h-4 text-gray-400 group-hover:text-gray-700 transition-colors" />
           </Link>
         ) : (
           <div />

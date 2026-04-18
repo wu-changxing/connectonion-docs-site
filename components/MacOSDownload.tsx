@@ -5,67 +5,55 @@ import { HiOutlineSparkles, HiOutlineCog, HiOutlineChartBar, HiOutlineGlobeAlt }
 
 export function MacOSDownload() {
   return (
-    <section className="py-16 md:py-24 px-4 md:px-6 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-purple-900/10 to-transparent" />
-
-      <div className="max-w-6xl mx-auto relative z-10">
+    <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-50 border-y border-gray-100">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <div className="flex justify-center mb-4">
-            <div className="p-4 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl">
-              <FaApple className="w-12 h-12 text-purple-400" />
+            <div className="p-4 bg-gray-100 rounded-2xl">
+              <FaApple className="w-10 h-10 text-gray-700" />
             </div>
           </div>
-          <h2 className="heading-2 mb-4">
-            OpenOnion for macOS
-          </h2>
-          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto">
+          <h2 className="heading-2 mb-3">OpenOnion for macOS</h2>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
             Native menu bar app for managing your AI agents. Beautiful, fast, and always one click away.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <div className="p-6 bg-gray-800/50 border border-purple-500/20 rounded-xl hover:border-purple-500/40 transition-all">
-            <HiOutlineSparkles className="w-8 h-8 text-purple-400 mb-3" />
-            <h3 className="text-lg font-semibold text-white mb-2">Native Design</h3>
-            <p className="text-sm text-slate-400">
-              Beautiful polished UI following Apple HIG. Feels right at home on macOS.
-            </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+          <div className="p-5 bg-white border border-gray-200 rounded-xl card-interactive">
+            <HiOutlineSparkles className="w-7 h-7 text-green-600 mb-3" />
+            <h3 className="text-base font-semibold text-gray-900 mb-1">Native Design</h3>
+            <p className="text-sm text-gray-500">Beautiful polished UI following Apple HIG.</p>
           </div>
 
-          <div className="p-6 bg-gray-800/50 border border-blue-500/20 rounded-xl hover:border-blue-500/40 transition-all">
-            <HiOutlineChartBar className="w-8 h-8 text-blue-400 mb-3" />
-            <h3 className="text-lg font-semibold text-white mb-2">Live Stats</h3>
-            <p className="text-sm text-slate-400">
-              Track uptime, requests, and status in real-time with elegant stats card.
-            </p>
+          <div className="p-5 bg-white border border-gray-200 rounded-xl card-interactive">
+            <HiOutlineChartBar className="w-7 h-7 text-green-600 mb-3" />
+            <h3 className="text-base font-semibold text-gray-900 mb-1">Live Stats</h3>
+            <p className="text-sm text-gray-500">Track uptime and requests in real-time.</p>
           </div>
 
-          <div className="p-6 bg-gray-800/50 border border-purple-500/20 rounded-xl hover:border-purple-500/40 transition-all">
-            <HiOutlineCog className="w-8 h-8 text-purple-400 mb-3" />
-            <h3 className="text-lg font-semibold text-white mb-2">Full Settings</h3>
-            <p className="text-sm text-slate-400">
-              Configure models, keys, and preferences through native tabbed interface.
-            </p>
+          <div className="p-5 bg-white border border-gray-200 rounded-xl card-interactive">
+            <HiOutlineCog className="w-7 h-7 text-green-600 mb-3" />
+            <h3 className="text-base font-semibold text-gray-900 mb-1">Full Settings</h3>
+            <p className="text-sm text-gray-500">Configure models, keys, and preferences.</p>
           </div>
 
-          <div className="p-6 bg-gray-800/50 border border-blue-500/20 rounded-xl hover:border-blue-500/40 transition-all">
-            <HiOutlineGlobeAlt className="w-8 h-8 text-blue-400 mb-3" />
-            <h3 className="text-lg font-semibold text-white mb-2">Quick Access</h3>
-            <p className="text-sm text-slate-400">
-              Open chat, view logs, and control agents directly from menu bar.
-            </p>
+          <div className="p-5 bg-white border border-gray-200 rounded-xl card-interactive">
+            <HiOutlineGlobeAlt className="w-7 h-7 text-green-600 mb-3" />
+            <h3 className="text-base font-semibold text-gray-900 mb-1">Quick Access</h3>
+            <p className="text-sm text-gray-500">Open chat and control agents from menu bar.</p>
           </div>
         </div>
 
         {/* Download CTA */}
-        <div className="text-center p-8 bg-gradient-to-br from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-2xl">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+        <div className="text-center p-8 bg-white border border-gray-200 rounded-2xl">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">
             Download for macOS
           </h3>
-          <p className="text-slate-400 mb-6">
-            Fully code-signed and notarized • macOS 12+ • Universal Binary
+          <p className="text-gray-500 mb-6 text-sm">
+            Fully code-signed and notarized · macOS 12+ · Universal Binary
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -87,8 +75,8 @@ export function MacOSDownload() {
             </a>
           </div>
 
-          <div className="mt-6 text-xs text-slate-500">
-            v0.7.9 • Intel & Apple Silicon
+          <div className="mt-5 text-xs text-gray-400">
+            v0.7.9 · Intel & Apple Silicon
           </div>
         </div>
       </div>

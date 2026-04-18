@@ -307,57 +307,45 @@ export function FrameworkComparison() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-purple-500" />
-            <span className="text-purple-400 text-sm font-mono uppercase tracking-wider">Why ConnectOnion</span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
+            <div className="h-px w-12 bg-green-300" />
+            <span className="text-green-700 text-sm font-mono uppercase tracking-wider">Why ConnectOnion</span>
+            <div className="h-px w-12 bg-green-300" />
           </div>
           <h2 className="heading-2 mb-4">
-            See the <span className="text-purple-400">Difference</span>
+            See the <span className="text-green-700">Difference</span>
           </h2>
-          <p className="text-slate-100 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
             Same task, dramatically different complexity. Scroll to see real code comparisons.
           </p>
         </div>
 
         {/* Vertical Comparisons */}
-        <div className="space-y-16">
+        <div className="space-y-14">
           {comparisons.map((comparison, idx) => (
             <div key={idx} className="space-y-4">
-              {/* Comparison Header */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="flex-1 h-px bg-gray-700" />
+              <div className="flex items-center gap-4 mb-5">
+                <div className="flex-1 h-px bg-gray-200" />
                 <div className="text-center">
-                  <h3 className="text-xl md:text-2xl lg:text-2xl font-bold text-white">{comparison.title}</h3>
-                  <p className="text-sm text-slate-200 mt-1">vs {comparison.vsFramework}</p>
+                  <h3 className="text-xl font-bold text-gray-900">{comparison.title}</h3>
+                  <p className="text-sm text-gray-400 mt-1">vs {comparison.vsFramework}</p>
                 </div>
-                <div className="flex-1 h-px bg-gray-700" />
+                <div className="flex-1 h-px bg-gray-200" />
               </div>
 
-              <p className="text-center text-slate-100 mb-6">{comparison.subtitle}</p>
+              <p className="text-center text-gray-500 text-sm mb-5">{comparison.subtitle}</p>
 
-              {/* Code Blocks - Stack on mobile, side by side on desktop */}
               <div className="grid md:grid-cols-2 gap-4">
                 {/* ConnectOnion */}
-                <div className="rounded-xl border-2 border-purple-500/50 bg-purple-500/5 overflow-hidden">
-                  <div className="flex items-center justify-between px-4 py-3 bg-black/30 border-b border-purple-500/30">
-                    <span className="text-xs font-bold px-2 py-1 rounded bg-purple-500 text-white">
-                      ConnectOnion
-                    </span>
-                    <span className="text-xs font-mono text-purple-400">
-                      {comparison.connectonion.lines}
-                    </span>
+                <div className="rounded-xl border-2 border-green-500 overflow-hidden">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-green-50 border-b border-green-200">
+                    <span className="text-xs font-bold px-2 py-1 rounded bg-green-600 text-white">ConnectOnion</span>
+                    <span className="text-xs font-mono text-green-700">{comparison.connectonion.lines}</span>
                   </div>
                   <div className="overflow-x-auto">
                     <SyntaxHighlighter
                       language="python"
                       style={monokai}
-                      customStyle={{
-                        margin: 0,
-                        padding: '1rem',
-                        background: 'transparent',
-                        fontSize: '0.75rem',
-                        lineHeight: '1.5'
-                      }}
+                      customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.75rem', lineHeight: '1.5' }}
                       wrapLongLines={false}
                     >
                       {comparison.connectonion.code}
@@ -366,12 +354,10 @@ export function FrameworkComparison() {
                 </div>
 
                 {/* Other Framework */}
-                <div className="rounded-xl border border-gray-600 bg-gray-800/30 overflow-hidden">
-                  <div className="flex items-center justify-between px-4 py-3 bg-black/30 border-b border-gray-600">
-                    <span className="text-xs font-bold px-2 py-1 rounded bg-gray-600 text-white">
-                      {comparison.other.framework}
-                    </span>
-                    <span className={`text-xs font-mono ${comparison.other.lines === 'DEPRECATED' ? 'text-red-400' : 'text-slate-200'}`}>
+                <div className="rounded-xl border border-gray-300 overflow-hidden">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-gray-100 border-b border-gray-200">
+                    <span className="text-xs font-bold px-2 py-1 rounded bg-gray-500 text-white">{comparison.other.framework}</span>
+                    <span className={`text-xs font-mono ${comparison.other.lines === 'DEPRECATED' ? 'text-red-500' : 'text-gray-500'}`}>
                       {comparison.other.lines}
                     </span>
                   </div>
@@ -379,13 +365,7 @@ export function FrameworkComparison() {
                     <SyntaxHighlighter
                       language="python"
                       style={monokai}
-                      customStyle={{
-                        margin: 0,
-                        padding: '1rem',
-                        background: 'transparent',
-                        fontSize: '0.75rem',
-                        lineHeight: '1.5'
-                      }}
+                      customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.75rem', lineHeight: '1.5' }}
                       wrapLongLines={false}
                     >
                       {comparison.other.code}
@@ -398,64 +378,40 @@ export function FrameworkComparison() {
         </div>
 
         {/* Summary Table */}
-        <div className="mt-16 bg-gray-900/50 rounded-xl border border-gray-700 overflow-hidden">
-          <div className="px-6 py-4 bg-gray-800/50 border-b border-gray-700">
-            <h4 className="text-lg font-bold text-white">Quick Comparison</h4>
+        <div className="mt-14 bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <div className="px-6 py-4 bg-gray-50 border-b border-gray-200">
+            <h4 className="text-base font-bold text-gray-900">Quick Comparison</h4>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="px-4 py-3 text-left text-slate-100">Feature</th>
-                  <th className="px-4 py-3 text-left text-purple-400">ConnectOnion</th>
-                  <th className="px-4 py-3 text-left text-slate-100">Others</th>
+                <tr className="border-b border-gray-200 bg-gray-50">
+                  <th className="px-4 py-3 text-left text-gray-500 font-medium">Feature</th>
+                  <th className="px-4 py-3 text-left text-green-700 font-medium">ConnectOnion</th>
+                  <th className="px-4 py-3 text-left text-gray-500 font-medium">Others</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700/50">
+              <tbody className="divide-y divide-gray-100">
+                {[
+                  ['Tool definition', 'Just a function', 'Decorators, wrappers, classes'],
+                  ['Shared state', 'self.field', 'wrapper.context, dataclass, services'],
+                  ['Add ReAct', 'plugins=[re_act]', 'Planner classes, different agent types'],
+                  ['Memory', 'Memory as tool', 'Sessions, services, deprecated APIs'],
+                  ['Event hooks', '12 types, full access', 'Guardrails only, limited callbacks'],
+                  ['Built-in AI programmer', 'co ai', 'None'],
+                  ['Frontend + Backend', 'Built-in', 'Build your own'],
+                  ['Approval system', 'Plugin-based, built-in', 'Build your own'],
+                ].map(([feature, co, other]) => (
+                  <tr key={feature}>
+                    <td className="px-4 py-3 text-gray-700">{feature}</td>
+                    <td className="px-4 py-3 text-green-700 font-medium">{co}</td>
+                    <td className="px-4 py-3 text-gray-500">{other}</td>
+                  </tr>
+                ))}
                 <tr>
-                  <td className="px-4 py-3 text-slate-100">Tool definition</td>
-                  <td className="px-4 py-3 text-purple-400 font-medium">Just a function</td>
-                  <td className="px-4 py-3 text-slate-200">Decorators, wrappers, classes</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-slate-100">Shared state</td>
-                  <td className="px-4 py-3 text-purple-400 font-medium">self.field</td>
-                  <td className="px-4 py-3 text-slate-200">wrapper.context, dataclass, services</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-slate-100">Add ReAct</td>
-                  <td className="px-4 py-3 text-purple-400 font-medium">plugins=[re_act]</td>
-                  <td className="px-4 py-3 text-slate-200">Planner classes, different agent types</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-slate-100">Memory</td>
-                  <td className="px-4 py-3 text-purple-400 font-medium">Memory as tool</td>
-                  <td className="px-4 py-3 text-slate-200">Sessions, services, deprecated APIs</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-slate-100">Event hooks</td>
-                  <td className="px-4 py-3 text-purple-400 font-medium">12 types, full access</td>
-                  <td className="px-4 py-3 text-slate-200">Guardrails only, limited callbacks</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-slate-100">Built-in AI programmer</td>
-                  <td className="px-4 py-3 text-purple-400 font-medium">co ai</td>
-                  <td className="px-4 py-3 text-slate-200">None</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-slate-100">Frontend + Backend</td>
-                  <td className="px-4 py-3 text-purple-400 font-medium">Built-in</td>
-                  <td className="px-4 py-3 text-slate-200">Build your own</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-slate-100">Approval system</td>
-                  <td className="px-4 py-3 text-purple-400 font-medium">Plugin-based, built-in</td>
-                  <td className="px-4 py-3 text-slate-200">Build your own</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 text-slate-100">Free credits</td>
-                  <td className="px-4 py-3 text-green-400 font-medium">$5 free</td>
-                  <td className="px-4 py-3 text-red-400">No</td>
+                  <td className="px-4 py-3 text-gray-700">Free credits</td>
+                  <td className="px-4 py-3 text-green-700 font-medium">$5 free</td>
+                  <td className="px-4 py-3 text-red-500">No</td>
                 </tr>
               </tbody>
             </table>

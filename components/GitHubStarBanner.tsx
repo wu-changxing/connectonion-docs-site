@@ -58,42 +58,36 @@ export default function GitHubStarBanner() {
         isVisible ? 'translate-x-0 opacity-100' : 'translate-x-[120%] opacity-0'
       }`}
     >
-      <div className="bg-gray-950 border border-gray-800 rounded-lg shadow-2xl p-6 max-w-sm relative">
-        {/* Close button */}
+      <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-5 max-w-sm relative">
         <button
           onClick={handleDismiss}
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-300 transition-colors"
+          className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors"
           aria-label="Close banner"
         >
-          <FaTimes className="w-4 h-4" />
+          <FaTimes className="w-3.5 h-3.5" />
         </button>
 
-        {/* Star icon */}
-        <div className="flex items-start gap-4">
-          <div className="flex-shrink-0 mt-1">
-            <FaStar className="w-6 h-6 text-yellow-400" />
+        <div className="flex items-start gap-3">
+          <div className="flex-shrink-0 mt-0.5">
+            <FaStar className="w-5 h-5 text-yellow-400" />
           </div>
 
           <div className="flex-1">
-            {/* Heading */}
-            <h3 className="font-semibold text-lg text-white mb-2">
+            <h3 className="font-semibold text-base text-gray-900 mb-1.5">
               Enjoying ConnectOnion?
             </h3>
-
-            {/* Message */}
-            <p className="text-gray-300 text-sm leading-relaxed mb-4">
-              ⭐ Star us on GitHub = ☕ Coffee chat with our founder. We love meeting builders.
+            <p className="text-gray-500 text-sm leading-relaxed mb-3">
+              ⭐ Star us on GitHub = ☕ Coffee chat with our founder.
             </p>
 
-            {/* Button */}
             <button
               onClick={handleStarClick}
-              className="w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-gray-900 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm"
             >
-              <FaStar className="w-4 h-4" />
+              <FaStar className="w-3.5 h-3.5" />
               <span>Star on GitHub</span>
               {starCount !== null && (
-                <span className="text-gray-400 text-sm">({starCount.toLocaleString()})</span>
+                <span className="text-gray-400 text-xs">({starCount.toLocaleString()})</span>
               )}
             </button>
           </div>

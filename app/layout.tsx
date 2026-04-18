@@ -272,7 +272,7 @@ export default function RootLayout({
         {/* AI crawler hints */}
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly content index" />
       </head>
-      <body className={`${inter.className} bg-gray-950 text-white`}>
+      <body className={`${inter.className} bg-white text-gray-900`}>
         <ClientLayout>
           {children}
         </ClientLayout>

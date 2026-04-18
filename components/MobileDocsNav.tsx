@@ -45,39 +45,39 @@ export function MobileDocsNav() {
   return (
     <>
       {/* Mobile Header Bar */}
-      <div className="lg:hidden sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
+      <div className="lg:hidden sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="flex items-center justify-between px-4 py-3">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-md bg-gray-800/60 text-white border border-gray-700/60 hover:bg-gray-700/60 transition-colors"
+            className="p-2 rounded-md bg-gray-100 text-gray-600 border border-gray-200 hover:bg-gray-200 transition-colors"
             aria-label="Toggle documentation menu"
           >
             {isOpen ? <HiOutlineXMark className="w-5 h-5" /> : <HiOutlineBars3 className="w-5 h-5" />}
           </button>
-          
+
           <Link href="/" className="flex items-center gap-2">
             <img src="/onion-logo.png" alt="ConnectOnion" className="w-6 h-6 rounded-md object-cover" />
-            <span className="font-semibold text-white">ConnectOnion</span>
+            <span className="font-semibold text-gray-900">ConnectOnion</span>
           </Link>
-          
+
           {/* Copy button - only shows if current page has markdown */}
           {hasMarkdown ? (
             <button
               onClick={() => copyMarkdown()}
-              className="p-2 rounded-md bg-gray-800/60 text-white border border-gray-700/60 hover:bg-gray-700/60 transition-colors"
+              className="p-2 rounded-md bg-gray-100 text-gray-600 border border-gray-200 hover:bg-gray-200 transition-colors"
               title="Copy page as markdown"
               aria-label="Copy page as markdown"
             >
               {status === 'loading' ? (
                 <HiOutlineArrowPath className="w-5 h-5 animate-spin" />
               ) : status === 'success' ? (
-                <HiOutlineCheck className="w-5 h-5 text-green-400" />
+                <HiOutlineCheck className="w-5 h-5 text-green-600" />
               ) : (
                 <HiOutlineClipboard className="w-5 h-5" />
               )}
             </button>
           ) : (
-            <div className="w-10" /> /* Balance spacing when no copy button */
+            <div className="w-10" />
           )}
         </div>
       </div>

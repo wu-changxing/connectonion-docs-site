@@ -5,7 +5,7 @@
  *   Data flow: receives {breadcrumbs, icon, title, description, badge?, markdownPath?} → renders header structure
  *   State/Effects: pure render component | no state | CopyMarkdownButton handles copy state
  *   Integration: exposes PageHeader component | accepts Lucide or react-icons icon components
- *   UX: gradient icon background | breadcrumb navigation | optional CopyMarkdownButton for markdown path
+ *   UX: icon background | breadcrumb navigation | optional CopyMarkdownButton for markdown path
  */
 'use client'
 
@@ -19,24 +19,18 @@ interface BreadcrumbItem {
   href?: string
 }
 
-// Accept both Lucide icons and react-icons
 type IconComponent = ComponentType<{ className?: string }>
 
 interface PageHeaderProps {
-  // Breadcrumb navigation
   breadcrumbs: BreadcrumbItem[]
-  // Page icon (Lucide or react-icons)
   icon: IconComponent
-  iconColor?: string // e.g., "text-purple-400"
-  iconBgFrom?: string // e.g., "from-purple-600/20"
-  iconBgTo?: string // e.g., "to-pink-600/20"
-  iconBorderColor?: string // e.g., "border-purple-500/30"
-  // Title and description
+  iconColor?: string
+  iconBgFrom?: string
+  iconBgTo?: string
+  iconBorderColor?: string
   title: string
   description: string
-  // Optional badge next to title
   badge?: ReactNode
-  // Optional markdown path for copy/download buttons (fetches from public/)
   markdownPath?: string
   markdownFilename?: string
 }
@@ -44,10 +38,10 @@ interface PageHeaderProps {
 export function PageHeader({
   breadcrumbs,
   icon: Icon,
-  iconColor = 'text-purple-400',
-  iconBgFrom = 'from-purple-600/20',
-  iconBgTo = 'to-pink-600/20',
-  iconBorderColor = 'border-purple-500/30',
+  iconColor = 'text-green-600',
+  iconBgFrom = 'from-green-50',
+  iconBgTo = 'to-green-100',
+  iconBorderColor = 'border-green-200',
   title,
   description,
   badge,
@@ -57,16 +51,16 @@ export function PageHeader({
   return (
     <>
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
+      <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
         {breadcrumbs.map((crumb, index) => (
           <span key={index} className="flex items-center gap-2">
-            {index > 0 && <HiOutlineArrowRight className="w-4 h-4" />}
+            {index > 0 && <HiOutlineArrowRight className="w-3.5 h-3.5" />}
             {crumb.href ? (
-              <Link href={crumb.href} className="hover:text-purple-400 transition-colors">
+              <Link href={crumb.href} className="hover:text-green-700 transition-colors">
                 {crumb.label}
               </Link>
             ) : (
-              <span className="text-white">{crumb.label}</span>
+              <span className="text-gray-700">{crumb.label}</span>
             )}
           </span>
         ))}
@@ -84,7 +78,7 @@ export function PageHeader({
                 <h1 className="heading-1">{title}</h1>
                 {badge}
               </div>
-              <p className="text-lg text-slate-100">{description}</p>
+              <p className="text-lg text-gray-500">{description}</p>
             </div>
           </div>
           {markdownPath && (
