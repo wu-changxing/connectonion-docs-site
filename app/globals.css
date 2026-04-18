@@ -102,6 +102,34 @@ pre {
 .hide-scrollbar:hover { scrollbar-width: thin; }
 .hide-scrollbar:hover::-webkit-scrollbar { display: block; }
 
+/* ── Heading anchor links — appear on heading hover ── */
+.heading-anchor {
+  display: inline-block;
+  margin-left: 0.45rem;
+  color: #d1d5db;   /* gray-300 */
+  font-weight: 400;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7em;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.12s ease, color 0.12s ease;
+  cursor: pointer;
+  vertical-align: middle;
+  line-height: 1;
+  user-select: none;
+}
+
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h2 .heading-anchor:focus,
+h3 .heading-anchor:focus {
+  opacity: 1;
+}
+
+.heading-anchor:hover {
+  color: #16a34a;   /* green-600 */
+}
+
 /* ── Editorial accent — Instrument Serif italic in accent color ── */
 
 /* One italic serif word per headline — the editorial signature */

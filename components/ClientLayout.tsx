@@ -15,6 +15,7 @@ import { MobileDocsNav } from './MobileDocsNav'
 import { MobileSectionJump } from './MobileSectionJump'
 import Footer from './Footer'
 import { OnThisPage } from './OnThisPage'
+import { HeadingAnchors } from './HeadingAnchors'
 
 const docNavItems = [
   { href: '/quickstart', label: 'Quickstart', prefixes: ['/quickstart', '/vibe-coding'] },
@@ -80,6 +81,7 @@ export default function ClientLayout({
         <main className="flex-1">
           {children}
         </main>
+        <HeadingAnchors />
         <Footer />
       </div>
     )
@@ -125,6 +127,7 @@ export default function ClientLayout({
       {/* Mobile Documentation Navigation */}
       <MobileDocsNav />
       <MobileSectionJump />
+      <HeadingAnchors />
 
       <div className="flex min-h-screen">
         {/* Desktop Sidebar - always visible for navigation */}

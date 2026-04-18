@@ -69,23 +69,24 @@ export function OnThisPage() {
 
   return (
     <nav className="sticky top-[6.5rem] w-56 flex-shrink-0">
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 pl-2">
         On this page
       </p>
-      <ul className="space-y-1">
+      <ul className="space-y-0.5">
         {headings.map(h => (
           <li key={h.id}>
             <a
               href={`#${h.id}`}
-              className={`block text-sm py-0.5 transition-colors border-l-2 ${
+              title={h.text}
+              className={`flex items-center text-[13px] py-1 rounded-md transition-all border-l-2 ${
                 h.level === 3 ? 'pl-3' : 'pl-2'
               } ${
                 activeId === h.id
-                  ? 'text-green-700 font-semibold border-green-600'
-                  : 'text-gray-500 hover:text-gray-900 border-transparent'
+                  ? 'text-green-700 font-semibold border-green-500 bg-green-50'
+                  : 'text-gray-400 hover:text-gray-800 hover:bg-gray-50 border-transparent'
               }`}
             >
-              {h.text}
+              <span className="truncate">{h.text}</span>
             </a>
           </li>
         ))}
