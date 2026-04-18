@@ -197,9 +197,9 @@ export function DocsSidebar() {
   }
 
   return (
-    <div className="w-full sm:w-64 lg:w-64 xl:w-72 bg-white border-r border-gray-100 flex flex-col h-screen sticky top-0 z-40">
-      {/* Header */}
-      <div className="px-4 py-3 border-b border-gray-100">
+    <div className="w-full sm:w-64 lg:w-64 xl:w-72 bg-white border-r border-gray-100 flex flex-col h-screen sticky top-0 lg:top-10 z-40 lg:h-[calc(100vh-2.5rem)]">
+      {/* Header — only shown in mobile drawer; desktop has top bar */}
+      <div className="lg:hidden px-4 py-3 border-b border-gray-100">
         <Link href="/" className="flex items-center gap-2.5 group">
           <img src="/onion-logo.png" alt="ConnectOnion Logo" className="w-7 h-7 rounded-md object-cover" />
           <div className="flex-1 min-w-0">
@@ -314,14 +314,14 @@ export function DocsSidebar() {
                           href={item.href}
                           className={`block px-2.5 py-1.5 text-sm rounded-md mx-0.5 transition-all ${
                             isActive
-                              ? 'bg-gray-50 text-gray-900 font-medium border-l-2 border-green-500 pl-2'
+                              ? 'bg-green-50 text-green-900 font-semibold border-l-2 border-green-600 pl-2'
                               : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50 pl-2.5'
                           }`}
                           aria-current={isActive ? 'page' : undefined}
                         >
                           <div className="flex items-center gap-2">
                             {IconComponent && (
-                              <IconComponent className={`w-3.5 h-3.5 flex-shrink-0 ${isActive ? 'text-gray-700' : 'text-gray-400'}`} />
+                              <IconComponent className={`w-3.5 h-3.5 flex-shrink-0 ${isActive ? 'text-green-700' : 'text-gray-400'}`} />
                             )}
                             <SearchHighlight text={item.title} query={searchQuery} className="truncate flex-1 text-[13px]" />
                             {item.difficulty && (
@@ -369,7 +369,7 @@ export function DocsSidebar() {
                                   href={child.href}
                                   className={`block px-2.5 py-1 text-[12px] rounded-md transition-all ${
                                     isChildActive
-                                      ? 'bg-gray-100 text-gray-900 font-medium'
+                                      ? 'bg-green-50 text-green-900 font-semibold'
                                       : 'text-gray-400 hover:text-gray-700 hover:bg-gray-50'
                                   }`}
                                   aria-current={isChildActive ? 'page' : undefined}
