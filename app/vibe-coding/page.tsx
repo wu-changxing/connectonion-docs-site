@@ -115,10 +115,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
             { label: 'Vibe-Coding Support' },
           ]}
           icon={HiOutlineCodeBracket}
-          iconColor="text-gray-500"
-          iconBgFrom="from-gray-700/20"
-          iconBgTo="to-pink-600/20"
-          iconBorderColor="border-gray-400/30"
+          iconColor="icon-ui"
           title="Vibe-Coding Support"
           description="Build AI Agents Correctly with Claude Code Plugin"
           markdownPath="/tutorials/vibe-coding.md"
@@ -203,7 +200,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
               </div>
             </div>
 
-            <div className="bg-gray-900/80 rounded-xl p-6 border border-gray-800 mb-4">
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-800 mb-4">
               <p className="text-sm text-gray-100 mb-4 font-semibold">Quick Install:</p>
               <div className="space-y-2">
                 <div className="bg-gray-800 rounded-lg p-3 font-mono text-sm flex items-center justify-between">
@@ -257,7 +254,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                   const el = document.getElementById('plugin-usage-examples')
                   el?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-lg transition-all text-sm"
+                className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-lg transition-all text-sm text-gray-700"
               >
                 <HiOutlineBookOpen className="w-4 h-4" />
                 <span>See Examples</span>

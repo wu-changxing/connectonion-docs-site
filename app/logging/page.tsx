@@ -56,10 +56,7 @@ export default function LoggingPage() {
             { label: 'Logging' }
           ]}
           icon={HiOutlineDocumentText}
-          iconColor="text-gray-500"
-          iconBgFrom="from-gray-500/20"
-          iconBgTo="to-gray-500/20"
-          iconBorderColor="border-gray-400/30"
+          iconColor="icon-ui"
           title="Logging"
           description="Automatic activity logging for debugging and analysis."
           markdownPath="/debug/log.md"
@@ -98,10 +95,10 @@ agent = Agent("assistant", log="debug.log")`}
             <h2 className="heading-2">Logging Modes</h2>
           </div>
 
-          <div className="overflow-hidden rounded-xl border border-gray-700 bg-gray-900/50 backdrop-blur mb-8">
+          <div className="overflow-hidden rounded-xl border border-gray-200 bg-gray-50 backdrop-blur mb-8">
             <table className="w-full text-left text-sm">
               <thead>
-                <tr className="border-b border-gray-700 bg-gray-100">
+                <tr className="border-b border-gray-200 bg-gray-100">
                   <th className="p-4 font-medium text-gray-700">quiet</th>
                   <th className="p-4 font-medium text-gray-700">log</th>
                   <th className="p-4 font-medium text-gray-700">Console</th>
@@ -111,7 +108,7 @@ agent = Agent("assistant", log="debug.log")`}
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700/50">
-                <tr className="hover:bg-gray-800/30 transition-colors bg-gray-500/5">
+                <tr className="hover:bg-gray-50 transition-colors bg-gray-50">
                   <td className="p-4 font-mono text-gray-400">False</td>
                   <td className="p-4 font-mono text-gray-400">True/None</td>
                   <td className="p-4 text-green-400">Yes</td>
@@ -119,7 +116,7 @@ agent = Agent("assistant", log="debug.log")`}
                   <td className="p-4 text-green-400">Yes</td>
                   <td className="p-4 text-gray-400 font-medium">Development (default)</td>
                 </tr>
-                <tr className="hover:bg-gray-800/30 transition-colors">
+                <tr className="hover:bg-gray-100 transition-colors">
                   <td className="p-4 font-mono text-gray-400">True</td>
                   <td className="p-4 font-mono text-gray-400">True/None</td>
                   <td className="p-4 text-gray-500">No</td>
@@ -127,7 +124,7 @@ agent = Agent("assistant", log="debug.log")`}
                   <td className="p-4 text-green-400">Yes</td>
                   <td className="p-4 text-gray-700">Eval/testing</td>
                 </tr>
-                <tr className="hover:bg-gray-800/30 transition-colors">
+                <tr className="hover:bg-gray-100 transition-colors">
                   <td className="p-4 font-mono text-gray-400">False</td>
                   <td className="p-4 font-mono text-gray-400">False</td>
                   <td className="p-4 text-green-400">Yes</td>
@@ -135,7 +132,7 @@ agent = Agent("assistant", log="debug.log")`}
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-gray-700">Benchmarking</td>
                 </tr>
-                <tr className="hover:bg-gray-800/30 transition-colors">
+                <tr className="hover:bg-gray-100 transition-colors">
                   <td className="p-4 font-mono text-gray-400">False</td>
                   <td className="p-4 font-mono text-gray-400">"path"</td>
                   <td className="p-4 text-green-400">Yes</td>
@@ -321,13 +318,13 @@ turns:
             <h2 className="heading-2 mb-6">Parameters</h2>
 
             <div className="space-y-6">
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <p className="text-gray-700">
                   <code className="text-gray-500 font-semibold">quiet</code> (bool): Suppress console output. Sessions still recorded. Default: <code className="text-gray-400">False</code>
                 </p>
               </div>
 
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <p className="text-gray-700 mb-3">
                   <code className="text-gray-500 font-semibold">log</code> (bool|str|Path): Control file logging
                 </p>

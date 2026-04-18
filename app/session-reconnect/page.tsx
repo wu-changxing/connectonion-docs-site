@@ -14,8 +14,8 @@ function Diagram({ children, label }: { children: React.ReactNode; label?: strin
   return (
     <div className="my-6">
       {label && <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">{label}</p>}
-      <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 sm:p-6 overflow-x-auto">
-        <pre className="text-sm font-mono text-gray-300 whitespace-pre leading-relaxed">{children}</pre>
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 overflow-x-auto">
+        <pre className="text-sm font-mono text-gray-700 whitespace-pre leading-relaxed">{children}</pre>
       </div>
     </div>
   )
@@ -109,7 +109,7 @@ export default function SessionReconnectPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm mt-6">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left px-4 py-3 text-gray-500">Transition</th>
                   <th className="text-left px-4 py-3 text-gray-500">Trigger</th>
                   <th className="text-left px-4 py-3 text-gray-500">What happens</th>
@@ -122,7 +122,7 @@ export default function SessionReconnectPage() {
                   <td className="px-4 py-3 text-gray-600">Agent thread spawned, IO queues created</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-yellow-300">→ SUSPENDED</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">→ SUSPENDED</td>
                   <td className="px-4 py-3 text-gray-700">Client WebSocket drops</td>
                   <td className="px-4 py-3 text-gray-600">Agent keeps running, queues buffer events</td>
                 </tr>
@@ -132,12 +132,12 @@ export default function SessionReconnectPage() {
                   <td className="px-4 py-3 text-gray-600">Same IO queues reattached to new WebSocket</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-green-300">→ COMPLETED</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">→ COMPLETED</td>
                   <td className="px-4 py-3 text-gray-700">Agent finishes</td>
                   <td className="px-4 py-3 text-gray-600">Result saved to JSONL, session stays in memory</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-red-300">→ REMOVED</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">→ REMOVED</td>
                   <td className="px-4 py-3 text-gray-700">10min idle (no client ping)</td>
                   <td className="px-4 py-3 text-gray-600">Freed from memory</td>
                 </tr>
@@ -219,11 +219,11 @@ T+35                        ◄────────────────�
 
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="bg-gray-50 border border-red-200 rounded-lg p-4">
-              <p className="text-sm font-semibold text-red-300 mb-1">On disconnect</p>
+              <p className="text-sm font-semibold text-gray-700 mb-1">On disconnect</p>
               <p className="text-sm text-gray-600"><code className="bg-gray-100 px-1 rounded">io.close()</code> sets <code className="bg-gray-100 px-1 rounded">_closed = True</code> and puts a sentinel in the incoming queue, unblocking any waiting <code className="bg-gray-100 px-1 rounded">receive()</code>. After close, <code className="bg-gray-100 px-1 rounded">io.send()</code> silently drops events.</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="text-sm font-semibold text-green-300 mb-1">On reconnect</p>
+              <p className="text-sm font-semibold text-gray-700 mb-1">On reconnect</p>
               <p className="text-sm text-gray-600">The <strong>same io object</strong> is reused. A new WebSocket handler pumps the same queues. <strong>Caveat:</strong> IO must be reopened (<code className="bg-gray-100 px-1 rounded">_closed = False</code>) for the agent to send again.</p>
             </div>
           </div>
@@ -353,7 +353,7 @@ iteration: 5                iteration: 10
           <div className="overflow-x-auto">
             <table className="w-full text-sm mt-4">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left px-4 py-3 text-gray-500">Scenario</th>
                   <th className="text-left px-4 py-3 text-gray-500">Resolution</th>
                 </tr>
@@ -361,15 +361,15 @@ iteration: 5                iteration: 10
               <tbody className="divide-y divide-gray-700">
                 <tr>
                   <td className="px-4 py-3 text-gray-700">Server continued (iteration 10 vs 5)</td>
-                  <td className="px-4 py-3 font-mono text-green-300">Server wins</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">Server wins</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-gray-700">Client newer (iteration 8 vs 3)</td>
-                  <td className="px-4 py-3 font-mono text-blue-300">Client wins</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">Client wins</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-gray-700">Tie (same iteration)</td>
-                  <td className="px-4 py-3 font-mono text-yellow-300">Higher timestamp wins</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">Higher timestamp wins</td>
                 </tr>
               </tbody>
             </table>
@@ -476,7 +476,7 @@ T+10   New WebSocket connects → CONNECT { session_id }
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left px-4 py-3 text-gray-500">File</th>
                   <th className="text-left px-4 py-3 text-gray-500">Role</th>
                 </tr>
