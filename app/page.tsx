@@ -42,7 +42,15 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="flex items-center justify-center px-4 md:px-6 py-20 md:py-32 relative border-b border-gray-100">
+      <section className="flex items-center justify-center px-4 md:px-6 py-20 md:py-32 relative border-b border-gray-100 overflow-hidden">
+        {/* Dot-grid texture — fades to edges */}
+        <div className="absolute inset-0 pointer-events-none select-none" style={{
+          backgroundImage: 'radial-gradient(circle, #d1d5db 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+          WebkitMaskImage: 'radial-gradient(ellipse at 50% 40%, rgba(0,0,0,0.35) 0%, transparent 68%)',
+          maskImage: 'radial-gradient(ellipse at 50% 40%, rgba(0,0,0,0.35) 0%, transparent 68%)',
+        }} />
+
         <div className="w-full max-w-2xl mx-auto text-center relative z-10">
           {/* Brand eyebrow */}
           <div className="flex items-center justify-center gap-2 mb-5">
@@ -69,24 +77,39 @@ export default function HomePage() {
             <CommandBlock commands={['pip install connectonion']} />
           </div>
 
-          {/* Quick Code Example */}
-          <div className="bg-gray-900 rounded-xl border border-gray-700 overflow-x-auto mb-8 max-w-lg mx-auto text-left shadow-sm">
-            <SyntaxHighlighter
+          {/* Hero code block — full-width terminal treatment */}
+          <div className="mb-8 text-left rounded-xl overflow-hidden border border-gray-700 shadow-xl shadow-black/20">
+            {/* Terminal chrome */}
+            <div className="bg-gray-800 px-4 py-2.5 flex items-center gap-3 border-b border-gray-700">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                <div className="w-3 h-3 rounded-full bg-green-500/80" />
+              </div>
+              <span className="text-xs text-gray-400 font-mono flex-1 text-center">agent.py</span>
+              <span className="text-xs text-gray-600 font-mono">Python 3.11</span>
+            </div>
+            <div className="bg-gray-900">
+              <SyntaxHighlighter
                 language="python"
                 style={monokai}
                 customStyle={{
                   background: 'transparent',
-                  padding: '0.75rem',
+                  padding: '1rem 1.25rem',
                   margin: 0,
-                  fontSize: '0.8125rem',
-                  lineHeight: '1.7',
+                  fontSize: '0.875rem',
+                  lineHeight: '1.75',
                 }}
               >
 {`from connectonion import Agent
 
-agent = Agent("ai", tools=[get_weather])
+def get_weather(city: str) -> str:
+    return f"72°F, sunny in {city}"
+
+agent = Agent("assistant", tools=[get_weather])
 agent.input("What's the weather in NYC?")`}
               </SyntaxHighlighter>
+            </div>
           </div>
 
           {/* CTAs */}
