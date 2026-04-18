@@ -19,7 +19,7 @@ export default function HomePage() {
     <main>
       {/* Hero Section */}
       <section className="flex items-center justify-center px-4 md:px-6 py-16 md:py-24 relative border-b border-gray-100">
-        <div className="max-w-3xl mx-auto text-center relative z-10">
+        <div className="w-full max-w-3xl mx-auto text-center relative z-10">
           <h1 className="heading-1 mb-2">
             ConnectOnion
           </h1>

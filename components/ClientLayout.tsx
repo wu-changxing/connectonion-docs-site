@@ -33,7 +33,7 @@ export default function ClientLayout({
             <div className="flex-1 min-w-0">
               {children}
             </div>
-            <div className="px-6 py-24">
+            <div className="hidden xl:block px-6 py-24 flex-shrink-0">
               <OnThisPage />
             </div>
           </div>
