@@ -69,7 +69,7 @@ export function OnThisPage() {
 
   return (
     <nav className="sticky top-[6.5rem] w-56 flex-shrink-0">
-      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 pl-2">
+      <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-widest mb-3 pl-2">
         On this page
       </p>
       <ul className="space-y-0.5">
@@ -78,15 +78,15 @@ export function OnThisPage() {
             <a
               href={`#${h.id}`}
               title={h.text}
-              className={`flex items-center text-[13px] py-1 rounded-md transition-all border-l-2 ${
-                h.level === 3 ? 'pl-3' : 'pl-2'
+              className={`flex items-center text-[12.5px] py-1 rounded-md transition-all border-l-2 ${
+                h.level === 3 ? 'pl-4' : 'pl-2'
               } ${
                 activeId === h.id
-                  ? 'text-green-700 font-semibold border-green-500 bg-green-50'
-                  : 'text-gray-400 hover:text-gray-800 hover:bg-gray-50 border-transparent'
+                  ? 'text-green-700 font-semibold border-green-500 bg-green-50/60'
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50 border-transparent'
               }`}
             >
-              <span className="truncate">{h.text}</span>
+              <span className="truncate leading-snug">{h.text}</span>
             </a>
           </li>
         ))}

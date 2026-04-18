@@ -138,7 +138,7 @@ export default function ClientLayout({
         {/* Main Content + On This Page */}
         <main className="flex-1 min-w-0 flex flex-col">
           <div className="flex-1 flex">
-            <div className="flex-1 min-w-0">
+            <div className="flex-1 min-w-0 doc-content">
               {children}
             </div>
             <div className="hidden lg:block px-4 pt-8 flex-shrink-0">
