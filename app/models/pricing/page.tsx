@@ -27,7 +27,7 @@ export default function PricingPage() {
           <div className="space-y-4 text-gray-700">
             <div className="flex items-start gap-3">
               <span className="text-gray-500 font-bold text-lg">1.</span>
-              <p>Add credits to your account — <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-400 underline">buy credits here</a> or run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co purchase</code></p>
+              <p>Add credits to your account — <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-700 underline">buy credits here</a> or run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co purchase</code></p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-gray-500 font-bold text-lg">2.</span>
@@ -239,7 +239,7 @@ export default function PricingPage() {
           </div>
           <div className="bg-gray-50 border border-gray-200 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">How do I check my balance?</h3>
-            <p className="text-gray-600 text-sm">Run <code className="bg-gray-50 px-1.5 py-0.5 rounded">co status</code> in your terminal, or visit the <a href="https://o.openonion.ai/dashboard" className="text-gray-500 hover:text-gray-400 underline">dashboard</a>.</p>
+            <p className="text-gray-600 text-sm">Run <code className="bg-gray-50 px-1.5 py-0.5 rounded">co status</code> in your terminal, or visit the <a href="https://o.openonion.ai/dashboard" className="text-gray-500 hover:text-gray-700 underline">dashboard</a>.</p>
           </div>
           <div className="bg-gray-50 border border-gray-200 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">Can I switch between managed keys and my own keys?</h3>
@@ -255,9 +255,9 @@ export default function PricingPage() {
           Get Started
         </h3>
         <ul className="space-y-2 text-sm text-gray-700">
-          <li>• <strong>Free credits:</strong> <a href="https://github.com/wu-changxing/connectonion" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-400 underline">Star our repo</a> for $0.90 free credit</li>
-          <li>• <strong>Add credits:</strong> <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-400 underline">Purchase credits</a> starting from $0.99</li>
-          <li>• <strong>All models:</strong> See the full <a href="/models" className="text-gray-500 hover:text-gray-400 underline">model catalog</a> for capabilities and selection guide</li>
+          <li>• <strong>Free credits:</strong> <a href="https://github.com/wu-changxing/connectonion" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-700 underline">Star our repo</a> for $0.90 free credit</li>
+          <li>• <strong>Add credits:</strong> <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-700 underline">Purchase credits</a> starting from $0.99</li>
+          <li>• <strong>All models:</strong> See the full <a href="/models" className="text-gray-500 hover:text-gray-700 underline">model catalog</a> for capabilities and selection guide</li>
         </ul>
       </div>
 

@@ -145,7 +145,7 @@ export default function UsefulPluginsPage() {
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <h1 className="heading-1">Useful Plugins</h1>
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">
+                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
                     <HiOutlineSparkles className="w-3 h-3" />
                     Built-in
                   </span>
@@ -179,7 +179,7 @@ agent = Agent(
             language="python"
           />
           <p className="text-sm text-gray-700 mt-4">
-            Learn how to build custom plugins in the <Link href="/plugin" className="text-gray-500 hover:text-gray-400">Plugin System documentation</Link>.
+            Learn how to build custom plugins in the <Link href="/plugin" className="text-gray-500 hover:text-gray-700">Plugin System documentation</Link>.
           </p>
         </div>
 
@@ -282,7 +282,7 @@ from plugins.re_act import re_act  # Customize freely!`}
             language="python"
           />
           <p className="text-sm text-gray-700 mt-4">
-            See <Link href="/cli" className="text-gray-500 hover:text-gray-400">co copy</Link> for full details.
+            See <Link href="/cli" className="text-gray-500 hover:text-gray-700">co copy</Link> for full details.
           </p>
         </div>
 

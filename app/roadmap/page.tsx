@@ -310,7 +310,7 @@ export default function RoadmapPage() {
                             )}
                           </div>
                         </div>
-                        <span className="text-xs text-gray-400 whitespace-nowrap flex-shrink-0 mt-0.5">{feature.targetDate}</span>
+                        <span className="text-xs text-gray-500 whitespace-nowrap flex-shrink-0 mt-0.5">{feature.targetDate}</span>
                       </div>
                     </div>
                   ))}

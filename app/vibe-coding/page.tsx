@@ -140,7 +140,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
 
             <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
               <div className="flex items-center gap-3 bg-white hover:bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-gray-400 transition-all cursor-pointer">
-                <div className="bg-gray-500/20 p-2 rounded-lg">
+                <div className="bg-gray-100 p-2 rounded-lg">
                   <HiOutlineCommandLine className="w-5 h-5 text-gray-500" />
                 </div>
                 <div>
@@ -149,7 +149,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                 </div>
               </div>
               <div className="flex items-center gap-3 bg-white hover:bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-gray-400 transition-all">
-                <div className="bg-gray-500/20 p-2 rounded-lg">
+                <div className="bg-gray-100 p-2 rounded-lg">
                   <HiOutlineCheck className="w-5 h-5 text-gray-500" />
                 </div>
                 <div>
@@ -158,7 +158,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                 </div>
               </div>
               <div className="flex items-center gap-3 bg-white hover:bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-gray-400 transition-all">
-                <div className="bg-gray-500/20 p-2 rounded-lg">
+                <div className="bg-gray-100 p-2 rounded-lg">
                   <HiOutlineRocketLaunch className="w-5 h-5 text-gray-500" />
                 </div>
                 <div>
@@ -174,7 +174,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
         <section className="mb-24 md:mb-42 lg:mb-40">
           <div className="relative bg-gradient-to-br from-gray-500/10 to-transparent rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-200 overflow-hidden">
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-gray-500/20 rounded-xl border border-gray-200">
+              <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
                 <HiOutlineCommandLine className="w-8 h-8 text-gray-500" />
               </div>
               <div>
@@ -243,7 +243,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                 href="https://github.com/openonion/connectonion-claude-plugin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gray-500/20 hover:bg-gray-500/30 border border-gray-400/40 rounded-lg transition-all text-sm font-medium text-gray-400"
+                className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-lg transition-all text-sm font-medium text-gray-700"
               >
                 <HiOutlineCodeBracket className="w-4 h-4" />
                 <span>View on GitHub</span>

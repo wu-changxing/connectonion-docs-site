@@ -257,7 +257,7 @@ agent.input("Check my inbox and summarize what's there")`}
           </div>
 
           <p className="text-center mt-6 text-gray-700">
-            Need more features? Check out <Link href="/gmail" className="text-gray-500 hover:text-gray-400 underline">Gmail</Link> for full inbox management.
+            Need more features? Check out <Link href="/gmail" className="text-gray-500 hover:text-gray-700 underline">Gmail</Link> for full inbox management.
           </p>
         </section>
 

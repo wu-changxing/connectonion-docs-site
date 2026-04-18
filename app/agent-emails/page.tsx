@@ -57,7 +57,7 @@ for email in emails:
             >
               <div className="flex items-center gap-3 mb-4">
                 <HiOutlinePaperAirplane className="w-6 h-6 text-gray-500" />
-                <h3 className="text-2xl font-semibold group-hover:text-gray-400 transition-colors">Send Email</h3>
+                <h3 className="text-2xl font-semibold group-hover:text-gray-700 transition-colors">Send Email</h3>
                 <HiOutlineArrowRight className="w-5 h-5 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
               </div>
               <p className="text-gray-700 mb-4">Send emails with zero configuration. Your agent gets a unique email address automatically.</p>
@@ -148,7 +148,7 @@ mark_unread(email_id)                # Mark as unread`}
           </div>
 
           <p className="text-center mt-6 text-gray-700">
-            Need more features? Check out <Link href="/gmail" className="text-gray-500 hover:text-gray-400 underline">Gmail</Link> for full inbox management.
+            Need more features? Check out <Link href="/gmail" className="text-gray-500 hover:text-gray-700 underline">Gmail</Link> for full inbox management.
           </p>
         </section>
 

@@ -275,21 +275,21 @@ email_active = false  # Becomes true after 'co auth'`}
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-4">
-                  <span className="bg-gray-500/20 text-gray-500 px-3 py-1 rounded-full font-bold">1</span>
+                  <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-bold">1</span>
                   <div>
                     <p className="font-semibold">Generated</p>
                     <p className="text-sm text-gray-700">Email address created during <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-xs">co init</code></p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="bg-gray-500/20 text-gray-500 px-3 py-1 rounded-full font-bold">2</span>
+                  <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-bold">2</span>
                   <div>
                     <p className="font-semibold">Activation Prompt</p>
                     <p className="text-sm text-gray-700">You'll be asked to activate your agent's email</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="bg-gray-500/20 text-gray-500 px-3 py-1 rounded-full font-bold">3</span>
+                  <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-bold">3</span>
                   <div>
                     <p className="font-semibold">Active</p>
                     <p className="text-sm text-gray-700">Email is fully functional after authentication</p>

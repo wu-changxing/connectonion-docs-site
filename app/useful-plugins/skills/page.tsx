@@ -141,7 +141,7 @@ session['permissions']['Bash(git status)'] = {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gray-500/20 border border-gray-400 flex items-center justify-center text-gray-400 font-semibold text-lg">2</div>
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 font-semibold text-lg">2</div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">➕ Grant</h3>
                   <p className="text-sm text-gray-600 mb-2">Add skill permissions to existing permissions:</p>
@@ -363,8 +363,8 @@ EOF`}
             </Link>
             <Link href="/concepts/skills" className="p-6 bg-white border border-gray-200 hover:border-gray-400 rounded-lg transition-all group">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineCodeBracket className="w-6 h-6 text-gray-500 group-hover:text-gray-400 transition-colors" />
-                <h3 className="font-semibold text-gray-900 group-hover:text-gray-400 transition-colors">Skills Concepts</h3>
+                <HiOutlineCodeBracket className="w-6 h-6 text-gray-500 group-hover:text-gray-600 transition-colors" />
+                <h3 className="font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">Skills Concepts</h3>
               </div>
               <p className="text-sm text-gray-600">Detailed skills documentation</p>
             </Link>

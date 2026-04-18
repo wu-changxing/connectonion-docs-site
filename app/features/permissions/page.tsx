@@ -284,7 +284,7 @@ session['permissions']['bash'] = {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-500/20 border border-gray-400 flex items-center justify-center text-gray-400 font-semibold">2</div>
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 font-semibold">2</div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Turn 5: /commit Skill</h3>
                     <div className="text-sm text-gray-600 space-y-2">
