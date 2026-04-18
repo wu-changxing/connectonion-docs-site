@@ -52,7 +52,7 @@ emails = get_emails()`}
         <section className="mb-16">
           <h2 className="heading-2">Core Concept</h2>
 
-          <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-8 mb-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-8 mb-8">
             <p className="text-lg text-gray-700 mb-6">Three functions. That's all:</p>
             <CodeWithResult
               code={`get_emails(last=10, unread=False)  # Get emails
@@ -163,7 +163,7 @@ for email in get_emails(unread=True):
           <h2 className="heading-2">API Reference</h2>
 
           <div className="space-y-8">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="text-lg font-semibold mb-4 text-blue-300 font-mono">get_emails(last=10, unread=False)</h3>
               <p className="text-gray-700 mb-4">Fetch emails from your inbox.</p>
               <div className="space-y-2 text-sm">
@@ -175,7 +175,7 @@ for email in get_emails(unread=True):
               </div>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="text-lg font-semibold mb-4 text-green-300 font-mono">mark_read(email_id)</h3>
               <p className="text-gray-700 mb-4">Mark an email as read.</p>
               <div className="space-y-2 text-sm">
@@ -183,7 +183,7 @@ for email in get_emails(unread=True):
               </div>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="text-lg font-semibold mb-4 text-yellow-300 font-mono">mark_unread(email_id)</h3>
               <p className="text-gray-700 mb-4">Mark an email as unread.</p>
               <div className="space-y-2 text-sm">

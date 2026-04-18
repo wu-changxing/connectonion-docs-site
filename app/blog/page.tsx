@@ -101,69 +101,62 @@ export default function BlogPage() {
         </div>
 
         {/* Blog Posts */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {blogPosts.map((post) => {
             const Icon = post.icon
             return (
-              <Link 
+              <Link
                 key={post.href}
                 href={post.href}
                 className="block group"
               >
-                <article className="p-6 bg-gray-100 rounded-xl border border-gray-700 hover:border-gray-400/50 transition-all">
+                <article className="p-6 bg-white rounded-xl border border-gray-200 hover:border-gray-400 hover:shadow-sm transition-all duration-200">
                   <div className="flex items-start gap-4">
                     {/* Icon */}
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-gray-700 to-pink-600 p-[1px]">
-                      <div className="w-full h-full bg-gray-900 rounded-lg flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-gray-500" />
-                      </div>
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center group-hover:border-gray-300 transition-colors">
+                      <Icon className="w-5 h-5 text-gray-500" />
                     </div>
-                    
+
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       {/* Meta */}
-                      <div className="flex flex-wrap items-center gap-3 mb-2 text-sm text-gray-500">
+                      <div className="flex flex-wrap items-center gap-3 mb-1.5 text-xs text-gray-400">
                         <div className="flex items-center gap-1">
-                          <HiOutlineCalendar className="w-3.5 h-3.5" />
+                          <HiOutlineCalendar className="w-3 h-3" />
                           <span>{post.date}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <HiOutlineClock className="w-3.5 h-3.5" />
+                          <HiOutlineClock className="w-3 h-3" />
                           <span>{post.readTime}</span>
                         </div>
                       </div>
-                      
-                      {/* Title */}
-                      <h2 className="text-xl font-semibold text-gray-900 mb-1 group-hover:text-gray-500 transition-colors">
+
+                      {/* Title — dominant */}
+                      <h2 className="text-lg font-bold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors leading-snug">
                         {post.title}
                       </h2>
-                      
+
                       {/* Subtitle */}
-                      <p className="text-gray-700 mb-4">
+                      <p className="text-sm text-gray-500 mb-3">
                         {post.subtitle}
                       </p>
-                      
-                      {/* Excerpt */}
-                      <p className="text-gray-700 text-sm mb-4 line-clamp-2">
-                        {post.excerpt}
-                      </p>
-                      
+
                       {/* Tags and Read More */}
                       <div className="flex flex-wrap items-center justify-between gap-3">
-                        <div className="flex flex-wrap gap-2">
-                          {post.tags.map((tag) => (
-                            <span 
+                        <div className="flex flex-wrap gap-1.5">
+                          {post.tags.slice(0, 2).map((tag) => (
+                            <span
                               key={tag}
-                              className="px-2 py-1 bg-gray-700/50 rounded-md text-xs text-gray-700"
+                              className="px-2 py-0.5 bg-gray-100 rounded text-xs text-gray-500"
                             >
                               {tag}
                             </span>
                           ))}
                         </div>
-                        
-                        <span className="inline-flex items-center gap-1 text-sm text-gray-500 group-hover:text-gray-400">
+
+                        <span className="inline-flex items-center gap-1 text-xs font-medium text-gray-400 group-hover:text-gray-700 transition-colors">
                           Read more
-                          <HiOutlineArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          <HiOutlineArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                         </span>
                       </div>
                     </div>
@@ -175,9 +168,9 @@ export default function BlogPage() {
         </div>
 
         {/* Coming Soon */}
-        <div className="mt-12 p-8 bg-gray-800/30 rounded-xl border border-gray-700 text-center">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">More Posts Coming Soon</h3>
-          <p className="text-gray-700 text-sm">
+        <div className="mt-10 p-6 bg-gray-50 rounded-xl border border-gray-200 text-center">
+          <h3 className="text-base font-semibold text-gray-900 mb-1">More Posts Coming Soon</h3>
+          <p className="text-gray-500 text-sm">
             We're documenting our journey. Stay tuned for more insights.
           </p>
         </div>

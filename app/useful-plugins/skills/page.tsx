@@ -227,22 +227,22 @@ Create a well-formatted git commit for staged changes.
             Skills support flexible pattern matching for tool permissions:
           </p>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-blue-300 mb-2">Exact Match</h3>
               <code className="text-sm text-slate-300">Bash(git status)</code>
               <p className="text-xs text-slate-400 mt-2">Only matches "git status"</p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-gray-400 mb-2">Wildcard Args</h3>
               <code className="text-sm text-slate-300">Bash(git diff *)</code>
               <p className="text-xs text-slate-400 mt-2">Any git diff command</p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-green-300 mb-2">Command Prefix</h3>
               <code className="text-sm text-slate-300">Bash(git *)</code>
               <p className="text-xs text-slate-400 mt-2">All git commands</p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-yellow-300 mb-2">Tool Name</h3>
               <code className="text-sm text-slate-300">read_file</code>
               <p className="text-xs text-slate-400 mt-2">Any read_file call</p>

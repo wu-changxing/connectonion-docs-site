@@ -106,7 +106,7 @@ export default function WebSocketProtocolPage() {
             Session Lifecycle
           </h2>
 
-          <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4 mb-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
             <p className="text-sm font-mono text-slate-200">
               <strong className="text-white">SESSION</strong> = connection. &nbsp;<strong className="text-white">EXECUTION</strong> = one INPUT → OUTPUT cycle.<br />
               Session outlives executions. Multiple INPUTs per session.
@@ -384,7 +384,7 @@ export default function WebSocketProtocolPage() {
           </div>
 
           {/* File Upload Protocol */}
-          <div className="mt-6 bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h5 className="text-base font-semibold text-gray-900 mb-3">File Upload Protocol</h5>
             <p className="text-sm text-slate-300 mb-3">Files are sent inline as base64-encoded data URLs:</p>
             <JsonBlock>{`{
@@ -633,12 +633,12 @@ signature → OK             (same WS, already authenticated)`}
           </h2>
 
           <div className="space-y-6">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-slate-400 mb-2">v0.9.x — INIT + ATTACH</p>
               <pre className="text-sm font-mono text-slate-300">{`WS open → INIT { auth }    → CONNECTED { status: "new" }
          INPUT { prompt, session }  → events → OUTPUT → session dies`}</pre>
             </div>
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-slate-400 mb-2">v0.10.x — CONNECT (unified)</p>
               <pre className="text-sm font-mono text-slate-300">{`WS open → CONNECT { auth, session_id? } → CONNECTED { status }
          INPUT { prompt, session }     → events → OUTPUT → session dies`}</pre>

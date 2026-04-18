@@ -342,7 +342,7 @@ export default function LinksPage() {
               e.stopPropagation()
               handleCopyLink(link.url, link.title)
             }}
-            className="absolute top-4 right-4 p-2 min-w-[44px] min-h-[44px] rounded-lg bg-gray-900/50 border border-gray-700/50 hover:bg-gray-900/80 hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-gray-400/50 transition-all flex items-center justify-center"
+            className="absolute top-4 right-4 p-2 min-w-[44px] min-h-[44px] rounded-lg bg-gray-50 border border-gray-200/50 hover:bg-gray-900/80 hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-gray-400/50 transition-all flex items-center justify-center"
             aria-label={"Copy " + link.title + " link"}
             title={"Copy " + link.title + " link"}
           >

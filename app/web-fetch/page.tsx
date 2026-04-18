@@ -53,7 +53,7 @@ agent.input("Get contact info from acme.com")`}
           <p className="text-gray-700 mb-6">Direct HTTP and parsing operations</p>
 
           <div className="space-y-6">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="font-semibold text-green-300 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineGlobeAlt className="w-4 h-4" />
                 fetch(url)
@@ -67,7 +67,7 @@ agent.input("Get contact info from acme.com")`}
               />
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="font-semibold text-green-300 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineDocumentText className="w-4 h-4" />
                 strip_tags(html, max_chars=10000)
@@ -82,7 +82,7 @@ text = web.strip_tags(html)
               />
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="font-semibold text-green-300 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineDocumentText className="w-4 h-4" />
                 get_title(html)
@@ -90,7 +90,7 @@ text = web.strip_tags(html)
               <p className="text-gray-700 text-sm">Get page title from HTML</p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="font-semibold text-blue-300 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineLink className="w-4 h-4" />
                 get_links(html)
@@ -98,7 +98,7 @@ text = web.strip_tags(html)
               <p className="text-gray-700 text-sm">Extract all links from HTML</p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="font-semibold text-gray-400 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineEnvelope className="w-4 h-4" />
                 get_emails(html)
@@ -106,7 +106,7 @@ text = web.strip_tags(html)
               <p className="text-gray-700 text-sm">Extract email addresses from HTML</p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="font-semibold text-gray-500 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineShare className="w-4 h-4" />
                 get_social_links(html)

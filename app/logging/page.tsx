@@ -155,7 +155,7 @@ agent = Agent("assistant", log="debug.log")`}
             <h2 className="heading-2">Log Locations</h2>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
             <CodeBlock
               code={`.co/
 ├── logs/
@@ -175,7 +175,7 @@ agent = Agent("assistant", log="debug.log")`}
             <h2 className="heading-2">Plain Text Format (.co/logs/)</h2>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
             <CodeBlock
               code={`============================================================
 Session started: 2024-12-02 10:32:14
@@ -200,7 +200,7 @@ Session started: 2024-12-02 10:32:14
             <h2 className="heading-2">Session YAML Format (.co/sessions/)</h2>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6 mb-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-6">
             <p className="text-gray-700 mb-4">Sessions are saved as YAML for replay and eval:</p>
             <CodeBlock
               code={`name: assistant
@@ -220,7 +220,7 @@ turns:
             />
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 text-gray-400">Use Cases</h3>
             <ul className="space-y-3 text-sm text-gray-700">
               <li className="flex items-start gap-2">
@@ -276,7 +276,7 @@ turns:
             <h2 className="heading-2">Environment Variable</h2>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
             <p className="text-gray-700 mb-4">Override log file via environment (highest priority):</p>
             <CommandBlock commands={['CONNECTONION_LOG=debug.log python agent.py']} />
           </div>

@@ -18,7 +18,7 @@ export default function HomePage() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="flex items-center justify-center px-4 md:px-6 py-16 md:py-24 relative overflow-hidden border-b border-gray-100">
+      <section className="flex items-center justify-center px-4 md:px-6 py-16 md:py-24 relative border-b border-gray-100">
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <h1 className="heading-1 mb-2">
             ConnectOnion
@@ -29,9 +29,8 @@ export default function HomePage() {
           </div>
 
           {/* Philosophy — editorial italic accent */}
-          <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 leading-relaxed font-bold text-gray-900">
-            Keep simple things <span className="accent-italic text-[1.1em]">simple</span>
-            <span className="text-gray-300 mx-2">,</span>
+          <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 leading-relaxed font-bold text-gray-900 text-balance">
+            Keep simple things <span className="accent-italic text-[1.1em]">simple</span>,{' '}
             make complicated things possible
           </div>
 

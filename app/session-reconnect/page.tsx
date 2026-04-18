@@ -77,11 +77,11 @@ export default function SessionReconnectPage() {
           </Diagram>
 
           <div className="grid md:grid-cols-2 gap-4 mt-6">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-gray-400 mb-2">In-Memory</p>
               <p className="text-sm text-slate-300">Keeps the agent thread and IO queues alive so a reconnecting client resumes mid-execution.</p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-emerald-300 mb-2">Disk (JSONL)</p>
               <p className="text-sm text-slate-300">Stores final results so a client that never reconnects can poll later.</p>
             </div>
@@ -188,7 +188,7 @@ T+35                        ◄────────────────�
        ◄── OUTPUT ──────────`}
           </Diagram>
 
-          <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4 mt-4">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-4">
             <p className="text-sm text-slate-300">
               <strong className="text-white">What happened:</strong> Agent asked for approval at T+15, blocked waiting.
               Client disconnected at T+20 — agent stayed blocked, events buffered.
@@ -411,11 +411,11 @@ iteration: 5                iteration: 10
           </Diagram>
 
           <div className="grid md:grid-cols-2 gap-4 mt-4">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-slate-300 mb-1">Suppressed</p>
               <p className="text-sm text-slate-400">CONNECT, INPUT, SESSION_STATUS, PONG — these have their own status lines.</p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-slate-300 mb-1">Still logged</p>
               <p className="text-sm text-slate-400">ADMIN_*, ONBOARD_SUBMIT, and unexpected types print <code className="bg-gray-800 px-1 rounded">← WS recv:</code>.</p>
             </div>

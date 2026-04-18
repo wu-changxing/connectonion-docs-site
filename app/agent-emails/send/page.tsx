@@ -123,7 +123,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
         <section className="mb-16">
           <h2 className="heading-2">Core Concept</h2>
           
-          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-8 mb-12">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 mb-12">
             <h3 className="text-2xl font-semibold mb-6 text-gray-400">What you get:</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-start gap-3">
@@ -489,7 +489,7 @@ print(f"Report sent: {result['success']}")`}
           <h2 className="heading-2">The Details</h2>
 
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-gray-400">Quotas</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex justify-between">
@@ -507,7 +507,7 @@ print(f"Report sent: {result['success']}")`}
               </ul>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-gray-400">Rate Limiting</h3>
               <p className="text-gray-700 text-sm mb-4">Automatic rate limiting prevents abuse:</p>
               <ul className="space-y-2 text-sm">
@@ -526,7 +526,7 @@ print(f"Report sent: {result['success']}")`}
               </ul>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-gray-400">Content Types</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-start gap-2">
@@ -553,7 +553,7 @@ print(f"Report sent: {result['success']}")`}
               </ul>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-gray-400">From Address</h3>
               <ul className="space-y-3 text-sm">
                 <li>
@@ -568,7 +568,7 @@ print(f"Report sent: {result['success']}")`}
             </div>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-8">
             <h3 className="text-lg font-semibold mb-6 text-gray-400">Behind the Scenes</h3>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-2">

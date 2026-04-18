@@ -130,7 +130,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
           <h2 className="heading-2">What Makes This Special</h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <HiOutlineCodeBracket className="w-8 h-8 text-red-400 mb-4" />
               <h3 className="text-xl font-semibold mb-4">Live Runtime Access</h3>
               <p className="text-gray-700 text-sm">
@@ -139,7 +139,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
               </p>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <HiOutlineCheck className="w-8 h-8 text-green-400 mb-4" />
               <h3 className="text-xl font-semibold mb-4">Verified Solutions</h3>
               <p className="text-gray-700 text-sm">
@@ -148,7 +148,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
               </p>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <HiOutlineBugAnt className="w-8 h-8 text-red-400 mb-4" />
               <h3 className="text-xl font-semibold mb-4">Precise Analysis</h3>
               <p className="text-gray-700 text-sm">
@@ -167,35 +167,35 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
           </p>
 
           <div className="space-y-4">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">execute_in_frame(code)</h3>
               <p className="text-gray-700 text-sm">
                 Run any Python code in the exception context. Check variables, test expressions, explore the state.
               </p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">inspect_object(name)</h3>
               <p className="text-gray-700 text-sm">
                 Deep dive into any object - see its type, attributes, methods, and values.
               </p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">test_fix(original, fixed)</h3>
               <p className="text-gray-700 text-sm">
                 Test a potential fix using the actual runtime data before suggesting it to you.
               </p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">validate_assumption(hypothesis)</h3>
               <p className="text-gray-700 text-sm">
                 Test hypotheses about what caused the crash by running code in the crashed context.
               </p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="font-mono text-red-400 text-lg mb-2">trace_variable(var_name)</h3>
               <p className="text-gray-700 text-sm">
                 See how a variable's value changed through the call stack leading to the crash.

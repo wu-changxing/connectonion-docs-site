@@ -56,7 +56,7 @@ agent.input("What do I know about Alice?")`}
         <section className="mb-16">
           <h2 className="heading-2">What is Memory?</h2>
           
-          <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-8 mb-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 mb-8">
             <p className="text-lg text-gray-700 mb-6">
               Memory is a simple, file-based storage system that lets your agents:
             </p>
@@ -143,7 +143,7 @@ agent = Agent("assistant", tools=[memory])`}
                 language="python"
                 fileName="agent_with_memory.py"
               />
-              <div className="mt-6 bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+              <div className="mt-6 bg-gray-50 border border-gray-200 rounded-xl p-6">
                 <p className="text-gray-700 mb-4">Now your agent has access to 4 memory methods:</p>
                 <ul className="space-y-2 text-sm font-mono text-gray-700">
                   <li className="flex items-center gap-2">
@@ -353,7 +353,7 @@ agent.input("What did I learn about Python's history?")`}
           <h2 className="heading-2">Best Practices</h2>
           
           <div className="space-y-6">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="font-semibold text-gray-400 mb-2">1. Use Descriptive Keys</h3>
               <CodeWithResult 
                 code={`# Good
@@ -366,7 +366,7 @@ memory.write_memory("note1", content)`}
               />
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="font-semibold text-gray-400 mb-2">2. Structure Your Content</h3>
               <p className="text-gray-700 mb-2">Use markdown formatting for better organization:</p>
               <CodeWithResult 

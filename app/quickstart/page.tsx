@@ -99,7 +99,7 @@ export default function QuickStartPage() {
       {/* Installation */}
       <section className="mb-16" id="install">
         <h2 id="install" className="heading-2 flex items-center gap-3">
-          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">1</span>
+          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">1</span>
           Install ConnectOnion
         </h2>
         
@@ -111,7 +111,7 @@ export default function QuickStartPage() {
       {/* Create Agent */}
       <section className="mb-16" id="create-agent">
         <h2 id="create-agent" className="heading-2 flex items-center gap-3">
-          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">2</span>
+          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">2</span>
           Create Your First Agent
         </h2>
 
@@ -185,7 +185,7 @@ export default function QuickStartPage() {
       {/* Run Your Agent */}
       <section className="mb-16" id="run">
         <h2 id="run" className="heading-2 flex items-center gap-3">
-          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">3</span>
+          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">3</span>
           Run Your Agent
         </h2>
 
@@ -203,7 +203,7 @@ export default function QuickStartPage() {
       {/* Customize */}
       <section className="mb-16" id="customize">
         <h2 id="customize" className="heading-2 flex items-center gap-3">
-          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">4</span>
+          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">4</span>
           Customize Your Agent
         </h2>
         
@@ -318,7 +318,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
       {/* Playwright Template */}
       <section className="mb-16" id="playwright">
         <h2 id="playwright" className="heading-2 flex items-center gap-3">
-          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">5</span>
+          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">5</span>
           Alternative: Playwright Web Automation
         </h2>
 
@@ -380,7 +380,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
       {/* Custom Tool Example */}
       <section className="mb-16" id="custom-tool">
         <h2 id="custom-tool" className="heading-2 flex items-center gap-3">
-          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">6</span>
+          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">6</span>
           Create a Custom Tool Agent
         </h2>
         
@@ -428,7 +428,7 @@ The answer is 739.`}
       {/* Debugging with @xray */}
       <section className="mb-16" id="xray">
         <h2 id="xray" className="heading-2 flex items-center gap-3">
-          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">7</span>
+          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">7</span>
           Debugging with @xray
         </h2>
 
@@ -466,7 +466,7 @@ The result is 80.`}
       {/* Interactive Debugging */}
       <section className="mb-16" id="interactive-debug">
         <h2 id="interactive-debug" className="heading-2 flex items-center gap-3">
-          <span className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">8</span>
+          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">8</span>
           Interactive Debugging
         </h2>
 

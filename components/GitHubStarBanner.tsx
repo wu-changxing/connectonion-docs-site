@@ -23,7 +23,7 @@ export default function GitHubStarBanner() {
 
     const timer = setTimeout(() => {
       setIsVisible(true)
-    }, 3000)
+    }, 20000)
 
     fetch('https://api.github.com/repos/wu-changxing/connectonion')
       .then(res => res.json())
@@ -54,11 +54,11 @@ export default function GitHubStarBanner() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-50 transition-all duration-500 ease-out ${
+      className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 transition-all duration-500 ease-out ${
         isVisible ? 'translate-x-0 opacity-100' : 'translate-x-[120%] opacity-0'
       }`}
     >
-      <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-5 max-w-sm relative">
+      <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-4 sm:p-5 max-w-[280px] sm:max-w-sm relative">
         <button
           onClick={handleDismiss}
           className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors"

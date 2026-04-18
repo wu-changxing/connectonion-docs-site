@@ -604,7 +604,7 @@ function ChatPage() {
           </p>
 
           <div className="space-y-8">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-yellow-300 mb-4">Ask User</h3>
               <p className="text-sm text-slate-300 mb-4">Agent needs information from the user:</p>
               <CodeWithResult
@@ -619,7 +619,7 @@ respond(["Sydney", "Tokyo"])`}
               />
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-red-300 mb-4">Tool Approval</h3>
               <p className="text-sm text-slate-300 mb-4">Agent wants to run a tool that needs permission:</p>
               <CodeWithResult
@@ -637,7 +637,7 @@ respondToApproval(false, 'once', 'reject_explain', 'Too dangerous')`}
               />
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-violet-300 mb-4">Plan Review</h3>
               <p className="text-sm text-slate-300 mb-4">Agent presenting a plan before executing:</p>
               <CodeWithResult

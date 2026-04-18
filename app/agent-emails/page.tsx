@@ -86,7 +86,7 @@ for email in emails:
         <section className="mb-16">
           <h2 className="heading-2">All Functions</h2>
 
-          <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-8">
             <CodeWithResult
               code={`# Sending (via OpenOnion - zero config)
 send_email(to, subject, message)     # Send an email

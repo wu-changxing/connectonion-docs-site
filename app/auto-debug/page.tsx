@@ -597,7 +597,7 @@ agent.auto_debug(step=True)
                 a: "Yes! Works in any Python environment with terminal support."
               }
             ].map((item, i) => (
-              <div key={i} className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+              <div key={i} className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <h3 className="font-semibold text-gray-500 mb-2">{item.q}</h3>
                 <p className="text-gray-700">{item.a}</p>
               </div>

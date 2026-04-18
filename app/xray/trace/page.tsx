@@ -578,7 +578,7 @@ Works seamlessly with:
         
         <div className="space-y-12">
           {Object.entries(examples).map(([id, example], index) => (
-            <div key={id} className="bg-gray-900/50 border border-gray-700 rounded-xl p-4 sm:p-6 lg:p-8">
+            <div key={id} className="bg-gray-50 border border-gray-200 rounded-xl p-4 sm:p-6 lg:p-8">
               {/* Example Header */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
                 <div className="flex items-center gap-3 sm:gap-4">

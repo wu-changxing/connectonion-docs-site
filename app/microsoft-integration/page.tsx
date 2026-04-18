@@ -98,7 +98,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
             fileName=".env"
           />
 
-          <div className="mt-8 bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+          <div className="mt-8 bg-gray-50 border border-gray-200 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <HiOutlineLockClosed className="w-5 h-5 text-gray-500" />
               Security notes
@@ -332,20 +332,20 @@ calendar.check_availability("2025-01-15 14:00")  # Check if specific time is fre
           <h2 className="heading-2">Troubleshooting</h2>
 
           <div className="space-y-8">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-red-400">"Not authenticated with OpenOnion"</h3>
               <p className="text-gray-700 mb-4">You need to run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
               <CommandBlock commands={['co auth', 'co auth microsoft']} />
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-yellow-400">Authorization Timeout</h3>
               <p className="text-gray-700 mb-4">If the browser window doesn't complete authorization within 5 minutes:</p>
               <CommandBlock commands={['co auth microsoft']} />
               <p className="text-sm text-gray-400 mt-2">The command polls the backend every 5 seconds waiting for your authorization.</p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-blue-400">Credentials Not Working</h3>
               <p className="text-gray-700 mb-4">Check if credentials are properly saved:</p>
               <CodeWithResult
@@ -361,7 +361,7 @@ cat ~/.co/keys.env | grep MICROSOFT_`}
               <CommandBlock commands={['co auth microsoft']} />
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-4 text-green-400">Revoke Access</h3>
               <p className="text-gray-700 mb-4">To disconnect your Microsoft account:</p>
               <ul className="space-y-2 text-gray-700">

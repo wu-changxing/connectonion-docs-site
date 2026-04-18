@@ -14,13 +14,22 @@ export function OnThisPage() {
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll('h2, h3'))
-    const items: Heading[] = elements
-      .filter(el => el.id)
-      .map(el => ({
+    const items: Heading[] = elements.map(el => {
+      if (!el.id) {
+        const slug = (el.textContent || '')
+          .trim()
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .slice(0, 60)
+        el.id = slug
+      }
+      return {
         id: el.id,
         text: el.textContent?.trim() || '',
         level: parseInt(el.tagName[1]),
-      }))
+      }
+    }).filter(h => h.text)
     setHeadings(items)
   }, [])
 

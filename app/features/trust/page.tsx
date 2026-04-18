@@ -198,7 +198,7 @@ translator = need("translate", trust="strict")  # I only use verified services
                 result=""
               />
 
-              <div className="mt-6 bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+              <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4">Trust Flow Example</h4>
                 <CodeWithResult
                   code={`# Alice creates a translation service

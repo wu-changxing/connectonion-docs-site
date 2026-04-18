@@ -15,8 +15,8 @@ const plugins = [
     description: 'Implements Reason + Act pattern with planning before action and reflection after tool execution',
     icon: HiOutlineCpuChip,
     color: 'text-gray-500',
-    bgColor: 'bg-gray-900/20',
-    borderColor: 'border-gray-400/30',
+    bgColor: 'bg-white',
+    borderColor: 'border-gray-200',
     href: '/useful-plugins/re-act',
     events: ['after_user_input (plan)', 'after_tools (reflect)'],
     usage: `from connectonion.useful_plugins import re_act
@@ -30,9 +30,9 @@ agent = Agent("assistant", tools=[search], plugins=[re_act])`,
     title: 'Code Evaluation',
     description: 'Safe code evaluation and execution in a sandboxed environment',
     icon: HiOutlineCodeBracket,
-    color: 'text-blue-400',
-    bgColor: 'bg-blue-900/20',
-    borderColor: 'border-blue-500/30',
+    color: 'text-gray-500',
+    bgColor: 'bg-white',
+    borderColor: 'border-gray-200',
     href: '/useful-plugins/eval',
     events: ['after_tools'],
     usage: `from connectonion.useful_plugins import eval
@@ -46,9 +46,9 @@ agent = Agent("assistant", tools=[generate_code], plugins=[eval])`,
     title: 'Image Result Formatter',
     description: 'Automatically formats base64 images in tool results for vision models (GPT-4o, etc.)',
     icon: HiOutlinePhoto,
-    color: 'text-green-400',
-    bgColor: 'bg-green-900/20',
-    borderColor: 'border-green-500/30',
+    color: 'text-gray-500',
+    bgColor: 'bg-white',
+    borderColor: 'border-gray-200',
     href: '/useful-plugins/image-result-formatter',
     events: ['after_each_tool'],
     usage: `from connectonion.useful_plugins import image_result_formatter
@@ -62,9 +62,9 @@ agent = Agent("assistant", tools=[screenshot], plugins=[image_result_formatter])
     title: 'Gmail Plugin',
     description: 'Pre-configured event handlers for Gmail integration workflows',
     icon: HiOutlineEnvelope,
-    color: 'text-red-400',
-    bgColor: 'bg-red-900/20',
-    borderColor: 'border-red-500/30',
+    color: 'text-gray-500',
+    bgColor: 'bg-white',
+    borderColor: 'border-gray-200',
     href: '/useful-plugins/gmail-plugin',
     events: ['after_user_input', 'after_tools'],
     usage: `from connectonion.useful_plugins import gmail_plugin
@@ -78,9 +78,9 @@ agent = Agent("email_assistant", plugins=[gmail_plugin])`,
     title: 'Calendar Plugin',
     description: 'Pre-configured event handlers for calendar management workflows',
     icon: HiOutlineCalendar,
-    color: 'text-cyan-400',
-    bgColor: 'bg-cyan-900/20',
-    borderColor: 'border-cyan-500/30',
+    color: 'text-gray-500',
+    bgColor: 'bg-white',
+    borderColor: 'border-gray-200',
     href: '/useful-plugins/calendar-plugin',
     events: ['after_user_input', 'after_tools'],
     usage: `from connectonion.useful_plugins import calendar_plugin
@@ -94,9 +94,9 @@ agent = Agent("scheduler", plugins=[calendar_plugin])`,
     title: 'Shell Approval',
     description: 'Requires user confirmation before executing shell commands for safety',
     icon: HiOutlineShieldCheck,
-    color: 'text-orange-400',
-    bgColor: 'bg-orange-900/20',
-    borderColor: 'border-orange-500/30',
+    color: 'text-gray-500',
+    bgColor: 'bg-white',
+    borderColor: 'border-gray-200',
     href: '/useful-plugins/shell-approval',
     events: ['before_each_tool'],
     usage: `from connectonion.useful_plugins import shell_approval
@@ -110,9 +110,9 @@ agent = Agent("devops", tools=[run_command], plugins=[shell_approval])`,
     title: 'System Reminder',
     description: 'Injects contextual guidance into tool results to nudge agent behavior',
     icon: HiOutlineChatBubbleBottomCenterText,
-    color: 'text-teal-400',
-    bgColor: 'bg-teal-900/20',
-    borderColor: 'border-teal-500/30',
+    color: 'text-gray-500',
+    bgColor: 'bg-white',
+    borderColor: 'border-gray-200',
     href: '/useful-plugins/system-reminder',
     events: ['after_each_tool'],
     usage: `from connectonion.useful_plugins import system_reminder
@@ -139,7 +139,7 @@ export default function UsefulPluginsPage() {
         <div className="mb-12">
           <div className="flex flex-col gap-4 mb-4">
             <div className="flex items-start gap-3">
-              <div className="p-3 bg-gradient-to-br from-gray-700/20 to-pink-600/20 rounded-xl border border-gray-200 flex-shrink-0">
+              <div className="p-3 bg-gray-100 rounded-xl border border-gray-200 flex-shrink-0">
                 <HiOutlineCube className="w-8 h-8 text-gray-500" />
               </div>
               <div className="min-w-0">
@@ -160,7 +160,7 @@ export default function UsefulPluginsPage() {
         </div>
 
         {/* What is a Plugin */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-gray-900/30 to-pink-900/30 rounded-lg border border-gray-200">
+        <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="heading-2">What is a Plugin?</h2>
           <p className="text-gray-700 mb-4">
             A plugin is a reusable list of event handlers. Use <code className="bg-gray-800 px-2 py-1 rounded">plugins=[...]</code> to add pre-packaged functionality to any agent.
@@ -189,11 +189,11 @@ agent = Agent(
             <Link
               key={plugin.id}
               href={plugin.href}
-              className={`group block p-4 sm:p-6 rounded-lg border ${plugin.borderColor} ${plugin.bgColor} hover:border-gray-300/50 hover:bg-gray-100 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 transition-all duration-200`}
+              className={`group block p-4 sm:p-6 rounded-lg border ${plugin.borderColor} ${plugin.bgColor} hover:border-gray-400 hover:shadow-sm hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 transition-all duration-200`}
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg bg-gray-800 ${plugin.color}`}>
+                  <div className={`p-2 rounded-lg bg-gray-100 ${plugin.color}`}>
                     <plugin.icon className="w-6 h-6" />
                   </div>
                   <div>
@@ -212,7 +212,7 @@ agent = Agent(
                 {plugin.events.map((event, i) => (
                   <span
                     key={i}
-                    className="text-xs px-2 py-1 bg-gray-800 text-gray-700 rounded"
+                    className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded font-mono"
                   >
                     {event}
                   </span>
@@ -223,7 +223,7 @@ agent = Agent(
         </div>
 
         {/* Using Multiple Plugins */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/30 to-gray-900/30 rounded-lg border border-blue-500/20">
+        <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="heading-2">Combining Plugins</h2>
           <p className="text-gray-700 mb-4">
             Plugins can be combined for powerful agent behaviors:
@@ -253,7 +253,7 @@ agent = Agent(
         </div>
 
         {/* Customizing Plugins */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg border border-green-500/20">
+        <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="heading-2">Customizing Plugins</h2>
           <p className="text-gray-700 mb-4">
             Need to modify a built-in plugin? Copy it to your project:
@@ -287,14 +287,14 @@ from plugins.re_act import re_act  # Customize freely!`}
         </div>
 
         {/* Call to Action */}
-        <div className="text-center py-8 px-6 bg-gradient-to-r from-gray-900/30 to-pink-900/30 rounded-lg border border-gray-200">
+        <div className="text-center py-8 px-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="heading-2">Build Your Own Plugin</h2>
           <p className="text-gray-700 mb-6">
             Learn how to create custom plugins using the event system
           </p>
           <Link
             href="/plugin"
-            className="inline-flex items-center gap-2 bg-gray-500 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors min-h-[48px]"
+            className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors min-h-[48px]"
           >
             Plugin System Docs
             <HiOutlineArrowRight className="w-5 h-5" />

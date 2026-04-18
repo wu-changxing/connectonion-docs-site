@@ -70,7 +70,7 @@ agent.input("Find emails from alice@example.com")`}
               </h3>
 
               <div className="space-y-6">
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-blue-300 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
                   <p className="text-gray-700 text-sm mb-4">Read emails from inbox</p>
                   <ul className="text-sm text-gray-700 space-y-1">
@@ -79,22 +79,22 @@ agent.input("Find emails from alice@example.com")`}
                   </ul>
                 </div>
 
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-blue-300 font-mono mb-2">get_sent_emails(max_results=10)</h4>
                   <p className="text-gray-700 text-sm">Get emails you sent</p>
                 </div>
 
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-blue-300 font-mono mb-2">get_all_emails(max_results=50)</h4>
                   <p className="text-gray-700 text-sm">Get emails from all folders (inbox, sent, archive)</p>
                 </div>
 
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-blue-300 font-mono mb-2">get_email_body(email_id)</h4>
                   <p className="text-gray-700 text-sm">Get full email content</p>
                 </div>
 
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-blue-300 font-mono mb-2">get_email_attachments(email_id)</h4>
                   <p className="text-gray-700 text-sm">List attachments (filename, size)</p>
                 </div>
@@ -108,7 +108,7 @@ agent.input("Find emails from alice@example.com")`}
                 Search
               </h3>
 
-              <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                 <h4 className="font-semibold text-green-300 font-mono mb-2">search_emails(query, max_results=10)</h4>
                 <p className="text-gray-700 text-sm mb-4">Search using Gmail query syntax</p>
                 <div className="bg-gray-800 rounded-lg p-4">
@@ -131,19 +131,19 @@ agent.input("Find emails from alice@example.com")`}
               </h3>
 
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
                   <h4 className="font-semibold text-gray-400 font-mono text-sm mb-1">mark_read(email_id)</h4>
                   <p className="text-gray-700 text-xs">Mark email as read</p>
                 </div>
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
                   <h4 className="font-semibold text-gray-400 font-mono text-sm mb-1">mark_unread(email_id)</h4>
                   <p className="text-gray-700 text-xs">Mark email as unread</p>
                 </div>
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
                   <h4 className="font-semibold text-gray-400 font-mono text-sm mb-1">archive_email(email_id)</h4>
                   <p className="text-gray-700 text-xs">Archive email (remove from inbox)</p>
                 </div>
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
                   <h4 className="font-semibold text-gray-400 font-mono text-sm mb-1">star_email(email_id)</h4>
                   <p className="text-gray-700 text-xs">Add star to email</p>
                 </div>
@@ -158,15 +158,15 @@ agent.input("Find emails from alice@example.com")`}
               </h3>
 
               <div className="space-y-4">
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
                   <h4 className="font-semibold text-yellow-300 font-mono text-sm mb-1">get_labels()</h4>
                   <p className="text-gray-700 text-xs">List all Gmail labels</p>
                 </div>
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
                   <h4 className="font-semibold text-yellow-300 font-mono text-sm mb-1">add_label(email_id, label)</h4>
                   <p className="text-gray-700 text-xs">Add label to email</p>
                 </div>
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
                   <h4 className="font-semibold text-yellow-300 font-mono text-sm mb-1">get_emails_with_label(label, max_results=10)</h4>
                   <p className="text-gray-700 text-xs">Get emails with specific label</p>
                 </div>
@@ -180,7 +180,7 @@ agent.input("Find emails from alice@example.com")`}
                 Stats
               </h3>
 
-              <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
                 <h4 className="font-semibold text-cyan-300 font-mono text-sm mb-1">count_unread()</h4>
                 <p className="text-gray-700 text-xs">Count unread emails</p>
               </div>
@@ -194,7 +194,7 @@ agent.input("Find emails from alice@example.com")`}
               </h3>
 
               <div className="space-y-4">
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-gray-500 font-mono mb-2">get_all_contacts(max_emails=500)</h4>
                   <p className="text-gray-700 text-sm mb-2">Extract all unique contacts from emails</p>
                   <ul className="text-sm text-gray-700 space-y-1">
@@ -203,7 +203,7 @@ agent.input("Find emails from alice@example.com")`}
                   </ul>
                 </div>
 
-                <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-gray-500 font-mono mb-2">analyze_contact(email, max_emails=50)</h4>
                   <p className="text-gray-700 text-sm mb-2">Analyze specific contact using LLM</p>
                   <ul className="text-sm text-gray-700 space-y-1">
