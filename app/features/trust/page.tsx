@@ -96,7 +96,7 @@ agent = need("service", trust="strict")`}
 
               {/* 2. Trust Policy */}
               <div className="mb-8">
-                <div className="bg-gray-50 border border-blue-800/50 rounded-lg p-6 mb-4">
+                <div className="bg-gray-50 border border-blue-200 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                     <HiOutlineDocumentText className="w-5 h-5 text-blue-400" />
                     <span className="text-blue-400">2.</span> Trust Policy (Natural Language)
@@ -116,9 +116,9 @@ translator = need("translate", trust="""
 translator = need("translate", trust="./trust_policy.md")`}
                   result=""
                 />
-                <div className="mt-4 bg-gray-900 border border-gray-700 rounded-lg p-4">
-                  <p className="text-sm text-gray-400 mb-2 font-semibold">Example trust policy file:</p>
-                  <pre className="text-xs text-gray-400 overflow-x-auto"><code>{`# My Trust Requirements
+                <div className="mt-4 bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <p className="text-sm text-gray-700 mb-2 font-semibold">Example trust policy file:</p>
+                  <pre className="text-xs text-gray-600 overflow-x-auto"><code>{`# My Trust Requirements
 
 I trust agents that meet ALL of these criteria:
 - Successfully translate "Hello" to "Hola"

@@ -220,13 +220,13 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             Command Format
           </h2>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mb-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
             <div className="font-mono text-lg text-gray-700 mb-4">
-              co -b "screenshot <span className="text-yellow-300">[URL]</span> <span className="text-gray-500">[save to PATH]</span> <span className="text-gray-500">[size SIZE]</span>"
+              co -b "screenshot <span className="text-gray-700">[URL]</span> <span className="text-gray-500">[save to PATH]</span> <span className="text-gray-500">[size SIZE]</span>"
             </div>
             <div className="space-y-2 text-sm">
               <div className="flex items-start gap-2">
-                <span className="text-yellow-300 font-mono">[URL]</span>
+                <span className="text-yellow-600 font-mono">[URL]</span>
                 <span className="text-gray-700">Required. The page to screenshot (e.g., localhost:3000)</span>
               </div>
               <div className="flex items-start gap-2">
@@ -316,7 +316,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             Device Presets
           </h2>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+          <div className="border border-gray-200 rounded-lg overflow-hidden">
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-100 border-b border-gray-200">
@@ -326,7 +326,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
                   <th className="text-left px-4 py-3 text-gray-700 font-medium">Icon</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">iphone</td>
                   <td className="px-4 py-3 text-gray-700">390×844</td>
@@ -433,7 +433,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
               <p className="text-gray-700 text-sm mb-4">
                 Verify layouts across devices
               </p>
-              <div className="bg-black/30 rounded p-3 text-xs">
+              <div className="bg-gray-100 rounded p-3 text-xs">
                 <pre className="text-gray-700 font-mono">
 {`for size in iphone android ipad desktop; do
   co -b "screenshot localhost:3000 save to view-$size.png size $size"
@@ -463,7 +463,7 @@ done`}
         <section className="mb-16">
           <h2 className="heading-2">URL Handling</h2>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <p className="text-gray-700 mb-4">The command intelligently handles URLs:</p>
             
             <div className="space-y-3">
@@ -523,7 +523,7 @@ done`}
           <h2 className="heading-2">Framework Examples</h2>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-4">Next.js</h3>
               <CommandBlock 
                 commands={[
@@ -533,7 +533,7 @@ done`}
               />
             </div>
 
-            <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-4">FastAPI</h3>
               <CommandBlock 
                 commands={[
@@ -543,7 +543,7 @@ done`}
               />
             </div>
 
-            <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-4">Django</h3>
               <CommandBlock 
                 commands={[
@@ -553,7 +553,7 @@ done`}
               />
             </div>
 
-            <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-4">React Dev Server</h3>
               <CommandBlock 
                 commands={[
@@ -572,7 +572,7 @@ done`}
             Common Error Messages
           </h2>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
             <div className="p-6 space-y-6 font-mono text-sm">
               <div>
                 <div className="text-red-400 mb-2">❌ Usage: co -b "screenshot [URL] [save to PATH] [size SIZE]"</div>
@@ -605,21 +605,21 @@ done`}
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-2">Quick Debug</h3>
               <p className="text-gray-700 text-sm">
-                Just <code className="bg-black/30 px-2 py-1 rounded">co -b "screenshot localhost:3000"</code> for instant feedback
+                Just <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded">co -b "screenshot localhost:3000"</code> for instant feedback
               </p>
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-2">Organize Screenshots</h3>
               <p className="text-gray-700 text-sm">
-                Use descriptive paths like <code className="bg-black/30 px-2 py-1 rounded">save to bugs/issue-123.png</code>
+                Use descriptive paths like <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded">save to bugs/issue-123.png</code>
               </p>
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-2">Test Viewports</h3>
               <p className="text-gray-700 text-sm">
-                Use device names (<code className="bg-black/30 px-2 py-1 rounded">iphone</code>, <code className="bg-black/30 px-2 py-1 rounded">ipad</code>) for common sizes
+                Use device names (<code className="bg-gray-100 text-gray-700 px-2 py-1 rounded">iphone</code>, <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded">ipad</code>) for common sizes
               </p>
             </div>
 
@@ -636,27 +636,27 @@ done`}
         <section className="mb-16">
           <h2 className="heading-2">Limitations</h2>
 
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start gap-3">
-                <span className="text-yellow-400 mt-0.5">•</span>
+                <span className="text-yellow-600 mt-0.5">•</span>
                 <span>Screenshots only (no interaction, clicking, forms)</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-yellow-400 mt-0.5">•</span>
+                <span className="text-yellow-600 mt-0.5">•</span>
                 <span>Single page at a time</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-yellow-400 mt-0.5">•</span>
+                <span className="text-yellow-600 mt-0.5">•</span>
                 <span>Headless browser only</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-yellow-400 mt-0.5">•</span>
+                <span className="text-yellow-600 mt-0.5">•</span>
                 <span>PNG format only</span>
               </li>
             </ul>
 
-            <div className="mt-4 pt-4 border-t border-gray-700">
+            <div className="mt-4 pt-4 border-t border-gray-200">
               <p className="text-gray-700 text-sm">
                 For complex browser automation, use the full ConnectOnion browser agent or Playwright directly.
               </p>
@@ -669,7 +669,7 @@ done`}
           <div className="bg-gradient-to-r from-gray-50 to-gray-50 border border-gray-200 rounded-lg p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Summary</h2>
             <p className="text-gray-700">
-              The <code className="bg-black/30 px-2 py-1 rounded">-b</code> flag provides dead-simple browser screenshots. 
+              The <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded">-b</code> flag provides dead-simple browser screenshots. 
               No setup, no complexity - just describe what screenshot you want and where to save it. 
               Perfect for debugging during development.
             </p>

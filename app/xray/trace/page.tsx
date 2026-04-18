@@ -527,7 +527,7 @@ Works seamlessly with:
             <HiOutlineArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
             <Link href="/xray" className="hover:text-gray-900 transition-colors whitespace-nowrap">@xray</Link>
             <HiOutlineArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-            <span className="text-white whitespace-nowrap">trace()</span>
+            <span className="text-gray-900 whitespace-nowrap">trace()</span>
           </nav>
 
           <h1 className="heading-1">
@@ -559,7 +559,7 @@ Works seamlessly with:
           ].map((feature, i) => {
             const IconComponent = feature.icon
             return (
-              <div key={i} className="bg-gray-900 border border-gray-700 rounded-lg p-6 text-center hover:border-gray-600 transition-colors">
+              <div key={i} className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center hover:border-gray-300 transition-colors">
                 <IconComponent className={`w-8 h-8 ${feature.color} mx-auto mb-4`} />
                 <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
                 <p className="text-gray-700 text-sm">{feature.desc}</p>
@@ -592,7 +592,7 @@ Works seamlessly with:
                 </div>
                 <button
                   onClick={() => copyToClipboard(example.code, id)}
-                  className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2 self-start sm:self-auto"
+                  className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-100 flex items-center gap-2 self-start sm:self-auto"
                 >
                   {copiedId === id ? (
                     <>
@@ -699,7 +699,7 @@ Works seamlessly with:
       <section className="mb-12 sm:mb-16">
         <h2 className="h2text-xl sm:"heading-2>Visual Format Reference</h2>
         
-        <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 sm:p-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">Status Indicators</h4>
@@ -759,7 +759,7 @@ Works seamlessly with:
       </section>
 
       {/* Navigation */}
-      <nav className="flex justify-between items-center pt-8 border-t border-gray-800">
+      <nav className="flex justify-between items-center pt-8 border-t border-gray-200">
         <Link 
           href="/xray" 
           className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
