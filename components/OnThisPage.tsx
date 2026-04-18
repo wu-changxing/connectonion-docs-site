@@ -69,7 +69,7 @@ export function OnThisPage() {
 
   return (
     <nav className="sticky top-[6.5rem] w-56 flex-shrink-0">
-      <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-widest mb-3 pl-2">
+      <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-3 pl-2">
         On this page
       </p>
       <ul className="space-y-0.5">

@@ -32,12 +32,12 @@ export function ContentNavigation() {
             href={prev.href}
             className="group flex flex-col gap-1.5 px-5 py-4 bg-gray-50 hover:bg-white border border-gray-200 hover:border-gray-400 hover:shadow-sm rounded-xl transition-all"
           >
-            <div className="flex items-center gap-1.5 text-gray-400 group-hover:text-gray-600 transition-colors">
+            <div className="flex items-center gap-1.5 text-gray-500 group-hover:text-gray-600 transition-colors">
               <HiOutlineArrowLeft className="w-3.5 h-3.5" />
               <span className="text-[11px] font-semibold uppercase tracking-widest">Previous</span>
             </div>
             {prevPage?.section && (
-              <div className="text-[11px] text-gray-400 font-mono">{prevPage.section}</div>
+              <div className="text-[11px] text-gray-500 font-mono">{prevPage.section}</div>
             )}
             <div className="text-sm font-semibold text-gray-900 group-hover:text-black transition-colors leading-snug">{prev.title}</div>
           </Link>
@@ -50,12 +50,12 @@ export function ContentNavigation() {
             href={next.href}
             className="group flex flex-col gap-1.5 px-5 py-4 bg-gray-50 hover:bg-white border border-gray-200 hover:border-gray-400 hover:shadow-sm rounded-xl transition-all sm:items-end sm:text-right"
           >
-            <div className="flex items-center gap-1.5 text-gray-400 group-hover:text-gray-600 transition-colors sm:flex-row-reverse">
+            <div className="flex items-center gap-1.5 text-gray-500 group-hover:text-gray-600 transition-colors sm:flex-row-reverse">
               <HiOutlineArrowRight className="w-3.5 h-3.5" />
               <span className="text-[11px] font-semibold uppercase tracking-widest">Next</span>
             </div>
             {nextPage?.section && (
-              <div className="text-[11px] text-gray-400 font-mono">{nextPage.section}</div>
+              <div className="text-[11px] text-gray-500 font-mono">{nextPage.section}</div>
             )}
             <div className="text-sm font-semibold text-gray-900 group-hover:text-black transition-colors leading-snug">{next.title}</div>
           </Link>

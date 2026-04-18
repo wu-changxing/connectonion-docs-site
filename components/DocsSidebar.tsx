@@ -190,7 +190,7 @@ export function DocsSidebar() {
           <img src="/onion-logo.png" alt="ConnectOnion Logo" className="w-7 h-7 rounded-md object-cover" />
           <div className="flex-1 min-w-0">
             <div className="text-sm font-semibold text-gray-900 leading-tight">ConnectOnion</div>
-            <div className="text-[11px] text-gray-400 leading-tight">Docs</div>
+            <div className="text-[11px] text-gray-500 leading-tight">Docs</div>
           </div>
         </Link>
       </div>
@@ -217,13 +217,13 @@ export function DocsSidebar() {
               <HiOutlineXMark className="w-3 h-3 text-gray-400" />
             </button>
           ) : (
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 text-[9px] text-gray-400 font-mono px-1 py-0.5 bg-white rounded border border-gray-200">
+            <div className="absolute right-2 top-1/2 -translate-y-1/2 text-[9px] text-gray-500 font-mono px-1 py-0.5 bg-white rounded border border-gray-200">
               ⌘K
             </div>
           )}
         </div>
         {searchQuery && (
-          <div className="mt-1 text-[10px] text-gray-400 px-0.5">
+          <div className="mt-1 text-[10px] text-gray-500 px-0.5">
             {searchResults.length === 0 ? 'No results' : `${searchResults.length} result${searchResults.length !== 1 ? 's' : ''} · ↑↓ navigate`}
           </div>
         )}
@@ -260,7 +260,7 @@ export function DocsSidebar() {
                             <SearchHighlight text={result.snippet} query={searchQuery} />
                           </p>
                         )}
-                        <div className="text-[10px] text-gray-400 mt-1">{result.item.section}</div>
+                        <div className="text-[10px] text-gray-500 mt-1">{result.item.section}</div>
                       </div>
                     </div>
                   </Link>
@@ -376,8 +376,8 @@ export function DocsSidebar() {
 
         {searchQuery && searchResults.length === 0 && (
           <div className="px-4 py-8 text-center">
-            <div className="text-gray-400 mb-1">No results found</div>
-            <div className="text-xs text-gray-300">Try different keywords</div>
+            <div className="text-gray-600 mb-1">No results found</div>
+            <div className="text-xs text-gray-500">Try different keywords</div>
           </div>
         )}
       </nav>
@@ -414,7 +414,7 @@ export function DocsSidebar() {
           </button>
           <div className="ml-auto flex items-center gap-1 pr-1">
             <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-            <span className="text-[10px] text-gray-400 font-mono">v{VERSION}</span>
+            <span className="text-[10px] text-gray-500 font-mono">v{VERSION}</span>
           </div>
         </div>
       </div>

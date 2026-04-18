@@ -352,9 +352,9 @@ export function FrameworkComparison() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-200">
-                  <th className="px-4 py-3 text-left text-gray-400 font-medium text-xs uppercase tracking-wide">Feature</th>
+                  <th className="px-4 py-3 text-left text-gray-500 font-medium text-xs uppercase tracking-wide">Feature</th>
                   <th className="px-4 py-3 text-left text-gray-900 font-semibold text-xs uppercase tracking-wide">ConnectOnion</th>
-                  <th className="px-4 py-3 text-left text-gray-400 font-medium text-xs uppercase tracking-wide">Others</th>
+                  <th className="px-4 py-3 text-left text-gray-500 font-medium text-xs uppercase tracking-wide">Others</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -371,7 +371,7 @@ export function FrameworkComparison() {
                   <tr key={feature} className="hover:bg-gray-50 transition-colors">
                     <td className="px-4 py-3 text-gray-600">{feature}</td>
                     <td className="px-4 py-3 text-gray-900 font-medium">{co}</td>
-                    <td className="px-4 py-3 text-gray-400">{other}</td>
+                    <td className="px-4 py-3 text-gray-500">{other}</td>
                   </tr>
                 ))}
               </tbody>

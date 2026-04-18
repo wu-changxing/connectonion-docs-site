@@ -38,14 +38,14 @@ export default function Footer() {
       <div className="border-t border-gray-200 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-400">
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-500">
               <div className="flex items-center gap-2">
                 <img src="/onion-logo.png" alt="ConnectOnion" className="w-6 h-6 rounded" />
                 <span className="font-medium text-gray-600">ConnectOnion</span>
               </div>
-              <span className="hidden sm:inline text-gray-300">·</span>
+              <span className="hidden sm:inline text-gray-400">·</span>
               <span>© {currentYear}</span>
-              <span className="hidden sm:inline text-gray-300">·</span>
+              <span className="hidden sm:inline text-gray-400">·</span>
               <span>MIT License</span>
             </div>
 

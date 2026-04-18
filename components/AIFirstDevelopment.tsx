@@ -119,7 +119,7 @@ export function AIFirstDevelopment() {
 
           <div className="space-y-3">
             <div className="p-4 bg-white rounded-lg border border-gray-200">
-              <div className="text-xs text-gray-400 mb-1">You:</div>
+              <div className="text-xs text-gray-600 mb-1">You:</div>
               <p className="text-gray-800 text-sm font-mono">
                 &quot;Create an agent that monitors my inbox and replies to customer questions about pricing&quot;
               </p>
@@ -154,7 +154,7 @@ export function AIFirstDevelopment() {
             <HiOutlineRocketLaunch className="w-5 h-5" />
             Start Building AI-First
           </a>
-          <p className="mt-3 text-sm text-gray-400">No credit card required · Free tier available</p>
+          <p className="mt-3 text-sm text-gray-500">No credit card required · Free tier available</p>
         </div>
       </div>
     </section>

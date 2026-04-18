@@ -61,8 +61,8 @@ export function MobileDocsNav() {
           {/* Current page breadcrumb — spatial context for mobile developers */}
           {currentPage ? (
             <div className="flex items-center gap-1 text-xs min-w-0 overflow-hidden">
-              <span className="text-gray-400 truncate flex-shrink-0 max-w-[72px]">{currentPage.section}</span>
-              <HiOutlineChevronRight className="w-3 h-3 text-gray-300 flex-shrink-0" />
+              <span className="text-gray-500 truncate flex-shrink-0 max-w-[72px]">{currentPage.section}</span>
+              <HiOutlineChevronRight className="w-3 h-3 text-gray-400 flex-shrink-0" />
               <span className="text-gray-800 font-semibold truncate">{currentPage.title}</span>
             </div>
           ) : (

@@ -75,7 +75,7 @@ export function MacOSDownload() {
             </a>
           </div>
 
-          <div className="mt-5 text-xs text-gray-400">
+          <div className="mt-5 text-xs text-gray-500">
             v0.7.9 · Intel & Apple Silicon
           </div>
         </div>
