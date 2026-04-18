@@ -45,7 +45,7 @@ export function MobileDocsNav() {
   return (
     <>
       {/* Mobile Header Bar */}
-      <div className="lg:hidden sticky top-0 z-50 bg-white border-b border-gray-200">
+      <div className="md:hidden sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="flex items-center justify-between px-4 py-3">
           <button
             onClick={() => setIsOpen(!isOpen)}

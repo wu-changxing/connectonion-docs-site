@@ -49,7 +49,7 @@ export function MobileSectionJump() {
   }
 
   return (
-    <div className="lg:hidden sticky top-[3.25rem] z-30 bg-white border-b border-gray-100 px-4 py-2">
+    <div className="md:hidden sticky top-[3.25rem] z-30 bg-white border-b border-gray-100 px-4 py-2">
       <div className="relative flex items-center gap-2">
         <HiOutlineListBullet className="w-4 h-4 text-gray-400 flex-shrink-0" />
         <select

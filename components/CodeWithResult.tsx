@@ -226,7 +226,7 @@ export default function CodeWithResult({
               {code}
             </SyntaxHighlighter>
           </div>
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-gray-900 to-transparent pointer-events-none sm:hidden" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-gray-900 to-transparent pointer-events-none lg:hidden" />
           </div>
         </div>
 

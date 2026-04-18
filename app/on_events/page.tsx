@@ -357,8 +357,8 @@ Errors: 0
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
             <div className="flex-1">
               <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full">
-                <HiOutlineSparkles className="w-4 h-4 text-green-400" />
-                <span className="text-xs font-medium text-green-800">NEW</span>
+                <HiOutlineSparkles className="w-4 h-4 text-green-600" />
+                <span className="text-xs font-medium text-gray-700">New in v0.9</span>
               </div>
 
               <h1 className="heading-1">

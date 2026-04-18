@@ -70,7 +70,7 @@ export default function LoggingPage() {
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
-          <div className="bg-gradient-to-br from-gray-500/10 via-pink-500/10 to-gray-500/10 rounded-2xl p-8 border border-gray-200 mb-12">
+          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-12">
             <CodeBlock
               code={`# Default: logs to .co/logs/{name}.log + .co/sessions/{name}_{timestamp}.yaml
 agent = Agent("assistant")

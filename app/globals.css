@@ -140,6 +140,12 @@ pre {
   color: #111827;
   text-wrap: balance;
 }
+
+/* Section rhythm — scrollable code-heavy pages */
+section + section .heading-2:first-child,
+section > .heading-2:first-child {
+  scroll-margin-top: 6rem;
+}
 @media (min-width: 640px) {
   .heading-2 { font-size: 1.875rem; line-height: 1.3; }
 }

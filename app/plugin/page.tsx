@@ -247,45 +247,45 @@ writer = Agent("writer", tools=[generate], plugins=[logger])`}
           <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
             <Link
               href="/on_events"
-              className="group bg-gray-50 border border-gray-200 rounded-xl p-6 hover:border-gray-300/50 transition-all"
+              className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-400 hover:shadow-sm transition-all"
             >
-              <div className="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center mb-4">
-                <VscLayers className="text-white w-6 h-6" />
+              <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center mb-4 group-hover:border-gray-400 transition-colors">
+                <VscLayers className="text-gray-600 w-5 h-5" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-base font-semibold text-gray-900 mb-1">
                 Events
               </h3>
-              <p className="text-gray-900 text-sm">
+              <p className="text-gray-500 text-sm">
                 Available event hooks
               </p>
             </Link>
 
             <Link
               href="/llm_do"
-              className="group bg-gray-50 border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition-all"
+              className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-400 hover:shadow-sm transition-all"
             >
-              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                <HiOutlineCodeBracket className="text-white w-6 h-6" />
+              <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center mb-4 group-hover:border-gray-400 transition-colors">
+                <HiOutlineCodeBracket className="text-gray-600 w-5 h-5" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-base font-semibold text-gray-900 mb-1">
                 llm_do
               </h3>
-              <p className="text-gray-900 text-sm">
+              <p className="text-gray-500 text-sm">
                 Use LLM in handlers
               </p>
             </Link>
 
             <Link
               href="/examples"
-              className="group bg-gray-50 border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition-all"
+              className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-400 hover:shadow-sm transition-all"
             >
-              <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4">
-                <HiOutlineSparkles className="text-white w-6 h-6" />
+              <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center mb-4 group-hover:border-gray-400 transition-colors">
+                <HiOutlineSparkles className="text-gray-600 w-5 h-5" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-base font-semibold text-gray-900 mb-1">
                 Examples
               </h3>
-              <p className="text-green-900 text-sm">
+              <p className="text-gray-500 text-sm">
                 More examples
               </p>
             </Link>

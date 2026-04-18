@@ -35,7 +35,7 @@ export default function ClientLayout({
   return (
     <>
       {/* Slim persistent top bar — shared chrome across all doc pages */}
-      <header className="hidden lg:flex sticky top-0 z-50 h-10 items-center justify-between px-4 bg-white border-b border-gray-100">
+      <header className="hidden md:flex sticky top-0 z-50 h-10 items-center justify-between px-4 bg-white border-b border-gray-100">
         <Link href="/" className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors" aria-label="ConnectOnion — back to home">
           <img src="/onion-logo.png" alt="" className="w-5 h-5 rounded" />
           ConnectOnion
@@ -57,7 +57,7 @@ export default function ClientLayout({
 
       <div className="flex min-h-screen">
         {/* Desktop Sidebar - always visible for navigation */}
-        <div className="hidden lg:block">
+        <div className="hidden md:block">
           <DocsSidebar />
         </div>
 
