@@ -150,6 +150,25 @@ h3 .heading-anchor:focus {
   margin-top: 0.5rem;
 }
 
+/* ── Section headings in doc content — scannable landmark marks  */
+/* A hairline left bar on h2.heading-2 elements inside doc-content */
+/* gives developers an instant visual anchor to jump between       */
+/* sections. Uses ::before pseudo — no markup changes needed.      */
+.doc-content .heading-2 {
+  padding-left: 0.875rem;
+  position: relative;
+}
+.doc-content .heading-2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  bottom: 0.15em;
+  width: 3px;
+  background: #16a34a;
+  border-radius: 2px;
+}
+
 /* ── Code blocks as hero content — top breathing room ─────────  */
 /* Wrapper class applied by CodeWithResult + CommandBlock so prose */
 /* doesn't crash directly into code. Add .code-block to any new   */

@@ -51,16 +51,16 @@ export function PageHeader({
   return (
     <>
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+      <div className="flex items-center gap-2 text-sm text-gray-500 mb-8">
         {breadcrumbs.map((crumb, index) => (
           <span key={index} className="flex items-center gap-2">
-            {index > 0 && <HiOutlineArrowRight className="w-3.5 h-3.5" />}
+            {index > 0 && <HiOutlineArrowRight className="w-3.5 h-3.5 text-gray-400" />}
             {crumb.href ? (
-              <Link href={crumb.href} className="hover:text-gray-700 transition-colors">
+              <Link href={crumb.href} className="hover:text-gray-800 transition-colors">
                 {crumb.label}
               </Link>
             ) : (
-              <span className="text-gray-700">{crumb.label}</span>
+              <span className="text-gray-900 font-medium">{crumb.label}</span>
             )}
           </span>
         ))}
