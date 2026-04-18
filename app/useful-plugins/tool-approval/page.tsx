@@ -129,13 +129,13 @@ tool_executor iterates sequentially:
               />
               <ul className="mt-4 space-y-2 text-sm text-gray-600">
                 <li>• Current tool is skipped (raises ValueError)</li>
-                <li>• <code className="px-2 py-1 bg-red-50 text-red-700 rounded">stop_signal</code> flag is set in session</li>
+                <li>• <code className="px-2 py-1 bg-gray-100 text-gray-700 rounded">stop_signal</code> flag is set in session</li>
                 <li>• All remaining tools in the batch are auto-rejected</li>
                 <li>• Agent loop stops — LLM does NOT get another turn</li>
                 <li>• User must send a new message to continue</li>
               </ul>
-              <div className="mt-4 text-sm text-slate-400">
-                Default mode when <code className="px-2 py-1 bg-gray-100 text-gray-700 rounded">mode</code> is not provided: <code className="px-2 py-1 bg-red-50 text-red-700 rounded">reject_hard</code>
+              <div className="mt-4 text-sm text-gray-500">
+                Default mode when <code className="px-2 py-1 bg-gray-100 text-gray-700 rounded">mode</code> is not provided: <code className="px-2 py-1 bg-gray-100 text-gray-700 rounded">reject_hard</code>
               </div>
             </div>
           </div>
@@ -162,7 +162,7 @@ tool_executor iterates sequentially:
             </div>
 
             {/* Dangerous Tools */}
-            <div className="p-5 bg-gray-50 border border-red-200 rounded-lg">
+            <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-3 flex items-center gap-2">
                 <HiOutlineXCircle className="w-5 h-5" />
                 Dangerous Tools (Require Approval)
@@ -259,7 +259,7 @@ permissions:
           <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
             <ol className="space-y-2 text-gray-700">
               <li className="flex items-start gap-3">
-                <span className="text-green-400 font-semibold">1.</span>
+                <span className="text-gray-500 font-semibold">1.</span>
                 <div>
                   <strong>Safe tools</strong> - Always approved (SAFE_TOOLS list)
                 </div>
@@ -316,7 +316,7 @@ pwd && ls -F
               />
             </div>
 
-            <div className="p-5 bg-red-900/20 border border-red-200 rounded-lg">
+            <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-3">❌ Partial Permission</h3>
               <CodeWithResult
                 code={`# Config:
@@ -368,12 +368,12 @@ pwd && rm -rf /
             </table>
           </div>
 
-          <div className="mt-6 bg-red-900/20 border border-red-200 rounded-lg p-4">
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
             <h4 className="font-semibold text-gray-700 mb-2">Security</h4>
             <p className="text-gray-700">
               <strong>Whitelist-first:</strong> One dangerous command = whole chain rejected.
             </p>
-            <div className="mt-3 bg-red-50 border border-red-200 rounded p-3 font-mono text-sm text-red-700">
+            <div className="mt-3 bg-gray-100 border border-gray-200 rounded p-3 font-mono text-sm text-gray-700">
               # ❌ REJECTED even though pwd is safe<br/>
               pwd && rm -rf /
             </div>
@@ -450,7 +450,7 @@ pwd && rm -rf /
               <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">Skills Plugin</h3>
               <p className="text-sm text-gray-600">Pre-packaged workflows with scoped permissions</p>
             </Link>
-            <Link href="/useful-plugins/shell-approval" className="p-6 bg-gray-50 border border-gray-200 hover:border-orange-500/50 rounded-lg transition-all group">
+            <Link href="/useful-plugins/shell-approval" className="p-6 bg-gray-50 border border-gray-200 hover:border-gray-400 rounded-lg transition-all group">
               <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">shell_approval</h3>
               <p className="text-sm text-gray-600">Terminal-based approval for shell commands</p>
             </Link>

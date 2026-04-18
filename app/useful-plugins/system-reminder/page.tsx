@@ -31,7 +31,7 @@ export default function SystemReminderPluginPage() {
           <p className="text-gray-700 mb-6">
             The <code className="bg-gray-100 px-2 py-1 rounded">system_reminder</code> plugin injects contextual guidance into tool results to nudge agent behavior—without extra API calls.
           </p>
-          <div className="p-4 bg-teal-900/20 border border-teal-500/30 rounded-lg">
+          <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
               <HiOutlineLightBulb className="w-5 h-5 text-gray-400" />
               <h3 className="font-semibold">Example: After writing code</h3>

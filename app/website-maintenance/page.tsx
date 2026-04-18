@@ -20,7 +20,7 @@ export default function WebsiteMaintenancePage() {
       <div className="mb-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-br from-gray-500/20 to-cyan-500/20 rounded-xl border border-gray-200">
+            <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
               <HiOutlineCog6Tooth className="w-8 h-8 text-gray-500" />
             </div>
             <div>
@@ -38,10 +38,10 @@ export default function WebsiteMaintenancePage() {
         {/* Overview */}
         <section>
           <h2 className="heading-2">
-            <HiOutlineDocumentText className="mr-2 h-6 w-6 text-blue-500" />
+            <HiOutlineDocumentText className="mr-2 h-6 w-6 text-gray-500" />
             Three-Step Process
           </h2>
-          <div className="bg-gradient-to-r from-gray-50 to-gray-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
             <ol className="space-y-3">
               <li className="flex items-start">
                 <span className="bg-gray-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
@@ -181,7 +181,7 @@ export default function YourFeaturePage() {
         {/* Testing */}
         <section>
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="mr-2 h-6 w-6 text-green-500" />
+            <HiOutlineCodeBracket className="mr-2 h-6 w-6 text-gray-500" />
             Testing Your Changes
           </h2>
           
@@ -230,9 +230,9 @@ export default function YourFeaturePage() {
         </section>
 
         {/* Final Checklist */}
-        <section className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+        <section className="bg-gray-50 p-6 rounded-lg border border-gray-200">
           <h2 className="heading-2">
-            <HiOutlineCheckCircle className="mr-2 h-6 w-6 text-green-500" />
+            <HiOutlineCheckCircle className="mr-2 h-6 w-6 text-gray-500" />
             Final Checklist
           </h2>
           

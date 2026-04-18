@@ -286,15 +286,15 @@ turns:
             <h2 className="heading-2">Git Ignore</h2>
           </div>
 
-          <div className="bg-gray-500/10 border border-yellow-500/20 rounded-xl p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
             <div className="flex items-start gap-4">
-              <div className="p-2 bg-gray-500/20 rounded-lg shrink-0">
+              <div className="p-2 bg-gray-100 rounded-lg shrink-0">
                 <HiOutlineEye className="w-5 h-5 text-gray-400" />
               </div>
               <div className="space-y-4 w-full">
                 <div>
-                  <p className="text-yellow-800/80 text-sm mb-4">
-                    Add to your <code className="text-yellow-800">.gitignore</code>:
+                  <p className="text-gray-700 text-sm mb-4">
+                    Add to your <code className="text-gray-600">.gitignore</code>:
                   </p>
                 </div>
 
@@ -314,7 +314,7 @@ turns:
 
         {/* Parameters */}
         <section className="mb-16">
-          <div className="bg-gradient-to-br from-gray-500/10 via-pink-500/10 to-gray-500/10 rounded-2xl p-10 border border-gray-200">
+          <div className="bg-gray-50 rounded-2xl p-10 border border-gray-200">
             <h2 className="heading-2 mb-6">Parameters</h2>
 
             <div className="space-y-6">

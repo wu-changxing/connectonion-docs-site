@@ -158,7 +158,7 @@ agent.input("create a hello.py file with a hello world function")
           <ol className="list-decimal list-inside space-y-2 text-gray-700">
             <li>User is prompted: "What should the agent do instead?"</li>
             <li>User types feedback, e.g., "use snake_case for function names"</li>
-            <li>Agent receives: <code className="bg-slate-800 px-2 py-1 rounded text-gray-500">"User rejected changes to hello.py. Feedback: use snake_case for function names"</code></li>
+            <li>Agent receives: <code className="bg-gray-100 px-2 py-1 rounded text-gray-500">"User rejected changes to hello.py. Feedback: use snake_case for function names"</code></li>
             <li>Agent can retry with the feedback</li>
           </ol>
         </section>

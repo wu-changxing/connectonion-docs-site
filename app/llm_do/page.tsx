@@ -265,8 +265,8 @@ llm_do("Hello", model="claude-opus-4-5")`}
                 </table>
               </div>
 
-              <div className="bg-yellow-900/20 border border-gray-200 rounded-xl p-4 mb-6">
-                <p className="text-sm text-amber-700">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-6">
+                <p className="text-sm text-gray-700">
                   <strong>Note:</strong> Legacy Claude models (claude-sonnet-4, claude-opus-4) do NOT support structured outputs.
                   Use Claude 4.5 or 4.1 series for structured output tasks.
                 </p>

@@ -77,22 +77,22 @@ host(agent, port=8000)  # WebSocket clients receive completion events`}
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-emerald-700">thinking</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">thinking</td>
                   <td className="px-4 py-3 text-gray-600">agent.py</td>
                   <td className="px-4 py-3 text-gray-700">Before each LLM call</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-emerald-700">tool_result</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">tool_result</td>
                   <td className="px-4 py-3 text-gray-600">tool_executor.py</td>
                   <td className="px-4 py-3 text-gray-700">After each tool call</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-emerald-700">assistant</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">assistant</td>
                   <td className="px-4 py-3 text-gray-600">agent.py</td>
                   <td className="px-4 py-3 text-gray-700">When agent responds</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-emerald-700">complete</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">complete</td>
                   <td className="px-4 py-3 text-gray-600">ui_stream plugin</td>
                   <td className="px-4 py-3 text-gray-700">When turn finishes</td>
                 </tr>
@@ -116,7 +116,7 @@ host(agent, port=8000)  # WebSocket clients receive completion events`}
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-2"><code className="text-emerald-700">on_complete</code></td>
+                  <td className="py-2"><code className="text-gray-700">on_complete</code></td>
                   <td className="py-2 text-gray-600">stream_complete</td>
                   <td className="py-2 text-gray-700">Send completion summary to WebSocket</td>
                 </tr>

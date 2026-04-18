@@ -32,7 +32,7 @@ export default function GmailPluginPage() {
             The gmail_plugin provides two features for Gmail-powered agents:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-red-900/20 border border-red-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineCheckCircle className="w-5 h-5 text-green-600" />
                 <h3 className="font-semibold">Email Approval (before_each_tool)</h3>
@@ -91,7 +91,7 @@ CRM updated: john@example.com`}
           <h3 className="heading-3">For New Emails</h3>
           <div className="space-y-3 mb-6">
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
-              <HiOutlinePaperAirplane className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlinePaperAirplane className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-gray-900">Yes, send it</strong>
                 <p className="text-sm text-gray-700">Send this specific email</p>
@@ -164,12 +164,12 @@ def sync_crm_after_send(agent):
               </thead>
               <tbody>
                 <tr className="border-b border-gray-200/50">
-                  <td className="py-2"><code className="text-red-700">before_each_tool</code></td>
+                  <td className="py-2"><code className="text-gray-700">before_each_tool</code></td>
                   <td className="py-2">check_email_approval</td>
                   <td className="py-2 text-gray-700">Preview and approve emails</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><code className="text-red-700">after_each_tool</code></td>
+                  <td className="py-2"><code className="text-gray-700">after_each_tool</code></td>
                   <td className="py-2">sync_crm_after_send</td>
                   <td className="py-2 text-gray-700">Update CRM after send</td>
                 </tr>

@@ -48,7 +48,7 @@ export default function XrayPage() {
               </div>
               <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-50 border border-blue-500 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center">
                   <HiOutlineCpuChip className="text-gray-500 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-gray-700">Agent Context</span>

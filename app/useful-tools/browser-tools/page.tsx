@@ -100,14 +100,14 @@ with BrowserAutomation() as browser:
               </ul>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <h3 className="font-semibold text-cyan-700 mb-2">Screenshot</h3>
+              <h3 className="font-semibold text-gray-700 mb-2">Screenshot</h3>
               <ul className="text-sm text-gray-600 space-y-1 font-mono">
                 <li>take_screenshot(path?, full_page?)</li>
                 <li>set_viewport(width, height)</li>
               </ul>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <h3 className="font-semibold text-amber-700 mb-2">Waiting</h3>
+              <h3 className="font-semibold text-gray-700 mb-2">Waiting</h3>
               <ul className="text-sm text-gray-600 space-y-1 font-mono">
                 <li>wait(seconds)</li>
                 <li>wait_for_element(description)</li>

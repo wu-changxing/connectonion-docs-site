@@ -74,8 +74,8 @@ todo = TodoList()`}
                 <li>• You want to show <strong>progress</strong></li>
               </ul>
             </div>
-            <div className="p-4 bg-red-900/20 border border-red-200 rounded-lg">
-              <h3 className="text-red-400 font-semibold mb-2">Don't use when:</h3>
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 className="text-gray-700 font-semibold mb-2">Don't use when:</h3>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Task is <strong>trivial</strong> (1-2 simple steps)</li>
                 <li>• Task is <strong>purely conversational</strong></li>
@@ -146,12 +146,12 @@ todo.add("Update docs", "Updating docs")`}
               <tbody className="divide-y divide-gray-200 bg-white">
                 <tr>
                   <td className="px-4 py-3 text-2xl text-gray-400">○</td>
-                  <td className="px-4 py-3 font-mono text-amber-700">pending</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">pending</td>
                   <td className="px-4 py-3 text-gray-700">Not yet started</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 text-2xl text-amber-600">◐</td>
-                  <td className="px-4 py-3 font-mono text-amber-700">in_progress</td>
+                  <td className="px-4 py-3 text-2xl text-gray-600">◐</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">in_progress</td>
                   <td className="px-4 py-3 text-gray-700">Currently working on</td>
                 </tr>
                 <tr>

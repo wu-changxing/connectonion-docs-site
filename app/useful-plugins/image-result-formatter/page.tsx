@@ -34,7 +34,7 @@ export default function ImageResultFormatterPage() {
           <div className="space-y-4">
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineEye className="w-5 h-5 text-green-400" />
+                <HiOutlineEye className="w-5 h-5 text-gray-500" />
                 <h3 className="font-semibold">Detects base64 images</h3>
               </div>
               <p className="text-sm text-gray-700">Recognizes data URLs (<code>data:image/png;base64,...</code>) and plain base64 strings.</p>
@@ -84,7 +84,7 @@ The screenshot shows a simple webpage with the heading "Example Domain"...`}
           <h2 className="heading-2">Without vs With Plugin</h2>
 
           <div className="grid md:grid-cols-2 gap-4 mb-6">
-            <div className="p-4 bg-red-900/20 border border-red-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-2">Without Plugin</h3>
               <p className="text-sm text-gray-700 mb-2">The LLM receives raw base64 text:</p>
               <code className="text-xs text-gray-700 block bg-gray-100 border border-gray-200 p-2 rounded overflow-x-auto">
@@ -93,7 +93,7 @@ The screenshot shows a simple webpage with the heading "Example Domain"...`}
               <p className="text-sm text-gray-700 mt-2">LLM cannot interpret this as an image!</p>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 className="font-semibold text-green-400 mb-2">With Plugin</h3>
+              <h3 className="font-semibold text-gray-700 mb-2">With Plugin</h3>
               <p className="text-sm text-gray-700 mb-2">The LLM receives proper image format:</p>
               <code className="text-xs text-gray-700 block bg-gray-100 border border-gray-200 p-2 rounded overflow-x-auto">
                 {`{type: "image_url", url: "data:image/png;..."}`}
@@ -182,15 +182,15 @@ def _format_image_result(agent):
           <h2 className="heading-2">Use Cases</h2>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
-              <HiOutlineCamera className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCamera className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
               <span><strong>Screenshots:</strong> Browser automation tools that capture pages</span>
             </li>
             <li className="flex items-start gap-2">
-              <HiOutlineCamera className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCamera className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
               <span><strong>Image generation:</strong> Tools that create images (charts, diagrams)</span>
             </li>
             <li className="flex items-start gap-2">
-              <HiOutlineCamera className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCamera className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
               <span><strong>Visual analysis:</strong> Any tool returning visual data for LLM interpretation</span>
             </li>
           </ul>

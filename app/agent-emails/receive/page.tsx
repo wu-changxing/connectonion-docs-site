@@ -42,7 +42,7 @@ emails = get_emails()`}
             fileName="quickstart.py"
           />
 
-          <p className="text-green-600 font-semibold text-center mt-4">That's it. You have your emails.</p>
+          <p className="text-gray-700 font-semibold text-center mt-4">That's it. You have your emails.</p>
         </section>
 
         {/* Core Concept */}
@@ -59,7 +59,7 @@ mark_read(email_id)                 # Mark as read after processing`}
               fileName="core.py"
             />
             <div className="mt-6 p-4 bg-gray-500/10 border border-gray-200 rounded-lg">
-              <p className="text-yellow-700 font-medium">
+              <p className="text-gray-700 font-medium">
                 Important: Emails are NOT auto-marked as read. You control when to mark them.
               </p>
             </div>
@@ -131,7 +131,7 @@ if emails:
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineEnvelope className="w-5 h-5 text-green-600" />
+                <HiOutlineEnvelope className="w-5 h-5 text-gray-500" />
                 Reply to emails
               </h3>
               <CodeWithResult

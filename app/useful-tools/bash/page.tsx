@@ -140,7 +140,7 @@ agent.input("read main.py, fix the import error, then run it to verify")`}
         {/* Notes */}
         <section className="mb-20">
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-yellow-900 mb-3">Notes</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Notes</h3>
             <div className="space-y-2 text-gray-700 text-sm">
               <p>• Output truncated at 10,000 characters to prevent token overflow</p>
               <p>• stdout and stderr are merged in the returned string</p>

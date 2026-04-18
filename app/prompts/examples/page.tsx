@@ -121,7 +121,7 @@ export default function PromptsExamplesPage() {
         <h2 className="heading-2">🎯 Prompt Design Learning Path</h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 bg-green-600 rounded-full flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-4 bg-gray-400 rounded-full flex items-center justify-center">
               <span className="text-2xl font-bold text-gray-900">🟢</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Beginner</h3>
@@ -145,11 +145,11 @@ export default function PromptsExamplesPage() {
             <p className="text-gray-500 text-xs mt-2">Examples 4-5</p>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 bg-red-600 rounded-full flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-4 bg-gray-700 rounded-full flex items-center justify-center">
               <span className="text-2xl font-bold text-gray-900">🔴</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Expert</h3>
-            <p className="text-red-800 text-sm">Complex decision frameworks and strategic thinking</p>
+            <p className="text-gray-700 text-sm">Complex decision frameworks and strategic thinking</p>
             <p className="text-gray-500 text-xs mt-2">Examples 6-8</p>
           </div>
         </div>
@@ -244,7 +244,7 @@ export default function PromptsExamplesPage() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
+      <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-200">
         <Link 
           href="/prompts" 
           className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"

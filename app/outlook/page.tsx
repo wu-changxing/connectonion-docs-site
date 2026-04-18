@@ -28,7 +28,7 @@ export default function OutlookPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-amber-600" />
+            <HiOutlineBolt className="w-6 h-6 text-gray-500" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -69,7 +69,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
 
               <div className="space-y-6">
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-700 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
                   <p className="text-gray-700 text-sm mb-4">Read emails from inbox</p>
                   <ul className="text-sm text-gray-700 space-y-1">
                     <li><code className="bg-gray-100 px-1 rounded">last</code> - Number of emails (default: 10)</li>
@@ -78,12 +78,12 @@ agent.input("Send an email to alice@example.com saying hello")`}
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-700 font-mono mb-2">get_sent_emails(max_results=10)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono mb-2">get_sent_emails(max_results=10)</h4>
                   <p className="text-gray-700 text-sm">Get emails you sent</p>
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-700 font-mono mb-2">get_email_body(email_id)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono mb-2">get_email_body(email_id)</h4>
                   <p className="text-gray-700 text-sm">Get full email content with headers</p>
                 </div>
               </div>
@@ -92,12 +92,12 @@ agent.input("Send an email to alice@example.com saying hello")`}
             {/* Search */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <HiOutlineMagnifyingGlass className="w-5 h-5 text-green-400" />
+                <HiOutlineMagnifyingGlass className="w-5 h-5 text-gray-500" />
                 Search
               </h3>
 
               <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                <h4 className="font-semibold text-green-700 font-mono mb-2">search_emails(query, max_results=10)</h4>
+                <h4 className="font-semibold text-gray-700 font-mono mb-2">search_emails(query, max_results=10)</h4>
                 <p className="text-gray-700 text-sm mb-4">Search emails using Microsoft Graph search</p>
                 <div className="bg-gray-50 rounded-lg p-4">
                   <p className="text-sm text-gray-700 mb-2">Example queries:</p>
@@ -119,7 +119,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
 
               <div className="space-y-4">
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-emerald-700 font-mono mb-2">send(to, subject, body, cc=None, bcc=None)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono mb-2">send(to, subject, body, cc=None, bcc=None)</h4>
                   <p className="text-gray-700 text-sm mb-4">Send email via Microsoft Graph API</p>
                   <ul className="text-sm text-gray-700 space-y-1">
                     <li><code className="bg-gray-100 px-1 rounded">to</code> - Recipient email (comma-separated for multiple)</li>
@@ -131,7 +131,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-emerald-700 font-mono mb-2">reply(email_id, body)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono mb-2">reply(email_id, body)</h4>
                   <p className="text-gray-700 text-sm">Reply to an existing email</p>
                 </div>
               </div>
@@ -163,17 +163,17 @@ agent.input("Send an email to alice@example.com saying hello")`}
             {/* Stats */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <HiOutlineChartBar className="w-5 h-5 text-cyan-700" />
+                <HiOutlineChartBar className="w-5 h-5 text-gray-500" />
                 Stats
               </h3>
 
               <div className="space-y-4">
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-cyan-700 font-mono text-sm mb-1">count_unread()</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">count_unread()</h4>
                   <p className="text-gray-700 text-xs">Count unread emails in inbox</p>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-cyan-700 font-mono text-sm mb-1">get_my_email()</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">get_my_email()</h4>
                   <p className="text-gray-700 text-xs">Get connected Microsoft email address</p>
                 </div>
               </div>
@@ -212,17 +212,17 @@ agent.input("How many unread emails do I have?")`}
           <h2 className="heading-2">Troubleshooting</h2>
 
           <div className="space-y-4">
-            <div className="bg-red-900/20 border border-red-200 rounded-xl p-4">
-              <h4 className="font-semibold text-red-700 mb-2">Missing Microsoft Mail scopes</h4>
-              <p className="text-gray-700 text-sm">Run <code className="bg-gray-800 px-2 py-0.5 rounded">co auth microsoft</code></p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <h4 className="font-semibold text-gray-700 mb-2">Missing Microsoft Mail scopes</h4>
+              <p className="text-gray-700 text-sm">Run <code className="bg-gray-100 px-2 py-0.5 rounded">co auth microsoft</code></p>
             </div>
-            <div className="bg-red-900/20 border border-red-200 rounded-xl p-4">
-              <h4 className="font-semibold text-red-700 mb-2">Credentials not found</h4>
-              <p className="text-gray-700 text-sm">Run <code className="bg-gray-800 px-2 py-0.5 rounded">co auth microsoft</code></p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <h4 className="font-semibold text-gray-700 mb-2">Credentials not found</h4>
+              <p className="text-gray-700 text-sm">Run <code className="bg-gray-100 px-2 py-0.5 rounded">co auth microsoft</code></p>
             </div>
-            <div className="bg-red-900/20 border border-red-200 rounded-xl p-4">
-              <h4 className="font-semibold text-red-700 mb-2">Token expired</h4>
-              <p className="text-gray-700 text-sm">Tokens auto-refresh. If issues persist, run <code className="bg-gray-800 px-2 py-0.5 rounded">co auth microsoft</code> again.</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <h4 className="font-semibold text-gray-700 mb-2">Token expired</h4>
+              <p className="text-gray-700 text-sm">Tokens auto-refresh. If issues persist, run <code className="bg-gray-100 px-2 py-0.5 rounded">co auth microsoft</code> again.</p>
             </div>
           </div>
         </section>
@@ -231,12 +231,12 @@ agent.input("How many unread emails do I have?")`}
         <section className="mb-16">
           <h2 className="heading-2">Related</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/microsoft-integration" className="bg-gray-50 border border-gray-200 rounded-xl p-4 hover:border-blue-500/50 transition-all">
-              <h4 className="font-semibold text-blue-700 mb-1">Microsoft Integration</h4>
+            <Link href="/microsoft-integration" className="bg-gray-50 border border-gray-200 rounded-xl p-4 hover:border-gray-400 transition-all">
+              <h4 className="font-semibold text-gray-700 mb-1">Microsoft Integration</h4>
               <p className="text-gray-700 text-sm">Full OAuth setup and calendar integration</p>
             </Link>
-            <Link href="/gmail" className="bg-gray-50 border border-gray-200 rounded-xl p-4 hover:border-red-500/50 transition-all">
-              <h4 className="font-semibold text-red-700 mb-1">Gmail</h4>
+            <Link href="/gmail" className="bg-gray-50 border border-gray-200 rounded-xl p-4 hover:border-gray-400 transition-all">
+              <h4 className="font-semibold text-gray-700 mb-1">Gmail</h4>
               <p className="text-gray-700 text-sm">Gmail integration for Google users</p>
             </Link>
           </div>

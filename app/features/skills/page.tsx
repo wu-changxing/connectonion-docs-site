@@ -65,7 +65,7 @@ agent = Agent(
               <p className="text-sm text-gray-600">Preserves user approvals while granting temporary permissions</p>
             </div>
             <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
-              <HiOutlineLockClosed className="w-7 h-7 text-green-600 mb-3" />
+              <HiOutlineLockClosed className="w-7 h-7 text-gray-500 mb-3" />
               <h3 className="font-semibold text-gray-900 mb-2">Security</h3>
               <p className="text-sm text-gray-600">Permissions auto-clear after turn completes</p>
             </div>
@@ -262,7 +262,7 @@ Create a well-formatted git commit for staged changes.
           <h2 className="heading-2">Security Model - One Turn Only</h2>
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <HiOutlineLockClosed className="w-6 h-6 text-red-400" />
+              <HiOutlineLockClosed className="w-6 h-6 text-gray-500" />
               Turn-Based Expiration
             </h3>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 font-mono text-sm space-y-3">

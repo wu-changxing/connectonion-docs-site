@@ -89,7 +89,7 @@ export default function SendEmailPage() {
             <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full">30 seconds to first email</span>
           </div>
 
-          <div className="bg-gradient-to-r from-gray-500/10 to-gray-500/10 rounded-xl p-8 border border-gray-200 mb-8">
+          <div className="bg-gray-50 rounded-xl p-8 border border-gray-200 mb-8">
             <p className="text-2xl font-semibold mb-6 text-gray-900">One line. That's it.</p>
             <CodeBlock 
               code={`from connectonion import send_email
@@ -108,7 +108,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
               id="quickstart-run"
             />
             <div className="text-center">
-              <p className="text-green-600 font-semibold text-xl flex items-center justify-center gap-2">
+              <p className="text-gray-700 font-semibold text-xl flex items-center justify-center gap-2">
                 <FaStar className="text-gray-400" />
                 Email sent. Done.
               </p>
@@ -228,7 +228,7 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
         <section className="mb-16">
           <h2 className="heading-2">Your Email Address</h2>
 
-          <div className="bg-gradient-to-r from-gray-500/5 to-gray-500/5 border border-gray-200 rounded-xl p-8 mb-12">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 mb-12">
             <p className="mb-6 text-lg">Every agent automatically gets an email address:</p>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 font-mono text-gray-700 text-xl text-center mb-8">
               0x1234abcd@mail.openonion.ai
@@ -321,7 +321,7 @@ Email activated! Your agent can now send emails.</span>
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-gray-500/10 to-gray-500/10 rounded-xl p-6 border border-gray-200 mt-10">
+          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mt-10">
             <h3 className="text-lg font-semibold mb-4">Want a custom name?</h3>
             <p className="text-gray-700 mb-4">Upgrade to a custom email for $0.99:</p>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-gray-700 space-y-1">
@@ -338,7 +338,7 @@ Email activated! Your agent can now send emails.</span>
 
           <div className="space-y-8 max-w-4xl mx-auto">
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-green-600">✓ Success</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-gray-700">✓ Success</h3>
               <CodeBlock 
                 code={`{
     'success': True,
@@ -351,7 +351,7 @@ Email activated! Your agent can now send emails.</span>
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-red-400">✗ Failure</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-gray-700">✗ Failure</h3>
               <CodeBlock 
                 code={`{
     'success': False,
@@ -366,15 +366,15 @@ Email activated! Your agent can now send emails.</span>
               <h3 className="text-lg font-semibold mb-4">Common errors:</h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">•</span>
+                  <span className="text-gray-500">•</span>
                   <span><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">"Rate limit exceeded"</code> - Hit your quota</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">•</span>
+                  <span className="text-gray-500">•</span>
                   <span><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">"Invalid email address"</code> - Check the recipient</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">•</span>
+                  <span className="text-gray-500">•</span>
                   <span><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">"Authentication failed"</code> - Token issue</span>
                 </li>
               </ul>
@@ -598,7 +598,7 @@ print(f"Report sent: {result['success']}")`}
 
         {/* Philosophy */}
         <section className="mb-16">
-          <div className="bg-gradient-to-br from-gray-500/10 via-pink-500/10 to-gray-500/10 rounded-2xl p-10 border border-gray-200">
+          <div className="bg-gray-50 rounded-2xl p-10 border border-gray-200">
             <h2 className="heading-2">Philosophy</h2>
             <p className="text-2xl font-semibold text-gray-900 mb-6">
               One function, one purpose: Send an email
@@ -610,7 +610,7 @@ print(f"Report sent: {result['success']}")`}
               Just <code className="bg-gray-100 text-gray-700 px-3 py-1.5 rounded">send_email(to, subject, message)</code>.
             </p>
             <div className="text-center">
-              <p className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <p className="text-xl font-bold text-gray-900">
                 Keep simple things simple.
               </p>
             </div>

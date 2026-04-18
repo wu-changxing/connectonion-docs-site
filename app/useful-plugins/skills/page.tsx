@@ -65,7 +65,7 @@ agent = Agent(
               <p className="text-sm text-gray-600">Preserves user approvals while granting temporary permissions</p>
             </div>
             <div className="p-5 bg-white border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
-              <HiOutlineLockClosed className="w-7 h-7 text-green-400 mb-3" />
+              <HiOutlineLockClosed className="w-7 h-7 text-gray-400 mb-3" />
               <h3 className="font-semibold text-gray-900 mb-2">Security</h3>
               <p className="text-sm text-gray-600">Permissions auto-clear after turn completes</p>
             </div>
@@ -81,7 +81,7 @@ agent = Agent(
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineShieldCheck className="w-5 h-5 text-green-400" />
+                <HiOutlineShieldCheck className="w-5 h-5 text-gray-400" />
                 <span className="font-semibold text-gray-900">allowed</span>
               </div>
               <p className="text-sm text-gray-600">True - Tool is permitted</p>
@@ -227,22 +227,22 @@ Create a well-formatted git commit for staged changes.
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-gray-700 mb-2">Exact Match</h3>
               <code className="text-sm text-gray-600">Bash(git status)</code>
-              <p className="text-xs text-slate-400 mt-2">Only matches "git status"</p>
+              <p className="text-xs text-gray-500 mt-2">Only matches "git status"</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-gray-700 mb-2">Wildcard Args</h3>
               <code className="text-sm text-gray-600">Bash(git diff *)</code>
-              <p className="text-xs text-slate-400 mt-2">Any git diff command</p>
+              <p className="text-xs text-gray-500 mt-2">Any git diff command</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-gray-900 mb-2">Command Prefix</h3>
               <code className="text-sm text-gray-600">Bash(git *)</code>
-              <p className="text-xs text-slate-400 mt-2">All git commands</p>
+              <p className="text-xs text-gray-500 mt-2">All git commands</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-gray-700 mb-2">Tool Name</h3>
               <code className="text-sm text-gray-600">read_file</code>
-              <p className="text-xs text-slate-400 mt-2">Any read_file call</p>
+              <p className="text-xs text-gray-500 mt-2">Any read_file call</p>
             </div>
           </div>
           <CodeWithResult
@@ -267,31 +267,31 @@ Create a well-formatted git commit for staged changes.
             </h3>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 font-mono text-sm space-y-3">
               <div className="text-gray-700">
-                <div className="text-slate-400 text-xs mb-1">Turn 3: User approves bash:pytest for session</div>
+                <div className="text-gray-500 text-xs mb-1">Turn 3: User approves bash:pytest for session</div>
                 <div>permissions['bash:pytest'] = {'{'}source: 'user', expires: 'session_end'{'}'}</div>
               </div>
 
               <div className="text-gray-400">
-                <div className="text-slate-400 text-xs mb-1">Turn 5: /commit skill invoked</div>
+                <div className="text-gray-500 text-xs mb-1">Turn 5: /commit skill invoked</div>
                 <div>→ Snapshot taken (bash:pytest saved)</div>
                 <div>→ Grant: permissions['Bash(git *)'] = {'{'}source: 'skill', expires: 'turn_end'{'}'}</div>
               </div>
 
               <div className="text-gray-900">
-                <div className="text-slate-400 text-xs mb-1">During turn 5:</div>
+                <div className="text-gray-500 text-xs mb-1">During turn 5:</div>
                 <div>→ git status ✓ (skill permission)</div>
                 <div>→ bash:pytest ✓ (user permission)</div>
               </div>
 
               <div className="text-gray-700">
-                <div className="text-slate-400 text-xs mb-1">Turn 5 ends (@on_complete):</div>
+                <div className="text-gray-500 text-xs mb-1">Turn 5 ends (@on_complete):</div>
                 <div>→ Restore snapshot</div>
                 <div>→ git permissions cleared ✓</div>
                 <div>→ bash:pytest preserved ✓</div>
               </div>
 
               <div className="text-gray-700">
-                <div className="text-slate-400 text-xs mb-1">Turn 6: Normal operation</div>
+                <div className="text-gray-500 text-xs mb-1">Turn 6: Normal operation</div>
                 <div>→ git commands require approval ✗</div>
                 <div>→ bash:pytest still works ✓</div>
               </div>
@@ -356,7 +356,7 @@ EOF`}
           <div className="grid md:grid-cols-2 gap-4">
             <Link href="/concepts/permissions" className="p-6 bg-white border border-gray-200 hover:border-gray-400 rounded-lg transition-all group">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineShieldCheck className="w-6 h-6 text-green-400 group-hover:text-gray-900 transition-colors" />
+                <HiOutlineShieldCheck className="w-6 h-6 text-gray-400 group-hover:text-gray-900 transition-colors" />
                 <h3 className="font-semibold text-gray-900 group-hover:text-gray-900 transition-colors">Permissions</h3>
               </div>
               <p className="text-sm text-gray-600">Complete permission system overview</p>

@@ -34,7 +34,7 @@ export default function CalendarPluginPage() {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlinePlus className="w-5 h-5 text-green-400" />
+                <HiOutlinePlus className="w-5 h-5 text-gray-500" />
                 <h3 className="font-semibold">Create Events</h3>
               </div>
               <p className="text-sm text-gray-700">Shows title, time, attendees (who will receive invites!)</p>
@@ -46,7 +46,7 @@ export default function CalendarPluginPage() {
               </div>
               <p className="text-sm text-gray-700">Shows what's changing (time, attendees, etc.)</p>
             </div>
-            <div className="p-4 bg-red-900/20 border border-red-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineTrash className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">Delete Events</h3>
@@ -142,7 +142,7 @@ Proceed with create event?
           <h2 className="heading-2">Approval Options</h2>
           <div className="space-y-3">
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
-              <HiOutlineCheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineCheckCircle className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-gray-900">Yes, {'{action}'}</strong>
                 <p className="text-sm text-gray-700">Proceed with this specific action</p>
@@ -222,7 +222,7 @@ def check_calendar_approval(agent):
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-2"><code className="text-cyan-700">before_each_tool</code></td>
+                  <td className="py-2"><code className="text-gray-700">before_each_tool</code></td>
                   <td className="py-2">check_calendar_approval</td>
                   <td className="py-2 text-gray-700">Preview and approve calendar changes</td>
                 </tr>

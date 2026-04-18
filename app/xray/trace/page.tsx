@@ -555,7 +555,7 @@ Works seamlessly with:
             { icon: HiOutlineCommandLine, title: 'Visual Flow', desc: 'See all tool calls in sequence', color: 'text-gray-500' },
             { icon: HiOutlineClock, title: 'Performance', desc: 'Execution timing for each step', color: 'text-gray-500' },
             { icon: HiOutlineEye, title: 'Smart Display', desc: 'Intelligent data truncation', color: 'text-gray-500' },
-            { icon: HiOutlineBolt, title: 'Error Tracking', desc: 'Clear error display and details', color: 'text-red-400' }
+            { icon: HiOutlineBolt, title: 'Error Tracking', desc: 'Clear error display and details', color: 'text-gray-500' }
           ].map((feature, i) => {
             const IconComponent = feature.icon
             return (

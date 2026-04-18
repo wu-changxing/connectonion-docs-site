@@ -82,27 +82,27 @@ key = read_key()`}
               <tbody>
                 <tr className="border-b border-gray-200">
                   <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Arrow Up</kbd></td>
-                  <td className="py-2"><code className="text-red-600">'up'</code></td>
+                  <td className="py-2"><code className="text-gray-700">'up'</code></td>
                 </tr>
                 <tr className="border-b border-gray-200">
                   <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Arrow Down</kbd></td>
-                  <td className="py-2"><code className="text-red-600">'down'</code></td>
+                  <td className="py-2"><code className="text-gray-700">'down'</code></td>
                 </tr>
                 <tr className="border-b border-gray-200">
                   <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Arrow Left</kbd></td>
-                  <td className="py-2"><code className="text-red-600">'left'</code></td>
+                  <td className="py-2"><code className="text-gray-700">'left'</code></td>
                 </tr>
                 <tr className="border-b border-gray-200">
                   <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Arrow Right</kbd></td>
-                  <td className="py-2"><code className="text-red-600">'right'</code></td>
+                  <td className="py-2"><code className="text-gray-700">'right'</code></td>
                 </tr>
                 <tr className="border-b border-gray-200">
                   <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Escape</kbd></td>
-                  <td className="py-2"><code className="text-red-600">'esc'</code></td>
+                  <td className="py-2"><code className="text-gray-700">'esc'</code></td>
                 </tr>
                 <tr className="border-b border-gray-200">
                   <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Enter</kbd></td>
-                  <td className="py-2"><code className="text-red-600">'\\n'</code> or <code className="text-red-600">'\\r'</code></td>
+                  <td className="py-2"><code className="text-gray-700">'\\n'</code> or <code className="text-gray-700">'\\r'</code></td>
                 </tr>
                 <tr>
                   <td className="py-2">Regular char</td>

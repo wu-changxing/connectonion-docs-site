@@ -96,7 +96,7 @@ agent = need("service", trust="strict")`}
 
               {/* 2. Trust Policy */}
               <div className="mb-8">
-                <div className="bg-gray-50 border border-blue-200 rounded-lg p-6 mb-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                     <HiOutlineDocumentText className="w-5 h-5 text-gray-400" />
                     <span className="text-gray-400">2.</span> Trust Policy (Natural Language)
@@ -174,7 +174,7 @@ payment = need("payment processor", trust=trust_agent)`}
             {/* Bidirectional Trust */}
             <section>
               <h2 className="heading-2">
-                <HiOutlineUsers className="w-7 h-7 text-green-600" />
+                <HiOutlineUsers className="w-7 h-7 text-gray-500" />
                 Bidirectional Trust
               </h2>
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">

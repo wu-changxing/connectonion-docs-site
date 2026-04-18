@@ -124,7 +124,7 @@ export default function LinksPage() {
     {
       title: (
         <span className="flex items-center gap-2">
-          <FaComments className="inline-flex w-5 h-5 text-green-400" />
+          <FaComments className="inline-flex w-5 h-5 text-gray-500" />
           Community
         </span>
       ),
@@ -267,7 +267,7 @@ export default function LinksPage() {
     {
       title: (
         <span className="flex items-center gap-2">
-          <FaHandshake className="inline-flex w-5 h-5 text-green-400" />
+          <FaHandshake className="inline-flex w-5 h-5 text-gray-500" />
           Support
         </span>
       ),
@@ -393,7 +393,7 @@ export default function LinksPage() {
         <div className="mb-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-gray-700/20 to-pink-600/20 rounded-xl border border-gray-200">
+              <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
                 <LinkIcon className="w-8 h-8 text-gray-500" />
               </div>
               <div>

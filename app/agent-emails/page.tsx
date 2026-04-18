@@ -19,7 +19,7 @@ export default function AgentEmailsPage() {
           iconColor="icon-ui"
           title="Agent Emails"
           description="Send and receive emails with simple functions. No config, no complexity."
-          badge={<span className="text-xs bg-gray-500/20 text-green-600 px-2 py-1 rounded-full border border-gray-200">New</span>}
+          badge={<span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full border border-gray-200">New</span>}
           markdownPath="/agent-emails.md"
           markdownFilename="agent-emails.md"
         />
@@ -53,7 +53,7 @@ for email in emails:
           <div className="grid md:grid-cols-2 gap-6">
             <Link
               href="/agent-emails/send"
-              className="bg-gradient-to-br from-gray-500/10 to-gray-500/10 rounded-xl p-6 border border-gray-200 hover:border-gray-300/50 hover:bg-gray-500/20 transition-all group"
+              className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-gray-400 hover:bg-gray-100 transition-all group"
             >
               <div className="flex items-center gap-3 mb-4">
                 <HiOutlinePaperAirplane className="w-6 h-6 text-gray-500" />
@@ -66,7 +66,7 @@ for email in emails:
 
             <Link
               href="/agent-emails/receive"
-              className="bg-gradient-to-br from-gray-500/10 to-cyan-500/10 rounded-xl p-6 border border-blue-500/20 hover:border-gray-400 hover:bg-gray-500/20 transition-all group"
+              className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-gray-400 hover:bg-gray-100 transition-all group"
             >
               <div className="flex items-center gap-3 mb-4">
                 <HiOutlineInbox className="w-6 h-6 text-gray-400" />

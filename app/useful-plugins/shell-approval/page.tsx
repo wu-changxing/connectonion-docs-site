@@ -34,12 +34,12 @@ export default function ShellApprovalPage() {
           <div className="space-y-4">
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
+                <HiOutlineCheckCircle className="w-5 h-5 text-gray-500" />
                 <h3 className="font-semibold">Auto-approves safe commands</h3>
               </div>
               <p className="text-sm text-gray-700">Read-only commands like <code>ls</code>, <code>cat</code>, <code>git status</code> execute without prompts.</p>
             </div>
-            <div className="p-4 bg-orange-900/20 border border-orange-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineXCircle className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">Asks approval for other commands</h3>
@@ -89,7 +89,7 @@ Execute this command?
           </p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gray-100 rounded-lg p-4">
-              <h3 className="font-semibold text-green-400 mb-2">File Operations</h3>
+              <h3 className="font-semibold text-gray-500 mb-2">File Operations</h3>
               <ul className="text-sm text-gray-700 space-y-1">
                 <li><code>ls</code>, <code>ll</code></li>
                 <li><code>cat</code>, <code>head</code>, <code>tail</code></li>
@@ -100,7 +100,7 @@ Execute this command?
               </ul>
             </div>
             <div className="bg-gray-100 rounded-lg p-4">
-              <h3 className="font-semibold text-green-400 mb-2">Git (Read-Only)</h3>
+              <h3 className="font-semibold text-gray-500 mb-2">Git (Read-Only)</h3>
               <ul className="text-sm text-gray-700 space-y-1">
                 <li><code>git status</code></li>
                 <li><code>git log</code></li>
@@ -111,7 +111,7 @@ Execute this command?
               </ul>
             </div>
             <div className="bg-gray-100 rounded-lg p-4">
-              <h3 className="font-semibold text-green-400 mb-2">System Info</h3>
+              <h3 className="font-semibold text-gray-500 mb-2">System Info</h3>
               <ul className="text-sm text-gray-700 space-y-1">
                 <li><code>pwd</code>, <code>whoami</code></li>
                 <li><code>env</code>, <code>printenv</code></li>
@@ -132,21 +132,21 @@ Execute this command?
           </p>
           <div className="space-y-3">
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
-              <span className="text-green-400 font-mono">1.</span>
+              <span className="text-gray-500 font-mono">1.</span>
               <div>
                 <strong className="text-gray-900">Yes, execute</strong>
                 <p className="text-sm text-gray-700">Execute this specific command</p>
               </div>
             </div>
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
-              <span className="text-green-400 font-mono">2.</span>
+              <span className="text-gray-500 font-mono">2.</span>
               <div>
                 <strong className="text-gray-900">Auto approve '{'{cmd}'}'</strong>
                 <p className="text-sm text-gray-700">Auto-approve all commands starting with this (e.g., all <code>rm</code> commands for this session)</p>
               </div>
             </div>
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
-              <span className="text-green-400 font-mono">3.</span>
+              <span className="text-gray-500 font-mono">3.</span>
               <div>
                 <strong className="text-gray-900">No, tell agent what I want</strong>
                 <p className="text-sm text-gray-700">Reject and provide feedback to the agent</p>

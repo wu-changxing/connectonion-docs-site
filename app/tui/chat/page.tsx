@@ -121,9 +121,9 @@ pip install textual textual-autocomplete`}
             Shows real-time progress during LLM calls and tool execution:
           </p>
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm mb-4">
-            <div className="text-emerald-600 mb-2">During LLM thinking:</div>
+            <div className="text-gray-600 mb-2">During LLM thinking:</div>
             <pre className="text-gray-700">⠹ Thinking... 5s (usually 3-10s)</pre>
-            <div className="text-emerald-600 mt-4 mb-2">During tool execution:</div>
+            <div className="text-gray-600 mt-4 mb-2">During tool execution:</div>
             <pre className="text-gray-700">{`⠹ Search emails in inbox
   └─ search_emails("aaron")`}</pre>
           </div>

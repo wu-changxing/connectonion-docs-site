@@ -95,7 +95,7 @@ print(text)`}
         <div className="space-y-8">
           {/* Meeting Minutes */}
           <div>
-            <h3 className="text-lg font-semibold text-green-600 mb-4">Meeting Minutes</h3>
+            <h3 className="text-lg font-semibold text-gray-700 mb-4">Meeting Minutes</h3>
             <CodeWithResult
               code={`def get_meeting_minutes(audio_path: str) -> str:
     """Transcribe and summarize a meeting."""
@@ -124,7 +124,7 @@ print(text)`}
 
           {/* Voice Notes Processing */}
           <div>
-            <h3 className="text-lg font-semibold text-green-600 mb-4">Voice Notes Processing</h3>
+            <h3 className="text-lg font-semibold text-gray-700 mb-4">Voice Notes Processing</h3>
             <CodeWithResult
               code={`from pathlib import Path
 
@@ -147,7 +147,7 @@ Remember to add the new transcribe feature to the docs...`}
 
           {/* Use as Agent Tool */}
           <div>
-            <h3 className="text-lg font-semibold text-green-600 mb-4">Use as Agent Tool</h3>
+            <h3 className="text-lg font-semibold text-gray-700 mb-4">Use as Agent Tool</h3>
             <CodeWithResult
               code={`from connectonion import Agent, transcribe
 
@@ -217,7 +217,7 @@ The team discussed the Q4 roadmap and agreed to...`}
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <div className="flex flex-wrap gap-3 mb-4">
             {['WAV', 'MP3', 'AIFF', 'AAC', 'OGG', 'FLAC', 'M4A', 'WebM'].map((format) => (
-              <span key={format} className="px-3 py-1 bg-gray-100 border border-gray-300 rounded-full text-green-700 text-sm font-mono">
+              <span key={format} className="px-3 py-1 bg-gray-100 border border-gray-300 rounded-full text-gray-700 text-sm font-mono">
                 {format}
               </span>
             ))}

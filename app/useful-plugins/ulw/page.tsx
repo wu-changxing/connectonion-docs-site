@@ -23,8 +23,8 @@ export default function UlwPage() {
           markdownFilename="ulw.md"
         />
 
-        <div className="bg-orange-950/50 border border-orange-400/40 rounded-lg p-6 mb-16">
-          <p className="text-lg font-semibold text-orange-900">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-16">
+          <p className="text-lg font-semibold text-gray-900">
             Tell the agent to "just do it" — no approval prompts, no interruptions. Agent works until done or until the turn limit.
           </p>
         </div>
@@ -70,7 +70,7 @@ agent.input("Refactor all Python files to use type annotations")`}
         {/* Checkpoint flow */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineShieldCheck className="w-8 h-8 text-green-400" />
+            <HiOutlineShieldCheck className="w-8 h-8 text-gray-400" />
             Turn Checkpoints
           </h2>
           <p className="text-gray-700 mb-6">When the agent reaches <code className="bg-gray-100 px-2 py-1 rounded">ulw_turns</code>, it pauses and the frontend receives:</p>
@@ -81,11 +81,11 @@ agent.input("Refactor all Python files to use type annotations")`}
           <p className="text-gray-700 mt-6 mb-4">The user can respond with:</p>
           <div className="space-y-3">
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <code className="text-orange-700">{"{ \"action\": \"continue\", \"turns\": 10 }"}</code>
+              <code className="text-gray-700">{"{ \"action\": \"continue\", \"turns\": 10 }"}</code>
               <p className="text-gray-600 text-sm mt-1">Extend by N more turns and keep going</p>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <code className="text-orange-700">{"{ \"action\": \"switch_mode\", \"mode\": \"safe\" }"}</code>
+              <code className="text-gray-700">{"{ \"action\": \"switch_mode\", \"mode\": \"safe\" }"}</code>
               <p className="text-gray-600 text-sm mt-1">Return to safe mode (approval prompts back on)</p>
             </div>
           </div>
@@ -116,17 +116,17 @@ agent.input("Refactor all Python files to use type annotations")`}
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="py-2"><code className="text-orange-700">on_complete</code></td>
+                  <td className="py-2"><code className="text-gray-700">on_complete</code></td>
                   <td className="py-2 text-gray-600">ulw_keep_working</td>
                   <td className="py-2 text-gray-700">Start next turn if turns remain</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><code className="text-orange-700">before_iteration</code></td>
+                  <td className="py-2"><code className="text-gray-700">before_iteration</code></td>
                   <td className="py-2 text-gray-600">poll_prompt_update</td>
                   <td className="py-2 text-gray-700">Check for goal updates from frontend</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><code className="text-orange-700">before_llm</code></td>
+                  <td className="py-2"><code className="text-gray-700">before_llm</code></td>
                   <td className="py-2 text-gray-600">inject_ulw_prompt</td>
                   <td className="py-2 text-gray-700">Inject current goal into system prompt</td>
                 </tr>

@@ -33,7 +33,7 @@ export default function PreferWriteToolPage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-5 bg-red-900/20 border border-red-200 rounded-lg">
+            <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-3 flex items-center gap-2">
                 <HiOutlineXCircle className="w-5 h-5" />
                 File Creation
@@ -75,11 +75,11 @@ head -n 10 README.md`}
             This plugin uses two strategies:
           </p>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
-            <div className="p-4 bg-red-900/20 border border-red-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-2">File Creation</h3>
-              <p className="text-sm text-gray-600"><strong className="text-red-700">Hard block</strong> — raises ValueError, agent must use Write or Edit tool</p>
+              <p className="text-sm text-gray-600"><strong className="text-gray-700">Hard block</strong> — raises ValueError, agent must use Write or Edit tool</p>
             </div>
-            <div className="p-4 bg-yellow-900/20 border border-gray-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-2">File Reading</h3>
               <p className="text-sm text-gray-600"><strong className="text-gray-700">Soft reminder</strong> — command runs, system reminder appended suggesting read_file</p>
             </div>
@@ -230,12 +230,12 @@ Why: read_file provides line numbers, proper formatting, and better control.
           <div className="space-y-3">
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <p className="text-gray-700">
-                <code className="px-2 py-1 bg-orange-50 rounded text-orange-700">block_bash_file_creation</code> (<code className="text-gray-600">before_each_tool</code>) — detects file creation patterns and raises ValueError. For file reading, sets a session flag.
+                <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">block_bash_file_creation</code> (<code className="text-gray-600">before_each_tool</code>) — detects file creation patterns and raises ValueError. For file reading, sets a session flag.
               </p>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <p className="text-gray-700">
-                <code className="px-2 py-1 bg-orange-50 rounded text-orange-700">remind_read_file</code> (<code className="text-gray-600">after_each_tool</code>) — if the flag is set, appends a system reminder to the tool result message.
+                <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">remind_read_file</code> (<code className="text-gray-600">after_each_tool</code>) — if the flag is set, appends a system reminder to the tool result message.
               </p>
             </div>
           </div>
@@ -257,10 +257,10 @@ agent = Agent(
 )`}
             language="python"
           />
-          <div className="mt-4 bg-yellow-900/20 border border-gray-200 rounded-lg p-4">
+          <div className="mt-4 bg-gray-50 border border-gray-200 rounded-lg p-4">
             <h3 className="font-semibold text-gray-700 mb-2">Order Matters</h3>
             <p className="text-gray-700">
-              <code className="px-2 py-1 bg-orange-50 rounded text-orange-700">prefer_write_tool</code> should come first to block file creation before <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">tool_approval</code> prompts for approval.
+              <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">prefer_write_tool</code> should come first to block file creation before <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">tool_approval</code> prompts for approval.
             </p>
           </div>
         </section>

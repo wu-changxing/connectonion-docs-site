@@ -23,8 +23,8 @@ export default function SubagentsPage() {
           markdownFilename="subagents.md"
         />
 
-        <div className="bg-violet-950/50 border border-violet-400/40 rounded-lg p-6 mb-16">
-          <p className="text-lg font-semibold text-violet-100">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-16">
+          <p className="text-lg font-semibold text-gray-900">
             Parent agent calls <code className="bg-gray-100 px-2 py-1 rounded">task(prompt, agent_type)</code> → sub-agent runs and returns result. Built-in agents included.
           </p>
         </div>
@@ -91,27 +91,27 @@ Return a structured report with findings and line numbers.`}
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-violet-700">name</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">name</td>
                   <td className="px-4 py-3 text-gray-600">yes</td>
                   <td className="px-4 py-3 text-gray-700">Agent identifier (used in task() calls)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-violet-700">description</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">description</td>
                   <td className="px-4 py-3 text-gray-600">yes</td>
                   <td className="px-4 py-3 text-gray-700">Shown to parent agent when choosing sub-agent</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-violet-700">model</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">model</td>
                   <td className="px-4 py-3 text-gray-600">no</td>
                   <td className="px-4 py-3 text-gray-700">Default: co/gemini-2.5-pro</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-violet-700">max_iterations</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">max_iterations</td>
                   <td className="px-4 py-3 text-gray-600">no</td>
                   <td className="px-4 py-3 text-gray-700">Default: 10</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-violet-700">tools</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">tools</td>
                   <td className="px-4 py-3 text-gray-600">no</td>
                   <td className="px-4 py-3 text-gray-700">List of tool names to give the sub-agent</td>
                 </tr>
@@ -155,7 +155,7 @@ builtin/{name}/AGENT.md         # Built-in agents (lowest priority)`}
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-2"><code className="text-violet-300">on_agent_ready</code></td>
+                  <td className="py-2"><code className="text-gray-700">on_agent_ready</code></td>
                   <td className="py-2 text-gray-600">initialize_subagents</td>
                   <td className="py-2 text-gray-700">Discover agents, register task() tool</td>
                 </tr>

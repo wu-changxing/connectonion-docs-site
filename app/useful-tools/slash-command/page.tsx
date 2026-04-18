@@ -48,7 +48,7 @@ commands = SlashCommand.list_all()`}
         {/* Command File Format */}
         <section className="mb-12">
           <h2 className="heading-2">Command File Format</h2>
-          <p className="text-gray-700 mb-4">Create <code className="bg-slate-800 px-2 py-1 rounded text-gray-500">.co/commands/today.md</code>:</p>
+          <p className="text-gray-700 mb-4">Create <code className="bg-gray-100 px-2 py-1 rounded text-gray-500">.co/commands/today.md</code>:</p>
           <CodeWithResult
             code={`---
 name: today
@@ -117,8 +117,8 @@ Focus on:
           <h2 className="heading-2">Locations</h2>
           <p className="text-gray-700 mb-4">Commands are loaded from:</p>
           <ol className="list-decimal list-inside space-y-2 text-gray-700">
-            <li><code className="bg-slate-800 px-2 py-1 rounded text-gray-500">.co/commands/*.md</code> (user commands - priority)</li>
-            <li><code className="bg-slate-800 px-2 py-1 rounded text-gray-500">commands/*.md</code> (built-in commands)</li>
+            <li><code className="bg-gray-100 px-2 py-1 rounded text-gray-500">.co/commands/*.md</code> (user commands - priority)</li>
+            <li><code className="bg-gray-100 px-2 py-1 rounded text-gray-500">commands/*.md</code> (built-in commands)</li>
           </ol>
         </section>
 
