@@ -9,7 +9,7 @@ import { PageHeader } from '../../../components/PageHeader'
 
 export default function DropdownPage() {
   return (
-    <div className="px-4 md:px-8 py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24 doc-content--reference">
       <div className="max-w-4xl mx-auto">
         <PageHeader
           breadcrumbs={[

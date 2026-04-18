@@ -157,7 +157,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 **Important:** For Gemini models, use \`GEMINI_API_KEY\` as recommended by [Google's official documentation](https://ai.google.dev/gemini-api/docs/api-key). While \`GOOGLE_API_KEY\` is supported for backward compatibility, \`GEMINI_API_KEY\` is the standard used by Google's Python SDK and most tools in the ecosystem.`
 
   return (
-    <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24">
+    <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24 doc-content--reference">
       <PageHeader
         breadcrumbs={[
           { label: 'Docs', href: '/' },

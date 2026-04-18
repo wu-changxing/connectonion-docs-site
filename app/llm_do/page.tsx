@@ -51,7 +51,7 @@ export default function LLMPage() {
 
 
   return (
-    <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
+    <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12 doc-content--reference">
       <PageHeader
         breadcrumbs={[
           { label: 'Docs', href: '/' },
