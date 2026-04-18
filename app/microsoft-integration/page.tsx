@@ -170,7 +170,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
             </table>
           </div>
 
-          <div className="bg-gray-900/5 border border-gray-200 rounded-xl p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-gray-500">
               <HiOutlineShieldCheck className="w-5 h-5" />
               Privacy First

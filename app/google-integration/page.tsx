@@ -160,7 +160,7 @@ GOOGLE_EMAIL=your.email@gmail.com`}
             </table>
           </div>
 
-          <div className="bg-gray-900/5 border border-gray-200 rounded-xl p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-gray-500">
               <HiOutlineShieldCheck className="w-5 h-5" />
               Privacy First
@@ -388,7 +388,7 @@ for tomorrow at 2pm. Subject: Q4 Planning Discussion
 
           <div className="space-y-8">
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-red-400">"Not authenticated with OpenOnion"</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">"Not authenticated with OpenOnion"</h3>
               <p className="text-gray-700 mb-4">You need to run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
               <CommandBlock commands={['co auth', 'co auth google']} />
             </div>

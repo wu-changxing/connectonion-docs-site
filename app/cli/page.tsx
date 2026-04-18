@@ -209,7 +209,7 @@ export default function CLIPage() {
         <div className="mb-8">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Options</h3>
           
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-100 border-b border-gray-200">
@@ -258,7 +258,7 @@ export default function CLIPage() {
         <div className="mb-8">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Interactive Flow Example</h3>
           
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-x-auto">
             <div className="flex items-center justify-between bg-gray-100 px-4 py-3 border-b border-gray-200">
               <span className="text-sm text-gray-700 font-mono">Terminal Output</span>
             </div>
@@ -837,7 +837,7 @@ Generating custom template with AI...
           The CLI automatically detects your API provider from the key format:
         </p>
 
-        <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+        <div className="bg-white border border-gray-200 rounded-lg overflow-x-auto">
           <table className="w-full">
             <thead>
               <tr className="bg-gray-100 border-b border-gray-200">

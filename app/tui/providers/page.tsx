@@ -141,16 +141,16 @@ class MyProvider:
         <section className="mb-12">
           <h2 className="heading-2">Built-in Providers</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg hover:border-gray-300/50 transition-all">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineDocumentText className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">FileProvider</h3>
               </div>
               <p className="text-sm text-gray-700">Browse filesystem with type-specific icons</p>
             </div>
-            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg hover:border-gray-300/50 transition-all">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineListBullet className="w-5 h-5 text-green-400" />
+                <HiOutlineListBullet className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">StaticProvider</h3>
               </div>
               <p className="text-sm text-gray-700">Static list of options with optional metadata</p>

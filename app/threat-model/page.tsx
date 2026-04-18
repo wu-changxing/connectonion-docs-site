@@ -491,7 +491,7 @@ export default function ThreatModelPage() {
               IMPERSONATION
             </div>
             <div className="space-y-3">
-              <div className="bg-gray-900/5 rounded p-2 border border-gray-200">
+              <div className="bg-gray-50 rounded p-2 border border-gray-200">
                 <div className="flex items-center gap-2">
                   <HiOutlineIdentification className="w-4 h-4 text-green-400" />
                   <span className="text-xs text-green-400 font-semibold">OpenAI Assistant</span>

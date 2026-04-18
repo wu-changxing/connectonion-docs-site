@@ -372,8 +372,8 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
               <span><strong>execute_javascript()</strong> - Run JS</span>
             </div>
           </div>
-          <p className="text-amber-700 mt-4 text-sm">
-            <strong>Note:</strong> Requires <code className="bg-amber-100 px-2 py-1 rounded font-mono">pip install playwright && playwright install</code>
+          <p className="text-gray-700 mt-4 text-sm">
+            <strong>Note:</strong> Requires <code className="bg-gray-100 px-2 py-1 rounded font-mono">pip install playwright && playwright install</code>
           </p>
         </div>
       </section>
