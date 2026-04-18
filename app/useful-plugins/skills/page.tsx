@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { HiOutlineCommandLine, HiOutlineShieldCheck, HiOutlineCodeBracket, HiOutlineCube, HiOutlineDocumentText, HiOutlineLockClosed } from 'react-icons/hi2'
+import { HiOutlineCommandLine, HiOutlineShieldCheck, HiOutlineCodeBracket, HiOutlineCube, HiOutlineDocumentText, HiOutlineLockClosed, HiOutlineCheckCircle } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -178,10 +178,10 @@ session['permissions']['Bash(git status)'] = {
               Result: User Approvals Never Lost
             </h3>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>✅ User's session approvals preserved across skill invocations</li>
-              <li>✅ Skill permissions cleanly added and removed</li>
-              <li>✅ No permission contamination between turns</li>
-              <li>✅ Predictable, testable permission lifecycle</li>
+              <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />User's session approvals preserved across skill invocations</li>
+              <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />Skill permissions cleanly added and removed</li>
+              <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />No permission contamination between turns</li>
+              <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />Predictable, testable permission lifecycle</li>
             </ul>
           </div>
         </section>

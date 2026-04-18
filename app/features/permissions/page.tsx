@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { HiOutlineShieldCheck, HiOutlineLockClosed, HiOutlineKey, HiOutlineCube, HiOutlineDocumentText } from 'react-icons/hi2'
+import { HiOutlineShieldCheck, HiOutlineLockClosed, HiOutlineKey, HiOutlineCube, HiOutlineDocumentText, HiOutlineCheckCircle, HiOutlineXCircle } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -248,17 +248,17 @@ session['permissions']['bash'] = {
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-2">Why Tool-Level?</h3>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>✅ Convenience for development workflows</li>
-                <li>✅ Don't re-approve every npm/pytest/git command</li>
-                <li>✅ Clear intent: "I trust bash for this session"</li>
+                <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />Convenience for development workflows</li>
+                <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />Don't re-approve every npm/pytest/git command</li>
+                <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />Clear intent: "I trust bash for this session"</li>
               </ul>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-2">Security</h3>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>✅ Config uses granular 'when' field</li>
-                <li>✅ Skills use granular 'when' field</li>
-                <li>✅ User approvals are simpler</li>
+                <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />Config uses granular 'when' field</li>
+                <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />Skills use granular 'when' field</li>
+                <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />User approvals are simpler</li>
               </ul>
             </div>
           </div>
@@ -301,8 +301,8 @@ session['permissions']['bash'] = {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Turn 6: Continue</h3>
                     <div className="text-sm text-gray-600 space-y-1">
-                      <div>✅ <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">write</code> still works (user approval preserved)</div>
-                      <div>❌ <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">bash</code> requires approval (skill cleared)</div>
+                      <div className="flex items-center gap-1"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" /><code className="px-2 py-1 bg-gray-100 rounded text-gray-700">write</code> still works (user approval preserved)</div>
+                      <div className="flex items-center gap-1"><HiOutlineXCircle className="w-4 h-4 text-red-500 flex-shrink-0" /><code className="px-2 py-1 bg-gray-100 rounded text-gray-700">bash</code> requires approval (skill cleared)</div>
                     </div>
                   </div>
                 </div>
@@ -353,10 +353,10 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
               Security Benefits
             </h3>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>✅ User approvals never overwritten by skills</li>
-              <li>✅ Skills add temporary permissions, don't replace</li>
-              <li>✅ Clean lifecycle - snapshot/restore is predictable</li>
-              <li>✅ No permission escalation across turns</li>
+              <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />User approvals never overwritten by skills</li>
+              <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />Skills add temporary permissions, don't replace</li>
+              <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />Clean lifecycle - snapshot/restore is predictable</li>
+              <li className="flex items-start gap-2"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />No permission escalation across turns</li>
             </ul>
           </div>
         </section>
