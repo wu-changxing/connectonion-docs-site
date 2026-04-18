@@ -46,10 +46,13 @@ export default function DeployPage() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <div className="bg-white border-2 border-gray-900 rounded-lg p-6 relative">
+              <div className="absolute -top-2.5 left-4 px-2 py-0.5 bg-gray-900 text-white text-[10px] font-bold uppercase tracking-widest rounded">
+                Recommended
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <HiOutlineCloud className="w-6 h-6" />
-                co deploy (Easiest)
+                co deploy
               </h3>
               <p className="text-gray-700 mb-4">
                 Quick deployment to ConnectOnion Cloud. Managed hosting, no infrastructure to manage.

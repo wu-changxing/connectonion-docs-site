@@ -145,9 +145,16 @@ h3 .heading-anchor:focus {
 /* Creates editorial chapter breaks on code-heavy doc pages without */
 /* touching individual page files.                                  */
 .doc-content section + section {
-  border-top: 1px solid #f3f4f6;
-  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;  /* gray-200 — visible separator */
+  padding-top: 2.5rem;
   margin-top: 0.5rem;
+}
+/* More breathing room on mobile where dark blocks dominate */
+@media (max-width: 768px) {
+  .doc-content section + section {
+    padding-top: 2rem;
+    margin-top: 1rem;
+  }
 }
 
 /* ── Section headings in doc content — scannable landmark marks  */
@@ -158,15 +165,36 @@ h3 .heading-anchor:focus {
   padding-left: 0.875rem;
   position: relative;
 }
+/* Thinner, subtler bar — prevents picket-fence effect on */
+/* pages with 8+ headings while still providing the anchor */
 .doc-content .heading-2::before {
   content: '';
   position: absolute;
   left: 0;
   top: 0.2em;
-  bottom: 0.15em;
-  width: 3px;
+  height: 0.85em;          /* top half of heading only — not full height */
+  width: 2px;              /* was 3px — more refined */
   background: #16a34a;
   border-radius: 2px;
+  opacity: 0.8;
+}
+
+/* ── Code blocks: visible scrollbar on mobile — prevents silent clip ── */
+@media (max-width: 768px) {
+  pre {
+    scrollbar-width: thin;
+    scrollbar-color: #6b7280 transparent;
+  }
+  pre::-webkit-scrollbar {
+    height: 4px;
+  }
+  pre::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  pre::-webkit-scrollbar-thumb {
+    background-color: #9ca3af;
+    border-radius: 2px;
+  }
 }
 
 /* ── Code blocks as hero content — top breathing room ─────────  */

@@ -142,20 +142,31 @@ export default function BlogPage() {
           })}
         </div>
 
-        {/* Coming Soon + CTA */}
-        <div className="mt-10 p-8 bg-gray-50 rounded-xl border border-gray-200 text-center">
-          <h3 className="text-base font-semibold text-gray-900 mb-1">More Posts Coming Soon</h3>
-          <p className="text-gray-500 text-sm mb-6">
-            We're documenting our journey — design decisions, lessons learned, framework internals.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        {/* Writing in public — topics we're covering next */}
+        <div className="mt-10 border border-gray-200 rounded-xl overflow-hidden">
+          <div className="px-5 py-3 bg-gray-50 border-b border-gray-200">
+            <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest font-mono">Writing in public</p>
+          </div>
+          <div className="px-5 py-4 space-y-3">
+            {[
+              'How we built the eval system — session replay without adding a line of user code',
+              'The trust model — why agent-to-agent auth is harder than you think',
+              'Plugin architecture internals — hooks, lifecycle, and the 9 event types',
+            ].map((topic) => (
+              <div key={topic} className="flex items-start gap-3">
+                <span className="mt-1.5 w-1 h-1 rounded-full bg-gray-300 flex-shrink-0" />
+                <p className="text-sm text-gray-600">{topic}</p>
+              </div>
+            ))}
+          </div>
+          <div className="px-5 py-4 border-t border-gray-100 flex flex-col sm:flex-row items-center gap-3">
             <a
               href="https://discord.gg/4xfD9k8AUF"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white text-sm font-medium rounded-lg transition-colors"
             >
-              Join Discord for updates
+              Get notified on Discord
             </a>
             <a
               href="https://github.com/openonion/connectonion"

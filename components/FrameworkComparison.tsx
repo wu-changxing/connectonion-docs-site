@@ -268,20 +268,35 @@ export function FrameworkComparison() {
         </div>
 
         {/* Tab Bar */}
-        <div className="flex overflow-x-auto hide-scrollbar gap-1 mb-8 border-b border-gray-200 pb-px">
-          {comparisons.map((c, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveIdx(i)}
-              className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-t transition-colors whitespace-nowrap ${
-                i === activeIdx
-                  ? 'text-gray-900 border-b-2 border-gray-900 -mb-px bg-white'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              {c.title}
-            </button>
-          ))}
+        <div className="relative mb-8">
+          {/* Right fade — signals more tabs exist on mobile */}
+          <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10 md:hidden" />
+          <div className="flex overflow-x-auto hide-scrollbar gap-1 border-b border-gray-200 pb-px">
+            {comparisons.map((c, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIdx(i)}
+                className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-t transition-colors whitespace-nowrap ${
+                  i === activeIdx
+                    ? 'text-gray-900 border-b-2 border-gray-900 -mb-px bg-white'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {c.title}
+              </button>
+            ))}
+          </div>
+          {/* Dot indicators for mobile */}
+          <div className="flex items-center justify-center gap-1.5 mt-3 md:hidden">
+            {comparisons.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIdx(i)}
+                className={`transition-all rounded-full ${i === activeIdx ? 'w-4 h-1.5 bg-gray-900' : 'w-1.5 h-1.5 bg-gray-300'}`}
+                aria-label={`View ${comparisons[i].title}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Active Comparison */}
