@@ -50,6 +50,7 @@ export function DocsSidebar() {
 
     navData.forEach(item => {
       if (item.section === 'Admin') return
+      if (item.section === 'Blog') return
       if ((item as any).hidden) return
       if (childItems.has(item.href)) return
 

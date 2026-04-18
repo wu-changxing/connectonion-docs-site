@@ -21,7 +21,9 @@ const docNavItems = [
   { href: '/agent', label: 'Agent API', prefixes: ['/agent', '/prompts', '/tools', '/models', '/llm_do', '/on_events', '/plugin'] },
   { href: '/host', label: 'Network', prefixes: ['/host', '/connect', '/websocket', '/session-reconnect', '/threat-model'] },
   { href: '/useful-tools', label: 'Tools', prefixes: ['/useful-tools', '/memory', '/web-fetch', '/agent-emails', '/gmail', '/outlook'] },
-  { href: '/examples', label: 'Examples', prefixes: ['/examples'] },
+  { href: '/useful-plugins', label: 'Plugins', prefixes: ['/useful-plugins', '/plugin'] },
+  { href: '/tui', label: 'TUI', prefixes: ['/tui'] },
+  { href: '/auto-debug', label: 'Debug', prefixes: ['/auto-debug', '/auto-debug-exception', '/tools/browser', '/logging', '/xray'] },
   { href: '/blog', label: 'Blog', prefixes: ['/blog'] },
 ]
 
