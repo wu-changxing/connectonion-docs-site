@@ -86,12 +86,12 @@ export const navigation = [
     next: { href: '/agent', title: 'Agent' }
   },
 
-  // ─── Core Concepts ─────────────────────────────────────────────
+  // ─── Agent API ─────────────────────────────────────────────
   {
     title: 'Agent',
     href: '/agent',
     icon: HiOutlineUsers,
-    section: 'Core Concepts',
+    section: 'Agent API',
     difficulty: 'Essential',
     keywords: ['agent', 'create', 'orchestrator', 'core', 'llm', 'conversation', 'iteration'],
     prev: { href: '/cli', title: 'CLI Reference' },
@@ -101,7 +101,7 @@ export const navigation = [
     title: 'System Prompts',
     href: '/prompts',
     icon: HiOutlineChatBubbleBottomCenterText,
-    section: 'Core Concepts',
+    section: 'Agent API',
     difficulty: 'Start Here',
     keywords: ['template', 'prompt', 'system', 'message', 'personality', 'behavior'],
     prev: { href: '/agent', title: 'Agent' },
@@ -111,7 +111,7 @@ export const navigation = [
     title: 'Prompt Formats',
     href: '/prompts/formats',
     icon: HiOutlineDocumentText,
-    section: 'Core Concepts',
+    section: 'Agent API',
     parent: '/prompts',
     keywords: ['format', 'prompt', 'template', 'syntax'],
     prev: { href: '/prompts', title: 'System Prompts' },
@@ -121,7 +121,7 @@ export const navigation = [
     title: 'Tools',
     href: '/tools',
     icon: HiOutlineCodeBracket,
-    section: 'Core Concepts',
+    section: 'Agent API',
     keywords: ['function', 'utility', 'actions', 'capabilities', 'tools'],
     prev: { href: '/prompts/formats', title: 'Prompt Formats' },
     next: { href: '/models', title: 'Models' }
@@ -130,7 +130,7 @@ export const navigation = [
     title: 'Models',
     href: '/models',
     icon: HiOutlineCpuChip,
-    section: 'Core Concepts',
+    section: 'Agent API',
     keywords: ['model', 'gpt', 'gemini', 'claude', 'anthropic', 'openai', 'google', 'llm', 'ai'],
     prev: { href: '/tools', title: 'Tools' },
     next: { href: '/models/pricing', title: 'Pricing' }
@@ -139,7 +139,7 @@ export const navigation = [
     title: 'Pricing',
     href: '/models/pricing',
     icon: HiOutlineCurrencyDollar,
-    section: 'Core Concepts',
+    section: 'Agent API',
     parent: '/models',
     keywords: ['pricing', 'cost', 'credits', 'tokens', 'billing', 'managed keys', 'purchase', 'pay', 'price'],
     prev: { href: '/models', title: 'Models' },
@@ -149,7 +149,7 @@ export const navigation = [
     title: 'LLM Function',
     href: '/llm_do',
     icon: HiOutlineSparkles,
-    section: 'Core Concepts',
+    section: 'Agent API',
     keywords: ['ai', 'model', 'openai', 'language', 'llm_do', 'direct', 'gemini', 'anthropic', 'claude'],
     prev: { href: '/models/pricing', title: 'Pricing' },
     next: { href: '/on_events', title: 'Event System (on_events)' }
@@ -158,7 +158,7 @@ export const navigation = [
     title: 'Event System (on_events)',
     href: '/on_events',
     icon: HiOutlineChartBarSquare,
-    section: 'Core Concepts',
+    section: 'Agent API',
     difficulty: 'NEW',
     keywords: ['events', 'on_events', 'hooks', 'lifecycle', 'monitoring', 'after_llm', 'before_tool', 'after_tool', 'on_error', 'after_user_input', 'before_llm'],
     prev: { href: '/llm_do', title: 'LLM Function' },
@@ -168,7 +168,7 @@ export const navigation = [
     title: 'Plugin System',
     href: '/plugin',
     icon: HiOutlinePuzzlePiece,
-    section: 'Core Concepts',
+    section: 'Agent API',
     difficulty: 'NEW',
     keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'custom', 'create', 'build'],
     prev: { href: '/on_events', title: 'Event System (on_events)' },
