@@ -16,10 +16,7 @@ export default function AgentEmailsPage() {
             { label: 'Agent Emails' }
           ]}
           icon={HiOutlineEnvelope}
-          iconColor="text-gray-500"
-          iconBgFrom="from-gray-700/20"
-          iconBgTo="to-blue-600/20"
-          iconBorderColor="border-gray-400/30"
+          iconColor="icon-ui"
           title="Agent Emails"
           description="Send and receive emails with simple functions. No config, no complexity."
           badge={<span className="text-xs bg-gray-500/20 text-green-400 px-2 py-1 rounded-full border border-gray-200">New</span>}
@@ -64,7 +61,7 @@ for email in emails:
                 <HiOutlineArrowRight className="w-5 h-5 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
               </div>
               <p className="text-gray-700 mb-4">Send emails with zero configuration. Your agent gets a unique email address automatically.</p>
-              <code className="text-sm bg-gray-800 px-3 py-1.5 rounded text-gray-400">send_email(to, subject, message)</code>
+              <code className="text-sm bg-gray-100 px-3 py-1.5 rounded text-gray-700">send_email(to, subject, message)</code>
             </Link>
 
             <Link
@@ -73,11 +70,11 @@ for email in emails:
             >
               <div className="flex items-center gap-3 mb-4">
                 <HiOutlineInbox className="w-6 h-6 text-blue-400" />
-                <h3 className="text-2xl font-semibold group-hover:text-blue-300 transition-colors">Receive Emails</h3>
+                <h3 className="text-2xl font-semibold transition-colors">Receive Emails</h3>
                 <HiOutlineArrowRight className="w-5 h-5 text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
               </div>
               <p className="text-gray-700 mb-4">Read emails from any IMAP inbox. Works with Gmail, Outlook, or any provider.</p>
-              <code className="text-sm bg-gray-800 px-3 py-1.5 rounded text-blue-300">get_emails(last=10, unread=False)</code>
+              <code className="text-sm bg-gray-100 px-3 py-1.5 rounded text-gray-700">get_emails(last=10, unread=False)</code>
             </Link>
           </div>
         </section>
@@ -106,7 +103,7 @@ mark_unread(email_id)                # Mark as unread`}
           <h2 className="heading-2">Agent Emails vs Gmail</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-900/20 border border-gray-200 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="font-semibold mb-4 text-gray-400">Agent Emails (This page)</h3>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
@@ -127,8 +124,8 @@ mark_unread(email_id)                # Mark as unread`}
                 </li>
               </ul>
             </div>
-            <div className="bg-gray-900/5 border border-gray-200 rounded-xl p-6">
-              <h3 className="font-semibold mb-4 text-green-300">Gmail (OAuth)</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold mb-4 text-gray-900">Gmail (OAuth)</h3>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
                   <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />

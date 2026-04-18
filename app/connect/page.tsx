@@ -24,10 +24,7 @@ export default function ConnectPage() {
               { label: 'Connect to Agents' }
             ]}
             icon={HiOutlineServerStack}
-            iconColor="text-blue-400"
-            iconBgFrom="from-blue-600/20"
-            iconBgTo="to-cyan-600/20"
-            iconBorderColor="border-gray-200"
+            iconColor="icon-ui"
             title="Connect to Agents"
             description="Use any agent, anywhere, as if local. Create a proxy to a remote agent with the same interface."
             markdownPath="/network/connect.md"
@@ -490,18 +487,18 @@ console.log(response.text)`}
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left px-4 py-3 text-gray-500">Event Type</th>
                   <th className="text-left px-4 py-3 text-gray-500">Description</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-blue-300">user</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">user</td>
                   <td className="px-4 py-3 text-gray-600">User message</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-green-300">agent</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">agent</td>
                   <td className="px-4 py-3 text-gray-600">Agent response text</td>
                 </tr>
                 <tr>
@@ -517,11 +514,11 @@ console.log(response.text)`}
                   <td className="px-4 py-3 text-gray-600">Agent asking a question (with options)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-red-300">approval_needed</td>
+                  <td className="px-4 py-3 font-mono text-red-700">approval_needed</td>
                   <td className="px-4 py-3 text-gray-600">Tool requires user approval before running</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-cyan-300">plan_review</td>
+                  <td className="px-4 py-3 font-mono text-cyan-700">plan_review</td>
                   <td className="px-4 py-3 text-gray-600">Agent presenting a plan for review</td>
                 </tr>
               </tbody>
@@ -620,7 +617,7 @@ respond(["Sydney", "Tokyo"])`}
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-red-300 mb-4">Tool Approval</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Tool Approval</h3>
               <p className="text-sm text-gray-600 mb-4">Agent wants to run a tool that needs permission:</p>
               <CodeWithResult
                 code={`// Agent sends: { type: 'approval_needed', tool: 'shell', arguments: { cmd: 'rm -rf /tmp' } }
@@ -760,7 +757,7 @@ function Chat() {
 
           <div className="mt-6 space-y-4">
             <h3 className="text-xl font-semibold mb-3">How It Works</h3>
-            <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 sm:p-6 overflow-x-auto">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 overflow-x-auto">
               <pre className="text-sm font-mono text-gray-700 whitespace-pre leading-relaxed">{`Client                              Server
   │                                    │
   │  Convert file to base64 data URL   │
@@ -799,10 +796,10 @@ function Chat() {
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            <Link href="https://github.com/openonion/oo-chat" className="text-emerald-400 hover:text-emerald-300 underline">oo-chat</Link> is an open-source Next.js chat client built on the TypeScript SDK. It{"'"}s a complete working example of how to build a chat UI for ConnectOnion agents.
+            <Link href="https://github.com/openonion/oo-chat" className="text-emerald-700 hover:text-emerald-800 underline">oo-chat</Link> is an open-source Next.js chat client built on the TypeScript SDK. It{"'"}s a complete working example of how to build a chat UI for ConnectOnion agents.
           </p>
 
-          <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 sm:p-6 overflow-x-auto mb-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 overflow-x-auto mb-6">
             <pre className="text-sm font-mono text-gray-700 whitespace-pre leading-relaxed">{`oo-chat/
 ├── app/[address]/[sessionId]/page.tsx   ← session page (uses useAgentForHumanSDK)
 ├── components/chat/
@@ -864,7 +861,7 @@ export default function ChatSession({ params }) {
 
           <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
             <p className="text-lg font-semibold text-gray-900 mb-4">Architecture</p>
-            <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 overflow-x-auto">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto">
               <pre className="text-sm font-mono text-gray-700 whitespace-pre leading-relaxed">{`┌──────────────────────────────────────────────────┐
 │  oo-chat (Next.js)                               │
 │                                                   │

@@ -23,10 +23,7 @@ export default function CliBrowserCommandPage() {
               { label: 'co browser' }
             ]}
             icon={HiOutlineCamera}
-            iconColor="text-gray-700"
-            iconBgFrom="from-blue-600/20"
-            iconBgTo="to-cyan-600/20"
-            iconBorderColor="border-gray-200"
+            iconColor="icon-ui"
             title="co browser"
             description="Quick browser screenshots and automation with one command. Perfect for debugging, testing, and visual proof."
           />
@@ -368,13 +365,13 @@ pip install connectonion[browser]`}
         {/* Error Messages */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-red-400" />
+            <HiOutlineCodeBracket className="w-8 h-8 icon-ui" />
             Common Errors
           </h2>
 
           <div className="space-y-4">
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="font-mono text-sm text-red-300 mb-2">
+              <p className="font-mono text-sm text-red-700 mb-2">
                 ❌ Browser tools not installed
               </p>
               <p className="text-gray-600 text-sm">
@@ -383,7 +380,7 @@ pip install connectonion[browser]`}
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="font-mono text-sm text-red-300 mb-2">
+              <p className="font-mono text-sm text-red-700 mb-2">
                 ❌ Cannot reach http://localhost:3000
               </p>
               <p className="text-gray-600 text-sm">
@@ -392,7 +389,7 @@ pip install connectonion[browser]`}
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="font-mono text-sm text-red-300 mb-2">
+              <p className="font-mono text-sm text-red-700 mb-2">
                 ❌ Natural language browser agent unavailable. Set OPENAI_API_KEY
               </p>
               <p className="text-gray-600 text-sm">

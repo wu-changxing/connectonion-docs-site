@@ -55,10 +55,7 @@ export default function AutoDebugExceptionPage() {
             { label: 'Auto Debug Exception' }
           ]}
           icon={HiOutlineBugAnt}
-          iconColor="text-red-400"
-          iconBgFrom="from-red-500/20"
-          iconBgTo="to-gray-500/20"
-          iconBorderColor="border-red-500/30"
+          iconColor="icon-ui"
           title="Auto Debug Exception"
           description="AI debugger for uncaught exceptions with runtime inspection"
           markdownPath="/debug/exceptions.md"
@@ -73,7 +70,7 @@ export default function AutoDebugExceptionPage() {
               <p className="font-semibold text-yellow-400 mb-2">Debugs ONLY uncaught exceptions</p>
               <p className="text-sm text-gray-700">
                 This feature only works for uncaught exceptions - crashes, raised exceptions, and failed assertions.
-                For logic errors that don't crash, use <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">raise</code> or <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">assert</code> to convert them to exceptions.
+                For logic errors that don't crash, use <code className="bg-gray-100 px-2 py-0.5 rounded text-yellow-700">raise</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-yellow-700">assert</code> to convert them to exceptions.
               </p>
             </div>
           </div>
@@ -84,11 +81,11 @@ export default function AutoDebugExceptionPage() {
           <div className="flex items-center gap-3 mb-8">
             <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
             <h2 className="heading-2">Quick Start</h2>
-            <span className="text-sm text-gray-500 bg-gray-800 px-3 py-1 rounded-full">30 seconds to AI debugging</span>
+            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">30 seconds to AI debugging</span>
           </div>
 
-          <div className="bg-gradient-to-r from-red-500/10 to-gray-500/10 rounded-xl p-8 border border-red-500/20 mb-8">
-            <p className="text-xl font-semibold mb-6 text-red-300">One line to enable. Automatic AI analysis on crashes.</p>
+          <div className="bg-red-50 rounded-xl p-8 border border-red-200 mb-8">
+            <p className="text-xl font-semibold mb-6 text-red-700">One line to enable. Automatic AI analysis on crashes.</p>
             <CodeBlock
               code={`from connectonion import auto_debug_exception
 
@@ -102,8 +99,8 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
             />
           </div>
 
-          <div className="bg-gray-900/50 rounded-lg p-6 border border-gray-700 mb-8">
-            <h3 className="text-lg font-semibold mb-4 text-red-300">When this crashes, the AI will:</h3>
+          <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 mb-8">
+            <h3 className="text-lg font-semibold mb-4 text-gray-900">When this crashes, the AI will:</h3>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
                 <span className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full font-bold flex-shrink-0">1</span>
@@ -229,7 +226,7 @@ result = calculate_metrics([])  # 💥 Multiple issues!`}
                 id="example-1"
               />
 
-              <div className="mt-6 bg-gray-900/70 border border-red-200 rounded-lg p-6">
+              <div className="mt-6 bg-gray-50 border border-red-200 rounded-lg p-6">
                 <p className="font-semibold text-gray-700 mb-4">AI Runtime Debug Analysis:</p>
                 <div className="space-y-4 text-sm">
                   <div>
@@ -291,7 +288,7 @@ theme = response['data']['user']['settings']['theme']  # 💥 KeyError!`}
                 id="example-2"
               />
 
-              <div className="mt-6 bg-gray-900/70 border border-red-200 rounded-lg p-6">
+              <div className="mt-6 bg-gray-50 border border-red-200 rounded-lg p-6">
                 <p className="font-semibold text-gray-700 mb-4">AI Runtime Debug Analysis:</p>
                 <div className="space-y-4 text-sm">
                   <div>
@@ -326,7 +323,7 @@ else:
                 <span className="text-red-400">3.</span> Debugging Logic Errors with Assert
               </h3>
               <p className="text-gray-700 mb-4">
-                For logic errors that don't crash, use <code className="bg-gray-800 px-2 py-0.5 rounded text-red-400">assert</code> to trigger AI debugging:
+                For logic errors that don't crash, use <code className="bg-gray-100 px-2 py-0.5 rounded text-red-700">assert</code> to trigger AI debugging:
               </p>
               <CodeBlock
                 code={`from connectonion import auto_debug_exception, Agent
@@ -350,7 +347,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
               <div className="mt-6 bg-gray-500/10 border border-gray-200 rounded-lg p-6">
                 <p className="font-semibold text-gray-700 mb-2">💡 Pro Tip:</p>
                 <p className="text-gray-700 text-sm">
-                  Use <code className="bg-gray-800 px-2 py-0.5 rounded">assert</code> statements to catch logic errors and wrong AI outputs.
+                  Use <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">assert</code> statements to catch logic errors and wrong AI outputs.
                   When an assertion fails, auto_debug_exception kicks in with full runtime access to help you understand what went wrong.
                 </p>
               </div>
@@ -417,7 +414,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
           <div className="mt-8 bg-gray-500/10 border border-gray-200 rounded-lg p-6">
             <p className="font-semibold text-yellow-400 mb-2">Solution:</p>
             <p className="text-gray-700 text-sm">
-              To debug logic errors, convert them to exceptions using <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">raise</code> or <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">assert</code>.
+              To debug logic errors, convert them to exceptions using <code className="bg-gray-100 px-2 py-0.5 rounded text-yellow-700">raise</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-yellow-700">assert</code>.
               This triggers auto_debug_exception and gives you AI analysis with runtime inspection.
             </p>
           </div>
@@ -461,9 +458,9 @@ export CONNECTONION_AUTO_DEBUG=false`}
 
         {/* Philosophy */}
         <section className="mb-20">
-          <div className="bg-gradient-to-br from-red-500/10 via-orange-500/10 to-red-500/10 rounded-2xl p-10 border border-red-500/20">
+          <div className="bg-gray-50 rounded-2xl p-10 border border-gray-200">
             <h2 className="heading-2">Philosophy</h2>
-            <p className="text-2xl font-semibold text-red-300 mb-6">
+            <p className="text-2xl font-semibold text-gray-900 mb-6">
               No more guessing. Get verified solutions.
             </p>
             <p className="text-gray-700 mb-6">

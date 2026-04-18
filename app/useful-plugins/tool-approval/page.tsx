@@ -18,10 +18,7 @@ export default function ToolApprovalPage() {
             { label: 'tool_approval' },
           ]}
           icon={HiOutlineShieldCheck}
-          iconColor="text-green-400"
-          iconBgFrom="from-gray-100"
-          iconBgTo="to-teal-600/20"
-          iconBorderColor="border-gray-200"
+          iconColor="icon-ui"
           title="tool_approval"
           description="Web-based approval for dangerous tools via WebSocket"
           markdownPath="/useful-plugins/tool_approval.md"
@@ -132,13 +129,13 @@ tool_executor iterates sequentially:
               />
               <ul className="mt-4 space-y-2 text-sm text-gray-600">
                 <li>• Current tool is skipped (raises ValueError)</li>
-                <li>• <code className="px-2 py-1 bg-gray-800 rounded text-red-300">stop_signal</code> flag is set in session</li>
+                <li>• <code className="px-2 py-1 bg-gray-800 rounded text-red-700">stop_signal</code> flag is set in session</li>
                 <li>• All remaining tools in the batch are auto-rejected</li>
                 <li>• Agent loop stops — LLM does NOT get another turn</li>
                 <li>• User must send a new message to continue</li>
               </ul>
               <div className="mt-4 text-sm text-slate-400">
-                Default mode when <code className="px-2 py-1 bg-gray-800 rounded">mode</code> is not provided: <code className="px-2 py-1 bg-gray-800 rounded text-red-300">reject_hard</code>
+                Default mode when <code className="px-2 py-1 bg-gray-800 rounded">mode</code> is not provided: <code className="px-2 py-1 bg-gray-800 rounded text-red-700">reject_hard</code>
               </div>
             </div>
           </div>
@@ -239,22 +236,22 @@ permissions:
             <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
               <h4 className="font-semibold text-gray-700 mb-2">Simple Tool Name</h4>
               <p className="text-sm text-gray-600 mb-3">Matches any call to the tool</p>
-              <code className="text-xs text-green-300">"read_file"</code>
+              <code className="text-xs text-gray-700">"read_file"</code>
             </div>
             <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
               <h4 className="font-semibold text-gray-700 mb-2">Exact Bash Command</h4>
               <p className="text-sm text-gray-600 mb-3">Only matches exact command</p>
-              <code className="text-xs text-green-300">"Bash(git status)"</code>
+              <code className="text-xs text-gray-700">"Bash(git status)"</code>
             </div>
             <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
               <h4 className="font-semibold text-gray-700 mb-2">Wildcard Bash Command</h4>
               <p className="text-sm text-gray-600 mb-3">Matches command prefix</p>
-              <code className="text-xs text-green-300">"Bash(git diff *)"</code>
+              <code className="text-xs text-gray-700">"Bash(git diff *)"</code>
             </div>
             <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
               <h4 className="font-semibold text-gray-700 mb-2">Parameter Matching</h4>
               <p className="text-sm text-gray-600 mb-3">Uses 'when' field for granular control</p>
-              <code className="text-xs text-green-300">when: {'{file_path: "*.md"}'}</code>
+              <code className="text-xs text-gray-700">when: {'{file_path: "*.md"}'}</code>
             </div>
           </div>
 
@@ -376,7 +373,7 @@ pwd && rm -rf /
             <p className="text-gray-700">
               <strong>Whitelist-first:</strong> One dangerous command = whole chain rejected.
             </p>
-            <div className="mt-3 bg-gray-900 rounded p-3 font-mono text-sm text-red-300">
+            <div className="mt-3 bg-gray-900 rounded p-3 font-mono text-sm text-red-700">
               # ❌ REJECTED even though pwd is safe<br/>
               pwd && rm -rf /
             </div>
@@ -446,7 +443,7 @@ pwd && rm -rf /
           <h2 className="heading-2">See Also</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <Link href="/features/permissions" className="p-6 bg-gray-50 border border-gray-200 hover:border-gray-400 rounded-lg transition-all group">
-              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-green-300 transition-colors">Permissions System</h3>
+              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">Permissions System</h3>
               <p className="text-sm text-gray-600">Complete permission system overview</p>
             </Link>
             <Link href="/useful-plugins/skills" className="p-6 bg-gray-50 border border-gray-200 hover:border-gray-400/50 rounded-lg transition-all group">

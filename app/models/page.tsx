@@ -164,10 +164,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
           { label: 'Models' }
         ]}
         icon={HiOutlineCpuChip}
-        iconColor="text-gray-500"
-        iconBgFrom="from-gray-50"
-        iconBgTo="to-gray-700/20"
-        iconBorderColor="border-gray-200"
+        iconColor="icon-ui"
         title="Models"
         description="Use the latest AI models from OpenAI, Google, Anthropic, and Mistral with a single interface."
         markdownPath="/models/models.md"
@@ -180,8 +177,8 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 
         {/* Managed Keys Path */}
         <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200 mb-6">
-          <h3 className="text-xl font-semibold mb-4 flex items-center text-white">
-            <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-500" />
+          <h3 className="text-xl font-semibold mb-4 flex items-center text-gray-900">
+            <HiOutlineBolt className="mr-2 h-5 w-5 icon-ui" />
             Easiest Way: Use Managed Keys
           </h3>
           <p className="text-gray-700 mb-4">
@@ -201,17 +198,17 @@ response = agent.input("Explain quantum computing")`}
             result={`Quantum computing harnesses quantum mechanical phenomena...`}
           />
 
-          <div className="mt-4 p-3 bg-gray-500/10 rounded border border-gray-200">
-            <p className="text-sm text-gray-400">
+          <div className="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
+            <p className="text-sm text-gray-600">
               ⭐ <strong>Bonus:</strong> <a href="https://github.com/wu-changxing/connectonion" target="_blank" rel="noopener" className="underline hover:text-gray-800">Star our repo</a> for an additional 100K tokens!
             </p>
           </div>
         </div>
 
         {/* Own Keys Path */}
-        <div className="bg-gray-900 border border-gray-700 p-6 rounded-xl">
-          <h3 className="text-xl font-semibold mb-4 flex items-center text-white">
-            <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-gray-400" />
+        <div className="bg-gray-50 border border-gray-200 p-6 rounded-xl">
+          <h3 className="text-xl font-semibold mb-4 flex items-center text-gray-900">
+            <HiOutlineGlobeAlt className="mr-2 h-5 w-5 icon-ui" />
             Alternative: Bring Your Own Keys
           </h3>
           <p className="text-gray-700 mb-4">
@@ -241,9 +238,9 @@ response = agent.input("Explain quantum computing")`}
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 mb-6">
-          <div className="bg-gradient-to-br bg-gray-50 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <HiOutlineUsers className="mr-2 h-5 w-5 text-gray-400" />
+          <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
+            <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+              <HiOutlineUsers className="mr-2 h-5 w-5 icon-ui" />
               Agent Default
             </h3>
             <p className="text-sm text-gray-700 mb-4">
@@ -257,14 +254,14 @@ agent = Agent("assistant")  # Uses co/gemini-2.5-pro
 agent = Agent("assistant", model="co/gemini-2.5-pro")`}
               result=""
             />
-            <p className="text-xs text-green-400 mt-3">
+            <p className="text-xs text-gray-500 mt-3">
               Best for agentic tasks with tool calling and complex reasoning
             </p>
           </div>
 
           <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-400" />
+            <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+              <HiOutlineBolt className="mr-2 h-5 w-5 icon-ui" />
               llm_do Default
             </h3>
             <p className="text-sm text-gray-700 mb-4">
@@ -280,7 +277,7 @@ result = llm_do("Summarize this text...")
 result = llm_do("...", model="co/gemini-2.5-flash")`}
               result=""
             />
-            <p className="text-xs text-yellow-400 mt-3">
+            <p className="text-xs text-gray-500 mt-3">
               Fast and cost-effective for simple LLM calls
             </p>
           </div>
@@ -303,8 +300,8 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             onClick={() => setActiveProvider('openai')}
             className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'openai'
-                ? 'bg-gray-800 text-gray-100'
-                : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
+                ? 'bg-gray-900 text-gray-100'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
             OpenAI
@@ -313,8 +310,8 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             onClick={() => setActiveProvider('google')}
             className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'google'
-                ? 'bg-gray-800 text-gray-100'
-                : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
+                ? 'bg-gray-900 text-gray-100'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
             Google Gemini
@@ -323,8 +320,8 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             onClick={() => setActiveProvider('anthropic')}
             className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'anthropic'
-                ? 'bg-gray-800 text-gray-100'
-                : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
+                ? 'bg-gray-900 text-gray-100'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
             Anthropic Claude
@@ -333,8 +330,8 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             onClick={() => setActiveProvider('mistral')}
             className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'mistral'
-                ? 'bg-gray-800 text-gray-100'
-                : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
+                ? 'bg-gray-900 text-gray-100'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
             Mistral AI
@@ -343,9 +340,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
         {activeProvider === 'openai' && (
           <div className="space-y-4">
-            <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-gray-400" />
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+                <HiOutlineCpuChip className="mr-2 h-5 w-5 icon-ui" />
                 GPT-5 Series
               </h3>
               <div className="space-y-3">
@@ -364,14 +361,14 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               </div>
             </div>
 
-            <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-gray-500" />
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+                <HiOutlineCpuChip className="mr-2 h-5 w-5 icon-ui" />
                 Reasoning Models
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-gray-500/20 text-gray-400 px-2 py-1 rounded text-sm mr-3 font-mono">o4-mini</code>
+                  <code className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-sm mr-3 font-mono">o4-mini</code>
                   <span className="text-gray-700">OpenAI's newest reasoning model</span>
                 </div>
               </div>
@@ -381,9 +378,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
         {activeProvider === 'google' && (
           <div className="space-y-4">
-            <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-gray-400" />
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+                <HiOutlineCpuChip className="mr-2 h-5 w-5 icon-ui" />
                 Gemini 3 (Newest)
               </h3>
               <div className="space-y-3">
@@ -406,9 +403,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               </div>
             </div>
 
-            <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineEye className="mr-2 h-5 w-5 text-gray-400" />
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+                <HiOutlineEye className="mr-2 h-5 w-5 icon-ui" />
                 Gemini 2.5
               </h3>
               <div className="space-y-3">
@@ -423,9 +420,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               </div>
             </div>
 
-            <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-400" />
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+                <HiOutlineBolt className="mr-2 h-5 w-5 icon-ui" />
                 Gemini 2.0
               </h3>
               <div className="space-y-3">
@@ -444,22 +441,22 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
         {activeProvider === 'anthropic' && (
           <div className="space-y-4">
-            <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineSquare3Stack3D className="mr-2 h-5 w-5 text-orange-400" />
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+                <HiOutlineSquare3Stack3D className="mr-2 h-5 w-5 icon-ui" />
                 Claude 4.5 Series (Latest)
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4-5</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4-5</code>
                   <span className="text-gray-700">Most capable Claude model (200K tokens)</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-sonnet-4-5</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">claude-sonnet-4-5</code>
                   <span className="text-gray-700">Best balance of intelligence and speed</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded text-sm mr-3 font-mono">claude-haiku-4-5</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">claude-haiku-4-5</code>
                   <span className="text-gray-700">Fastest with near-frontier intelligence</span>
                 </div>
               </div>
@@ -470,18 +467,18 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               </div>
             </div>
 
-            <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-gray-500" />
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+                <HiOutlineGlobeAlt className="mr-2 h-5 w-5 icon-ui" />
                 Claude 4 Series (Previous Gen)
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-gray-500/20 text-gray-400 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4-1</code>
+                  <code className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4-1</code>
                   <span className="text-gray-700">Specialized reasoning - <strong className="text-gray-900">supports structured output</strong></span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-gray-500/20 text-gray-400 px-2 py-1 rounded text-sm mr-3 font-mono">claude-sonnet-4</code>
+                  <code className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-sm mr-3 font-mono">claude-sonnet-4</code>
                   <span className="text-gray-700">Balanced performance - <strong className="text-gray-600">no structured output</strong></span>
                 </div>
               </div>
@@ -497,22 +494,22 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
         {activeProvider === 'mistral' && (
           <div className="space-y-4">
-            <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-red-400" />
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+                <HiOutlineCpuChip className="mr-2 h-5 w-5 icon-ui" />
                 Mistral Latest
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-red-500/20 text-red-300 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-large-latest</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-large-latest</code>
                   <span className="text-gray-700">Most capable Mistral model - High performance European model</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-red-500/20 text-red-300 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-small-latest</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-small-latest</code>
                   <span className="text-gray-700">Balanced performance and efficiency</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-red-500/20 text-red-300 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-medium-latest</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-medium-latest</code>
                   <span className="text-gray-700">Mid-tier performance</span>
                 </div>
               </div>
@@ -532,9 +529,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
         <h2 className="heading-2">Model Selection Guide</h2>
         
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-            <h3 className="font-semibold mb-4 flex items-center text-white">
-              <HiOutlineCpuChip className="mr-2 h-5 w-5 text-gray-400" />
+          <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+            <h3 className="font-semibold mb-4 flex items-center text-gray-900">
+              <HiOutlineCpuChip className="mr-2 h-5 w-5 icon-ui" />
               Best for Coding
             </h3>
             <CodeWithResult
@@ -544,9 +541,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             />
           </div>
 
-          <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-            <h3 className="font-semibold mb-4 flex items-center text-white">
-              <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-400" />
+          <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+            <h3 className="font-semibold mb-4 flex items-center text-gray-900">
+              <HiOutlineBolt className="mr-2 h-5 w-5 icon-ui" />
               Fast Responses
             </h3>
             <CodeWithResult
@@ -556,9 +553,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             />
           </div>
 
-          <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-            <h3 className="font-semibold mb-4 flex items-center text-white">
-              <HiOutlineCurrencyDollar className="mr-2 h-5 w-5 text-gray-400" />
+          <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+            <h3 className="font-semibold mb-4 flex items-center text-gray-900">
+              <HiOutlineCurrencyDollar className="mr-2 h-5 w-5 icon-ui" />
               Cost-Optimized
             </h3>
             <CodeWithResult
@@ -568,9 +565,9 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             />
           </div>
 
-          <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
-            <h3 className="font-semibold mb-4 flex items-center text-white">
-              <HiOutlineEye className="mr-2 h-5 w-5 text-gray-500" />
+          <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+            <h3 className="font-semibold mb-4 flex items-center text-gray-900">
+              <HiOutlineEye className="mr-2 h-5 w-5 icon-ui" />
               Multimodal
             </h3>
             <CodeWithResult
@@ -589,8 +586,8 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
         <div className="grid md:grid-cols-2 gap-6">
           {/* Managed Keys */}
           <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-500" />
+            <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+              <HiOutlineBolt className="mr-2 h-5 w-5 icon-ui" />
               Option 1: Managed Keys
             </h3>
             <p className="text-sm text-gray-700 mb-4">
@@ -615,9 +612,9 @@ agent = Agent("assistant", model="co/claude-opus-4-5")`}
           </div>
 
           {/* Own Keys */}
-          <div className="bg-gray-900 border border-gray-700 p-6 rounded-xl">
-            <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-gray-400" />
+          <div className="bg-gray-50 border border-gray-200 p-6 rounded-xl">
+            <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+              <HiOutlineGlobeAlt className="mr-2 h-5 w-5 icon-ui" />
               Option 2: Your Own Keys
             </h3>
             <p className="text-sm text-gray-700 mb-4">
@@ -716,8 +713,8 @@ agent = create_agent_with_fallback("assistant")`}
         <h2 className="heading-2">Model Comparison</h2>
         
         <div className="overflow-x-auto">
-          <table className="w-full border border-gray-200 dark:border-gray-700">
-            <thead className="bg-gray-50 dark:bg-gray-800">
+          <table className="w-full border border-gray-200">
+            <thead className="bg-gray-50">
               <tr>
                 <th className="px-4 py-3 text-left font-semibold">Model</th>
                 <th className="px-4 py-3 text-left font-semibold">Provider</th>
@@ -725,7 +722,7 @@ agent = create_agent_with_fallback("assistant")`}
                 <th className="px-4 py-3 text-left font-semibold">Strengths</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+            <tbody className="divide-y divide-gray-200">
               <tr>
                 <td className="px-4 py-3"><code className="text-sm">gpt-5</code></td>
                 <td className="px-4 py-3">OpenAI</td>
@@ -763,8 +760,8 @@ agent = create_agent_with_fallback("assistant")`}
 
       {/* Info Box */}
       <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-200 mb-16">
-        <h3 className="font-semibold mb-2 flex items-center text-white">
-          <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-500" />
+        <h3 className="font-semibold mb-2 flex items-center text-gray-900">
+          <HiOutlineBolt className="mr-2 h-5 w-5 icon-ui" />
           Key Benefits
         </h3>
         <ul className="space-y-2 text-sm text-gray-700">

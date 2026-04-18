@@ -74,10 +74,7 @@ export default function SendEmailPage() {
             { label: 'Send' }
           ]}
           icon={HiOutlinePaperAirplane}
-          iconColor="text-gray-500"
-          iconBgFrom="from-gray-700/20"
-          iconBgTo="to-pink-600/20"
-          iconBorderColor="border-gray-400/30"
+          iconColor="icon-ui"
           title="Send Email"
           description="Send emails with one line of code. No config, no complexity."
           markdownPath="/agent-emails/send.md"

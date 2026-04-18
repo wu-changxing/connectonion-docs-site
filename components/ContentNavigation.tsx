@@ -47,16 +47,16 @@ export function ContentNavigation() {
       )}
 
       {/* Navigation Buttons */}
-      <div className="flex items-center justify-between">
+      <div className="grid grid-cols-2 gap-4">
         {prev ? (
           <Link
             href={prev.href}
-            className="group flex items-center gap-3 px-5 py-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg transition-all"
+            className="group flex items-center gap-4 px-6 py-5 bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-400 rounded-xl transition-all shadow-sm hover:shadow-md"
           >
-            <HiOutlineArrowLeft className="w-4 h-4 text-gray-400 group-hover:text-gray-700 transition-colors" />
-            <div className="text-left">
-              <div className="text-xs text-gray-400 mb-0.5">Previous</div>
-              <div className="text-sm font-medium text-gray-900">{prev.title}</div>
+            <HiOutlineArrowLeft className="w-5 h-5 text-gray-400 group-hover:text-gray-700 flex-shrink-0 transition-colors" />
+            <div className="text-left min-w-0">
+              <div className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Previous</div>
+              <div className="text-base font-semibold text-gray-900 truncate">{prev.title}</div>
             </div>
           </Link>
         ) : (
@@ -66,13 +66,13 @@ export function ContentNavigation() {
         {next ? (
           <Link
             href={next.href}
-            className="group flex items-center gap-3 px-5 py-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg transition-all"
+            className="group flex items-center justify-end gap-4 px-6 py-5 bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-400 rounded-xl transition-all shadow-sm hover:shadow-md col-start-2"
           >
-            <div className="text-right">
-              <div className="text-xs text-gray-400 mb-0.5">Next</div>
-              <div className="text-sm font-medium text-gray-900">{next.title}</div>
+            <div className="text-right min-w-0">
+              <div className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Next</div>
+              <div className="text-base font-semibold text-gray-900 truncate">{next.title}</div>
             </div>
-            <HiOutlineArrowRight className="w-4 h-4 text-gray-400 group-hover:text-gray-700 transition-colors" />
+            <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-700 flex-shrink-0 transition-colors" />
           </Link>
         ) : (
           <div />

@@ -68,7 +68,7 @@ export function OnThisPage() {
   if (headings.length < 2) return null
 
   return (
-    <nav className="sticky top-24 w-56 flex-shrink-0 hidden xl:block">
+    <nav className="sticky top-24 w-56 flex-shrink-0">
       <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
         On this page
       </p>

@@ -230,7 +230,7 @@ Build on this foundation for more complex agents that need to handle user input 
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-gray-900/5 border border-gray-200 rounded-xl">
+      <div className="mb-12 p-6 bg-gray-50 border border-gray-200 rounded-xl">
         <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
           <HiOutlineLightBulb className="w-6 h-6 text-blue-400" />
           What You'll Learn
@@ -273,10 +273,10 @@ Build on this foundation for more complex agents that need to handle user input 
           {/* Basic Example */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-gray-900">Basic Calculator</h3>
+              <h3 className="text-xl font-semibold text-gray-300">Basic Calculator</h3>
               <button
                 onClick={() => copyToClipboard(agentCode, 'basic')}
-                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-400 hover:text-gray-100 transition-colors p-2 rounded-lg hover:bg-gray-700 flex items-center gap-2"
               >
                 {copiedId === 'basic' ? (
                   <>
@@ -318,10 +318,10 @@ Build on this foundation for more complex agents that need to handle user input 
           {/* Complete Example */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-gray-900">Complete Example with Security</h3>
+              <h3 className="text-xl font-semibold text-gray-200">Complete Example with Security</h3>
               <button
                 onClick={() => copyToClipboard(fullExampleCode, 'complete')}
-                className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-400 hover:text-gray-100 transition-colors p-2 rounded-lg hover:bg-gray-700 flex items-center gap-2"
               >
                 {copiedId === 'complete' ? (
                   <>
@@ -367,12 +367,12 @@ Build on this foundation for more complex agents that need to handle user input 
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
               <HiOutlineCommandLine className="w-5 h-5 text-blue-400" />
-              <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
+              <h3 className="text-xl font-semibold text-gray-200">Expected Output</h3>
             </div>
             
             <div className="p-6">
-              <div className="bg-black/50 rounded-lg p-4 font-mono text-sm">
-                <pre className="text-blue-800 whitespace-pre-wrap">
+              <div className="bg-gray-950 rounded-lg p-4 font-mono text-sm">
+                <pre className="text-green-400 whitespace-pre-wrap">
                   {`=== Calculator Agent Demo ===
 
 Test 1: What's 25 + 17 * 3?
@@ -428,7 +428,7 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Advanced Features</h3>
             <div className="space-y-3 text-sm">
-              <div className="p-3 bg-gray-900/5 border border-gray-200 rounded">
+              <div className="p-3 bg-gray-50 border border-gray-200 rounded">
                 <p className="text-blue-700 font-medium mb-1 flex items-center gap-2">
                   <FaWrench className="w-4 h-4" />
                   <span>Multiple Tools</span>
@@ -439,7 +439,7 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
                   <li>• <code>validate_expression()</code> - Input checking</li>
                 </ul>
               </div>
-              <div className="p-3 bg-gray-900/5 border border-gray-200 rounded">
+              <div className="p-3 bg-gray-50 border border-gray-200 rounded">
                 <p className="text-blue-700 font-medium mb-1 flex items-center gap-2">
                   <FaBullseye className="w-4 h-4" />
                   <span>System Prompt</span>

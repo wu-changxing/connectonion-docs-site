@@ -11,7 +11,7 @@ const examples = [
     description: 'Basic conversational agent with helpful personality',
     icon: HiOutlineUser,
     color: 'text-green-400',
-    bg: 'bg-gray-900/5 border-gray-200',
+    bg: 'bg-gray-50 border-gray-200',
     difficulty: 'Beginner',
     concepts: ['Basic personality', 'Conversational tone', 'Helpful behavior'],
     href: '/prompts/examples/friendly-assistant'
@@ -22,7 +22,7 @@ const examples = [
     description: 'Patient teacher focused on step-by-step explanations',
     icon: HiOutlineCodeBracket,
     color: 'text-blue-400', 
-    bg: 'bg-gray-900/5 border-blue-500/30',
+    bg: 'bg-gray-50 border-blue-500/30',
     difficulty: 'Beginner',
     concepts: ['Educational approach', 'Structured teaching', 'Encouraging feedback'],
     href: '/prompts/examples/math-tutor'
@@ -44,7 +44,7 @@ const examples = [
     description: 'Expert engineer with systematic review methodology',
     icon: HiOutlineCodeBracket,
     color: 'text-gray-500',
-    bg: 'bg-gray-900/20 border-gray-400/30',
+    bg: 'bg-gray-50 border-gray-400/30',
     difficulty: 'Advanced',
     concepts: ['Review frameworks', 'Technical expertise', 'Constructive feedback'],
     href: '/prompts/examples/code-reviewer'
@@ -134,7 +134,7 @@ export default function PromptsExamplesPage() {
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Intermediate</h3>
             <p className="text-yellow-800 text-sm">Structured responses and domain knowledge</p>
-            <p className="text-yellow-300 text-xs mt-2">Example 3</p>
+            <p className="text-gray-500 text-xs mt-2">Example 3</p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-4 bg-orange-600 rounded-full flex items-center justify-center">
@@ -150,7 +150,7 @@ export default function PromptsExamplesPage() {
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Expert</h3>
             <p className="text-red-800 text-sm">Complex decision frameworks and strategic thinking</p>
-            <p className="text-red-300 text-xs mt-2">Examples 6-8</p>
+            <p className="text-gray-500 text-xs mt-2">Examples 6-8</p>
           </div>
         </div>
       </div>
@@ -183,9 +183,9 @@ export default function PromptsExamplesPage() {
                       {example.title}
                     </h3>
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      example.difficulty === 'Beginner' ? 'bg-gray-100 text-green-300' :
-                      example.difficulty === 'Intermediate' ? 'bg-yellow-900/50 text-yellow-300' :
-                      example.difficulty === 'Advanced' ? 'bg-orange-900/50 text-orange-300' : 'bg-red-900/50 text-red-300'
+                      example.difficulty === 'Beginner' ? 'bg-gray-100 text-gray-700' :
+                      example.difficulty === 'Intermediate' ? 'bg-yellow-50 text-yellow-700' :
+                      example.difficulty === 'Advanced' ? 'bg-orange-50 text-orange-700' : 'bg-red-50 text-red-700'
                     }`}>
                       {example.difficulty}
                     </span>

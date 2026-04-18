@@ -18,10 +18,7 @@ export default function GmailPluginPage() {
             { label: 'gmail_plugin' },
           ]}
           icon={HiOutlineEnvelope}
-          iconColor="text-red-400"
-          iconBgFrom="from-red-600/20"
-          iconBgTo="to-pink-600/20"
-          iconBorderColor="border-red-500/30"
+          iconColor="icon-ui"
           title="gmail_plugin"
           description="Email approval and CRM sync for Gmail operations"
           markdownPath="/useful-plugins/gmail_plugin.md"
@@ -167,12 +164,12 @@ def sync_crm_after_send(agent):
               </thead>
               <tbody>
                 <tr className="border-b border-gray-200/50">
-                  <td className="py-2"><code className="text-red-300">before_each_tool</code></td>
+                  <td className="py-2"><code className="text-red-700">before_each_tool</code></td>
                   <td className="py-2">check_email_approval</td>
                   <td className="py-2 text-gray-700">Preview and approve emails</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><code className="text-red-300">after_each_tool</code></td>
+                  <td className="py-2"><code className="text-red-700">after_each_tool</code></td>
                   <td className="py-2">sync_crm_after_send</td>
                   <td className="py-2 text-gray-700">Update CRM after send</td>
                 </tr>

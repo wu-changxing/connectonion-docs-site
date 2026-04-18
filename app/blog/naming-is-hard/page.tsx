@@ -94,7 +94,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
             <CopyMarkdownButton content={content} />
           </div>
 
-          <div className="mt-8 space-y-6 text-gray-200">
+          <div className="mt-8 space-y-6 text-gray-700">
             <p className="text-lg leading-relaxed text-gray-700 italic">
               Naming is hard. We spent days debating whether to call it an "address" or "identity".
               The answer came from asking: what mental model serves developers best?
@@ -193,7 +193,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
             <h2 className="heading-2">The Code Tells the Truth</h2>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden my-6">
-              <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
+              <div className="bg-gray-100 px-4 py-2 border-b border-gray-200">
                 <span className="text-sm text-gray-700 font-mono">address.py</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
@@ -223,7 +223,7 @@ send_message(to=address, content=data)
             </p>
 
             <div className="bg-gray-500/10 border border-yellow-500/20 rounded-lg p-6 my-6">
-              <p className="text-yellow-300 italic text-lg">
+              <p className="text-gray-700 italic text-lg">
                 "For people not familiar with agent development, it will be confusing what is address"
               </p>
             </div>

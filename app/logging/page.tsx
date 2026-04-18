@@ -298,7 +298,7 @@ turns:
                   </p>
                 </div>
 
-                <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/10">
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                   <CodeBlock
                     code={`.co/logs/
 .co/sessions/

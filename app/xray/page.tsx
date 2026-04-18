@@ -18,10 +18,7 @@ export default function XrayPage() {
             { label: '@xray Debugging' }
           ]}
           icon={HiOutlineBugAnt}
-          iconColor="text-gray-500"
-          iconBgFrom="from-gray-700/20"
-          iconBgTo="to-pink-600/20"
-          iconBorderColor="border-gray-400/30"
+          iconColor="icon-ui"
           title="@xray Debugging"
           description="See what your AI agent is thinking. Add one decorator and unlock debugging superpowers."
           markdownPath="/debug/xray.md"
@@ -200,7 +197,7 @@ positive`}
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
                 <HiOutlineCpuChip className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mx-auto mb-2" />
-                <div className="font-mono text-blue-300">xray.agent</div>
+                <div className="font-mono text-gray-700">xray.agent</div>
                 <div className="text-gray-700 text-xs mt-1">Agent Instance</div>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">

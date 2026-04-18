@@ -17,9 +17,33 @@ import { VERSION } from '../lib/version'
 export default function HomePage() {
   return (
     <main>
+      {/* Top Nav */}
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100 px-4 md:px-8 py-3">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2.5">
+            <img src="/onion-logo.png" alt="ConnectOnion" className="w-7 h-7 rounded-md" />
+            <span className="font-semibold text-gray-900 text-sm">ConnectOnion</span>
+          </Link>
+          <div className="flex items-center gap-2">
+            <Link href="/quickstart" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors hidden sm:block">
+              Quickstart
+            </Link>
+            <Link href="/agent" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors hidden sm:block">
+              Docs
+            </Link>
+            <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
+              <FaGithub className="w-4 h-4" />
+            </a>
+            <Link href="/quickstart" className="text-sm font-medium bg-gray-900 text-white px-4 py-1.5 rounded-lg hover:bg-gray-700 transition-colors">
+              Get Started
+            </Link>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="flex items-center justify-center px-4 md:px-6 py-16 md:py-24 relative border-b border-gray-100">
-        <div className="w-full max-w-3xl mx-auto text-center relative z-10">
+      <section className="flex items-center justify-center px-4 md:px-6 py-20 md:py-32 relative border-b border-gray-100">
+        <div className="w-full max-w-2xl mx-auto text-center relative z-10">
           <h1 className="heading-1 mb-2">
             ConnectOnion
           </h1>
@@ -36,9 +60,7 @@ export default function HomePage() {
 
           {/* Install Command */}
           <div className="mb-6 max-w-md mx-auto">
-            <div className="bg-gray-900 border border-gray-700 rounded-xl p-2 shadow-sm">
-              <CommandBlock commands={['pip install connectonion']} />
-            </div>
+            <CommandBlock commands={['pip install connectonion']} />
           </div>
 
           {/* Quick Code Example */}
@@ -251,9 +273,7 @@ agent.input("What's the weather in NYC?")`}
           </div>
 
           <div className="mb-6 max-w-md mx-auto">
-            <div className="bg-gray-900 border border-gray-700 rounded-xl p-2">
-              <CommandBlock commands={['pip install connectonion']} />
-            </div>
+            <CommandBlock commands={['pip install connectonion']} />
           </div>
 
           <Link href="/quickstart" className="btn btn-primary inline-flex items-center gap-2">

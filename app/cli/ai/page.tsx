@@ -23,10 +23,7 @@ export default function CliAiPage() {
               { label: 'co ai' }
             ]}
             icon={HiOutlineSparkles}
-            iconColor="text-gray-500"
-            iconBgFrom="from-gray-700/20"
-            iconBgTo="to-pink-600/20"
-            iconBorderColor="border-gray-400/30"
+            iconColor="icon-ui"
             title="co ai"
             description="AI coding agent that works in your project. Start a web chat session or run one-shot prompts — with full access to your files, shell, and tools."
             markdownPath="/cli/ai.md"

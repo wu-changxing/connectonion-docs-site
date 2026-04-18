@@ -19,9 +19,6 @@ export default function InputPage() {
           ]}
           icon={HiOutlineLanguage}
           iconColor="icon-ui"
-          iconBgFrom="from-blue-600/20"
-          iconBgTo="to-cyan-600/20"
-          iconBorderColor="border-blue-500/30"
           title="Input"
           description="Smart text input with trigger-based autocomplete"
           markdownPath="/tui/input.md"

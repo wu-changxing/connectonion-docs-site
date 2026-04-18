@@ -18,10 +18,7 @@ export default function OutlookPage() {
             { label: 'Outlook' }
           ]}
           icon={HiOutlineEnvelope}
-          iconColor="text-blue-400"
-          iconBgFrom="from-blue-600/20"
-          iconBgTo="to-cyan-600/20"
-          iconBorderColor="border-blue-500/30"
+          iconColor="icon-ui"
           title="Outlook"
           description="Give your agents full Outlook access via Microsoft Graph API. Read, search, send, and manage emails."
           markdownPath="/useful_tools/outlook.md"
@@ -102,7 +99,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
               <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                 <h4 className="font-semibold text-green-700 font-mono mb-2">search_emails(query, max_results=10)</h4>
                 <p className="text-gray-700 text-sm mb-4">Search emails using Microsoft Graph search</p>
-                <div className="bg-gray-800 rounded-lg p-4">
+                <div className="bg-gray-50 rounded-lg p-4">
                   <p className="text-sm text-gray-700 mb-2">Example queries:</p>
                   <ul className="text-sm text-gray-700 space-y-1 font-mono">
                     <li>"quarterly report"</li>
@@ -122,7 +119,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
 
               <div className="space-y-4">
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-emerald-300 font-mono mb-2">send(to, subject, body, cc=None, bcc=None)</h4>
+                  <h4 className="font-semibold text-emerald-700 font-mono mb-2">send(to, subject, body, cc=None, bcc=None)</h4>
                   <p className="text-gray-700 text-sm mb-4">Send email via Microsoft Graph API</p>
                   <ul className="text-sm text-gray-700 space-y-1">
                     <li><code className="bg-gray-100 px-1 rounded">to</code> - Recipient email (comma-separated for multiple)</li>
@@ -134,7 +131,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-emerald-300 font-mono mb-2">reply(email_id, body)</h4>
+                  <h4 className="font-semibold text-emerald-700 font-mono mb-2">reply(email_id, body)</h4>
                   <p className="text-gray-700 text-sm">Reply to an existing email</p>
                 </div>
               </div>

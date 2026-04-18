@@ -17,10 +17,7 @@ export default function KeysPage() {
             { label: 'Keyboard Input' },
           ]}
           icon={HiOutlineCommandLine}
-          iconColor="text-red-400"
-          iconBgFrom="from-red-600/20"
-          iconBgTo="to-pink-600/20"
-          iconBorderColor="border-red-500/30"
+          iconColor="icon-ui"
           title="Keyboard Input"
           description="Low-level keyboard input primitives"
           markdownPath="/tui/keys.md"
@@ -149,7 +146,7 @@ while True:
               <h3 className="font-semibold text-gray-900 mb-2">Unix/macOS</h3>
               <p className="text-sm text-gray-700">Uses <code>termios</code> + <code>tty</code></p>
             </div>
-            <div className="p-4 bg-gray-900/20 border border-gray-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-900 mb-2">Windows</h3>
               <p className="text-sm text-gray-700">Uses <code>msvcrt</code></p>
             </div>

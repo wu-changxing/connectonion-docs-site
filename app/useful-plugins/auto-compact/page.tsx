@@ -16,10 +16,7 @@ export default function AutoCompactPage() {
             { label: 'auto_compact' }
           ]}
           icon={HiOutlineArrowPath}
-          iconColor="text-cyan-400"
-          iconBgFrom="from-cyan-600/20"
-          iconBgTo="to-blue-600/20"
-          iconBorderColor="border-cyan-500/30"
+          iconColor="icon-ui"
           title="auto_compact"
           description="Automatically compress context when the conversation gets too long, preventing token overflow without interrupting the agent."
           markdownPath="/useful-plugins/auto_compact.md"
@@ -108,19 +105,19 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
           <h2 className="heading-2">When to use</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <div className="font-semibold text-cyan-300 mb-1">Long file analysis</div>
+              <div className="font-semibold text-cyan-700 mb-1">Long file analysis</div>
               <p className="text-sm text-gray-600">Agents that read many large files fill context quickly</p>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <div className="font-semibold text-cyan-300 mb-1">Batch operations</div>
+              <div className="font-semibold text-cyan-700 mb-1">Batch operations</div>
               <p className="text-sm text-gray-600">Processing dozens of items in a loop</p>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <div className="font-semibold text-cyan-300 mb-1">co ai sessions</div>
+              <div className="font-semibold text-cyan-700 mb-1">co ai sessions</div>
               <p className="text-sm text-gray-600">Already included by default in <code className="bg-gray-100 px-1 rounded">co ai</code></p>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <div className="font-semibold text-cyan-300 mb-1">Research agents</div>
+              <div className="font-semibold text-cyan-700 mb-1">Research agents</div>
               <p className="text-sm text-gray-600">Extended sessions browsing and summarizing content</p>
             </div>
           </div>
@@ -140,7 +137,7 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-2"><code className="text-cyan-300">after_llm</code></td>
+                  <td className="py-2"><code className="text-cyan-700">after_llm</code></td>
                   <td className="py-2 text-gray-600">check_and_compact</td>
                   <td className="py-2 text-gray-700">Check usage, compact if &gt;= 90%</td>
                 </tr>

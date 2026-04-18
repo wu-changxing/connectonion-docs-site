@@ -14,7 +14,7 @@ const examples = [
     description: 'Learn the fundamentals with a simple math calculator that demonstrates tool creation, input validation, and error handling',
     icon: HiOutlineCalculator,
     color: 'text-blue-400',
-    bgColor: 'bg-gray-900/5',
+    bgColor: 'bg-gray-50',
     borderColor: 'border-blue-500/30',
     difficulty: 'Beginner',
     concepts: ['Function tools', 'Input validation', 'Error handling', 'Safe evaluation'],
@@ -82,7 +82,7 @@ export default function ExamplesPage() {
         </div>
 
         {/* Progressive Learning Path */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/30 to-gray-900/30 rounded-lg border border-blue-500/20">
+        <div className="mb-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
           <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
             <HiOutlineCodeBracket className="w-5 h-5 text-blue-400" />
             Progressive Learning Path
@@ -116,7 +116,7 @@ export default function ExamplesPage() {
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg bg-gray-800 ${example.color}`}>
+                  <div className={`p-2 rounded-lg bg-gray-100 ${example.color}`}>
                     <example.icon className="w-6 h-6" />
                   </div>
                   <div>
@@ -169,7 +169,7 @@ export default function ExamplesPage() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center py-8 px-6 bg-gradient-to-r from-blue-900/30 to-gray-900/30 rounded-lg border border-blue-500/20">
+        <div className="text-center py-8 px-6 bg-blue-50 rounded-lg border border-blue-200">
           <h2 className="heading-2">Ready to Build Your First Agent?</h2>
           <p className="text-gray-700 mb-6">
             Start with the Calculator example to learn the fundamentals, then advance to Browser automation

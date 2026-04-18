@@ -71,7 +71,7 @@ export default function WebSocketProtocolPage() {
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-cyan-300">CONNECT</td>
+                  <td className="px-4 py-3 font-mono text-cyan-700">CONNECT</td>
                   <td className="px-4 py-3 text-gray-700">&quot;Authenticate me, restore my session&quot;</td>
                   <td className="px-4 py-3 text-gray-600">First message on every WebSocket</td>
                 </tr>
@@ -251,7 +251,7 @@ export default function WebSocketProtocolPage() {
           {/* Client → Server */}
           <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Client → Server</h3>
 
-          <h4 className="text-lg font-semibold text-cyan-300 mt-6 mb-2">CONNECT</h4>
+          <h4 className="text-lg font-semibold text-cyan-700 mt-6 mb-2">CONNECT</h4>
           <p className="text-gray-700 mb-4">
             Authenticate, restore session, and sync conversation. <strong>Always the first message.</strong>
           </p>
@@ -330,7 +330,7 @@ export default function WebSocketProtocolPage() {
                 <tr>
                   <td className="px-4 py-3 text-gray-600">Provided</td>
                   <td className="px-4 py-3 text-gray-600">In registry, connected/suspended</td>
-                  <td className="px-4 py-3 font-mono text-cyan-300">&quot;connected&quot;</td>
+                  <td className="px-4 py-3 font-mono text-cyan-700">&quot;connected&quot;</td>
                   <td className="px-4 py-3 text-gray-600">Merge sessions, reset idle timer</td>
                 </tr>
                 <tr>
@@ -416,7 +416,7 @@ export default function WebSocketProtocolPage() {
           {/* Server → Client */}
           <h3 className="text-xl font-semibold text-gray-900 mt-12 mb-4">Server → Client</h3>
 
-          <h4 className="text-lg font-semibold text-cyan-300 mt-6 mb-2">CONNECTED</h4>
+          <h4 className="text-lg font-semibold text-cyan-700 mt-6 mb-2">CONNECTED</h4>
           <p className="text-gray-700 mb-4">Response to CONNECT.</p>
           <JsonBlock>{`{
   "type": "CONNECTED",
@@ -443,7 +443,7 @@ export default function WebSocketProtocolPage() {
                   <td className="px-4 py-3 text-gray-600">Send INPUT when ready</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-cyan-300">&quot;connected&quot;</td>
+                  <td className="px-4 py-3 font-mono text-cyan-700">&quot;connected&quot;</td>
                   <td className="px-4 py-3 text-gray-700">Session alive, idle</td>
                   <td className="px-4 py-3 text-gray-600">Send INPUT when ready</td>
                 </tr>

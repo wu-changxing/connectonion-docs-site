@@ -17,10 +17,7 @@ export default function ShellPage() {
             { label: 'Shell' }
           ]}
           icon={HiOutlineCommandLine}
-          iconColor="text-orange-400"
-          iconBgFrom="from-orange-600/20"
-          iconBgTo="to-red-600/20"
-          iconBorderColor="border-orange-500/30"
+          iconColor="icon-ui"
           title="Shell"
           description="Shell command execution tool."
           markdownPath="/useful-tools/shell.md"

@@ -17,10 +17,7 @@ export default function FooterPage() {
             { label: 'Footer' },
           ]}
           icon={HiOutlineRectangleGroup}
-          iconColor="text-orange-400"
-          iconBgFrom="from-orange-600/20"
-          iconBgTo="to-yellow-600/20"
-          iconBorderColor="border-orange-500/30"
+          iconColor="icon-ui"
           title="Footer"
           description="Simple footer with tips/hints display"
           markdownPath="/tui/footer.md"

@@ -78,7 +78,7 @@ export default function SessionReconnectPage() {
               <p className="text-sm text-gray-600">Keeps the agent thread and IO queues alive so a reconnecting client resumes mid-execution.</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="text-sm font-semibold text-emerald-300 mb-2">Disk (JSONL)</p>
+              <p className="text-sm font-semibold text-emerald-700 mb-2">Disk (JSONL)</p>
               <p className="text-sm text-gray-600">Stores final results so a client that never reconnects can poll later.</p>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function SessionReconnectPage() {
               </thead>
               <tbody className="divide-y divide-gray-700">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-cyan-300">→ RUNNING</td>
+                  <td className="px-4 py-3 font-mono text-cyan-700">→ RUNNING</td>
                   <td className="px-4 py-3 text-gray-700">register()</td>
                   <td className="px-4 py-3 text-gray-600">Agent thread spawned, IO queues created</td>
                 </tr>
@@ -127,7 +127,7 @@ export default function SessionReconnectPage() {
                   <td className="px-4 py-3 text-gray-600">Agent keeps running, queues buffer events</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-cyan-300">→ RUNNING</td>
+                  <td className="px-4 py-3 font-mono text-cyan-700">→ RUNNING</td>
                   <td className="px-4 py-3 text-gray-700">Client reconnects (same session_id)</td>
                   <td className="px-4 py-3 text-gray-600">Same IO queues reattached to new WebSocket</td>
                 </tr>
@@ -460,7 +460,7 @@ T+10   New WebSocket connects → CONNECT { session_id }
           </div>
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-6">
-            <p className="text-sm font-semibold text-amber-300 mb-2">Fix plan</p>
+            <p className="text-sm font-semibold text-amber-700 mb-2">Fix plan</p>
             <div className="space-y-2 text-sm text-gray-600">
               <p>1. <strong>run_agent()</strong>: wrap in try/finally — always set agent_finished, capture error in error_holder.</p>
               <p>2. <strong>Reattach</strong>: reopen IO — reset io._closed = False so agent can send events through new WebSocket.</p>

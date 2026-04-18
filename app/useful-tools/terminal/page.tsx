@@ -17,10 +17,7 @@ export default function TerminalPage() {
             { label: 'Terminal' }
           ]}
           icon={HiOutlineCommandLine}
-          iconColor="text-orange-400"
-          iconBgFrom="from-orange-600/20"
-          iconBgTo="to-red-600/20"
-          iconBorderColor="border-orange-500/30"
+          iconColor="icon-ui"
           title="Terminal"
           description="Interactive terminal utilities: selection menus, file browser, and input with autocomplete."
           markdownPath="/useful-tools/terminal.md"
@@ -113,32 +110,32 @@ choice = pick("Continue?", {
         {/* Keyboard Controls */}
         <section className="mb-12">
           <h2 className="heading-2">Keyboard Controls</h2>
-          <div className="overflow-x-auto rounded-lg border border-slate-700">
+          <div className="overflow-x-auto rounded-lg border border-gray-200">
             <table className="w-full text-sm text-left">
-              <thead className="text-xs uppercase bg-slate-800/50">
+              <thead className="text-xs uppercase bg-gray-100">
                 <tr>
-                  <th className="px-4 py-3 text-slate-200">Key</th>
-                  <th className="px-4 py-3 text-slate-200">Action</th>
+                  <th className="px-4 py-3 text-gray-700">Key</th>
+                  <th className="px-4 py-3 text-gray-700">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-700">
-                <tr className="bg-slate-900/30">
+              <tbody className="divide-y divide-gray-200">
+                <tr className="bg-gray-50">
                   <td className="px-4 py-3 font-mono text-orange-300">↑/↓</td>
                   <td className="px-4 py-3 text-gray-700">Navigate options</td>
                 </tr>
-                <tr className="bg-slate-900/30">
+                <tr className="bg-gray-50">
                   <td className="px-4 py-3 font-mono text-orange-300">1-9</td>
                   <td className="px-4 py-3 text-gray-700">Quick select by number</td>
                 </tr>
-                <tr className="bg-slate-900/30">
+                <tr className="bg-gray-50">
                   <td className="px-4 py-3 font-mono text-orange-300">Enter</td>
                   <td className="px-4 py-3 text-gray-700">Confirm selection</td>
                 </tr>
-                <tr className="bg-slate-900/30">
+                <tr className="bg-gray-50">
                   <td className="px-4 py-3 font-mono text-orange-300">Esc</td>
                   <td className="px-4 py-3 text-gray-700">Cancel</td>
                 </tr>
-                <tr className="bg-slate-900/30">
+                <tr className="bg-gray-50">
                   <td className="px-4 py-3 font-mono text-orange-300">@</td>
                   <td className="px-4 py-3 text-gray-700">Trigger file autocomplete</td>
                 </tr>

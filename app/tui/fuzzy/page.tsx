@@ -17,10 +17,7 @@ export default function FuzzyPage() {
             { label: 'Fuzzy Matching' },
           ]}
           icon={HiOutlineMagnifyingGlass}
-          iconColor="text-yellow-400"
-          iconBgFrom="from-yellow-600/20"
-          iconBgTo="to-orange-600/20"
-          iconBorderColor="border-yellow-500/30"
+          iconColor="icon-ui"
           title="Fuzzy Matching"
           description="Fuzzy matching utilities for autocomplete"
           markdownPath="/tui/fuzzy.md"

@@ -17,10 +17,7 @@ export default function ChatPage() {
             { label: 'Chat' },
           ]}
           icon={HiOutlineChatBubbleLeftRight}
-          iconColor="text-emerald-400"
-          iconBgFrom="from-emerald-600/20"
-          iconBgTo="to-cyan-600/20"
-          iconBorderColor="border-emerald-500/30"
+          iconColor="icon-ui"
           title="Chat"
           description="Full-featured terminal chat interface for AI agents"
           markdownPath="/tui/chat.md"

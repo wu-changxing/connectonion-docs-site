@@ -106,7 +106,7 @@ The best tool is one you forget you're using. That's what we built.`
             <CopyMarkdownButton content={content} />
           </div>
 
-          <div className="mt-8 space-y-6 text-gray-200">
+          <div className="mt-8 space-y-6 text-gray-700">
             <p className="text-lg leading-relaxed text-gray-700 italic">
               Most framework CLIs bombard users with questions that don't matter yet.
               We chose progressive disclosure: start fast, decide later, respect intelligence.
@@ -148,7 +148,7 @@ The best tool is one you forget you're using. That's what we built.`
             <h2 className="heading-2">The Two-Command Strategy</h2>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden my-6">
-              <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
+              <div className="bg-gray-100 px-4 py-2 border-b border-gray-200">
                 <span className="text-sm text-gray-700 font-mono">terminal</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
@@ -194,7 +194,7 @@ co init             # Uses current directory`}</code>
             <h2 className="heading-2">Smart API Key Detection</h2>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden my-6">
-              <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
+              <div className="bg-gray-100 px-4 py-2 border-b border-gray-200">
                 <span className="text-sm text-gray-700 font-mono">api_detection.py</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">

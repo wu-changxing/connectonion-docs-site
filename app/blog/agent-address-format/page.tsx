@@ -93,7 +93,7 @@ Don't pretend to be something you're not. Our addresses aren't Ethereum addresse
             <CopyMarkdownButton content={content} />
           </div>
 
-          <div className="mt-8 space-y-6 text-gray-200">
+          <div className="mt-8 space-y-6 text-gray-700">
             <p className="text-lg leading-relaxed text-gray-700 italic">
               When designing agent network identities, we chose hex-encoded Ed25519 public keys with a 0x prefix.
               Familiar to developers, fast for agents, and honest about what it represents.
@@ -134,7 +134,7 @@ Don't pretend to be something you're not. Our addresses aren't Ethereum addresse
 
             <div className="grid md:grid-cols-3 gap-6 my-8">
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-green-300 mb-4">Performance</h3>
+                <h3 className="text-xl font-semibold text-gray-700 mb-4">Performance</h3>
                 <p className="text-gray-700 text-sm">
                   Ed25519: ~70,000 sig/sec<br/>
                   Secp256k1: ~20,000 sig/sec
@@ -142,8 +142,8 @@ Don't pretend to be something you're not. Our addresses aren't Ethereum addresse
                 <p className="text-green-400 font-bold mt-2">3.5x faster</p>
               </div>
 
-              <div className="bg-gray-50 border border-blue-500/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-blue-300 mb-4">Security</h3>
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                <h3 className="text-xl font-semibold text-gray-700 mb-4">Security</h3>
                 <ul className="text-gray-700 text-sm space-y-1">
                   <li>Deterministic signatures</li>
                   <li>Timing attack resistant</li>
@@ -185,7 +185,7 @@ Don't pretend to be something you're not. Our addresses aren't Ethereum addresse
             <h2 className="heading-2">Developer Experience</h2>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden my-6">
-              <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
+              <div className="bg-gray-100 px-4 py-2 border-b border-gray-200">
                 <span className="text-sm text-gray-700 font-mono">address.py</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">

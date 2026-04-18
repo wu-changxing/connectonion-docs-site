@@ -19,9 +19,6 @@ export default function EvalPluginPage() {
           ]}
           icon={HiOutlineCodeBracket}
           iconColor="icon-ui"
-          iconBgFrom="from-blue-600/20"
-          iconBgTo="to-cyan-600/20"
-          iconBorderColor="border-blue-500/30"
           title="eval"
           description="Debug and test your agent prompts and tools"
           markdownPath="/useful-plugins/eval.md"

@@ -18,10 +18,7 @@ export default function CalendarPluginPage() {
             { label: 'calendar_plugin' },
           ]}
           icon={HiOutlineCalendar}
-          iconColor="text-cyan-400"
-          iconBgFrom="from-cyan-600/20"
-          iconBgTo="to-blue-600/20"
-          iconBorderColor="border-cyan-500/30"
+          iconColor="icon-ui"
           title="calendar_plugin"
           description="Require approval for calendar modifications"
           markdownPath="/useful-plugins/calendar_plugin.md"
@@ -225,7 +222,7 @@ def check_calendar_approval(agent):
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-2"><code className="text-cyan-300">before_each_tool</code></td>
+                  <td className="py-2"><code className="text-cyan-700">before_each_tool</code></td>
                   <td className="py-2">check_calendar_approval</td>
                   <td className="py-2 text-gray-700">Preview and approve calendar changes</td>
                 </tr>

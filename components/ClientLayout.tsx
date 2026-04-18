@@ -6,6 +6,7 @@
  */
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { DocsSidebar } from './DocsSidebar'
 import { MobileDocsNav } from './MobileDocsNav'
 import Footer from './Footer'
@@ -16,6 +17,18 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode
 }) {
+  const pathname = usePathname()
+  const isHomepage = pathname === '/'
+
+  if (isHomepage) {
+    return (
+      <>
+        <main>{children}</main>
+        <Footer />
+      </>
+    )
+  }
+
   return (
     <>
       {/* Mobile Documentation Navigation */}
@@ -33,7 +46,7 @@ export default function ClientLayout({
             <div className="flex-1 min-w-0">
               {children}
             </div>
-            <div className="hidden xl:block px-6 py-24 flex-shrink-0">
+            <div className="hidden lg:block px-4 pt-8 flex-shrink-0">
               <OnThisPage />
             </div>
           </div>

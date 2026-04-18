@@ -78,10 +78,7 @@ export default function QuickStartPage() {
             { label: 'Quick Start' }
           ]}
           icon={HiOutlinePlay}
-          iconColor="text-gray-500"
-          iconBgFrom="from-gray-50"
-          iconBgTo="to-gray-100"
-          iconBorderColor="border-gray-200"
+          iconColor="icon-ui"
           title="Quick Start Guide"
           description="Get up and running with ConnectOnion in under 2 minutes."
           markdownPath="/quickstart/quickstart.md"

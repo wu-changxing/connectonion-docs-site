@@ -214,12 +214,12 @@ ${expectedOutput}
       <div className="grid lg:grid-cols-2 gap-12">
         {/* Prompt Content */}
         <div className="space-y-8">
-          <div className="bg-gray-900 border border-gray-700 rounded-lg">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
+          <div className="bg-white border border-gray-200 rounded-lg">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
               <h3 className="text-xl font-semibold text-gray-900">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-gray-700 hover:text-gray-100 transition-colors p-2 rounded-lg hover:bg-gray-700 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-700 transition-colors p-2 rounded-lg hover:bg-gray-100 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -261,12 +261,12 @@ ${expectedOutput}
           </div>
 
           {/* Usage Example */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
+          <div className="bg-white border border-gray-200 rounded-lg">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
               <h3 className="text-xl font-semibold text-gray-900">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-gray-700 hover:text-gray-100 transition-colors p-2 rounded-lg hover:bg-gray-700 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-700 transition-colors p-2 rounded-lg hover:bg-gray-100 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -309,14 +309,14 @@ ${expectedOutput}
         {/* Right Panel */}
         <div className="space-y-8">
           {/* Expected Output */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg">
-            <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
+          <div className="bg-white border border-gray-200 rounded-lg">
+            <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-200">
               <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-cyan-400" />
               <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
             <div className="p-6">
-              <div className="bg-black/50 rounded-lg p-4 font-mono text-sm ">
+              <div className="bg-gray-950 rounded-lg p-4 font-mono text-sm ">
                 <pre className="text-cyan-200 whitespace-pre-wrap">
                   {expectedOutput}
                 </pre>

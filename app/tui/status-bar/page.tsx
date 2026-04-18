@@ -17,10 +17,7 @@ export default function StatusBarPage() {
             { label: 'StatusBar' },
           ]}
           icon={HiOutlineChartBar}
-          iconColor="text-cyan-400"
-          iconBgFrom="from-cyan-600/20"
-          iconBgTo="to-blue-600/20"
-          iconBorderColor="border-cyan-500/30"
+          iconColor="icon-ui"
           title="StatusBar"
           description="Powerline-style status bar with colored segments"
           markdownPath="/tui/status-bar.md"

@@ -217,7 +217,7 @@ Sometimes the best API design decision is the one that makes developers forget t
               <CopyMarkdownButton content={fullContent} />
             </div>
 
-            <div className="mt-8 space-y-6 text-gray-200">
+            <div className="mt-8 space-y-6 text-gray-700">
               <p className="text-lg leading-relaxed text-gray-700 italic">
                 The power of aligning with user mental models
               </p>
@@ -227,7 +227,7 @@ Sometimes the best API design decision is the one that makes developers forget t
               </p>
 
               <h2 className="heading-2">The Problem with `run()`</h2>
-              <p>We initially followed industry convention with <code className="bg-gray-100 text-blue-300 px-2 py-1 rounded font-mono text-sm">agent.run(prompt)</code>. It seemed logical - agents "run" tasks, right? But user feedback revealed a critical issue:</p>
+              <p>We initially followed industry convention with <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded font-mono text-sm">agent.run(prompt)</code>. It seemed logical - agents "run" tasks, right? But user feedback revealed a critical issue:</p>
               
               <div className="bg-red-900/20 border border-red-200 rounded-lg p-6 my-6">
                 <p className="text-red-800 font-semibold text-lg">The word "run" created cognitive friction.</p>
@@ -239,12 +239,12 @@ Sometimes the best API design decision is the one that makes developers forget t
               <p>We studied how new users approached our API without reading documentation:</p>
 
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-8">
-                <h3 className="text-xl font-semibold text-blue-300 mb-4">First Attempts by New Users:</h3>
+                <h3 className="text-xl font-semibold text-gray-700 mb-4">First Attempts by New Users:</h3>
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-700">agent.input()</span>
                     <div className="flex items-center gap-2">
-                      <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
+                      <div className="w-32 bg-gray-200 rounded-full h-3 overflow-hidden">
                         <div className="bg-gray-500 h-full" style={{width: '40%'}}></div>
                       </div>
                       <span className="text-gray-700 text-sm">40%</span>
@@ -253,7 +253,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                   <div className="flex items-center justify-between">
                     <span className="text-gray-700">agent.ask()</span>
                     <div className="flex items-center gap-2">
-                      <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
+                      <div className="w-32 bg-gray-200 rounded-full h-3 overflow-hidden">
                         <div className="bg-gray-500 h-full" style={{width: '18%'}}></div>
                       </div>
                       <span className="text-gray-700 text-sm">18%</span>
@@ -262,7 +262,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                   <div className="flex items-center justify-between">
                     <span className="text-gray-700">agent.chat()</span>
                     <div className="flex items-center gap-2">
-                      <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
+                      <div className="w-32 bg-gray-200 rounded-full h-3 overflow-hidden">
                         <div className="bg-gray-500 h-full" style={{width: '15%'}}></div>
                       </div>
                       <span className="text-gray-700 text-sm">15%</span>
@@ -271,7 +271,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                   <div className="flex items-center justify-between">
                     <span className="text-gray-700">agent.run()</span>
                     <div className="flex items-center gap-2">
-                      <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
+                      <div className="w-32 bg-gray-200 rounded-full h-3 overflow-hidden">
                         <div className="bg-red-500 h-full" style={{width: '12%'}}></div>
                       </div>
                       <span className="text-gray-700 text-sm">12%</span>
@@ -280,7 +280,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                   <div className="flex items-center justify-between">
                     <span className="text-gray-700">agent.process()</span>
                     <div className="flex items-center gap-2">
-                      <div className="w-32 bg-gray-800 rounded-full h-3 overflow-hidden">
+                      <div className="w-32 bg-gray-200 rounded-full h-3 overflow-hidden">
                         <div className="bg-gray-500 h-full" style={{width: '8%'}}></div>
                       </div>
                       <span className="text-gray-700 text-sm">8%</span>
@@ -301,7 +301,7 @@ Sometimes the best API design decision is the one that makes developers forget t
 
               <h2 className="heading-2">The Deeper Principle</h2>
               
-              <div className="bg-gray-50 border border-blue-500/20 rounded-xl p-6 my-8">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
                 <p className="text-blue-800 font-semibold text-lg mb-4">
                   Design APIs from the user's perspective, not the system's perspective.
                 </p>
@@ -336,35 +336,35 @@ Sometimes the best API design decision is the one that makes developers forget t
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">1</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-blue-300 mb-1">Challenge Industry Conventions</h3>
+                    <h3 className="text-lg font-semibold text-gray-700 mb-1">Challenge Industry Conventions</h3>
                     <p className="text-gray-700">Just because everyone uses `run()` doesn't mean it's right. Question everything.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">2</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-blue-300 mb-1">Data Beats Opinion</h3>
+                    <h3 className="text-lg font-semibold text-gray-700 mb-1">Data Beats Opinion</h3>
                     <p className="text-gray-700">We had strong opinions about `run()`. Our users' behavior proved us wrong.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">3</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-blue-300 mb-1">Small Words, Big Impact</h3>
+                    <h3 className="text-lg font-semibold text-gray-700 mb-1">Small Words, Big Impact</h3>
                     <p className="text-gray-700">A three-letter change (`run` → `input`) transformed our user experience.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">4</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-blue-300 mb-1">Design for Mental Models</h3>
+                    <h3 className="text-lg font-semibold text-gray-700 mb-1">Design for Mental Models</h3>
                     <p className="text-gray-700">Align with how users think, not how systems work.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">5</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-blue-300 mb-1">The Best API Needs No Documentation</h3>
+                    <h3 className="text-lg font-semibold text-gray-700 mb-1">The Best API Needs No Documentation</h3>
                     <p className="text-gray-700">When users guess correctly, you've found the right name.</p>
                   </div>
                 </div>

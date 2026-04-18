@@ -58,10 +58,7 @@ export default function LLMPage() {
           { label: 'LLM Function' }
         ]}
         icon={HiOutlineBolt}
-        iconColor="text-blue-400"
-        iconBgFrom="from-blue-600/20"
-        iconBgTo="to-gray-700/20"
-        iconBorderColor="border-blue-500/30"
+        iconColor="icon-ui"
         title="One-shot LLM Calls"
         description="Make direct LLM calls with optional structured output. Supports OpenAI, Google Gemini, and Anthropic models through a unified interface."
         markdownPath="/llm_do/llm_do.md"

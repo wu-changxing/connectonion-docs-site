@@ -141,13 +141,16 @@ export function CommandBlock({ title, commands, id }: CommandBlockProps) {
           )}
         </button>
       </div>
-      <div className="bg-black p-4 font-mono text-sm overflow-x-auto">
-        {commands.map((cmd, index) => (
-          <div key={index} className="group hover:bg-white/5 -mx-4 px-4 py-0.5 transition-colors">
-            <span className="select-none text-green-400 mr-2">$</span>
-            {colorizeCommand(cmd)}
-          </div>
-        ))}
+      <div className="relative">
+        <div className="bg-black p-4 font-mono text-sm overflow-x-auto">
+          {commands.map((cmd, index) => (
+            <div key={index} className="group hover:bg-white/5 -mx-4 px-4 py-0.5 transition-colors whitespace-nowrap">
+              <span className="select-none text-green-400 mr-2">$</span>
+              {colorizeCommand(cmd)}
+            </div>
+          ))}
+        </div>
+        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black to-transparent pointer-events-none sm:hidden" />
       </div>
     </div>
   )

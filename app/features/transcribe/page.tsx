@@ -19,10 +19,7 @@ export default function TranscribePage() {
           { label: 'Transcribe' }
         ]}
         icon={HiOutlineMicrophone}
-        iconColor="text-gray-500"
-        iconBgFrom="from-gray-700/20"
-        iconBgTo="to-pink-600/20"
-        iconBorderColor="border-gray-400/30"
+        iconColor="icon-ui"
         title="Audio Transcription"
         description="Convert audio files to text using Gemini's multimodal capabilities. Simple one-function interface for transcription."
         markdownPath="/transcribe/transcribe.md"

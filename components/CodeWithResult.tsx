@@ -196,6 +196,7 @@ export default function CodeWithResult({
               {copied ? <HiOutlineCheck className="w-5 h-5 text-green-400" /> : <HiOutlineClipboard className="w-5 h-5" />}
             </button>
           </div>
+          <div className="relative">
           <div className="p-4 md:p-6 overflow-x-auto custom-scrollbar">
             <SyntaxHighlighter
               language={language}
@@ -221,6 +222,8 @@ export default function CodeWithResult({
             >
               {code}
             </SyntaxHighlighter>
+          </div>
+          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-gray-900 to-transparent pointer-events-none sm:hidden" />
           </div>
         </div>
 

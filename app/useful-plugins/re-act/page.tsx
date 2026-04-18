@@ -18,10 +18,7 @@ export default function ReActPluginPage() {
             { label: 're_act' },
           ]}
           icon={HiOutlineCpuChip}
-          iconColor="text-gray-500"
-          iconBgFrom="from-gray-700/20"
-          iconBgTo="to-pink-600/20"
-          iconBorderColor="border-gray-400/30"
+          iconColor="icon-ui"
           title="re_act"
           description="ReAct (Reason + Act) pattern for intelligent agents"
           markdownPath="/useful-plugins/re_act.md"

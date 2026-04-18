@@ -178,7 +178,7 @@ export default function TUIPage() {
         </div>
 
         {/* Quick Start */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-gray-900/30 to-cyan-900/30 rounded-lg border border-gray-200">
+        <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="heading-2 flex items-center gap-2">
             <HiOutlineCodeBracket className="w-5 h-5 text-gray-500" />
             Quick Start

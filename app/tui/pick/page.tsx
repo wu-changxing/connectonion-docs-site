@@ -17,10 +17,7 @@ export default function PickPage() {
             { label: 'pick' },
           ]}
           icon={HiOutlineChevronDown}
-          iconColor="text-gray-500"
-          iconBgFrom="from-gray-700/20"
-          iconBgTo="to-pink-600/20"
-          iconBorderColor="border-gray-400/30"
+          iconColor="icon-ui"
           title="pick"
           description="Single-select menu with keyboard navigation"
           markdownPath="/tui/pick.md"

@@ -16,17 +16,14 @@ export default function BashPage() {
             { label: 'bash' }
           ]}
           icon={HiOutlineCommandLine}
-          iconColor="text-gray-500"
-          iconBgFrom="from-slate-600/20"
-          iconBgTo="to-gray-600/20"
-          iconBorderColor="border-slate-500/30"
+          iconColor="icon-ui"
           title="bash"
           description="Execute bash commands from an agent. Returns stdout + stderr as a string. Unix/Mac only."
           markdownPath="/useful-tools/bash.md"
           markdownFilename="bash.md"
         />
 
-        <div className="bg-slate-950/50 border border-slate-400/40 rounded-lg p-6 mb-16">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-16">
           <p className="text-lg font-semibold text-gray-700">
             The simplest way to give an agent shell access: <code className="bg-gray-100 px-2 py-1 rounded">from connectonion import bash</code> and pass it as a tool.
           </p>

@@ -290,7 +290,7 @@ export default function LinksPage() {
           url: 'mailto:contact@connectonion.com',
           icon: HiOutlineEnvelope,
           color: 'text-gray-700',
-          bgColor: 'bg-gray-800/30',
+          bgColor: 'bg-gray-50',
           borderColor: 'border-gray-600/30',
           external: true,
           available: false

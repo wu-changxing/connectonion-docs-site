@@ -15,10 +15,7 @@ export default function PricingPage() {
           { label: 'Pricing' }
         ]}
         icon={HiOutlineCurrencyDollar}
-        iconColor="text-green-400"
-        iconBgFrom="from-gray-100"
-        iconBgTo="to-blue-600/20"
-        iconBorderColor="border-gray-200"
+        iconColor="icon-ui"
         title="Managed Keys Pricing"
         description="Same pricing as official APIs. No markup, no hidden fees. Pay only for what you use."
       />
@@ -26,7 +23,7 @@ export default function PricingPage() {
       {/* How It Works */}
       <section className="mb-12">
         <h2 className="heading-2">How Managed Keys Work</h2>
-        <div className="bg-gradient-to-br from-gray-900/20 to-blue-900/20 p-6 rounded-xl border border-gray-200 mb-6">
+        <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 mb-6">
           <div className="space-y-4 text-gray-700">
             <div className="flex items-start gap-3">
               <span className="text-gray-500 font-bold text-lg">1.</span>
@@ -56,7 +53,7 @@ export default function PricingPage() {
             <h3 className="text-lg font-semibold text-gray-900 mb-1">Add Credits to Your Account</h3>
             <p className="text-sm text-gray-600">Free tier available — star our GitHub repo for $0.90 free credit</p>
           </div>
-          <HiOutlineArrowTopRightOnSquare className="h-5 w-5 text-blue-400 group-hover:text-blue-300 flex-shrink-0" />
+          <HiOutlineArrowTopRightOnSquare className="h-5 w-5 text-blue-400 group-hover:text-gray-700 flex-shrink-0" />
         </a>
       </section>
 
@@ -64,48 +61,48 @@ export default function PricingPage() {
       <section className="mb-12">
         <h2 className="heading-2">OpenAI Models</h2>
         <div className="overflow-x-auto">
-          <table className="w-full border border-gray-700">
-            <thead className="bg-gray-800">
+          <table className="w-full border border-gray-200">
+            <thead className="bg-gray-50">
               <tr>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Model</th>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Input / 1M tokens</th>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Output / 1M tokens</th>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Best For</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Model</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Input / 1M tokens</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Output / 1M tokens</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Best For</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-700">
+            <tbody className="divide-y divide-gray-200">
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-blue-300">gpt-5</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gpt-5</code></td>
                 <td className="px-4 py-3 text-gray-700">$1.25</td>
                 <td className="px-4 py-3 text-gray-700">$10.00</td>
                 <td className="px-4 py-3 text-gray-600">Coding, agentic tasks</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-blue-300">gpt-5-mini</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gpt-5-mini</code></td>
                 <td className="px-4 py-3 text-gray-700">$0.25</td>
                 <td className="px-4 py-3 text-gray-700">$2.00</td>
                 <td className="px-4 py-3 text-gray-600">Fast, cost-effective</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-blue-300">gpt-5-nano</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gpt-5-nano</code></td>
                 <td className="px-4 py-3 text-gray-700">$0.05</td>
                 <td className="px-4 py-3 text-gray-700">$0.40</td>
                 <td className="px-4 py-3 text-gray-600">Cheapest OpenAI</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-blue-300">gpt-4o</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gpt-4o</code></td>
                 <td className="px-4 py-3 text-gray-700">$2.50</td>
                 <td className="px-4 py-3 text-gray-700">$10.00</td>
                 <td className="px-4 py-3 text-gray-600">Previous gen flagship</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-blue-300">gpt-4o-mini</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gpt-4o-mini</code></td>
                 <td className="px-4 py-3 text-gray-700">$0.15</td>
                 <td className="px-4 py-3 text-gray-700">$0.60</td>
                 <td className="px-4 py-3 text-gray-600">Most cost-effective</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-blue-300">o4-mini</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">o4-mini</code></td>
                 <td className="px-4 py-3 text-gray-700">$3.00</td>
                 <td className="px-4 py-3 text-gray-700">$12.00</td>
                 <td className="px-4 py-3 text-gray-600">Reasoning</td>
@@ -119,37 +116,37 @@ export default function PricingPage() {
       <section className="mb-12">
         <h2 className="heading-2">Google Gemini Models</h2>
         <div className="overflow-x-auto">
-          <table className="w-full border border-gray-700">
-            <thead className="bg-gray-800">
+          <table className="w-full border border-gray-200">
+            <thead className="bg-gray-50">
               <tr>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Model</th>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Input / 1M tokens</th>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Output / 1M tokens</th>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Best For</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Model</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Input / 1M tokens</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Output / 1M tokens</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Best For</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-700">
+            <tbody className="divide-y divide-gray-200">
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-green-300">gemini-3-pro-preview</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3-pro-preview</code></td>
                 <td className="px-4 py-3 text-gray-700">$2.00</td>
                 <td className="px-4 py-3 text-gray-700">$12.00</td>
                 <td className="px-4 py-3 text-gray-600">State-of-the-art reasoning</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-green-300">gemini-3-flash-preview</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3-flash-preview</code></td>
                 <td className="px-4 py-3 text-gray-700">$0.50</td>
                 <td className="px-4 py-3 text-gray-700">$3.00</td>
                 <td className="px-4 py-3 text-gray-600">Fastest Gemini 3</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-green-300">gemini-3.1-flash-lite-preview</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3.1-flash-lite-preview</code></td>
                 <td className="px-4 py-3 text-gray-700">$0.10</td>
                 <td className="px-4 py-3 text-gray-700">$0.40</td>
                 <td className="px-4 py-3 text-gray-600">Ultra fast, cheapest Gemini 3</td>
               </tr>
               <tr>
                 <td className="px-4 py-3">
-                  <code className="text-sm text-green-300">gemini-2.5-pro</code>
+                  <code className="text-sm text-gray-700">gemini-2.5-pro</code>
                   <span className="ml-2 text-xs bg-gray-500/20 text-green-400 px-1.5 py-0.5 rounded">default</span>
                 </td>
                 <td className="px-4 py-3 text-gray-700">$1.25</td>
@@ -157,19 +154,19 @@ export default function PricingPage() {
                 <td className="px-4 py-3 text-gray-600">Agent default, 2M context</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-green-300">gemini-2.5-flash</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-2.5-flash</code></td>
                 <td className="px-4 py-3 text-gray-700">$0.30</td>
                 <td className="px-4 py-3 text-gray-700">$2.50</td>
                 <td className="px-4 py-3 text-gray-600">Best price-performance</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-green-300">gemini-2.5-flash-lite</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-2.5-flash-lite</code></td>
                 <td className="px-4 py-3 text-gray-700">$0.10</td>
                 <td className="px-4 py-3 text-gray-700">$0.40</td>
                 <td className="px-4 py-3 text-gray-600">Ultra fast, cheapest</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-green-300">gemini-2.0-flash</code></td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-2.0-flash</code></td>
                 <td className="px-4 py-3 text-gray-700">$0.10</td>
                 <td className="px-4 py-3 text-gray-700">$0.40</td>
                 <td className="px-4 py-3 text-gray-600">Previous gen workhorse</td>
@@ -183,16 +180,16 @@ export default function PricingPage() {
       <section className="mb-12">
         <h2 className="heading-2">Anthropic Claude Models</h2>
         <div className="overflow-x-auto">
-          <table className="w-full border border-gray-700">
-            <thead className="bg-gray-800">
+          <table className="w-full border border-gray-200">
+            <thead className="bg-gray-50">
               <tr>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Model</th>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Input / 1M tokens</th>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Output / 1M tokens</th>
-                <th className="px-4 py-3 text-left font-semibold text-slate-200">Best For</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Model</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Input / 1M tokens</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Output / 1M tokens</th>
+                <th className="px-4 py-3 text-left font-semibold text-gray-700">Best For</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-700">
+            <tbody className="divide-y divide-gray-200">
               <tr>
                 <td className="px-4 py-3"><code className="text-sm text-orange-300">claude-opus-4-5</code></td>
                 <td className="px-4 py-3 text-gray-700">$5.00</td>
@@ -232,29 +229,29 @@ export default function PricingPage() {
       <section className="mb-12">
         <h2 className="heading-2">FAQ</h2>
         <div className="space-y-4">
-          <div className="bg-gray-900 border border-gray-700 p-5 rounded-lg">
+          <div className="bg-gray-50 border border-gray-200 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">Is there a markup over official API pricing?</h3>
             <p className="text-gray-600 text-sm">No. We charge the same rates as official APIs. The pricing tables above match OpenAI, Google, and Anthropic official pricing.</p>
           </div>
-          <div className="bg-gray-900 border border-gray-700 p-5 rounded-lg">
+          <div className="bg-gray-50 border border-gray-200 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">Do credits expire?</h3>
             <p className="text-gray-600 text-sm">No. Credits never expire. Use them whenever you want.</p>
           </div>
-          <div className="bg-gray-900 border border-gray-700 p-5 rounded-lg">
+          <div className="bg-gray-50 border border-gray-200 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">How do I check my balance?</h3>
-            <p className="text-gray-600 text-sm">Run <code className="bg-gray-800 px-1.5 py-0.5 rounded">co status</code> in your terminal, or visit the <a href="https://o.openonion.ai/dashboard" className="text-gray-500 hover:text-gray-400 underline">dashboard</a>.</p>
+            <p className="text-gray-600 text-sm">Run <code className="bg-gray-50 px-1.5 py-0.5 rounded">co status</code> in your terminal, or visit the <a href="https://o.openonion.ai/dashboard" className="text-gray-500 hover:text-gray-400 underline">dashboard</a>.</p>
           </div>
-          <div className="bg-gray-900 border border-gray-700 p-5 rounded-lg">
+          <div className="bg-gray-50 border border-gray-200 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">Can I switch between managed keys and my own keys?</h3>
-            <p className="text-gray-600 text-sm">Yes. Use the <code className="bg-gray-800 px-1.5 py-0.5 rounded">co/</code> prefix for managed keys, or remove it to use your own API keys. Same code, just change the model name.</p>
+            <p className="text-gray-600 text-sm">Yes. Use the <code className="bg-gray-50 px-1.5 py-0.5 rounded">co/</code> prefix for managed keys, or remove it to use your own API keys. Same code, just change the model name.</p>
           </div>
         </div>
       </section>
 
       {/* Bottom CTA */}
-      <div className="bg-gradient-to-br from-gray-900/20 to-blue-900/20 p-6 rounded-lg border border-gray-200 mb-16">
-        <h3 className="font-semibold mb-2 flex items-center text-white">
-          <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-500" />
+      <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-16">
+        <h3 className="font-semibold mb-2 flex items-center text-gray-900">
+          <HiOutlineBolt className="mr-2 h-5 w-5 icon-ui" />
           Get Started
         </h3>
         <ul className="space-y-2 text-sm text-gray-700">

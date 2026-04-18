@@ -613,7 +613,7 @@ Works seamlessly with:
                 <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
                   <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-700 bg-gray-800">
                     <HiOutlinePlay className="w-4 h-4 text-blue-400" />
-                    <span className="text-sm font-medium text-gray-700">Python Code</span>
+                    <span className="text-sm font-medium text-gray-300">Python Code</span>
                   </div>
                   
                   <div className="overflow-x-auto max-h-[400px] sm:max-h-[500px] lg:max-h-[600px]">
@@ -646,7 +646,7 @@ Works seamlessly with:
                 <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
                   <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-700 bg-gray-800">
                     <HiOutlineCommandLine className="w-4 h-4 text-green-400" />
-                    <span className="text-sm font-medium text-gray-700">Trace Output</span>
+                    <span className="text-sm font-medium text-gray-300">Trace Output</span>
                   </div>
                   
                   <div className="p-2 sm:p-4">

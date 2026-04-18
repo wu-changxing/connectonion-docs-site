@@ -74,13 +74,8 @@ export default function CLIPage() {
           ]}
           icon={HiOutlineCommandLine}
           iconColor="icon-ui"
-          iconBgFrom="from-gray-100"
-          iconBgTo="to-teal-600/20"
-          iconBorderColor="border-gray-200"
           title="CLI Reference"
           description="Quickly scaffold and manage ConnectOnion agent projects with the CLI."
-          markdownPath="/cli/cli.md"
-          markdownFilename="cli.md"
         />
       
       {/* Quick Command Cheat Sheet */}
@@ -119,8 +114,8 @@ export default function CLIPage() {
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-6">
           <p className="text-blue-800">
-            This provides two equivalent commands: <code className="bg-black/30 px-2 py-1 rounded">co</code> (short form) 
-            and <code className="bg-black/30 px-2 py-1 rounded">connectonion</code> (full form)
+            This provides two equivalent commands: <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co</code> (short form) 
+            and <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">connectonion</code> (full form)
           </p>
         </div>
       </section>
@@ -264,7 +259,7 @@ export default function CLIPage() {
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Interactive Flow Example</h3>
           
           <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
+            <div className="flex items-center justify-between bg-gray-100 px-4 py-3 border-b border-gray-200">
               <span className="text-sm text-gray-700 font-mono">Terminal Output</span>
             </div>
             <div className="p-6">
@@ -324,8 +319,8 @@ Next steps:
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
           <p className="text-gray-800">
-            <strong>Note:</strong> Options are the same as <code className="bg-black/30 px-2 py-1 rounded">co create</code>,
-            except no <code className="bg-black/30 px-2 py-1 rounded">[name]</code> parameter (uses current directory name).
+            <strong>Note:</strong> Options are the same as <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co create</code>,
+            except no <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">[name]</code> parameter (uses current directory name).
           </p>
         </div>
       </section>
@@ -347,26 +342,26 @@ Next steps:
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
-          <h3 className="text-lg font-semibold text-amber-100 mb-4">What It Does</h3>
+          <h3 className="text-lg font-semibold text-amber-700 mb-4">What It Does</h3>
           <ol className="space-y-2 text-gray-700">
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">1</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-amber-50 border border-amber-300 rounded-full flex items-center justify-center text-xs text-amber-700 font-semibold">1</span>
               <span>Signs message with your Ed25519 key</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">2</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-amber-50 border border-amber-300 rounded-full flex items-center justify-center text-xs text-amber-700 font-semibold">2</span>
               <span>Authenticates with OpenOnion backend</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">3</span>
-              <span>Saves <code className="bg-black/30 px-2 py-1 rounded">OPENONION_API_KEY</code> to <code className="bg-black/30 px-2 py-1 rounded">~/.co/keys.env</code></span>
+              <span className="flex-shrink-0 w-6 h-6 bg-amber-50 border border-amber-300 rounded-full flex items-center justify-center text-xs text-amber-700 font-semibold">3</span>
+              <span>Saves <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">OPENONION_API_KEY</code> to <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">~/.co/keys.env</code></span>
             </li>
           </ol>
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Using Managed Keys</h3>
-          <div className="bg-black/30 rounded-lg p-4 font-mono text-sm text-gray-700">
+          <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`from connectonion import llm_do
 
 # Use co/ prefix for managed models
@@ -486,11 +481,11 @@ Continue? (y/N): y
             </li>
             <li className="flex items-start gap-2">
               <HiOutlineChevronRight className="w-4 h-4 icon-ui mt-1" />
-              <span><code className="bg-black/30 px-2 py-1 rounded">.co/config.toml</code> (created by <code className="bg-black/30 px-2 py-1 rounded">co create</code> or <code className="bg-black/30 px-2 py-1 rounded">co init</code>)</span>
+              <span><code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.co/config.toml</code> (created by <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co create</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co init</code>)</span>
             </li>
             <li className="flex items-start gap-2">
               <HiOutlineChevronRight className="w-4 h-4 icon-ui mt-1" />
-              <span>Authenticated (<code className="bg-black/30 px-2 py-1 rounded">co auth</code>)</span>
+              <span>Authenticated (<code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co auth</code>)</span>
             </li>
           </ul>
         </div>
@@ -515,7 +510,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
 
         <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
           <p className="text-amber-800 text-sm">
-            <strong>Beta:</strong> This feature is in beta. See the <Link href="/deploy" className="underline hover:text-amber-100">Deploy Guide</Link> for more details.
+            <strong>Beta:</strong> This feature is in beta. See the <Link href="/deploy" className="underline hover:text-amber-700">Deploy Guide</Link> for more details.
           </p>
         </div>
       </section>
@@ -592,7 +587,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           />
         </div>
 
-        <div className="bg-gray-900/20 border border-gray-200 rounded-lg p-4">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
           <p className="text-gray-800">
             <strong>Learn more:</strong> See the complete{' '}
             <Link href="/cli/ai" className="text-gray-400 hover:text-gray-900 underline">
@@ -614,7 +609,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           Quick browser screenshots and automation. Use <code className="bg-gray-100 px-2 py-1 rounded">-b</code> (short for browser) or the full <code className="bg-gray-100 px-2 py-1 rounded">browser</code> subcommand:
         </p>
 
-        <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-4 mb-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
           <p className="text-sm text-gray-600">
             <span className="font-semibold inline-flex items-center gap-1">
               <FaLightbulb className="text-yellow-400 text-sm" />
@@ -659,7 +654,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
         </div>
 
-        <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-4">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
           <p className="text-blue-800">
             <strong>Learn more:</strong> See the complete{' '}
             <Link href="/cli/browser-command" className="text-blue-700 hover:text-gray-900 underline">
@@ -816,7 +811,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             <p className="text-gray-700 mb-4">
               Only available when AI is enabled. Generates a complete custom template based on your description:
             </p>
-            <div className="bg-black/30 rounded-lg p-4">
+            <div className="bg-gray-900 rounded-lg p-4">
               <pre className="text-sm text-gray-700 font-mono">
 {`✔ Choose template: Custom
 ✔ Describe what you want to build: …
@@ -853,22 +848,22 @@ Generating custom template with AI...
             </thead>
             <tbody className="divide-y divide-gray-200">
               <tr>
-                <td className="px-4 py-3 text-white font-medium">OpenAI</td>
+                <td className="px-4 py-3 text-gray-900 font-medium">OpenAI</td>
                 <td className="px-4 py-3 font-mono text-sm text-gray-700">sk-... or sk-proj-...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">sk-proj-abc123...</td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-white font-medium">Anthropic</td>
+                <td className="px-4 py-3 text-gray-900 font-medium">Anthropic</td>
                 <td className="px-4 py-3 font-mono text-sm text-gray-700">sk-ant-...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">sk-ant-api03-xyz...</td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-white font-medium">Google</td>
+                <td className="px-4 py-3 text-gray-900 font-medium">Google</td>
                 <td className="px-4 py-3 font-mono text-sm text-gray-700">AIza...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">AIzaSyAbc123...</td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-white font-medium">Groq</td>
+                <td className="px-4 py-3 text-gray-900 font-medium">Groq</td>
                 <td className="px-4 py-3 font-mono text-sm text-gray-700">gsk_...</td>
                 <td className="px-4 py-3 font-mono text-xs text-gray-700">gsk_abc123...</td>
               </tr>
@@ -976,10 +971,10 @@ Generating custom template with AI...
               </div>
             </li>
           </ul>
-          <div className="mt-4 p-3 bg-black/30 rounded-lg flex items-center gap-2">
+          <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg flex items-center gap-2">
             <HiOutlineExclamationCircle className="w-4 h-4 text-yellow-400" />
             <p className="text-yellow-800 text-sm">
-              Keys are stored in <code className="bg-black/30 px-2 py-1 rounded">.co/keys/</code> and auto-added to <code className="bg-black/30 px-2 py-1 rounded">.gitignore</code>
+              Keys are stored in <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.co/keys/</code> and auto-added to <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.gitignore</code>
             </p>
           </div>
         </div>
@@ -1024,8 +1019,8 @@ Generating custom template with AI...
             <HiOutlineCommandLine className="w-8 h-8 text-gray-500 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Choose the Right Command</h3>
             <p className="text-gray-700 text-sm">
-              Use <code className="bg-black/30 px-2 py-1 rounded">co create</code> for new projects, 
-              <code className="bg-black/30 px-2 py-1 rounded ml-1">co init</code> for existing directories.
+              Use <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co create</code> for new projects, 
+              <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800 ml-1">co init</code> for existing directories.
             </p>
           </div>
 
@@ -1033,7 +1028,7 @@ Generating custom template with AI...
             <HiOutlineKey className="w-8 h-8 text-green-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">API Key Security</h3>
             <p className="text-gray-700 text-sm">
-              Never commit <code className="bg-black/30 px-2 py-1 rounded">.env</code> files. Store API keys securely.
+              Never commit <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.env</code> files. Store API keys securely.
             </p>
           </div>
 
@@ -1049,7 +1044,7 @@ Generating custom template with AI...
             <HiOutlineShieldCheck className="w-8 h-8 text-blue-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Agent Keys</h3>
             <p className="text-gray-700 text-sm">
-              Never share <code className="bg-black/30 px-2 py-1 rounded">.co/keys/</code> directory. Backup your recovery phrase.
+              Never share <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.co/keys/</code> directory. Backup your recovery phrase.
             </p>
           </div>
         </div>

@@ -18,10 +18,7 @@ export default function ImageResultFormatterPage() {
             { label: 'image_result_formatter' },
           ]}
           icon={HiOutlinePhoto}
-          iconColor="text-green-400"
-          iconBgFrom="from-gray-100"
-          iconBgTo="to-emerald-600/20"
-          iconBorderColor="border-gray-200"
+          iconColor="icon-ui"
           title="image_result_formatter"
           description="Enable vision models to see images from tool results"
           markdownPath="/useful-plugins/image_result_formatter.md"

@@ -17,10 +17,7 @@ export default function FileToolsPage() {
             { label: 'FileTools' }
           ]}
           icon={HiOutlineDocumentText}
-          iconColor="text-blue-400"
-          iconBgFrom="from-blue-600/20"
-          iconBgTo="to-cyan-600/20"
-          iconBorderColor="border-blue-500/30"
+          iconColor="icon-ui"
           title="FileTools"
           description="Claude Code-style file operations with read-before-edit tracking and permission control."
           markdownPath="/useful-tools/file_tools.md"

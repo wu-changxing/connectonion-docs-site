@@ -18,10 +18,7 @@ export default function SystemReminderPluginPage() {
             { label: 'system_reminder' },
           ]}
           icon={HiOutlineChatBubbleBottomCenterText}
-          iconColor="text-teal-400"
-          iconBgFrom="from-teal-600/20"
-          iconBgTo="to-cyan-600/20"
-          iconBorderColor="border-teal-500/30"
+          iconColor="icon-ui"
           title="system_reminder"
           description="Inject contextual guidance into tool results"
           markdownPath="/useful-plugins/system_reminder.md"

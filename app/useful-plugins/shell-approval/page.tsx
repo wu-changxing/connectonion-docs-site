@@ -18,10 +18,7 @@ export default function ShellApprovalPage() {
             { label: 'shell_approval' },
           ]}
           icon={HiOutlineShieldCheck}
-          iconColor="text-orange-400"
-          iconBgFrom="from-orange-600/20"
-          iconBgTo="to-red-600/20"
-          iconBorderColor="border-orange-500/30"
+          iconColor="icon-ui"
           title="shell_approval"
           description="Require user approval before executing shell commands"
           markdownPath="/useful-plugins/shell_approval.md"

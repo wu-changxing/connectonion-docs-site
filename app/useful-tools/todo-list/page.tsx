@@ -17,10 +17,7 @@ export default function TodoListPage() {
             { label: 'Todo List' }
           ]}
           icon={HiOutlineClipboardDocumentList}
-          iconColor="text-yellow-400"
-          iconBgFrom="from-yellow-600/20"
-          iconBgTo="to-orange-600/20"
-          iconBorderColor="border-yellow-500/30"
+          iconColor="icon-ui"
           title="TodoList"
           description="Task tracking tool for agents to manage complex, multi-step tasks."
           markdownPath="/useful-tools/todo_list.md"
@@ -173,7 +170,7 @@ todo.add("Update docs", "Updating docs")`}
           <p className="text-gray-700 mb-4">When tasks change, TodoList shows a panel:</p>
           <div className="bg-slate-900 border border-slate-700 rounded-lg p-4 font-mono text-sm">
             <div className="text-slate-400">╭─── Tasks (1/3) ───────────────────────────────╮</div>
-            <div className="text-gray-700">│ ● Fix authentication bug                       │</div>
+            <div className="text-slate-200">│ ● Fix authentication bug                       │</div>
             <div className="text-yellow-400">│ ◐ Running tests                                │</div>
             <div className="text-slate-500">│ ○ Update docs                                  │</div>
             <div className="text-slate-400">╰────────────────────────────────────────────────╯</div>

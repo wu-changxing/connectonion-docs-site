@@ -17,10 +17,7 @@ export default function SlashCommandPage() {
             { label: 'Slash Command' }
           ]}
           icon={HiOutlineCodeBracket}
-          iconColor="text-gray-500"
-          iconBgFrom="from-pink-600/20"
-          iconBgTo="to-gray-700/20"
-          iconBorderColor="border-pink-500/30"
+          iconColor="icon-ui"
           title="SlashCommand"
           description="Load and execute custom commands from markdown files."
           markdownPath="/useful-tools/slash_command.md"
@@ -72,27 +69,27 @@ Focus on:
         {/* YAML Frontmatter */}
         <section className="mb-12">
           <h2 className="heading-2">YAML Frontmatter</h2>
-          <div className="overflow-x-auto rounded-lg border border-slate-700">
+          <div className="overflow-x-auto rounded-lg border border-gray-200">
             <table className="w-full text-sm text-left">
-              <thead className="text-xs uppercase bg-slate-800/50">
+              <thead className="text-xs uppercase bg-gray-100">
                 <tr>
-                  <th className="px-4 py-3 text-slate-200">Field</th>
-                  <th className="px-4 py-3 text-slate-200">Required</th>
-                  <th className="px-4 py-3 text-slate-200">Description</th>
+                  <th className="px-4 py-3 text-gray-700">Field</th>
+                  <th className="px-4 py-3 text-gray-700">Required</th>
+                  <th className="px-4 py-3 text-gray-700">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-700">
-                <tr className="bg-slate-900/30">
+              <tbody className="divide-y divide-gray-200">
+                <tr className="bg-gray-50">
                   <td className="px-4 py-3 font-mono text-gray-500">name</td>
                   <td className="px-4 py-3 text-green-400">Yes</td>
                   <td className="px-4 py-3 text-gray-700">Command name</td>
                 </tr>
-                <tr className="bg-slate-900/30">
+                <tr className="bg-gray-50">
                   <td className="px-4 py-3 font-mono text-gray-500">description</td>
                   <td className="px-4 py-3 text-green-400">Yes</td>
                   <td className="px-4 py-3 text-gray-700">Short description</td>
                 </tr>
-                <tr className="bg-slate-900/30">
+                <tr className="bg-gray-50">
                   <td className="px-4 py-3 font-mono text-gray-500">tools</td>
                   <td className="px-4 py-3 text-slate-400">No</td>
                   <td className="px-4 py-3 text-gray-700">Allowed tools (all if omitted)</td>

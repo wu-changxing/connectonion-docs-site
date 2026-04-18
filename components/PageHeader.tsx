@@ -78,7 +78,7 @@ export function PageHeader({
                 <h1 className="heading-1">{title}</h1>
                 {badge}
               </div>
-              <p className="text-lg text-gray-500">{description}</p>
+              <p className="text-lg text-gray-500 font-[family-name:var(--font-instrument-serif)] italic">{description}</p>
             </div>
           </div>
           {markdownPath && (

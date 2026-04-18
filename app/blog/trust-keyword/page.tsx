@@ -185,7 +185,7 @@ Sometimes the best technical decisions are the least technical ones.`
               <CopyMarkdownButton content={blogContent} />
             </div>
 
-            <div className="mt-8 space-y-6 text-gray-200">
+            <div className="mt-8 space-y-6 text-gray-700">
               <p className="text-lg leading-relaxed text-gray-700 italic">
                 The Story Behind ConnectOnion's Authentication Keyword
               </p>
@@ -213,7 +213,7 @@ Sometimes the best technical decisions are the least technical ones.`
                   { name: 'policy / rules', reason: 'Too formal and configuration-heavy. Doesn\'t match our natural language approach.', icon: '📋' },
                   { name: 'security / safe', reason: 'Too broad and creates fear. Security implies threats; we want collaboration.', icon: '🔒' },
                 ].map((option, idx) => (
-                  <div key={idx} className="flex gap-4 p-4 bg-gray-800/30 rounded-lg border border-gray-700">
+                  <div key={idx} className="flex gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                     <div className="text-2xl">{option.icon}</div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-red-400 mb-1">
@@ -271,7 +271,7 @@ Sometimes the best technical decisions are the least technical ones.`
               <h2 className="heading-2">Clear Configuration</h2>
               
               <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
-                <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
+                <div className="bg-gray-100 px-4 py-2 border-b border-gray-200">
                   <span className="text-sm text-gray-700 font-mono">config.py</span>
                 </div>
                 <pre className="p-4 text-sm overflow-x-auto">

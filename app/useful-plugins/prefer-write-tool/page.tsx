@@ -18,10 +18,7 @@ export default function PreferWriteToolPage() {
             { label: 'prefer_write_tool' },
           ]}
           icon={HiOutlineShieldExclamation}
-          iconColor="text-orange-400"
-          iconBgFrom="from-orange-600/20"
-          iconBgTo="to-yellow-600/20"
-          iconBorderColor="border-orange-500/30"
+          iconColor="icon-ui"
           title="prefer_write_tool"
           description="Block bash file creation, soft-remind for file reading"
           markdownPath="/useful-plugins/prefer_write_tool.md"
@@ -66,7 +63,7 @@ head -n 10 README.md`}
           <div className="mt-6 bg-slate-800/50 border border-slate-700 rounded-lg p-5">
             <p className="text-gray-700">
               File creation via bash bypasses tool UI/diffs/approval flow and has escaping issues.
-              File reading via bash works but misses line numbers, formatting, and control that <code className="px-2 py-1 bg-gray-800 rounded text-green-300">read_file</code> provides.
+              File reading via bash works but misses line numbers, formatting, and control that <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">read_file</code> provides.
             </p>
           </div>
         </section>
@@ -80,11 +77,11 @@ head -n 10 README.md`}
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div className="p-4 bg-red-900/20 border border-red-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-2">File Creation</h3>
-              <p className="text-sm text-gray-600"><strong className="text-red-300">Hard block</strong> — raises ValueError, agent must use Write or Edit tool</p>
+              <p className="text-sm text-gray-600"><strong className="text-red-700">Hard block</strong> — raises ValueError, agent must use Write or Edit tool</p>
             </div>
             <div className="p-4 bg-yellow-900/20 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-2">File Reading</h3>
-              <p className="text-sm text-gray-600"><strong className="text-yellow-300">Soft reminder</strong> — command runs, system reminder appended suggesting read_file</p>
+              <p className="text-sm text-gray-600"><strong className="text-gray-700">Soft reminder</strong> — command runs, system reminder appended suggesting read_file</p>
             </div>
           </div>
           <CodeWithResult
@@ -219,7 +216,7 @@ Why: read_file provides line numbers, proper formatting, and better control.
               Result
             </h3>
             <p className="text-gray-700">
-              File creation is stopped before execution. File reading runs normally with a gentle nudge toward <code className="px-2 py-1 bg-gray-800 rounded text-green-300">read_file</code>.
+              File creation is stopped before execution. File reading runs normally with a gentle nudge toward <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">read_file</code>.
             </p>
           </div>
         </section>
@@ -263,7 +260,7 @@ agent = Agent(
           <div className="mt-4 bg-yellow-900/20 border border-gray-200 rounded-lg p-4">
             <h3 className="font-semibold text-gray-700 mb-2">Order Matters</h3>
             <p className="text-gray-700">
-              <code className="px-2 py-1 bg-gray-800 rounded text-orange-300">prefer_write_tool</code> should come first to block file creation before <code className="px-2 py-1 bg-gray-800 rounded text-green-300">tool_approval</code> prompts for approval.
+              <code className="px-2 py-1 bg-gray-800 rounded text-orange-300">prefer_write_tool</code> should come first to block file creation before <code className="px-2 py-1 bg-gray-100 rounded text-gray-700">tool_approval</code> prompts for approval.
             </p>
           </div>
         </section>
@@ -273,7 +270,7 @@ agent = Agent(
           <h2 className="heading-2">See Also</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <Link href="/useful-plugins/tool-approval" className="p-6 bg-gray-50 border border-gray-200 hover:border-gray-400 rounded-lg transition-all group">
-              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-green-300 transition-colors">tool_approval</h3>
+              <h3 className="font-semibold text-gray-900 mb-2 transition-colors">tool_approval</h3>
               <p className="text-sm text-gray-600">Web-based approval for dangerous tools</p>
             </Link>
             <Link href="/features/permissions" className="p-6 bg-gray-50 border border-gray-200 hover:border-gray-400/50 rounded-lg transition-all group">

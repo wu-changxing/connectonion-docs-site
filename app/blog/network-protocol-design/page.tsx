@@ -185,7 +185,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
               <CopyMarkdownButton content={fullContent} />
             </div>
 
-            <div className="mt-8 space-y-6 text-gray-200">
+            <div className="mt-8 space-y-6 text-gray-700">
               <p className="text-lg leading-relaxed">
                 When we set out to design a network protocol for AI agents to collaborate, we started with grand ambitions and complex architectures. Through iterative refinement and hard lessons, we arrived at something much simpler and more powerful. This is the story of how we got there.
               </p>

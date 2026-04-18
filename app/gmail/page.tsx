@@ -17,10 +17,7 @@ export default function GmailPage() {
             { label: 'Gmail' }
           ]}
           icon={HiOutlineEnvelope}
-          iconColor="text-red-400"
-          iconBgFrom="from-red-600/20"
-          iconBgTo="to-orange-600/20"
-          iconBorderColor="border-red-500/30"
+          iconColor="icon-ui"
           title="Gmail"
           description="Give your agents full Gmail access. Read, search, organize, and analyze emails."
           markdownPath="/useful_tools/gmail.md"
@@ -250,11 +247,11 @@ agent.input("Analyze my relationship with bob@company.com")`}
           <div className="space-y-4">
             <div className="bg-red-50 border border-red-200 rounded-xl p-4">
               <h4 className="font-semibold text-gray-700 mb-2">Missing gmail.readonly scope</h4>
-              <p className="text-gray-700 text-sm">Run <code className="bg-gray-800 px-2 py-0.5 rounded">co auth google</code></p>
+              <p className="text-gray-700 text-sm">Run <code className="bg-gray-900 text-green-400 px-2 py-0.5 rounded font-mono text-xs">co auth google</code></p>
             </div>
             <div className="bg-red-50 border border-red-200 rounded-xl p-4">
               <h4 className="font-semibold text-gray-700 mb-2">Credentials not found</h4>
-              <p className="text-gray-700 text-sm">Run <code className="bg-gray-800 px-2 py-0.5 rounded">co auth google</code></p>
+              <p className="text-gray-700 text-sm">Run <code className="bg-gray-900 text-green-400 px-2 py-0.5 rounded font-mono text-xs">co auth google</code></p>
             </div>
           </div>
         </section>

@@ -23,10 +23,7 @@ export default function AutoDebugPage() {
               { label: 'Interactive Debugging' }
             ]}
             icon={HiOutlineBugAnt}
-            iconColor="text-gray-500"
-            iconBgFrom="from-gray-700/20"
-            iconBgTo="to-gray-100"
-            iconBorderColor="border-gray-400/30"
+            iconColor="icon-ui"
             title="Interactive Debugging"
             description="Debug your AI agents like code. Pause at breakpoints, inspect state, modify variables, and explore 'what if' scenarios."
             markdownPath="/debug/auto_debug.md"
@@ -174,15 +171,15 @@ What do you want to do?
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Method 2: Shortcuts (Power user)</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
-                  <code className="bg-gray-800 px-2 py-0.5 rounded text-green-400">c</code>
+                  <code className="bg-gray-100 px-2 py-0.5 rounded text-green-700">c</code>
                   <span>Continue execution</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <code className="bg-gray-800 px-2 py-0.5 rounded text-green-400">e</code>
+                  <code className="bg-gray-100 px-2 py-0.5 rounded text-green-700">e</code>
                   <span>Edit variables</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <code className="bg-gray-800 px-2 py-0.5 rounded text-green-400">q</code>
+                  <code className="bg-gray-100 px-2 py-0.5 rounded text-green-700">q</code>
                   <span>Quit debugging</span>
                 </li>
               </ul>
@@ -473,7 +470,7 @@ Agent: "Sorry, no purple shoes under $100 are available."
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">2. Test Edge Cases in Python Mode</h3>
-              <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-gray-300">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`>>> # Empty results
 >>> result = []
 
@@ -494,7 +491,7 @@ Agent: "Sorry, no purple shoes under $100 are available."
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">3. Use Step Mode for Complex Workflows</h3>
               <p className="text-gray-700 mb-4">When you don't know which tool is causing problems:</p>
-              <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-gray-300">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`# Normal: Only @xray breakpoints
 agent.auto_debug()
 
@@ -607,7 +604,7 @@ agent.auto_debug(step=True)
 
         {/* CTA Section */}
         <section className="mb-20">
-          <div className="bg-gray-900/30 rounded-2xl p-10 border border-gray-300/30 text-center">
+          <div className="bg-gray-50 rounded-2xl p-10 border border-gray-300/30 text-center">
             <h2 className="heading-2">Ready to Debug Like a Pro?</h2>
             <p className="text-xl text-gray-700 mb-8">
               Just call <code className="bg-gray-800 px-3 py-1.5 rounded">agent.auto_debug()</code> and explore!

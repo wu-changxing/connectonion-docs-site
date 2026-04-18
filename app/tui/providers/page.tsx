@@ -18,10 +18,7 @@ export default function ProvidersPage() {
             { label: 'Providers' },
           ]}
           icon={HiOutlineCircleStack}
-          iconColor="text-gray-500"
-          iconBgFrom="from-pink-600/20"
-          iconBgTo="to-gray-700/20"
-          iconBorderColor="border-pink-500/30"
+          iconColor="icon-ui"
           title="Autocomplete Providers"
           description="Data providers for autocomplete in Input and CommandPalette"
           markdownPath="/tui/providers.md"

@@ -16,10 +16,7 @@ export default function UlwPage() {
             { label: 'ulw' }
           ]}
           icon={HiOutlineBolt}
-          iconColor="text-orange-400"
-          iconBgFrom="from-orange-600/20"
-          iconBgTo="to-yellow-600/20"
-          iconBorderColor="border-orange-500/30"
+          iconColor="icon-ui"
           title="ulw"
           description="Ultra Light Work — autonomous mode where the agent keeps working turn after turn without approval prompts, until it reaches a checkpoint."
           markdownPath="/useful-plugins/ulw.md"
