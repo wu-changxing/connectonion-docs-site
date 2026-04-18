@@ -60,8 +60,8 @@ export default function AutoDebugPage() {
 
         {/* 60-Second Quick Start */}
         <section className="mb-20">
-          <h2 className="heading-2">
-            <HiOutlineBolt className="w-8 h-8 icon-ui" />
+          <h2 className="heading-2 flex items-center gap-2">
+            <HiOutlineBolt className="w-5 h-5 icon-ui flex-shrink-0" />
             60-Second Quick Start
           </h2>
 
@@ -202,10 +202,10 @@ What do you want to do?
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <HiOutlineCheck className="w-6 h-6 text-white" />
+                  <HiOutlineCheck className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="heading-3">Continue Execution</h3>
-                <span className="text-sm bg-gray-50 text-gray-500 border border-gray-200 px-3 py-1 rounded-full">✅ Available</span>
+                <span className="inline-flex items-center gap-1 text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2.5 py-1 rounded-full font-medium"><HiOutlineCheck className="w-3.5 h-3.5 text-green-600" />Available</span>
               </div>
 
               <p className="text-gray-700 mb-6">
@@ -228,10 +228,10 @@ What do you want to do?
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <HiOutlineCodeBracket className="w-6 h-6 text-white" />
+                  <HiOutlineCodeBracket className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="heading-3">Edit Variables (Python REPL)</h3>
-                <span className="text-sm bg-gray-50 text-gray-500 border border-gray-200 px-3 py-1 rounded-full">✅ Available</span>
+                <span className="inline-flex items-center gap-1 text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2.5 py-1 rounded-full font-medium"><HiOutlineCheck className="w-3.5 h-3.5 text-green-600" />Available</span>
               </div>
 
               <p className="text-gray-700 mb-6">
@@ -279,7 +279,7 @@ Available variables: query, result, tool_args
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <HiOutlineCpuChip className="w-6 h-6 text-white" />
+                  <HiOutlineCpuChip className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="heading-3">Ask AI for Help</h3>
                 <span className="text-sm bg-gray-100 text-gray-500 border border-gray-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
@@ -321,7 +321,7 @@ ai> /continue [Resume execution]`}
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <HiOutlineChartBar className="w-6 h-6 text-white" />
+                  <HiOutlineChartBar className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="heading-3">View Execution Trace</h3>
                 <span className="text-sm bg-gray-100 text-gray-500 border border-gray-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
@@ -348,7 +348,7 @@ Total: 323ms • 2 steps • 1 iteration`}
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <HiOutlineArrowPath className="w-6 h-6 text-white" />
+                  <HiOutlineArrowPath className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="heading-3">Toggle Step Mode</h3>
                 <span className="text-sm bg-gray-100 text-gray-500 border border-gray-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>

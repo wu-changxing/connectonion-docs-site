@@ -301,7 +301,7 @@ permissions:
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-3">✅ All Permitted</h3>
+              <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2"><HiOutlineCheckCircle className="w-4.5 h-4.5 text-green-600" style={{width:'1.125rem',height:'1.125rem'}} />All Permitted</h3>
               <CodeWithResult
                 code={`# Config:
 permissions:
@@ -317,7 +317,7 @@ pwd && ls -F
             </div>
 
             <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 className="font-semibold text-gray-700 mb-3">❌ Partial Permission</h3>
+              <h3 className="font-semibold text-gray-700 mb-3 flex items-center gap-2"><HiOutlineXCircle className="w-4.5 h-4.5 text-red-500" style={{width:'1.125rem',height:'1.125rem'}} />Partial Permission</h3>
               <CodeWithResult
                 code={`# Config:
 permissions:
