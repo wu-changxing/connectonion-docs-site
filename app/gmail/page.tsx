@@ -30,7 +30,7 @@ export default function GmailPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-amber-600" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -71,7 +71,7 @@ agent.input("Find emails from alice@example.com")`}
 
               <div className="space-y-6">
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-300 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
+                  <h4 className="font-semibold text-blue-700 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
                   <p className="text-gray-700 text-sm mb-4">Read emails from inbox</p>
                   <ul className="text-sm text-gray-700 space-y-1">
                     <li><code className="bg-gray-800 px-1 rounded">last</code> - Number of emails (default: 10)</li>
@@ -80,22 +80,22 @@ agent.input("Find emails from alice@example.com")`}
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-300 font-mono mb-2">get_sent_emails(max_results=10)</h4>
+                  <h4 className="font-semibold text-blue-700 font-mono mb-2">get_sent_emails(max_results=10)</h4>
                   <p className="text-gray-700 text-sm">Get emails you sent</p>
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-300 font-mono mb-2">get_all_emails(max_results=50)</h4>
+                  <h4 className="font-semibold text-blue-700 font-mono mb-2">get_all_emails(max_results=50)</h4>
                   <p className="text-gray-700 text-sm">Get emails from all folders (inbox, sent, archive)</p>
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-300 font-mono mb-2">get_email_body(email_id)</h4>
+                  <h4 className="font-semibold text-blue-700 font-mono mb-2">get_email_body(email_id)</h4>
                   <p className="text-gray-700 text-sm">Get full email content</p>
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-300 font-mono mb-2">get_email_attachments(email_id)</h4>
+                  <h4 className="font-semibold text-blue-700 font-mono mb-2">get_email_attachments(email_id)</h4>
                   <p className="text-gray-700 text-sm">List attachments (filename, size)</p>
                 </div>
               </div>
@@ -109,9 +109,9 @@ agent.input("Find emails from alice@example.com")`}
               </h3>
 
               <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                <h4 className="font-semibold text-green-300 font-mono mb-2">search_emails(query, max_results=10)</h4>
+                <h4 className="font-semibold text-green-700 font-mono mb-2">search_emails(query, max_results=10)</h4>
                 <p className="text-gray-700 text-sm mb-4">Search using Gmail query syntax</p>
-                <div className="bg-gray-800 rounded-lg p-4">
+                <div className="bg-gray-100 border border-gray-200 rounded-lg p-4">
                   <p className="text-sm text-gray-700 mb-2">Example queries:</p>
                   <ul className="text-sm text-gray-700 space-y-1 font-mono">
                     <li>"from:alice@example.com"</li>
@@ -153,21 +153,21 @@ agent.input("Find emails from alice@example.com")`}
             {/* Labels */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <HiOutlineTag className="w-5 h-5 text-yellow-400" />
+                <HiOutlineTag className="w-5 h-5 text-amber-600" />
                 Labels
               </h3>
 
               <div className="space-y-4">
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-yellow-300 font-mono text-sm mb-1">get_labels()</h4>
+                  <h4 className="font-semibold text-amber-700 font-mono text-sm mb-1">get_labels()</h4>
                   <p className="text-gray-700 text-xs">List all Gmail labels</p>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-yellow-300 font-mono text-sm mb-1">add_label(email_id, label)</h4>
+                  <h4 className="font-semibold text-amber-700 font-mono text-sm mb-1">add_label(email_id, label)</h4>
                   <p className="text-gray-700 text-xs">Add label to email</p>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-yellow-300 font-mono text-sm mb-1">get_emails_with_label(label, max_results=10)</h4>
+                  <h4 className="font-semibold text-amber-700 font-mono text-sm mb-1">get_emails_with_label(label, max_results=10)</h4>
                   <p className="text-gray-700 text-xs">Get emails with specific label</p>
                 </div>
               </div>
@@ -176,12 +176,12 @@ agent.input("Find emails from alice@example.com")`}
             {/* Stats */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <HiOutlineChartBar className="w-5 h-5 text-cyan-400" />
+                <HiOutlineChartBar className="w-5 h-5 text-cyan-700" />
                 Stats
               </h3>
 
               <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                <h4 className="font-semibold text-cyan-300 font-mono text-sm mb-1">count_unread()</h4>
+                <h4 className="font-semibold text-cyan-700 font-mono text-sm mb-1">count_unread()</h4>
                 <p className="text-gray-700 text-xs">Count unread emails</p>
               </div>
             </div>
@@ -248,11 +248,11 @@ agent.input("Analyze my relationship with bob@company.com")`}
           <h2 className="heading-2">Troubleshooting</h2>
 
           <div className="space-y-4">
-            <div className="bg-red-900/20 border border-red-200 rounded-xl p-4">
+            <div className="bg-red-50 border border-red-200 rounded-xl p-4">
               <h4 className="font-semibold text-red-300 mb-2">Missing gmail.readonly scope</h4>
               <p className="text-gray-700 text-sm">Run <code className="bg-gray-800 px-2 py-0.5 rounded">co auth google</code></p>
             </div>
-            <div className="bg-red-900/20 border border-red-200 rounded-xl p-4">
+            <div className="bg-red-50 border border-red-200 rounded-xl p-4">
               <h4 className="font-semibold text-red-300 mb-2">Credentials not found</h4>
               <p className="text-gray-700 text-sm">Run <code className="bg-gray-800 px-2 py-0.5 rounded">co auth google</code></p>
             </div>
