@@ -476,7 +476,7 @@ console.log(response.text)`}
         {/* Streaming Events */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineSquare3Stack3D className="w-8 h-8 text-violet-400" />
+            <HiOutlineSquare3Stack3D className="w-8 h-8 text-gray-400" />
             Streaming Events
           </h2>
 
@@ -635,7 +635,7 @@ respondToApproval(false, 'once', 'reject_explain', 'Too dangerous')`}
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-violet-300 mb-4">Plan Review</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Plan Review</h3>
               <p className="text-sm text-gray-600 mb-4">Agent presenting a plan before executing:</p>
               <CodeWithResult
                 code={`// Agent sends: { type: 'plan_review', plan_content: '1. Research\\n2. Analyze\\n3. Report' }
@@ -783,7 +783,7 @@ function Chat() {
 
           <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
             <p className="text-sm text-gray-900">
-              <strong>File limits:</strong> Default 10MB per file, 10 files per request. Check agent limits via <code className="bg-gray-100 px-1 rounded">GET /info</code> → <code className="bg-gray-100 px-1 rounded">accepted_inputs.files</code>. Server-side, files are saved to <code className="bg-gray-100 px-1 rounded">.co/uploads/</code> and the agent reads them via tools. See <Link href="/host" className="text-gray-700 hover:text-teal-200 underline">host()</Link> for server-side details.
+              <strong>File limits:</strong> Default 10MB per file, 10 files per request. Check agent limits via <code className="bg-gray-100 px-1 rounded">GET /info</code> → <code className="bg-gray-100 px-1 rounded">accepted_inputs.files</code>. Server-side, files are saved to <code className="bg-gray-100 px-1 rounded">.co/uploads/</code> and the agent reads them via tools. See <Link href="/host" className="text-gray-700 hover:text-gray-900 underline">host()</Link> for server-side details.
             </p>
           </div>
         </section>
@@ -796,7 +796,7 @@ function Chat() {
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            <Link href="https://github.com/openonion/oo-chat" className="text-emerald-700 hover:text-emerald-800 underline">oo-chat</Link> is an open-source Next.js chat client built on the TypeScript SDK. It{"'"}s a complete working example of how to build a chat UI for ConnectOnion agents.
+            <Link href="https://github.com/openonion/oo-chat" className="text-gray-700 hover:text-gray-900 underline">oo-chat</Link> is an open-source Next.js chat client built on the TypeScript SDK. It{"'"}s a complete working example of how to build a chat UI for ConnectOnion agents.
           </p>
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 overflow-x-auto mb-6">

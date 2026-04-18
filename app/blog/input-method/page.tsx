@@ -287,7 +287,7 @@ Sometimes the best API design decision is the one that makes developers forget t
                     </div>
                   </div>
                 </div>
-                <p className="mt-4 text-blue-800 font-semibold">
+                <p className="mt-4 text-gray-900 font-semibold">
                   The data was clear: users thought in terms of what THEY do (provide input), not what the AGENT does (run/process).
                 </p>
               </div>
@@ -302,7 +302,7 @@ Sometimes the best API design decision is the one that makes developers forget t
               <h2 className="heading-2">The Deeper Principle</h2>
               
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
-                <p className="text-blue-800 font-semibold text-lg mb-4">
+                <p className="text-gray-900 font-semibold text-lg mb-4">
                   Design APIs from the user's perspective, not the system's perspective.
                 </p>
               </div>

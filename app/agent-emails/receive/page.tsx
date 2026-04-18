@@ -81,7 +81,7 @@ mark_read(email_id)                 # Mark as read after processing`}
 
           <div className="mt-6 p-4 bg-gray-500/10 border border-gray-200 rounded-lg">
             <p className="text-gray-600 text-sm">
-              <strong>Gmail users:</strong> Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" className="underline hover:text-blue-800">App Password</a>, not your regular password.
+              <strong>Gmail users:</strong> Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" className="underline hover:text-gray-900">App Password</a>, not your regular password.
             </p>
           </div>
         </section>

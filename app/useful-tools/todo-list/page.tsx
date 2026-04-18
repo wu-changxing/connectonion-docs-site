@@ -171,7 +171,7 @@ todo.add("Update docs", "Updating docs")`}
           <div className="bg-slate-900 border border-slate-700 rounded-lg p-4 font-mono text-sm">
             <div className="text-slate-400">╭─── Tasks (1/3) ───────────────────────────────╮</div>
             <div className="text-slate-200">│ ● Fix authentication bug                       │</div>
-            <div className="text-yellow-400">│ ◐ Running tests                                │</div>
+            <div className="text-slate-100">│ ◐ Running tests                                │</div>
             <div className="text-slate-500">│ ○ Update docs                                  │</div>
             <div className="text-slate-400">╰────────────────────────────────────────────────╯</div>
           </div>
