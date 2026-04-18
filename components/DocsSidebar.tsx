@@ -272,17 +272,21 @@ export function DocsSidebar() {
 
         {/* Regular Navigation */}
         {Object.entries(navigationSections).map(([section, items]) => (
-          <div key={section} className="mb-0.5">
+          <div key={section} className="mb-3">
             <button
               onClick={() => toggleSection(section)}
-              className="w-full flex items-center justify-between px-2 py-1.5 mb-0.5 text-left text-xs font-semibold text-gray-500 tracking-wide hover:text-gray-800 transition-colors"
+              className={`w-full flex items-center justify-between px-2 py-1 mb-1 text-left text-xs font-semibold tracking-wide transition-colors rounded-md ${
+                openSections.includes(section)
+                  ? 'text-gray-800 hover:text-gray-900'
+                  : 'text-gray-400 hover:text-gray-700'
+              }`}
             >
               <span className="flex-1 truncate">
                 <SearchHighlight text={section} query={searchQuery} />
               </span>
               {openSections.includes(section)
-                ? <HiOutlineChevronDown className="w-3 h-3 flex-shrink-0 opacity-60" />
-                : <HiOutlineChevronRight className="w-3 h-3 flex-shrink-0 opacity-60" />
+                ? <HiOutlineChevronDown className="w-3 h-3 flex-shrink-0" />
+                : <HiOutlineChevronRight className="w-3 h-3 flex-shrink-0 opacity-40" />
               }
             </button>
 
@@ -301,7 +305,7 @@ export function DocsSidebar() {
                           className={`block px-2.5 py-1.5 text-sm rounded-md mx-0.5 transition-all ${
                             isActive
                               ? 'bg-green-50 text-green-900 font-semibold border-l-2 border-green-600 pl-2'
-                              : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50 pl-2.5'
+                              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-2.5'
                           }`}
                           aria-current={isActive ? 'page' : undefined}
                         >
@@ -310,16 +314,6 @@ export function DocsSidebar() {
                               <IconComponent className={`w-3.5 h-3.5 flex-shrink-0 ${isActive ? 'text-green-700' : 'text-gray-400'}`} />
                             )}
                             <SearchHighlight text={item.title} query={searchQuery} className="truncate flex-1 text-[13px]" />
-                            {item.difficulty && (
-                              <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium flex-shrink-0 ${
-                                item.difficulty === 'Start Here'   ? 'bg-green-100 text-green-700'
-                                : item.difficulty === 'Beginner'  ? 'bg-gray-100 text-gray-600'
-                                : item.difficulty === 'Intermediate' ? 'bg-gray-100 text-gray-600'
-                                : 'bg-gray-100 text-gray-500'
-                              }`}>
-                                {item.difficulty}
-                              </span>
-                            )}
                           </div>
                         </Link>
 
@@ -356,13 +350,13 @@ export function DocsSidebar() {
                                   className={`block px-2.5 py-1 text-[12px] rounded-md transition-all ${
                                     isChildActive
                                       ? 'bg-green-50 text-green-900 font-semibold'
-                                      : 'text-gray-400 hover:text-gray-700 hover:bg-gray-50'
+                                      : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50'
                                   }`}
                                   aria-current={isChildActive ? 'page' : undefined}
                                 >
                                   <div className="flex items-center gap-1.5">
                                     {ChildIcon && (
-                                      <ChildIcon className={`w-3 h-3 flex-shrink-0 ${isChildActive ? 'text-gray-600' : 'text-gray-300'}`} />
+                                      <ChildIcon className={`w-3 h-3 flex-shrink-0 ${isChildActive ? 'text-gray-600' : 'text-gray-400'}`} />
                                     )}
                                     <SearchHighlight text={child.title} query={searchQuery} className="truncate flex-1" />
                                   </div>
