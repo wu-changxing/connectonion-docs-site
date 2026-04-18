@@ -549,7 +549,7 @@ What do you want to do?
           <div className="mt-4 pt-4 border-t border-gray-200">
             <Link
               href="/auto-debug"
-              className="text-green-700 hover:text-green-800 transition-colors flex items-center gap-2 text-sm font-medium"
+              className="text-gray-700 hover:text-gray-900 transition-colors flex items-center gap-2 text-sm font-medium"
             >
               Learn more about interactive debugging
               <HiOutlineArrowRight className="w-4 h-4" />
