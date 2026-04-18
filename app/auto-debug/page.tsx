@@ -35,15 +35,15 @@ export default function AutoDebugPage() {
             <div className="flex items-start gap-3">
               <HiOutlineClock className="w-5 h-5 icon-ui mt-1 flex-shrink-0" />
               <div>
-                <p className="font-semibold text-gray-900 mb-4">Feature Status (v0.3.2 - Updated Oct 20, 2025)</p>
+                <p className="font-semibold text-gray-900 mb-4">Feature Status — v0.3.2+</p>
                 <div className="grid md:grid-cols-2 gap-3 text-sm">
                   <div className="flex items-start gap-2">
                     <HiOutlineCheck className="w-4 h-4 icon-ui mt-0.5" />
-                    <span className="text-gray-700"><strong>Available now:</strong> Continue, Edit variables (Python REPL), Quit, Source display</span>
+                    <span className="text-gray-700"><strong>Available:</strong> Continue, Edit variables (Python REPL), Quit, Source display</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <HiOutlineClock className="w-4 h-4 icon-ui mt-0.5" />
-                    <span className="text-gray-700"><strong>Coming Nov 2:</strong> Ask AI, View trace, Step mode, Universal commands</span>
+                    <span className="text-gray-700"><strong>In progress:</strong> Ask AI, View trace, Step mode, Universal commands</span>
                   </div>
                 </div>
               </div>

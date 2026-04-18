@@ -85,12 +85,29 @@ export default function QuickStartPage() {
           markdownFilename="quickstart.md"
         />
 
-        {/* Time Estimate */}
-        <div className="flex items-center gap-2 mb-12 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-          <HiOutlineClock className="w-5 h-5 text-gray-400" />
-          <span className="text-gray-700">
-            <strong>Estimated time:</strong> 2 minutes to first working agent
-          </span>
+        {/* Step Overview */}
+        <div className="mb-12 border border-gray-200 rounded-xl overflow-hidden">
+          <div className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 border-b border-gray-200">
+            <HiOutlineClock className="w-4 h-4 text-gray-400" />
+            <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">7 steps · ~2 minutes</span>
+          </div>
+          <div className="divide-y divide-gray-100">
+            {[
+              { n: 1, label: 'Install ConnectOnion', href: '#install', time: '10s' },
+              { n: 2, label: 'Create Your First Agent', href: '#create-agent', time: '20s' },
+              { n: 3, label: 'Run Your Agent', href: '#run', time: '10s' },
+              { n: 4, label: 'Customize Your Agent', href: '#customize', time: '5 min' },
+              { n: 5, label: 'Playwright Web Automation', href: '#playwright', time: '5 min' },
+              { n: 6, label: 'Create a Custom Tool Agent', href: '#custom-tool', time: '5 min' },
+              { n: 7, label: 'Debugging with @xray', href: '#xray', time: '2 min' },
+            ].map(({ n, label, href, time }) => (
+              <a key={n} href={href} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors group">
+                <span className="flex-shrink-0 w-5 h-5 rounded bg-gray-100 border border-gray-200 flex items-center justify-center text-[10px] font-bold text-gray-500 group-hover:border-gray-400 group-hover:text-gray-700 transition-colors">{n}</span>
+                <span className="text-sm text-gray-700 group-hover:text-gray-900 flex-1 transition-colors">{label}</span>
+                <span className="text-xs text-gray-400">{time}</span>
+              </a>
+            ))}
+          </div>
         </div>
 
       {/* Installation */}

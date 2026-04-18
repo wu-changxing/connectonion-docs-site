@@ -230,6 +230,56 @@ response = agent.input("Explain quantum computing")`}
         </div>
       </section>
 
+      {/* Model Comparison — moved to top so developers can pick a model immediately */}
+      <section className="mb-16">
+        <h2 className="heading-2">Model Comparison</h2>
+
+        <div className="overflow-x-auto">
+          <table className="w-full border border-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-4 py-3 text-left font-semibold">Model</th>
+                <th className="px-4 py-3 text-left font-semibold">Provider</th>
+                <th className="px-4 py-3 text-left font-semibold">Context</th>
+                <th className="px-4 py-3 text-left font-semibold">Strengths</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm">gpt-5</code></td>
+                <td className="px-4 py-3">OpenAI</td>
+                <td className="px-4 py-3">200K</td>
+                <td className="px-4 py-3 text-gray-700">Best for coding & agentic tasks</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm">gemini-3-pro-preview</code></td>
+                <td className="px-4 py-3">Google</td>
+                <td className="px-4 py-3">1M</td>
+                <td className="px-4 py-3 text-gray-700">State-of-the-art reasoning</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm">gemini-2.5-pro</code></td>
+                <td className="px-4 py-3">Google</td>
+                <td className="px-4 py-3">2M</td>
+                <td className="px-4 py-3 text-gray-700">Multimodal, huge context</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm">claude-opus-4-5</code></td>
+                <td className="px-4 py-3">Anthropic</td>
+                <td className="px-4 py-3">200K</td>
+                <td className="px-4 py-3 text-gray-700">Most capable Claude</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm">mistral-large-latest</code></td>
+                <td className="px-4 py-3">Mistral</td>
+                <td className="px-4 py-3">128K</td>
+                <td className="px-4 py-3 text-gray-700">High performance European model</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       {/* Default Models */}
       <section className="mb-16">
         <h2 className="heading-2">Default Models</h2>
@@ -706,56 +756,6 @@ agent = Agent("coder", model=model)`}
 agent = create_agent_with_fallback("assistant")`}
           result={`Using model: gpt-5`}
         />
-      </section>
-
-      {/* Comparison Table */}
-      <section className="mb-16">
-        <h2 className="heading-2">Model Comparison</h2>
-        
-        <div className="overflow-x-auto">
-          <table className="w-full border border-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-4 py-3 text-left font-semibold">Model</th>
-                <th className="px-4 py-3 text-left font-semibold">Provider</th>
-                <th className="px-4 py-3 text-left font-semibold">Context</th>
-                <th className="px-4 py-3 text-left font-semibold">Strengths</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200">
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm">gpt-5</code></td>
-                <td className="px-4 py-3">OpenAI</td>
-                <td className="px-4 py-3">200K</td>
-                <td className="px-4 py-3 text-gray-700">Best for coding & agentic tasks</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm">gemini-3-pro-preview</code></td>
-                <td className="px-4 py-3">Google</td>
-                <td className="px-4 py-3">1M</td>
-                <td className="px-4 py-3 text-gray-700">State-of-the-art reasoning</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm">gemini-2.5-pro</code></td>
-                <td className="px-4 py-3">Google</td>
-                <td className="px-4 py-3">2M</td>
-                <td className="px-4 py-3 text-gray-700">Multimodal, huge context</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm">claude-opus-4-5</code></td>
-                <td className="px-4 py-3">Anthropic</td>
-                <td className="px-4 py-3">200K</td>
-                <td className="px-4 py-3 text-gray-700">Most capable Claude</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm">mistral-large-latest</code></td>
-                <td className="px-4 py-3">Mistral</td>
-                <td className="px-4 py-3">128K</td>
-                <td className="px-4 py-3 text-gray-700">High performance European model</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </section>
 
       {/* Info Box */}
