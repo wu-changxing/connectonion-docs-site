@@ -275,7 +275,7 @@ export function DocsSidebar() {
           <div key={section} className="mb-0.5">
             <button
               onClick={() => toggleSection(section)}
-              className="w-full flex items-center justify-between px-2 py-1.5 mb-0.5 text-left text-[10px] font-bold text-gray-400 uppercase tracking-widest hover:text-gray-600 transition-colors"
+              className="w-full flex items-center justify-between px-2 py-1.5 mb-0.5 text-left text-xs font-semibold text-gray-500 tracking-wide hover:text-gray-800 transition-colors"
             >
               <span className="flex-1 truncate">
                 <SearchHighlight text={section} query={searchQuery} />
