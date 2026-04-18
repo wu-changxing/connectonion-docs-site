@@ -322,8 +322,8 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
       <hr className="border-gray-100 mb-16" />
       <section className="mb-16 pt-4" id="playwright">
         <h2 id="playwright" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">5</span>
-          Alternative: Playwright Web Automation
+          <span className="inline-flex items-center px-2 py-0.5 bg-gray-100 text-gray-500 text-xs font-mono rounded border border-gray-200 flex-shrink-0">alt</span>
+          Playwright Web Automation
         </h2>
 
         <p className="text-gray-600 mb-6">
@@ -385,7 +385,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
       <hr className="border-gray-100 mb-16" />
       <section className="mb-16 pt-4" id="custom-tool">
         <h2 id="custom-tool" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">6</span>
+          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">5</span>
           Create a Custom Tool Agent
         </h2>
         
@@ -434,7 +434,7 @@ The answer is 739.`}
       <hr className="border-gray-100 mb-16" />
       <section className="mb-16 pt-4" id="xray">
         <h2 id="xray" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">7</span>
+          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">6</span>
           Debugging with @xray
         </h2>
 
@@ -473,7 +473,7 @@ The result is 80.`}
       {/* Interactive Debugging */}
       <section className="mb-16 pt-4" id="interactive-debug">
         <h2 id="interactive-debug" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">8</span>
+          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">7</span>
           Interactive Debugging
         </h2>
 

@@ -167,12 +167,30 @@ export default function BlogPage() {
           })}
         </div>
 
-        {/* Coming Soon */}
-        <div className="mt-10 p-6 bg-gray-50 rounded-xl border border-gray-200 text-center">
+        {/* Coming Soon + CTA */}
+        <div className="mt-10 p-8 bg-gray-50 rounded-xl border border-gray-200 text-center">
           <h3 className="text-base font-semibold text-gray-900 mb-1">More Posts Coming Soon</h3>
-          <p className="text-gray-500 text-sm">
-            We're documenting our journey. Stay tuned for more insights.
+          <p className="text-gray-500 text-sm mb-6">
+            We're documenting our journey — design decisions, lessons learned, framework internals.
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="https://discord.gg/4xfD9k8AUF"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white text-sm font-medium rounded-lg transition-colors"
+            >
+              Join Discord for updates
+            </a>
+            <a
+              href="https://github.com/openonion/connectonion"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-lg border border-gray-200 transition-colors"
+            >
+              Star on GitHub
+            </a>
+          </div>
         </div>
 
         {/* Navigation */}
