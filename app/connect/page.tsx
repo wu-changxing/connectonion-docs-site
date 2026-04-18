@@ -518,7 +518,7 @@ console.log(response.text)`}
                   <td className="px-4 py-3 text-gray-600">Tool requires user approval before running</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-cyan-700">plan_review</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">plan_review</td>
                   <td className="px-4 py-3 text-gray-600">Agent presenting a plan for review</td>
                 </tr>
               </tbody>

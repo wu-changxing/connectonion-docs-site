@@ -222,7 +222,7 @@ send_message(to=address, content=data)
               Then a user asked:
             </p>
 
-            <div className="bg-gray-500/10 border border-yellow-500/20 rounded-lg p-6 my-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-6">
               <p className="text-gray-700 italic text-lg">
                 "For people not familiar with agent development, it will be confusing what is address"
               </p>

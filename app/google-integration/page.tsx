@@ -25,8 +25,8 @@ export default function GoogleIntegrationPage() {
         <div className="mb-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-red-600/20 to-blue-600/20 rounded-xl border border-red-200">
-                <FaGoogle className="w-8 h-8 text-white" />
+              <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
+                <FaGoogle className="w-8 h-8 text-gray-700" />
               </div>
               <div>
                 <h1 className="heading-1">Google Integration</h1>

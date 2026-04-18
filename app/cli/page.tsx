@@ -113,8 +113,8 @@ export default function CLIPage() {
         />
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-6">
-          <p className="text-blue-800">
-            This provides two equivalent commands: <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co</code> (short form) 
+          <p className="text-gray-700">
+            This provides two equivalent commands: <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co</code> (short form)
             and <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">connectonion</code> (full form)
           </p>
         </div>
@@ -157,15 +157,15 @@ export default function CLIPage() {
           <p className="text-gray-700 mb-4">Both commands share the same interactive flow:</p>
           <ol className="space-y-2 text-gray-700">
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-blue-700">1</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700">1</span>
               <span>AI feature toggle (Yes/No)</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-blue-700">2</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700">2</span>
               <span>API key input (with auto-detection)</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-blue-700">3</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-gray-200 rounded-full flex items-center justify-center text-xs text-gray-700">3</span>
               <span>Template selection</span>
             </li>
           </ol>
@@ -755,7 +755,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           {/* Email Agent Template */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
               Email Agent
             </h3>
             <p className="text-gray-700 mb-4">
@@ -778,9 +778,9 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Meta Agent Template */}
-          <div className="bg-gray-50 border border-cyan-500/30 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
               Meta Agent
             </h3>
             <p className="text-gray-700 mb-4">
@@ -1025,14 +1025,14 @@ Generating custom template with AI...
           </div>
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <HiOutlineKey className="w-8 h-8 text-green-600 mb-4" />
+            <HiOutlineKey className="w-8 h-8 icon-ui mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">API Key Security</h3>
             <p className="text-gray-700 text-sm">
               Never commit <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.env</code> files. Store API keys securely.
             </p>
           </div>
 
-          <div className="bg-gray-50 border border-orange-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <HiOutlineCodeBracket className="w-8 h-8 text-gray-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Template Selection</h3>
             <p className="text-gray-700 text-sm">

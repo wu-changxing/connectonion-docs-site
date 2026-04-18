@@ -47,7 +47,7 @@ EOF`}
               />
             </div>
 
-            <div className="p-5 bg-yellow-900/20 border border-gray-200 rounded-lg">
+            <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-3 flex items-center gap-2">
                 <HiOutlineBell className="w-5 h-5" />
                 File Reading

@@ -195,14 +195,14 @@ ${expectedOutput}
       <div className="flex items-start justify-between mb-12">
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 bg-red-600 rounded-xl flex items-center justify-center">
-              <span className="text-2xl font-bold text-gray-900">7</span>
+            <div className="w-16 h-16 bg-gray-900 rounded-xl flex items-center justify-center">
+              <span className="text-2xl font-bold text-white">7</span>
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <HiOutlineShieldCheck className="w-8 h-8 text-gray-500" />
                 <h1 className="heading-1">Security Analyst</h1>
-                <span className="px-3 py-1 bg-red-50 text-red-700 rounded-full text-sm font-medium">
+                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
                   Expert
                 </span>
               </div>
@@ -390,7 +390,7 @@ ${expectedOutput}
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(promptContent)}`}
                 download="security_analyst.md"
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-red-600 hover:bg-red-700 rounded-lg text-white transition-colors font-medium"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 hover:bg-gray-700 rounded-lg text-white transition-colors font-medium"
               >
                 <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File

@@ -27,7 +27,7 @@ export default function GmailPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-amber-600" />
+            <HiOutlineBolt className="w-6 h-6 icon-ui" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -150,21 +150,21 @@ agent.input("Find emails from alice@example.com")`}
             {/* Labels */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <HiOutlineTag className="w-5 h-5 text-amber-600" />
+                <HiOutlineTag className="w-5 h-5 icon-ui" />
                 Labels
               </h3>
 
               <div className="space-y-4">
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-amber-700 font-mono text-sm mb-1">get_labels()</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">get_labels()</h4>
                   <p className="text-gray-700 text-xs">List all Gmail labels</p>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-amber-700 font-mono text-sm mb-1">add_label(email_id, label)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">add_label(email_id, label)</h4>
                   <p className="text-gray-700 text-xs">Add label to email</p>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                  <h4 className="font-semibold text-amber-700 font-mono text-sm mb-1">get_emails_with_label(label, max_results=10)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">get_emails_with_label(label, max_results=10)</h4>
                   <p className="text-gray-700 text-xs">Get emails with specific label</p>
                 </div>
               </div>
@@ -173,12 +173,12 @@ agent.input("Find emails from alice@example.com")`}
             {/* Stats */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <HiOutlineChartBar className="w-5 h-5 text-cyan-700" />
+                <HiOutlineChartBar className="w-5 h-5 text-gray-700" />
                 Stats
               </h3>
 
               <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-4">
-                <h4 className="font-semibold text-cyan-700 font-mono text-sm mb-1">count_unread()</h4>
+                <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">count_unread()</h4>
                 <p className="text-gray-700 text-xs">Count unread emails</p>
               </div>
             </div>

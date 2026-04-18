@@ -226,7 +226,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             </div>
             <div className="space-y-2 text-sm">
               <div className="flex items-start gap-2">
-                <span className="text-yellow-600 font-mono">[URL]</span>
+                <span className="text-gray-700 font-mono">[URL]</span>
                 <span className="text-gray-700">Required. The page to screenshot (e.g., localhost:3000)</span>
               </div>
               <div className="flex items-start gap-2">
@@ -443,7 +443,7 @@ done`}
             </div>
 
             {/* CI/CD Integration */}
-            <div className="bg-gray-50 border border-orange-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <HiOutlineBolt className="w-8 h-8 text-gray-400 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">CI/CD Integration</h3>
               <p className="text-gray-700 text-sm mb-4">
@@ -623,7 +623,7 @@ done`}
               </p>
             </div>
 
-            <div className="bg-gray-50 border border-orange-200 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-2">Timestamps</h3>
               <p className="text-gray-700 text-sm">
                 Default filenames include timestamp for versioning
@@ -639,19 +639,19 @@ done`}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start gap-3">
-                <span className="text-yellow-600 mt-0.5">•</span>
+                <span className="text-gray-400 mt-0.5">•</span>
                 <span>Screenshots only (no interaction, clicking, forms)</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-yellow-600 mt-0.5">•</span>
+                <span className="text-gray-400 mt-0.5">•</span>
                 <span>Single page at a time</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-yellow-600 mt-0.5">•</span>
+                <span className="text-gray-400 mt-0.5">•</span>
                 <span>Headless browser only</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-yellow-600 mt-0.5">•</span>
+                <span className="text-gray-400 mt-0.5">•</span>
                 <span>PNG format only</span>
               </li>
             </ul>

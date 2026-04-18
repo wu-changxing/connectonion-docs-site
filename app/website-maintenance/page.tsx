@@ -191,9 +191,9 @@ export default function YourFeaturePage() {
               'npm run dev'
             ]} />
             
-            <div className="bg-gray-50 dark:bg-yellow-900/20 p-4 rounded-lg border border-gray-200 dark:border-yellow-800">
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
               <h3 className="font-medium mb-2 flex items-center">
-                <HiOutlineExclamationCircle className="mr-2 h-5 w-5 text-yellow-600" />
+                <HiOutlineExclamationCircle className="mr-2 h-5 w-5 text-gray-400" />
                 Test Checklist
               </h3>
               <ul className="space-y-1 text-sm">

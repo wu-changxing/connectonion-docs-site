@@ -231,8 +231,8 @@ ${expectedOutput}
       <div className="flex items-start justify-between mb-12">
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 bg-pink-600 rounded-xl flex items-center justify-center">
-              <span className="text-2xl font-bold text-gray-900">8</span>
+            <div className="w-16 h-16 bg-gray-900 rounded-xl flex items-center justify-center">
+              <span className="text-2xl font-bold text-white">8</span>
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
