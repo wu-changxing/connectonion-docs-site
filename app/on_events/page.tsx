@@ -445,11 +445,11 @@ agent.input("Search for Python")`}
 
             <div className="bg-gray-50 border-l-4 border-blue-500 p-4 my-6 rounded-r">
               <p className="text-sm text-gray-700">
-                <strong className="text-blue-400">Tip:</strong> Event handlers receive the <code className="text-gray-700 bg-gray-100 px-1 rounded">agent</code> instance, giving you full access to <code className="text-gray-700 bg-gray-100 px-1 rounded">current_session</code>, messages, trace, and more.
+                <strong className="text-blue-700">Tip:</strong> Event handlers receive the <code className="text-gray-700 bg-gray-100 px-1 rounded">agent</code> instance, giving you full access to <code className="text-gray-700 bg-gray-100 px-1 rounded">current_session</code>, messages, trace, and more.
               </p>
             </div>
 
-            <h3 className="text-lg font-semibold mb-4 text-gray-100">Group multiple handlers</h3>
+            <h3 className="text-lg font-semibold mb-4 text-gray-900">Group multiple handlers</h3>
             <p className="text-gray-700 mb-4">
               You can pass multiple handlers to the same event type:
             </p>
@@ -495,7 +495,7 @@ agent = Agent(
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-50 border border-gray-200 rounded flex items-center justify-center">
-                    <HiOutlinePlay className="text-blue-400 w-5 h-5" />
+                    <HiOutlinePlay className="text-blue-700 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">after_user_input</h3>
@@ -554,7 +554,7 @@ agent = Agent("assistant", on_events=[
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gray-100 border border-gray-300 rounded flex items-center justify-center">
-                    <HiOutlineChartBar className="text-green-400 w-5 h-5" />
+                    <HiOutlineChartBar className="text-green-700 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">after_llm</h3>
@@ -700,7 +700,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
                 </div>
                 <div className="bg-gray-50 border-l-4 border-gray-300 p-4 mb-4 rounded-r">
                   <p className="text-sm text-gray-700">
-                    <strong className="text-green-400">SAFE:</strong> This is the correct place to add reflection messages after tools.
+                    <strong className="text-green-700">SAFE:</strong> This is the correct place to add reflection messages after tools.
                   </p>
                 </div>
                 <CodeWithResult
@@ -945,7 +945,7 @@ agent.input("Search and analyze Python")`}
 
             <div className="space-y-6">
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-gray-100">Event Handler Signature</h3>
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">Event Handler Signature</h3>
                 <p className="text-gray-700 mb-4">
                   All event handlers receive the agent instance:
                 </p>
@@ -971,7 +971,7 @@ agent.input("Search and analyze Python")`}
               </div>
 
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-gray-100">Message Injection Timing</h3>
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">Message Injection Timing</h3>
                 <p className="text-gray-700 mb-4">
                   <strong className="text-gray-900">Important:</strong> Use <code className="text-gray-700 bg-gray-100 px-1 rounded">after_tools</code> to inject messages after tool execution:
                 </p>
@@ -982,13 +982,13 @@ agent.input("Search and analyze Python")`}
                 </div>
                 <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
                   <p className="text-sm text-gray-700">
-                    <strong className="text-green-400">✅ Use after_tools:</strong> Fires once after ALL tool results are added to messages, safe for reflection injection
+                    <strong className="text-green-700">✅ Use after_tools:</strong> Fires once after ALL tool results are added to messages, safe for reflection injection
                   </p>
                 </div>
               </div>
 
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-gray-100">Error Handling</h3>
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">Error Handling</h3>
                 <p className="text-gray-700 mb-4">
                   Event handlers follow fail-fast principle:
                 </p>
@@ -1016,7 +1016,7 @@ agent.input("test")  # Raises RuntimeError`}
 
             <div className="space-y-8">
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-100">1. Performance Monitoring Dashboard</h3>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">1. Performance Monitoring Dashboard</h3>
                 <CodeWithResult
                   code={`class PerformanceMonitor:
     def __init__(self):
@@ -1067,7 +1067,7 @@ Errors: 0`}
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-100">2. Automatic Context Injection</h3>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">2. Automatic Context Injection</h3>
                 <CodeWithResult
                   code={`def inject_company_context(agent):
     """Add company-specific context to every query"""
@@ -1092,7 +1092,7 @@ agent = Agent(
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-100">3. Smart Retry Logic</h3>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">3. Smart Retry Logic</h3>
                 <CodeWithResult
                   code={`class RetryHandler:
     def __init__(self, max_retries=3):
@@ -1137,7 +1137,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
             <h2 className="heading-2">API Reference</h2>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 text-gray-100">Event Wrapper Functions</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">Event Wrapper Functions</h3>
               <div className="space-y-4 text-sm">
                 <div>
                   <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">after_user_input(func: Callable[[Agent], None]) → EventHandler</code>
@@ -1169,7 +1169,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
                 </div>
                 <div>
                   <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">after_tools(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-gray-700 mt-2">Fires ONCE after ALL tools complete. <strong className="text-green-400">SAFE</strong> for adding messages.</p>
+                  <p className="text-gray-700 mt-2">Fires ONCE after ALL tools complete. <strong className="text-green-700">SAFE</strong> for adding messages.</p>
                 </div>
                 <div>
                   <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">on_error(func: Callable[[Agent], None]) → EventHandler</code>
@@ -1191,7 +1191,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mt-6">
-              <h3 className="text-lg font-semibold mb-4 text-gray-100">Agent Constructor</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">Agent Constructor</h3>
               <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded text-sm">
                 Agent(name, tools, on_events: Optional[List[EventHandler]] = None, ...)
               </code>
@@ -1208,19 +1208,19 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
             <div className="space-y-4">
               <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
                 <p className="text-sm text-gray-700">
-                  <strong className="text-green-400">✅ Keep handlers simple:</strong> Each event handler should do one thing well. Compose multiple handlers for complex behavior.
+                  <strong className="text-green-700">✅ Keep handlers simple:</strong> Each event handler should do one thing well. Compose multiple handlers for complex behavior.
                 </p>
               </div>
 
               <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
                 <p className="text-sm text-gray-700">
-                  <strong className="text-green-400">✅ Use after_tools for message injection:</strong> This is the safe time to inject reflection/context after ALL tools in a batch complete.
+                  <strong className="text-green-700">✅ Use after_tools for message injection:</strong> This is the safe time to inject reflection/context after ALL tools in a batch complete.
                 </p>
               </div>
 
               <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
                 <p className="text-sm text-gray-700">
-                  <strong className="text-green-400">✅ Handle exceptions internally:</strong> If your event handler can fail, catch exceptions to prevent stopping the agent.
+                  <strong className="text-green-700">✅ Handle exceptions internally:</strong> If your event handler can fail, catch exceptions to prevent stopping the agent.
                 </p>
               </div>
 

@@ -200,8 +200,8 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-800 mb-4">
-              <p className="text-sm text-gray-100 mb-4 font-semibold">Quick Install:</p>
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-4">
+              <p className="text-sm text-gray-700 mb-4 font-semibold">Quick Install:</p>
               <div className="space-y-2">
                 <div className="bg-gray-800 rounded-lg p-3 font-mono text-sm flex items-center justify-between">
                   <div>
