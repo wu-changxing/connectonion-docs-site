@@ -18,7 +18,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import { HiOutlineClipboard, HiOutlineCheck, HiOutlineUsers, HiOutlineRocketLaunch, HiOutlineArrowRight, HiOutlineBolt, HiOutlineCodeBracket, HiOutlineCog6Tooth, HiOutlineArrowPath, HiOutlinePlay, HiOutlineChatBubbleBottomCenterText, HiOutlineDocumentText, HiOutlineCpuChip, HiOutlineSparkles, HiOutlineChartBarSquare, HiOutlinePuzzlePiece } from 'react-icons/hi2'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineUsers, HiOutlineRocketLaunch, HiOutlineArrowRight, HiOutlineBolt, HiOutlineCodeBracket, HiOutlineCog6Tooth, HiOutlineArrowPath, HiOutlinePlay, HiOutlineChatBubbleBottomCenterText, HiOutlineDocumentText, HiOutlineCpuChip, HiOutlineSparkles, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineGlobeAlt } from 'react-icons/hi2'
 import CodeWithResult from '../../components/CodeWithResult'
 import { CommandBlock } from '../../components/CommandBlock'
 import { PageHeader } from '../../components/PageHeader'
@@ -349,7 +349,7 @@ result = agent.input(
 
         {/* Core Concepts Section */}
         <section className="mb-16">
-          <h2 className="heading-2">Core Concepts</h2>
+          <h2 className="heading-2">Agents</h2>
           <p className="text-gray-600 mb-6">Everything the Agent class can do, in depth.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Link href="/prompts" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
@@ -394,6 +394,44 @@ result = agent.input(
                 <p className="text-xs text-gray-500">Reusable event handler bundles for your agents</p>
               </div>
             </Link>
+          </div>
+        </section>
+
+        {/* Real-World Examples */}
+        <section className="mb-16">
+          <h2 className="heading-2">Real-World Examples</h2>
+          <p className="text-gray-600 mb-6">Open-source agents built with ConnectOnion.</p>
+          <div className="divide-y divide-gray-100 border border-gray-200 rounded-xl overflow-hidden">
+            <a
+              href="https://github.com/openonion/browser-agent"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between px-5 py-4 bg-white hover:bg-gray-50 transition-colors group"
+            >
+              <div className="flex items-start gap-3">
+                <HiOutlineGlobeAlt className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">browser-agent</h3>
+                  <p className="text-xs text-gray-500 mt-0.5">Stateful web automation — navigate, screenshot, scrape with Playwright</p>
+                </div>
+              </div>
+              <span className="text-xs text-gray-400 whitespace-nowrap flex-shrink-0 ml-4">github.com/openonion ↗</span>
+            </a>
+            <a
+              href="https://github.com/openonion/oo-chat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between px-5 py-4 bg-white hover:bg-gray-50 transition-colors group"
+            >
+              <div className="flex items-start gap-3">
+                <HiOutlineChatBubbleBottomCenterText className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">oo-chat</h3>
+                  <p className="text-xs text-gray-500 mt-0.5">Open-source chat UI for AI agents — self-hostable, React-based</p>
+                </div>
+              </div>
+              <span className="text-xs text-gray-400 whitespace-nowrap flex-shrink-0 ml-4">github.com/openonion ↗</span>
+            </a>
           </div>
         </section>
 

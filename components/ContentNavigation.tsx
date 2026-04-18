@@ -12,40 +12,18 @@
 import Link from 'next/link'
 import { HiOutlineArrowLeft, HiOutlineArrowRight } from 'react-icons/hi2'
 import { usePathname } from 'next/navigation'
-import { getPageByHref, getExamplePages } from '../lib/navigation'
+import { getPageByHref } from '../lib/navigation'
 
 export function ContentNavigation() {
   const pathname = usePathname()
   const currentPage = getPageByHref(pathname)
-  
+
   if (!currentPage) return null
-  
+
   const { prev, next } = currentPage
-  
-  // Show example dots for example pages
-  const isExample = currentPage.section === 'Examples' && currentPage.exampleIndex !== undefined
-  const examplePages = isExample ? getExamplePages() : []
-  
+
   return (
     <div className="mt-16 pt-8 border-t border-gray-200">
-      {/* Example Series Dots */}
-      {isExample && examplePages.length > 0 && (
-        <div className="flex items-center justify-center gap-2 mb-8">
-          {examplePages.map((example, idx) => (
-            <Link
-              key={example.href}
-              href={example.href}
-              className={`h-2 rounded-full transition-all ${
-                idx === currentPage.exampleIndex
-                  ? 'bg-green-600 w-6'
-                  : 'bg-gray-300 w-2 hover:bg-gray-400'
-              }`}
-              title={example.title}
-            />
-          ))}
-        </div>
-      )}
-
       {/* Navigation Buttons */}
       <div className="grid grid-cols-2 gap-4">
         {prev ? (

@@ -751,43 +751,7 @@ export const navigation = [
     parent: '/xray',
     keywords: ['trace', 'flow', 'visual', 'debug', 'execution'],
     prev: { href: '/xray', title: '@xray Decorator' },
-    next: { href: '/examples', title: 'All Examples' }
-  },
-
-  // ─── Examples ──────────────────────────────────────────────────
-  {
-    title: 'All Examples',
-    href: '/examples',
-    icon: HiOutlineFolderOpen,
-    section: 'Examples',
-    difficulty: 'Browse',
-    keywords: ['examples', 'samples', 'demos', 'tutorials'],
-    prev: { href: '/xray/trace', title: 'trace() Visual Flow' },
-    next: { href: '/examples/calculator', title: 'Calculator' }
-  },
-  {
-    title: 'Calculator',
-    href: '/examples/calculator',
-    icon: HiOutlineCalculator,
-    section: 'Examples',
-    difficulty: 'Beginner',
-    keywords: ['calculator', 'math', 'compute', 'arithmetic', 'tools', 'functions'],
-    prev: { href: '/examples', title: 'All Examples' },
-    next: { href: '/examples/browser', title: 'Browser Automation' },
-    exampleIndex: 0,
-    totalExamples: 2
-  },
-  {
-    title: 'Browser Automation',
-    href: '/examples/browser',
-    icon: FaChrome,
-    section: 'Examples',
-    difficulty: 'Intermediate',
-    keywords: ['browser', 'automation', 'screenshot', 'playwright', 'web', 'scraping'],
-    prev: { href: '/examples/calculator', title: 'Calculator' },
-    next: { href: '/blog', title: 'All Posts' },
-    exampleIndex: 1,
-    totalExamples: 2
+    next: { href: '/blog', title: 'All Posts' }
   },
 
   // ─── Blog ──────────────────────────────────────────────────────
@@ -797,7 +761,7 @@ export const navigation = [
     icon: HiOutlineBookOpen,
     section: 'Blog',
     keywords: ['blog', 'posts', 'articles', 'news'],
-    prev: { href: '/examples/browser', title: 'Browser Automation' },
+    prev: { href: '/xray/trace', title: 'trace() Visual Flow' },
     next: { href: '/blog/input-method', title: 'Why `input()` Over `run()`' }
   },
   {
@@ -926,7 +890,3 @@ export function getPagesBySection(section: string) {
   return navigation.filter(page => page.section === section)
 }
 
-// Helper to get example pages
-export function getExamplePages() {
-  return navigation.filter(page => page.section === 'Examples' && page.exampleIndex !== undefined)
-}
