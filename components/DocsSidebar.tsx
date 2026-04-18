@@ -71,19 +71,12 @@ export function DocsSidebar() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // On navigation: collapse other sections, expand current one
+  // On navigation: always collapse all, expand only current section
   useEffect(() => {
     if (!isClientMounted) return
     const currentPage = navData.find(page => page.href === pathname)
     if (currentPage) {
-      setOpenSections(prev => {
-        // Keep any manually-opened sections, but ensure current is open
-        const manuallyOpen = prev.filter(s => s !== currentPage.section)
-        // Only keep manually opened sections if there's just one extra; otherwise reset
-        return manuallyOpen.length <= 1
-          ? [...new Set([currentPage.section, ...manuallyOpen])]
-          : [currentPage.section]
-      })
+      setOpenSections([currentPage.section])
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, isClientMounted])

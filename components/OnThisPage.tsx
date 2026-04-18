@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 interface Heading {
   id: string
@@ -11,35 +12,37 @@ interface Heading {
 export function OnThisPage() {
   const [headings, setHeadings] = useState<Heading[]>([])
   const [activeId, setActiveId] = useState<string>('')
+  const pathname = usePathname()
 
   useEffect(() => {
-    // Only pick real section headings (.heading-2 / .heading-3), not stray
-    // h2/h3 inside cards. Falls back to plain h2 if no .heading-2 exists
-    // (some pages haven't migrated to the design-system class yet).
-    const elements = Array.from(document.querySelectorAll('h2.heading-2'))
-
-    const items: Heading[] = elements.map(el => {
-      if (!el.id) {
-        const slug = (el.textContent || '')
-          .trim()
-          .toLowerCase()
-          .replace(/[^a-z0-9\s-]/g, '')
-          .replace(/\s+/g, '-')
-          .replace(/-+/g, '-')
-          .replace(/^-|-$/g, '')
-          .slice(0, 60)
-        el.id = slug
-      }
-      // scroll-margin-top so anchor scrolls don't land flush with the viewport top
-      ;(el as HTMLElement).style.scrollMarginTop = '6rem'
-      return {
-        id: el.id,
-        text: el.textContent?.trim() || '',
-        level: parseInt(el.tagName[1]),
-      }
-    }).filter(h => h.text && h.id)
-    setHeadings(items)
-  }, [])
+    setHeadings([])
+    setActiveId('')
+    // Small delay so the new page content is in the DOM before scanning
+    const timer = setTimeout(() => {
+      const elements = Array.from(document.querySelectorAll('h2.heading-2'))
+      const items: Heading[] = elements.map(el => {
+        if (!el.id) {
+          const slug = (el.textContent || '')
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-|-$/g, '')
+            .slice(0, 60)
+          el.id = slug
+        }
+        ;(el as HTMLElement).style.scrollMarginTop = '6rem'
+        return {
+          id: el.id,
+          text: el.textContent?.trim() || '',
+          level: parseInt(el.tagName[1]),
+        }
+      }).filter(h => h.text && h.id)
+      setHeadings(items)
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [pathname])
 
   useEffect(() => {
     if (headings.length === 0) return

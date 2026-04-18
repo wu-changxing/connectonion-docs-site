@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { HiOutlineListBullet } from 'react-icons/hi2'
 
 interface Heading {
@@ -11,32 +12,35 @@ interface Heading {
 
 export function MobileSectionJump() {
   const [headings, setHeadings] = useState<Heading[]>([])
+  const pathname = usePathname()
 
   useEffect(() => {
-    const elements = Array.from(document.querySelectorAll('h2.heading-2, h3.heading-3'))
-
-    const items: Heading[] = elements.map(el => {
-      if (!el.id) {
-        const slug = (el.textContent || '')
-          .trim()
-          .toLowerCase()
-          .replace(/[^a-z0-9\s-]/g, '')
-          .replace(/\s+/g, '-')
-          .replace(/-+/g, '-')
-          .replace(/^-|-$/g, '')
-          .slice(0, 60)
-        el.id = slug
-      }
-      ;(el as HTMLElement).style.scrollMarginTop = '7rem'
-      return {
-        id: el.id,
-        text: el.textContent?.trim() || '',
-        level: parseInt(el.tagName[1]),
-      }
-    }).filter(h => h.text && h.id)
-
-    setHeadings(items)
-  }, [])
+    setHeadings([])
+    const timer = setTimeout(() => {
+      const elements = Array.from(document.querySelectorAll('h2.heading-2, h3.heading-3'))
+      const items: Heading[] = elements.map(el => {
+        if (!el.id) {
+          const slug = (el.textContent || '')
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-|-$/g, '')
+            .slice(0, 60)
+          el.id = slug
+        }
+        ;(el as HTMLElement).style.scrollMarginTop = '7rem'
+        return {
+          id: el.id,
+          text: el.textContent?.trim() || '',
+          level: parseInt(el.tagName[1]),
+        }
+      }).filter(h => h.text && h.id)
+      setHeadings(items)
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [pathname])
 
   if (headings.length < 4) return null
 
