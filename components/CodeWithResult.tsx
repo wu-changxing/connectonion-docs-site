@@ -157,7 +157,7 @@ export default function CodeWithResult({
   }
 
   return (
-    <div className={`bg-gray-900 rounded-lg overflow-hidden shadow-lg shadow-black/30 border border-gray-800 ${className}`}>
+    <div className={`code-block bg-gray-900 rounded-lg overflow-hidden shadow-lg shadow-black/30 border border-gray-800 ${className}`}>
       <div className="flex flex-col divide-y border-subtle">
         {/* Code Section */}
         <div className="relative">

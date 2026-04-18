@@ -150,6 +150,14 @@ h3 .heading-anchor:focus {
   margin-top: 0.5rem;
 }
 
+/* ── Code blocks as hero content — top breathing room ─────────  */
+/* Wrapper class applied by CodeWithResult + CommandBlock so prose */
+/* doesn't crash directly into code. Add .code-block to any new   */
+/* code display component.                                         */
+.doc-content .code-block {
+  margin-top: 1rem;
+}
+
 /* ── Editorial accent — Instrument Serif italic in accent color ── */
 
 /* One italic serif word per headline — the editorial signature */

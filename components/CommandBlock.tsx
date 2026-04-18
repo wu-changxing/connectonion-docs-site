@@ -125,7 +125,7 @@ export function CommandBlock({ title, commands, id }: CommandBlockProps) {
   }
 
   return (
-    <div className="bg-gray-950 border border-gray-800 rounded-lg overflow-hidden shadow-lg shadow-black/30">
+    <div className="code-block bg-gray-950 border border-gray-800 rounded-lg overflow-hidden shadow-lg shadow-black/30">
       <div className="flex items-center justify-between bg-gray-900 px-4 py-2.5 border-b border-gray-800">
         <div className="flex items-center gap-2.5">
           {/* Terminal dots */}
