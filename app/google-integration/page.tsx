@@ -134,7 +134,7 @@ GOOGLE_EMAIL=your.email@gmail.com`}
           <div className="overflow-x-auto mb-8">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="py-3 px-4 font-semibold text-gray-900">Scope</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">Purpose</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">What agents can do</th>

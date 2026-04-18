@@ -303,7 +303,7 @@ email_active = false  # Becomes true after 'co auth'`}
                 <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
                   <p className="font-semibold text-gray-700 mb-4">Option 1: Immediate activation (recommended)</p>
                   <CommandBlock commands={['co init']} />
-                  <pre className="text-xs text-gray-700 mt-4 font-mono bg-gray-900 p-3 rounded flex items-start gap-2">
+                  <pre className="text-xs text-gray-700 mt-4 font-mono bg-gray-50 border border-gray-200 p-3 rounded flex items-start gap-2">
 <FaEnvelope className="text-gray-500 mt-1 flex-shrink-0" />
 <span>Agent email: 0x1234abcd@mail.openonion.ai (inactive)
 

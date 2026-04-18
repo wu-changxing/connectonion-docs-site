@@ -231,7 +231,7 @@ chat.run()`}
           <div className="bg-gray-100 rounded-lg p-4 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left py-2 text-gray-700">Widget</th>
                   <th className="text-left py-2 text-gray-700">Purpose</th>
                 </tr>

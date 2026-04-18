@@ -173,11 +173,11 @@ The team discussed the Q4 roadmap and agreed to...`}
         <div className="table-wrapper">
           <table className="min-w-full border-collapse">
             <thead>
-              <tr className="border-b border-gray-700">
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Parameter</th>
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Type</th>
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Default</th>
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Description</th>
+              <tr className="border-b border-gray-200">
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Parameter</th>
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Type</th>
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Default</th>
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Description</th>
               </tr>
             </thead>
             <tbody>
@@ -276,10 +276,10 @@ transcribe("audio.mp3", model="gemini-2.5-flash")`}
         <div className="table-wrapper">
           <table className="min-w-full border-collapse">
             <thead>
-              <tr className="border-b border-gray-700">
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Feature</th>
-                <th scope="col" className="text-left py-3 px-4 text-green-400">transcribe()</th>
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Agent()</th>
+              <tr className="border-b border-gray-200">
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Feature</th>
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">transcribe()</th>
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Agent()</th>
               </tr>
             </thead>
             <tbody>
