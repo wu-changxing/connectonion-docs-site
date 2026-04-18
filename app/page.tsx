@@ -183,29 +183,29 @@ agent.input("What's the weather in NYC?")`}
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="card-interactive p-5 text-center bg-white rounded-xl border border-gray-200">
-              <HiOutlineCommandLine className="w-6 h-6 text-green-600 mx-auto mb-2" />
+              <HiOutlineCommandLine className="w-6 h-6 icon-ui mx-auto mb-2" />
               <h4 className="text-sm font-bold text-gray-900 mb-1">Auto Log</h4>
               <p className="text-xs text-gray-500">.co/logs/</p>
             </div>
             <div className="card-interactive p-5 text-center bg-white rounded-xl border border-gray-200">
-              <HiOutlineBugAnt className="w-6 h-6 text-green-600 mx-auto mb-2" />
+              <HiOutlineBugAnt className="w-6 h-6 icon-ui mx-auto mb-2" />
               <h4 className="text-sm font-bold text-gray-900 mb-1">@xray</h4>
               <p className="text-xs text-gray-500">Breakpoints</p>
             </div>
             <div className="card-interactive p-5 text-center bg-white rounded-xl border border-gray-200">
-              <HiOutlineSparkles className="w-6 h-6 text-green-600 mx-auto mb-2" />
+              <HiOutlineSparkles className="w-6 h-6 icon-ui mx-auto mb-2" />
               <h4 className="text-sm font-bold text-gray-900 mb-1">Plugins</h4>
               <p className="text-xs text-gray-500">Just functions</p>
             </div>
             <div className="card-interactive p-5 text-center bg-white rounded-xl border border-gray-200">
-              <HiOutlineCheckCircle className="w-6 h-6 text-green-600 mx-auto mb-2" />
+              <HiOutlineCheckCircle className="w-6 h-6 icon-ui mx-auto mb-2" />
               <h4 className="text-sm font-bold text-gray-900 mb-1">Human Loop</h4>
               <p className="text-xs text-gray-500">Approval flows</p>
             </div>
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/quickstart" className="inline-flex items-center justify-center min-h-[44px] px-4 text-sm text-green-700 hover:text-green-900 transition-colors underline underline-offset-4">
+            <Link href="/quickstart" className="inline-flex items-center justify-center min-h-[44px] px-4 text-sm text-gray-600 hover:text-gray-900 transition-colors underline underline-offset-4">
               Learn more in docs →
             </Link>
           </div>

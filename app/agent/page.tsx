@@ -49,10 +49,7 @@ export default function AgentDocsPage() {
 
         {/* Quick Start Section */}
         <section className="mb-16">
-          <h2 className="heading-2">
-            <HiOutlineRocketLaunch className="w-6 h-6 text-green-600" />
-            Quick Start (60 Seconds)
-          </h2>
+          <h2 className="heading-2">Quick Start (60 Seconds)</h2>
 
           <CodeWithResult
             code={`from connectonion import Agent
@@ -72,8 +69,8 @@ The result is 714.`}
             language="python"
           />
 
-          <div className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-            <p className="text-green-700 font-semibold">
+          <div className="mt-4 callout-sm">
+            <p className="text-sm font-semibold text-gray-900">
               That's it. Your first AI agent in 5 lines.
             </p>
           </div>
@@ -81,13 +78,10 @@ The result is 714.`}
 
         {/* Full API Overview */}
         <section className="mb-16">
-          <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-6 h-6 text-green-600" />
-            What Agent Can Do - Full API Overview
-          </h2>
+          <h2 className="heading-2">What Agent Can Do — Full API Overview</h2>
 
           <p className="text-gray-700 mb-6">
-            After that simple example, here's <span className="text-green-600 font-semibold">everything</span> an Agent can do:
+            After that simple example, here's <span className="font-semibold text-gray-900">everything</span> an Agent can do:
           </p>
 
           {/* Creating an Agent */}
@@ -173,11 +167,11 @@ agent.last_usage          # dict: Last call token usage`}
             />
           </div>
 
-          <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-            <p className="text-green-700 font-semibold mb-2">
+          <div className="mt-6 callout-sm">
+            <p className="text-sm font-semibold text-gray-900 mb-1">
               That's the complete API.
             </p>
-            <p className="text-gray-700 text-sm">
+            <p className="text-gray-600 text-sm">
               Now let's dive into each feature below. Jump to any section that interests you!
             </p>
           </div>
@@ -185,15 +179,12 @@ agent.last_usage          # dict: Last call token usage`}
 
         {/* max_iterations Section */}
         <section className="mb-16" id="max-iterations">
-          <h2 className="heading-2">
-            <HiOutlineArrowPath className="w-8 h-8 text-green-600" />
-            max_iterations
-          </h2>
+          <h2 className="heading-2">max_iterations</h2>
 
-          <div className="flex items-start gap-3 mb-8 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-            <HiOutlineBolt className="text-green-600 w-5 h-5 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-green-700">
-              <strong className="text-green-800">Quick Facts:</strong>{' '}
+          <div className="flex items-start gap-3 mb-8 callout-sm">
+            <HiOutlineBolt className="icon-ui w-5 h-5 flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-gray-700">
+              <strong className="text-gray-900">Quick Facts:</strong>{' '}
               Default is 10 iterations (works for most tasks!). Fully customizable per-agent or per-task.
             </div>
           </div>
@@ -271,7 +262,7 @@ result = agent.input(
               <h3 className="text-xl font-bold text-gray-900 mb-4">When to Adjust max_iterations</h3>
               <div className="space-y-4 text-gray-700">
                 <div>
-                  <strong className="text-green-600">Increase it when:</strong>
+                  <strong className="text-gray-900">Increase it when:</strong>
                   <ul className="list-disc list-inside ml-4 mt-2 space-y-1 text-sm">
                     <li>Your agent runs complex, multi-step workflows</li>
                     <li>Tasks require multiple tool calls (research, analysis, etc.)</li>
@@ -294,19 +285,19 @@ result = agent.input(
               <h3 className="text-xl font-bold text-gray-900 mb-4">Best Practices</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span><strong>Start with default (10)</strong> - it works for most use cases</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span><strong>Monitor your logs</strong> - check how many iterations tasks actually use</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span><strong>Set per-agent</strong> for specialized agents (researcher=25, calculator=5)</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span><strong>Override per-task</strong> when you know a specific task needs more/less</span>
                 </li>
               </ul>
@@ -326,31 +317,31 @@ result = agent.input(
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-4 text-sm">
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Creating Agents
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Managing Tools
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Multi-Turn Conversations
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Iteration Control
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Common Patterns
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Testing Strategies
               </div>
             </div>
-            <p className="text-green-700 font-semibold">
+            <p className="text-sm text-gray-600">
               Use the "Copy" button above to get the full markdown documentation with all details, examples, and patterns.
             </p>
           </div>
@@ -364,8 +355,8 @@ result = agent.input(
               href="/tools"
               className="card-interactive p-6 rounded-lg border border-gray-200 group"
             >
-              <HiOutlineCodeBracket className="w-8 h-8 text-green-600 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">
+              <HiOutlineCodeBracket className="w-8 h-8 icon-ui mb-4" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
                 Tools
               </h3>
               <p className="text-sm text-gray-600">
@@ -377,8 +368,8 @@ result = agent.input(
               href="#max-iterations"
               className="card-interactive p-6 rounded-lg border border-gray-200 group"
             >
-              <HiOutlineArrowPath className="w-8 h-8 text-green-600 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">
+              <HiOutlineArrowPath className="w-8 h-8 icon-ui mb-4" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
                 max_iterations
               </h3>
               <p className="text-sm text-gray-600">
@@ -390,8 +381,8 @@ result = agent.input(
               href="/prompts"
               className="card-interactive p-6 rounded-lg border border-gray-200 group"
             >
-              <HiOutlineCog6Tooth className="w-8 h-8 text-green-600 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">
+              <HiOutlineCog6Tooth className="w-8 h-8 icon-ui mb-4" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
                 System Prompts
               </h3>
               <p className="text-sm text-gray-600">
@@ -403,8 +394,8 @@ result = agent.input(
               href="/xray"
               className="card-interactive p-6 rounded-lg border border-gray-200 group"
             >
-              <HiOutlineBolt className="w-8 h-8 text-green-600 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">
+              <HiOutlineBolt className="w-8 h-8 icon-ui mb-4" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
                 Debug with @xray
               </h3>
               <p className="text-sm text-gray-600">
@@ -418,7 +409,7 @@ result = agent.input(
         <section className="mb-16">
           <div className="p-8 bg-gray-50 rounded-xl border border-gray-200">
             <h2 className="heading-2">Philosophy</h2>
-            <p className="text-xl text-green-700 font-semibold mb-6">
+            <p className="text-xl font-semibold text-gray-900 mb-6 accent-italic">
               "Keep simple things simple, make complicated things possible"
             </p>
 

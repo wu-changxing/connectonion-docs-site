@@ -434,3 +434,71 @@ pre {
 .icon-sm { width: 1rem; height: 1rem; }
 .icon-md { width: 1.25rem; height: 1.25rem; }
 .icon-lg { width: 1.5rem; height: 1.5rem; }
+
+/* ── Global semantic design tokens ─────────────────────────────── */
+/* Use these classes instead of hardcoded Tailwind colors.         */
+/* Change a token here → all components that use it update.        */
+
+/* Decorative/UI icons — always this muted gray, never brand green */
+.icon-ui { color: #9ca3af; } /* gray-400 */
+
+/* Callout / info boxes — neutral panel, no color brand            */
+.callout {
+  background: #f9fafb;
+  border: 1px solid #f3f4f6;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+.callout-sm {
+  background: #f9fafb;
+  border: 1px solid #f3f4f6;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/* Step badge — numbered circles for tutorial steps               */
+.step-badge {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #ffffff;
+  border: 2px solid #111827;
+  border-radius: 0.5rem;
+  color: #111827;
+  font-weight: 800;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Inline tag / monospace badge pill                               */
+.tag-mono {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  background: #f3f4f6;
+  color: #374151;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 500;
+}
+
+/* Section divider — thin rule between major tutorial steps        */
+.step-divider {
+  border: none;
+  border-top: 1px solid #f3f4f6;
+  margin-bottom: 4rem;
+}
+
+/* Positive outcome callout — success / "it works" message         */
+.callout-success {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-left: 3px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
