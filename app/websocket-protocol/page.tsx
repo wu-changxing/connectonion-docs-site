@@ -397,7 +397,7 @@ export default function WebSocketProtocolPage() {
               <p>3. Adds file paths to the agent&apos;s message as a system reminder</p>
               <p>4. Agent uses <code className="bg-gray-800 px-1 rounded">read_file</code> or other tools to process the files</p>
             </div>
-            <div className="mt-4 bg-blue-950/30 border border-blue-200 rounded-lg p-3">
+            <div className="mt-4 bg-blue-950/30 border border-gray-200 rounded-lg p-3">
               <p className="text-sm text-slate-300">
                 <strong className="text-blue-300">Images vs Files:</strong> Images are passed directly to the LLM as visual content (multimodal). Files are saved to disk and read by tools.
               </p>
@@ -643,7 +643,7 @@ signature → OK             (same WS, already authenticated)`}
               <pre className="text-sm font-mono text-slate-300">{`WS open → CONNECT { auth, session_id? } → CONNECTED { status }
          INPUT { prompt, session }     → events → OUTPUT → session dies`}</pre>
             </div>
-            <div className="bg-blue-950/30 border border-blue-200 rounded-lg p-4">
+            <div className="bg-blue-950/30 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-blue-300 mb-2">v0.11.x — Session survives execution (current)</p>
               <pre className="text-sm font-mono text-slate-200">{`WS open → CONNECT { auth, session_id?, session }
          → CONNECTED { status: new/connected/executing }

@@ -145,7 +145,7 @@ while True:
         <section className="mb-12">
           <h2 className="heading-2">Platform Support</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-blue-900/20 border border-blue-200 rounded-lg">
+            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-900 mb-2">Unix/macOS</h3>
               <p className="text-sm text-gray-700">Uses <code>termios</code> + <code>tty</code></p>
             </div>

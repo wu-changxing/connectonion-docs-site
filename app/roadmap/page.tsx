@@ -212,9 +212,9 @@ export default function RoadmapPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'bg-green-500'
+        return 'bg-gray-500'
       case 'in-progress':
-        return 'bg-yellow-500'
+        return 'bg-gray-500'
       case 'planned':
         return 'bg-gray-600'
       default:

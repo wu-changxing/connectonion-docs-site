@@ -62,12 +62,12 @@ agent = Agent(
               <h3 className="font-semibold text-gray-400 mb-2">Instant Invocation</h3>
               <p className="text-sm text-slate-300">/command detected in @after_user_input, no LLM overhead</p>
             </div>
-            <div className="p-5 bg-gray-50 border border-blue-200 rounded-lg hover:border-gray-400 transition-all">
+            <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
               <HiOutlineShieldCheck className="w-7 h-7 text-blue-400 mb-3" />
               <h3 className="font-semibold text-blue-300 mb-2">Snapshot/Restore</h3>
               <p className="text-sm text-slate-300">Preserves user approvals while granting temporary permissions</p>
             </div>
-            <div className="p-5 bg-gray-50 border border-green-200 rounded-lg hover:border-gray-400 transition-all">
+            <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
               <HiOutlineLockClosed className="w-7 h-7 text-green-400 mb-3" />
               <h3 className="font-semibold text-green-300 mb-2">Security</h3>
               <p className="text-sm text-slate-300">Permissions auto-clear after turn completes</p>
@@ -175,7 +175,7 @@ session['permissions']['Bash(git status)'] = {
             </div>
           </div>
 
-          <div className="bg-green-900/20 border border-green-200 rounded-lg p-5">
+          <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-5">
             <h3 className="font-semibold text-green-300 mb-3 flex items-center gap-2">
               <HiOutlineShieldCheck className="w-6 h-6" />
               Result: User Approvals Never Lost

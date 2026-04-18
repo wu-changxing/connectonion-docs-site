@@ -16,9 +16,9 @@ export default function PricingPage() {
         ]}
         icon={HiOutlineCurrencyDollar}
         iconColor="text-green-400"
-        iconBgFrom="from-green-600/20"
+        iconBgFrom="from-gray-100"
         iconBgTo="to-blue-600/20"
-        iconBorderColor="border-green-500/30"
+        iconBorderColor="border-gray-200"
         title="Managed Keys Pricing"
         description="Same pricing as official APIs. No markup, no hidden fees. Pay only for what you use."
       />
@@ -50,7 +50,7 @@ export default function PricingPage() {
           href="https://o.openonion.ai/purchase"
           target="_blank"
           rel="noopener"
-          className="flex items-center justify-between p-5 bg-gradient-to-r from-blue-600/20 to-gray-700/20 border border-blue-200 rounded-xl hover:border-gray-400 transition-colors group"
+          className="flex items-center justify-between p-5 bg-gradient-to-r from-blue-600/20 to-gray-700/20 border border-gray-200 rounded-xl hover:border-gray-400 transition-colors group"
         >
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-1">Add Credits to Your Account</h3>
@@ -150,7 +150,7 @@ export default function PricingPage() {
               <tr>
                 <td className="px-4 py-3">
                   <code className="text-sm text-green-300">gemini-2.5-pro</code>
-                  <span className="ml-2 text-xs bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded">default</span>
+                  <span className="ml-2 text-xs bg-gray-500/20 text-green-400 px-1.5 py-0.5 rounded">default</span>
                 </td>
                 <td className="px-4 py-3 text-gray-700">$1.25</td>
                 <td className="px-4 py-3 text-gray-700">$10.00</td>

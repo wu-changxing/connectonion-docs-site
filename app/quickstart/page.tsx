@@ -78,10 +78,10 @@ export default function QuickStartPage() {
             { label: 'Quick Start' }
           ]}
           icon={HiOutlinePlay}
-          iconColor="text-green-600"
-          iconBgFrom="from-green-50"
-          iconBgTo="to-green-100"
-          iconBorderColor="border-green-200"
+          iconColor="text-gray-500"
+          iconBgFrom="from-gray-50"
+          iconBgTo="to-gray-100"
+          iconBorderColor="border-gray-200"
           title="Quick Start Guide"
           description="Get up and running with ConnectOnion in under 2 minutes."
           markdownPath="/quickstart/quickstart.md"
@@ -89,9 +89,9 @@ export default function QuickStartPage() {
         />
 
         {/* Time Estimate */}
-        <div className="flex items-center gap-2 mb-12 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <HiOutlineClock className="w-5 h-5 text-blue-600" />
-          <span className="text-blue-800">
+        <div className="flex items-center gap-2 mb-12 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+          <HiOutlineClock className="w-5 h-5 text-gray-400" />
+          <span className="text-gray-700">
             <strong>Estimated time:</strong> 2 minutes to first working agent
           </span>
         </div>
@@ -99,7 +99,7 @@ export default function QuickStartPage() {
       {/* Installation */}
       <section className="mb-16 pt-4" id="install">
         <h2 id="install" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">1</span>
+          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">1</span>
           Install ConnectOnion
         </h2>
         
@@ -109,9 +109,10 @@ export default function QuickStartPage() {
       </section>
 
       {/* Create Agent */}
+      <hr className="border-gray-100 mb-16" />
       <section className="mb-16 pt-4" id="create-agent">
         <h2 id="create-agent" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">2</span>
+          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">2</span>
           Create Your First Agent
         </h2>
 
@@ -159,23 +160,23 @@ export default function QuickStartPage() {
           className="mb-8"
         />
 
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
-          <h3 className="text-lg font-semibold text-green-800 mb-4">✨ The CLI handles:</h3>
-          <ul className="space-y-2 text-green-900">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">The CLI handles:</h3>
+          <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
-              <span className="text-green-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>API key setup</strong> - Automatic detection from environment or interactive input</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-green-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Project structure</strong> - All files created and configured</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-green-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Documentation</strong> - Complete framework docs included</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-green-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Git configuration</strong> - .gitignore ready for version control</span>
             </li>
           </ul>
@@ -183,9 +184,10 @@ export default function QuickStartPage() {
       </section>
 
       {/* Run Your Agent */}
+      <hr className="border-gray-100 mb-16" />
       <section className="mb-16 pt-4" id="run">
         <h2 id="run" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">3</span>
+          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">3</span>
           Run Your Agent
         </h2>
 
@@ -201,9 +203,10 @@ export default function QuickStartPage() {
       </section>
 
       {/* Customize */}
+      <hr className="border-gray-100 mb-16" />
       <section className="mb-16 pt-4" id="customize">
         <h2 id="customize" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">4</span>
+          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">4</span>
           Customize Your Agent
         </h2>
         
@@ -316,9 +319,10 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
       </section>
 
       {/* Playwright Template */}
+      <hr className="border-gray-100 mb-16" />
       <section className="mb-16 pt-4" id="playwright">
         <h2 id="playwright" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">5</span>
+          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">5</span>
           Alternative: Playwright Web Automation
         </h2>
 
@@ -335,39 +339,39 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
           />
         </div>
 
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 mb-8">
-          <h3 className="text-lg font-semibold text-amber-800 mb-4">Stateful browser tools included:</h3>
-          <div className="grid sm:grid-cols-2 gap-3 text-amber-900 text-sm">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Stateful browser tools included:</h3>
+          <div className="grid sm:grid-cols-2 gap-3 text-gray-700 text-sm">
             <div className="flex items-start gap-2">
-              <span className="text-amber-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>start_browser()</strong> - Launch browser</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-amber-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>navigate()</strong> - Go to URLs</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-amber-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>scrape_content()</strong> - Extract content</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-amber-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>fill_form()</strong> - Complete forms</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-amber-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>take_screenshot()</strong> - Capture pages</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-amber-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>extract_links()</strong> - Get all links</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-amber-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>click()</strong> - Click elements</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-amber-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>execute_javascript()</strong> - Run JS</span>
             </div>
           </div>
@@ -378,9 +382,10 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
       </section>
 
       {/* Custom Tool Example */}
+      <hr className="border-gray-100 mb-16" />
       <section className="mb-16 pt-4" id="custom-tool">
         <h2 id="custom-tool" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">6</span>
+          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">6</span>
           Create a Custom Tool Agent
         </h2>
         
@@ -426,9 +431,10 @@ The answer is 739.`}
       </section>
 
       {/* Debugging with @xray */}
+      <hr className="border-gray-100 mb-16" />
       <section className="mb-16 pt-4" id="xray">
         <h2 id="xray" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">7</span>
+          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">7</span>
           Debugging with @xray
         </h2>
 
@@ -463,10 +469,11 @@ The result is 80.`}
         />
       </section>
 
+      <hr className="border-gray-100 mb-16" />
       {/* Interactive Debugging */}
       <section className="mb-16 pt-4" id="interactive-debug">
         <h2 id="interactive-debug" className="heading-2 flex items-center gap-3 mb-5">
-          <span className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">8</span>
+          <span className="w-8 h-8 bg-white border-2 border-gray-900 rounded-lg flex items-center justify-center text-gray-900 font-bold text-sm flex-shrink-0">8</span>
           Interactive Debugging
         </h2>
 
@@ -526,19 +533,19 @@ What do you want to do?
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Why use interactive debugging?</h3>
           <div className="grid sm:grid-cols-2 gap-4 text-gray-700 text-sm">
             <div className="flex items-start gap-2">
-              <span className="text-green-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Pause at breakpoints</strong> - Inspect state at any tool</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Test edge cases</strong> - Modify variables to explore "what if"</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Python REPL access</strong> - Full runtime inspection</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Step through execution</strong> - See every tool call</span>
             </div>
           </div>
@@ -555,22 +562,23 @@ What do you want to do?
       </section>
 
       {/* Next Steps */}
+      <hr className="border-gray-100 mb-16" />
       <section className="mb-16 pt-4" id="whats-next">
         <h2 id="whats-next" className="heading-2 flex items-center gap-3 mb-5">
-          <FaBullseye className="text-green-600 flex-shrink-0" />
+          <FaBullseye className="text-gray-400 flex-shrink-0" />
           <span>What's Next?</span>
         </h2>
 
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
           <Link
             href="/auto-debug"
-            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
+            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-200 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
                 <HiOutlineBugAnt className="w-6 h-6 text-gray-700" />
               </div>
-              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
+              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all" />
             </div>
             <h3 className="text-base font-semibold text-gray-900 mb-2">Interactive Debugging</h3>
             <p className="text-gray-500 text-sm">
@@ -580,13 +588,13 @@ What do you want to do?
 
           <Link
             href="/prompts"
-            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
+            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-200 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
                 <HiOutlineDocumentText className="w-6 h-6 text-gray-700" />
               </div>
-              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
+              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all" />
             </div>
             <h3 className="text-base font-semibold text-gray-900 mb-2">Master System Prompts</h3>
             <p className="text-gray-500 text-sm">
@@ -596,13 +604,13 @@ What do you want to do?
 
           <Link
             href="/xray"
-            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
+            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-200 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                <HiOutlineBolt className="w-6 h-6 text-green-600" />
+              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                <HiOutlineBolt className="w-6 h-6 text-gray-700" />
               </div>
-              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
+              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all" />
             </div>
             <h3 className="text-base font-semibold text-gray-900 mb-2">Deep Dive into @xray</h3>
             <p className="text-gray-500 text-sm">
@@ -612,13 +620,13 @@ What do you want to do?
 
           <Link
             href="/examples"
-            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
+            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-200 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                <HiOutlineCodeBracket className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                <HiOutlineCodeBracket className="w-6 h-6 text-gray-700" />
               </div>
-              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
+              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all" />
             </div>
             <h3 className="text-base font-semibold text-gray-900 mb-2">Real-World Examples</h3>
             <p className="text-gray-500 text-sm">
@@ -628,13 +636,13 @@ What do you want to do?
 
           <Link
             href="/tools"
-            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-sm transition-all"
+            className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-200 hover:shadow-sm transition-all"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
-                <HiOutlineWrench className="w-6 h-6 text-orange-600" />
+              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                <HiOutlineWrench className="w-6 h-6 text-gray-700" />
               </div>
-              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
+              <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all" />
             </div>
             <h3 className="text-base font-semibold text-gray-900 mb-2">Build Custom Tools</h3>
             <p className="text-gray-500 text-sm">

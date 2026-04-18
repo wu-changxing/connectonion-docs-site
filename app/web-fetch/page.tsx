@@ -18,9 +18,9 @@ export default function WebFetchPage() {
           ]}
           icon={HiOutlineGlobeAlt}
           iconColor="text-green-400"
-          iconBgFrom="from-green-600/20"
+          iconBgFrom="from-gray-100"
           iconBgTo="to-teal-600/20"
-          iconBorderColor="border-green-500/30"
+          iconBorderColor="border-gray-200"
           title="WebFetch"
           description="Give your agents web scraping powers. Fetch, parse, and analyze web pages."
           markdownPath="/web-fetch.md"

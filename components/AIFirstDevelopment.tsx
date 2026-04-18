@@ -50,26 +50,26 @@ export function AIFirstDevelopment() {
           </div>
 
           {/* Right: The Solution */}
-          <div className="p-6 bg-green-50 border border-green-200 rounded-xl">
+          <div className="p-6 bg-gray-50 border border-gray-200 rounded-xl">
             <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <span>✨</span>
+              <HiOutlineSparkles className="w-5 h-5 text-gray-500" />
               AI-First with ConnectOnion
             </h3>
             <ul className="space-y-3 text-gray-700 text-sm">
               <li className="flex items-start gap-3">
-                <span className="text-green-600 mt-0.5">✓</span>
+                <span className="text-gray-900 font-bold mt-0.5">✓</span>
                 <span>Describe your agent, let AI build it</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 mt-0.5">✓</span>
+                <span className="text-gray-900 font-bold mt-0.5">✓</span>
                 <span>Meta-agents generate, test, and deploy</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 mt-0.5">✓</span>
+                <span className="text-gray-900 font-bold mt-0.5">✓</span>
                 <span>Ship agents in minutes, not hours</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 mt-0.5">✓</span>
+                <span className="text-gray-900 font-bold mt-0.5">✓</span>
                 <span>AI handles the boring parts</span>
               </li>
             </ul>
@@ -82,7 +82,7 @@ export function AIFirstDevelopment() {
 
           <div className="grid md:grid-cols-3 gap-5">
             <div className="p-5 bg-white border border-gray-200 rounded-xl card-interactive">
-              <HiOutlineRocketLaunch className="w-8 h-8 text-green-600 mb-3" />
+              <HiOutlineRocketLaunch className="w-8 h-8 text-gray-400 mb-3" />
               <h4 className="text-base font-semibold text-gray-900 mb-2">10x Faster Development</h4>
               <p className="text-sm text-gray-500">
                 Meta-agents generate production-ready code in minutes. What took hours now takes seconds.
@@ -90,7 +90,7 @@ export function AIFirstDevelopment() {
             </div>
 
             <div className="p-5 bg-white border border-gray-200 rounded-xl card-interactive">
-              <HiOutlineArrowPath className="w-8 h-8 text-green-600 mb-3" />
+              <HiOutlineArrowPath className="w-8 h-8 text-gray-400 mb-3" />
               <h4 className="text-base font-semibold text-gray-900 mb-2">Self-Improving Agents</h4>
               <p className="text-sm text-gray-500">
                 Agents analyze their own execution, identify issues, and generate fixes automatically.
@@ -98,7 +98,7 @@ export function AIFirstDevelopment() {
             </div>
 
             <div className="p-5 bg-white border border-gray-200 rounded-xl card-interactive">
-              <HiOutlineLightBulb className="w-8 h-8 text-green-600 mb-3" />
+              <HiOutlineLightBulb className="w-8 h-8 text-gray-400 mb-3" />
               <h4 className="text-base font-semibold text-gray-900 mb-2">Zero Boilerplate</h4>
               <p className="text-sm text-gray-500">
                 Focus on what you want to build, not how. AI handles imports, error handling, and best practices.
@@ -110,7 +110,7 @@ export function AIFirstDevelopment() {
         {/* Real Example */}
         <div className="p-6 bg-gray-50 border border-gray-200 rounded-2xl">
           <div className="flex items-start gap-4 mb-5">
-            <HiOutlineCommandLine className="w-6 h-6 text-green-600 mt-0.5" />
+            <HiOutlineCommandLine className="w-6 h-6 text-gray-400 mt-0.5" />
             <div>
               <h3 className="text-base font-bold text-gray-900 mb-1">Real-World Example</h3>
               <p className="text-sm text-gray-500">Build an email automation agent using a meta-agent:</p>
@@ -126,12 +126,12 @@ export function AIFirstDevelopment() {
             </div>
 
             <div className="flex justify-center">
-              <HiOutlineSparkles className="w-5 h-5 text-green-500 animate-pulse" />
+              <HiOutlineSparkles className="w-5 h-5 text-gray-400 animate-pulse" />
             </div>
 
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-              <div className="text-xs text-green-600 mb-2 font-medium">Meta-Agent:</div>
-              <ul className="text-gray-700 text-sm space-y-1.5">
+            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+              <div className="text-xs text-gray-500 mb-2 font-mono">Meta-Agent:</div>
+              <ul className="text-gray-700 text-sm space-y-1.5 font-mono">
                 <li>✓ Generated Gmail integration tool</li>
                 <li>✓ Created pricing knowledge base</li>
                 <li>✓ Built reply agent with context</li>
@@ -142,7 +142,7 @@ export function AIFirstDevelopment() {
           </div>
 
           <div className="mt-5 text-center text-sm text-gray-500">
-            <span className="text-green-700 font-semibold">Time saved: 4 hours</span>
+            <span className="font-semibold text-gray-900">Time saved: 4 hours</span>
             {' · '}
             <span className="font-semibold text-gray-900">Lines of code written by you: 0</span>
           </div>

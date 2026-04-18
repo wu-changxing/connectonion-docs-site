@@ -72,7 +72,7 @@ The result is 714.`}
             language="python"
           />
 
-          <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+          <div className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
             <p className="text-green-700 font-semibold">
               That's it. Your first AI agent in 5 lines.
             </p>
@@ -173,7 +173,7 @@ agent.last_usage          # dict: Last call token usage`}
             />
           </div>
 
-          <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+          <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
             <p className="text-green-700 font-semibold mb-2">
               That's the complete API.
             </p>
@@ -190,7 +190,7 @@ agent.last_usage          # dict: Last call token usage`}
             max_iterations
           </h2>
 
-          <div className="flex items-start gap-3 mb-8 p-4 bg-green-50 border border-green-200 rounded-lg">
+          <div className="flex items-start gap-3 mb-8 p-4 bg-gray-50 border border-gray-200 rounded-lg">
             <HiOutlineBolt className="text-green-600 w-5 h-5 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-green-700">
               <strong className="text-green-800">Quick Facts:</strong>{' '}
@@ -267,7 +267,7 @@ result = agent.input(
             </div>
 
             {/* When to Adjust */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4">When to Adjust max_iterations</h3>
               <div className="space-y-4 text-gray-700">
                 <div>
@@ -316,7 +316,7 @@ result = agent.input(
 
         {/* Full Documentation Note */}
         <section className="mb-16">
-          <div className="p-6 bg-green-50 rounded-xl border border-green-200">
+          <div className="p-6 bg-gray-50 rounded-xl border border-gray-200">
             <h2 className="heading-2">
               <HiOutlineCodeBracket className="w-6 h-6 text-green-600" />
               Complete Documentation

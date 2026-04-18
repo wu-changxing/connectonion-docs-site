@@ -313,7 +313,7 @@ I'll search for the top 3 results about vector databases.
       <section className="mb-16">
         <h2 className="heading-2"><HiOutlineCog6Tooth className="w-5 h-5 text-amber-400"/>Class Instance vs Individual Methods</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-green-900/20 border border-green-200 rounded-lg p-6">
+          <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
               <FaCheckCircle className="inline-flex w-5 h-5 text-green-400" />
               Recommended: Class Instance

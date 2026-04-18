@@ -14,7 +14,7 @@ const examples = [
     description: 'Learn the fundamentals with a simple math calculator that demonstrates tool creation, input validation, and error handling',
     icon: HiOutlineCalculator,
     color: 'text-blue-400',
-    bgColor: 'bg-blue-900/20',
+    bgColor: 'bg-gray-900/5',
     borderColor: 'border-blue-500/30',
     difficulty: 'Beginner',
     concepts: ['Function tools', 'Input validation', 'Error handling', 'Safe evaluation'],
@@ -67,7 +67,7 @@ export default function ExamplesPage() {
         <div className="mb-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-blue-600/20 to-gray-700/20 rounded-xl border border-blue-200">
+              <div className="p-3 bg-gradient-to-br from-blue-600/20 to-gray-700/20 rounded-xl border border-gray-200">
                 <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
               </div>
               <div>
@@ -89,7 +89,7 @@ export default function ExamplesPage() {
           </h2>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
+              <div className="w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
               <div>
                 <div className="font-semibold">Calculator</div>
                 <div className="text-sm text-gray-700">Learn the basics</div>
@@ -123,7 +123,7 @@ export default function ExamplesPage() {
                     <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
                       {example.title}
                       {index === 0 && (
-                        <span className="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">
+                        <span className="text-xs px-2 py-1 bg-gray-500/20 text-green-400 rounded-full">
                           Start Here
                         </span>
                       )}
@@ -176,7 +176,7 @@ export default function ExamplesPage() {
           </p>
           <Link
             href="/examples/calculator"
-            className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center gap-2 bg-gray-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             Start with Calculator
             <HiOutlineArrowRight className="w-5 h-5" />

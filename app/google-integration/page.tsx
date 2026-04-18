@@ -160,7 +160,7 @@ GOOGLE_EMAIL=your.email@gmail.com`}
             </table>
           </div>
 
-          <div className="bg-blue-900/20 border border-blue-200 rounded-xl p-6">
+          <div className="bg-gray-900/5 border border-gray-200 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-blue-400">
               <HiOutlineShieldCheck className="w-5 h-5" />
               Privacy First

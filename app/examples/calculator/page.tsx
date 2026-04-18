@@ -211,7 +211,7 @@ Build on this foundation for more complex agents that need to handle user input 
       <div className="mb-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-br from-blue-600/20 to-indigo-600/20 rounded-xl border border-blue-200">
+            <div className="p-3 bg-gradient-to-br from-blue-600/20 to-indigo-600/20 rounded-xl border border-gray-200">
               <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
             </div>
             <div>
@@ -230,7 +230,7 @@ Build on this foundation for more complex agents that need to handle user input 
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-blue-900/20 border border-blue-200 rounded-xl">
+      <div className="mb-12 p-6 bg-gray-900/5 border border-gray-200 rounded-xl">
         <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
           <HiOutlineLightBulb className="w-6 h-6 text-blue-400" />
           What You'll Learn
@@ -428,7 +428,7 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Advanced Features</h3>
             <div className="space-y-3 text-sm">
-              <div className="p-3 bg-blue-900/20 border border-blue-200 rounded">
+              <div className="p-3 bg-gray-900/5 border border-gray-200 rounded">
                 <p className="text-blue-300 font-medium mb-1 flex items-center gap-2">
                   <FaWrench className="w-4 h-4" />
                   <span>Multiple Tools</span>
@@ -439,7 +439,7 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
                   <li>• <code>validate_expression()</code> - Input checking</li>
                 </ul>
               </div>
-              <div className="p-3 bg-blue-900/20 border border-blue-200 rounded">
+              <div className="p-3 bg-gray-900/5 border border-gray-200 rounded">
                 <p className="text-blue-300 font-medium mb-1 flex items-center gap-2">
                   <FaBullseye className="w-4 h-4" />
                   <span>System Prompt</span>

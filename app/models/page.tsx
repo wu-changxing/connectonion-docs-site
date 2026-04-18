@@ -164,10 +164,10 @@ export ANTHROPIC_API_KEY="sk-ant-..."
           { label: 'Models' }
         ]}
         icon={HiOutlineCpuChip}
-        iconColor="text-blue-400"
-        iconBgFrom="from-blue-600/20"
+        iconColor="text-gray-500"
+        iconBgFrom="from-gray-50"
         iconBgTo="to-gray-700/20"
-        iconBorderColor="border-blue-500/30"
+        iconBorderColor="border-gray-200"
         title="Models"
         description="Use the latest AI models from OpenAI, Google, Anthropic, and Mistral with a single interface."
         markdownPath="/models/models.md"
@@ -179,7 +179,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
         <h2 className="heading-2">Quick Start (60 Seconds)</h2>
 
         {/* Managed Keys Path */}
-        <div className="bg-gradient-to-br from-gray-900/20 to-blue-900/20 p-6 rounded-xl border border-gray-200 mb-6">
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200 mb-6">
           <h3 className="text-xl font-semibold mb-4 flex items-center text-white">
             <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-500" />
             Easiest Way: Use Managed Keys
@@ -211,7 +211,7 @@ response = agent.input("Explain quantum computing")`}
         {/* Own Keys Path */}
         <div className="bg-gray-900 border border-gray-700 p-6 rounded-xl">
           <h3 className="text-xl font-semibold mb-4 flex items-center text-white">
-            <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-blue-400" />
+            <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-gray-400" />
             Alternative: Bring Your Own Keys
           </h3>
           <p className="text-gray-700 mb-4">
@@ -241,9 +241,9 @@ response = agent.input("Explain quantum computing")`}
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 mb-6">
-          <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 p-6 rounded-xl border border-green-200">
+          <div className="bg-gradient-to-br bg-gray-50 p-6 rounded-xl border border-gray-200">
             <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <HiOutlineUsers className="mr-2 h-5 w-5 text-green-400" />
+              <HiOutlineUsers className="mr-2 h-5 w-5 text-gray-400" />
               Agent Default
             </h3>
             <p className="text-sm text-gray-700 mb-4">
@@ -262,9 +262,9 @@ agent = Agent("assistant", model="co/gemini-2.5-pro")`}
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-xl border border-yellow-200">
+          <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
             <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <HiOutlineBolt className="mr-2 h-5 w-5 text-yellow-400" />
+              <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-400" />
               llm_do Default
             </h3>
             <p className="text-sm text-gray-700 mb-4">
@@ -286,8 +286,8 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           </div>
         </div>
 
-        <div className="bg-blue-900/20 border border-blue-200 rounded-xl p-4">
-          <p className="text-sm text-blue-300">
+        <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+          <p className="text-sm text-gray-600">
             <strong>Note:</strong> Default models require authentication with <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code>.
             To use your own API keys without the <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co/</code> prefix, set <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">GEMINI_API_KEY</code> environment variable.
           </p>
@@ -303,7 +303,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             onClick={() => setActiveProvider('openai')}
             className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'openai'
-                ? 'bg-gradient-to-r from-blue-500 to-gray-700 text-white'
+                ? 'bg-gray-800 text-gray-100'
                 : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
             }`}
           >
@@ -313,7 +313,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             onClick={() => setActiveProvider('google')}
             className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'google'
-                ? 'bg-gradient-to-r from-blue-500 to-gray-700 text-white'
+                ? 'bg-gray-800 text-gray-100'
                 : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
             }`}
           >
@@ -323,7 +323,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             onClick={() => setActiveProvider('anthropic')}
             className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'anthropic'
-                ? 'bg-gradient-to-r from-blue-500 to-gray-700 text-white'
+                ? 'bg-gray-800 text-gray-100'
                 : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
             }`}
           >
@@ -333,7 +333,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
             onClick={() => setActiveProvider('mistral')}
             className={`px-4 py-2 min-h-[48px] rounded-lg font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
               activeProvider === 'mistral'
-                ? 'bg-gradient-to-r from-blue-500 to-gray-700 text-white'
+                ? 'bg-gray-800 text-gray-100'
                 : 'bg-gray-800 text-gray-700 hover:bg-gray-700'
             }`}
           >
@@ -345,20 +345,20 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           <div className="space-y-4">
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-blue-400" />
+                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-gray-400" />
                 GPT-5 Series
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-sm mr-3 font-mono">gpt-5</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gpt-5</code>
                   <span className="text-gray-700">Best for coding and agentic tasks across domains</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-sm mr-3 font-mono">gpt-5-mini</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gpt-5-mini</code>
                   <span className="text-gray-700">Faster, cost-efficient version for well-defined tasks</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-sm mr-3 font-mono">gpt-5-nano</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gpt-5-nano</code>
                   <span className="text-gray-700">Fastest, most cost-efficient version</span>
                 </div>
               </div>
@@ -383,24 +383,24 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
           <div className="space-y-4">
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-green-400" />
+                <HiOutlineCpuChip className="mr-2 h-5 w-5 text-gray-400" />
                 Gemini 3 (Newest)
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-preview</code>
-                  <span className="text-gray-700">State-of-the-art reasoning, 1M context - <strong className="text-green-400">Most intelligent</strong></span>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-preview</code>
+                  <span className="text-gray-700">State-of-the-art reasoning, 1M context - <strong className="text-gray-900">Most intelligent</strong></span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-flash-preview</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-flash-preview</code>
                   <span className="text-gray-700">Fastest Gemini 3 model</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-image-preview</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-image-preview</code>
                   <span className="text-gray-700">Image generation with grounded generation</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.1-flash-lite-preview</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.1-flash-lite-preview</code>
                   <span className="text-gray-700">Ultra fast, cheapest Gemini 3</span>
                 </div>
               </div>
@@ -408,33 +408,33 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineEye className="mr-2 h-5 w-5 text-green-400" />
+                <HiOutlineEye className="mr-2 h-5 w-5 text-gray-400" />
                 Gemini 2.5
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.5-pro</code>
-                  <span className="text-gray-700">Enhanced reasoning, supports audio/video/PDF (2M tokens) - <strong className="text-green-400">Agent default</strong></span>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.5-pro</code>
+                  <span className="text-gray-700">Enhanced reasoning, supports audio/video/PDF (2M tokens) - <strong className="text-gray-900">Agent default</strong></span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.5-flash</code>
-                  <span className="text-gray-700">Fast and cost-effective reasoning (1M tokens) - <strong className="text-yellow-400">llm_do default</strong></span>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.5-flash</code>
+                  <span className="text-gray-700">Fast and cost-effective reasoning (1M tokens) - <strong className="text-gray-900">llm_do default</strong></span>
                 </div>
               </div>
             </div>
 
             <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-                <HiOutlineBolt className="mr-2 h-5 w-5 text-yellow-400" />
+                <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-400" />
                 Gemini 2.0
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.0-flash</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.0-flash</code>
                   <span className="text-gray-700">Previous gen workhorse</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.0-flash-lite</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.0-flash-lite</code>
                   <span className="text-gray-700">Previous gen lite version</span>
                 </div>
               </div>
@@ -463,8 +463,8 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
                   <span className="text-gray-700">Fastest with near-frontier intelligence</span>
                 </div>
               </div>
-              <div className="mt-4 p-3 bg-green-500/10 rounded border border-green-500/20">
-                <p className="text-xs text-green-300">
+              <div className="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
+                <p className="text-xs text-gray-500">
                   ✅ All 4.5 series models support <strong>structured output</strong> with Pydantic models
                 </p>
               </div>
@@ -478,15 +478,15 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               <div className="space-y-3">
                 <div className="flex items-start">
                   <code className="bg-gray-500/20 text-gray-400 px-2 py-1 rounded text-sm mr-3 font-mono">claude-opus-4-1</code>
-                  <span className="text-gray-700">Specialized reasoning - <strong className="text-green-400">supports structured output</strong></span>
+                  <span className="text-gray-700">Specialized reasoning - <strong className="text-gray-900">supports structured output</strong></span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-gray-500/20 text-gray-400 px-2 py-1 rounded text-sm mr-3 font-mono">claude-sonnet-4</code>
-                  <span className="text-gray-700">Balanced performance - <strong className="text-yellow-400">no structured output</strong></span>
+                  <span className="text-gray-700">Balanced performance - <strong className="text-gray-600">no structured output</strong></span>
                 </div>
               </div>
-              <div className="mt-4 p-3 bg-yellow-500/10 rounded border border-yellow-500/20">
-                <p className="text-xs text-yellow-300">
+              <div className="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
+                <p className="text-xs text-gray-500">
                   ⚠️ Legacy models (claude-sonnet-4, claude-opus-4) do NOT support structured output.
                   Use 4.5 or 4.1 series for <code className="bg-gray-800 px-1 rounded">llm_do(..., output=Model)</code>
                 </p>
@@ -516,8 +516,8 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
                   <span className="text-gray-700">Mid-tier performance</span>
                 </div>
               </div>
-              <div className="mt-4 p-3 bg-yellow-500/10 rounded border border-yellow-500/20">
-                <p className="text-xs text-yellow-300">
+              <div className="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
+                <p className="text-xs text-gray-500">
                   ⚠️ Mistral models require your own API key (<code className="bg-gray-800 px-1 rounded">MISTRAL_API_KEY</code>).
                   Managed keys (<code className="bg-gray-800 px-1 rounded">co/</code> prefix) are not yet available for Mistral.
                 </p>
@@ -534,7 +534,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
             <h3 className="font-semibold mb-4 flex items-center text-white">
-              <HiOutlineCpuChip className="mr-2 h-5 w-5 text-blue-400" />
+              <HiOutlineCpuChip className="mr-2 h-5 w-5 text-gray-400" />
               Best for Coding
             </h3>
             <CodeWithResult
@@ -546,7 +546,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
             <h3 className="font-semibold mb-4 flex items-center text-white">
-              <HiOutlineBolt className="mr-2 h-5 w-5 text-yellow-400" />
+              <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-400" />
               Fast Responses
             </h3>
             <CodeWithResult
@@ -558,7 +558,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-lg">
             <h3 className="font-semibold mb-4 flex items-center text-white">
-              <HiOutlineCurrencyDollar className="mr-2 h-5 w-5 text-green-400" />
+              <HiOutlineCurrencyDollar className="mr-2 h-5 w-5 text-gray-400" />
               Cost-Optimized
             </h3>
             <CodeWithResult
@@ -588,7 +588,7 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Managed Keys */}
-          <div className="bg-gradient-to-br from-gray-900/20 to-blue-900/20 p-6 rounded-xl border border-gray-200">
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200">
             <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
               <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-500" />
               Option 1: Managed Keys
@@ -617,7 +617,7 @@ agent = Agent("assistant", model="co/claude-opus-4-5")`}
           {/* Own Keys */}
           <div className="bg-gray-900 border border-gray-700 p-6 rounded-xl">
             <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
-              <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-blue-400" />
+              <HiOutlineGlobeAlt className="mr-2 h-5 w-5 text-gray-400" />
               Option 2: Your Own Keys
             </h3>
             <p className="text-sm text-gray-700 mb-4">
@@ -762,7 +762,7 @@ agent = create_agent_with_fallback("assistant")`}
       </section>
 
       {/* Info Box */}
-      <div className="bg-gradient-to-br from-gray-900/20 to-blue-900/20 p-6 rounded-lg border border-gray-200 mb-16">
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-200 mb-16">
         <h3 className="font-semibold mb-2 flex items-center text-white">
           <HiOutlineBolt className="mr-2 h-5 w-5 text-gray-500" />
           Key Benefits

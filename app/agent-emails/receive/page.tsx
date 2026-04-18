@@ -61,7 +61,7 @@ mark_read(email_id)                 # Mark as read after processing`}
               language="python"
               fileName="core.py"
             />
-            <div className="mt-6 p-4 bg-yellow-500/10 border border-yellow-200 rounded-lg">
+            <div className="mt-6 p-4 bg-gray-500/10 border border-gray-200 rounded-lg">
               <p className="text-yellow-300 font-medium">
                 Important: Emails are NOT auto-marked as read. You control when to mark them.
               </p>
@@ -82,7 +82,7 @@ mark_read(email_id)                 # Mark as read after processing`}
             ]}
           />
 
-          <div className="mt-6 p-4 bg-blue-500/10 border border-blue-200 rounded-lg">
+          <div className="mt-6 p-4 bg-gray-500/10 border border-gray-200 rounded-lg">
             <p className="text-blue-300 text-sm">
               <strong>Gmail users:</strong> Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" className="underline hover:text-blue-800">App Password</a>, not your regular password.
             </p>
@@ -237,7 +237,7 @@ agent.input("Check my inbox and summarize what's there")`}
           <h2 className="heading-2">get_emails vs Gmail</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-blue-900/20 border border-blue-200 rounded-xl p-6">
+            <div className="bg-gray-900/5 border border-gray-200 rounded-xl p-6">
               <h3 className="font-semibold mb-4 text-blue-300">get_emails (IMAP)</h3>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li>Simple functions</li>
@@ -247,7 +247,7 @@ agent.input("Check my inbox and summarize what's there")`}
                 <li>Best for simple automation</li>
               </ul>
             </div>
-            <div className="bg-green-900/20 border border-green-200 rounded-xl p-6">
+            <div className="bg-gray-900/5 border border-gray-200 rounded-xl p-6">
               <h3 className="font-semibold mb-4 text-green-300">Gmail (OAuth)</h3>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li>Full Gmail class with many methods</li>

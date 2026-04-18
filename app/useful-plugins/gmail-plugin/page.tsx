@@ -42,7 +42,7 @@ export default function GmailPluginPage() {
               </div>
               <p className="text-sm text-gray-700">Shows a preview and asks for confirmation before sending any email.</p>
             </div>
-            <div className="p-4 bg-blue-900/20 border border-blue-200 rounded-lg">
+            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineUsers className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">CRM Sync (after_each_tool)</h3>

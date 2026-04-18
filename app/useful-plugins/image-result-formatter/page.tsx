@@ -19,9 +19,9 @@ export default function ImageResultFormatterPage() {
           ]}
           icon={HiOutlinePhoto}
           iconColor="text-green-400"
-          iconBgFrom="from-green-600/20"
+          iconBgFrom="from-gray-100"
           iconBgTo="to-emerald-600/20"
-          iconBorderColor="border-green-500/30"
+          iconBorderColor="border-gray-200"
           title="image_result_formatter"
           description="Enable vision models to see images from tool results"
           markdownPath="/useful-plugins/image_result_formatter.md"
@@ -35,14 +35,14 @@ export default function ImageResultFormatterPage() {
             When a tool returns a base64-encoded image (screenshot, generated image, etc.), this plugin:
           </p>
           <div className="space-y-4">
-            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
+            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineEye className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">Detects base64 images</h3>
               </div>
               <p className="text-sm text-gray-700">Recognizes data URLs (<code>data:image/png;base64,...</code>) and plain base64 strings.</p>
             </div>
-            <div className="p-4 bg-blue-900/20 border border-blue-200 rounded-lg">
+            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineSparkles className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">Converts to vision format</h3>
@@ -95,7 +95,7 @@ The screenshot shows a simple webpage with the heading "Example Domain"...`}
               </code>
               <p className="text-sm text-gray-700 mt-2">LLM cannot interpret this as an image!</p>
             </div>
-            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
+            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-green-400 mb-2">With Plugin</h3>
               <p className="text-sm text-gray-700 mb-2">The LLM receives proper image format:</p>
               <code className="text-xs text-gray-700 block bg-gray-900 p-2 rounded overflow-x-auto">

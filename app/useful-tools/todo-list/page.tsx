@@ -68,7 +68,7 @@ todo = TodoList()`}
         <section className="mb-12">
           <h2 className="heading-2">When to Use</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
+            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
               <h3 className="text-green-400 font-semibold mb-2">Use when:</h3>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Task requires <strong>3+ distinct steps</strong></li>

@@ -19,9 +19,9 @@ export default function PermissionsPage() {
           ]}
           icon={HiOutlineShieldCheck}
           iconColor="text-green-400"
-          iconBgFrom="from-green-600/20"
+          iconBgFrom="from-gray-100"
           iconBgTo="to-teal-600/20"
-          iconBorderColor="border-green-500/30"
+          iconBorderColor="border-gray-200"
           title="Permissions"
           description="Balance safety and automation with unified permission system"
           markdownPath="/permissions.md"
@@ -210,7 +210,7 @@ session['permissions'] = {
         <section className="mb-12">
           <h2 className="heading-2">Tool-Level vs Granular Permissions</h2>
 
-          <div className="bg-yellow-900/20 border border-yellow-200 rounded-lg p-6 mb-6">
+          <div className="bg-yellow-900/20 border border-gray-200 rounded-lg p-6 mb-6">
             <h3 className="font-semibold text-yellow-300 mb-3 flex items-center gap-2">
               <HiOutlineKey className="w-5 h-5" />
               Critical Difference
@@ -220,7 +220,7 @@ session['permissions'] = {
             </p>
 
             <div className="space-y-4">
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-green-200">
+              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-200">
                 <h4 className="font-semibold text-green-300 mb-2">Config/Skill Permissions: Granular</h4>
                 <CodeWithResult
                   code={`# Can use 'when' field for parameter matching
@@ -232,7 +232,7 @@ session['permissions']['bash'] = {
                 />
               </div>
 
-              <div className="bg-gray-900/50 rounded-lg p-4 border border-blue-200">
+              <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-200">
                 <h4 className="font-semibold text-blue-300 mb-2">User Approvals: Tool-Level</h4>
                 <CodeWithResult
                   code={`# When user approves "bash npm install" → Stored as:
@@ -248,7 +248,7 @@ session['permissions']['bash'] = {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-gray-50 border border-blue-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-blue-300 mb-2">Why Tool-Level?</h3>
               <ul className="space-y-2 text-sm text-slate-300">
                 <li>✅ Convenience for development workflows</li>
@@ -256,7 +256,7 @@ session['permissions']['bash'] = {
                 <li>✅ Clear intent: "I trust bash for this session"</li>
               </ul>
             </div>
-            <div className="p-4 bg-gray-50 border border-green-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-green-300 mb-2">Security</h3>
               <ul className="space-y-2 text-sm text-slate-300">
                 <li>✅ Config uses granular 'when' field</li>
@@ -350,7 +350,7 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
             />
           </div>
 
-          <div className="mt-6 bg-green-900/20 border border-green-200 rounded-lg p-4">
+          <div className="mt-6 bg-gray-900/5 border border-gray-200 rounded-lg p-4">
             <h3 className="font-semibold text-green-300 mb-2 flex items-center gap-2">
               <HiOutlineShieldCheck className="w-5 h-5" />
               Security Benefits
@@ -379,7 +379,7 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
 ]`}
             language="python"
           />
-          <div className="mt-4 bg-blue-900/20 border border-blue-200 rounded-lg p-4">
+          <div className="mt-4 bg-gray-900/5 border border-gray-200 rounded-lg p-4">
             <p className="text-gray-700">
               <strong className="text-blue-300">No approval needed</strong> - these tools are always safe to execute.
             </p>
@@ -406,12 +406,12 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
               <h3 className="font-semibold text-gray-400 mb-2">Turn-Based</h3>
               <p className="text-sm text-slate-300">Permissions tied to specific turn number</p>
             </div>
-            <div className="p-4 bg-gray-50 border border-blue-200 rounded-lg hover:border-gray-400 transition-all">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
               <HiOutlineKey className="w-6 h-6 text-blue-400 mb-2" />
               <h3 className="font-semibold text-blue-300 mb-2">Auto-Cleanup</h3>
               <p className="text-sm text-slate-300">Cleared when turn completes</p>
             </div>
-            <div className="p-4 bg-gray-50 border border-green-200 rounded-lg hover:border-gray-400 transition-all">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
               <HiOutlineShieldCheck className="w-6 h-6 text-green-400 mb-2" />
               <h3 className="font-semibold text-green-300 mb-2">Secure</h3>
               <p className="text-sm text-slate-300">No permission escalation across turns</p>

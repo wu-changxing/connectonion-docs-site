@@ -161,7 +161,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
                 <p className="text-gray-500 text-xs mt-4">Feels heavy, permanent, complex</p>
               </div>
 
-              <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-6">
+              <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-6">
                 <h3 className="text-green-400 font-semibold mb-4">With "Address"</h3>
                 <ul className="space-y-2 text-gray-700 text-sm">
                   <li>"Generate an address for the agent"</li>
@@ -222,7 +222,7 @@ send_message(to=address, content=data)
               Then a user asked:
             </p>
 
-            <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-6 my-6">
+            <div className="bg-gray-500/10 border border-yellow-500/20 rounded-lg p-6 my-6">
               <p className="text-yellow-300 italic text-lg">
                 "For people not familiar with agent development, it will be confusing what is address"
               </p>

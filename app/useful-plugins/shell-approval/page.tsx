@@ -35,7 +35,7 @@ export default function ShellApprovalPage() {
             Before executing shell commands, this plugin:
           </p>
           <div className="space-y-4">
-            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
+            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">Auto-approves safe commands</h3>

@@ -19,9 +19,9 @@ export default function DropdownPage() {
           ]}
           icon={HiOutlineChevronDown}
           iconColor="text-green-400"
-          iconBgFrom="from-green-600/20"
+          iconBgFrom="from-gray-100"
           iconBgTo="to-emerald-600/20"
-          iconBorderColor="border-green-500/30"
+          iconBorderColor="border-gray-200"
           title="Dropdown"
           description="Selection list component for autocomplete menus"
           markdownPath="/tui/dropdown.md"

@@ -25,7 +25,7 @@ export default function MicrosoftIntegrationPage() {
         <div className="mb-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-xl border border-blue-200">
+              <div className="p-3 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-xl border border-gray-200">
                 <FaMicrosoft className="w-8 h-8 text-white" />
               </div>
               <div>
@@ -46,7 +46,7 @@ export default function MicrosoftIntegrationPage() {
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-xl p-8 border border-gray-700 mb-8">
+          <div className="bg-gradient-to-r from-gray-500/10 to-cyan-500/10 rounded-xl p-8 border border-gray-700 mb-8">
             <CommandBlock commands={['co auth microsoft']} />
 
             <div className="mt-8 space-y-4">
@@ -170,7 +170,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
             </table>
           </div>
 
-          <div className="bg-blue-900/20 border border-blue-200 rounded-xl p-6">
+          <div className="bg-gray-900/5 border border-gray-200 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-blue-400">
               <HiOutlineShieldCheck className="w-5 h-5" />
               Privacy First

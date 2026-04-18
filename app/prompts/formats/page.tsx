@@ -35,7 +35,7 @@ agent = Agent("bot", system_prompt="prompts/assistant")          # No extension`
 
       {/* Key Point */}
       <section className="mb-12">
-        <div className="bg-blue-900/20 border border-blue-200 rounded-xl p-6">
+        <div className="bg-gray-900/5 border border-gray-200 rounded-xl p-6">
           <p className="text-lg text-blue-100">
             <strong className="text-blue-300">Key Point:</strong> ConnectOnion doesn't parse formats - it just reads text and passes it to the LLM. Use whatever format your team prefers.
           </p>

@@ -50,7 +50,7 @@ EOF`}
               />
             </div>
 
-            <div className="p-5 bg-yellow-900/20 border border-yellow-200 rounded-lg">
+            <div className="p-5 bg-yellow-900/20 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-yellow-300 mb-3 flex items-center gap-2">
                 <HiOutlineBell className="w-5 h-5" />
                 File Reading
@@ -82,7 +82,7 @@ head -n 10 README.md`}
               <h3 className="font-semibold text-red-300 mb-2">File Creation</h3>
               <p className="text-sm text-slate-300"><strong className="text-red-300">Hard block</strong> — raises ValueError, agent must use Write or Edit tool</p>
             </div>
-            <div className="p-4 bg-yellow-900/20 border border-yellow-200 rounded-lg">
+            <div className="p-4 bg-yellow-900/20 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-yellow-300 mb-2">File Reading</h3>
               <p className="text-sm text-slate-300"><strong className="text-yellow-300">Soft reminder</strong> — command runs, system reminder appended suggesting read_file</p>
             </div>
@@ -140,7 +140,7 @@ agent = Agent(
             </div>
 
             {/* File Reading */}
-            <div className="p-5 bg-gray-50 border border-yellow-200 rounded-lg">
+            <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-yellow-300 mb-4 flex items-center gap-2">
                 <HiOutlineBell className="w-5 h-5" />
                 File Reading (soft reminder)
@@ -213,7 +213,7 @@ Why: read_file provides line numbers, proper formatting, and better control.
             </div>
           </div>
 
-          <div className="mt-6 bg-green-900/20 border border-green-200 rounded-lg p-5">
+          <div className="mt-6 bg-gray-900/5 border border-gray-200 rounded-lg p-5">
             <h3 className="font-semibold text-green-300 mb-2 flex items-center gap-2">
               <HiOutlineCheckCircle className="w-5 h-5" />
               Result
@@ -260,7 +260,7 @@ agent = Agent(
 )`}
             language="python"
           />
-          <div className="mt-4 bg-yellow-900/20 border border-yellow-200 rounded-lg p-4">
+          <div className="mt-4 bg-yellow-900/20 border border-gray-200 rounded-lg p-4">
             <h3 className="font-semibold text-yellow-300 mb-2">Order Matters</h3>
             <p className="text-gray-700">
               <code className="px-2 py-1 bg-gray-800 rounded text-orange-300">prefer_write_tool</code> should come first to block file creation before <code className="px-2 py-1 bg-gray-800 rounded text-green-300">tool_approval</code> prompts for approval.

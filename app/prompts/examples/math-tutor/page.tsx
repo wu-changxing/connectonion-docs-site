@@ -140,7 +140,7 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-blue-900/20 border border-blue-200 rounded-xl">
+      <div className="mb-12 p-6 bg-gray-900/5 border border-gray-200 rounded-xl">
         <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
           <HiOutlineLightBulb className="w-6 h-6 text-blue-400" />
           Key Learning Concepts

@@ -25,7 +25,7 @@ export default function HomePage() {
           </h1>
 
           <div className="mb-4">
-            <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-semibold rounded-full">v{VERSION}</span>
+            <span className="px-3 py-1 bg-gray-100 text-green-700 text-sm font-semibold rounded-full">v{VERSION}</span>
           </div>
 
           {/* Philosophy — editorial italic accent */}
@@ -114,7 +114,7 @@ agent.input("What's the weather in NYC?")`}
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm relative overflow-hidden">
             <div className="absolute top-3 right-3">
-              <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">FREE</span>
+              <span className="bg-gray-500 text-white text-xs font-bold px-2 py-1 rounded-full">FREE</span>
             </div>
             <div className="flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex-1">

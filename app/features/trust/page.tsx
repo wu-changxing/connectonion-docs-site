@@ -365,7 +365,7 @@ payment = need("process payment", trust="strict") # High risk`}
                 Choose Your Trust Level
               </h3>
               <div className="space-y-3">
-                <div className="p-3 bg-green-900/20 border border-green-800 rounded-lg">
+                <div className="p-3 bg-gray-900/5 border border-green-800 rounded-lg">
                   <p className="text-sm font-medium text-white mb-1">Development?</p>
                   <code className="text-xs text-green-400">trust="open"</code>
                   <p className="text-xs text-gray-400 mt-1">Trust everyone, iterate fast</p>

@@ -235,14 +235,14 @@ agent = Agent("assistant", plugins=[system_reminder])`}
         <section className="mb-12">
           <h2 className="heading-2">Design Principles</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
+            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-green-300 mb-2">Gentle, Not Forceful</h3>
               <ul className="text-sm text-gray-700 space-y-1">
                 <li>✓ &quot;Consider running tests&quot;</li>
                 <li>✗ &quot;You MUST run tests now&quot;</li>
               </ul>
             </div>
-            <div className="p-4 bg-blue-900/20 border border-blue-200 rounded-lg">
+            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-blue-300 mb-2">Contextual, Not Spammy</h3>
               <p className="text-sm text-gray-700">Fire only when relevant, not after every tool call</p>
             </div>

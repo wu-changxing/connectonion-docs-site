@@ -18,7 +18,7 @@ export default function UiStreamPage() {
           icon={HiOutlineWifi}
           iconColor="text-emerald-400"
           iconBgFrom="from-emerald-600/20"
-          iconBgTo="to-green-600/20"
+          iconBgTo="to-gray-200"
           iconBorderColor="border-emerald-500/30"
           title="ui_stream"
           description="Stream agent completion summaries to WebSocket UI clients. Used with host() for real-time updates in web chat interfaces."

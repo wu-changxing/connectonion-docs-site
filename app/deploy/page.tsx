@@ -29,7 +29,7 @@ export default function DeployPage() {
           iconBorderColor="border-blue-500/30"
           title="Deploy"
           description="Deploy your ConnectOnion agents to production. Docker, GCP, AWS - your choice."
-          badge={<span className="px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-bold rounded-full">Beta Test</span>}
+          badge={<span className="px-3 py-1 bg-gradient-to-r from-gray-500 to-gray-500 text-white text-sm font-bold rounded-full">Beta Test</span>}
         />
 
         {/* Key Benefit */}
@@ -515,7 +515,7 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-green-900 mb-4">Security</h3>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">

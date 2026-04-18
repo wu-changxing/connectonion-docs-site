@@ -57,7 +57,7 @@ export default function AutoDebugExceptionPage() {
           icon={HiOutlineBugAnt}
           iconColor="text-red-400"
           iconBgFrom="from-red-500/20"
-          iconBgTo="to-orange-500/20"
+          iconBgTo="to-gray-500/20"
           iconBorderColor="border-red-500/30"
           title="Auto Debug Exception"
           description="AI debugger for uncaught exceptions with runtime inspection"
@@ -66,7 +66,7 @@ export default function AutoDebugExceptionPage() {
         />
 
         {/* Important Notice */}
-        <div className="bg-yellow-500/10 border border-yellow-200 rounded-xl p-6 mb-16">
+        <div className="bg-gray-500/10 border border-gray-200 rounded-xl p-6 mb-16">
           <div className="flex items-start gap-3">
             <HiOutlineExclamationTriangle className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
             <div>
@@ -87,7 +87,7 @@ export default function AutoDebugExceptionPage() {
             <span className="text-sm text-gray-500 bg-gray-800 px-3 py-1 rounded-full">30 seconds to AI debugging</span>
           </div>
 
-          <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-xl p-8 border border-red-500/20 mb-8">
+          <div className="bg-gradient-to-r from-red-500/10 to-gray-500/10 rounded-xl p-8 border border-red-500/20 mb-8">
             <p className="text-xl font-semibold mb-6 text-red-300">One line to enable. Automatic AI analysis on crashes.</p>
             <CodeBlock
               code={`from connectonion import auto_debug_exception
@@ -347,7 +347,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
                 id="example-3"
               />
 
-              <div className="mt-6 bg-blue-500/10 border border-blue-200 rounded-lg p-6">
+              <div className="mt-6 bg-gray-500/10 border border-gray-200 rounded-lg p-6">
                 <p className="font-semibold text-blue-300 mb-2">💡 Pro Tip:</p>
                 <p className="text-gray-700 text-sm">
                   Use <code className="bg-gray-800 px-2 py-0.5 rounded">assert</code> statements to catch logic errors and wrong AI outputs.
@@ -363,7 +363,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
           <h2 className="heading-2">What It Debugs</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-green-500/10 border border-green-200 rounded-lg p-6">
+            <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-4 text-green-400 flex items-center gap-2">
                 <HiOutlineCheck className="w-5 h-5" />
                 Debugs These
@@ -414,7 +414,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
             </div>
           </div>
 
-          <div className="mt-8 bg-yellow-500/10 border border-yellow-200 rounded-lg p-6">
+          <div className="mt-8 bg-gray-500/10 border border-gray-200 rounded-lg p-6">
             <p className="font-semibold text-yellow-400 mb-2">Solution:</p>
             <p className="text-gray-700 text-sm">
               To debug logic errors, convert them to exceptions using <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">raise</code> or <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">assert</code>.

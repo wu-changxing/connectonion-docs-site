@@ -22,7 +22,7 @@ export default function AgentEmailsPage() {
           iconBorderColor="border-gray-400/30"
           title="Agent Emails"
           description="Send and receive emails with simple functions. No config, no complexity."
-          badge={<span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full border border-green-200">New</span>}
+          badge={<span className="text-xs bg-gray-500/20 text-green-400 px-2 py-1 rounded-full border border-gray-200">New</span>}
           markdownPath="/agent-emails.md"
           markdownFilename="agent-emails.md"
         />
@@ -69,7 +69,7 @@ for email in emails:
 
             <Link
               href="/agent-emails/receive"
-              className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-xl p-6 border border-blue-500/20 hover:border-gray-400 hover:bg-blue-500/20 transition-all group"
+              className="bg-gradient-to-br from-gray-500/10 to-cyan-500/10 rounded-xl p-6 border border-blue-500/20 hover:border-gray-400 hover:bg-gray-500/20 transition-all group"
             >
               <div className="flex items-center gap-3 mb-4">
                 <HiOutlineInbox className="w-6 h-6 text-blue-400" />
@@ -127,7 +127,7 @@ mark_unread(email_id)                # Mark as unread`}
                 </li>
               </ul>
             </div>
-            <div className="bg-green-900/20 border border-green-200 rounded-xl p-6">
+            <div className="bg-gray-900/5 border border-gray-200 rounded-xl p-6">
               <h3 className="font-semibold mb-4 text-green-300">Gmail (OAuth)</h3>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">

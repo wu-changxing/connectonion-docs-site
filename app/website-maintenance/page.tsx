@@ -20,7 +20,7 @@ export default function WebsiteMaintenancePage() {
       <div className="mb-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl border border-blue-200">
+            <div className="p-3 bg-gradient-to-br from-gray-500/20 to-cyan-500/20 rounded-xl border border-gray-200">
               <HiOutlineCog6Tooth className="w-8 h-8 text-blue-400" />
             </div>
             <div>
@@ -41,10 +41,10 @@ export default function WebsiteMaintenancePage() {
             <HiOutlineDocumentText className="mr-2 h-6 w-6 text-blue-500" />
             Three-Step Process
           </h2>
-          <div className="bg-gradient-to-r from-blue-50 to-gray-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-blue-200 dark:border-gray-700">
+          <div className="bg-gradient-to-r from-gray-50 to-gray-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
             <ol className="space-y-3">
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
+                <span className="bg-gray-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
                 <div>
                   <strong>Create Tutorial</strong> - Write markdown in <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">/tutorials/</code>
                 </div>
@@ -56,7 +56,7 @@ export default function WebsiteMaintenancePage() {
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
+                <span className="bg-gray-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
                 <div>
                   <strong>Update Navigation</strong> - Add to sidebar and search
                 </div>
@@ -191,7 +191,7 @@ export default function YourFeaturePage() {
               'npm run dev'
             ]} />
             
-            <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800">
+            <div className="bg-gray-50 dark:bg-yellow-900/20 p-4 rounded-lg border border-gray-200 dark:border-yellow-800">
               <h3 className="font-medium mb-2 flex items-center">
                 <HiOutlineExclamationCircle className="mr-2 h-5 w-5 text-yellow-600" />
                 Test Checklist
@@ -230,7 +230,7 @@ export default function YourFeaturePage() {
         </section>
 
         {/* Final Checklist */}
-        <section className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-green-200 dark:border-gray-700">
+        <section className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
           <h2 className="heading-2">
             <HiOutlineCheckCircle className="mr-2 h-6 w-6 text-green-500" />
             Final Checklist

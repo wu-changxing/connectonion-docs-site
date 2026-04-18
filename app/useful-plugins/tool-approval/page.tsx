@@ -19,9 +19,9 @@ export default function ToolApprovalPage() {
           ]}
           icon={HiOutlineShieldCheck}
           iconColor="text-green-400"
-          iconBgFrom="from-green-600/20"
+          iconBgFrom="from-gray-100"
           iconBgTo="to-teal-600/20"
-          iconBorderColor="border-green-500/30"
+          iconBorderColor="border-gray-200"
           title="tool_approval"
           description="Web-based approval for dangerous tools via WebSocket"
           markdownPath="/useful-plugins/tool_approval.md"
@@ -102,7 +102,7 @@ tool_executor iterates sequentially:
 
           <div className="space-y-6">
             {/* reject_soft */}
-            <div className="p-6 bg-gray-50 border border-yellow-200 rounded-lg">
+            <div className="p-6 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-yellow-300 mb-3 flex items-center gap-2">
                 <HiOutlineCheckCircle className="w-5 h-5" />
                 reject_soft (Skip)
@@ -150,7 +150,7 @@ tool_executor iterates sequentially:
 
           <div className="space-y-6">
             {/* Safe Tools */}
-            <div className="p-5 bg-gray-50 border border-green-200 rounded-lg">
+            <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-green-300 mb-3 flex items-center gap-2">
                 <HiOutlineCheckCircle className="w-5 h-5" />
                 Safe Tools (No Approval)
@@ -303,7 +303,7 @@ permissions:
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-5 bg-green-900/20 border border-green-200 rounded-lg">
+            <div className="p-5 bg-gray-900/5 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-green-300 mb-3">✅ All Permitted</h3>
               <CodeWithResult
                 code={`# Config:

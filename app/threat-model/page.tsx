@@ -223,12 +223,12 @@ export default function ThreatModelPage() {
           {/* The Claim */}
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
             <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-green-500"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-500"></div>
               THE CLAIM
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/50 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-500/20 to-gray-200 border border-gray-300 flex items-center justify-center flex-shrink-0">
                   <HiOutlineBolt className="w-5 h-5 text-green-400" />
                 </div>
                 <div className="bg-gray-800/80 rounded-lg px-3 py-2 border border-gray-600 flex-1">
@@ -273,7 +273,7 @@ export default function ThreatModelPage() {
           {/* What Users Think */}
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
             <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-500"></div>
               WHAT USERS THINK
             </div>
             <div className="space-y-2">
@@ -362,7 +362,7 @@ export default function ThreatModelPage() {
                 <span className="text-xl text-red-400 font-bold">$10,000</span>
               </div>
               <div className="flex items-end gap-1 justify-center mt-3">
-                <div className="w-8 h-8 bg-green-500/30 border border-green-500/50 rounded-t" />
+                <div className="w-8 h-8 bg-gray-500/30 border border-gray-300 rounded-t" />
                 <div className="w-8 h-20 bg-red-500/30 border border-red-500/50 rounded-t animate-pulse" />
               </div>
             </div>
@@ -415,7 +415,7 @@ export default function ThreatModelPage() {
         <MobileDiagram>
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
             <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-amber-500"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-500"></div>
               HOW IT WORKS
             </div>
             <div className="space-y-3">
@@ -451,7 +451,7 @@ export default function ThreatModelPage() {
         <MobileDiagram>
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
             <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-amber-500"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-500"></div>
               BAIT-AND-SWITCH
             </div>
             <div className="grid grid-cols-3 gap-2">
@@ -487,11 +487,11 @@ export default function ThreatModelPage() {
         <MobileDiagram>
           <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
             <div className="text-xs font-semibold text-slate-100 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-amber-500"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-500"></div>
               IMPERSONATION
             </div>
             <div className="space-y-3">
-              <div className="bg-green-900/20 rounded p-2 border border-green-500/30">
+              <div className="bg-gray-900/5 rounded p-2 border border-gray-200">
                 <div className="flex items-center gap-2">
                   <HiOutlineIdentification className="w-4 h-4 text-green-400" />
                   <span className="text-xs text-green-400 font-semibold">OpenAI Assistant</span>

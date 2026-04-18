@@ -133,7 +133,7 @@ Don't pretend to be something you're not. Our addresses aren't Ethereum addresse
             <h2 className="heading-2">Why Ed25519?</h2>
 
             <div className="grid md:grid-cols-3 gap-6 my-8">
-              <div className="bg-gray-50 border border-green-500/20 rounded-xl p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
                 <h3 className="text-xl font-semibold text-green-300 mb-4">Performance</h3>
                 <p className="text-gray-700 text-sm">
                   Ed25519: ~70,000 sig/sec<br/>

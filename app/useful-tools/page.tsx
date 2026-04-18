@@ -14,7 +14,7 @@ const toolCategories = [
     description: 'Send and receive emails through various providers',
     icon: HiOutlineEnvelope,
     color: 'text-blue-400',
-    bgColor: 'bg-blue-900/20',
+    bgColor: 'bg-gray-900/5',
     borderColor: 'border-blue-500/30',
     tools: [
       { name: 'Gmail', href: '/gmail', description: 'Full Gmail integration with OAuth', status: 'available' },
@@ -41,8 +41,8 @@ const toolCategories = [
     description: 'Persistent memory and knowledge storage',
     icon: HiOutlineCpuChip,
     color: 'text-green-400',
-    bgColor: 'bg-green-900/20',
-    borderColor: 'border-green-500/30',
+    bgColor: 'bg-gray-900/5',
+    borderColor: 'border-gray-200',
     tools: [
       { name: 'Memory', href: '/memory', description: 'RAG-powered persistent memory', status: 'available' },
     ]
@@ -185,7 +185,7 @@ agent.input("Search my emails for invoices from last week")`}
         </div>
 
         {/* Customizing Built-in Tools */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg border border-green-500/20">
+        <div className="mb-12 p-6 bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg border border-gray-200">
           <h2 className="heading-2">Customizing Built-in Tools</h2>
           <p className="text-gray-700 mb-4">
             Need to modify a built-in tool? Copy it to your project:

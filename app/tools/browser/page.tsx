@@ -182,7 +182,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
         </div>
 
         {/* Quick Start Card */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-blue-50 to-gray-50 border border-blue-200 rounded-lg">
+        <div className="mb-12 p-6 bg-gradient-to-r from-gray-50 to-gray-50 border border-gray-200 rounded-lg">
           <div className="flex items-center gap-3 mb-4">
             <HiOutlineCamera className="w-6 h-6 text-blue-400" />
             <h2 className="text-xl font-semibold text-gray-900">Quick Start</h2>
@@ -247,7 +247,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 
           <div className="grid gap-6">
             {/* Basic Screenshots */}
-            <div className="bg-gray-50 border border-green-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <HiOutlineCamera className="w-5 h-5 text-green-400" />
                 Basic Screenshots
@@ -267,7 +267,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             </div>
 
             {/* Save Locations */}
-            <div className="bg-gray-50 border border-blue-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <HiOutlineDocumentText className="w-5 h-5 text-blue-400" />
                 Save to Specific Path
@@ -391,7 +391,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Debug Development */}
-            <div className="bg-gray-50 border border-green-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <HiOutlineBugAnt className="w-8 h-8 text-green-400 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Debug Local Development</h3>
               <p className="text-gray-700 text-sm mb-4">
@@ -497,7 +497,7 @@ done`}
           <h2 className="heading-2">Installation</h2>
 
           <div className="space-y-6">
-            <div className="bg-gray-50 border border-blue-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Standard Installation</h3>
               <p className="text-gray-700 mb-4">Browser features require Playwright:</p>
               <CommandBlock 
@@ -602,14 +602,14 @@ done`}
           <h2 className="heading-2">Tips</h2>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-gray-50 border border-blue-200 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-2">Quick Debug</h3>
               <p className="text-gray-700 text-sm">
                 Just <code className="bg-black/30 px-2 py-1 rounded">co -b "screenshot localhost:3000"</code> for instant feedback
               </p>
             </div>
 
-            <div className="bg-gray-50 border border-green-200 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="text-base font-semibold text-gray-900 mb-2">Organize Screenshots</h3>
               <p className="text-gray-700 text-sm">
                 Use descriptive paths like <code className="bg-black/30 px-2 py-1 rounded">save to bugs/issue-123.png</code>
@@ -666,7 +666,7 @@ done`}
 
         {/* Summary */}
         <section className="mb-16">
-          <div className="bg-gradient-to-r from-blue-50 to-gray-50 border border-blue-200 rounded-lg p-6">
+          <div className="bg-gradient-to-r from-gray-50 to-gray-50 border border-gray-200 rounded-lg p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Summary</h2>
             <p className="text-gray-700">
               The <code className="bg-black/30 px-2 py-1 rounded">-b</code> flag provides dead-simple browser screenshots. 

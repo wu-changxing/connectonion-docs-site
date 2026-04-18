@@ -54,7 +54,7 @@ export default function AutoDebugPage() {
           </div>
 
           {/* Most Important Tip */}
-          <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <p className="text-lg font-semibold text-green-900">
               <strong>Most Important:</strong> Use arrow keys to navigate menus, or press <code className="bg-gray-800 px-2 py-1 rounded">c</code> to continue. That's all you need to know to start!
             </p>
@@ -156,7 +156,7 @@ What do you want to do?
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-blue-900/20 border border-blue-200 rounded-lg p-6">
+            <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-blue-300 mb-4">Method 1: Arrow Keys (Beginner-friendly)</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
@@ -170,7 +170,7 @@ What do you want to do?
               </ul>
             </div>
 
-            <div className="bg-green-900/20 border border-green-200 rounded-lg p-6">
+            <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-green-300 mb-4">Method 2: Shortcuts (Power user)</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
@@ -208,7 +208,7 @@ What do you want to do?
                   <HiOutlineCheck className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Continue Execution</h3>
-                <span className="text-sm bg-green-900/30 text-green-400 border border-green-200 px-3 py-1 rounded-full">✅ Available</span>
+                <span className="text-sm bg-green-900/30 text-green-400 border border-gray-200 px-3 py-1 rounded-full">✅ Available</span>
               </div>
 
               <p className="text-gray-700 mb-6">
@@ -234,7 +234,7 @@ What do you want to do?
                   <HiOutlineCodeBracket className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Edit Variables (Python REPL)</h3>
-                <span className="text-sm bg-green-900/30 text-green-400 border border-green-200 px-3 py-1 rounded-full">✅ Available</span>
+                <span className="text-sm bg-green-900/30 text-green-400 border border-gray-200 px-3 py-1 rounded-full">✅ Available</span>
               </div>
 
               <p className="text-gray-700 mb-6">
@@ -271,7 +271,7 @@ Available variables: query, result, tool_args
 ✓ Complete`}
               />
 
-              <div className="mt-6 bg-blue-900/20 border border-blue-200 rounded-lg p-4">
+              <div className="mt-6 bg-gray-900/5 border border-gray-200 rounded-lg p-4">
                 <p className="text-blue-300 text-sm">
                   <strong>Test any scenario:</strong> Empty results, large datasets, error cases, edge cases - just modify the variables and see how your agent handles it!
                 </p>
@@ -285,7 +285,7 @@ Available variables: query, result, tool_args
                   <HiOutlineCpuChip className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Ask AI for Help</h3>
-                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
+                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-gray-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
               <p className="text-gray-700 mb-6">
@@ -327,7 +327,7 @@ ai> /continue [Resume execution]`}
                   <HiOutlineChartBar className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">View Execution Trace</h3>
-                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
+                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-gray-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
               <p className="text-gray-700 mb-6">
@@ -354,7 +354,7 @@ Total: 323ms • 2 steps • 1 iteration`}
                   <HiOutlineArrowPath className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="heading-3">Toggle Step Mode</h3>
-                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
+                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-gray-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
               <p className="text-gray-700 mb-6">
@@ -491,7 +491,7 @@ Agent: "Sorry, no purple shoes under $100 are available."
               </p>
             </div>
 
-            <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-green-900 mb-4">3. Use Step Mode for Complex Workflows</h3>
               <p className="text-gray-700 mb-4">When you don't know which tool is causing problems:</p>
               <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-gray-700">
@@ -514,7 +514,7 @@ agent.auto_debug(step=True)
           <h2 className="heading-2">When to Use</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-green-500/10 border border-green-200 rounded-lg p-6">
+            <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-4 text-green-400 flex items-center gap-2">
                 <HiOutlineCheck className="w-5 h-5" />
                 Perfect For

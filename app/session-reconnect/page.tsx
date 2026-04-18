@@ -226,7 +226,7 @@ T+35                        ◄────────────────�
               <p className="text-sm font-semibold text-red-300 mb-1">On disconnect</p>
               <p className="text-sm text-slate-300"><code className="bg-gray-800 px-1 rounded">io.close()</code> sets <code className="bg-gray-800 px-1 rounded">_closed = True</code> and puts a sentinel in the incoming queue, unblocking any waiting <code className="bg-gray-800 px-1 rounded">receive()</code>. After close, <code className="bg-gray-800 px-1 rounded">io.send()</code> silently drops events.</p>
             </div>
-            <div className="bg-green-950/30 border border-green-200 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-green-300 mb-1">On reconnect</p>
               <p className="text-sm text-slate-300">The <strong>same io object</strong> is reused. A new WebSocket handler pumps the same queues. <strong>Caveat:</strong> IO must be reopened (<code className="bg-gray-800 px-1 rounded">_closed = False</code>) for the agent to send again.</p>
             </div>
@@ -463,7 +463,7 @@ T+10   New WebSocket connects → CONNECT { session_id }
             ))}
           </div>
 
-          <div className="bg-amber-950/30 border border-amber-200 rounded-lg p-4 mt-6">
+          <div className="bg-amber-950/30 border border-gray-200 rounded-lg p-4 mt-6">
             <p className="text-sm font-semibold text-amber-300 mb-2">Fix plan</p>
             <div className="space-y-2 text-sm text-slate-300">
               <p>1. <strong>run_agent()</strong>: wrap in try/finally — always set agent_finished, capture error in error_holder.</p>

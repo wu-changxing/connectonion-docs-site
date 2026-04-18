@@ -68,7 +68,7 @@ library reference, and language specifications.`}
             fileName="use_remote.py"
           />
 
-          <div className="mt-6 bg-green-950/50 border border-green-400/40 rounded-lg p-6">
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
             <p className="text-lg font-semibold text-green-900 mb-4">What Just Happened?</p>
             <div className="space-y-2 text-gray-700">
               <div className="flex items-start gap-2">
@@ -215,7 +215,7 @@ agent = connect_with_retry("0x7a8f...")`}
               />
             </div>
 
-            <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-green-900 mb-4">3. Agent Pool (Load Balancing)</h3>
               <p className="text-gray-700 mb-4">
                 Distribute load across multiple identical agents:

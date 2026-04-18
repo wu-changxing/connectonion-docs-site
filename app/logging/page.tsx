@@ -289,9 +289,9 @@ turns:
             <h2 className="heading-2">Git Ignore</h2>
           </div>
 
-          <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-6">
+          <div className="bg-gray-500/10 border border-yellow-500/20 rounded-xl p-6">
             <div className="flex items-start gap-4">
-              <div className="p-2 bg-yellow-500/20 rounded-lg shrink-0">
+              <div className="p-2 bg-gray-500/20 rounded-lg shrink-0">
                 <HiOutlineEye className="w-5 h-5 text-yellow-400" />
               </div>
               <div className="space-y-4 w-full">

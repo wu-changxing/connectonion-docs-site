@@ -356,7 +356,7 @@ Errors: 0
 
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
             <div className="flex-1">
-              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gray-50 border border-green-200 rounded-full">
+              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full">
                 <HiOutlineSparkles className="w-4 h-4 text-green-400" />
                 <span className="text-xs font-medium text-green-800">NEW</span>
               </div>
@@ -417,7 +417,7 @@ Errors: 0
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-green-900/50 border border-green-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-gray-100 border border-gray-300 rounded flex items-center justify-center flex-shrink-0 mt-1">
                   <HiOutlineChartBar className="text-green-400 w-5 h-5" />
                 </div>
                 <div>
@@ -543,7 +543,7 @@ agent.input("Search for Python")`}
               language="python"
             />
 
-            <div className="bg-blue-900/20 border-l-4 border-blue-500 p-4 my-6 rounded-r">
+            <div className="bg-gray-900/5 border-l-4 border-blue-500 p-4 my-6 rounded-r">
               <p className="text-sm text-gray-700">
                 <strong className="text-blue-400">Tip:</strong> Event handlers receive the <code className="text-blue-300 bg-blue-950/50 px-1 rounded">agent</code> instance, giving you full access to <code className="text-blue-300 bg-blue-950/50 px-1 rounded">current_session</code>, messages, trace, and more.
               </p>
@@ -653,7 +653,7 @@ agent = Agent("assistant", on_events=[
               {/* after_llm */}
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-green-900/50 border border-green-500 rounded flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-300 rounded flex items-center justify-center">
                     <HiOutlineChartBar className="text-green-400 w-5 h-5" />
                   </div>
                   <div>
@@ -798,7 +798,7 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
                     <p className="text-sm text-gray-700">Fires ONCE after ALL tools complete (safe for messages)</p>
                   </div>
                 </div>
-                <div className="bg-green-900/20 border-l-4 border-green-500 p-4 mb-4 rounded-r">
+                <div className="bg-gray-900/5 border-l-4 border-gray-300 p-4 mb-4 rounded-r">
                   <p className="text-sm text-gray-700">
                     <strong className="text-green-400">SAFE:</strong> This is the correct place to add reflection messages after tools.
                   </p>
@@ -1080,7 +1080,7 @@ agent.input("Search and analyze Python")`}
                     <strong className="text-red-400">❌ Don't use after_each_tool:</strong> Injecting messages during tool execution breaks Anthropic Claude's message sequence (all tool_results must follow tool_use)
                   </p>
                 </div>
-                <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
+                <div className="bg-gray-900/5 border-l-4 border-gray-300 p-4 rounded-r">
                   <p className="text-sm text-gray-700">
                     <strong className="text-green-400">✅ Use after_tools:</strong> Fires once after ALL tool results are added to messages, safe for reflection injection
                   </p>
@@ -1306,19 +1306,19 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
             <h2 className="heading-2">Best Practices</h2>
 
             <div className="space-y-4">
-              <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
+              <div className="bg-gray-900/5 border-l-4 border-gray-300 p-4 rounded-r">
                 <p className="text-sm text-gray-700">
                   <strong className="text-green-400">✅ Keep handlers simple:</strong> Each event handler should do one thing well. Compose multiple handlers for complex behavior.
                 </p>
               </div>
 
-              <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
+              <div className="bg-gray-900/5 border-l-4 border-gray-300 p-4 rounded-r">
                 <p className="text-sm text-gray-700">
                   <strong className="text-green-400">✅ Use after_tools for message injection:</strong> This is the safe time to inject reflection/context after ALL tools in a batch complete.
                 </p>
               </div>
 
-              <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
+              <div className="bg-gray-900/5 border-l-4 border-gray-300 p-4 rounded-r">
                 <p className="text-sm text-gray-700">
                   <strong className="text-green-400">✅ Handle exceptions internally:</strong> If your event handler can fail, catch exceptions to prevent stopping the agent.
                 </p>
@@ -1353,7 +1353,7 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
                 <p className="text-sm text-gray-700">Interactive debugging with breakpoints and step-through</p>
               </Link>
 
-              <Link href="/agent" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-green-500 transition-colors">
+              <Link href="/agent" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-gray-300 transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-gray-100">Agent Reference →</h3>
                 <p className="text-sm text-gray-700">Complete API documentation for the Agent class</p>
               </Link>

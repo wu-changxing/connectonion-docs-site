@@ -409,7 +409,7 @@ Form submitted successfully`}
       </section>
 
       {/* Pro Tips */}
-      <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg mb-12">
+      <div className="p-6 bg-gray-50 border border-gray-200 rounded-lg mb-12">
         <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
           <HiOutlineShieldCheck className="w-5 h-5 text-blue-400" />
           Pro Tips

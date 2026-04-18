@@ -374,7 +374,7 @@ agent.input("Send email to John")
             <div className="text-red-400 font-semibold mb-2">User Feedback:</div>
             <div className="text-gray-700 italic">"I think 4 is too complicated, two or three at most"</div>
           </div>
-          <div className="bg-blue-500/10 border border-blue-200 rounded-lg p-4">
+          <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
             <div className="text-blue-400 font-semibold mb-2">Lesson #1:</div>
             <div className="text-gray-700">More features ≠ better UX. High learning curve before being productive.</div>
           </div>
@@ -393,7 +393,7 @@ agent.input("Send email to John")
             <div className="text-red-400 font-semibold mb-2">User Feedback:</div>
             <div className="text-gray-700 italic">"When we do auto-debug, the input to the agent should default have a mode"</div>
           </div>
-          <div className="bg-blue-500/10 border border-blue-200 rounded-lg p-4">
+          <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
             <div className="text-blue-400 font-semibold mb-2">Lesson #2:</div>
             <div className="text-gray-700">Symbolic shortcuts (?, {'>>>'}) require learning. Not discoverable without docs.</div>
           </div>
@@ -408,11 +408,11 @@ agent.input("Send email to John")
             We added clear, named mode indicators to show where input goes:
           </p>
           <CodeWithResult code={codeIteration3} language="text" className="mb-4" />
-          <div className="bg-yellow-500/10 border border-yellow-200 rounded-lg p-4 mb-4">
+          <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4 mb-4">
             <div className="text-yellow-400 font-semibold mb-2">User Feedback:</div>
             <div className="text-gray-700 italic">"The AI should be something more intuitive like 'AI Ask' or something like that"</div>
           </div>
-          <div className="bg-blue-500/10 border border-blue-200 rounded-lg p-4">
+          <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
             <div className="text-blue-400 font-semibold mb-2">Lesson #3:</div>
             <div className="text-gray-700">Names matter. "AI" is ambiguous - "AI Ask" is self-explanatory. Progress made but still not simple enough.</div>
           </div>
@@ -462,7 +462,7 @@ agent.input("Send email to John")
             The final design that actually works:
           </p>
           <CodeWithResult code={codeFinal} language="text" className="mb-4" />
-          <div className="bg-green-500/10 border border-green-200 rounded-lg p-4">
+          <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
             <div className="text-green-400 font-semibold mb-4">Why This Works:</div>
             <ul className="text-gray-700 space-y-2 text-sm">
               <li>✅ <strong className="text-white">Agent-first by default</strong> - Press Enter to continue (simplest action)</li>
@@ -516,7 +516,7 @@ agent.input("Send email to John")
 
         {/* Try It */}
         <section className="mb-12">
-          <div className="bg-gradient-to-r from-blue-500/20 to-gray-500/20 border border-blue-200 rounded-lg p-8">
+          <div className="bg-gradient-to-r from-gray-500/20 to-gray-500/20 border border-gray-200 rounded-lg p-8">
             <h2 className="heading-2">Try It Yourself</h2>
             <CodeWithResult code={codeUsage} language="python" className="mb-4" />
             <p className="text-gray-700 text-sm">

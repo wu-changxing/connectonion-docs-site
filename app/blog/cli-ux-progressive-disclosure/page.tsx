@@ -239,7 +239,7 @@ elif api_key.startswith('gsk_'):
                 </ul>
               </div>
 
-              <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-6">
+              <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-6">
                 <h3 className="text-green-400 font-semibold mb-4">We Do</h3>
                 <ul className="space-y-2 text-gray-700 text-sm">
                   <li>Create working code immediately</li>

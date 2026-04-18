@@ -35,14 +35,14 @@ export default function EvalPluginPage() {
             The <code className="bg-gray-800 px-2 py-1 rounded">eval</code> plugin helps you debug agents during development:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-blue-900/20 border border-blue-200 rounded-lg">
+            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineViewfinderCircle className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">Generate Expected (after_user_input)</h3>
               </div>
               <p className="text-sm text-gray-700">Generates what should happen to complete the task (unless already set by re_act plugin).</p>
             </div>
-            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
+            <div className="p-4 bg-gray-900/5 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
                 <h3 className="font-semibold">Evaluate (on_complete)</h3>

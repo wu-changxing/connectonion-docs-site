@@ -417,7 +417,7 @@ I trust requests that:
             <div>
               <h3 className="text-xl font-semibold mb-4">Development vs Production</h3>
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                   <h4 className="font-semibold text-green-900 mb-2">Development</h4>
                   <CodeWithResult
                     code={`host(agent, reload=True, trust="open")`}

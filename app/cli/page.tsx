@@ -74,9 +74,9 @@ export default function CLIPage() {
           ]}
           icon={HiOutlineCommandLine}
           iconColor="text-green-400"
-          iconBgFrom="from-green-600/20"
+          iconBgFrom="from-gray-100"
           iconBgTo="to-teal-600/20"
-          iconBorderColor="border-green-500/30"
+          iconBorderColor="border-gray-200"
           title="CLI Reference"
           description="Quickly scaffold and manage ConnectOnion agent projects with the CLI."
           markdownPath="/cli/cli.md"
@@ -84,7 +84,7 @@ export default function CLIPage() {
         />
       
       {/* Quick Command Cheat Sheet */}
-      <div className="mb-12 p-4 bg-gradient-to-r from-blue-50 to-gray-50 border border-blue-200 rounded-lg">
+      <div className="mb-12 p-4 bg-gradient-to-r from-gray-50 to-gray-50 border border-gray-200 rounded-lg">
         <h2 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
           <HiOutlineBookOpen className="w-4 h-4 text-blue-400" />
           Quick Reference
@@ -117,7 +117,7 @@ export default function CLIPage() {
           commands={['pip install connectonion']}
         />
 
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-6">
           <p className="text-blue-800">
             This provides two equivalent commands: <code className="bg-black/30 px-2 py-1 rounded">co</code> (short form) 
             and <code className="bg-black/30 px-2 py-1 rounded">connectonion</code> (full form)
@@ -137,7 +137,7 @@ export default function CLIPage() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-4 mb-8">
-          <div className="bg-gray-50 border border-green-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-4">
               <HiOutlineSparkles className="w-5 h-5 text-green-400" />
               <h3 className="text-lg font-semibold text-gray-900">co create [name]</h3>
@@ -162,15 +162,15 @@ export default function CLIPage() {
           <p className="text-gray-700 mb-4">Both commands share the same interactive flow:</p>
           <ol className="space-y-2 text-gray-700">
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-300">1</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-300">1</span>
               <span>AI feature toggle (Yes/No)</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-300">2</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-300">2</span>
               <span>API key input (with auto-detection)</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-300">3</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-xs text-blue-300">3</span>
               <span>Template selection</span>
             </li>
           </ol>
@@ -346,19 +346,19 @@ Next steps:
           <CommandBlock commands={['co auth']} />
         </div>
 
-        <div className="bg-gray-50 border border-amber-200 rounded-lg p-6 mb-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
           <h3 className="text-lg font-semibold text-amber-100 mb-4">What It Does</h3>
           <ol className="space-y-2 text-gray-700">
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-amber-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">1</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">1</span>
               <span>Signs message with your Ed25519 key</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-amber-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">2</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">2</span>
               <span>Authenticates with OpenOnion backend</span>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-amber-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">3</span>
+              <span className="flex-shrink-0 w-6 h-6 bg-gray-500/20 border border-amber-500/50 rounded-full flex items-center justify-center text-xs text-amber-300">3</span>
               <span>Saves <code className="bg-black/30 px-2 py-1 rounded">OPENONION_API_KEY</code> to <code className="bg-black/30 px-2 py-1 rounded">~/.co/keys.env</code></span>
             </li>
           </ol>
@@ -614,7 +614,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           Quick browser screenshots and automation. Use <code className="bg-gray-800 px-2 py-1 rounded">-b</code> (short for browser) or the full <code className="bg-gray-800 px-2 py-1 rounded">browser</code> subcommand:
         </p>
 
-        <div className="bg-blue-900/20 border border-blue-200 rounded-lg p-4 mb-6">
+        <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-4 mb-6">
           <p className="text-sm text-blue-300">
             <span className="font-semibold inline-flex items-center gap-1">
               <FaLightbulb className="text-yellow-400 text-sm" />
@@ -641,7 +641,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
         </div>
 
         {/* Device Presets */}
-        <div className="bg-amber-50 border border-yellow-200 rounded-lg p-6 mb-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Device Presets</h3>
           <div className="grid grid-cols-3 gap-4 text-sm">
             <div>
@@ -659,7 +659,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
         </div>
 
-        <div className="bg-blue-900/20 border border-blue-200 rounded-lg p-4">
+        <div className="bg-gray-900/5 border border-gray-200 rounded-lg p-4">
           <p className="text-blue-800">
             <strong>Learn more:</strong> See the complete{' '}
             <Link href="/cli/browser-command" className="text-blue-300 hover:text-blue-100 underline">
@@ -679,7 +679,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
 
         <div className="space-y-6">
           {/* Minimal Template */}
-          <div className="bg-gray-50 border border-blue-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
               Minimal
@@ -704,7 +704,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Web Research Template */}
-          <div className="bg-gray-50 border border-green-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full"></div>
               Web Research
@@ -733,7 +733,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           </div>
 
           {/* Playwright Template */}
-          <div className="bg-gray-50 border border-yellow-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
               Playwright
@@ -1029,7 +1029,7 @@ Generating custom template with AI...
             </p>
           </div>
 
-          <div className="bg-gray-50 border border-green-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <HiOutlineKey className="w-8 h-8 text-green-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">API Key Security</h3>
             <p className="text-gray-700 text-sm">
@@ -1045,7 +1045,7 @@ Generating custom template with AI...
             </p>
           </div>
 
-          <div className="bg-gray-50 border border-blue-200 rounded-lg p-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <HiOutlineShieldCheck className="w-8 h-8 text-blue-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Agent Keys</h3>
             <p className="text-gray-700 text-sm">

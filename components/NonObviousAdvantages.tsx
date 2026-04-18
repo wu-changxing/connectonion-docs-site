@@ -118,7 +118,7 @@ export function NonObviousAdvantages() {
               <div key={idx} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
                 <div className="p-6">
                   <div className="flex items-start gap-4 mb-3">
-                    <Icon className="w-7 h-7 text-green-600 flex-shrink-0 mt-0.5" />
+                    <Icon className="w-7 h-7 text-gray-400 flex-shrink-0 mt-0.5" />
                     <div>
                       <h3 className="text-base font-bold text-gray-900">{adv.title}</h3>
                       <p className="text-sm text-gray-500">{adv.tagline}</p>

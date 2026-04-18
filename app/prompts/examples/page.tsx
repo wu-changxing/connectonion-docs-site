@@ -11,7 +11,7 @@ const examples = [
     description: 'Basic conversational agent with helpful personality',
     icon: HiOutlineUser,
     color: 'text-green-400',
-    bg: 'bg-green-900/20 border-green-500/30',
+    bg: 'bg-gray-900/5 border-gray-200',
     difficulty: 'Beginner',
     concepts: ['Basic personality', 'Conversational tone', 'Helpful behavior'],
     href: '/prompts/examples/friendly-assistant'
@@ -22,7 +22,7 @@ const examples = [
     description: 'Patient teacher focused on step-by-step explanations',
     icon: HiOutlineCodeBracket,
     color: 'text-blue-400', 
-    bg: 'bg-blue-900/20 border-blue-500/30',
+    bg: 'bg-gray-900/5 border-blue-500/30',
     difficulty: 'Beginner',
     concepts: ['Educational approach', 'Structured teaching', 'Encouraging feedback'],
     href: '/prompts/examples/math-tutor'
@@ -117,7 +117,7 @@ export default function PromptsExamplesPage() {
       </div>
 
       {/* Learning Path Overview */}
-      <div className="mb-16 p-8 bg-gray-50 border border-green-200 rounded-xl">
+      <div className="mb-16 p-8 bg-gray-50 border border-gray-200 rounded-xl">
         <h2 className="heading-2">🎯 Prompt Design Learning Path</h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
@@ -183,7 +183,7 @@ export default function PromptsExamplesPage() {
                       {example.title}
                     </h3>
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      example.difficulty === 'Beginner' ? 'bg-green-900/50 text-green-300' :
+                      example.difficulty === 'Beginner' ? 'bg-gray-100 text-green-300' :
                       example.difficulty === 'Intermediate' ? 'bg-yellow-900/50 text-yellow-300' :
                       example.difficulty === 'Advanced' ? 'bg-orange-900/50 text-orange-300' : 'bg-red-900/50 text-red-300'
                     }`}>

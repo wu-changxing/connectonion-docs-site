@@ -231,7 +231,7 @@ Explore ready-to-use prompt templates:
       <div className="mb-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-br from-green-600/20 to-teal-600/20 rounded-xl border border-green-200">
+            <div className="p-3 bg-gradient-to-br from-gray-100 to-teal-600/20 rounded-xl border border-gray-200">
               <HiOutlineChatBubbleOvalLeft className="w-8 h-8 text-green-400" />
             </div>
             <div>
@@ -365,7 +365,7 @@ Explore ready-to-use prompt templates:
         <div className="grid grid-cols-1 gap-8 mb-8">
           <div className="space-y-6">
             <div className="flex items-start gap-3 p-4 bg-gray-900 border border-gray-700 rounded-lg">
-              <div className="w-8 h-8 bg-green-900/50 border border-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 bg-gray-100 border border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0">
                 <span className="text-green-400 font-bold text-sm">1</span>
               </div>
               <div>
