@@ -234,7 +234,8 @@ response = agent.input("Explain quantum computing")`}
       <section className="mb-16">
         <h2 className="heading-2">Model Comparison</h2>
 
-        <div className="overflow-x-auto">
+        <div className="relative overflow-x-auto rounded-lg">
+          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent pointer-events-none z-10 sm:hidden" />
           <table className="w-full border border-gray-200">
             <thead className="bg-gray-50">
               <tr>

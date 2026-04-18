@@ -47,8 +47,8 @@ export default function AgentDocsPage() {
           markdownFilename="agent.md"
         />
 
-        {/* On This Page */}
-        <nav className="mb-12 border border-gray-200 rounded-xl overflow-hidden">
+        {/* On This Page — visible on tablet/mobile only; desktop gets the sticky right-rail OnThisPage */}
+        <nav className="lg:hidden mb-12 border border-gray-200 rounded-xl overflow-hidden">
           <div className="px-4 py-2.5 bg-gray-50 border-b border-gray-200">
             <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">On this page</span>
           </div>

@@ -91,13 +91,14 @@ export default function CLIPage() {
           </div>
           <div className="divide-y divide-gray-50">
             {[
-              { cmd: 'co ai', desc: 'AI coding agent in your terminal' },
-              { cmd: 'co browser', desc: 'Screenshots, scraping & automation' },
-            ].map(({ cmd, desc }) => (
-              <div key={cmd} className="flex items-center gap-3 px-4 py-2.5">
-                <code className="font-mono text-sm font-semibold text-gray-900 w-32 flex-shrink-0">{cmd}</code>
-                <span className="text-sm text-gray-600">{desc}</span>
-              </div>
+              { cmd: 'co ai', desc: 'AI coding agent in your terminal', href: '#co-ai' },
+              { cmd: 'co browser', desc: 'Screenshots, scraping & automation', href: '#co-browser' },
+            ].map(({ cmd, desc, href }) => (
+              <a key={cmd} href={href} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors group">
+                <code className="font-mono text-sm font-semibold text-gray-900 w-32 flex-shrink-0 group-hover:text-gray-700">{cmd}</code>
+                <span className="text-sm text-gray-600 flex-1">{desc}</span>
+                <HiOutlineArrowRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-gray-500 flex-shrink-0" />
+              </a>
             ))}
           </div>
         </div>
@@ -108,14 +109,15 @@ export default function CLIPage() {
           </div>
           <div className="divide-y divide-gray-50">
             {[
-              { cmd: 'co create [name]', desc: 'Scaffold a new agent project' },
-              { cmd: 'co init', desc: 'Add ConnectOnion to current directory' },
-              { cmd: 'co auth', desc: 'Get managed keys + $5 free credits' },
-            ].map(({ cmd, desc }) => (
-              <div key={cmd} className="flex items-center gap-3 px-4 py-2.5">
+              { cmd: 'co create [name]', desc: 'Scaffold a new agent project', href: '#co-create' },
+              { cmd: 'co init', desc: 'Add ConnectOnion to current directory', href: '#co-init' },
+              { cmd: 'co auth', desc: 'Get managed keys + $5 free credits', href: '#co-auth' },
+            ].map(({ cmd, desc, href }) => (
+              <a key={cmd} href={href} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors group">
                 <code className="font-mono text-sm text-gray-700 w-32 flex-shrink-0">{cmd}</code>
-                <span className="text-sm text-gray-600">{desc}</span>
-              </div>
+                <span className="text-sm text-gray-600 flex-1">{desc}</span>
+                <HiOutlineArrowRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-gray-500 flex-shrink-0" />
+              </a>
             ))}
           </div>
         </div>
@@ -126,15 +128,16 @@ export default function CLIPage() {
           </div>
           <div className="divide-y divide-gray-50">
             {[
-              { cmd: 'co status', desc: 'Check credit balance' },
-              { cmd: 'co deploy', desc: 'Deploy agent to cloud' },
-              { cmd: 'co doctor', desc: 'Diagnose config issues' },
-              { cmd: 'co reset', desc: 'Reset account' },
-            ].map(({ cmd, desc }) => (
-              <div key={cmd} className="flex items-center gap-3 px-4 py-2.5">
+              { cmd: 'co status', desc: 'Check credit balance', href: '#co-status' },
+              { cmd: 'co deploy', desc: 'Deploy agent to cloud', href: '#co-deploy' },
+              { cmd: 'co doctor', desc: 'Diagnose config issues', href: '#co-doctor' },
+              { cmd: 'co reset', desc: 'Reset account', href: '#co-reset' },
+            ].map(({ cmd, desc, href }) => (
+              <a key={cmd} href={href} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors group">
                 <code className="font-mono text-sm text-gray-500 w-32 flex-shrink-0">{cmd}</code>
-                <span className="text-sm text-gray-500">{desc}</span>
-              </div>
+                <span className="text-sm text-gray-500 flex-1">{desc}</span>
+                <HiOutlineArrowRight className="w-3.5 h-3.5 text-gray-200 group-hover:text-gray-400 flex-shrink-0" />
+              </a>
             ))}
           </div>
         </div>
@@ -216,7 +219,7 @@ export default function CLIPage() {
       </section>
 
       {/* co create Command */}
-      <section className="mb-16">
+      <section className="mb-16" id="co-create">
         <h2 className="heading-2">
           <HiOutlineSparkles className="w-6 h-6 icon-ui" />
           co create [name]
@@ -333,7 +336,7 @@ Next steps:
       </section>
 
       {/* co init Command */}
-      <section className="mb-16">
+      <section className="mb-16" id="co-init">
         <h2 className="heading-2">
           <HiOutlineFolderOpen className="w-6 h-6 text-gray-500" />
           co init
@@ -369,7 +372,7 @@ Next steps:
       </section>
 
       {/* co auth Command */}
-      <section className="mb-16">
+      <section className="mb-16" id="co-auth">
         <h2 className="heading-2">
           <HiOutlineKey className="w-6 h-6 text-gray-400" />
           co auth
@@ -416,7 +419,7 @@ response = llm_do("Hello", model="co/gemini-2.5-pro")`}
       </section>
 
       {/* co status Command */}
-      <section className="mb-16">
+      <section className="mb-16" id="co-status">
         <h2 className="heading-2">
           <HiOutlineDocumentText className="w-6 h-6 icon-ui" />
           co status
@@ -442,7 +445,7 @@ Balance:  $5.00`}
       </section>
 
       {/* co reset Command */}
-      <section className="mb-16">
+      <section className="mb-16" id="co-reset">
         <h2 className="heading-2">
           <HiOutlineExclamationCircle className="w-6 h-6 text-red-400" />
           co reset
@@ -503,7 +506,7 @@ Continue? (y/N): y
       </section>
 
       {/* co deploy Command */}
-      <section className="mb-16">
+      <section className="mb-16" id="co-deploy">
         <h2 className="heading-2">
           <HiOutlineCube className="w-6 h-6 icon-ui" />
           co deploy
@@ -559,7 +562,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
       </section>
 
       {/* co doctor Command */}
-      <section className="mb-16">
+      <section className="mb-16" id="co-doctor">
         <h2 className="heading-2">
           <HiOutlineExclamationCircle className="w-6 h-6 icon-ui" />
           co doctor
@@ -603,7 +606,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
       </section>
 
       {/* co ai Command */}
-      <section className="mb-16">
+      <section className="mb-16" id="co-ai">
         <h2 className="heading-2">
           <HiOutlineSparkles className="w-6 h-6 text-gray-500" />
           co ai
@@ -642,7 +645,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
       </section>
 
       {/* Browser Features */}
-      <section className="mb-16">
+      <section className="mb-16" id="co-browser">
         <h2 className="heading-2">
           <HiOutlineBolt className="w-6 h-6 text-gray-400" />
           co browser

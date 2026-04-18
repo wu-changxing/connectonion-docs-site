@@ -19,7 +19,7 @@ export function OnThisPage() {
     setActiveId('')
     // Small delay so the new page content is in the DOM before scanning
     const timer = setTimeout(() => {
-      const elements = Array.from(document.querySelectorAll('h2.heading-2'))
+      const elements = Array.from(document.querySelectorAll('h2.heading-2, h3.heading-3'))
       const items: Heading[] = elements.map(el => {
         if (!el.id) {
           const slug = (el.textContent || '')

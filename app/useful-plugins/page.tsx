@@ -218,7 +218,7 @@ agent = Agent(
                 <HiOutlineArrowRight className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors flex-shrink-0" />
               </div>
 
-              <p className="text-sm text-gray-500 mb-2 line-clamp-1">
+              <p className="text-sm text-gray-500 mb-2 line-clamp-2">
                 {plugin.description}
               </p>
 
