@@ -150,7 +150,7 @@ export function AIFirstDevelopment() {
 
         {/* CTA */}
         <div className="mt-10 text-center">
-          <a href="/quickstart" className="inline-flex items-center gap-2 px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-colors">
+          <a href="/quickstart" className="inline-flex items-center gap-2 px-8 py-3 bg-gray-900 hover:bg-gray-700 text-white font-semibold rounded-xl transition-colors">
             <HiOutlineRocketLaunch className="w-5 h-5" />
             Start Building AI-First
           </a>

@@ -255,7 +255,7 @@ export function DocsSidebar() {
         <button
           onClick={handleCopyAllDocs}
           disabled={copyStatus === 'copying'}
-          className="w-full min-h-[40px] flex items-center justify-center gap-2 py-2 px-4 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 rounded-lg text-white font-medium text-sm transition-colors"
+          className="w-full min-h-[40px] flex items-center justify-center gap-2 py-2 px-4 bg-gray-900 hover:bg-gray-700 disabled:bg-gray-300 rounded-lg text-white font-medium text-sm transition-colors"
           aria-label={copyStatus === 'copying' ? 'Copying documentation' : copyStatus === 'success' ? 'Copied!' : 'Copy all docs to clipboard'}
         >
           {copyStatus === 'copying' ? (

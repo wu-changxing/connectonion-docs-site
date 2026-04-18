@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
               href="/quickstart"
-              className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors font-medium"
+              className="px-6 py-3 bg-gray-900 hover:bg-gray-700 text-white rounded-lg transition-colors font-medium"
             >
               Get Started
             </Link>
