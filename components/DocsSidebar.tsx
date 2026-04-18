@@ -313,8 +313,8 @@ export function DocsSidebar() {
                             {item.difficulty && (
                               <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium flex-shrink-0 ${
                                 item.difficulty === 'Start Here'   ? 'bg-green-100 text-green-700'
-                                : item.difficulty === 'Beginner'  ? 'bg-blue-50 text-blue-600'
-                                : item.difficulty === 'Intermediate' ? 'bg-amber-50 text-amber-600'
+                                : item.difficulty === 'Beginner'  ? 'bg-gray-100 text-gray-600'
+                                : item.difficulty === 'Intermediate' ? 'bg-gray-100 text-gray-600'
                                 : 'bg-gray-100 text-gray-500'
                               }`}>
                                 {item.difficulty}
