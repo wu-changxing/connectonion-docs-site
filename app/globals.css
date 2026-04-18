@@ -130,6 +130,14 @@ h3 .heading-anchor:focus {
   color: #16a34a;   /* green-600 */
 }
 
+/* ── Section rhythm — horizontal rule before non-first sections ── */
+/* Adds a hairline separator above every section after the first,   */
+/* creating editorial chapter breaks on long code-heavy doc pages.  */
+.prose-sections > section + section {
+  padding-top: 1rem;
+  border-top: 1px solid #f3f4f6;
+}
+
 /* ── Editorial accent — Instrument Serif italic in accent color ── */
 
 /* One italic serif word per headline — the editorial signature */
