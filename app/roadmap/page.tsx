@@ -1,40 +1,3 @@
-/*
-  @date: 2025-01-01
-  @description: Roadmap Page
-  
-  DESIGN ISSUES TO FIX:
-  
-  1. **Timeline Visualization** (Priority: HIGH)
-     - No visual timeline or gantt chart view
-     - Quarters shown as text instead of visual timeline
-     - Progress bars disconnected from time context
-     - Fix: Add horizontal timeline view, show dependencies, visualize time progression
-  
-  2. **Feature Status Clarity** (Priority: HIGH)
-     - Status icons too small and similar colors
-     - Progress percentages arbitrary without context
-     - No indication of blockers or dependencies
-     - Fix: Larger status badges, explain progress metrics, show dependencies
-  
-  3. **Filtering UX** (Priority: MEDIUM)
-     - Category filters reset scroll position
-     - No indication of how many items in each filter
-     - Selected filter state not persistent
-     - Fix: Maintain scroll, show counts, remember filter selection
-  
-  4. **Mobile Experience** (Priority: MEDIUM)
-     - Feature cards too dense on mobile
-     - Progress bars too thin for touch
-     - CTA buttons stack poorly
-     - Fix: Simplify mobile cards, increase touch targets, responsive CTA layout
-  
-  5. **User Engagement** (Priority: LOW)
-     - No voting or feedback mechanism
-     - Missing "notify me" for features
-     - Static content without updates indicator
-     - Fix: Add voting buttons, email notifications, "last updated" timestamp
-*/
-
 'use client'
 
 import { useState } from 'react'
@@ -64,21 +27,21 @@ export default function RoadmapPage() {
       {
         title: 'CLI Tool (co)',
         status: 'completed',
-        description: 'Initialize and manage agent projects',
+        description: 'Initialize, run, and manage agent projects from the terminal',
         targetDate: 'Feb 2025',
         progress: 100,
       },
       {
         title: 'Browser Agent',
         status: 'completed',
-        description: 'Stateful web navigation and scraping',
+        description: 'Stateful web navigation, screenshots, and scraping via Playwright',
         targetDate: 'Aug 2025',
         progress: 100,
       },
       {
         title: 'Event System & Plugins',
         status: 'completed',
-        description: '9 lifecycle events, plugin architecture, built-in plugins',
+        description: '12 lifecycle events, plugin architecture, 10+ built-in plugins',
         targetDate: 'Oct 2025',
         progress: 100,
       },
@@ -92,10 +55,17 @@ export default function RoadmapPage() {
       {
         title: 'Advanced Tool System',
         status: 'completed',
-        description: 'TUI components, file tools, email/calendar, memory, shell',
+        description: 'TUI components, file tools, email/calendar, memory, shell, browser tools',
         targetDate: 'Jan 2026',
         progress: 100,
-      }
+      },
+      {
+        title: 'Interactive Debugging',
+        status: 'completed',
+        description: '@xray decorator, auto_debug breakpoints, Python REPL, exception inspector',
+        targetDate: 'Mar 2026',
+        progress: 100,
+      },
     ],
     trust: [
       {
@@ -125,7 +95,7 @@ export default function RoadmapPage() {
         description: 'YAML session logging, .co/logs/ and .co/evals/ tracking',
         targetDate: 'Jan 2026',
         progress: 100,
-      }
+      },
     ],
     intelligence: [
       {
@@ -143,19 +113,19 @@ export default function RoadmapPage() {
         progress: 100,
       },
       {
-        title: 'Interactive Debugging',
+        title: 'ReAct & Reflection Plugins',
         status: 'completed',
-        description: '@xray decorator, auto_debug, breakpoints, Python REPL',
-        targetDate: 'Nov 2025',
+        description: 'Plan-Act-Reflect loop, eval plugin, tool approval flows',
+        targetDate: 'Feb 2026',
         progress: 100,
       },
       {
         title: 'Local Model Support',
-        status: 'planned',
+        status: 'in-progress',
         description: 'Run Llama, Mistral locally via Ollama',
         targetDate: 'Q2 2026',
-        progress: 0,
-      }
+        progress: 20,
+      },
     ],
     platform: [
       {
@@ -168,7 +138,7 @@ export default function RoadmapPage() {
       {
         title: 'Documentation Site',
         status: 'completed',
-        description: '59+ pages at docs.connectonion.com',
+        description: '90+ pages at docs.connectonion.com',
         targetDate: 'Jul 2025',
         progress: 100,
       },
@@ -176,55 +146,57 @@ export default function RoadmapPage() {
         title: 'Multi-Language SDKs',
         status: 'in-progress',
         description: 'TypeScript, Rust, Kotlin, Swift implementations',
-        targetDate: 'Q1 2026',
+        targetDate: 'Q2 2026',
         progress: 40,
       },
       {
         title: 'Cloud Deploy',
         status: 'in-progress',
         description: 'co deploy for one-command agent deployment',
-        targetDate: 'Q1 2026',
+        targetDate: 'Q2 2026',
         progress: 50,
       },
       {
         title: 'Agent Registry',
         status: 'planned',
         description: 'Share and discover community agents',
-        targetDate: 'Q2 2026',
+        targetDate: 'Q3 2026',
         progress: 0,
-      }
-    ]
+      },
+    ],
   }
 
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'completed':
-        return <HiOutlineCheckCircle className="w-4 h-4 text-green-400" />
+        return <HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
       case 'in-progress':
-        return <HiOutlineClock className="w-4 h-4 text-yellow-400" />
+        return <HiOutlineClock className="w-4 h-4 text-gray-500 flex-shrink-0 mt-0.5" />
       case 'planned':
-        return <HiOutlineExclamationCircle className="w-4 h-4 text-gray-700" />
+        return <HiOutlineExclamationCircle className="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" />
       default:
         return null
     }
   }
 
-  const getStatusColor = (status: string) => {
+  const getProgressColor = (status: string) => {
     switch (status) {
-      case 'completed':
-        return 'bg-gray-500'
-      case 'in-progress':
-        return 'bg-gray-500'
-      case 'planned':
-        return 'bg-gray-600'
-      default:
-        return 'bg-gray-700'
+      case 'completed': return 'bg-green-500'
+      case 'in-progress': return 'bg-gray-600'
+      case 'planned': return 'bg-gray-300'
+      default: return 'bg-gray-300'
     }
   }
 
-  const displayedFeatures = selectedCategory 
+  const displayedFeatures = selectedCategory
     ? { [selectedCategory]: features[selectedCategory as keyof typeof features] }
     : features
+
+  // counts
+  const allFeatures = Object.values(features).flat()
+  const completedCount = allFeatures.filter(f => f.status === 'completed').length
+  const inProgressCount = allFeatures.filter(f => f.status === 'in-progress').length
+  const plannedCount = allFeatures.filter(f => f.status === 'planned').length
 
   return (
     <div className="px-4 md:px-8 py-16 md:py-24">
@@ -237,18 +209,38 @@ export default function RoadmapPage() {
           icon={HiOutlineRocketLaunch}
           title="Roadmap"
           description="Track our progress from v0.0.1 to v1.0 and beyond."
-          badge={<span className="px-2 py-1 bg-gray-900 text-white text-xs font-semibold rounded-full">v0.6.6</span>}
+          badge={<span className="px-2 py-1 bg-gray-900 text-white text-xs font-semibold rounded-full">v0.9.0</span>}
           markdownPath="/roadmap.md"
           markdownFilename="roadmap.md"
         />
+
+        {/* Progress Summary */}
+        <div className="mb-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="p-4 bg-white border border-gray-200 rounded-xl text-center">
+            <div className="text-2xl font-bold text-green-600">{completedCount}</div>
+            <div className="text-xs text-gray-500 mt-1">Completed</div>
+          </div>
+          <div className="p-4 bg-white border border-gray-200 rounded-xl text-center">
+            <div className="text-2xl font-bold text-gray-700">{inProgressCount}</div>
+            <div className="text-xs text-gray-500 mt-1">In Progress</div>
+          </div>
+          <div className="p-4 bg-white border border-gray-200 rounded-xl text-center">
+            <div className="text-2xl font-bold text-gray-400">{plannedCount}</div>
+            <div className="text-xs text-gray-500 mt-1">Planned</div>
+          </div>
+          <div className="p-4 bg-white border border-gray-200 rounded-xl text-center">
+            <div className="text-2xl font-bold text-gray-900">v0.9.0</div>
+            <div className="text-xs text-gray-500 mt-1">Current Version</div>
+          </div>
+        </div>
 
         {/* Category Filters */}
         <div className="flex flex-wrap gap-2 mb-8">
           <button
             onClick={() => setSelectedCategory(null)}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
-              !selectedCategory 
-                ? 'bg-gray-900 text-white' 
+              !selectedCategory
+                ? 'bg-gray-900 text-white'
                 : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
             }`}
           >
@@ -278,47 +270,47 @@ export default function RoadmapPage() {
           {Object.entries(displayedFeatures).map(([categoryId, categoryFeatures]) => {
             const category = categories.find(c => c.id === categoryId)
             if (!category) return null
-            
+
             return (
               <div key={categoryId}>
-                {/* Category Header */}
                 {!selectedCategory && (
                   <div className="flex items-center gap-2 mb-4">
-                    <category.icon className="w-5 h-5 text-gray-500" />
-                    <h2 className="text-lg font-semibold text-gray-900">{category.name} Features</h2>
+                    <category.icon className="w-5 h-5 text-gray-400" />
+                    <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-widest">{category.name}</h2>
                   </div>
                 )}
-                
-                {/* Features */}
-                <div className="space-y-4">
+
+                <div className="divide-y divide-gray-100 border border-gray-200 rounded-xl overflow-hidden">
                   {categoryFeatures.map((feature, index) => (
                     <div
                       key={index}
-                      className="p-4 md:p-5 bg-gray-100 rounded-xl border border-gray-700 hover:border-gray-400/30 transition-all"
+                      className="px-5 py-4 bg-white hover:bg-gray-50 transition-colors"
                     >
-                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
-                        <div className="flex items-start gap-3">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex items-start gap-3 flex-1 min-w-0">
                           {getStatusIcon(feature.status)}
                           <div className="flex-1 min-w-0">
-                            <h3 className="text-white font-medium mb-1 break-words">{feature.title}</h3>
-                            <p className="text-gray-700 text-sm break-words">{feature.description}</p>
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <h3 className="text-sm font-semibold text-gray-900">{feature.title}</h3>
+                              {feature.status === 'in-progress' && (
+                                <span className="text-[10px] px-1.5 py-0.5 bg-gray-100 text-gray-500 rounded font-medium">In Progress</span>
+                              )}
+                            </div>
+                            <p className="text-xs text-gray-500 mt-0.5">{feature.description}</p>
+
+                            {feature.status !== 'planned' && (
+                              <div className="mt-2">
+                                <div className="w-full bg-gray-100 rounded-full h-1">
+                                  <div
+                                    className={`h-1 rounded-full transition-all ${getProgressColor(feature.status)}`}
+                                    style={{ width: `${feature.progress}%` }}
+                                  />
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
-                        <span className="text-xs text-gray-500 font-medium whitespace-nowrap ml-7 sm:ml-0">{feature.targetDate}</span>
-                      </div>
-
-                      {/* Progress Bar - Larger touch target on mobile */}
-                      <div className="mt-3">
-                        <div className="flex justify-between text-xs mb-2">
-                          <span className="text-gray-500">Progress</span>
-                          <span className="text-gray-700">{feature.progress}%</span>
-                        </div>
-                        <div className="w-full bg-gray-700 rounded-full h-2 md:h-1.5">
-                          <div
-                            className={`h-2 md:h-1.5 rounded-full transition-all ${getStatusColor(feature.status)}`}
-                            style={{ width: `${feature.progress}%` }}
-                          />
-                        </div>
+                        <span className="text-xs text-gray-400 whitespace-nowrap flex-shrink-0 mt-0.5">{feature.targetDate}</span>
                       </div>
                     </div>
                   ))}
@@ -328,55 +320,32 @@ export default function RoadmapPage() {
           })}
         </div>
 
-        {/* Progress Summary */}
-        <div className="mt-12 p-4 bg-gray-100 rounded-xl border border-gray-200">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div>
-              <div className="text-2xl font-bold text-green-700">16</div>
-              <div className="text-xs text-gray-700">Completed</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-yellow-400">2</div>
-              <div className="text-xs text-gray-700">In Progress</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-700">2</div>
-              <div className="text-xs text-gray-700">Planned</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-500">v0.6.6</div>
-              <div className="text-xs text-gray-700">Current Version</div>
-            </div>
-          </div>
-        </div>
-
         {/* Call to Action */}
-        <div className="mt-8 p-6 md:p-8 bg-gray-50 border border-gray-200 rounded-xl text-center">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Want to Shape Our Roadmap?</h2>
-          <p className="text-gray-700 text-sm mb-6 max-w-xl mx-auto">
-            We're building ConnectOnion with our community. Your feedback helps prioritize features.
+        <div className="mt-10 p-6 bg-gray-50 border border-gray-200 rounded-xl text-center">
+          <h2 className="text-base font-semibold text-gray-900 mb-1">Shape the Roadmap</h2>
+          <p className="text-gray-500 text-sm mb-6">
+            Your feedback helps us prioritize. Open an issue or join the community.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3 max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
             <a
-              href="https://github.com/wu-changxing/connectonion/issues"
+              href="https://github.com/openonion/connectonion/issues"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-gray-800 text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
+              className="px-4 py-2 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors"
             >
-              Request Feature
+              Request a Feature
             </a>
             <a
               href="https://discord.gg/4xfD9k8AUF"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-gray-700 text-white rounded-lg text-sm font-medium hover:bg-gray-600 transition-colors"
+              className="px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50 transition-colors"
             >
               Join Discord
             </a>
           </div>
         </div>
-        
-        {/* Navigation */}
+
         <ContentNavigation />
       </div>
     </div>
