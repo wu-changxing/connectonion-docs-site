@@ -304,7 +304,7 @@ export function DocsSidebar() {
                           href={item.href}
                           className={`block px-2.5 py-1.5 text-sm rounded-md mx-0.5 transition-all ${
                             isActive
-                              ? 'bg-green-50 text-green-900 font-semibold border-l-2 border-green-600 pl-2'
+                              ? 'bg-green-50 text-green-900 font-semibold border-l-[3px] border-green-600 pl-[7px]'
                               : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-2.5'
                           }`}
                           aria-current={isActive ? 'page' : undefined}
@@ -349,8 +349,8 @@ export function DocsSidebar() {
                                   href={child.href}
                                   className={`block px-2.5 py-1 text-[12px] rounded-md transition-all ${
                                     isChildActive
-                                      ? 'bg-green-50 text-green-900 font-semibold'
-                                      : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50'
+                                      ? 'bg-green-50 text-green-900 font-semibold border-l-[3px] border-green-600 pl-[7px]'
+                                      : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 pl-2.5'
                                   }`}
                                   aria-current={isChildActive ? 'page' : undefined}
                                 >

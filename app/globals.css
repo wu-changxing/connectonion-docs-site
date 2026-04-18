@@ -559,3 +559,50 @@ section > .heading-2:first-child {
   font-size: 0.875rem;
   color: #374151;
 }
+
+/* ── Doc-content tables — global baseline for all docs pages ─── */
+/* Applied via .doc-content wrapper in ClientLayout.              */
+/* Alternating rows, visible separators, scannable at a glance.  */
+.doc-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.doc-content table thead tr {
+  background: #f3f4f6;
+}
+.doc-content table thead th {
+  padding: 0.625rem 1rem;
+  font-weight: 600;
+  text-align: left;
+  color: #111827;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e5e7eb;
+}
+.doc-content table tbody td {
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  vertical-align: top;
+}
+.doc-content table tbody tr:last-child td {
+  border-bottom: none;
+}
+.doc-content table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+.doc-content table tbody tr:hover {
+  background: #f0fdf4;
+  transition: background 0.1s ease;
+}
+/* Code inside table cells stays compact */
+.doc-content table td code {
+  font-size: 0.8125rem;
+}
