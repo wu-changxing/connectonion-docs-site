@@ -160,9 +160,9 @@ ${expectedOutput}
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <HiOutlineCircleStack className="w-8 h-8 text-cyan-400" />
+                <HiOutlineCircleStack className="w-8 h-8 text-gray-500" />
                 <h1 className="heading-1">Data Analysis Expert</h1>
-                <span className="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-medium">
+                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
                   Advanced
                 </span>
               </div>
@@ -181,31 +181,31 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-cyan-900/20 border border-cyan-500/30 rounded-xl">
+      <div className="mb-12 p-6 bg-gray-50 border border-gray-200 rounded-xl">
         <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-          <HiOutlineLightBulb className="w-6 h-6 text-cyan-400" />
+          <HiOutlineLightBulb className="w-6 h-6 text-gray-500" />
           Key Learning Concepts
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-3">
-            <HiOutlineChartBar className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
+            <HiOutlineChartBar className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Analysis Framework</h3>
-              <p className="text-cyan-200 text-sm">4-step systematic approach ensures thorough data analysis</p>
+              <p className="text-gray-700 text-sm">4-step systematic approach ensures thorough data analysis</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineArrowTrendingUp className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
+            <HiOutlineArrowTrendingUp className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Business Context</h3>
-              <p className="text-cyan-200 text-sm">Always connect data findings to actionable business impact</p>
+              <p className="text-gray-700 text-sm">Always connect data findings to actionable business impact</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
+            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Structured Communication</h3>
-              <p className="text-cyan-200 text-sm">Template-driven output format for consistent insights delivery</p>
+              <p className="text-gray-700 text-sm">Template-driven output format for consistent insights delivery</p>
             </div>
           </div>
         </div>
@@ -311,13 +311,13 @@ ${expectedOutput}
           {/* Expected Output */}
           <div className="bg-white border border-gray-200 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-200">
-              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-cyan-400" />
+              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500" />
               <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
             <div className="p-6">
               <div className="bg-gray-950 rounded-lg p-4 font-mono text-sm ">
-                <pre className="text-cyan-200 whitespace-pre-wrap">
+                <pre className="text-gray-300 whitespace-pre-wrap">
                   {expectedOutput}
                 </pre>
               </div>
@@ -329,15 +329,15 @@ ${expectedOutput}
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Advanced Analytical Patterns</h3>
             <div className="space-y-4 text-sm">
               <div>
-                <h4 className="font-semibold text-cyan-400 mb-2">📊 Executive-First Structure</h4>
+                <h4 className="font-semibold text-gray-700 mb-2">📊 Executive-First Structure</h4>
                 <p className="text-gray-700">Lead with business impact, then support with detailed analysis.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-cyan-400 mb-2">🔍 Data-to-Action Translation</h4>
+                <h4 className="font-semibold text-gray-700 mb-2">🔍 Data-to-Action Translation</h4>
                 <p className="text-gray-700">Each finding explicitly connects data points to business implications.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-cyan-400 mb-2">⚖️ Transparent Limitations</h4>
+                <h4 className="font-semibold text-gray-700 mb-2">⚖️ Transparent Limitations</h4>
                 <p className="text-gray-700">Acknowledges data quality and scope constraints for credible analysis.</p>
               </div>
             </div>
@@ -350,7 +350,7 @@ ${expectedOutput}
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(promptContent)}`}
                 download="data_analyst.md"
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-cyan-600 hover:bg-cyan-700 rounded-lg text-white transition-colors font-medium"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors font-medium"
               >
                 <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File
@@ -364,12 +364,12 @@ ${expectedOutput}
       </div>
 
       {/* Navigation */}
-      <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
+      <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-200">
         <div className="text-center">
           <p className="text-sm text-gray-700 mb-1">Previous in series</p>
-          <Link 
-            href="/prompts/examples/code-reviewer" 
-            className="flex items-center gap-2 text-white hover:text-gray-700 transition-colors font-medium"
+          <Link
+            href="/prompts/examples/code-reviewer"
+            className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors font-medium"
           >
             <HiOutlineArrowLeft className="w-4 h-4" />
             4. Code Reviewer
@@ -377,9 +377,9 @@ ${expectedOutput}
         </div>
         <div className="text-center">
           <p className="text-sm text-gray-700 mb-1">Next in series</p>
-          <Link 
-            href="/prompts/examples/technical-writer" 
-            className="flex items-center gap-2 text-white hover:text-gray-700 transition-colors font-medium"
+          <Link
+            href="/prompts/examples/technical-writer"
+            className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors font-medium"
           >
             6. Technical Writer
             <HiOutlineArrowRight className="w-4 h-4" />

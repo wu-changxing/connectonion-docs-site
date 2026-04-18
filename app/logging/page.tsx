@@ -25,7 +25,7 @@ export default function LoggingPage() {
         aria-label="Copy code"
       >
         {copiedCode === id ? (
-          <HiOutlineCheck className="w-4 h-4 text-green-400" />
+          <HiOutlineCheck className="w-4 h-4 text-green-600" />
         ) : (
           <HiOutlineClipboard className="w-4 h-4 text-gray-700" />
         )}
@@ -111,9 +111,9 @@ agent = Agent("assistant", log="debug.log")`}
                 <tr className="hover:bg-gray-50 transition-colors bg-gray-50">
                   <td className="p-4 font-mono text-gray-400">False</td>
                   <td className="p-4 font-mono text-gray-400">True/None</td>
-                  <td className="p-4 text-green-400">Yes</td>
-                  <td className="p-4 text-green-400">Yes</td>
-                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-green-600">Yes</td>
+                  <td className="p-4 text-green-600">Yes</td>
+                  <td className="p-4 text-green-600">Yes</td>
                   <td className="p-4 text-gray-400 font-medium">Development (default)</td>
                 </tr>
                 <tr className="hover:bg-gray-100 transition-colors">
@@ -121,13 +121,13 @@ agent = Agent("assistant", log="debug.log")`}
                   <td className="p-4 font-mono text-gray-400">True/None</td>
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-gray-500">No</td>
-                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-green-600">Yes</td>
                   <td className="p-4 text-gray-700">Eval/testing</td>
                 </tr>
                 <tr className="hover:bg-gray-100 transition-colors">
                   <td className="p-4 font-mono text-gray-400">False</td>
                   <td className="p-4 font-mono text-gray-400">False</td>
-                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-green-600">Yes</td>
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-gray-500">No</td>
                   <td className="p-4 text-gray-700">Benchmarking</td>
@@ -135,9 +135,9 @@ agent = Agent("assistant", log="debug.log")`}
                 <tr className="hover:bg-gray-100 transition-colors">
                   <td className="p-4 font-mono text-gray-400">False</td>
                   <td className="p-4 font-mono text-gray-400">"path"</td>
-                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-green-600">Yes</td>
                   <td className="p-4 text-gray-700">custom</td>
-                  <td className="p-4 text-green-400">Yes</td>
+                  <td className="p-4 text-green-600">Yes</td>
                   <td className="p-4 text-gray-700">Custom log path</td>
                 </tr>
               </tbody>
@@ -289,7 +289,7 @@ turns:
           <div className="bg-gray-500/10 border border-yellow-500/20 rounded-xl p-6">
             <div className="flex items-start gap-4">
               <div className="p-2 bg-gray-500/20 rounded-lg shrink-0">
-                <HiOutlineEye className="w-5 h-5 text-yellow-400" />
+                <HiOutlineEye className="w-5 h-5 text-gray-400" />
               </div>
               <div className="space-y-4 w-full">
                 <div>

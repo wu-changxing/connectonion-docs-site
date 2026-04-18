@@ -195,11 +195,11 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
           />
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-4 gap-4 text-sm">
             <div className="flex items-center gap-2">
-              <HiOutlineBolt className="w-4 h-4 text-yellow-400" />
+              <HiOutlineBolt className="w-4 h-4 text-gray-400" />
               <span className="text-gray-700">Instant capture</span>
             </div>
             <div className="flex items-center gap-2">
-              <HiOutlineClock className="w-4 h-4 text-green-400" />
+              <HiOutlineClock className="w-4 h-4 text-gray-400" />
               <span className="text-gray-700">Auto timestamp</span>
             </div>
             <div className="flex items-center gap-2">
@@ -207,7 +207,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
               <span className="text-gray-700">Device presets</span>
             </div>
             <div className="flex items-center gap-2">
-              <HiOutlineDocumentText className="w-4 h-4 text-orange-400" />
+              <HiOutlineDocumentText className="w-4 h-4 text-gray-400" />
               <span className="text-gray-700">PNG format</span>
             </div>
           </div>
@@ -216,7 +216,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
         {/* Command Format */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <HiOutlineCommandLine className="w-6 h-6 text-green-400" />
+            <HiOutlineCommandLine className="w-6 h-6 text-gray-400" />
             Command Format
           </h2>
 
@@ -249,7 +249,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
             {/* Basic Screenshots */}
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <HiOutlineCamera className="w-5 h-5 text-green-400" />
+                <HiOutlineCamera className="w-5 h-5 text-gray-400" />
                 Basic Screenshots
               </h3>
               <CommandBlock 
@@ -359,7 +359,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
         {/* Complete Examples */}
         <section className="mb-16">
           <h2 className="heading-2">
-            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-gray-400" />
             Complete Examples
           </h2>
 
@@ -392,7 +392,7 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
           <div className="grid md:grid-cols-2 gap-6">
             {/* Debug Development */}
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-              <HiOutlineBugAnt className="w-8 h-8 text-green-400 mb-4" />
+              <HiOutlineBugAnt className="w-8 h-8 text-gray-400 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Debug Local Development</h3>
               <p className="text-gray-700 text-sm mb-4">
                 Quick visual checks during development
@@ -444,7 +444,7 @@ done`}
 
             {/* CI/CD Integration */}
             <div className="bg-gray-50 border border-orange-200 rounded-lg p-6">
-              <HiOutlineBolt className="w-8 h-8 text-orange-400 mb-4" />
+              <HiOutlineBolt className="w-8 h-8 text-gray-400 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">CI/CD Integration</h3>
               <p className="text-gray-700 text-sm mb-4">
                 Automated visual testing

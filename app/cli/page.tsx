@@ -328,7 +328,7 @@ Next steps:
       {/* co auth Command */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineKey className="w-6 h-6 text-amber-400" />
+          <HiOutlineKey className="w-6 h-6 text-gray-400" />
           co auth
         </h2>
 
@@ -601,7 +601,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
       {/* Browser Features */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+          <HiOutlineBolt className="w-6 h-6 text-gray-400" />
           co browser
         </h2>
 
@@ -612,7 +612,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
           <p className="text-sm text-gray-600">
             <span className="font-semibold inline-flex items-center gap-1">
-              <FaLightbulb className="text-yellow-400 text-sm" />
+              <FaLightbulb className="text-gray-400 text-sm" />
               <span>Tip:</span>
             </span> <code className="bg-gray-50 px-1 rounded">co -b</code> is short for <code className="bg-gray-50 px-1 rounded">co browser</code>. Both syntaxes work the same way!
           </p>
@@ -709,19 +709,19 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-green-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-green-600" />
                 Web scraping tools
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-green-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-green-600" />
                 Data extraction utilities
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-green-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-green-600" />
                 Browser automation support
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-green-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-green-600" />
                 API integration examples
               </li>
             </ul>
@@ -738,15 +738,15 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-yellow-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
                 Stateful browser (start, navigate, click, fill)
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-yellow-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
                 Screenshot capture with device presets
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-yellow-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
                 Content scraping and link extraction
               </li>
             </ul>
@@ -788,15 +788,15 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-cyan-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
                 Built-in framework knowledge
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-cyan-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
                 Generates agent code from descriptions
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-cyan-400" />
+                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
                 Includes complete docs context
               </li>
             </ul>
@@ -829,7 +829,7 @@ Generating custom template with AI...
       {/* API Key Detection */}
       <section className="mb-16">
         <h2 className="heading-2">
-          <HiOutlineKey className="w-6 h-6 text-orange-400" />
+          <HiOutlineKey className="w-6 h-6 text-gray-400" />
           API Key Detection
         </h2>
 
@@ -972,7 +972,7 @@ Generating custom template with AI...
             </li>
           </ul>
           <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg flex items-center gap-2">
-            <HiOutlineExclamationCircle className="w-4 h-4 text-yellow-400" />
+            <HiOutlineExclamationCircle className="w-4 h-4 text-gray-400" />
             <p className="text-yellow-800 text-sm">
               Keys are stored in <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.co/keys/</code> and auto-added to <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.gitignore</code>
             </p>
@@ -1025,7 +1025,7 @@ Generating custom template with AI...
           </div>
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <HiOutlineKey className="w-8 h-8 text-green-400 mb-4" />
+            <HiOutlineKey className="w-8 h-8 text-green-600 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">API Key Security</h3>
             <p className="text-gray-700 text-sm">
               Never commit <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.env</code> files. Store API keys securely.
@@ -1033,7 +1033,7 @@ Generating custom template with AI...
           </div>
 
           <div className="bg-gray-50 border border-orange-200 rounded-lg p-6">
-            <HiOutlineCodeBracket className="w-8 h-8 text-orange-400 mb-4" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Template Selection</h3>
             <p className="text-gray-700 text-sm">
               Start with Minimal for learning. Use Custom (with AI) for specific needs.
@@ -1041,7 +1041,7 @@ Generating custom template with AI...
           </div>
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <HiOutlineShieldCheck className="w-8 h-8 text-blue-400 mb-4" />
+            <HiOutlineShieldCheck className="w-8 h-8 text-gray-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Agent Keys</h3>
             <p className="text-gray-700 text-sm">
               Never share <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.co/keys/</code> directory. Backup your recovery phrase.

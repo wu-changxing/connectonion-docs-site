@@ -26,7 +26,7 @@ export default function MicrosoftIntegrationPage() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
               <div className="p-3 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-xl border border-gray-200">
-                <FaMicrosoft className="w-8 h-8 text-white" />
+                <FaMicrosoft className="w-8 h-8 text-blue-600" />
               </div>
               <div>
                 <h1 className="heading-1">Microsoft Integration</h1>
@@ -42,7 +42,7 @@ export default function MicrosoftIntegrationPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-gray-500" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -61,8 +61,8 @@ export default function MicrosoftIntegrationPage() {
           </div>
 
           <div className="text-center">
-            <p className="text-green-400 font-semibold text-xl flex items-center justify-center gap-2">
-              <FaStar className="text-yellow-400" />
+            <p className="text-gray-600 font-semibold text-xl flex items-center justify-center gap-2">
+              <FaStar className="text-gray-500" />
               That's it. Your agents can now send emails via Outlook and read your Microsoft calendar.
             </p>
           </div>
@@ -171,7 +171,7 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
           </div>
 
           <div className="bg-gray-900/5 border border-gray-200 rounded-xl p-6">
-            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-blue-400">
+            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-gray-500">
               <HiOutlineShieldCheck className="w-5 h-5" />
               Privacy First
             </h3>
@@ -339,14 +339,14 @@ calendar.check_availability("2025-01-15 14:00")  # Check if specific time is fre
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-yellow-400">Authorization Timeout</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-500">Authorization Timeout</h3>
               <p className="text-gray-700 mb-4">If the browser window doesn't complete authorization within 5 minutes:</p>
               <CommandBlock commands={['co auth microsoft']} />
               <p className="text-sm text-gray-400 mt-2">The command polls the backend every 5 seconds waiting for your authorization.</p>
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-blue-400">Credentials Not Working</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-500">Credentials Not Working</h3>
               <p className="text-gray-700 mb-4">Check if credentials are properly saved:</p>
               <CodeWithResult
                 code={`# Check local .env
@@ -362,12 +362,12 @@ cat ~/.co/keys.env | grep MICROSOFT_`}
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-green-400">Revoke Access</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-600">Revoke Access</h3>
               <p className="text-gray-700 mb-4">To disconnect your Microsoft account:</p>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <span className="text-gray-500">1.</span>
-                  <span>Go to <a href="https://account.live.com/consent/Manage" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">Microsoft Account Permissions</a></span>
+                  <span>Go to <a href="https://account.live.com/consent/Manage" className="text-gray-500 hover:underline" target="_blank" rel="noopener noreferrer">Microsoft Account Permissions</a></span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-gray-500">2.</span>

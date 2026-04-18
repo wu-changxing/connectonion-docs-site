@@ -278,7 +278,7 @@ export default function ThreatModelPage() {
             </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <div className="bg-white rounded px-3 py-2 border border-gray-200 text-sm text-blue-400">
+                <div className="bg-white rounded px-3 py-2 border border-gray-200 text-sm text-gray-600">
                   "Fix my code"
                 </div>
                 <HiOutlineArrowRight className="w-4 h-4 text-gray-500" />
@@ -723,7 +723,7 @@ export default function ThreatModelPage() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
-              <HiOutlineShieldExclamation className="w-8 h-8 text-purple-400" />
+              <HiOutlineShieldExclamation className="w-8 h-8 text-gray-500" />
             </div>
             <div>
               <h1 className="heading-1">Threat Model</h1>
@@ -842,7 +842,7 @@ export default function ThreatModelPage() {
       </Section>
 
       {/* Top 10 Threats */}
-      <Section id="top-10" title="Top 10 Threats" icon={<HiOutlineExclamationTriangle className="w-4 h-4 text-amber-300" />}> 
+      <Section id="top-10" title="Top 10 Threats" icon={<HiOutlineExclamationTriangle className="w-4 h-4 text-gray-700" />}> 
         <div className="space-y-4 sm:space-y-6">
           {threats.map(threat => (
             <ThreatCard
@@ -866,7 +866,7 @@ export default function ThreatModelPage() {
       <div className="h-px bg-gray-200 my-8 sm:my-10" />
 
       {/* Key Insights */}
-      <Section id="key-insights" title="Key Insights" icon={<HiOutlineSquare3Stack3D className="w-4 h-4 text-cyan-300" />}> 
+      <Section id="key-insights" title="Key Insights" icon={<HiOutlineSquare3Stack3D className="w-4 h-4 text-gray-700" />}> 
         <div className="space-y-2">
           {[
             'Profit drives attacks',

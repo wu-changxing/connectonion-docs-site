@@ -62,7 +62,7 @@ agent.input("Find emails from alice@example.com")`}
             {/* Reading */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <HiOutlineInbox className="w-5 h-5 text-blue-400" />
+                <HiOutlineInbox className="w-5 h-5 text-gray-400" />
                 Reading Emails
               </h3>
 

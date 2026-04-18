@@ -73,7 +73,7 @@ export default function BrowserAutomationExample() {
       {/* Quick Start */}
       <section className="mb-12">
         <h2 className="heading-2">
-          <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+          <HiOutlineBolt className="w-6 h-6 text-gray-400" />
           Quick Start
         </h2>
         
@@ -236,7 +236,7 @@ if __name__ == "__main__":
       {/* Interactive Demo */}
       <section className="mb-12">
         <h2 className="heading-2">
-          <HiOutlinePlay className="w-6 h-6 text-orange-400" />
+          <HiOutlinePlay className="w-6 h-6 text-gray-400" />
           Interactive Demo Script
         </h2>
 
@@ -331,14 +331,14 @@ Demo complete! Check out:
       {/* Common Use Cases */}
       <section className="mb-12">
         <h2 className="heading-2">
-          <HiOutlineMagnifyingGlass className="w-6 h-6 text-blue-400" />
+          <HiOutlineMagnifyingGlass className="w-6 h-6 text-gray-400" />
           Common Use Cases
         </h2>
         
         <div className="grid gap-4">
           <div className="bg-gray-100 p-6 rounded-lg">
             <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-              <HiOutlineCamera className="w-5 h-5 text-blue-400" />
+              <HiOutlineCamera className="w-5 h-5 text-gray-400" />
               Website Monitoring
             </h3>
             <CodeWithResult
@@ -411,28 +411,28 @@ Form submitted successfully`}
       {/* Pro Tips */}
       <div className="p-6 bg-gray-50 border border-gray-200 rounded-lg mb-12">
         <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-          <HiOutlineShieldCheck className="w-5 h-5 text-blue-400" />
+          <HiOutlineShieldCheck className="w-5 h-5 text-gray-400" />
           Pro Tips
         </h2>
         <ul className="space-y-2 text-gray-700">
           <li className="flex items-start gap-2">
-            <span className="text-blue-400">•</span>
+            <span className="text-gray-400">•</span>
             <span>Use headless mode for production to save resources</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-400">•</span>
+            <span className="text-gray-400">•</span>
             <span>Add waits for dynamic content: <code className="bg-gray-800 px-2 py-0.5 rounded text-sm">page.wait_for_selector()</code></span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-400">•</span>
+            <span className="text-gray-400">•</span>
             <span>Handle errors gracefully with try-except blocks</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-400">•</span>
+            <span className="text-gray-400">•</span>
             <span>Use specific selectors for reliable element targeting</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-400">•</span>
+            <span className="text-gray-400">•</span>
             <span>Clean up resources with <code className="bg-gray-800 px-2 py-0.5 rounded text-sm">browser.close()</code></span>
           </li>
         </ul>

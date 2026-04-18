@@ -69,19 +69,19 @@ library reference, and language specifications.`}
             <p className="text-lg font-semibold text-green-900 mb-4">What Just Happened?</p>
             <div className="space-y-2 text-gray-700">
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <span><strong>Created proxy agent</strong> → Acts like a local Agent instance</span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <span><strong>Connected to relay</strong> → WebSocket at <code className="bg-gray-100 px-2 py-1 rounded">wss://oo.openonion.ai/ws/announce</code></span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <span><strong>Sent INPUT message</strong> → Routed to the remote agent</span>
               </div>
               <div className="flex items-start gap-2">
-                <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                <HiOutlineCheck className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <span><strong>Received OUTPUT</strong> → Got the result back</span>
               </div>
             </div>
@@ -95,7 +95,7 @@ library reference, and language specifications.`}
           <div className="space-y-8">
             <div>
               <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineCommandLine className="w-5 h-5 text-emerald-400" />
+                <HiOutlineCommandLine className="w-5 h-5 text-gray-400" />
                 Terminal 1: Host an Agent
               </h3>
               <CodeWithResult
@@ -130,7 +130,7 @@ Waiting for tasks...`}
 
             <div>
               <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineCodeBracket className="w-5 h-5 text-blue-400" />
+                <HiOutlineCodeBracket className="w-5 h-5 text-gray-400" />
                 Terminal 2: Connect and Use
               </h3>
               <CodeWithResult
@@ -248,7 +248,7 @@ result3 = get_agent().input("Task 3")`}
         {/* Multi-Turn Conversations */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineUsers className="w-8 h-8 text-cyan-400" />
+            <HiOutlineUsers className="w-8 h-8 text-gray-400" />
             Multi-Turn Conversations
           </h2>
 
@@ -320,7 +320,7 @@ print(result)`}
         {/* Configuration */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowPath className="w-8 h-8 text-indigo-400" />
+            <HiOutlineArrowPath className="w-8 h-8 text-gray-400" />
             Configuration
           </h2>
 
@@ -377,10 +377,10 @@ result = agent.input("task")`}
                 language="python"
               />
               <div className="mt-4 space-y-2 text-sm">
-                <p className="text-green-400 flex items-start gap-2">
+                <p className="text-green-600 flex items-start gap-2">
                   <span>+</span> No network latency
                 </p>
-                <p className="text-green-400 flex items-start gap-2">
+                <p className="text-green-600 flex items-start gap-2">
                   <span>+</span> Works offline
                 </p>
                 <p className="text-red-400 flex items-start gap-2">
@@ -403,10 +403,10 @@ result = agent.input("task")`}
                 language="python"
               />
               <div className="mt-4 space-y-2 text-sm">
-                <p className="text-green-400 flex items-start gap-2">
+                <p className="text-green-600 flex items-start gap-2">
                   <span>+</span> Access from anywhere
                 </p>
-                <p className="text-green-400 flex items-start gap-2">
+                <p className="text-green-600 flex items-start gap-2">
                   <span>+</span> Share across team
                 </p>
                 <p className="text-red-400 flex items-start gap-2">
@@ -423,7 +423,7 @@ result = agent.input("task")`}
         {/* TypeScript SDK */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-400" />
             TypeScript SDK
           </h2>
 
@@ -529,7 +529,7 @@ console.log(response.text)`}
         {/* React Hook */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlinePuzzlePiece className="w-8 h-8 text-cyan-400" />
+            <HiOutlinePuzzlePiece className="w-8 h-8 text-gray-400" />
             React Hook: useAgentForHuman()
           </h2>
 
@@ -654,7 +654,7 @@ respondToPlanReview("Skip step 2, go straight to report")`}
         {/* Sending Files */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineDocumentText className="w-8 h-8 text-teal-400" />
+            <HiOutlineDocumentText className="w-8 h-8 text-gray-400" />
             Sending Files
           </h2>
 
@@ -783,7 +783,7 @@ function Chat() {
 
           <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
             <p className="text-sm text-gray-900">
-              <strong>File limits:</strong> Default 10MB per file, 10 files per request. Check agent limits via <code className="bg-gray-100 px-1 rounded">GET /info</code> → <code className="bg-gray-100 px-1 rounded">accepted_inputs.files</code>. Server-side, files are saved to <code className="bg-gray-100 px-1 rounded">.co/uploads/</code> and the agent reads them via tools. See <Link href="/host" className="text-teal-300 hover:text-teal-200 underline">host()</Link> for server-side details.
+              <strong>File limits:</strong> Default 10MB per file, 10 files per request. Check agent limits via <code className="bg-gray-100 px-1 rounded">GET /info</code> → <code className="bg-gray-100 px-1 rounded">accepted_inputs.files</code>. Server-side, files are saved to <code className="bg-gray-100 px-1 rounded">.co/uploads/</code> and the agent reads them via tools. See <Link href="/host" className="text-gray-700 hover:text-teal-200 underline">host()</Link> for server-side details.
             </p>
           </div>
         </section>
@@ -791,7 +791,7 @@ function Chat() {
         {/* oo-chat Reference */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineWindow className="w-8 h-8 text-emerald-400" />
+            <HiOutlineWindow className="w-8 h-8 text-gray-400" />
             oo-chat: Open-Source Reference Client
           </h2>
 

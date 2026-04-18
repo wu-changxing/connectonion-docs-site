@@ -29,7 +29,7 @@ export default function XrayPage() {
         <section className="mb-16">
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 md:p-8">
             <h3 className="text-base md:text-lg font-semibold mb-4 md:mb-6 flex items-center gap-2">
-              <HiOutlineCodeBracket className="text-blue-400 w-4 h-4 md:w-5 md:h-5" />
+              <HiOutlineCodeBracket className="text-gray-500 w-4 h-4 md:w-5 md:h-5" />
               How @xray works
             </h3>
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs md:text-sm">
@@ -49,7 +49,7 @@ export default function XrayPage() {
               <HiOutlineArrowRight className="text-gray-500 rotate-90 md:rotate-0" />
               <div className="flex flex-col items-center gap-2">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-50 border border-blue-500 rounded-lg flex items-center justify-center">
-                  <HiOutlineCpuChip className="text-blue-400 w-5 h-5 md:w-6 md:h-6" />
+                  <HiOutlineCpuChip className="text-gray-500 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-gray-700">Agent Context</span>
               </div>
@@ -106,7 +106,7 @@ Processed: sample data`}
             {/* Execution Trace */}
             <div>
               <h3 className="heading-3">
-                <HiOutlineClock className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
+                <HiOutlineClock className="w-5 h-5 md:w-6 md:h-6 text-gray-500" />
                 Execution Trace
               </h3>
               <p className="text-gray-700 mb-6">
@@ -190,13 +190,13 @@ positive`}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
             <div className="text-center mb-6">
               <h3 className="text-lg font-semibold flex items-center justify-center gap-2">
-                <HiOutlineCodeBracket className="text-blue-400" />
+                <HiOutlineCodeBracket className="text-gray-500" />
                 xray context object
               </h3>
             </div>
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
-                <HiOutlineCpuChip className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mx-auto mb-2" />
+                <HiOutlineCpuChip className="w-6 h-6 md:w-8 md:h-8 text-gray-500 mx-auto mb-2" />
                 <div className="font-mono text-gray-700">xray.agent</div>
                 <div className="text-gray-700 text-xs mt-1">Agent Instance</div>
               </div>
@@ -215,7 +215,7 @@ positive`}
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { name: 'xray.agent', desc: 'The Agent instance calling this tool', icon: HiOutlineCpuChip, color: 'text-blue-400' },
+              { name: 'xray.agent', desc: 'The Agent instance calling this tool', icon: HiOutlineCpuChip, color: 'text-gray-500' },
               { name: 'xray.task', desc: 'Original request from user', icon: HiOutlineChatBubbleOvalLeft, color: 'icon-ui' },
               { name: 'xray.messages', desc: 'Full conversation history', icon: HiOutlineClock, color: 'text-gray-500' },
               { name: 'xray.iteration', desc: 'Which round of tool calls (1-10)', icon: HiOutlineArrowPath, color: 'icon-ui' },
@@ -322,7 +322,7 @@ Order ABC123 processed`}
 
           <div className="space-y-4">
             {[
-              { icon: <FaRocket className="text-blue-400" />, tip: 'Development Only', detail: 'Remove @xray in production for best performance' },
+              { icon: <FaRocket className="text-gray-500" />, tip: 'Development Only', detail: 'Remove @xray in production for best performance' },
               { icon: <FaSearch className="icon-ui" />, tip: 'Combine with IDE', detail: 'Set breakpoints for interactive debugging' },
               { icon: <FaChartBar className="text-gray-500" />, tip: 'Use trace()', detail: 'Call xray.trace() after runs to see full flow' },
               { icon: <FaShieldAlt className="icon-ui" />, tip: 'Check context', detail: 'Always verify xray.agent exists before using' }

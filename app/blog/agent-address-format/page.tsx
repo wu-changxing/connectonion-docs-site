@@ -139,7 +139,7 @@ Don't pretend to be something you're not. Our addresses aren't Ethereum addresse
                   Ed25519: ~70,000 sig/sec<br/>
                   Secp256k1: ~20,000 sig/sec
                 </p>
-                <p className="text-green-400 font-bold mt-2">3.5x faster</p>
+                <p className="text-green-600 font-bold mt-2">3.5x faster</p>
               </div>
 
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">

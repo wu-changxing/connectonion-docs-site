@@ -87,7 +87,7 @@ export default function SessionReconnectPage() {
         {/* Session Lifecycle */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowPath className="w-8 h-8 text-cyan-400" />
+            <HiOutlineArrowPath className="w-8 h-8 text-gray-400" />
             Session Lifecycle
           </h2>
 
@@ -149,7 +149,7 @@ export default function SessionReconnectPage() {
         {/* Reconnection Flow */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowsRightLeft className="w-8 h-8 text-emerald-400" />
+            <HiOutlineArrowsRightLeft className="w-8 h-8 text-gray-400" />
             Reconnection Flow
           </h2>
 
@@ -197,7 +197,7 @@ T+35                        ◄────────────────�
         {/* IO Queue Bridge */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineQueueList className="w-8 h-8 text-orange-400" />
+            <HiOutlineQueueList className="w-8 h-8 text-gray-400" />
             IO Queue Bridge
           </h2>
 
@@ -232,7 +232,7 @@ T+35                        ◄────────────────�
         {/* Keep-Alive */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineSignal className="w-8 h-8 text-green-400" />
+            <HiOutlineSignal className="w-8 h-8 text-gray-400" />
             Keep-Alive
           </h2>
 
@@ -288,7 +288,7 @@ T+35                        ◄────────────────�
               { label: 'Background job', desc: 'Runs every 60s to sweep expired sessions.' },
             ].map(({ label, desc }) => (
               <div key={label} className="flex items-start gap-3">
-                <span className="text-cyan-400 mt-0.5">&#x2022;</span>
+                <span className="text-gray-400 mt-0.5">&#x2022;</span>
                 <p className="text-sm text-gray-600"><strong className="text-gray-900">{label}.</strong> {desc}</p>
               </div>
             ))}
@@ -298,7 +298,7 @@ T+35                        ◄────────────────�
         {/* Recovery */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArchiveBox className="w-8 h-8 text-amber-400" />
+            <HiOutlineArchiveBox className="w-8 h-8 text-gray-400" />
             Recovery Without Reconnect
           </h2>
 
@@ -421,7 +421,7 @@ iteration: 5                iteration: 10
         {/* Known Issue */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineExclamationTriangle className="w-8 h-8 text-amber-400" />
+            <HiOutlineExclamationTriangle className="w-8 h-8 text-gray-400" />
             Known Issue: Reconnect During Approval
           </h2>
 
@@ -453,7 +453,7 @@ T+10   New WebSocket connects → CONNECT { session_id }
               { label: 'Two _pipe_ws_io loops compete', desc: 'The old loop (stuck) and the new loop (from reattach) both reference the same agent_finished event.' },
             ].map(({ label, desc }) => (
               <div key={label} className="flex items-start gap-3">
-                <span className="text-amber-400 mt-0.5">&#x2022;</span>
+                <span className="text-gray-400 mt-0.5">&#x2022;</span>
                 <p className="text-sm text-gray-600"><strong className="text-gray-900">{label}.</strong> {desc}</p>
               </div>
             ))}

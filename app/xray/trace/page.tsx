@@ -552,8 +552,8 @@ Works seamlessly with:
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: HiOutlineCommandLine, title: 'Visual Flow', desc: 'See all tool calls in sequence', color: 'text-blue-400' },
-            { icon: HiOutlineClock, title: 'Performance', desc: 'Execution timing for each step', color: 'text-green-400' },
+            { icon: HiOutlineCommandLine, title: 'Visual Flow', desc: 'See all tool calls in sequence', color: 'text-gray-500' },
+            { icon: HiOutlineClock, title: 'Performance', desc: 'Execution timing for each step', color: 'text-gray-500' },
             { icon: HiOutlineEye, title: 'Smart Display', desc: 'Intelligent data truncation', color: 'text-gray-500' },
             { icon: HiOutlineBolt, title: 'Error Tracking', desc: 'Clear error display and details', color: 'text-red-400' }
           ].map((feature, i) => {
@@ -596,8 +596,8 @@ Works seamlessly with:
                 >
                   {copiedId === id ? (
                     <>
-                      <HiOutlineCheck className="w-4 h-4 text-green-400" />
-                      <span className="text-green-400 text-sm hidden sm:inline">Copied!</span>
+                      <HiOutlineCheck className="w-4 h-4 text-gray-500" />
+                      <span className="text-gray-600 text-sm hidden sm:inline">Copied!</span>
                     </>
                   ) : (
                     <>
@@ -612,7 +612,7 @@ Works seamlessly with:
                 {/* Code Panel */}
                 <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
                   <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-700 bg-gray-800">
-                    <HiOutlinePlay className="w-4 h-4 text-blue-400" />
+                    <HiOutlinePlay className="w-4 h-4 text-gray-500" />
                     <span className="text-sm font-medium text-gray-300">Python Code</span>
                   </div>
                   
@@ -645,7 +645,7 @@ Works seamlessly with:
                 {/* Output Panel */}
                 <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
                   <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-700 bg-gray-800">
-                    <HiOutlineCommandLine className="w-4 h-4 text-green-400" />
+                    <HiOutlineCommandLine className="w-4 h-4 text-gray-500" />
                     <span className="text-sm font-medium text-gray-300">Trace Output</span>
                   </div>
                   
@@ -705,7 +705,7 @@ Works seamlessly with:
               <h4 className="font-semibold text-gray-900 mb-4">Status Indicators</h4>
               <div className="space-y-2 font-mono text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400">•</span>
+                  <span className="text-green-600">•</span>
                   <span className="text-gray-700">Successful execution</span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -713,7 +713,7 @@ Works seamlessly with:
                   <span className="text-gray-700">Failed execution</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-yellow-400">...</span>
+                  <span className="text-gray-400">...</span>
                   <span className="text-gray-700">Pending/in-progress</span>
                 </div>
               </div>
@@ -723,11 +723,11 @@ Works seamlessly with:
               <h4 className="font-semibold text-gray-900 mb-4">Data Flow</h4>
               <div className="space-y-2 font-mono text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="text-blue-400">IN  →</span>
+                  <span className="text-gray-600">IN  →</span>
                   <span className="text-gray-700">Input parameters</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400">OUT ←</span>
+                  <span className="text-green-600">OUT ←</span>
                   <span className="text-gray-700">Return values</span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -741,15 +741,15 @@ Works seamlessly with:
               <h4 className="font-semibold text-gray-900 mb-4">Timing Display</h4>
               <div className="space-y-2 font-mono text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="text-cyan-400">0.03ms</span>
+                  <span className="text-gray-500">0.03ms</span>
                   <span className="text-gray-700">Sub-millisecond</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-cyan-400">45ms</span>
+                  <span className="text-gray-500">45ms</span>
                   <span className="text-gray-700">Typical operations</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-cyan-400">2.3s</span>
+                  <span className="text-gray-500">2.3s</span>
                   <span className="text-gray-700">Longer operations</span>
                 </div>
               </div>

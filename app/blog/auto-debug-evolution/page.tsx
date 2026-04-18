@@ -343,7 +343,7 @@ Press Enter to continue, or explore the menu. No manual required.
         {/* The Problem */}
         <section className="mb-12">
           <h2 className="heading-2">
-            <HiOutlineCommandLine className="w-6 h-6 text-blue-400" />
+            <HiOutlineCommandLine className="w-6 h-6 text-gray-400" />
             The Problem: Debugging AI Agents in the Dark
           </h2>
           <p className="text-gray-700 mb-4">
@@ -375,7 +375,7 @@ agent.input("Send email to John")
             <div className="text-gray-700 italic">"I think 4 is too complicated, two or three at most"</div>
           </div>
           <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
-            <div className="text-blue-400 font-semibold mb-2">Lesson #1:</div>
+            <div className="text-gray-400 font-semibold mb-2">Lesson #1:</div>
             <div className="text-gray-700">More features ≠ better UX. High learning curve before being productive.</div>
           </div>
         </section>
@@ -394,7 +394,7 @@ agent.input("Send email to John")
             <div className="text-gray-700 italic">"When we do auto-debug, the input to the agent should default have a mode"</div>
           </div>
           <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
-            <div className="text-blue-400 font-semibold mb-2">Lesson #2:</div>
+            <div className="text-gray-400 font-semibold mb-2">Lesson #2:</div>
             <div className="text-gray-700">Symbolic shortcuts (?, {'>>>'}) require learning. Not discoverable without docs.</div>
           </div>
         </section>
@@ -409,11 +409,11 @@ agent.input("Send email to John")
           </p>
           <CodeWithResult code={codeIteration3} language="text" className="mb-4" />
           <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4 mb-4">
-            <div className="text-yellow-400 font-semibold mb-2">User Feedback:</div>
+            <div className="text-gray-400 font-semibold mb-2">User Feedback:</div>
             <div className="text-gray-700 italic">"The AI should be something more intuitive like 'AI Ask' or something like that"</div>
           </div>
           <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
-            <div className="text-blue-400 font-semibold mb-2">Lesson #3:</div>
+            <div className="text-gray-400 font-semibold mb-2">Lesson #3:</div>
             <div className="text-gray-700">Names matter. "AI" is ambiguous - "AI Ask" is self-explanatory. Progress made but still not simple enough.</div>
           </div>
         </section>
@@ -422,7 +422,7 @@ agent.input("Send email to John")
         <section className="mb-12">
           <div className="bg-gradient-to-r from-gray-500/20 to-gray-500/20 border border-gray-200 rounded-lg p-6 mb-6">
             <h2 className="heading-2">
-              <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+              <HiOutlineBolt className="w-6 h-6 text-gray-400" />
               The Breakthrough Question
             </h2>
             <p className="text-gray-700 text-lg">
@@ -434,7 +434,7 @@ agent.input("Send email to John")
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <div className="text-blue-400 font-semibold mb-2">Unix Philosophy</div>
+              <div className="text-gray-400 font-semibold mb-2">Unix Philosophy</div>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Do one thing well</li>
                 <li>• Compose simply</li>
@@ -455,7 +455,7 @@ agent.input("Send email to John")
         {/* Final Design */}
         <section className="mb-12">
           <h2 className="heading-2">
-            <MenuIcon className="w-6 h-6 text-green-400" />
+            <MenuIcon className="w-6 h-6 text-green-600" />
             Iteration 4: Agent-First Menu ✅
           </h2>
           <p className="text-gray-700 mb-4">
@@ -463,7 +463,7 @@ agent.input("Send email to John")
           </p>
           <CodeWithResult code={codeFinal} language="text" className="mb-4" />
           <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
-            <div className="text-green-400 font-semibold mb-4">Why This Works:</div>
+            <div className="text-green-600 font-semibold mb-4">Why This Works:</div>
             <ul className="text-gray-700 space-y-2 text-sm">
               <li>✅ <strong className="text-gray-900">Agent-first by default</strong> - Press Enter to continue (simplest action)</li>
               <li>✅ <strong className="text-gray-900">Progressive disclosure</strong> - See options, discover gradually</li>

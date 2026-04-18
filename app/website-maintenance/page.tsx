@@ -21,7 +21,7 @@ export default function WebsiteMaintenancePage() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-gradient-to-br from-gray-500/20 to-cyan-500/20 rounded-xl border border-gray-200">
-              <HiOutlineCog6Tooth className="w-8 h-8 text-blue-400" />
+              <HiOutlineCog6Tooth className="w-8 h-8 text-gray-500" />
             </div>
             <div>
               <h1 className="heading-1">Website Maintenance</h1>

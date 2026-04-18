@@ -707,7 +707,7 @@ blacklist: blacklist.txt`}
         {/* API Reference */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-indigo-400" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-400" />
             API Reference
           </h2>
 
@@ -784,7 +784,7 @@ blacklist: blacklist.txt`}
         {/* Deployment */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineDocumentText className="w-8 h-8 text-orange-400" />
+            <HiOutlineDocumentText className="w-8 h-8 text-gray-400" />
             Deployment
           </h2>
 

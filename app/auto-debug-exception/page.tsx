@@ -24,7 +24,7 @@ export default function AutoDebugExceptionPage() {
         aria-label="Copy code"
       >
         {copiedCode === id ? (
-          <HiOutlineCheck className="w-4 h-4 text-green-400" />
+          <HiOutlineCheck className="w-4 h-4 text-green-600" />
         ) : (
           <HiOutlineClipboard className="w-4 h-4 text-gray-700" />
         )}
@@ -65,9 +65,9 @@ export default function AutoDebugExceptionPage() {
         {/* Important Notice */}
         <div className="bg-gray-500/10 border border-gray-200 rounded-xl p-6 mb-16">
           <div className="flex items-start gap-3">
-            <HiOutlineExclamationTriangle className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
+            <HiOutlineExclamationTriangle className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
             <div>
-              <p className="font-semibold text-yellow-400 mb-2">Debugs ONLY uncaught exceptions</p>
+              <p className="font-semibold text-gray-400 mb-2">Debugs ONLY uncaught exceptions</p>
               <p className="text-sm text-gray-700">
                 This feature only works for uncaught exceptions - crashes, raised exceptions, and failed assertions.
                 For logic errors that don't crash, use <code className="bg-gray-100 px-2 py-0.5 rounded text-yellow-700">raise</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-yellow-700">assert</code> to convert them to exceptions.
@@ -79,7 +79,7 @@ export default function AutoDebugExceptionPage() {
         {/* Quick Start */}
         <section className="mb-20">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-gray-400" />
             <h2 className="heading-2">Quick Start</h2>
             <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">30 seconds to AI debugging</span>
           </div>
@@ -137,7 +137,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <HiOutlineCheck className="w-8 h-8 text-green-400 mb-4" />
+              <HiOutlineCheck className="w-8 h-8 text-green-600 mb-4" />
               <h3 className="text-xl font-semibold mb-4">Verified Solutions</h3>
               <p className="text-gray-700 text-sm">
                 Every fix is tested with your actual data before being suggested.
@@ -243,7 +243,7 @@ result = calculate_metrics([])  # 💥 Multiple issues!`}
                     <p className="text-gray-700">Empty list causes division by zero and max()/min() to fail</p>
                   </div>
                   <div>
-                    <p className="font-semibold text-green-400 mb-2">Verified fix (tested with your data):</p>
+                    <p className="font-semibold text-green-600 mb-2">Verified fix (tested with your data):</p>
                     <CodeBlock
                       code={`def calculate_metrics(scores):
     if not scores:
@@ -300,7 +300,7 @@ theme = response['data']['user']['settings']['theme']  # 💥 KeyError!`}
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold text-green-400 mb-2">Verified fix:</p>
+                    <p className="font-semibold text-green-600 mb-2">Verified fix:</p>
                     <CodeBlock
                       code={`# Use .get() with default value
 theme = response.get('data', {}).get('user', {}).get('settings', {}).get('theme', 'light')
@@ -361,25 +361,25 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 text-green-400 flex items-center gap-2">
+              <h3 className="text-lg font-semibold mb-4 text-green-600 flex items-center gap-2">
                 <HiOutlineCheck className="w-5 h-5" />
                 Debugs These
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Crashes: KeyError, TypeError, ZeroDivisionError, etc.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Raised exceptions: raise ValueError("invalid")</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Failed assertions: assert x {'>'} 0, "must be positive"</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Any uncaught exception that reaches sys.excepthook</span>
                 </li>
               </ul>
@@ -412,7 +412,7 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
           </div>
 
           <div className="mt-8 bg-gray-500/10 border border-gray-200 rounded-lg p-6">
-            <p className="font-semibold text-yellow-400 mb-2">Solution:</p>
+            <p className="font-semibold text-gray-400 mb-2">Solution:</p>
             <p className="text-gray-700 text-sm">
               To debug logic errors, convert them to exceptions using <code className="bg-gray-100 px-2 py-0.5 rounded text-yellow-700">raise</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-yellow-700">assert</code>.
               This triggers auto_debug_exception and gives you AI analysis with runtime inspection.

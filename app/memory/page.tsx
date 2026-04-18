@@ -26,7 +26,7 @@ export default function MemoryPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineLightBulb className="w-6 h-6 text-yellow-400" />
+            <HiOutlineLightBulb className="w-6 h-6 text-gray-400" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 

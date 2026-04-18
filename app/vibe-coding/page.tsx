@@ -206,7 +206,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                 <div className="bg-gray-800 rounded-lg p-3 font-mono text-sm flex items-center justify-between">
                   <div>
                     <span className="text-gray-500 select-none">1. </span>
-                    <span className="text-green-400">/plugin marketplace add openonion/connectonion-claude-plugin</span>
+                    <span className="text-gray-600">/plugin marketplace add openonion/connectonion-claude-plugin</span>
                   </div>
                   <button
                     onClick={() => handleCopyCode('/plugin marketplace add openonion/connectonion-claude-plugin', 'plugin-marketplace')}
@@ -222,7 +222,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                 <div className="bg-gray-800 rounded-lg p-3 font-mono text-sm flex items-center justify-between">
                   <div>
                     <span className="text-gray-500 select-none">2. </span>
-                    <span className="text-green-400">/plugin install connectonion</span>
+                    <span className="text-gray-600">/plugin install connectonion</span>
                   </div>
                   <button
                     onClick={() => handleCopyCode('/plugin install connectonion', 'plugin-install')}

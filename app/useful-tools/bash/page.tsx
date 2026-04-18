@@ -32,7 +32,7 @@ export default function BashPage() {
         {/* Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+            <HiOutlineBolt className="w-8 h-8 text-gray-400" />
             Quick Start
           </h2>
           <CodeWithResult
@@ -50,7 +50,7 @@ agent.input("check git log for last 5 commits")`}
         {/* API */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-400" />
             API Reference
           </h2>
           <CodeWithResult

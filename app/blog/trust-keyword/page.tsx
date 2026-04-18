@@ -253,7 +253,7 @@ Sometimes the best technical decisions are the least technical ones.`
                 ].map((point, idx) => (
                   <div key={idx} className="bg-gray-50 border border-gray-200 rounded-xl p-6">
                     <h3 className="text-xl font-semibold text-gray-400 mb-2 flex items-center gap-2">
-                      <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
+                      <HiOutlineCheckCircle className="w-5 h-5 text-green-600" />
                       {point.title}
                     </h3>
                     <p className="text-gray-700 mb-4">{point.description}</p>

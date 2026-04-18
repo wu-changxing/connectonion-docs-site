@@ -95,7 +95,7 @@ print(text)`}
         <div className="space-y-8">
           {/* Meeting Minutes */}
           <div>
-            <h3 className="text-lg font-semibold text-green-400 mb-4">Meeting Minutes</h3>
+            <h3 className="text-lg font-semibold text-green-600 mb-4">Meeting Minutes</h3>
             <CodeWithResult
               code={`def get_meeting_minutes(audio_path: str) -> str:
     """Transcribe and summarize a meeting."""
@@ -124,7 +124,7 @@ print(text)`}
 
           {/* Voice Notes Processing */}
           <div>
-            <h3 className="text-lg font-semibold text-green-400 mb-4">Voice Notes Processing</h3>
+            <h3 className="text-lg font-semibold text-green-600 mb-4">Voice Notes Processing</h3>
             <CodeWithResult
               code={`from pathlib import Path
 
@@ -147,7 +147,7 @@ Remember to add the new transcribe feature to the docs...`}
 
           {/* Use as Agent Tool */}
           <div>
-            <h3 className="text-lg font-semibold text-green-400 mb-4">Use as Agent Tool</h3>
+            <h3 className="text-lg font-semibold text-green-600 mb-4">Use as Agent Tool</h3>
             <CodeWithResult
               code={`from connectonion import Agent, transcribe
 
@@ -255,11 +255,11 @@ transcribe("audio.mp3", model="gemini-2.5-flash")`}
 
         <div className="grid md:grid-cols-2 gap-4">
           {[
-            { text: "Simple API - One function for all transcription needs", icon: <FaCheckCircle className="text-green-400" /> },
-            { text: "Context hints - Improve accuracy with domain terms", icon: <FaCheckCircle className="text-green-400" /> },
-            { text: "Multiple formats - WAV, MP3, FLAC, and more", icon: <FaCheckCircle className="text-green-400" /> },
-            { text: "Timestamps - Optional time markers in output", icon: <FaCheckCircle className="text-green-400" /> },
-            { text: "Managed keys - Works out of the box with co/ models", icon: <FaCheckCircle className="text-green-400" /> }
+            { text: "Simple API - One function for all transcription needs", icon: <FaCheckCircle className="text-green-600" /> },
+            { text: "Context hints - Improve accuracy with domain terms", icon: <FaCheckCircle className="text-green-600" /> },
+            { text: "Multiple formats - WAV, MP3, FLAC, and more", icon: <FaCheckCircle className="text-green-600" /> },
+            { text: "Timestamps - Optional time markers in output", icon: <FaCheckCircle className="text-green-600" /> },
+            { text: "Managed keys - Works out of the box with co/ models", icon: <FaCheckCircle className="text-green-600" /> }
           ].map((item, i) => (
             <div key={i} className="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-start gap-3">
               <span className="text-2xl">{item.icon}</span>

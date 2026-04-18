@@ -120,23 +120,23 @@ choice = pick("Continue?", {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-orange-300">↑/↓</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">↑/↓</td>
                   <td className="px-4 py-3 text-gray-700">Navigate options</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-orange-300">1-9</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">1-9</td>
                   <td className="px-4 py-3 text-gray-700">Quick select by number</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-orange-300">Enter</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">Enter</td>
                   <td className="px-4 py-3 text-gray-700">Confirm selection</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-orange-300">Esc</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">Esc</td>
                   <td className="px-4 py-3 text-gray-700">Cancel</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-orange-300">@</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">@</td>
                   <td className="px-4 py-3 text-gray-700">Trigger file autocomplete</td>
                 </tr>
               </tbody>

@@ -81,12 +81,12 @@ Focus on:
               <tbody className="divide-y divide-gray-200">
                 <tr className="bg-gray-50">
                   <td className="px-4 py-3 font-mono text-gray-500">name</td>
-                  <td className="px-4 py-3 text-green-400">Yes</td>
+                  <td className="px-4 py-3 text-green-600">Yes</td>
                   <td className="px-4 py-3 text-gray-700">Command name</td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="px-4 py-3 font-mono text-gray-500">description</td>
-                  <td className="px-4 py-3 text-green-400">Yes</td>
+                  <td className="px-4 py-3 text-green-600">Yes</td>
                   <td className="px-4 py-3 text-gray-700">Short description</td>
                 </tr>
                 <tr className="bg-gray-50">

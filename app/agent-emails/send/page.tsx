@@ -27,7 +27,7 @@ export default function SendEmailPage() {
         aria-label="Copy code"
       >
         {copiedCode === id ? (
-          <HiOutlineCheck className="w-4 h-4 text-green-400" />
+          <HiOutlineCheck className="w-4 h-4 text-green-600" />
         ) : (
           <HiOutlineClipboard className="w-4 h-4 text-gray-700" />
         )}
@@ -84,7 +84,7 @@ export default function SendEmailPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-gray-400" />
             <h2 className="heading-2">Quick Start</h2>
             <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full">30 seconds to first email</span>
           </div>
@@ -108,8 +108,8 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
               id="quickstart-run"
             />
             <div className="text-center">
-              <p className="text-green-400 font-semibold text-xl flex items-center justify-center gap-2">
-                <FaStar className="text-yellow-400" />
+              <p className="text-green-600 font-semibold text-xl flex items-center justify-center gap-2">
+                <FaStar className="text-gray-400" />
                 Email sent. Done.
               </p>
             </div>
@@ -247,8 +247,8 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
                 <span>Generated during <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co init</code></span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-yellow-400">•</span>
-                <span className="text-yellow-400 font-semibold">Activated with <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co auth</code></span>
+                <span className="text-gray-400">•</span>
+                <span className="text-gray-400 font-semibold">Activated with <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co auth</code></span>
               </div>
             </div>
           </div>
@@ -338,7 +338,7 @@ Email activated! Your agent can now send emails.</span>
 
           <div className="space-y-8 max-w-4xl mx-auto">
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-green-400">✓ Success</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-green-600">✓ Success</h3>
               <CodeBlock 
                 code={`{
     'success': True,

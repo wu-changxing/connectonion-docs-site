@@ -60,12 +60,12 @@ agent = Agent(
               <p className="text-sm text-gray-600">/command detected in @after_user_input, no LLM overhead</p>
             </div>
             <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
-              <HiOutlineShieldCheck className="w-7 h-7 text-blue-400 mb-3" />
+              <HiOutlineShieldCheck className="w-7 h-7 text-gray-400 mb-3" />
               <h3 className="font-semibold text-gray-700 mb-2">Snapshot/Restore</h3>
               <p className="text-sm text-gray-600">Preserves user approvals while granting temporary permissions</p>
             </div>
             <div className="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
-              <HiOutlineLockClosed className="w-7 h-7 text-green-400 mb-3" />
+              <HiOutlineLockClosed className="w-7 h-7 text-green-600 mb-3" />
               <h3 className="font-semibold text-gray-900 mb-2">Security</h3>
               <p className="text-sm text-gray-600">Permissions auto-clear after turn completes</p>
             </div>

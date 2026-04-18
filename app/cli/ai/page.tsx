@@ -50,7 +50,7 @@ export default function CliAiPage() {
               <code className="text-sm text-gray-600">co ai</code>
               <p className="text-gray-500 text-sm mt-2">Starts a local agent server, opens <code className="text-gray-600">chat.openonion.ai</code> in your browser. Chat conversationally — best for extended sessions.</p>
             </div>
-            <div className="bg-cyan-50 border border-cyan-200 rounded-lg p-5">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
               <h3 className="font-semibold text-gray-700 mb-2">One-Shot</h3>
               <code className="text-sm text-gray-600">co ai "your prompt"</code>
               <p className="text-gray-500 text-sm mt-2">Runs the prompt, prints the result, exits. Best for quick tasks and scripting.</p>
@@ -253,7 +253,7 @@ EOF`}
         {/* Options */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-indigo-400" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
             Command Reference
           </h2>
 

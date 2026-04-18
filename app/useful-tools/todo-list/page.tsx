@@ -43,19 +43,19 @@ todo = TodoList()`}
           <h2 className="heading-2">Why Use TodoList?</h2>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Track progress</strong> on complex tasks with multiple steps</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Show users</strong> what the agent is working on</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Organize</strong> multi-step workflows</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Prevent</strong> forgetting steps in complex tasks</span>
             </li>
           </ul>
@@ -66,7 +66,7 @@ todo = TodoList()`}
           <h2 className="heading-2">When to Use</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 className="text-green-400 font-semibold mb-2">Use when:</h3>
+              <h3 className="text-gray-700 font-semibold mb-2">Use when:</h3>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Task requires <strong>3+ distinct steps</strong></li>
                 <li>• User provides <strong>multiple tasks</strong></li>

@@ -240,7 +240,7 @@ elif api_key.startswith('gsk_'):
               </div>
 
               <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-6">
-                <h3 className="text-green-400 font-semibold mb-4">We Do</h3>
+                <h3 className="text-green-600 font-semibold mb-4">We Do</h3>
                 <ul className="space-y-2 text-gray-700 text-sm">
                   <li>Create working code immediately</li>
                   <li>Use sensible defaults everywhere</li>
@@ -256,11 +256,11 @@ elif api_key.startswith('gsk_'):
               <p className="text-gray-700 mb-4">We use colors and emojis for <strong className="text-gray-900">clarity</strong>, not decoration:</p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
-                  <span className="text-green-400 text-xl">✅</span>
+                  <span className="text-green-600 text-xl">✅</span>
                   <span className="text-gray-700">Green = Success</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-yellow-400 text-xl">⚠️</span>
+                  <span className="text-gray-400 text-xl">⚠️</span>
                   <span className="text-gray-700">Yellow = Warning</span>
                 </div>
                 <div className="flex items-center gap-3">

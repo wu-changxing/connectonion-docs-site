@@ -43,7 +43,7 @@ playwright install chromium`}
         {/* Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+            <HiOutlineBolt className="w-8 h-8 text-gray-400" />
             Quick Start
           </h2>
 
@@ -121,7 +121,7 @@ with BrowserAutomation() as browser:
         {/* Persistent Profile */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCpuChip className="w-8 h-8 text-indigo-400" />
+            <HiOutlineCpuChip className="w-8 h-8 text-gray-400" />
             Persistent Sessions
           </h2>
           <p className="text-gray-700 mb-6">

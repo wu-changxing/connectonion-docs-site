@@ -56,15 +56,15 @@ export default function DeployPage() {
               </p>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-600 mt-0.5" />
                   <span>One command deployment</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-600 mt-0.5" />
                   <span>Automatic HTTPS</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-600 mt-0.5" />
                   <span>Re-deploy updates same URL</span>
                 </li>
               </ul>
@@ -390,15 +390,15 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
               </p>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-600 mt-0.5" />
                   <span>Full control over environment</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-600 mt-0.5" />
                   <span>Predictable pricing</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-600 mt-0.5" />
                   <span>Easy SSH access</span>
                 </li>
               </ul>
@@ -414,15 +414,15 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
               </p>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-600 mt-0.5" />
                   <span>Auto-scaling built in</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-600 mt-0.5" />
                   <span>Load balancing</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-4 h-4 text-green-600 mt-0.5" />
                   <span>Rolling deployments</span>
                 </li>
               </ul>
@@ -507,7 +507,7 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
         {/* Best Practices */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineShieldCheck className="w-8 h-8 text-green-400" />
+            <HiOutlineShieldCheck className="w-8 h-8 text-green-600" />
             Best Practices
           </h2>
 
@@ -516,19 +516,19 @@ docker run -d -e OPENAI_API_KEY=$OPENAI_API_KEY my-agent`}
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Security</h3>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-green-600 mt-0.5" />
                   <span>Use secret managers for API keys</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-green-600 mt-0.5" />
                   <span>Never commit <code className="bg-gray-100 px-1 rounded">.co/</code> or <code className="bg-gray-100 px-1 rounded">.env</code></span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-green-600 mt-0.5" />
                   <span>Use non-root container users</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-5 h-5 text-green-400 mt-0.5" />
+                  <HiOutlineCheck className="w-5 h-5 text-green-600 mt-0.5" />
                   <span>Enable HTTPS for all endpoints</span>
                 </li>
               </ul>

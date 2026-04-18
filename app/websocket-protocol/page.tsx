@@ -56,7 +56,7 @@ export default function WebSocketProtocolPage() {
         {/* Overview */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-400" />
             Overview
           </h2>
 
@@ -102,7 +102,7 @@ export default function WebSocketProtocolPage() {
         {/* Session Lifecycle */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowPath className="w-8 h-8 text-cyan-400" />
+            <HiOutlineArrowPath className="w-8 h-8 text-gray-400" />
             Session Lifecycle
           </h2>
 
@@ -150,7 +150,7 @@ export default function WebSocketProtocolPage() {
         {/* Protocol Flows */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowsRightLeft className="w-8 h-8 text-emerald-400" />
+            <HiOutlineArrowsRightLeft className="w-8 h-8 text-gray-400" />
             Protocol Flows
           </h2>
 
@@ -509,7 +509,7 @@ export default function WebSocketProtocolPage() {
         {/* Architecture Diagram */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineServerStack className="w-8 h-8 text-indigo-400" />
+            <HiOutlineServerStack className="w-8 h-8 text-gray-400" />
             Architecture
           </h2>
 
@@ -562,7 +562,7 @@ export default function WebSocketProtocolPage() {
         {/* Authentication */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineShieldCheck className="w-8 h-8 text-amber-400" />
+            <HiOutlineShieldCheck className="w-8 h-8 text-gray-400" />
             Authentication
           </h2>
 
@@ -607,7 +607,7 @@ signature → OK             (same WS, already authenticated)`}
         {/* Client Reconnect */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowPath className="w-8 h-8 text-cyan-400" />
+            <HiOutlineArrowPath className="w-8 h-8 text-gray-400" />
             Client Reconnect
           </h2>
 

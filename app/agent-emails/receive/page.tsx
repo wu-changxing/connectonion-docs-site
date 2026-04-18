@@ -28,7 +28,7 @@ export default function ReceiveEmailsPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-gray-400" />
             <h2 className="heading-2">Quick Start</h2>
             <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">10 seconds</span>
           </div>
@@ -42,7 +42,7 @@ emails = get_emails()`}
             fileName="quickstart.py"
           />
 
-          <p className="text-green-400 font-semibold text-center mt-4">That's it. You have your emails.</p>
+          <p className="text-green-600 font-semibold text-center mt-4">That's it. You have your emails.</p>
         </section>
 
         {/* Core Concept */}
@@ -93,7 +93,7 @@ mark_read(email_id)                 # Mark as read after processing`}
           <div className="space-y-12">
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineEye className="w-5 h-5 text-blue-400" />
+                <HiOutlineEye className="w-5 h-5 text-gray-400" />
                 Check for new emails
               </h3>
               <CodeWithResult
@@ -131,7 +131,7 @@ if emails:
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineEnvelope className="w-5 h-5 text-green-400" />
+                <HiOutlineEnvelope className="w-5 h-5 text-green-600" />
                 Reply to emails
               </h3>
               <CodeWithResult

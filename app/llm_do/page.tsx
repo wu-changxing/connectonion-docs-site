@@ -126,7 +126,7 @@ print(result.keywords)`}
               <div className="space-y-8">
                 {/* Extract Data from Text */}
                 <div>
-                  <h3 className="text-xl font-semibold text-green-400 mb-4">Extract Data from Text</h3>
+                  <h3 className="text-xl font-semibold text-gray-600 mb-4">Extract Data from Text</h3>
                   <CodeWithResult 
                     code={`from pydantic import BaseModel
 
@@ -151,7 +151,7 @@ print(invoice.total_amount)`}
 
                 {/* Use Custom Prompts */}
                 <div>
-                  <h3 className="text-xl font-semibold text-green-400 mb-4">Use Custom Prompts</h3>
+                  <h3 className="text-xl font-semibold text-gray-600 mb-4">Use Custom Prompts</h3>
                   <CodeWithResult 
                     code={`# With prompt file
 summary = llm_do(
@@ -173,7 +173,7 @@ Hola mundo`}
 
                 {/* Quick Analysis Tool */}
                 <div>
-                  <h3 className="text-xl font-semibold text-green-400 mb-4">Quick Analysis Tool</h3>
+                  <h3 className="text-xl font-semibold text-gray-600 mb-4">Quick Analysis Tool</h3>
                   <CodeWithResult 
                     code={`def analyze_feedback(text: str) -> str:
     """Analyze customer feedback with structured output."""
@@ -347,11 +347,11 @@ Answer(result=4)`}
               
               <div className="grid md:grid-cols-2 gap-4">
                 {[
-                  { text: "One-shot execution - Single LLM round, no loops", icon: <FaCheckCircle className="text-green-400" /> },
-                  { text: "Type safety - Full IDE autocomplete with Pydantic", icon: <FaCheckCircle className="text-green-400" /> },
-                  { text: "Flexible prompts - Inline strings or external files", icon: <FaCheckCircle className="text-green-400" /> },
-                  { text: "Smart defaults - Fast model, low temperature", icon: <FaCheckCircle className="text-green-400" /> },
-                  { text: "Clean errors - Clear messages when things go wrong", icon: <FaCheckCircle className="text-green-400" /> }
+                  { text: "One-shot execution - Single LLM round, no loops", icon: <FaCheckCircle className="text-gray-600" /> },
+                  { text: "Type safety - Full IDE autocomplete with Pydantic", icon: <FaCheckCircle className="text-gray-600" /> },
+                  { text: "Flexible prompts - Inline strings or external files", icon: <FaCheckCircle className="text-gray-600" /> },
+                  { text: "Smart defaults - Fast model, low temperature", icon: <FaCheckCircle className="text-gray-600" /> },
+                  { text: "Clean errors - Clear messages when things go wrong", icon: <FaCheckCircle className="text-gray-600" /> }
                 ].map((item, i) => (
                   <div key={i} className="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-start gap-3">
                     <span className="text-2xl">{item.icon}</span>
@@ -368,7 +368,7 @@ Answer(result=4)`}
               <div className="space-y-6">
                 {/* Data Extraction */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-4">Data Extraction</h3>
+                  <h3 className="text-lg font-semibold text-gray-600 mb-4">Data Extraction</h3>
                   <CodeWithResult 
                     code={`from pydantic import BaseModel
 
@@ -393,7 +393,7 @@ Job: software engineer`}
 
                 {/* Quick Decisions */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-4">Quick Decisions</h3>
+                  <h3 className="text-lg font-semibold text-gray-600 mb-4">Quick Decisions</h3>
                   <CodeWithResult 
                     code={`is_urgent = llm_do("Customer says: My server is down!")
 if "urgent" in is_urgent.lower():
@@ -407,7 +407,7 @@ This appears to be an urgent issue that requires immediate attention.`}
 
                 {/* Format Conversion */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-4">Format Conversion</h3>
+                  <h3 className="text-lg font-semibold text-gray-600 mb-4">Format Conversion</h3>
                   <CodeWithResult 
                     code={`class JSONData(BaseModel):
     data: dict
@@ -422,7 +422,7 @@ print(json_result.data)`}
 
                 {/* Validation */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-4">Validation</h3>
+                  <h3 className="text-lg font-semibold text-gray-600 mb-4">Validation</h3>
                   <CodeWithResult 
                     code={`def validate_input(user_text: str) -> bool:
     result = llm_do(
@@ -447,19 +447,19 @@ False`}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <ol className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <span className="text-green-400 font-bold">1.</span>
+                    <span className="text-gray-600 font-bold">1.</span>
                     <span className="text-gray-700"><strong>Use low temperature (0-0.3) for consistent results</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-400 font-bold">2.</span>
+                    <span className="text-gray-600 font-bold">2.</span>
                     <span className="text-gray-700"><strong>Provide examples in your prompt for better accuracy</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-400 font-bold">3.</span>
+                    <span className="text-gray-600 font-bold">3.</span>
                     <span className="text-gray-700"><strong>Use Pydantic models for anything structured</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-400 font-bold">4.</span>
+                    <span className="text-gray-600 font-bold">4.</span>
                     <span className="text-gray-700"><strong>Cache prompts in files for reusability</strong></span>
                   </li>
                 </ol>

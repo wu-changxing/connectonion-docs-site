@@ -10,7 +10,7 @@ const examples = [
     title: '1. Friendly Assistant',
     description: 'Basic conversational agent with helpful personality',
     icon: HiOutlineUser,
-    color: 'text-green-400',
+    color: 'text-gray-500',
     bg: 'bg-gray-50 border-gray-200',
     difficulty: 'Beginner',
     concepts: ['Basic personality', 'Conversational tone', 'Helpful behavior'],
@@ -21,8 +21,8 @@ const examples = [
     title: '2. Math Tutor',
     description: 'Patient teacher focused on step-by-step explanations',
     icon: HiOutlineCodeBracket,
-    color: 'text-blue-400', 
-    bg: 'bg-gray-50 border-blue-500/30',
+    color: 'text-gray-500',
+    bg: 'bg-gray-50 border-gray-200',
     difficulty: 'Beginner',
     concepts: ['Educational approach', 'Structured teaching', 'Encouraging feedback'],
     href: '/prompts/examples/math-tutor'
@@ -32,8 +32,8 @@ const examples = [
     title: '3. Customer Support Agent',
     description: 'Empathetic support specialist with structured problem-solving',
     icon: HiOutlineUser,
-    color: 'text-orange-400',
-    bg: 'bg-orange-900/20 border-orange-500/30',
+    color: 'text-gray-500',
+    bg: 'bg-gray-50 border-gray-200',
     difficulty: 'Intermediate',
     concepts: ['Empathy framework', 'Solution-oriented', 'Escalation triggers'],
     href: '/prompts/examples/customer-support'
@@ -54,8 +54,8 @@ const examples = [
     title: '5. Data Analysis Expert',
     description: 'Expert transforming data into actionable insights',
     icon: HiOutlineCircleStack,
-    color: 'text-cyan-400',
-    bg: 'bg-cyan-900/20 border-cyan-500/30',
+    color: 'text-gray-500',
+    bg: 'bg-gray-50 border-gray-200',
     difficulty: 'Advanced',
     concepts: ['Statistical rigor', 'Business context', 'Visual clarity'],
     href: '/prompts/examples/data-analyst'
@@ -65,8 +65,8 @@ const examples = [
     title: '6. Technical Documentation Specialist',
     description: 'Creating clear, comprehensive technical documentation',
     icon: HiOutlineDocumentText,
-    color: 'text-indigo-400',
-    bg: 'bg-indigo-900/20 border-indigo-500/30',
+    color: 'text-gray-500',
+    bg: 'bg-gray-50 border-gray-200',
     difficulty: 'Expert',
     concepts: ['Progressive disclosure', 'User-centered writing', 'Documentation types'],
     href: '/prompts/examples/technical-writer'
@@ -76,8 +76,8 @@ const examples = [
     title: '7. Security Analyst',
     description: 'Cybersecurity expert conducting threat analysis and risk assessment',
     icon: HiOutlineShieldCheck,
-    color: 'text-red-400',
-    bg: 'bg-red-900/20 border-red-500/30',
+    color: 'text-gray-500',
+    bg: 'bg-gray-50 border-gray-200',
     difficulty: 'Expert',
     concepts: ['Threat intelligence', 'Risk frameworks', 'Compliance protocols'],
     href: '/prompts/examples/security-analyst'
@@ -88,7 +88,7 @@ const examples = [
     description: 'Strategic business advisor for complex decision-making and planning',
     icon: HiOutlineArrowTrendingUp,
     color: 'text-gray-500',
-    bg: 'bg-pink-900/20 border-pink-500/30',
+    bg: 'bg-gray-50 border-gray-200',
     difficulty: 'Expert',
     concepts: ['Market analysis', 'Strategic frameworks', 'Financial modeling'],
     href: '/prompts/examples/business-strategist'
@@ -125,24 +125,24 @@ export default function PromptsExamplesPage() {
               <span className="text-2xl font-bold text-gray-900">🟢</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Beginner</h3>
-            <p className="text-green-800 text-sm">Basic personality and conversation patterns</p>
+            <p className="text-gray-700 text-sm">Basic personality and conversation patterns</p>
             <p className="text-gray-900 text-xs mt-2">Examples 1-2</p>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 bg-yellow-600 rounded-full flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-4 bg-gray-400 rounded-full flex items-center justify-center">
               <span className="text-2xl font-bold text-gray-900">🟡</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Intermediate</h3>
-            <p className="text-yellow-800 text-sm">Structured responses and domain knowledge</p>
+            <p className="text-gray-700 text-sm">Structured responses and domain knowledge</p>
             <p className="text-gray-500 text-xs mt-2">Example 3</p>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 bg-orange-600 rounded-full flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-4 bg-gray-500 rounded-full flex items-center justify-center">
               <span className="text-2xl font-bold text-gray-900">🟠</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Advanced</h3>
-            <p className="text-orange-800 text-sm">Professional frameworks and methodologies</p>
-            <p className="text-orange-300 text-xs mt-2">Examples 4-5</p>
+            <p className="text-gray-700 text-sm">Professional frameworks and methodologies</p>
+            <p className="text-gray-500 text-xs mt-2">Examples 4-5</p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-4 bg-red-600 rounded-full flex items-center justify-center">
@@ -168,9 +168,9 @@ export default function PromptsExamplesPage() {
               <div className="flex items-start gap-6">
                 {/* Number Badge */}
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0 ${
-                  example.difficulty === 'Beginner' ? 'bg-green-600' : 
-                  example.difficulty === 'Intermediate' ? 'bg-yellow-600' : 
-                  example.difficulty === 'Advanced' ? 'bg-orange-600' : 'bg-red-600'
+                  example.difficulty === 'Beginner' ? 'bg-gray-400' :
+                  example.difficulty === 'Intermediate' ? 'bg-gray-500' :
+                  example.difficulty === 'Advanced' ? 'bg-gray-600' : 'bg-gray-700'
                 }`}>
                   {index + 1}
                 </div>
@@ -184,8 +184,8 @@ export default function PromptsExamplesPage() {
                     </h3>
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                       example.difficulty === 'Beginner' ? 'bg-gray-100 text-gray-700' :
-                      example.difficulty === 'Intermediate' ? 'bg-yellow-50 text-yellow-700' :
-                      example.difficulty === 'Advanced' ? 'bg-orange-50 text-orange-700' : 'bg-red-50 text-red-700'
+                      example.difficulty === 'Intermediate' ? 'bg-gray-100 text-gray-600' :
+                      example.difficulty === 'Advanced' ? 'bg-gray-100 text-gray-700' : 'bg-gray-100 text-gray-700'
                     }`}>
                       {example.difficulty}
                     </span>

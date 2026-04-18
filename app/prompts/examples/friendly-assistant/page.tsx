@@ -102,7 +102,7 @@ ${expectedOutput}
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <HiOutlineUser className="w-8 h-8 text-green-400" />
+                <HiOutlineUser className="w-8 h-8 text-gray-500" />
                 <h1 className="heading-1">Friendly Assistant</h1>
                 <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
                   Beginner
@@ -125,29 +125,29 @@ ${expectedOutput}
       {/* Key Concepts */}
       <div className="mb-12 p-6 bg-gray-50 border border-gray-200 rounded-xl">
         <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-          <HiOutlineLightBulb className="w-6 h-6 text-green-400" />
+          <HiOutlineLightBulb className="w-6 h-6 text-gray-500" />
           Key Learning Concepts
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-3">
-            <HiOutlineHeart className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+            <HiOutlineHeart className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Personality Definition</h3>
-              <p className="text-green-800 text-sm">Clear traits like "polite," "warm," and "enthusiastic" establish consistent behavior</p>
+              <p className="text-gray-700 text-sm">Clear traits like "polite," "warm," and "enthusiastic" establish consistent behavior</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Behavioral Guidelines</h3>
-              <p className="text-green-800 text-sm">Concrete instructions on greeting, questioning, helping, and thanking users</p>
+              <p className="text-gray-700 text-sm">Concrete instructions on greeting, questioning, helping, and thanking users</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineUser className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+            <HiOutlineUser className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-gray-900 font-semibold mb-1">Example Interactions</h3>
-              <p className="text-green-800 text-sm">Shows the assistant exactly what good responses look like in practice</p>
+              <p className="text-gray-700 text-sm">Shows the assistant exactly what good responses look like in practice</p>
             </div>
           </div>
         </div>
@@ -253,13 +253,13 @@ ${expectedOutput}
           {/* Expected Output */}
           <div className="bg-white border border-gray-200 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-200">
-              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-green-400" />
+              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500" />
               <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
             <div className="p-6">
               <div className="bg-gray-950 rounded-lg p-4 font-mono text-sm">
-                <pre className="text-green-800 whitespace-pre-wrap">
+                <pre className="text-gray-300 whitespace-pre-wrap">
                   {expectedOutput}
                 </pre>
               </div>
@@ -271,15 +271,15 @@ ${expectedOutput}
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Why This Works</h3>
             <div className="space-y-4 text-sm">
               <div>
-                <h4 className="font-semibold text-green-400 mb-2">🎯 Clear Personality</h4>
+                <h4 className="font-semibold text-gray-700 mb-2">🎯 Clear Personality</h4>
                 <p className="text-gray-700">The prompt defines specific traits that create a consistent, recognizable personality.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-green-400 mb-2">📝 Actionable Instructions</h4>
+                <h4 className="font-semibold text-gray-700 mb-2">📝 Actionable Instructions</h4>
                 <p className="text-gray-700">Behavioral guidelines give concrete actions: greet, ask, help, thank.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-green-400 mb-2">💡 Learning by Example</h4>
+                <h4 className="font-semibold text-gray-700 mb-2">💡 Learning by Example</h4>
                 <p className="text-gray-700">Example interactions show the desired tone and response style.</p>
               </div>
             </div>
@@ -306,9 +306,9 @@ ${expectedOutput}
       </div>
 
       {/* Navigation */}
-      <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
-        <Link 
-          href="/prompts/examples" 
+      <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-200">
+        <Link
+          href="/prompts/examples"
           className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
         >
           <HiOutlineArrowLeft className="w-4 h-4" />
@@ -316,9 +316,9 @@ ${expectedOutput}
         </Link>
         <div className="text-center">
           <p className="text-sm text-gray-700 mb-1">Next in series</p>
-          <Link 
-            href="/prompts/examples/math-tutor" 
-            className="flex items-center gap-2 text-white hover:text-gray-700 transition-colors font-medium"
+          <Link
+            href="/prompts/examples/math-tutor"
+            className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors font-medium"
           >
             2. Math Tutor
             <HiOutlineArrowRight className="w-4 h-4" />

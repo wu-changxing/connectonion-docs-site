@@ -41,7 +41,7 @@ export default function EvalPluginPage() {
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
+                <HiOutlineCheckCircle className="w-5 h-5 text-green-600" />
                 <h3 className="font-semibold">Evaluate (on_complete)</h3>
               </div>
               <p className="text-sm text-gray-700">After agent finishes, evaluates if the task was truly completed.</p>
@@ -178,15 +178,15 @@ def evaluate_completion(agent):
           <h2 className="heading-2">Use Cases</h2>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
-              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
               <span><strong>Development:</strong> Verify your agent completes tasks correctly</span>
             </li>
             <li className="flex items-start gap-2">
-              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
               <span><strong>Testing:</strong> Automated evaluation of agent responses</span>
             </li>
             <li className="flex items-start gap-2">
-              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
               <span><strong>Debugging:</strong> Identify incomplete or incorrect tool usage</span>
             </li>
           </ul>

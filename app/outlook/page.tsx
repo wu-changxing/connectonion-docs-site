@@ -63,7 +63,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
             {/* Reading */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <HiOutlineInbox className="w-5 h-5 text-blue-400" />
+                <HiOutlineInbox className="w-5 h-5 text-gray-400" />
                 Reading Emails
               </h3>
 
@@ -113,7 +113,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
             {/* Sending */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <HiOutlinePaperAirplane className="w-5 h-5 text-emerald-400" />
+                <HiOutlinePaperAirplane className="w-5 h-5 text-gray-400" />
                 Sending Emails
               </h3>
 

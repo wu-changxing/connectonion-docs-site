@@ -205,7 +205,7 @@ co browser "screenshot localhost:3000 save to desktop.png size 1920x1080"`}
         {/* URL Handling */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-indigo-400" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
             URL Handling
           </h2>
 
@@ -402,7 +402,7 @@ pip install connectonion[browser]`}
         {/* Tips */}
         <section className="mb-20">
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-yellow-900 mb-4">Tips & Best Practices</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Tips & Best Practices</h3>
             <div className="space-y-3 text-gray-700">
               <div>
                 <strong className="text-gray-700">Quick Debug:</strong> Just <code className="bg-gray-100 px-2 py-1 rounded">co browser "screenshot localhost:3000"</code> for instant feedback
