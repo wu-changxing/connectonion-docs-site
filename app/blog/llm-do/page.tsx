@@ -361,7 +361,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
 
               <h2 className="heading-2">The Philosophy</h2>
               
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-8">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-8">
                 <p className="text-lg mb-4">This decision reflects a core belief: <strong className="text-green-300">code should read like natural language</strong>.</p>
                 
                 <div className="space-y-4">

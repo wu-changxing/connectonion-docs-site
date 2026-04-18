@@ -181,7 +181,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
                 { name: 'TCP/IP', term: 'IP address (not computer identity)' },
                 { name: 'Email', term: 'Email address (not email identity)' },
               ].map((item, idx) => (
-                <div key={idx} className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 flex items-center gap-4">
+                <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-center gap-4">
                   <strong className="text-gray-500 min-w-[100px]">{item.name}</strong>
                   <span className="text-gray-700">{item.term}</span>
                 </div>
@@ -192,7 +192,7 @@ If we add identity features later (reputation, attestations, trust scores), thos
 
             <h2 className="heading-2">The Code Tells the Truth</h2>
 
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden my-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden my-6">
               <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
                 <span className="text-sm text-gray-700 font-mono">address.py</span>
               </div>

@@ -147,7 +147,7 @@ The best tool is one you forget you're using. That's what we built.`
 
             <h2 className="heading-2">The Two-Command Strategy</h2>
 
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden my-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden my-6">
               <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
                 <span className="text-sm text-gray-700 font-mono">terminal</span>
               </div>
@@ -193,7 +193,7 @@ co init             # Uses current directory`}</code>
 
             <h2 className="heading-2">Smart API Key Detection</h2>
 
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden my-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden my-6">
               <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
                 <span className="text-sm text-gray-700 font-mono">api_detection.py</span>
               </div>
@@ -213,7 +213,7 @@ elif api_key.startswith('gsk_'):
 
             <h2 className="heading-2">Template Preview, Not Template Guessing</h2>
 
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6 font-mono text-sm">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-6 font-mono text-sm">
               <pre className="text-gray-700">{`📦 Minimal - Simple starting point
   ├── agent.py (50 lines) - Basic agent with example tool
   ├── .env - API key configuration
@@ -252,7 +252,7 @@ elif api_key.startswith('gsk_'):
 
             <h2 className="heading-2">Beautiful by Default</h2>
 
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-6">
               <p className="text-gray-700 mb-4">We use colors and emojis for <strong className="text-white">clarity</strong>, not decoration:</p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">

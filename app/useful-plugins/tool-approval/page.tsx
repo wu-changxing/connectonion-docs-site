@@ -236,22 +236,22 @@ permissions:
 
           <h3 className="heading-3 mt-8">Pattern Types</h3>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
               <h4 className="font-semibold text-blue-300 mb-2">Simple Tool Name</h4>
               <p className="text-sm text-slate-300 mb-3">Matches any call to the tool</p>
               <code className="text-xs text-green-300">"read_file"</code>
             </div>
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
               <h4 className="font-semibold text-blue-300 mb-2">Exact Bash Command</h4>
               <p className="text-sm text-slate-300 mb-3">Only matches exact command</p>
               <code className="text-xs text-green-300">"Bash(git status)"</code>
             </div>
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
               <h4 className="font-semibold text-blue-300 mb-2">Wildcard Bash Command</h4>
               <p className="text-sm text-slate-300 mb-3">Matches command prefix</p>
               <code className="text-xs text-green-300">"Bash(git diff *)"</code>
             </div>
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
               <h4 className="font-semibold text-blue-300 mb-2">Parameter Matching</h4>
               <p className="text-sm text-slate-300 mb-3">Uses 'when' field for granular control</p>
               <code className="text-xs text-green-300">when: {'{file_path: "*.md"}'}</code>
@@ -259,7 +259,7 @@ permissions:
           </div>
 
           <h3 className="heading-3 mt-8">Priority Order</h3>
-          <div className="bg-gray-900/50 rounded-lg p-5 border border-gray-700">
+          <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
             <ol className="space-y-2 text-gray-700">
               <li className="flex items-start gap-3">
                 <span className="text-green-400 font-semibold">1.</span>

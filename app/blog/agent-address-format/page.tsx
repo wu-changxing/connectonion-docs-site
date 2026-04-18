@@ -168,15 +168,15 @@ Don't pretend to be something you're not. Our addresses aren't Ethereum addresse
             </div>
 
             <div className="grid md:grid-cols-3 gap-4 my-8">
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-center">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
                 <div className="text-gray-500 font-bold mb-2">0x prefix</div>
                 <p className="text-gray-700 text-sm">Signals cryptographic material</p>
               </div>
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-center">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
                 <div className="text-gray-500 font-bold mb-2">64 hex chars</div>
                 <p className="text-gray-700 text-sm">Full Ed25519 public key</p>
               </div>
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-center">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
                 <div className="text-gray-500 font-bold mb-2">66 total chars</div>
                 <p className="text-gray-700 text-sm">Fixed length, easy to validate</p>
               </div>
@@ -184,7 +184,7 @@ Don't pretend to be something you're not. Our addresses aren't Ethereum addresse
 
             <h2 className="heading-2">Developer Experience</h2>
 
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden my-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden my-6">
               <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
                 <span className="text-sm text-gray-700 font-mono">address.py</span>
               </div>

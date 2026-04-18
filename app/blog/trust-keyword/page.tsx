@@ -270,7 +270,7 @@ Sometimes the best technical decisions are the least technical ones.`
 
               <h2 className="heading-2">Clear Configuration</h2>
               
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
                 <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
                   <span className="text-sm text-gray-700 font-mono">config.py</span>
                 </div>
@@ -289,7 +289,7 @@ agent = Agent(name="helper", mode="dev")         # Mode of what?`}</code>
               
               <p>Just as Unix uses simple, composable commands, we use simple trust levels that combine with prompts for complex behavior:</p>
               
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden mt-4">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden mt-4">
                 <pre className="p-4 text-sm overflow-x-auto">
                   <code className="text-gray-400">{`# Simple trust + smart prompt = sophisticated behavior
 agent = Agent(

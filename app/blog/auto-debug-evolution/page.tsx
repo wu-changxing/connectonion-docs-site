@@ -433,7 +433,7 @@ agent.input("Send email to John")
             This forced us to apply timeless design principles instead of following our assumptions:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <div className="text-blue-400 font-semibold mb-2">Unix Philosophy</div>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Do one thing well</li>
@@ -441,7 +441,7 @@ agent.input("Send email to John")
                 <li>• Ship early, validate</li>
               </ul>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <div className="text-gray-500 font-semibold mb-2">Steve Jobs</div>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Eliminate unnecessary</li>
@@ -481,31 +481,31 @@ agent.input("Send email to John")
             Key Lessons from Five Iterations
           </h2>
           <div className="space-y-4">
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">1. Listen to User Feedback</h3>
               <p className="text-gray-700 text-sm">
                 We almost built the wrong thing FIVE times. User feedback redirected us every time. Without it, we'd have shipped a complex, unusable debugger.
               </p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">2. Ask "What Would Masters Design?"</h3>
               <p className="text-gray-700 text-sm">
                 Unix and Steve Jobs principles aren't abstract - they're actionable. Single purpose per mode. Eliminate unnecessary. Visual over cognitive load.
               </p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">3. Default Action Should Be Effortless</h3>
               <p className="text-gray-700 text-sm">
                 Most users just want to continue. Make that one keystroke: Enter. If the default is perfect, 80% never need advanced features.
               </p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">4. Visual Discovery {'>'}Command Recall</h3>
               <p className="text-gray-700 text-sm">
                 Menu navigation beats typed commands for discoverability. See all options immediately. No memorization required.
               </p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">5. Iteration Beats Planning</h3>
               <p className="text-gray-700 text-sm">
                 We couldn't have designed the final version first. Each failure taught us something essential. Embrace iteration.

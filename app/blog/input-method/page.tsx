@@ -238,7 +238,7 @@ Sometimes the best API design decision is the one that makes developers forget t
               <h2 className="heading-2">The Research Process</h2>
               <p>We studied how new users approached our API without reading documentation:</p>
 
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-8">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-8">
                 <h3 className="text-xl font-semibold text-blue-300 mb-4">First Attempts by New Users:</h3>
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
