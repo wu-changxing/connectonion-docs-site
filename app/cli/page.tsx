@@ -85,15 +85,15 @@ export default function CLIPage() {
           Quick Reference
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-          <div className="font-mono text-blue-700">co create <span className="text-gray-700">→ New project</span></div>
-          <div className="font-mono text-blue-700">co init <span className="text-gray-700">→ Current directory</span></div>
-          <div className="font-mono text-blue-700">co ai <span className="text-gray-700">→ AI coding agent</span></div>
-          <div className="font-mono text-blue-700">co browser <span className="text-gray-700">→ Screenshots & automation</span></div>
-          <div className="font-mono text-blue-700">co auth <span className="text-gray-700">→ Managed keys (free credits)</span></div>
-          <div className="font-mono text-blue-700">co deploy <span className="text-gray-700">→ Deploy to cloud</span></div>
-          <div className="font-mono text-blue-700">co status <span className="text-gray-700">→ Check balance</span></div>
-          <div className="font-mono text-blue-700">co reset <span className="text-gray-700">→ Reset account</span></div>
-          <div className="font-mono text-blue-700">co doctor <span className="text-gray-700">→ Diagnose issues</span></div>
+          <div className="font-mono text-gray-900">co create <span className="text-gray-700">→ New project</span></div>
+          <div className="font-mono text-gray-900">co init <span className="text-gray-700">→ Current directory</span></div>
+          <div className="font-mono text-gray-900">co ai <span className="text-gray-700">→ AI coding agent</span></div>
+          <div className="font-mono text-gray-900">co browser <span className="text-gray-700">→ Screenshots & automation</span></div>
+          <div className="font-mono text-gray-900">co auth <span className="text-gray-700">→ Managed keys (free credits)</span></div>
+          <div className="font-mono text-gray-900">co deploy <span className="text-gray-700">→ Deploy to cloud</span></div>
+          <div className="font-mono text-gray-900">co status <span className="text-gray-700">→ Check balance</span></div>
+          <div className="font-mono text-gray-900">co reset <span className="text-gray-700">→ Reset account</span></div>
+          <div className="font-mono text-gray-900">co doctor <span className="text-gray-700">→ Diagnose issues</span></div>
         </div>
       </div>
 

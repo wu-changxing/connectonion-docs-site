@@ -334,35 +334,35 @@ Sometimes the best API design decision is the one that makes developers forget t
               
               <div className="space-y-4">
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">1</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">1</div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-700 mb-1">Challenge Industry Conventions</h3>
                     <p className="text-gray-700">Just because everyone uses `run()` doesn't mean it's right. Question everything.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">2</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">2</div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-700 mb-1">Data Beats Opinion</h3>
                     <p className="text-gray-700">We had strong opinions about `run()`. Our users' behavior proved us wrong.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">3</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">3</div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-700 mb-1">Small Words, Big Impact</h3>
                     <p className="text-gray-700">A three-letter change (`run` → `input`) transformed our user experience.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">4</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">4</div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-700 mb-1">Design for Mental Models</h3>
                     <p className="text-gray-700">Align with how users think, not how systems work.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">5</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">5</div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-700 mb-1">The Best API Needs No Documentation</h3>
                     <p className="text-gray-700">When users guess correctly, you've found the right name.</p>

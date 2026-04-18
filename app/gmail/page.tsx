@@ -68,7 +68,7 @@ agent.input("Find emails from alice@example.com")`}
 
               <div className="space-y-6">
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-700 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
                   <p className="text-gray-700 text-sm mb-4">Read emails from inbox</p>
                   <ul className="text-sm text-gray-700 space-y-1">
                     <li><code className="bg-gray-100 px-1 rounded">last</code> - Number of emails (default: 10)</li>
@@ -77,22 +77,22 @@ agent.input("Find emails from alice@example.com")`}
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-700 font-mono mb-2">get_sent_emails(max_results=10)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono mb-2">get_sent_emails(max_results=10)</h4>
                   <p className="text-gray-700 text-sm">Get emails you sent</p>
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-700 font-mono mb-2">get_all_emails(max_results=50)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono mb-2">get_all_emails(max_results=50)</h4>
                   <p className="text-gray-700 text-sm">Get emails from all folders (inbox, sent, archive)</p>
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-700 font-mono mb-2">get_email_body(email_id)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono mb-2">get_email_body(email_id)</h4>
                   <p className="text-gray-700 text-sm">Get full email content</p>
                 </div>
 
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-                  <h4 className="font-semibold text-blue-700 font-mono mb-2">get_email_attachments(email_id)</h4>
+                  <h4 className="font-semibold text-gray-700 font-mono mb-2">get_email_attachments(email_id)</h4>
                   <p className="text-gray-700 text-sm">List attachments (filename, size)</p>
                 </div>
               </div>

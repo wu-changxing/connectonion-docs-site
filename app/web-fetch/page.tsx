@@ -88,7 +88,7 @@ text = web.strip_tags(html)
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
-              <h3 className="font-semibold text-blue-700 font-mono mb-2 flex items-center gap-2">
+              <h3 className="font-semibold text-gray-700 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineLink className="w-4 h-4" />
                 get_links(html)
               </h3>
