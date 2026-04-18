@@ -46,13 +46,13 @@ export default function WebsiteMaintenancePage() {
               <li className="flex items-start">
                 <span className="bg-gray-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
                 <div>
-                  <strong>Create Tutorial</strong> - Write markdown in <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">/tutorials/</code>
+                  <strong>Create Tutorial</strong> - Write markdown in <code className="bg-gray-100 px-2 py-0.5 rounded">/tutorials/</code>
                 </div>
               </li>
               <li className="flex items-start">
                 <span className="bg-gray-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
                 <div>
-                  <strong>Create Page</strong> - Add component in <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">/app/</code>
+                  <strong>Create Page</strong> - Add component in <code className="bg-gray-100 px-2 py-0.5 rounded">/app/</code>
                 </div>
               </li>
               <li className="flex items-start">
@@ -68,7 +68,7 @@ export default function WebsiteMaintenancePage() {
         {/* Step 1: Create Tutorial */}
         <section>
           <h2 className="heading-2">Step 1: Create Tutorial Content</h2>
-          <p className="text-gray-600 dark:text-gray-700 mb-4">
+          <p className="text-gray-600 mb-4">
             Start by writing your documentation as a markdown file:
           </p>
           <CommandBlock commands={['touch docs-site/public/tutorials/your-feature.md']} />
@@ -99,7 +99,7 @@ Detailed technical documentation.`}</code>
         {/* Step 2: Create Page */}
         <section>
           <h2 className="heading-2">Step 2: Create Page Component</h2>
-          <p className="text-gray-600 dark:text-gray-700 mb-4">
+          <p className="text-gray-600 mb-4">
             Create a Next.js page for your feature:
           </p>
           <CommandBlock commands={[
@@ -140,8 +140,8 @@ export default function YourFeaturePage() {
           <div className="space-y-6">
             <div>
               <h3 className="text-lg font-medium mb-4">Add to Sidebar</h3>
-              <p className="text-gray-600 dark:text-gray-700 mb-4">
-                Edit <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">DocsSidebar.tsx</code>:
+              <p className="text-gray-600 mb-4">
+                Edit <code className="bg-gray-100 px-2 py-0.5 rounded">DocsSidebar.tsx</code>:
               </p>
               <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
                 <code>{`const navigation = [
@@ -162,8 +162,8 @@ export default function YourFeaturePage() {
 
             <div>
               <h3 className="text-lg font-medium mb-4">Update Search Mapping</h3>
-              <p className="text-gray-600 dark:text-gray-700 mb-4">
-                Edit <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">markdownLoader.ts</code>:
+              <p className="text-gray-600 mb-4">
+                Edit <code className="bg-gray-100 px-2 py-0.5 rounded">markdownLoader.ts</code>:
               </p>
               <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
                 <code>{`const MARKDOWN_TO_PAGE_MAP = {
