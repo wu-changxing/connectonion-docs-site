@@ -214,7 +214,7 @@ Create a well-formatted git commit for staged changes.
           />
           <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
             <p className="text-gray-700">
-              User types: <code className="bg-gray-100 px-2 py-1 rounded text-gray-400">/commit</code> →
+              User types: <code className="bg-gray-100 px-2 py-1 rounded text-gray-700">/commit</code> →
               git commands auto-approved → commit created → permissions restored
             </p>
           </div>
