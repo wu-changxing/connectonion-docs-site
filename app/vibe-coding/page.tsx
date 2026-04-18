@@ -131,7 +131,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-500/10 rounded-full border border-gray-200 mb-6">
                 <HiOutlineCommandLine className="w-4 h-4 text-gray-500" />
-                <span className="text-sm font-medium text-gray-400">Documentation-Grounded Development</span>
+                <span className="text-sm font-medium text-gray-700">Documentation-Grounded Development</span>
               </div>
               <h2 className="heading-2">
                 Build ConnectOnion Agents <span className="text-gray-500">The Right Way</span>
@@ -142,31 +142,31 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
             </div>
 
             <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-              <div className="flex items-center gap-3 bg-gray-900/50 hover:bg-gray-900/70 rounded-lg p-4 border border-gray-700 hover:border-gray-400/50 transition-all cursor-pointer">
+              <div className="flex items-center gap-3 bg-white hover:bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-gray-400 transition-all cursor-pointer">
                 <div className="bg-gray-500/20 p-2 rounded-lg">
                   <HiOutlineCommandLine className="w-5 h-5 text-gray-500" />
                 </div>
                 <div>
-                  <p className="font-semibold">1. Install Plugin</p>
-                  <p className="text-sm text-gray-200">2 simple commands</p>
+                  <p className="font-semibold text-gray-900">1. Install Plugin</p>
+                  <p className="text-sm text-gray-600">2 simple commands</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 bg-gray-900/50 hover:bg-gray-900/70 rounded-lg p-4 border border-gray-700 hover:border-gray-400/50 transition-all">
+              <div className="flex items-center gap-3 bg-white hover:bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-gray-400 transition-all">
                 <div className="bg-gray-500/20 p-2 rounded-lg">
                   <HiOutlineCheck className="w-5 h-5 text-gray-500" />
                 </div>
                 <div>
-                  <p className="font-semibold">2. Review or Build</p>
-                  <p className="text-sm text-gray-200">Use /co commands</p>
+                  <p className="font-semibold text-gray-900">2. Review or Build</p>
+                  <p className="text-sm text-gray-600">Use /co commands</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 bg-gray-900/50 hover:bg-gray-900/70 rounded-lg p-4 border border-gray-700 hover:border-gray-400/50 transition-all">
+              <div className="flex items-center gap-3 bg-white hover:bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-gray-400 transition-all">
                 <div className="bg-gray-500/20 p-2 rounded-lg">
                   <HiOutlineRocketLaunch className="w-5 h-5 text-gray-500" />
                 </div>
                 <div>
-                  <p className="font-semibold">3. Ship</p>
-                  <p className="text-sm text-gray-200">Correct code, first time</p>
+                  <p className="font-semibold text-gray-900">3. Ship</p>
+                  <p className="text-sm text-gray-600">Correct code, first time</p>
                 </div>
               </div>
             </div>
@@ -182,34 +182,34 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
               </div>
               <div>
                 <h2 className="heading-2">Claude Code Plugin</h2>
-                <p className="text-gray-200 text-base md:text-lg">Code review & agent builder directly in Claude Code</p>
+                <p className="text-gray-600 text-base md:text-lg">Code review & agent builder directly in Claude Code</p>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div className="bg-gray-900/60 rounded-xl p-4 border border-gray-700">
+              <div className="bg-white rounded-xl p-4 border border-gray-200">
                 <div className="flex items-center gap-2 mb-4">
                   <HiOutlineCheck className="w-5 h-5 text-gray-500" />
-                  <h3 className="font-semibold">Documentation-Grounded</h3>
+                  <h3 className="font-semibold text-gray-900">Documentation-Grounded</h3>
                 </div>
-                <p className="text-sm text-gray-200">Every recommendation based on actual ConnectOnion docs. No hallucinations.</p>
+                <p className="text-sm text-gray-600">Every recommendation based on actual ConnectOnion docs. No hallucinations.</p>
               </div>
-              <div className="bg-gray-900/60 rounded-xl p-4 border border-gray-700">
+              <div className="bg-white rounded-xl p-4 border border-gray-200">
                 <div className="flex items-center gap-2 mb-4">
                   <HiOutlineBolt className="w-5 h-5 text-gray-500" />
-                  <h3 className="font-semibold">Two Powerful Commands</h3>
+                  <h3 className="font-semibold text-gray-900">Two Powerful Commands</h3>
                 </div>
-                <p className="text-sm text-gray-200"><code className="bg-gray-800 px-1 rounded">/co-review</code> for code review & <code className="bg-gray-800 px-1 rounded">/co-build</code> for agent builder</p>
+                <p className="text-sm text-gray-600"><code className="bg-gray-800 text-gray-100 px-1 rounded">/co-review</code> for code review & <code className="bg-gray-800 text-gray-100 px-1 rounded">/co-build</code> for agent builder</p>
               </div>
             </div>
 
             <div className="bg-gray-900/80 rounded-xl p-6 border border-gray-800 mb-4">
-              <p className="text-sm text-gray-200 mb-4 font-semibold">Quick Install:</p>
+              <p className="text-sm text-gray-100 mb-4 font-semibold">Quick Install:</p>
               <div className="space-y-2">
                 <div className="bg-gray-800 rounded-lg p-3 font-mono text-sm flex items-center justify-between">
                   <div>
                     <span className="text-gray-500 select-none">1. </span>
-                    <span className="text-gray-500">/plugin marketplace add openonion/connectonion-claude-plugin</span>
+                    <span className="text-green-400">/plugin marketplace add openonion/connectonion-claude-plugin</span>
                   </div>
                   <button
                     onClick={() => handleCopyCode('/plugin marketplace add openonion/connectonion-claude-plugin', 'plugin-marketplace')}
@@ -225,7 +225,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
                 <div className="bg-gray-800 rounded-lg p-3 font-mono text-sm flex items-center justify-between">
                   <div>
                     <span className="text-gray-500 select-none">2. </span>
-                    <span className="text-gray-500">/plugin install connectonion</span>
+                    <span className="text-green-400">/plugin install connectonion</span>
                   </div>
                   <button
                     onClick={() => handleCopyCode('/plugin install connectonion', 'plugin-install')}
