@@ -11,11 +11,11 @@ function Section({ id, title, children, icon }: { id: string; title: string; chi
     <section id={id} className="mb-8 sm:mb-12 scroll-mt-20">
       <div className="flex items-center gap-2 mb-4 sm:mb-4">
         {icon}
-        <h2 className="text-lg sm:text-xl font-semibold text-white group flex items-center gap-2">
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-900 group flex items-center gap-2">
           {title}
           <a 
             href={`#${id}`} 
-            className="text-sm text-purple-400 opacity-30 group-hover:opacity-100 group-focus-within:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-1"
+            className="text-sm text-purple-400 opacity-30 group-hover:opacity-100 group-focus-within:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-white rounded px-1"
             aria-label={`Link to ${title} section`}
           >
             #
@@ -54,36 +54,36 @@ function ThreatCard({
 }) {
   const severityColors = {
     'H+H': {
-      border: 'border-rose-500',
-      bg: 'bg-rose-950/30',
-      ring: 'ring-rose-900/50',
-      badge: 'bg-rose-900/50 border-rose-600 text-rose-200',
-      label: 'text-rose-400',
-      gradient: 'from-rose-950/20'
+      border: 'border-rose-400',
+      bg: 'bg-rose-50',
+      ring: 'ring-rose-200',
+      badge: 'bg-rose-100 border-rose-400 text-rose-700',
+      label: 'text-rose-600',
+      gradient: 'from-rose-50'
     },
     'H+M': {
-      border: 'border-amber-500',
-      bg: 'bg-amber-950/20',
-      ring: 'ring-amber-900/40',
-      badge: 'bg-amber-900/40 border-amber-600 text-amber-200',
-      label: 'text-amber-400',
-      gradient: 'from-amber-950/20'
+      border: 'border-amber-400',
+      bg: 'bg-amber-50',
+      ring: 'ring-amber-200',
+      badge: 'bg-amber-100 border-amber-400 text-amber-700',
+      label: 'text-amber-600',
+      gradient: 'from-amber-50'
     },
     'L+H': {
-      border: 'border-cyan-500',
-      bg: 'bg-cyan-950/20',
-      ring: 'ring-cyan-900/40',
-      badge: 'bg-cyan-900/40 border-cyan-600 text-cyan-200',
-      label: 'text-cyan-400',
-      gradient: 'from-cyan-950/20'
+      border: 'border-cyan-400',
+      bg: 'bg-cyan-50',
+      ring: 'ring-cyan-200',
+      badge: 'bg-cyan-100 border-cyan-400 text-cyan-700',
+      label: 'text-cyan-700',
+      gradient: 'from-cyan-50'
     },
     'P': {
-      border: 'border-purple-500',
-      bg: 'bg-purple-950/20',
-      ring: 'ring-purple-900/40',
-      badge: 'bg-purple-900/40 border-purple-600 text-purple-200',
-      label: 'text-purple-400',
-      gradient: 'from-purple-950/20'
+      border: 'border-purple-400',
+      bg: 'bg-purple-50',
+      ring: 'ring-purple-200',
+      badge: 'bg-purple-100 border-purple-400 text-purple-700',
+      label: 'text-purple-600',
+      gradient: 'from-purple-50'
     }
   }
 
@@ -98,7 +98,7 @@ function ThreatCard({
         onClick={onToggle}
         aria-expanded={expanded}
         aria-controls={`${id}-panel`}
-        className="w-full px-3 sm:px-4 py-4 text-left bg-gray-900/60 hover:bg-gray-900/70 active:bg-gray-900/80 transition-colors min-h-[60px] touch-manipulation"
+        className="w-full px-3 sm:px-4 py-4 text-left bg-white hover:bg-gray-50 active:bg-gray-100 transition-colors min-h-[60px] touch-manipulation"
       >
         <div className="flex items-start sm:items-center justify-between gap-2" id={`${id}-header`}>
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 flex-1 min-w-0">
@@ -108,7 +108,7 @@ function ThreatCard({
               </span>
               <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${colors.label} flex-shrink-0`} />
             </div>
-            <div className="text-white font-semibold text-sm sm:text-base leading-snug">
+            <div className="text-gray-900 font-semibold text-sm sm:text-base leading-snug">
               <span className="opacity-60 mr-1">{number})</span>
               {title}
             </div>
@@ -117,7 +117,7 @@ function ThreatCard({
             <span className={`hidden lg:inline text-[10px] font-bold ${colors.label} uppercase tracking-wider`}>
               {severityLabel}
             </span>
-            <div className={`p-2 -mr-1 rounded-full transition-colors ${expanded ? 'bg-gray-700/50' : ''}`}>
+            <div className={`p-2 -mr-1 rounded-full transition-colors ${expanded ? 'bg-gray-200' : ''}`}>
               {expanded ? <HiOutlineChevronUp className="w-4 h-4 text-gray-600" /> : <HiOutlineChevronDown className="w-4 h-4 text-gray-600" />}
             </div>
           </div>
@@ -126,7 +126,7 @@ function ThreatCard({
 
       {expanded && (
         <div id={`${id}-panel`} role="region" aria-labelledby={`${id}-header`} className="px-3 sm:px-6 pb-4 sm:pb-6 pt-3 sm:pt-4">
-          <p className="text-gray-200 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 bg-gray-800/50 rounded-lg p-3 sm:p-4 border border-gray-700">
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 bg-gray-50 rounded-lg p-3 sm:p-4 border border-gray-200">
             {insight}
           </p>
           
@@ -221,7 +221,7 @@ export default function ThreatModelPage() {
       diagram: (
         <MobileDiagram>
           {/* The Claim */}
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gray-500"></div>
               THE CLAIM
@@ -231,7 +231,7 @@ export default function ThreatModelPage() {
                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-500/20 to-gray-200 border border-gray-300 flex items-center justify-center flex-shrink-0">
                   <HiOutlineBolt className="w-5 h-5 text-green-400" />
                 </div>
-                <div className="bg-gray-800/80 rounded-lg px-3 py-2 border border-gray-600 flex-1">
+                <div className="bg-white rounded-lg px-3 py-2 border border-gray-200 flex-1">
                   <div className="text-sm text-green-400 font-medium">"I solve ANY problem!"</div>
                   <div className="text-xs text-gray-600 mt-1">"99.9% accurate!"</div>
                 </div>
@@ -240,7 +240,7 @@ export default function ThreatModelPage() {
           </div>
           
           {/* The Reality */}
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-red-500"></div>
               THE REALITY
@@ -250,7 +250,7 @@ export default function ThreatModelPage() {
                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-500/50 flex items-center justify-center flex-shrink-0">
                   <HiOutlineExclamationCircle className="w-5 h-5 text-red-400" />
                 </div>
-                <div className="bg-gray-800/80 rounded-lg px-3 py-2 border border-gray-600 flex-1">
+                <div className="bg-white rounded-lg px-3 py-2 border border-gray-200 flex-1">
                   <div className="text-sm text-red-400 font-mono">2 + 2 = 5</div>
                   <div className="text-xs text-gray-600 mt-1">Failed basic test</div>
                 </div>
@@ -271,14 +271,14 @@ export default function ThreatModelPage() {
       diagram: (
         <MobileDiagram>
           {/* What Users Think */}
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gray-500"></div>
               WHAT USERS THINK
             </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <div className="bg-gray-800/80 rounded px-3 py-2 border border-gray-600 text-sm text-blue-400">
+                <div className="bg-white rounded px-3 py-2 border border-gray-200 text-sm text-blue-400">
                   "Fix my code"
                 </div>
                 <HiOutlineArrowRight className="w-4 h-4 text-gray-500" />
@@ -288,7 +288,7 @@ export default function ThreatModelPage() {
           </div>
           
           {/* What Actually Happens */}
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-red-500"></div>
               WHAT ACTUALLY HAPPENS
@@ -326,12 +326,12 @@ export default function ThreatModelPage() {
       diagram: (
         <MobileDiagram>
           {/* The Attack Method */}
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-red-500"></div>
               THE ATTACK
             </div>
-            <div className="bg-gray-800/80 rounded-lg p-3 border border-gray-600 overflow-x-auto">
+            <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 overflow-x-auto">
               <pre className="text-xs text-red-400 font-mono">
 {`while(true) {
   agent.input("Generate 10MB");
@@ -347,7 +347,7 @@ export default function ThreatModelPage() {
           </div>
           
           {/* The Result */}
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-red-500"></div>
               YOUR BILL
@@ -380,7 +380,7 @@ export default function ThreatModelPage() {
       insight: 'Multiple bad actors work together, leaving fake positive reviews for each other to appear trustworthy and deceive victims.',
       diagram: (
         <MobileDiagram>
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
               THE CONSPIRACY
@@ -394,7 +394,7 @@ export default function ThreatModelPage() {
                 ))}
               </div>
             </div>
-            <div className="bg-gray-800/80 rounded-lg p-3 border border-gray-600 space-y-1">
+            <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 space-y-1">
               <div className="text-xs text-cyan-400">"A is amazing! ⭐⭐⭐⭐⭐" - B</div>
               <div className="text-xs text-cyan-400">"B is the best! ⭐⭐⭐⭐⭐" - C</div>
               <div className="text-xs text-cyan-400">"C is perfect! ⭐⭐⭐⭐⭐" - A</div>
@@ -413,7 +413,7 @@ export default function ThreatModelPage() {
       insight: 'Malicious instructions hidden in user input can hijack the agent\'s behavior, making it ignore safety rules or leak sensitive data.',
       diagram: (
         <MobileDiagram>
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gray-500"></div>
               HOW IT WORKS
@@ -429,7 +429,7 @@ export default function ThreatModelPage() {
                     <span className={`text-${step.color}-400 text-xs font-bold`}>{step.num}</span>
                   </div>
                   <div>
-                    <div className="text-xs text-white font-medium">{step.title}</div>
+                    <div className="text-xs text-gray-900 font-medium">{step.title}</div>
                     <div className="text-xs text-gray-600">{step.desc}</div>
                   </div>
                 </div>
@@ -449,7 +449,7 @@ export default function ThreatModelPage() {
       insight: 'Services perform excellently during trials but intentionally degrade quality after you\'re committed and dependent on them.',
       diagram: (
         <MobileDiagram>
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gray-500"></div>
               BAIT-AND-SWITCH
@@ -485,7 +485,7 @@ export default function ThreatModelPage() {
       insight: 'Malicious agents impersonate legitimate brands and services, tricking users into sharing credentials or sensitive data.',
       diagram: (
         <MobileDiagram>
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gray-500"></div>
               IMPERSONATION
@@ -507,7 +507,7 @@ export default function ThreatModelPage() {
               </div>
               <div className="bg-red-900/10 rounded p-2 border border-red-500/20">
                 <div className="text-[10px] text-red-300">Fake asks:</div>
-                <div className="text-xs text-white italic">"Enter your API key..."</div>
+                <div className="text-xs text-gray-700 italic">"Enter your API key..."</div>
               </div>
             </div>
           </div>
@@ -524,7 +524,7 @@ export default function ThreatModelPage() {
       insight: 'Attackers compromise popular upstream packages, spreading malware to thousands of projects that depend on them.',
       diagram: (
         <MobileDiagram>
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
               THE CASCADE
@@ -548,7 +548,7 @@ export default function ThreatModelPage() {
               </div>
               <div className="text-center text-gray-500 text-xs">↓</div>
               <div className="bg-red-900/10 rounded p-2 border border-red-500/20">
-                <div className="text-xs text-white">10,000+ infected</div>
+                <div className="text-xs text-gray-700">10,000+ infected</div>
               </div>
             </div>
           </div>
@@ -565,7 +565,7 @@ export default function ThreatModelPage() {
       insight: 'Seemingly innocent questions are aggregated over time to build detailed profiles of users\' private information and behaviors.',
       diagram: (
         <MobileDiagram>
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-purple-500"></div>
               PROFILING
@@ -606,7 +606,7 @@ export default function ThreatModelPage() {
       insight: 'Services offer low prices initially, then dramatically increase costs once you\'re locked in and migration is expensive.',
       diagram: (
         <MobileDiagram>
-          <div className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <div className="text-xs font-semibold text-gray-600 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
               THE TRAP
@@ -643,7 +643,7 @@ export default function ThreatModelPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24">
       {/* Progress bar for mobile */}
-      <div className="fixed top-0 left-0 right-0 h-0.5 bg-gray-800 z-50 lg:hidden">
+      <div className="fixed top-0 left-0 right-0 h-0.5 bg-gray-200 z-50 lg:hidden">
         <div 
           className="h-full bg-gradient-to-r from-purple-500 to-cyan-500 transition-all duration-200"
           style={{ width: `${scrollProgress}%` }}
@@ -655,7 +655,7 @@ export default function ThreatModelPage() {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="bg-gray-700 hover:bg-gray-600 text-white rounded-full p-3 shadow-lg transition-all duration-200 active:scale-95"
+            className="bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full p-3 shadow-lg transition-all duration-200 active:scale-95"
             aria-label="Scroll to top"
           >
             <HiOutlineArrowUp className="w-5 h-5" />
@@ -674,33 +674,33 @@ export default function ThreatModelPage() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-30 lg:hidden">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
-          <div className="absolute bottom-20 right-4 bg-gray-900 border border-gray-700 rounded-lg p-4 max-w-[280px] w-full shadow-2xl">
+          <div className="absolute bottom-20 right-4 bg-white border border-gray-200 rounded-lg p-4 max-w-[280px] w-full shadow-2xl">
             <nav className="space-y-1">
               <a 
                 href="#severity-guide" 
                 onClick={() => setMobileMenuOpen(false)} 
-                className="block px-3 py-2 rounded-md hover:bg-gray-800 active:bg-gray-700 text-gray-200 text-sm transition-colors"
+                className="block px-3 py-2 rounded-md hover:bg-gray-100 active:bg-gray-200 text-gray-700 text-sm transition-colors"
               >
                 Severity Guide
               </a>
               <a 
                 href="#top-10" 
                 onClick={() => setMobileMenuOpen(false)} 
-                className="block px-3 py-2 rounded-md hover:bg-gray-800 active:bg-gray-700 text-gray-200 text-sm transition-colors"
+                className="block px-3 py-2 rounded-md hover:bg-gray-100 active:bg-gray-200 text-gray-700 text-sm transition-colors"
               >
                 Top 10 Threats
               </a>
               <a 
                 href="#key-insights" 
                 onClick={() => setMobileMenuOpen(false)} 
-                className="block px-3 py-2 rounded-md hover:bg-gray-800 active:bg-gray-700 text-gray-200 text-sm transition-colors"
+                className="block px-3 py-2 rounded-md hover:bg-gray-100 active:bg-gray-200 text-gray-700 text-sm transition-colors"
               >
                 Key Insights
               </a>
               <a 
                 href="#defensive-principles" 
                 onClick={() => setMobileMenuOpen(false)} 
-                className="block px-3 py-2 rounded-md hover:bg-gray-800 active:bg-gray-700 text-gray-200 text-sm transition-colors"
+                className="block px-3 py-2 rounded-md hover:bg-gray-100 active:bg-gray-200 text-gray-700 text-sm transition-colors"
               >
                 Defensive Principles
               </a>
@@ -715,7 +715,7 @@ export default function ThreatModelPage() {
           Docs
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <span className="text-white">Threat Model</span>
+        <span className="text-gray-900">Threat Model</span>
       </div>
 
       {/* Header */}
@@ -738,7 +738,7 @@ export default function ThreatModelPage() {
 
       {/* Severity Guide and Filters */}
       <Section id="severity-guide" title="Severity Guide" icon={<HiOutlineScale className="w-4 h-4 text-purple-300" />}>
-        <div className="mb-6 p-3 sm:p-4 rounded-lg bg-gray-800/40 border border-gray-700">
+        <div className="mb-6 p-3 sm:p-4 rounded-lg bg-gray-50 border border-gray-200">
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div className="text-center p-2">
               <div className="text-xs font-bold text-rose-400 mb-1">CRITICAL (H+H)</div>
@@ -767,7 +767,7 @@ export default function ThreatModelPage() {
                 id="threat-filter"
                 value={filter}
                 onChange={(e) => setFilter(e.target.value as any)}
-                className="w-full px-3 py-3 bg-gray-800 border border-gray-600 rounded-md text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 min-h-[44px]"
+                className="w-full px-3 py-3 bg-white border border-gray-300 rounded-md text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-purple-400 min-h-[44px]"
               >
                 <option value="all">All Threats (10)</option>
                 <option value="H+H">Critical Priority (3)</option>
@@ -782,7 +782,7 @@ export default function ThreatModelPage() {
               <button 
                 onClick={() => setFilter('all')} 
                 className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'all' ? 'bg-gray-600 text-white' : 'bg-gray-700 hover:bg-gray-600 text-gray-600'
+                  filter === 'all' ? 'bg-gray-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
                 }`}
               >
                 <HiOutlineFunnel className="w-3 h-3 inline mr-1" />
@@ -791,7 +791,7 @@ export default function ThreatModelPage() {
               <button 
                 onClick={() => setFilter('H+H')} 
                 className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'H+H' ? 'bg-rose-900/50 text-rose-200 border border-rose-600' : 'bg-gray-700 hover:bg-gray-600 text-gray-600'
+                  filter === 'H+H' ? 'bg-rose-100 text-rose-700 border border-rose-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
                 }`}
               >
                 Critical (3)
@@ -799,7 +799,7 @@ export default function ThreatModelPage() {
               <button 
                 onClick={() => setFilter('H+M')} 
                 className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'H+M' ? 'bg-amber-900/50 text-amber-200 border border-amber-600' : 'bg-gray-700 hover:bg-gray-600 text-gray-600'
+                  filter === 'H+M' ? 'bg-amber-100 text-amber-700 border border-amber-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
                 }`}
               >
                 High (3)
@@ -807,7 +807,7 @@ export default function ThreatModelPage() {
               <button 
                 onClick={() => setFilter('L+H')} 
                 className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'L+H' ? 'bg-cyan-900/50 text-cyan-200 border border-cyan-600' : 'bg-gray-700 hover:bg-gray-600 text-gray-600'
+                  filter === 'L+H' ? 'bg-cyan-100 text-cyan-700 border border-cyan-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
                 }`}
               >
                 Monitor (3)
@@ -815,7 +815,7 @@ export default function ThreatModelPage() {
               <button 
                 onClick={() => setFilter('P')} 
                 className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'P' ? 'bg-purple-900/50 text-purple-200 border border-purple-600' : 'bg-gray-700 hover:bg-gray-600 text-gray-600'
+                  filter === 'P' ? 'bg-purple-100 text-purple-700 border border-purple-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
                 }`}
               >
                 Persistent (1)
@@ -826,13 +826,13 @@ export default function ThreatModelPage() {
             <div className="flex gap-2 justify-end">
               <button
                 onClick={() => setExpandedThreats([])}
-                className="px-3 py-2.5 text-xs rounded-md bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-600 min-h-[44px]"
+                className="px-3 py-2.5 text-xs rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300 min-h-[44px]"
               >
                 Collapse all
               </button>
               <button
                 onClick={() => setExpandedThreats(Array.from({ length: 10 }, (_, i) => `threat-${i + 1}`))}
-                className="px-3 py-2.5 text-xs rounded-md bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-600 min-h-[44px]"
+                className="px-3 py-2.5 text-xs rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300 min-h-[44px]"
               >
                 Expand all
               </button>
@@ -863,7 +863,7 @@ export default function ThreatModelPage() {
         </div>
       </Section>
 
-      <div className="h-px bg-gray-800 my-8 sm:my-10" />
+      <div className="h-px bg-gray-200 my-8 sm:my-10" />
 
       {/* Key Insights */}
       <Section id="key-insights" title="Key Insights" icon={<HiOutlineSquare3Stack3D className="w-4 h-4 text-cyan-300" />}> 
@@ -876,15 +876,15 @@ export default function ThreatModelPage() {
             'Strong defaults beat rules',
             'Local-first reduces surface'
           ].map((insight, i) => (
-            <div key={i} className="rounded-md border border-gray-800 bg-gray-900/40 hover:bg-gray-900/60 hover:border-gray-700 transition-colors px-3 py-3 flex items-center gap-3 min-h-[44px]">
-              <HiOutlineSquare3Stack3D className="w-4 h-4 text-cyan-300 flex-shrink-0"/>
+            <div key={i} className="rounded-md border border-gray-200 bg-gray-50 hover:bg-gray-100 hover:border-gray-300 transition-colors px-3 py-3 flex items-center gap-3 min-h-[44px]">
+              <HiOutlineSquare3Stack3D className="w-4 h-4 text-cyan-600 flex-shrink-0"/>
               <p className="text-gray-600 text-sm">{insight}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      <div className="h-px bg-gray-800 my-8 sm:my-10" />
+      <div className="h-px bg-gray-200 my-8 sm:my-10" />
 
       {/* Defensive Principles */}
       <Section id="defensive-principles" title="Defensive Principles" icon={<HiOutlineBolt className="w-4 h-4 text-rose-300" />}> 
@@ -896,8 +896,8 @@ export default function ThreatModelPage() {
             'Improve under stress',
             'Fast recovery'
           ].map((principle, i) => (
-            <div key={i} className="rounded-md border border-gray-800 bg-gray-900/40 hover:bg-gray-900/60 hover:border-gray-700 transition-colors px-3 py-3 flex items-center gap-3 min-h-[44px]">
-              <HiOutlineBolt className="w-4 h-4 text-rose-300 flex-shrink-0"/>
+            <div key={i} className="rounded-md border border-gray-200 bg-gray-50 hover:bg-gray-100 hover:border-gray-300 transition-colors px-3 py-3 flex items-center gap-3 min-h-[44px]">
+              <HiOutlineBolt className="w-4 h-4 text-rose-600 flex-shrink-0"/>
               <p className="text-gray-600 text-sm">{principle}</p>
             </div>
           ))}
