@@ -23,10 +23,7 @@ export default function AutoDebugPage() {
               { label: 'Interactive Debugging' }
             ]}
             icon={HiOutlineBugAnt}
-            iconColor="text-purple-400"
-            iconBgFrom="from-purple-600/20"
-            iconBgTo="to-pink-600/20"
-            iconBorderColor="border-purple-500/30"
+            iconColor="icon-ui"
             title="Interactive Debugging"
             description="Debug your AI agents like code. Pause at breakpoints, inspect state, modify variables, and explore 'what if' scenarios."
             markdownPath="/debug/auto_debug.md"
@@ -34,19 +31,19 @@ export default function AutoDebugPage() {
           />
 
           {/* Feature Status */}
-          <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6 mb-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
             <div className="flex items-start gap-3">
-              <HiOutlineClock className="w-5 h-5 text-blue-300 mt-1 flex-shrink-0" />
+              <HiOutlineClock className="w-5 h-5 icon-ui mt-1 flex-shrink-0" />
               <div>
-                <p className="font-semibold text-blue-100 mb-4">Feature Status (v0.3.2 - Updated Oct 20, 2025)</p>
+                <p className="font-semibold text-gray-900 mb-4">Feature Status — v0.3.2+</p>
                 <div className="grid md:grid-cols-2 gap-3 text-sm">
                   <div className="flex items-start gap-2">
-                    <HiOutlineCheck className="w-4 h-4 text-green-400 mt-0.5" />
-                    <span className="text-gray-700"><strong>Available now:</strong> Continue, Edit variables (Python REPL), Quit, Source display</span>
+                    <HiOutlineCheck className="w-4 h-4 icon-ui mt-0.5" />
+                    <span className="text-gray-700"><strong>Available:</strong> Continue, Edit variables (Python REPL), Quit, Source display</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <HiOutlineClock className="w-4 h-4 text-yellow-400 mt-0.5" />
-                    <span className="text-gray-700"><strong>Coming Nov 2:</strong> Ask AI, View trace, Step mode, Universal commands</span>
+                    <HiOutlineClock className="w-4 h-4 icon-ui mt-0.5" />
+                    <span className="text-gray-700"><strong>In progress:</strong> Ask AI, View trace, Step mode, Universal commands</span>
                   </div>
                 </div>
               </div>
@@ -54,22 +51,22 @@ export default function AutoDebugPage() {
           </div>
 
           {/* Most Important Tip */}
-          <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
-            <p className="text-lg font-semibold text-green-900">
-              <strong>Most Important:</strong> Use arrow keys to navigate menus, or press <code className="bg-gray-800 px-2 py-1 rounded">c</code> to continue. That's all you need to know to start!
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <p className="text-lg font-semibold text-gray-900">
+              <strong>Most Important:</strong> Use arrow keys to navigate menus, or press <code className="bg-gray-100 px-2 py-1 rounded">c</code> to continue. That's all you need to know to start!
             </p>
           </div>
         </section>
 
         {/* 60-Second Quick Start */}
         <section className="mb-20">
-          <h2 className="heading-2">
-            <HiOutlineBolt className="w-8 h-8 text-yellow-400" />
+          <h2 className="heading-2 flex items-center gap-2">
+            <HiOutlineBolt className="w-5 h-5 icon-ui flex-shrink-0" />
             60-Second Quick Start
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            Add <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> to tools you want to inspect, then call <code className="bg-gray-800 px-2 py-1 rounded">agent.auto_debug()</code>:
+            Add <code className="bg-gray-100 px-2 py-1 rounded">@xray</code> to tools you want to inspect, then call <code className="bg-gray-100 px-2 py-1 rounded">agent.auto_debug()</code>:
           </p>
 
           <CodeWithResult
@@ -135,15 +132,15 @@ What do you want to do?
         {/* The Interactive Menu */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCommandLine className="w-8 h-8 text-purple-400" />
+            <HiOutlineCommandLine className="w-8 h-8 text-gray-500" />
             The Interactive Menu
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            At every <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> breakpoint, you see this menu:
+            At every <code className="bg-gray-100 px-2 py-1 rounded">@xray</code> breakpoint, you see this menu:
           </p>
 
-          <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6 mb-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
             <pre className="text-gray-700 font-mono text-sm">
 {`What do you want to do?
   → Continue execution 🚀       [c or Enter]
@@ -156,41 +153,41 @@ What do you want to do?
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-blue-900/20 border border-blue-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-blue-300 mb-4">Method 1: Arrow Keys (Beginner-friendly)</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Method 1: Arrow Keys (Beginner-friendly)</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-400">↑ ↓</span>
+                  <span className="text-gray-600">↑ ↓</span>
                   <span>Move selection up and down</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-400">Enter</span>
+                  <span className="text-gray-600">Enter</span>
                   <span>Select highlighted option</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-green-900/20 border border-green-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-green-300 mb-4">Method 2: Shortcuts (Power user)</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Method 2: Shortcuts (Power user)</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
-                  <code className="bg-gray-800 px-2 py-0.5 rounded text-green-400">c</code>
+                  <code className="bg-gray-100 px-2 py-0.5 rounded text-green-700">c</code>
                   <span>Continue execution</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <code className="bg-gray-800 px-2 py-0.5 rounded text-green-400">e</code>
+                  <code className="bg-gray-100 px-2 py-0.5 rounded text-green-700">e</code>
                   <span>Edit variables</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <code className="bg-gray-800 px-2 py-0.5 rounded text-green-400">q</code>
+                  <code className="bg-gray-100 px-2 py-0.5 rounded text-green-700">q</code>
                   <span>Quit debugging</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-            <p className="text-purple-900">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <p className="text-gray-900">
               <strong>Both methods do exactly the same thing</strong> - use whichever feels natural!
             </p>
           </div>
@@ -204,15 +201,15 @@ What do you want to do?
             {/* Continue Execution */}
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
-                  <HiOutlineCheck className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <HiOutlineCheck className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="heading-3">Continue Execution</h3>
-                <span className="text-sm bg-green-900/30 text-green-400 border border-green-200 px-3 py-1 rounded-full">✅ Available</span>
+                <span className="inline-flex items-center gap-1 text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2.5 py-1 rounded-full font-medium"><HiOutlineCheck className="w-3.5 h-3.5 text-green-600" />Available</span>
               </div>
 
               <p className="text-gray-700 mb-6">
-                The most common action - just press <code className="bg-gray-800 px-2 py-1 rounded">c</code> or <code className="bg-gray-800 px-2 py-1 rounded">Enter</code> to continue:
+                The most common action - just press <code className="bg-gray-100 px-2 py-1 rounded">c</code> or <code className="bg-gray-100 px-2 py-1 rounded">Enter</code> to continue:
               </p>
 
               <CodeWithResult
@@ -230,11 +227,11 @@ What do you want to do?
             {/* Edit Variables */}
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
-                  <HiOutlineCodeBracket className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <HiOutlineCodeBracket className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="heading-3">Edit Variables (Python REPL)</h3>
-                <span className="text-sm bg-green-900/30 text-green-400 border border-green-200 px-3 py-1 rounded-full">✅ Available</span>
+                <span className="inline-flex items-center gap-1 text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2.5 py-1 rounded-full font-medium"><HiOutlineCheck className="w-3.5 h-3.5 text-green-600" />Available</span>
               </div>
 
               <p className="text-gray-700 mb-6">
@@ -271,8 +268,8 @@ Available variables: query, result, tool_args
 ✓ Complete`}
               />
 
-              <div className="mt-6 bg-blue-900/20 border border-blue-200 rounded-lg p-4">
-                <p className="text-blue-300 text-sm">
+              <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
+                <p className="text-gray-600 text-sm">
                   <strong>Test any scenario:</strong> Empty results, large datasets, error cases, edge cases - just modify the variables and see how your agent handles it!
                 </p>
               </div>
@@ -281,18 +278,18 @@ Available variables: query, result, tool_args
             {/* Coming Soon Features */}
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
-                  <HiOutlineCpuChip className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <HiOutlineCpuChip className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="heading-3">Ask AI for Help</h3>
-                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
+                <span className="text-sm bg-gray-100 text-gray-500 border border-gray-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
               <p className="text-gray-700 mb-6">
                 Get context-aware help from AI about what's happening. The AI knows your code, execution state, and history:
               </p>
 
-              <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <pre className="text-gray-700 font-mono text-sm">
 {`> a
 
@@ -323,18 +320,18 @@ ai> /continue [Resume execution]`}
             {/* View Trace */}
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
-                  <HiOutlineChartBar className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <HiOutlineChartBar className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="heading-3">View Execution Trace</h3>
-                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
+                <span className="text-sm bg-gray-100 text-gray-500 border border-gray-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
               <p className="text-gray-700 mb-6">
                 See the complete execution history with timeline, messages, and agent state:
               </p>
 
-              <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <pre className="text-gray-700 font-mono text-sm">
 {`Timeline:
   [0] user_input: "Send email to John"
@@ -350,19 +347,19 @@ Total: 323ms • 2 steps • 1 iteration`}
             {/* Step Mode */}
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
-                  <HiOutlineArrowPath className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <HiOutlineArrowPath className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="heading-3">Toggle Step Mode</h3>
-                <span className="text-sm bg-yellow-900/30 text-yellow-400 border border-yellow-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
+                <span className="text-sm bg-gray-100 text-gray-500 border border-gray-200 px-3 py-1 rounded-full">🚧 Coming Nov 2</span>
               </div>
 
               <p className="text-gray-700 mb-6">
-                Pause at <strong>EVERY tool</strong>, not just <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> tools:
+                Pause at <strong>EVERY tool</strong>, not just <code className="bg-gray-100 px-2 py-1 rounded">@xray</code> tools:
               </p>
 
-              <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-6">
-                <p className="text-gray-700 text-sm mb-4">Press <code className="bg-gray-800 px-2 py-1 rounded">s</code> in menu to enable:</p>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <p className="text-gray-700 text-sm mb-4">Press <code className="bg-gray-100 px-2 py-1 rounded">s</code> in menu to enable:</p>
                 <pre className="text-gray-700 font-mono text-sm">
 {`✓ Step mode enabled - will pause at EVERY tool
 
@@ -449,20 +446,20 @@ Agent: "Sorry, no purple shoes under $100 are available."
           <h2 className="heading-2">Best Practices</h2>
 
           <div className="space-y-6">
-            <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-blue-100 mb-4">1. Strategic @xray Placement</h3>
-              <p className="text-gray-700 mb-4">Add <code className="bg-gray-800 px-2 py-1 rounded">@xray</code> to:</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">1. Strategic @xray Placement</h3>
+              <p className="text-gray-700 mb-4">Add <code className="bg-gray-100 px-2 py-1 rounded">@xray</code> to:</p>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-1" />
+                  <HiOutlineCheck className="w-4 h-4 icon-ui mt-1" />
                   <span>API calls and database operations</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-1" />
+                  <HiOutlineCheck className="w-4 h-4 icon-ui mt-1" />
                   <span>Complex business logic</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <HiOutlineCheck className="w-4 h-4 text-green-400 mt-1" />
+                  <HiOutlineCheck className="w-4 h-4 icon-ui mt-1" />
                   <span>Tools that often fail or have important side effects</span>
                 </li>
               </ul>
@@ -471,9 +468,9 @@ Agent: "Sorry, no purple shoes under $100 are available."
               </p>
             </div>
 
-            <div className="bg-purple-950/50 border border-purple-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4">2. Test Edge Cases in Python Mode</h3>
-              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-gray-700">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">2. Test Edge Cases in Python Mode</h3>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`>>> # Empty results
 >>> result = []
 
@@ -491,10 +488,10 @@ Agent: "Sorry, no purple shoes under $100 are available."
               </p>
             </div>
 
-            <div className="bg-green-950/50 border border-green-400/40 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-green-900 mb-4">3. Use Step Mode for Complex Workflows</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">3. Use Step Mode for Complex Workflows</h3>
               <p className="text-gray-700 mb-4">When you don't know which tool is causing problems:</p>
-              <div className="bg-gray-900/50 rounded-lg p-4 font-mono text-sm text-gray-700">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm text-gray-700">
 {`# Normal: Only @xray breakpoints
 agent.auto_debug()
 
@@ -514,55 +511,55 @@ agent.auto_debug(step=True)
           <h2 className="heading-2">When to Use</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-green-500/10 border border-green-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 text-green-400 flex items-center gap-2">
+            <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900 flex items-center gap-2">
                 <HiOutlineCheck className="w-5 h-5" />
                 Perfect For
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Development - Building and testing agents</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Debugging - Finding unexpected behavior</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Learning - Understanding agent decisions</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Testing edge cases - "What if" scenarios</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Prompt engineering - Discover what works</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-red-500/10 border border-red-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 text-red-400 flex items-center gap-2">
+            <div className="bg-gray-50 border border-dashed border-gray-300 rounded-lg p-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-500 flex items-center gap-2">
                 <HiOutlineExclamationTriangle className="w-5 h-5" />
                 Not For
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">✗</span>
+                  <span className="text-red-500">✗</span>
                   <span>Production - Requires human interaction</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">✗</span>
+                  <span className="text-red-500">✗</span>
                   <span>Automated tests - Use assertions instead</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">✗</span>
+                  <span className="text-red-500">✗</span>
                   <span>CI/CD pipelines - Not non-interactive</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">✗</span>
+                  <span className="text-red-500">✗</span>
                   <span>Simple scripts - Overkill for basic tasks</span>
                 </li>
               </ul>
@@ -597,8 +594,8 @@ agent.auto_debug(step=True)
                 a: "Yes! Works in any Python environment with terminal support."
               }
             ].map((item, i) => (
-              <div key={i} className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
-                <h3 className="font-semibold text-purple-400 mb-2">{item.q}</h3>
+              <div key={i} className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <h3 className="font-semibold text-gray-900 mb-2">{item.q}</h3>
                 <p className="text-gray-700">{item.a}</p>
               </div>
             ))}
@@ -607,12 +604,12 @@ agent.auto_debug(step=True)
 
         {/* CTA Section */}
         <section className="mb-20">
-          <div className="bg-purple-950/30 rounded-2xl p-10 border border-purple-400/30 text-center">
+          <div className="bg-gray-50 rounded-2xl p-10 border border-gray-300/30 text-center">
             <h2 className="heading-2">Ready to Debug Like a Pro?</h2>
             <p className="text-xl text-gray-700 mb-8">
               Just call <code className="bg-gray-800 px-3 py-1.5 rounded">agent.auto_debug()</code> and explore!
             </p>
-            <p className="text-purple-900 text-lg">
+            <p className="text-gray-900 text-lg">
               The tips will guide you through - no memorization needed. 🔍
             </p>
           </div>

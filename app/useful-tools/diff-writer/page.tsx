@@ -17,10 +17,7 @@ export default function DiffWriterPage() {
             { label: 'Diff Writer' }
           ]}
           icon={HiOutlineCodeBracket}
-          iconColor="text-pink-400"
-          iconBgFrom="from-pink-600/20"
-          iconBgTo="to-purple-600/20"
-          iconBorderColor="border-pink-500/30"
+          iconColor="icon-ui"
           title="DiffWriter"
           description="Human-in-the-loop file writing with diff display and approval."
           markdownPath="/useful-tools/diff_writer.md"
@@ -37,7 +34,7 @@ writer = DiffWriter()`}
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy diff_writer</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-700"><code className="bg-gray-100 px-2 py-1 rounded">co copy diff_writer</code></Link> to get an editable copy.
           </p>
         </section>
 
@@ -78,14 +75,14 @@ writer = DiffWriter()`}
           <p className="text-gray-700 mb-4">When a file change is proposed, user sees:</p>
           <div className="bg-slate-900 border border-slate-700 rounded-lg p-4 font-mono text-sm mb-4">
             <div className="text-slate-400">╭─── Changes to hello.py ────────────────────────╮</div>
-            <div className="text-gray-700">│ --- a/hello.py                                 │</div>
-            <div className="text-gray-700">│ +++ b/hello.py                                 │</div>
-            <div className="text-gray-700">│ @@ -1,2 +1,3 @@                                │</div>
-            <div className="text-gray-700">│  def hello():                                  │</div>
+            <div className="text-slate-300">│ --- a/hello.py                                 │</div>
+            <div className="text-slate-300">│ +++ b/hello.py                                 │</div>
+            <div className="text-slate-300">│ @@ -1,2 +1,3 @@                                │</div>
+            <div className="text-slate-300">│  def hello():                                  │</div>
             <div className="text-red-400">│ -    pass                                      │</div>
             <div className="text-green-400">│ +    print("Hello!")                           │</div>
             <div className="text-slate-400">╰────────────────────────────────────────────────╯</div>
-            <div className="mt-4 text-gray-700">
+            <div className="mt-4 text-slate-300">
               Choose an option:<br/>
               &nbsp;&nbsp;1 - Yes, apply this change<br/>
               &nbsp;&nbsp;2 - Yes to all (auto-approve for this session)<br/>
@@ -95,25 +92,25 @@ writer = DiffWriter()`}
             </div>
           </div>
 
-          <div className="overflow-x-auto rounded-lg border border-slate-700">
+          <div className="overflow-x-auto rounded-lg border border-gray-200">
             <table className="w-full text-sm text-left">
-              <thead className="text-xs uppercase bg-slate-800/50">
+              <thead className="text-xs uppercase bg-gray-100">
                 <tr>
-                  <th className="px-4 py-3 text-slate-200">Option</th>
-                  <th className="px-4 py-3 text-slate-200">Effect</th>
+                  <th className="px-4 py-3 text-gray-700">Option</th>
+                  <th className="px-4 py-3 text-gray-700">Effect</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-700">
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-pink-300">1</td>
+              <tbody className="divide-y divide-gray-200">
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-gray-500">1</td>
                   <td className="px-4 py-3 text-gray-700">Apply this change, ask again for next change</td>
                 </tr>
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-pink-300">2</td>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-gray-500">2</td>
                   <td className="px-4 py-3 text-gray-700">Apply this and all future changes (session-wide)</td>
                 </tr>
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-pink-300">3</td>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-gray-500">3</td>
                   <td className="px-4 py-3 text-gray-700">Reject + provide feedback for agent to try again</td>
                 </tr>
               </tbody>
@@ -161,7 +158,7 @@ agent.input("create a hello.py file with a hello world function")
           <ol className="list-decimal list-inside space-y-2 text-gray-700">
             <li>User is prompted: "What should the agent do instead?"</li>
             <li>User types feedback, e.g., "use snake_case for function names"</li>
-            <li>Agent receives: <code className="bg-slate-800 px-2 py-1 rounded text-pink-300">"User rejected changes to hello.py. Feedback: use snake_case for function names"</code></li>
+            <li>Agent receives: <code className="bg-gray-100 px-2 py-1 rounded text-gray-500">"User rejected changes to hello.py. Feedback: use snake_case for function names"</code></li>
             <li>Agent can retry with the feedback</li>
           </ol>
         </section>

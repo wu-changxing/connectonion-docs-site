@@ -7,9 +7,9 @@ import { PageHeader } from '../../components/PageHeader'
 function Diagram({ children, label }: { children: React.ReactNode; label?: string }) {
   return (
     <div className="my-6">
-      {label && <p className="text-xs text-slate-400 mb-2 uppercase tracking-wider">{label}</p>}
-      <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 sm:p-6 overflow-x-auto">
-        <pre className="text-sm font-mono text-slate-200 whitespace-pre leading-relaxed">{children}</pre>
+      {label && <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">{label}</p>}
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 overflow-x-auto">
+        <pre className="text-sm font-mono text-gray-700 whitespace-pre leading-relaxed">{children}</pre>
       </div>
     </div>
   )
@@ -17,8 +17,8 @@ function Diagram({ children, label }: { children: React.ReactNode; label?: strin
 
 function JsonBlock({ children }: { children: string }) {
   return (
-    <div className="my-4 bg-gray-900/80 border border-gray-700 rounded-lg p-4 overflow-x-auto">
-      <pre className="text-sm font-mono text-slate-200 whitespace-pre">{children}</pre>
+    <div className="my-4 bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto">
+      <pre className="text-sm font-mono text-gray-700 whitespace-pre">{children}</pre>
     </div>
   )
 }
@@ -36,18 +36,18 @@ export default function WebSocketProtocolPage() {
               { label: 'WebSocket Protocol' }
             ]}
             icon={HiOutlineCodeBracket}
-            iconColor="text-blue-400"
-            iconBgFrom="from-blue-600/20"
-            iconBgTo="to-indigo-600/20"
-            iconBorderColor="border-blue-500/30"
+            iconColor="icon-ui"
+            
+            
+            
             title="WebSocket Protocol"
             description="CONNECT to start or resume, INPUT to message. Session stays alive between executions."
             markdownPath="/network/websocket-protocol.md"
             markdownFilename="websocket-protocol.md"
           />
 
-          <div className="bg-blue-950/50 border border-blue-400/40 rounded-lg p-6">
-            <p className="text-lg text-blue-100">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <p className="text-lg text-gray-900">
               Two client message types, two intents: <strong>CONNECT</strong> authenticates and restores your session. <strong>INPUT</strong> sends a prompt. That&apos;s the whole protocol.
             </p>
           </div>
@@ -56,29 +56,29 @@ export default function WebSocketProtocolPage() {
         {/* Overview */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-400" />
             Overview
           </h2>
 
           <div className="overflow-x-auto">
             <table className="w-full text-sm mt-4">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">Message</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Intent</th>
-                  <th className="text-left px-4 py-3 text-slate-400">When</th>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left px-4 py-3 text-gray-500">Message</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Intent</th>
+                  <th className="text-left px-4 py-3 text-gray-500">When</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-cyan-300">CONNECT</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">CONNECT</td>
                   <td className="px-4 py-3 text-gray-700">&quot;Authenticate me, restore my session&quot;</td>
-                  <td className="px-4 py-3 text-slate-300">First message on every WebSocket</td>
+                  <td className="px-4 py-3 text-gray-600">First message on every WebSocket</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-green-300">INPUT</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">INPUT</td>
                   <td className="px-4 py-3 text-gray-700">&quot;Run this prompt&quot;</td>
-                  <td className="px-4 py-3 text-slate-300">After CONNECT</td>
+                  <td className="px-4 py-3 text-gray-600">After CONNECT</td>
                 </tr>
               </tbody>
             </table>
@@ -102,13 +102,13 @@ export default function WebSocketProtocolPage() {
         {/* Session Lifecycle */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowPath className="w-8 h-8 text-cyan-400" />
+            <HiOutlineArrowPath className="w-8 h-8 text-gray-400" />
             Session Lifecycle
           </h2>
 
-          <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4 mb-6">
-            <p className="text-sm font-mono text-slate-200">
-              <strong className="text-white">SESSION</strong> = connection. &nbsp;<strong className="text-white">EXECUTION</strong> = one INPUT → OUTPUT cycle.<br />
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+            <p className="text-sm font-mono text-gray-700">
+              <strong className="text-gray-900">SESSION</strong> = connection. &nbsp;<strong className="text-gray-900">EXECUTION</strong> = one INPUT → OUTPUT cycle.<br />
               Session outlives executions. Multiple INPUTs per session.
             </p>
           </div>
@@ -150,7 +150,7 @@ export default function WebSocketProtocolPage() {
         {/* Protocol Flows */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowsRightLeft className="w-8 h-8 text-emerald-400" />
+            <HiOutlineArrowsRightLeft className="w-8 h-8 text-gray-400" />
             Protocol Flows
           </h2>
 
@@ -244,14 +244,14 @@ export default function WebSocketProtocolPage() {
         {/* Message Reference */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineServerStack className="w-8 h-8 text-purple-400" />
+            <HiOutlineServerStack className="w-8 h-8 text-gray-500" />
             Message Reference
           </h2>
 
           {/* Client → Server */}
           <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Client → Server</h3>
 
-          <h4 className="text-lg font-semibold text-cyan-300 mt-6 mb-2">CONNECT</h4>
+          <h4 className="text-lg font-semibold text-gray-700 mt-6 mb-2">CONNECT</h4>
           <p className="text-gray-700 mb-4">
             Authenticate, restore session, and sync conversation. <strong>Always the first message.</strong>
           </p>
@@ -267,37 +267,37 @@ export default function WebSocketProtocolPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm mt-4">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">Field</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Required</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Description</th>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left px-4 py-3 text-gray-500">Field</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Required</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">session_id</td>
-                  <td className="px-4 py-3 text-slate-300">No</td>
-                  <td className="px-4 py-3 text-slate-300">Session to resume. Omit for new session.</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">session_id</td>
+                  <td className="px-4 py-3 text-gray-600">No</td>
+                  <td className="px-4 py-3 text-gray-600">Session to resume. Omit for new session.</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">session</td>
-                  <td className="px-4 py-3 text-slate-300">No</td>
-                  <td className="px-4 py-3 text-slate-300">Conversation history (messages, mode, etc.)</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">session</td>
+                  <td className="px-4 py-3 text-gray-600">No</td>
+                  <td className="px-4 py-3 text-gray-600">Conversation history (messages, mode, etc.)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">payload</td>
-                  <td className="px-4 py-3 text-slate-300">Yes</td>
-                  <td className="px-4 py-3 text-slate-300">Signed payload for authentication</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">payload</td>
+                  <td className="px-4 py-3 text-gray-600">Yes</td>
+                  <td className="px-4 py-3 text-gray-600">Signed payload for authentication</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">from</td>
-                  <td className="px-4 py-3 text-slate-300">Yes</td>
-                  <td className="px-4 py-3 text-slate-300">Client&apos;s public address</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">from</td>
+                  <td className="px-4 py-3 text-gray-600">Yes</td>
+                  <td className="px-4 py-3 text-gray-600">Client&apos;s public address</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">signature</td>
-                  <td className="px-4 py-3 text-slate-300">Yes</td>
-                  <td className="px-4 py-3 text-slate-300">Ed25519 signature of payload</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">signature</td>
+                  <td className="px-4 py-3 text-gray-600">Yes</td>
+                  <td className="px-4 py-3 text-gray-600">Ed25519 signature of payload</td>
                 </tr>
               </tbody>
             </table>
@@ -307,43 +307,43 @@ export default function WebSocketProtocolPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">session_id</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Server state</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Response status</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Server action</th>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left px-4 py-3 text-gray-500">session_id</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Server state</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Response status</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Server action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 text-slate-300">Not provided</td>
-                  <td className="px-4 py-3 text-slate-300">&mdash;</td>
-                  <td className="px-4 py-3 font-mono text-green-300">&quot;new&quot;</td>
-                  <td className="px-4 py-3 text-slate-300">Allocate new session</td>
+                  <td className="px-4 py-3 text-gray-600">Not provided</td>
+                  <td className="px-4 py-3 text-gray-600">&mdash;</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">&quot;new&quot;</td>
+                  <td className="px-4 py-3 text-gray-600">Allocate new session</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 text-slate-300">Provided</td>
-                  <td className="px-4 py-3 text-slate-300">In registry, executing</td>
-                  <td className="px-4 py-3 font-mono text-yellow-300">&quot;executing&quot;</td>
-                  <td className="px-4 py-3 text-slate-300">Reattach IO, pipe buffered events</td>
+                  <td className="px-4 py-3 text-gray-600">Provided</td>
+                  <td className="px-4 py-3 text-gray-600">In registry, executing</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">&quot;executing&quot;</td>
+                  <td className="px-4 py-3 text-gray-600">Reattach IO, pipe buffered events</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 text-slate-300">Provided</td>
-                  <td className="px-4 py-3 text-slate-300">In registry, connected/suspended</td>
-                  <td className="px-4 py-3 font-mono text-cyan-300">&quot;connected&quot;</td>
-                  <td className="px-4 py-3 text-slate-300">Merge sessions, reset idle timer</td>
+                  <td className="px-4 py-3 text-gray-600">Provided</td>
+                  <td className="px-4 py-3 text-gray-600">In registry, connected/suspended</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">&quot;connected&quot;</td>
+                  <td className="px-4 py-3 text-gray-600">Merge sessions, reset idle timer</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 text-slate-300">Provided</td>
-                  <td className="px-4 py-3 text-slate-300">Not found</td>
-                  <td className="px-4 py-3 font-mono text-green-300">&quot;new&quot;</td>
-                  <td className="px-4 py-3 text-slate-300">Allocate new session (same id)</td>
+                  <td className="px-4 py-3 text-gray-600">Provided</td>
+                  <td className="px-4 py-3 text-gray-600">Not found</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">&quot;new&quot;</td>
+                  <td className="px-4 py-3 text-gray-600">Allocate new session (same id)</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <h4 className="text-lg font-semibold text-green-300 mt-8 mb-2">INPUT</h4>
+          <h4 className="text-lg font-semibold text-gray-900 mt-8 mb-2">INPUT</h4>
           <p className="text-gray-700 mb-4">
             Send a prompt. Only valid after CONNECTED. <strong>No session data — just the prompt.</strong>
           </p>
@@ -357,66 +357,66 @@ export default function WebSocketProtocolPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm mt-4">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">Field</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Required</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Description</th>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left px-4 py-3 text-gray-500">Field</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Required</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">prompt</td>
-                  <td className="px-4 py-3 text-slate-300">Yes</td>
-                  <td className="px-4 py-3 text-slate-300">The user&apos;s message</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">prompt</td>
+                  <td className="px-4 py-3 text-gray-600">Yes</td>
+                  <td className="px-4 py-3 text-gray-600">The user&apos;s message</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">images</td>
-                  <td className="px-4 py-3 text-slate-300">No</td>
-                  <td className="px-4 py-3 text-slate-300">Array of base64 data URLs (passed directly to LLM as visual content)</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">images</td>
+                  <td className="px-4 py-3 text-gray-600">No</td>
+                  <td className="px-4 py-3 text-gray-600">Array of base64 data URLs (passed directly to LLM as visual content)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-purple-300">files</td>
-                  <td className="px-4 py-3 text-slate-300">No</td>
-                  <td className="px-4 py-3 text-slate-300">Array of file objects (saved to disk, agent reads via tools)</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">files</td>
+                  <td className="px-4 py-3 text-gray-600">No</td>
+                  <td className="px-4 py-3 text-gray-600">Array of file objects (saved to disk, agent reads via tools)</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           {/* File Upload Protocol */}
-          <div className="mt-6 bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h5 className="text-base font-semibold text-gray-900 mb-3">File Upload Protocol</h5>
-            <p className="text-sm text-slate-300 mb-3">Files are sent inline as base64-encoded data URLs:</p>
+            <p className="text-sm text-gray-600 mb-3">Files are sent inline as base64-encoded data URLs:</p>
             <JsonBlock>{`{
   "name": "report.pdf",
   "data": "data:application/pdf;base64,JVBERi0xLjQK..."
 }`}</JsonBlock>
-            <div className="space-y-2 text-sm text-slate-300 mt-3">
+            <div className="space-y-2 text-sm text-gray-600 mt-3">
               <p>1. Validates against file limits (default: 10MB per file, 10 files per request)</p>
-              <p>2. Decodes base64 and saves to <code className="bg-gray-800 px-1 rounded">.co/uploads/{'{filename}'}</code></p>
+              <p>2. Decodes base64 and saves to <code className="bg-gray-100 px-1 rounded">.co/uploads/{'{filename}'}</code></p>
               <p>3. Adds file paths to the agent&apos;s message as a system reminder</p>
-              <p>4. Agent uses <code className="bg-gray-800 px-1 rounded">read_file</code> or other tools to process the files</p>
+              <p>4. Agent uses <code className="bg-gray-100 px-1 rounded">read_file</code> or other tools to process the files</p>
             </div>
-            <div className="mt-4 bg-blue-950/30 border border-blue-200 rounded-lg p-3">
-              <p className="text-sm text-slate-300">
-                <strong className="text-blue-300">Images vs Files:</strong> Images are passed directly to the LLM as visual content (multimodal). Files are saved to disk and read by tools.
+            <div className="mt-4 bg-gray-50 border border-gray-200 rounded-lg p-3">
+              <p className="text-sm text-gray-600">
+                <strong>Images vs Files:</strong> Images are passed directly to the LLM as visual content (multimodal). Files are saved to disk and read by tools.
               </p>
             </div>
           </div>
 
-          <h4 className="text-lg font-semibold text-slate-300 mt-8 mb-2">PONG</h4>
+          <h4 className="text-lg font-semibold text-gray-600 mt-8 mb-2">PONG</h4>
           <JsonBlock>{`{ "type": "PONG" }`}</JsonBlock>
 
-          <h4 className="text-lg font-semibold text-slate-300 mt-6 mb-2">ASK_USER_RESPONSE</h4>
+          <h4 className="text-lg font-semibold text-gray-600 mt-6 mb-2">ASK_USER_RESPONSE</h4>
           <JsonBlock>{`{ "type": "ASK_USER_RESPONSE", "answer": "Python 3" }`}</JsonBlock>
 
-          <h4 className="text-lg font-semibold text-slate-300 mt-6 mb-2">APPROVAL_RESPONSE</h4>
+          <h4 className="text-lg font-semibold text-gray-600 mt-6 mb-2">APPROVAL_RESPONSE</h4>
           <JsonBlock>{`{ "type": "APPROVAL_RESPONSE", "approved": true, "scope": "once" }`}</JsonBlock>
 
           {/* Server → Client */}
           <h3 className="text-xl font-semibold text-gray-900 mt-12 mb-4">Server → Client</h3>
 
-          <h4 className="text-lg font-semibold text-cyan-300 mt-6 mb-2">CONNECTED</h4>
+          <h4 className="text-lg font-semibold text-gray-700 mt-6 mb-2">CONNECTED</h4>
           <p className="text-gray-700 mb-4">Response to CONNECT.</p>
           <JsonBlock>{`{
   "type": "CONNECTED",
@@ -430,37 +430,37 @@ export default function WebSocketProtocolPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm mt-4">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">status</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Meaning</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Client action</th>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left px-4 py-3 text-gray-500">status</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Meaning</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Client action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-green-300">&quot;new&quot;</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">&quot;new&quot;</td>
                   <td className="px-4 py-3 text-gray-700">Fresh session</td>
-                  <td className="px-4 py-3 text-slate-300">Send INPUT when ready</td>
+                  <td className="px-4 py-3 text-gray-600">Send INPUT when ready</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-cyan-300">&quot;connected&quot;</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">&quot;connected&quot;</td>
                   <td className="px-4 py-3 text-gray-700">Session alive, idle</td>
-                  <td className="px-4 py-3 text-slate-300">Send INPUT when ready</td>
+                  <td className="px-4 py-3 text-gray-600">Send INPUT when ready</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-yellow-300">&quot;executing&quot;</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">&quot;executing&quot;</td>
                   <td className="px-4 py-3 text-gray-700">Agent still running</td>
-                  <td className="px-4 py-3 text-slate-300">Wait for events/OUTPUT</td>
+                  <td className="px-4 py-3 text-gray-600">Wait for events/OUTPUT</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <p className="text-sm text-slate-400 mt-3">
-            <code className="bg-gray-800 px-1 rounded">server_newer</code>, <code className="bg-gray-800 px-1 rounded">session</code>, and <code className="bg-gray-800 px-1 rounded">chat_items</code> are only included when the server&apos;s session data is newer than the client&apos;s.
+          <p className="text-sm text-gray-500 mt-3">
+            <code className="bg-gray-100 px-1 rounded">server_newer</code>, <code className="bg-gray-100 px-1 rounded">session</code>, and <code className="bg-gray-100 px-1 rounded">chat_items</code> are only included when the server&apos;s session data is newer than the client&apos;s.
           </p>
 
-          <h4 className="text-lg font-semibold text-green-300 mt-8 mb-2">OUTPUT</h4>
+          <h4 className="text-lg font-semibold text-gray-900 mt-8 mb-2">OUTPUT</h4>
           <p className="text-gray-700 mb-4">Execution completed. <strong>Session stays alive for next INPUT.</strong></p>
           <JsonBlock>{`{
   "type": "OUTPUT",
@@ -470,20 +470,20 @@ export default function WebSocketProtocolPage() {
   "session": { "messages": [...], "trace": [...], "turn": 2 }
 }`}</JsonBlock>
 
-          <h4 className="text-lg font-semibold text-slate-300 mt-8 mb-2">PING</h4>
-          <p className="text-sm text-slate-400 mb-2">Keep-alive. Sent every 30 seconds.</p>
+          <h4 className="text-lg font-semibold text-gray-600 mt-8 mb-2">PING</h4>
+          <p className="text-sm text-gray-500 mb-2">Keep-alive. Sent every 30 seconds.</p>
           <JsonBlock>{`{ "type": "PING" }`}</JsonBlock>
 
-          <h4 className="text-lg font-semibold text-slate-300 mt-8 mb-2">Stream Events</h4>
+          <h4 className="text-lg font-semibold text-gray-600 mt-8 mb-2">Stream Events</h4>
           <div className="overflow-x-auto">
             <table className="w-full text-sm mt-4">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">Type</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Description</th>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left px-4 py-3 text-gray-500">Type</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 {[
                   ['thinking', 'Agent reasoning'],
                   ['tool_call', 'Tool execution started'],
@@ -494,22 +494,22 @@ export default function WebSocketProtocolPage() {
                   ['compact', 'Context compaction'],
                 ].map(([type, desc]) => (
                   <tr key={type}>
-                    <td className="px-4 py-3 font-mono text-purple-300">{type}</td>
-                    <td className="px-4 py-3 text-slate-300">{desc}</td>
+                    <td className="px-4 py-3 font-mono text-gray-700">{type}</td>
+                    <td className="px-4 py-3 text-gray-600">{desc}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <h4 className="text-lg font-semibold text-red-300 mt-8 mb-2">ERROR</h4>
+          <h4 className="text-lg font-semibold text-red-700 mt-8 mb-2">ERROR</h4>
           <JsonBlock>{`{ "type": "ERROR", "message": "Something went wrong" }`}</JsonBlock>
         </section>
 
         {/* Architecture Diagram */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineServerStack className="w-8 h-8 text-indigo-400" />
+            <HiOutlineServerStack className="w-8 h-8 text-gray-400" />
             Architecture
           </h2>
 
@@ -562,7 +562,7 @@ export default function WebSocketProtocolPage() {
         {/* Authentication */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineShieldCheck className="w-8 h-8 text-amber-400" />
+            <HiOutlineShieldCheck className="w-8 h-8 text-gray-400" />
             Authentication
           </h2>
 
@@ -581,23 +581,23 @@ signature → OK             (same WS, already authenticated)`}
           <div className="overflow-x-auto">
             <table className="w-full text-sm mt-6">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">Trust Level</th>
-                  <th className="text-left px-4 py-3 text-slate-400">CONNECT Behavior</th>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left px-4 py-3 text-gray-500">Trust Level</th>
+                  <th className="text-left px-4 py-3 text-gray-500">CONNECT Behavior</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-green-300">open</td>
-                  <td className="px-4 py-3 text-slate-300">Accept without signature</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">open</td>
+                  <td className="px-4 py-3 text-gray-600">Accept without signature</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-yellow-300">careful</td>
-                  <td className="px-4 py-3 text-slate-300">Accept unsigned, recommend signature</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">careful</td>
+                  <td className="px-4 py-3 text-gray-600">Accept unsigned, recommend signature</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-red-300">strict</td>
-                  <td className="px-4 py-3 text-slate-300">Require valid signature</td>
+                  <td className="px-4 py-3 font-mono text-red-700">strict</td>
+                  <td className="px-4 py-3 text-gray-600">Require valid signature</td>
                 </tr>
               </tbody>
             </table>
@@ -607,7 +607,7 @@ signature → OK             (same WS, already authenticated)`}
         {/* Client Reconnect */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowPath className="w-8 h-8 text-cyan-400" />
+            <HiOutlineArrowPath className="w-8 h-8 text-gray-400" />
             Client Reconnect
           </h2>
 
@@ -628,24 +628,24 @@ signature → OK             (same WS, already authenticated)`}
         {/* Protocol Evolution */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineArrowsRightLeft className="w-8 h-8 text-slate-400" />
+            <HiOutlineArrowsRightLeft className="w-8 h-8 text-gray-500" />
             Protocol Evolution
           </h2>
 
           <div className="space-y-6">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
-              <p className="text-sm font-semibold text-slate-400 mb-2">v0.9.x — INIT + ATTACH</p>
-              <pre className="text-sm font-mono text-slate-300">{`WS open → INIT { auth }    → CONNECTED { status: "new" }
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <p className="text-sm font-semibold text-gray-500 mb-2">v0.9.x — INIT + ATTACH</p>
+              <pre className="text-sm font-mono text-gray-600">{`WS open → INIT { auth }    → CONNECTED { status: "new" }
          INPUT { prompt, session }  → events → OUTPUT → session dies`}</pre>
             </div>
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
-              <p className="text-sm font-semibold text-slate-400 mb-2">v0.10.x — CONNECT (unified)</p>
-              <pre className="text-sm font-mono text-slate-300">{`WS open → CONNECT { auth, session_id? } → CONNECTED { status }
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <p className="text-sm font-semibold text-gray-500 mb-2">v0.10.x — CONNECT (unified)</p>
+              <pre className="text-sm font-mono text-gray-600">{`WS open → CONNECT { auth, session_id? } → CONNECTED { status }
          INPUT { prompt, session }     → events → OUTPUT → session dies`}</pre>
             </div>
-            <div className="bg-blue-950/30 border border-blue-200 rounded-lg p-4">
-              <p className="text-sm font-semibold text-blue-300 mb-2">v0.11.x — Session survives execution (current)</p>
-              <pre className="text-sm font-mono text-slate-200">{`WS open → CONNECT { auth, session_id?, session }
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <p className="text-sm font-semibold text-gray-700 mb-2">v0.11.x — Session survives execution (current)</p>
+              <pre className="text-sm font-mono text-gray-700">{`WS open → CONNECT { auth, session_id?, session }
          → CONNECTED { status: new/connected/executing }
 
          INPUT { prompt }   → events → OUTPUT  (session stays alive)
@@ -660,7 +660,7 @@ WS close → 10min grace → session cleaned up`}</pre>
         {/* Server Console Output */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCommandLine className="w-8 h-8 text-slate-400" />
+            <HiOutlineCommandLine className="w-8 h-8 text-gray-500" />
             Server Console Output
           </h2>
 
@@ -701,12 +701,12 @@ WS close → 10min grace → session cleaned up`}</pre>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left px-4 py-3 text-slate-400">File</th>
-                  <th className="text-left px-4 py-3 text-slate-400">Role</th>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left px-4 py-3 text-gray-500">File</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Role</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 {[
                   ['network/asgi/websocket.py', 'WebSocket handler — CONNECT/INPUT routing'],
                   ['network/host/session/active.py', 'ActiveSessionRegistry — in-memory session tracking'],
@@ -715,8 +715,8 @@ WS close → 10min grace → session cleaned up`}</pre>
                   ['network/host/session/merge.py', 'Session merge conflict resolution'],
                 ].map(([file, role]) => (
                   <tr key={file}>
-                    <td className="px-4 py-3 font-mono text-purple-300">{file}</td>
-                    <td className="px-4 py-3 text-slate-300">{role}</td>
+                    <td className="px-4 py-3 font-mono text-gray-700">{file}</td>
+                    <td className="px-4 py-3 text-gray-600">{role}</td>
                   </tr>
                 ))}
               </tbody>

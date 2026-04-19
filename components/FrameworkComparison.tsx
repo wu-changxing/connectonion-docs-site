@@ -1,31 +1,15 @@
-/**
- * @purpose Side-by-side code comparison showcasing ConnectOnion vs other frameworks
- * @llm-note
- *   Dependencies: imports from [react-syntax-highlighter] | imported by [app/page.tsx (homepage)]
- *   Data flow: renders static comparisons[] array → SyntaxHighlighter for Python code → comparison table
- *   State/Effects: pure render component | no state | no side effects
- *   Integration: exposes FrameworkComparison component
- *   Content: 5 comparisons (Calculator, Browser, ReAct, Memory, Events) vs LangChain/OpenAI SDK/Google ADK
- *   UX: purple border for ConnectOnion | gray for others | line counts shown | responsive grid layout
- */
 'use client'
 
+import { useState } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 interface ComparisonSection {
   title: string
   subtitle: string
   vsFramework: string
-  connectonion: {
-    lines: string
-    code: string
-  }
-  other: {
-    framework: string
-    lines: string
-    code: string
-  }
+  connectonion: { lines: string; code: string }
+  other: { framework: string; lines: string; code: string }
 }
 
 const comparisons: ComparisonSection[] = [
@@ -58,11 +42,6 @@ def add(input_str: str) -> str:
     a, b = map(float, input_str.split(','))
     return str(a + b)
 
-def multiply(input_str: str) -> str:
-    """Multiply two numbers. Input: 'a,b'"""
-    a, b = map(float, input_str.split(','))
-    return str(a * b)
-
 tools = [
     Tool(name="add", func=add, description="Add two numbers. Input: 'a,b'"),
     Tool(name="multiply", func=multiply, description="Multiply. Input: 'a,b'"),
@@ -78,12 +57,12 @@ prompt = PromptTemplate.from_template(template)
 llm = ChatOpenAI(model="gpt-4", temperature=0)
 agent = create_react_agent(llm=llm, tools=tools, prompt=prompt)
 executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
-result = executor.invoke({"input": "What is 5 + 3, then multiply by 2?"})`
+executor.invoke({"input": "What is 5 + 3, then multiply by 2?"})`
     }
   },
   {
     title: 'Browser Automation',
-    subtitle: 'Just pass a class. Public methods become tools, self = shared state.',
+    subtitle: 'Pass a class — public methods become tools, self = shared state.',
     vsFramework: 'OpenAI SDK',
     connectonion: {
       lines: '16 lines',
@@ -93,7 +72,6 @@ class BrowserAutomation:
     def __init__(self):
         self._browser = None
         self._page = None
-        self._screenshots = []
 
     def start_browser(self):
         self._browser = launch_browser()
@@ -101,13 +79,8 @@ class BrowserAutomation:
         return "Browser started"
 
     def navigate(self, url: str):
-        self._page.goto(url)  # Uses shared state via self
+        self._page.goto(url)
         return f"Navigated to {url}"
-
-    def take_screenshot(self, path: str):
-        self._page.screenshot(path=path)
-        self._screenshots.append(path)
-        return f"Saved: {path}"
 
 browser = BrowserAutomation()
 agent = Agent("You automate browsers", tools=[browser])`
@@ -123,10 +96,6 @@ from agents.types import RunContextWrapper
 class BrowserContext:
     browser: object = None
     page: object = None
-    screenshots: list = None
-
-    def __post_init__(self):
-        self.screenshots = self.screenshots or []
 
 @function_tool
 def start_browser(wrapper: RunContextWrapper[BrowserContext]):
@@ -136,25 +105,18 @@ def start_browser(wrapper: RunContextWrapper[BrowserContext]):
 
 @function_tool
 def navigate(wrapper: RunContextWrapper[BrowserContext], url: str):
-    wrapper.context.page.goto(url)  # Access via wrapper.context
+    wrapper.context.page.goto(url)
     return f"Navigated to {url}"
 
-@function_tool
-def take_screenshot(wrapper: RunContextWrapper[BrowserContext], path: str):
-    wrapper.context.page.screenshot(path=path)
-    wrapper.context.screenshots.append(path)
-    return f"Saved: {path}"
-
 agent = Agent(name="browser", instructions="...",
-    tools=[start_browser, navigate, take_screenshot])
-
+    tools=[start_browser, navigate])
 ctx = BrowserContext()
 result = await Runner.run(agent, "Open google", context=ctx)`
     }
   },
   {
     title: 'ReAct Reasoning',
-    subtitle: 'plugins=[re_act] - one line adds Plan + Act + Reflect loop.',
+    subtitle: 'One line adds Plan + Act + Reflect. No planner classes.',
     vsFramework: 'Google ADK',
     connectonion: {
       lines: '1 line to add',
@@ -164,7 +126,6 @@ from connectonion.useful_plugins import re_act
 def search(query: str) -> str:
     return f"Results for: {query}"
 
-# Just add plugins=[re_act] - that's it!
 agent = Agent(
     "You are a research assistant",
     tools=[search],
@@ -175,25 +136,23 @@ agent.input("Research the history of Python")`
     },
     other: {
       framework: 'Google ADK',
-      lines: 'Planner class',
+      lines: 'Planner class required',
       code: `from google.adk import Agent
 from google.adk.planners import PlanReActPlanner
 
 def search(query: str) -> dict:
     """Search for information.
-
     Args:
         query: The search query.
-
     Returns:
         dict with search results.
     """
     return {"status": "success", "results": f"Results for: {query}"}
 
-# Must use special planner class
+# Must instantiate a special planner class
 agent = Agent(
     model="gemini-2.0-flash",
-    planner=PlanReActPlanner(),  # Special planner object
+    planner=PlanReActPlanner(),
     tools=[search],
 )
 # Run with: adk web`
@@ -201,8 +160,8 @@ agent = Agent(
   },
   {
     title: 'Memory System',
-    subtitle: 'Memory is just a tool. No services, no sessions, no deprecated APIs.',
-    vsFramework: 'All Frameworks',
+    subtitle: 'Memory is just a tool. No services, sessions, or deprecated APIs.',
+    vsFramework: 'LangChain',
     connectonion: {
       lines: '8 lines',
       code: `from connectonion import Agent, Memory
@@ -222,8 +181,6 @@ agent.input("What are my preferences?")`
       lines: 'DEPRECATED',
       code: `from langchain.memory import ConversationBufferMemory
 from langchain.chains import LLMChain
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.prompts.chat import MessagesPlaceholder
 
 # Choose from 6+ memory types:
 # - ConversationBufferMemory
@@ -231,55 +188,44 @@ from langchain_core.prompts.chat import MessagesPlaceholder
 # - ConversationBufferWindowMemory
 # - ConversationKGMemory
 # - VectorStoreRetrieverMemory
-# ... and more
-
-prompt = ChatPromptTemplate([
-    MessagesPlaceholder(variable_name="chat_history"),
-    # ... more setup
-])
 
 memory = ConversationBufferMemory(
     memory_key="chat_history",
     return_messages=True
 )
 
-# DEPRECATED in v0.3.1 - must migrate to LangGraph`
+# ⚠ DEPRECATED in v0.3.1 — must migrate to LangGraph`
     }
   },
   {
     title: 'Event Hooks',
     subtitle: '9 event types with full agent access. Not just guardrails.',
-    vsFramework: 'All Frameworks',
+    vsFramework: 'OpenAI SDK',
     connectonion: {
       lines: '9 event types',
       code: `from connectonion import after_tools
 
 def my_hook(agent):
-    # Access EVERYTHING:
     session = agent.current_session
-    messages = session['messages']      # All conversation
-    trace = session['trace']            # Every LLM call
-    user_input = session['user_prompt'] # Original request
+    messages = session['messages']
+    trace = session['trace']
 
-    # Modify ANYTHING:
+    # Modify anything
     session['messages'].append({
         'role': 'assistant',
-        'content': 'Thinking about next step...'
+        'content': 'Thinking...'
     })
 
-# That's it - just pass it
 agent = Agent("assistant", tools=[...],
     on_events=[after_tools(my_hook)])
 
-# Available: after_user_input, before_llm, after_llm,
-# before_tools, before_each_tool, after_each_tool,
-# after_tools, on_error, on_complete`
+# after_user_input, before_llm, after_llm,
+# before_tools, after_tools, on_error, on_complete`
     },
     other: {
       framework: 'OpenAI SDK',
       lines: 'Guardrails only',
       code: `from agents import Agent, output_guardrail
-from agents.types import OutputGuardrailTripwireTriggered
 
 # OpenAI SDK has NO event system
 # Only "guardrails" for input/output validation
@@ -294,101 +240,136 @@ async def check_output(ctx, agent, output):
     return output
 
 # Want ReAct? Build it yourself
-# Want custom logging? No standard way
-# Want approval flows? No standard way`
+# Want logging? No standard way`
     }
   }
 ]
 
 export function FrameworkComparison() {
+  const [activeIdx, setActiveIdx] = useState(0)
+  const active = comparisons[activeIdx]
+
   return (
-    <section className="py-16 md:py-24 px-4 md:px-6">
+    <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-50 border-y border-gray-100">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 mb-4">
-            <div className="h-px w-12 bg-green-300" />
-            <span className="text-green-700 text-sm font-mono uppercase tracking-wider">Why ConnectOnion</span>
-            <div className="h-px w-12 bg-green-300" />
+            <div className="h-px w-12 bg-gray-300" />
+            <span className="text-gray-500 text-xs font-mono uppercase tracking-widest">Why ConnectOnion</span>
+            <div className="h-px w-12 bg-gray-300" />
           </div>
           <h2 className="heading-2 mb-4">
-            See the <span className="text-green-700">Difference</span>
+            See the <span className="accent-italic text-[1.05em]">Difference</span>
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            Same task, dramatically different complexity. Scroll to see real code comparisons.
+          <p className="text-gray-500 text-base max-w-xl mx-auto">
+            Same task, dramatically less code. Real comparisons against LangChain, OpenAI SDK, and Google ADK.
           </p>
         </div>
 
-        {/* Vertical Comparisons */}
-        <div className="space-y-14">
-          {comparisons.map((comparison, idx) => (
-            <div key={idx} className="space-y-4">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="flex-1 h-px bg-gray-200" />
-                <div className="text-center">
-                  <h3 className="text-xl font-bold text-gray-900">{comparison.title}</h3>
-                  <p className="text-sm text-gray-400 mt-1">vs {comparison.vsFramework}</p>
-                </div>
-                <div className="flex-1 h-px bg-gray-200" />
+        {/* Tab Bar */}
+        <div className="relative mb-8">
+          {/* Right fade — signals more tabs exist on mobile */}
+          <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10 md:hidden" />
+          <div className="flex overflow-x-auto hide-scrollbar gap-1 border-b border-gray-200 pb-px">
+            {comparisons.map((c, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIdx(i)}
+                className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-t transition-colors whitespace-nowrap ${
+                  i === activeIdx
+                    ? 'text-gray-900 border-b-2 border-gray-900 -mb-px bg-white'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {c.title}
+              </button>
+            ))}
+          </div>
+          {/* Dot indicators for mobile */}
+          <div className="flex items-center justify-center gap-1.5 mt-3 md:hidden">
+            {comparisons.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIdx(i)}
+                className={`transition-all rounded-full ${i === activeIdx ? 'w-4 h-1.5 bg-gray-900' : 'w-1.5 h-1.5 bg-gray-300'}`}
+                aria-label={`View ${comparisons[i].title}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Active Comparison */}
+        <div>
+          <div className="mb-5">
+            <p className="text-sm text-gray-500">{active.subtitle}</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {/* ConnectOnion */}
+            <div className="rounded-xl border-2 border-gray-900 overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-2.5 bg-gray-900 border-b border-gray-700">
+                <span className="text-xs font-bold px-2 py-1 rounded bg-white text-gray-900">ConnectOnion</span>
+                <span className="text-xs font-mono text-gray-300">{active.connectonion.lines}</span>
               </div>
-
-              <p className="text-center text-gray-500 text-sm mb-5">{comparison.subtitle}</p>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                {/* ConnectOnion */}
-                <div className="rounded-xl border-2 border-green-500 overflow-hidden">
-                  <div className="flex items-center justify-between px-4 py-2.5 bg-green-50 border-b border-green-200">
-                    <span className="text-xs font-bold px-2 py-1 rounded bg-green-600 text-white">ConnectOnion</span>
-                    <span className="text-xs font-mono text-green-700">{comparison.connectonion.lines}</span>
-                  </div>
-                  <div className="overflow-x-auto">
-                    <SyntaxHighlighter
-                      language="python"
-                      style={monokai}
-                      customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6' }}
-                      wrapLongLines={false}
-                    >
-                      {comparison.connectonion.code}
-                    </SyntaxHighlighter>
-                  </div>
-                </div>
-
-                {/* Other Framework */}
-                <div className="rounded-xl border border-gray-300 overflow-hidden">
-                  <div className="flex items-center justify-between px-4 py-2.5 bg-gray-100 border-b border-gray-200">
-                    <span className="text-xs font-bold px-2 py-1 rounded bg-gray-500 text-white">{comparison.other.framework}</span>
-                    <span className={`text-xs font-mono ${comparison.other.lines === 'DEPRECATED' ? 'text-red-500' : 'text-gray-500'}`}>
-                      {comparison.other.lines}
-                    </span>
-                  </div>
-                  <div className="overflow-x-auto">
-                    <SyntaxHighlighter
-                      language="python"
-                      style={monokai}
-                      customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6' }}
-                      wrapLongLines={false}
-                    >
-                      {comparison.other.code}
-                    </SyntaxHighlighter>
-                  </div>
-                </div>
+              <div className="overflow-x-auto">
+                <SyntaxHighlighter
+                  language="python"
+                  style={okaidia}
+                  customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6' }}
+                  wrapLongLines={false}
+                >
+                  {active.connectonion.code}
+                </SyntaxHighlighter>
               </div>
             </div>
-          ))}
+
+            {/* Other Framework */}
+            <div className="rounded-xl border border-gray-300 overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-2.5 bg-gray-100 border-b border-gray-200">
+                <span className="text-xs font-bold px-2 py-1 rounded bg-gray-500 text-white">{active.other.framework}</span>
+                <span className={`text-xs font-mono ${active.other.lines === 'DEPRECATED' ? 'text-red-500' : 'text-gray-500'}`}>
+                  {active.other.lines}
+                </span>
+              </div>
+              <div className="overflow-x-auto">
+                <SyntaxHighlighter
+                  language="python"
+                  style={okaidia}
+                  customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6' }}
+                  wrapLongLines={false}
+                >
+                  {active.other.code}
+                </SyntaxHighlighter>
+              </div>
+            </div>
+          </div>
+
+          {/* Comparison counter */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {comparisons.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIdx(i)}
+                className={`w-1.5 h-1.5 rounded-full transition-colors ${i === activeIdx ? 'bg-gray-900' : 'bg-gray-300 hover:bg-gray-500'}`}
+                aria-label={`View ${comparisons[i].title} comparison`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Summary Table */}
-        <div className="mt-14 bg-white rounded-xl border border-gray-200 overflow-hidden">
+        <div className="mt-12 bg-white rounded-xl border border-gray-200 overflow-hidden">
           <div className="px-6 py-4 bg-gray-50 border-b border-gray-200">
-            <h4 className="text-base font-bold text-gray-900">Quick Comparison</h4>
+            <h4 className="text-sm font-bold text-gray-900 uppercase tracking-wide">Quick Comparison</h4>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-200 bg-gray-50">
-                  <th className="px-4 py-3 text-left text-gray-500 font-medium">Feature</th>
-                  <th className="px-4 py-3 text-left text-green-700 font-medium">ConnectOnion</th>
-                  <th className="px-4 py-3 text-left text-gray-500 font-medium">Others</th>
+                <tr className="border-b border-gray-200">
+                  <th className="px-4 py-3 text-left text-gray-500 font-medium text-xs uppercase tracking-wide">Feature</th>
+                  <th className="px-4 py-3 text-left text-gray-900 font-semibold text-xs uppercase tracking-wide">ConnectOnion</th>
+                  <th className="px-4 py-3 text-left text-gray-500 font-medium text-xs uppercase tracking-wide">Others</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -397,22 +378,17 @@ export function FrameworkComparison() {
                   ['Shared state', 'self.field', 'wrapper.context, dataclass, services'],
                   ['Add ReAct', 'plugins=[re_act]', 'Planner classes, different agent types'],
                   ['Memory', 'Memory as tool', 'Sessions, services, deprecated APIs'],
-                  ['Event hooks', '12 types, full access', 'Guardrails only, limited callbacks'],
+                  ['Event hooks', '9 types, full access', 'Guardrails only, limited callbacks'],
                   ['Built-in AI programmer', 'co ai', 'None'],
-                  ['Frontend + Backend', 'Built-in', 'Build your own'],
-                  ['Approval system', 'Plugin-based, built-in', 'Build your own'],
+                  ['Approval system', 'Plugin-based', 'Build your own'],
+                  ['Free credits', '$5 free', '—'],
                 ].map(([feature, co, other]) => (
-                  <tr key={feature}>
-                    <td className="px-4 py-3 text-gray-700">{feature}</td>
-                    <td className="px-4 py-3 text-green-700 font-medium">{co}</td>
+                  <tr key={feature} className="hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 text-gray-600">{feature}</td>
+                    <td className="px-4 py-3 text-gray-900 font-medium">{co}</td>
                     <td className="px-4 py-3 text-gray-500">{other}</td>
                   </tr>
                 ))}
-                <tr>
-                  <td className="px-4 py-3 text-gray-700">Free credits</td>
-                  <td className="px-4 py-3 text-green-700 font-medium">$5 free</td>
-                  <td className="px-4 py-3 text-red-500">No</td>
-                </tr>
               </tbody>
             </table>
           </div>

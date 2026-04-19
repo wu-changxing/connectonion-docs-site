@@ -79,93 +79,61 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="px-4 md:px-8 py-16 md:py-24">
-      <div className="max-w-4xl mx-auto">
+    <div className="px-6 md:px-12 py-14 md:py-20">
+      <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors mb-8"
-          >
-            <HiOutlineArrowLeft className="w-4 h-4" />
-            Back to Docs
-          </Link>
-          
-          <div className="flex items-center gap-3 mb-4">
-            <HiOutlineBookOpen className="w-8 h-8 text-purple-400" />
-            <h1 className="text-3xl font-bold text-gray-900">Blog</h1>
-          </div>
-          <p className="text-gray-700">
-            Design decisions and insights from building ConnectOnion
+          <p className="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">Design Journal</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-3">Building ConnectOnion</h1>
+          <p className="text-gray-500 text-base">
+            Design decisions, lessons learned, and the thinking behind the framework.
           </p>
         </div>
 
         {/* Blog Posts */}
-        <div className="space-y-6">
-          {blogPosts.map((post) => {
+        <div className="divide-y divide-gray-100 border border-gray-200 rounded-xl overflow-hidden">
+          {blogPosts.map((post, idx) => {
             const Icon = post.icon
+            const num = String(idx + 1).padStart(2, '0')
             return (
-              <Link 
+              <Link
                 key={post.href}
                 href={post.href}
                 className="block group"
               >
-                <article className="p-6 bg-gray-100 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all">
+                <article className="px-5 py-4 bg-white hover:bg-gray-50 transition-colors duration-150">
                   <div className="flex items-start gap-4">
-                    {/* Icon */}
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 p-[1px]">
-                      <div className="w-full h-full bg-gray-900 rounded-lg flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-purple-400" />
+                    {/* Ordinal + Icon stacked */}
+                    <div className="flex-shrink-0 flex flex-col items-center gap-1 pt-0.5">
+                      <span className="text-[10px] font-bold text-gray-500 tracking-widest font-mono">{num}</span>
+                      <div className="w-9 h-9 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center group-hover:border-gray-400 group-hover:bg-white transition-all">
+                        <Icon className="w-4.5 h-4.5 text-gray-500 group-hover:text-gray-700 transition-colors" style={{width: '1.125rem', height: '1.125rem'}} />
                       </div>
                     </div>
-                    
+
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       {/* Meta */}
-                      <div className="flex flex-wrap items-center gap-3 mb-2 text-sm text-gray-500">
-                        <div className="flex items-center gap-1">
-                          <HiOutlineCalendar className="w-3.5 h-3.5" />
-                          <span>{post.date}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <HiOutlineClock className="w-3.5 h-3.5" />
-                          <span>{post.readTime}</span>
-                        </div>
+                      <div className="flex flex-wrap items-center gap-3 mb-1 text-xs text-gray-500">
+                        <span>{post.date}</span>
+                        <span>·</span>
+                        <span>{post.readTime}</span>
                       </div>
-                      
-                      {/* Title */}
-                      <h2 className="text-xl font-semibold text-gray-900 mb-1 group-hover:text-purple-400 transition-colors">
+
+                      {/* Title — dominant */}
+                      <h2 className="text-base font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors leading-snug">
                         {post.title}
                       </h2>
-                      
+
                       {/* Subtitle */}
-                      <p className="text-gray-700 mb-4">
+                      <p className="text-sm text-gray-500">
                         {post.subtitle}
                       </p>
-                      
-                      {/* Excerpt */}
-                      <p className="text-gray-700 text-sm mb-4 line-clamp-2">
-                        {post.excerpt}
-                      </p>
-                      
-                      {/* Tags and Read More */}
-                      <div className="flex flex-wrap items-center justify-between gap-3">
-                        <div className="flex flex-wrap gap-2">
-                          {post.tags.map((tag) => (
-                            <span 
-                              key={tag}
-                              className="px-2 py-1 bg-gray-700/50 rounded-md text-xs text-gray-700"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        
-                        <span className="inline-flex items-center gap-1 text-sm text-purple-400 group-hover:text-purple-300">
-                          Read more
-                          <HiOutlineArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                        </span>
-                      </div>
+                    </div>
+
+                    {/* Read More arrow */}
+                    <div className="flex-shrink-0 self-center">
+                      <HiOutlineArrowRight className="w-4 h-4 text-gray-300 group-hover:text-gray-600 group-hover:translate-x-0.5 transition-all" />
                     </div>
                   </div>
                 </article>
@@ -174,16 +142,43 @@ export default function BlogPage() {
           })}
         </div>
 
-        {/* Coming Soon */}
-        <div className="mt-12 p-8 bg-gray-800/30 rounded-xl border border-gray-700 text-center">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">More Posts Coming Soon</h3>
-          <p className="text-gray-700 text-sm">
-            We're documenting our journey. Stay tuned for more insights.
-          </p>
+        {/* Writing in public — topics we're covering next */}
+        <div className="mt-10 border border-gray-200 rounded-xl overflow-hidden">
+          <div className="px-5 py-3 bg-gray-50 border-b border-gray-200">
+            <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest font-mono">Writing in public</p>
+          </div>
+          <div className="px-5 py-4 space-y-3">
+            {[
+              'How we built the eval system — session replay without adding a line of user code',
+              'The trust model — why agent-to-agent auth is harder than you think',
+              'Plugin architecture internals — hooks, lifecycle, and the 9 event types',
+            ].map((topic) => (
+              <div key={topic} className="flex items-start gap-3">
+                <span className="mt-1.5 w-1 h-1 rounded-full bg-gray-300 flex-shrink-0" />
+                <p className="text-sm text-gray-600">{topic}</p>
+              </div>
+            ))}
+          </div>
+          <div className="px-5 py-4 border-t border-gray-100 flex flex-col sm:flex-row items-center gap-3">
+            <a
+              href="https://discord.gg/4xfD9k8AUF"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white text-sm font-medium rounded-lg transition-colors"
+            >
+              Get notified on Discord
+            </a>
+            <a
+              href="https://github.com/openonion/connectonion"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-lg border border-gray-200 transition-colors"
+            >
+              Star on GitHub
+            </a>
+          </div>
         </div>
 
-        {/* Navigation */}
-        <ContentNavigation />
       </div>
     </div>
   )

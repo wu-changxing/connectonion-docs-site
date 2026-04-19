@@ -9,7 +9,7 @@ export default function WebsiteMaintenancePage() {
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-        <Link href="/" className="hover:text-purple-400 transition-colors">
+        <Link href="/" className="hover:text-gray-500 transition-colors">
           Docs
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />
@@ -20,8 +20,8 @@ export default function WebsiteMaintenancePage() {
       <div className="mb-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl border border-blue-200">
-              <HiOutlineCog6Tooth className="w-8 h-8 text-blue-400" />
+            <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
+              <HiOutlineCog6Tooth className="w-8 h-8 text-gray-500" />
             </div>
             <div>
               <h1 className="heading-1">Website Maintenance</h1>
@@ -38,25 +38,25 @@ export default function WebsiteMaintenancePage() {
         {/* Overview */}
         <section>
           <h2 className="heading-2">
-            <HiOutlineDocumentText className="mr-2 h-6 w-6 text-blue-500" />
+            <HiOutlineDocumentText className="mr-2 h-6 w-6 text-gray-500" />
             Three-Step Process
           </h2>
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-blue-200 dark:border-gray-700">
+          <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
             <ol className="space-y-3">
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
+                <span className="bg-gray-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
                 <div>
-                  <strong>Create Tutorial</strong> - Write markdown in <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">/tutorials/</code>
+                  <strong>Create Tutorial</strong> - Write markdown in <code className="bg-gray-100 px-2 py-0.5 rounded">/tutorials/</code>
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
+                <span className="bg-gray-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
                 <div>
-                  <strong>Create Page</strong> - Add component in <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">/app/</code>
+                  <strong>Create Page</strong> - Add component in <code className="bg-gray-100 px-2 py-0.5 rounded">/app/</code>
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
+                <span className="bg-gray-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
                 <div>
                   <strong>Update Navigation</strong> - Add to sidebar and search
                 </div>
@@ -68,7 +68,7 @@ export default function WebsiteMaintenancePage() {
         {/* Step 1: Create Tutorial */}
         <section>
           <h2 className="heading-2">Step 1: Create Tutorial Content</h2>
-          <p className="text-gray-600 dark:text-gray-700 mb-4">
+          <p className="text-gray-600 mb-4">
             Start by writing your documentation as a markdown file:
           </p>
           <CommandBlock commands={['touch docs-site/public/tutorials/your-feature.md']} />
@@ -99,7 +99,7 @@ Detailed technical documentation.`}</code>
         {/* Step 2: Create Page */}
         <section>
           <h2 className="heading-2">Step 2: Create Page Component</h2>
-          <p className="text-gray-600 dark:text-gray-700 mb-4">
+          <p className="text-gray-600 mb-4">
             Create a Next.js page for your feature:
           </p>
           <CommandBlock commands={[
@@ -140,8 +140,8 @@ export default function YourFeaturePage() {
           <div className="space-y-6">
             <div>
               <h3 className="text-lg font-medium mb-4">Add to Sidebar</h3>
-              <p className="text-gray-600 dark:text-gray-700 mb-4">
-                Edit <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">DocsSidebar.tsx</code>:
+              <p className="text-gray-600 mb-4">
+                Edit <code className="bg-gray-100 px-2 py-0.5 rounded">DocsSidebar.tsx</code>:
               </p>
               <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
                 <code>{`const navigation = [
@@ -162,8 +162,8 @@ export default function YourFeaturePage() {
 
             <div>
               <h3 className="text-lg font-medium mb-4">Update Search Mapping</h3>
-              <p className="text-gray-600 dark:text-gray-700 mb-4">
-                Edit <code className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">markdownLoader.ts</code>:
+              <p className="text-gray-600 mb-4">
+                Edit <code className="bg-gray-100 px-2 py-0.5 rounded">markdownLoader.ts</code>:
               </p>
               <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
                 <code>{`const MARKDOWN_TO_PAGE_MAP = {
@@ -181,7 +181,7 @@ export default function YourFeaturePage() {
         {/* Testing */}
         <section>
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="mr-2 h-6 w-6 text-green-500" />
+            <HiOutlineCodeBracket className="mr-2 h-6 w-6 text-gray-500" />
             Testing Your Changes
           </h2>
           
@@ -191,9 +191,9 @@ export default function YourFeaturePage() {
               'npm run dev'
             ]} />
             
-            <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800">
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
               <h3 className="font-medium mb-2 flex items-center">
-                <HiOutlineExclamationCircle className="mr-2 h-5 w-5 text-yellow-600" />
+                <HiOutlineExclamationCircle className="mr-2 h-5 w-5 text-gray-400" />
                 Test Checklist
               </h3>
               <ul className="space-y-1 text-sm">
@@ -210,7 +210,7 @@ export default function YourFeaturePage() {
         {/* Quick Reference */}
         <section>
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="mr-2 h-6 w-6 text-purple-500" />
+            <HiOutlineCodeBracket className="mr-2 h-6 w-6 text-gray-500" />
             Directory Structure
           </h2>
           
@@ -230,9 +230,9 @@ export default function YourFeaturePage() {
         </section>
 
         {/* Final Checklist */}
-        <section className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-lg border border-green-200 dark:border-gray-700">
+        <section className="bg-gray-50 p-6 rounded-lg border border-gray-200">
           <h2 className="heading-2">
-            <HiOutlineCheckCircle className="mr-2 h-6 w-6 text-green-500" />
+            <HiOutlineCheckCircle className="mr-2 h-6 w-6 text-gray-500" />
             Final Checklist
           </h2>
           

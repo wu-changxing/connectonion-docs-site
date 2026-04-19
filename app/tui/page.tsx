@@ -6,138 +6,19 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import CodeWithResult from '../../components/CodeWithResult'
+import { PageHeader } from '../../components/PageHeader'
 
 const components = [
-  {
-    id: 'chat',
-    name: 'Chat',
-    title: 'Chat',
-    description: 'Full chat interface with agent integration',
-    icon: HiOutlineCommandLine,
-    color: 'text-emerald-400',
-    bgColor: 'bg-emerald-900/20',
-    borderColor: 'border-emerald-500/30',
-    href: '/tui/chat',
-    usage: 'Chat(agent=agent).run()',
-    category: 'input'
-  },
-  {
-    id: 'pick',
-    name: 'pick',
-    title: 'pick',
-    description: 'Single-select menu with keyboard navigation',
-    icon: HiOutlineChevronDown,
-    color: 'text-purple-400',
-    bgColor: 'bg-purple-900/20',
-    borderColor: 'border-purple-500/30',
-    href: '/tui/pick',
-    usage: 'pick("Select model", ["gpt-4", "claude-3"])',
-    category: 'input'
-  },
-  {
-    id: 'input',
-    name: 'Input',
-    title: 'Input',
-    description: 'Smart text input with trigger-based autocomplete',
-    icon: HiOutlineLanguage,
-    color: 'text-blue-400',
-    bgColor: 'bg-blue-900/20',
-    borderColor: 'border-blue-500/30',
-    href: '/tui/input',
-    usage: 'Input(triggers={"@": FileProvider()}).run()',
-    category: 'input'
-  },
-  {
-    id: 'dropdown',
-    name: 'Dropdown',
-    title: 'Dropdown',
-    description: 'Selection list component for autocomplete menus',
-    icon: HiOutlineChevronDown,
-    color: 'text-green-400',
-    bgColor: 'bg-green-900/20',
-    borderColor: 'border-green-500/30',
-    href: '/tui/dropdown',
-    usage: 'Dropdown(items, max_visible=5)',
-    category: 'input'
-  },
-  {
-    id: 'status-bar',
-    name: 'StatusBar',
-    title: 'StatusBar',
-    description: 'Powerline-style status bar with colored segments',
-    icon: HiOutlineChartBar,
-    color: 'text-cyan-400',
-    bgColor: 'bg-cyan-900/20',
-    borderColor: 'border-cyan-500/30',
-    href: '/tui/status-bar',
-    usage: 'StatusBar([("model", "gpt-4", "magenta")])',
-    category: 'display'
-  },
-  {
-    id: 'footer',
-    name: 'Footer',
-    title: 'Footer',
-    description: 'Simple footer with tips/hints display',
-    icon: HiOutlineRectangleGroup,
-    color: 'text-orange-400',
-    bgColor: 'bg-orange-900/20',
-    borderColor: 'border-orange-500/30',
-    href: '/tui/footer',
-    usage: 'Footer(["? help", "/ commands"])',
-    category: 'display'
-  },
-  {
-    id: 'divider',
-    name: 'Divider',
-    title: 'Divider',
-    description: 'Simple horizontal line separator',
-    icon: HiOutlineMinus,
-    color: 'text-slate-400',
-    bgColor: 'bg-slate-900/20',
-    borderColor: 'border-slate-500/30',
-    href: '/tui/divider',
-    usage: 'Divider(width=40)',
-    category: 'display'
-  },
-  {
-    id: 'fuzzy',
-    name: 'fuzzy_match',
-    title: 'Fuzzy Matching',
-    description: 'Fuzzy matching utilities for autocomplete',
-    icon: HiOutlineMagnifyingGlass,
-    color: 'text-yellow-400',
-    bgColor: 'bg-yellow-900/20',
-    borderColor: 'border-yellow-500/30',
-    href: '/tui/fuzzy',
-    usage: 'fuzzy_match("gp", "gpt-4")',
-    category: 'utility'
-  },
-  {
-    id: 'keys',
-    name: 'getch / read_key',
-    title: 'Keyboard Input',
-    description: 'Low-level keyboard input primitives',
-    icon: HiOutlineCommandLine,
-    color: 'text-red-400',
-    bgColor: 'bg-red-900/20',
-    borderColor: 'border-red-500/30',
-    href: '/tui/keys',
-    usage: 'key = read_key()  # "up", "down", etc.',
-    category: 'utility'
-  },
-  {
-    id: 'providers',
-    name: 'Providers',
-    title: 'Autocomplete Providers',
-    description: 'Data providers for autocomplete (FileProvider, StaticProvider)',
-    icon: HiOutlineCircleStack,
-    color: 'text-pink-400',
-    bgColor: 'bg-pink-900/20',
-    borderColor: 'border-pink-500/30',
-    href: '/tui/providers',
-    usage: 'FileProvider(root="src/")',
-    category: 'utility'
-  },
+  { id: 'chat', name: 'Chat', title: 'Chat', description: 'Full chat interface with agent integration', icon: HiOutlineCommandLine, href: '/tui/chat', usage: 'Chat(agent=agent).run()', category: 'input' },
+  { id: 'pick', name: 'pick', title: 'pick', description: 'Single-select menu with keyboard navigation', icon: HiOutlineChevronDown, href: '/tui/pick', usage: 'pick("Select model", ["gpt-4", "claude-3"])', category: 'input' },
+  { id: 'input', name: 'Input', title: 'Input', description: 'Smart text input with trigger-based autocomplete', icon: HiOutlineLanguage, href: '/tui/input', usage: 'Input(triggers={"@": FileProvider()}).run()', category: 'input' },
+  { id: 'dropdown', name: 'Dropdown', title: 'Dropdown', description: 'Selection list component for autocomplete menus', icon: HiOutlineChevronDown, href: '/tui/dropdown', usage: 'Dropdown(items, max_visible=5)', category: 'input' },
+  { id: 'status-bar', name: 'StatusBar', title: 'StatusBar', description: 'Powerline-style status bar with colored segments', icon: HiOutlineChartBar, href: '/tui/status-bar', usage: 'StatusBar([("model", "gpt-4", "magenta")])', category: 'display' },
+  { id: 'footer', name: 'Footer', title: 'Footer', description: 'Simple footer with tips/hints display', icon: HiOutlineRectangleGroup, href: '/tui/footer', usage: 'Footer(["? help", "/ commands"])', category: 'display' },
+  { id: 'divider', name: 'Divider', title: 'Divider', description: 'Simple horizontal line separator', icon: HiOutlineMinus, href: '/tui/divider', usage: 'Divider(width=40)', category: 'display' },
+  { id: 'fuzzy', name: 'fuzzy_match', title: 'Fuzzy Matching', description: 'Fuzzy matching utilities for autocomplete', icon: HiOutlineMagnifyingGlass, href: '/tui/fuzzy', usage: 'fuzzy_match("gp", "gpt-4")', category: 'utility' },
+  { id: 'keys', name: 'getch / read_key', title: 'Keyboard Input', description: 'Low-level keyboard input primitives', icon: HiOutlineCommandLine, href: '/tui/keys', usage: 'key = read_key()  # "up", "down", etc.', category: 'utility' },
+  { id: 'providers', name: 'Providers', title: 'Autocomplete Providers', description: 'Data providers for autocomplete (FileProvider, StaticProvider)', icon: HiOutlineCircleStack, href: '/tui/providers', usage: 'FileProvider(root="src/")', category: 'utility' },
 ]
 
 const categories = [
@@ -150,39 +31,22 @@ export default function TUIPage() {
   return (
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-          <Link href="/" className="hover:text-purple-400 transition-colors">
-            Docs
-          </Link>
-          <HiOutlineArrowRight className="w-4 h-4" />
-          <span className="text-gray-900">TUI Components</span>
-        </div>
-
-        {/* Header */}
-        <div className="mb-12">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-purple-600/20 to-cyan-600/20 rounded-xl border border-purple-200">
-                <HiOutlineCommandLine className="w-8 h-8 text-purple-400" />
-              </div>
-              <div>
-                <h1 className="heading-1">TUI Components</h1>
-                <p className="text-lg text-gray-700">
-                  Terminal UI components from <code className="bg-gray-800 px-2 py-1 rounded text-purple-300">connectonion.tui</code>
-                </p>
-              </div>
-            </div>
-            <CopyMarkdownButton markdownPath="/tui.md" filename="tui.md" className="flex-shrink-0" />
-          </div>
-        </div>
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'TUI Components' }
+          ]}
+          icon={HiOutlineCommandLine}
+          iconColor="icon-ui"
+          title="TUI Components"
+          description="Terminal UI components from connectonion.tui"
+          markdownPath="/tui.md"
+          markdownFilename="tui.md"
+        />
 
         {/* Quick Start */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-purple-900/30 to-cyan-900/30 rounded-lg border border-purple-200">
-          <h2 className="heading-2 flex items-center gap-2">
-            <HiOutlineCodeBracket className="w-5 h-5 text-purple-400" />
-            Quick Start
-          </h2>
+        <div className="mb-12 section-featured">
+          <h2 className="heading-2 mb-4">Quick Start</h2>
           <CodeWithResult
             code={`from connectonion.tui import pick, Input, StatusBar
 from rich.console import Console
@@ -208,13 +72,16 @@ console.print(status.render())`}
         </div>
 
         {/* Architecture */}
-        <div className="mb-12 p-6 bg-gray-800/30 rounded-lg border border-gray-700">
+        <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="heading-2">Architecture</h2>
-          <pre className="bg-gray-900 rounded p-4 overflow-x-auto text-sm text-gray-700">
-{`User Input → TUI Component → Terminal (Rich) → User
+          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+            <div className="px-4 py-2 bg-gray-800 border-b border-gray-700">
+              <span className="text-xs font-mono text-gray-400"># data flow</span>
+            </div>
+            <pre className="px-5 py-4 text-sm font-mono text-gray-300 overflow-x-auto leading-relaxed">{`User Input → TUI Component → Terminal (Rich) → User
      ↑                              ↓
-     └──── Keyboard Events ────────┘`}
-          </pre>
+     └──── Keyboard Events ────────┘`}</pre>
+          </div>
           <p className="text-gray-700 mt-4">
             Components use <strong>Rich</strong> for terminal rendering, <strong>raw mode</strong> for keyboard capture, and <strong>ANSI codes</strong> for styling.
           </p>
@@ -233,21 +100,21 @@ console.print(status.render())`}
                   <Link
                     key={component.id}
                     href={component.href}
-                    className={`group block p-4 rounded-lg border ${component.borderColor} ${component.bgColor} hover:border-purple-400/50 hover:bg-gray-100 transition-all min-h-[48px]`}
+                    className="group block p-4 rounded-lg border border-gray-200 bg-white hover:border-gray-400 hover:shadow-sm transition-all"
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <div className={`p-2 rounded-lg bg-gray-800 ${component.color}`}>
-                        <component.icon className="w-5 h-5" />
+                      <div className="w-9 h-9 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center group-hover:border-gray-400 transition-colors">
+                        <component.icon className="w-4.5 h-4.5 text-gray-500 group-hover:text-gray-700 transition-colors" style={{width:'1.125rem',height:'1.125rem'}} />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900 group-hover:text-purple-300 transition-colors">
+                        <h3 className="font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">
                           {component.title}
                         </h3>
                         <code className="text-xs text-gray-700">{component.name}</code>
                       </div>
                     </div>
                     <p className="text-sm text-gray-700 mb-4">{component.description}</p>
-                    <code className="text-xs text-purple-300 bg-gray-900 px-2 py-1 rounded block overflow-x-auto">
+                    <code className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded block overflow-x-auto">
                       {component.usage}
                     </code>
                   </Link>
@@ -259,68 +126,70 @@ console.print(status.render())`}
         {/* Quick Reference Table */}
         <div className="mb-12">
           <h2 className="heading-2">Quick Reference</h2>
-          <div className="bg-gray-100 rounded-lg p-4 overflow-x-auto">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-gray-700">Component</th>
-                  <th className="text-left py-2 text-gray-700">Purpose</th>
-                  <th className="text-left py-2 text-gray-700">Import</th>
+                <tr className="border-b border-gray-200 bg-gray-50">
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Component</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Purpose</th>
+                  <th className="hidden md:table-cell text-left px-4 py-3 text-gray-700 font-semibold">Import</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><Link href="/tui/chat" className="text-purple-400 hover:text-purple-300">Chat</Link></td>
-                  <td className="py-2 text-gray-700">Full chat interface with agent</td>
-                  <td className="py-2"><code className="text-xs">from connectonion.tui import Chat</code></td>
+              <tbody className="divide-y divide-gray-100">
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3"><Link href="/tui/chat" className="text-gray-700 font-medium hover:text-gray-900">Chat</Link></td>
+                  <td className="px-4 py-3 text-gray-600">Full chat interface with agent</td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Chat</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><Link href="/tui/input" className="text-purple-400 hover:text-purple-300">Input</Link></td>
-                  <td className="py-2 text-gray-700">Text input with autocomplete</td>
-                  <td className="py-2"><code className="text-xs">from connectonion.tui import Input</code></td>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3"><Link href="/tui/input" className="text-gray-700 font-medium hover:text-gray-900">Input</Link></td>
+                  <td className="px-4 py-3 text-gray-600">Text input with autocomplete</td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Input</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><Link href="/tui/pick" className="text-purple-400 hover:text-purple-300">pick</Link></td>
-                  <td className="py-2 text-gray-700">Single-select menu</td>
-                  <td className="py-2"><code className="text-xs">from connectonion.tui import pick</code></td>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3"><Link href="/tui/pick" className="text-gray-700 font-medium hover:text-gray-900">pick</Link></td>
+                  <td className="px-4 py-3 text-gray-600">Single-select menu</td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import pick</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><Link href="/tui/dropdown" className="text-purple-400 hover:text-purple-300">Dropdown</Link></td>
-                  <td className="py-2 text-gray-700">Dropdown menus</td>
-                  <td className="py-2"><code className="text-xs">from connectonion.tui import Dropdown</code></td>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3"><Link href="/tui/dropdown" className="text-gray-700 font-medium hover:text-gray-900">Dropdown</Link></td>
+                  <td className="px-4 py-3 text-gray-600">Dropdown menus</td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Dropdown</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><Link href="/tui/status-bar" className="text-purple-400 hover:text-purple-300">StatusBar</Link></td>
-                  <td className="py-2 text-gray-700">Powerline-style status</td>
-                  <td className="py-2"><code className="text-xs">from connectonion.tui import StatusBar</code></td>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3"><Link href="/tui/status-bar" className="text-gray-700 font-medium hover:text-gray-900">StatusBar</Link></td>
+                  <td className="px-4 py-3 text-gray-600">Powerline-style status</td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import StatusBar</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><Link href="/tui/footer" className="text-purple-400 hover:text-purple-300">Footer</Link></td>
-                  <td className="py-2 text-gray-700">Footer with help text</td>
-                  <td className="py-2"><code className="text-xs">from connectonion.tui import Footer</code></td>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3"><Link href="/tui/footer" className="text-gray-700 font-medium hover:text-gray-900">Footer</Link></td>
+                  <td className="px-4 py-3 text-gray-600">Footer with help text</td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Footer</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><Link href="/tui/divider" className="text-purple-400 hover:text-purple-300">Divider</Link></td>
-                  <td className="py-2 text-gray-700">Visual dividers</td>
-                  <td className="py-2"><code className="text-xs">from connectonion.tui import Divider</code></td>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3"><Link href="/tui/divider" className="text-gray-700 font-medium hover:text-gray-900">Divider</Link></td>
+                  <td className="px-4 py-3 text-gray-600">Visual dividers</td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Divider</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><Link href="/tui/fuzzy" className="text-purple-400 hover:text-purple-300">fuzzy</Link></td>
-                  <td className="py-2 text-gray-700">Fuzzy matching</td>
-                  <td className="py-2"><code className="text-xs">from connectonion.tui import fuzzy_match</code></td>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3"><Link href="/tui/fuzzy" className="text-gray-700 font-medium hover:text-gray-900">fuzzy</Link></td>
+                  <td className="px-4 py-3 text-gray-600">Fuzzy matching</td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import fuzzy_match</code></td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><Link href="/tui/keys" className="text-purple-400 hover:text-purple-300">keys</Link></td>
-                  <td className="py-2 text-gray-700">Keyboard input</td>
-                  <td className="py-2"><code className="text-xs">from connectonion.tui import getch</code></td>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3"><Link href="/tui/keys" className="text-gray-700 font-medium hover:text-gray-900">keys</Link></td>
+                  <td className="px-4 py-3 text-gray-600">Keyboard input</td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import getch</code></td>
                 </tr>
-                <tr>
-                  <td className="py-2"><Link href="/tui/providers" className="text-purple-400 hover:text-purple-300">providers</Link></td>
-                  <td className="py-2 text-gray-700">Autocomplete data sources</td>
-                  <td className="py-2"><code className="text-xs">from connectonion.tui import FileProvider</code></td>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3"><Link href="/tui/providers" className="text-gray-700 font-medium hover:text-gray-900">providers</Link></td>
+                  <td className="px-4 py-3 text-gray-600">Autocomplete data sources</td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import FileProvider</code></td>
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
         </div>
 

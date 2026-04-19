@@ -2,7 +2,7 @@
 
 import { HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineSquares2X2, HiOutlineCommandLine, HiOutlineWrench, HiOutlineGlobeAlt, HiOutlineUsers } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 interface Advantage {
   icon: React.ComponentType<{ className?: string }>
@@ -99,12 +99,12 @@ export function NonObviousAdvantages() {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-4">
-            <div className="h-px w-12 bg-green-300" />
-            <span className="text-green-700 text-sm font-mono uppercase tracking-wider">Beyond Code Comparison</span>
-            <div className="h-px w-12 bg-green-300" />
+            <div className="h-px w-12 bg-gray-300" />
+            <span className="text-gray-500 text-xs font-mono uppercase tracking-widest">Beyond Code Comparison</span>
+            <div className="h-px w-12 bg-gray-300" />
           </div>
           <h2 className="heading-2 mb-4">
-            What Other Frameworks <span className="text-green-700">Don&apos;t Have</span>
+            What Other Frameworks <span className="accent-italic text-[1.05em]">Don&apos;t Have</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
             These aren&apos;t about writing less code. They&apos;re capabilities other frameworks haven&apos;t built at all.
@@ -118,7 +118,7 @@ export function NonObviousAdvantages() {
               <div key={idx} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
                 <div className="p-6">
                   <div className="flex items-start gap-4 mb-3">
-                    <Icon className="w-7 h-7 text-green-600 flex-shrink-0 mt-0.5" />
+                    <Icon className="w-7 h-7 text-gray-400 flex-shrink-0 mt-0.5" />
                     <div>
                       <h3 className="text-base font-bold text-gray-900">{adv.title}</h3>
                       <p className="text-sm text-gray-500">{adv.tagline}</p>
@@ -130,11 +130,11 @@ export function NonObviousAdvantages() {
                       <div className="overflow-x-auto">
                         <SyntaxHighlighter
                           language="python"
-                          style={monokai}
+                          style={okaidia}
                           customStyle={{
                             margin: 0,
                             padding: '0.75rem',
-                            background: '#1a1a2e',
+                            background: '#111827',
                             fontSize: '0.75rem',
                             lineHeight: '1.5'
                           }}

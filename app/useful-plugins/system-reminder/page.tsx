@@ -18,10 +18,7 @@ export default function SystemReminderPluginPage() {
             { label: 'system_reminder' },
           ]}
           icon={HiOutlineChatBubbleBottomCenterText}
-          iconColor="text-teal-400"
-          iconBgFrom="from-teal-600/20"
-          iconBgTo="to-cyan-600/20"
-          iconBorderColor="border-teal-500/30"
+          iconColor="icon-ui"
           title="system_reminder"
           description="Inject contextual guidance into tool results"
           markdownPath="/useful-plugins/system_reminder.md"
@@ -32,11 +29,11 @@ export default function SystemReminderPluginPage() {
         <section className="mb-12">
           <h2 className="heading-2">What it does</h2>
           <p className="text-gray-700 mb-6">
-            The <code className="bg-gray-800 px-2 py-1 rounded">system_reminder</code> plugin injects contextual guidance into tool results to nudge agent behavior—without extra API calls.
+            The <code className="bg-gray-100 px-2 py-1 rounded">system_reminder</code> plugin injects contextual guidance into tool results to nudge agent behavior—without extra API calls.
           </p>
-          <div className="p-4 bg-teal-900/20 border border-teal-500/30 rounded-lg">
+          <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
-              <HiOutlineLightBulb className="w-5 h-5 text-teal-400" />
+              <HiOutlineLightBulb className="w-5 h-5 text-gray-400" />
               <h3 className="font-semibold">Example: After writing code</h3>
             </div>
             <CodeWithResult
@@ -66,7 +63,7 @@ agent = Agent("assistant", tools=[write_file], plugins=[system_reminder])`}
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy system_reminder</code></Link> to get an editable copy with built-in reminders.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-700"><code className="bg-gray-100 px-2 py-1 rounded">co copy system_reminder</code></Link> to get an editable copy with built-in reminders.
           </p>
         </section>
 
@@ -101,35 +98,35 @@ agent = Agent("assistant", tools=[write_file], plugins=[system_reminder])`}
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th scope="col" className="text-left py-2 text-gray-700">Category</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Purpose</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Example</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 font-semibold text-teal-300">Workflow Nudges</td>
+                <tr className="border-b border-gray-200/50">
+                  <td className="py-2 font-semibold text-gray-700">Workflow Nudges</td>
                   <td className="py-2 text-gray-700">Gentle best practice suggestions</td>
                   <td className="py-2 text-gray-700">&quot;Consider running tests&quot;</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 font-semibold text-teal-300">State Notifications</td>
+                <tr className="border-b border-gray-200/50">
+                  <td className="py-2 font-semibold text-gray-700">State Notifications</td>
                   <td className="py-2 text-gray-700">Inform about state changes</td>
                   <td className="py-2 text-gray-700">&quot;You exited plan mode&quot;</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 font-semibold text-teal-300">External Events</td>
+                <tr className="border-b border-gray-200/50">
+                  <td className="py-2 font-semibold text-gray-700">External Events</td>
                   <td className="py-2 text-gray-700">React to external changes</td>
                   <td className="py-2 text-gray-700">&quot;File was modified by linter&quot;</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2 font-semibold text-teal-300">Next Steps</td>
+                <tr className="border-b border-gray-200/50">
+                  <td className="py-2 font-semibold text-gray-700">Next Steps</td>
                   <td className="py-2 text-gray-700">Guide what to do next</td>
                   <td className="py-2 text-gray-700">&quot;Verify your implementation&quot;</td>
                 </tr>
                 <tr>
-                  <td className="py-2 font-semibold text-teal-300">Context Injection</td>
+                  <td className="py-2 font-semibold text-gray-700">Context Injection</td>
                   <td className="py-2 text-gray-700">Provide relevant info</td>
                   <td className="py-2 text-gray-700">&quot;This file contains secrets&quot;</td>
                 </tr>
@@ -162,35 +159,35 @@ This is a gentle reminder - ignore if not applicable.
           <div className="bg-gray-100 rounded-lg p-4 mt-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th scope="col" className="text-left py-2 text-gray-700">Field</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Required</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Description</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><code className="text-purple-300">name</code></td>
+                <tr className="border-b border-gray-200/50">
+                  <td className="py-2"><code className="text-gray-600">name</code></td>
                   <td className="py-2 text-gray-700">Yes</td>
                   <td className="py-2 text-gray-700">Unique identifier</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><code className="text-purple-300">triggers</code></td>
+                <tr className="border-b border-gray-200/50">
+                  <td className="py-2"><code className="text-gray-600">triggers</code></td>
                   <td className="py-2 text-gray-700">Yes</td>
                   <td className="py-2 text-gray-700">List of trigger conditions</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><code className="text-purple-300">triggers[].tool</code></td>
+                <tr className="border-b border-gray-200/50">
+                  <td className="py-2"><code className="text-gray-600">triggers[].tool</code></td>
                   <td className="py-2 text-gray-700">No</td>
                   <td className="py-2 text-gray-700">Tool name to match</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><code className="text-purple-300">triggers[].path_pattern</code></td>
+                <tr className="border-b border-gray-200/50">
+                  <td className="py-2"><code className="text-gray-600">triggers[].path_pattern</code></td>
                   <td className="py-2 text-gray-700">No</td>
                   <td className="py-2 text-gray-700">Glob pattern(s) for file paths</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><code className="text-purple-300">triggers[].command_pattern</code></td>
+                  <td className="py-2"><code className="text-gray-600">triggers[].command_pattern</code></td>
                   <td className="py-2 text-gray-700">No</td>
                   <td className="py-2 text-gray-700">Glob pattern(s) for commands</td>
                 </tr>
@@ -235,15 +232,15 @@ agent = Agent("assistant", plugins=[system_reminder])`}
         <section className="mb-12">
           <h2 className="heading-2">Design Principles</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
-              <h3 className="font-semibold text-green-300 mb-2">Gentle, Not Forceful</h3>
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 className="font-semibold text-gray-900 mb-2">Gentle, Not Forceful</h3>
               <ul className="text-sm text-gray-700 space-y-1">
                 <li>✓ &quot;Consider running tests&quot;</li>
                 <li>✗ &quot;You MUST run tests now&quot;</li>
               </ul>
             </div>
-            <div className="p-4 bg-blue-900/20 border border-blue-200 rounded-lg">
-              <h3 className="font-semibold text-blue-300 mb-2">Contextual, Not Spammy</h3>
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 className="font-semibold text-gray-700 mb-2">Contextual, Not Spammy</h3>
               <p className="text-sm text-gray-700">Fire only when relevant, not after every tool call</p>
             </div>
           </div>
@@ -255,7 +252,7 @@ agent = Agent("assistant", plugins=[system_reminder])`}
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th scope="col" className="text-left py-2 text-gray-700">Event</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Handler</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Purpose</th>
@@ -263,7 +260,7 @@ agent = Agent("assistant", plugins=[system_reminder])`}
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-2"><code className="text-purple-300">after_each_tool</code></td>
+                  <td className="py-2"><code className="text-gray-600">after_each_tool</code></td>
                   <td className="py-2">inject_reminder</td>
                   <td className="py-2 text-gray-700">Append matching reminder to tool result</td>
                 </tr>
@@ -276,7 +273,7 @@ agent = Agent("assistant", plugins=[system_reminder])`}
         <section className="mb-12">
           <h2 className="heading-2">Source</h2>
           <p className="text-gray-700 mb-4">
-            <code className="bg-gray-800 px-2 py-1 rounded">connectonion/useful_plugins/system_reminder.py</code>
+            <code className="bg-gray-100 px-2 py-1 rounded">connectonion/useful_plugins/system_reminder.py</code>
           </p>
           <CodeWithResult
             code={`# The plugin is just a list of event handlers

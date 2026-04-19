@@ -9,7 +9,7 @@ import { PageHeader } from '../../../components/PageHeader'
 
 export default function DropdownPage() {
   return (
-    <div className="px-4 md:px-8 py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24 doc-content--reference">
       <div className="max-w-4xl mx-auto">
         <PageHeader
           breadcrumbs={[
@@ -18,10 +18,7 @@ export default function DropdownPage() {
             { label: 'Dropdown' },
           ]}
           icon={HiOutlineChevronDown}
-          iconColor="text-green-400"
-          iconBgFrom="from-green-600/20"
-          iconBgTo="to-emerald-600/20"
-          iconBorderColor="border-green-500/30"
+          iconColor="icon-ui"
           title="Dropdown"
           description="Selection list component for autocomplete menus"
           markdownPath="/tui/dropdown.md"
@@ -126,25 +123,25 @@ item = DropdownItem(display="/today", value="/today")`}
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="text-left py-2 text-gray-700">Icon</th>
                   <th className="text-left py-2 text-gray-700">Type</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">📁</td>
                   <td className="py-2 text-gray-700">folder</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">📄</td>
                   <td className="py-2 text-gray-700">file (default)</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">🐍</td>
                   <td className="py-2 text-gray-700">.py</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">📜</td>
                   <td className="py-2 text-gray-700">.js, .ts</td>
                 </tr>

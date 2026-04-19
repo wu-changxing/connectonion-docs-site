@@ -17,10 +17,7 @@ export default function ShellPage() {
             { label: 'Shell' }
           ]}
           icon={HiOutlineCommandLine}
-          iconColor="text-orange-400"
-          iconBgFrom="from-orange-600/20"
-          iconBgTo="to-red-600/20"
-          iconBorderColor="border-orange-500/30"
+          iconColor="icon-ui"
           title="Shell"
           description="Shell command execution tool."
           markdownPath="/useful-tools/shell.md"
@@ -37,7 +34,7 @@ shell = Shell()`}
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy shell</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-700"><code className="bg-gray-100 px-2 py-1 rounded">co copy shell</code></Link> to get an editable copy.
           </p>
         </section>
 

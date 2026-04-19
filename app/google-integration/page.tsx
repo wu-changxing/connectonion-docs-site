@@ -14,7 +14,7 @@ export default function GoogleIntegrationPage() {
       <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-          <Link href="/" className="hover:text-purple-400 transition-colors">
+          <Link href="/" className="hover:text-gray-500 transition-colors">
             Docs
           </Link>
           <HiOutlineArrowRight className="w-4 h-4" />
@@ -25,8 +25,8 @@ export default function GoogleIntegrationPage() {
         <div className="mb-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-red-600/20 to-blue-600/20 rounded-xl border border-red-200">
-                <FaGoogle className="w-8 h-8 text-white" />
+              <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
+                <FaGoogle className="w-8 h-8 text-gray-700" />
               </div>
               <div>
                 <h1 className="heading-1">Google Integration</h1>
@@ -42,11 +42,11 @@ export default function GoogleIntegrationPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-gray-500" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
-          <div className="bg-gradient-to-r from-red-500/10 to-blue-500/10 rounded-xl p-8 border border-gray-700 mb-8">
+          <div className="bg-gradient-to-r from-red-500/10 to-blue-500/10 rounded-xl p-8 border border-gray-200 mb-8">
             <CommandBlock commands={['co auth google']} />
             
             <div className="mt-8 space-y-4">
@@ -54,15 +54,15 @@ export default function GoogleIntegrationPage() {
               <ol className="list-decimal list-inside space-y-2 text-gray-700 ml-2">
                 <li>Opens browser to Google OAuth consent screen</li>
                 <li>You authorize Gmail Send + Calendar Read permissions</li>
-                <li>Credentials saved to <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> (both local and global <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code>)</li>
+                <li>Credentials saved to <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> (both local and global <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code>)</li>
                 <li>Ready to use Gmail and Calendar tools immediately</li>
               </ol>
             </div>
           </div>
 
           <div className="text-center">
-            <p className="text-green-400 font-semibold text-xl flex items-center justify-center gap-2">
-              <FaStar className="text-yellow-400" />
+            <p className="text-gray-600 font-semibold text-xl flex items-center justify-center gap-2">
+              <FaStar className="text-gray-500" />
               That's it. Your agents can now send emails and read your calendar.
             </p>
           </div>
@@ -72,11 +72,11 @@ export default function GoogleIntegrationPage() {
         <section className="mb-16">
           <h2 className="heading-2">Prerequisites</h2>
           <p className="text-gray-700 mb-6">
-            Before running <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth google</code>, you must authenticate with OpenOnion:
+            Before running <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth google</code>, you must authenticate with OpenOnion:
           </p>
           <CommandBlock commands={['co auth']} />
           <p className="text-gray-700 mt-4">
-            This creates your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code> which is required for Google OAuth to work.
+            This creates your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code> which is required for Google OAuth to work.
           </p>
         </section>
 
@@ -84,7 +84,7 @@ export default function GoogleIntegrationPage() {
         <section className="mb-16">
           <h2 className="heading-2">What Gets Saved</h2>
           <p className="text-gray-700 mb-6">
-            After successful authentication, your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> file contains:
+            After successful authentication, your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> file contains:
           </p>
 
           <CodeWithResult 
@@ -98,26 +98,26 @@ GOOGLE_EMAIL=your.email@gmail.com`}
             fileName=".env"
           />
 
-          <div className="mt-8 bg-gray-900/50 border border-gray-700 rounded-xl p-6">
+          <div className="mt-8 bg-gray-50 border border-gray-200 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <HiOutlineLockClosed className="w-5 h-5 text-purple-400" />
+              <HiOutlineLockClosed className="w-5 h-5 text-gray-500" />
               Security notes
             </h3>
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
-                <span>Credentials are saved to both local <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.env</code> and <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></span>
+                <span className="text-gray-500">•</span>
+                <span>Credentials are saved to both local <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> and <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
-                <span>File permissions set to <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">0600</code> (read/write for owner only) on Unix systems</span>
+                <span className="text-gray-500">•</span>
+                <span>File permissions set to <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">0600</code> (read/write for owner only) on Unix systems</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>Access tokens expire, but refresh tokens allow automatic renewal</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-purple-400">•</span>
+                <span className="text-gray-500">•</span>
                 <span>You can revoke access anytime via Google Account settings or the dashboard</span>
               </li>
             </ul>
@@ -128,13 +128,13 @@ GOOGLE_EMAIL=your.email@gmail.com`}
         <section className="mb-16">
           <h2 className="heading-2">Permissions Requested</h2>
           <p className="text-gray-700 mb-6">
-            When you run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth google</code>, we request these Google scopes:
+            When you run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth google</code>, we request these Google scopes:
           </p>
 
           <div className="overflow-x-auto mb-8">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th className="py-3 px-4 font-semibold text-gray-900">Scope</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">Purpose</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">What agents can do</th>
@@ -142,17 +142,17 @@ GOOGLE_EMAIL=your.email@gmail.com`}
               </thead>
               <tbody className="text-gray-700">
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-purple-400">gmail.send</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">gmail.send</td>
                   <td className="py-3 px-4">Send emails on your behalf</td>
-                  <td className="py-3 px-4">Use <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">send_email()</code> tool to send emails</td>
+                  <td className="py-3 px-4">Use <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">send_email()</code> tool to send emails</td>
                 </tr>
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-purple-400">calendar.readonly</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">calendar.readonly</td>
                   <td className="py-3 px-4">Read calendar events</td>
                   <td className="py-3 px-4">Read your calendar to check availability</td>
                 </tr>
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-purple-400">userinfo.email</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">userinfo.email</td>
                   <td className="py-3 px-4">Get your email address</td>
                   <td className="py-3 px-4">Identify which Google account is connected</td>
                 </tr>
@@ -160,8 +160,8 @@ GOOGLE_EMAIL=your.email@gmail.com`}
             </table>
           </div>
 
-          <div className="bg-blue-900/20 border border-blue-200 rounded-xl p-6">
-            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-blue-400">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-gray-500">
               <HiOutlineShieldCheck className="w-5 h-5" />
               Privacy First
             </h3>
@@ -169,7 +169,7 @@ GOOGLE_EMAIL=your.email@gmail.com`}
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="text-red-400">✕</span>
-                <span>Read your inbox (use built-in <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">get_emails()</code> for that)</span>
+                <span>Read your inbox (use built-in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">get_emails()</code> for that)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-red-400">✕</span>
@@ -191,7 +191,7 @@ GOOGLE_EMAIL=your.email@gmail.com`}
           <div className="space-y-12">
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineEnvelope className="w-5 h-5 text-purple-400" />
+                <HiOutlineEnvelope className="w-5 h-5 text-gray-500" />
                 Send Email via Gmail
               </h3>
               <CodeWithResult 
@@ -215,7 +215,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineCalendar className="w-5 h-5 text-purple-400" />
+                <HiOutlineCalendar className="w-5 h-5 text-gray-500" />
                 Read Calendar Events
               </h3>
               <CodeWithResult 
@@ -387,21 +387,21 @@ for tomorrow at 2pm. Subject: Q4 Planning Discussion
           <h2 className="heading-2">Troubleshooting</h2>
 
           <div className="space-y-8">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-red-400">"Not authenticated with OpenOnion"</h3>
-              <p className="text-gray-700 mb-4">You need to run <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">"Not authenticated with OpenOnion"</h3>
+              <p className="text-gray-700 mb-4">You need to run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
               <CommandBlock commands={['co auth', 'co auth google']} />
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-yellow-400">Authorization Timeout</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-500">Authorization Timeout</h3>
               <p className="text-gray-700 mb-4">If the browser window doesn't complete authorization within 5 minutes:</p>
               <CommandBlock commands={['co auth google']} />
-              <p className="text-sm text-gray-400 mt-2">The command polls the backend every 2 seconds waiting for your authorization.</p>
+              <p className="text-sm text-gray-600 mt-2">The command polls the backend every 2 seconds waiting for your authorization.</p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-blue-400">Credentials Not Working</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-500">Credentials Not Working</h3>
               <p className="text-gray-700 mb-4">Check if credentials are properly saved:</p>
               <CodeWithResult 
                 code={`# Check local .env

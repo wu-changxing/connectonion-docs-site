@@ -295,7 +295,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
     <div className="w-full">
       <main className="p-4 lg:p-8 lg:px-16 pb-20">
         <div>
-          <article className="prose prose-invert max-w-none">
+          <article className="prose prose-gray max-w-2xl mx-auto">
             <div className="mb-8 flex justify-between items-start">
               <div>
                 <h1 className="heading-1">
@@ -306,22 +306,22 @@ Sometimes the best API decisions are the ones that make developers forget they'r
               <CopyMarkdownButton content={fullContent} />
             </div>
 
-            <div className="mt-8 space-y-6 text-gray-200">
-              <p className="text-lg leading-relaxed text-gray-700 italic">
+            <div className="mt-8 space-y-6 text-gray-700">
+              <p className="text-xl leading-relaxed text-gray-600 italic">
                 Functions need verbs, and "do" is the ultimate action word
               </p>
 
               <p className="text-lg leading-relaxed">
-                After introducing one-shot LLM calls to ConnectOnion, we initially named the function <code className="bg-gray-100 text-green-300 px-2 py-1 rounded font-mono text-sm">llm()</code>. It seemed perfect - short, clear, obvious. But we quickly discovered a fundamental problem that forced us to reconsider.
+                After introducing one-shot LLM calls to ConnectOnion, we initially named the function <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded font-mono text-sm">llm()</code>. It seemed perfect - short, clear, obvious. But we quickly discovered a fundamental problem that forced us to reconsider.
               </p>
 
               <h2 className="heading-2">The Problem: Functions Should Be Verbs</h2>
               
               <CodeWithResult code={codeExample1} language="python" className="my-6" />
 
-              <div className="bg-red-900/20 border border-red-200 rounded-lg p-6 my-6">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6 my-6">
                 <p className="text-red-800 font-semibold">
-                  In English, <code className="bg-red-900/50 px-2 py-1 rounded">llm()</code> reads as a noun, not a verb.
+                  In English, <code className="bg-red-100 px-2 py-1 rounded">llm()</code> reads as a noun, not a verb.
                 </p>
                 <p className="text-red-800 mt-2">
                   This violated a fundamental principle of good API design: functions perform actions, so they should be named with verbs.
@@ -334,7 +334,7 @@ Sometimes the best API decisions are the ones that make developers forget they'r
 
               <CodeWithResult code={codeExample2} language="python" className="my-6" />
 
-              <div className="bg-gradient-to-br from-green-900/20 to-transparent border border-green-500/20 rounded-xl p-6 my-8">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
                 <p className="text-green-800 font-semibold text-lg">
                   The beauty of "do" is that it doesn't prescribe HOW the task is performed, just THAT it's performed.
                 </p>
@@ -349,34 +349,34 @@ Sometimes the best API decisions are the ones that make developers forget they'r
               <h2 className="heading-2">Measuring Developer Response</h2>
               
               <div className="grid md:grid-cols-2 gap-6 my-8">
-                <div className="bg-gradient-to-br from-emerald-900/20 to-transparent border border-emerald-500/20 rounded-xl p-6">
-                  <div className="text-3xl font-bold text-emerald-400 mb-2">23%</div>
-                  <p className="text-emerald-200">Increase in code readability scores</p>
+                <div className="bg-gradient-to-br from-gray-50 to-gray-50 border border-gray-200 rounded-xl p-6">
+                  <div className="text-3xl font-bold text-gray-900 mb-2">23%</div>
+                  <p className="text-gray-600">Increase in code readability scores</p>
                 </div>
-                <div className="bg-gradient-to-br from-emerald-900/20 to-transparent border border-emerald-500/20 rounded-xl p-6">
-                  <div className="text-3xl font-bold text-emerald-400 mb-2">0</div>
-                  <p className="text-emerald-200">Complaints about the name</p>
+                <div className="bg-gradient-to-br from-gray-50 to-gray-50 border border-gray-200 rounded-xl p-6">
+                  <div className="text-3xl font-bold text-gray-900 mb-2">0</div>
+                  <p className="text-gray-600">Complaints about the name</p>
                 </div>
               </div>
 
               <h2 className="heading-2">The Philosophy</h2>
               
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-8">
-                <p className="text-lg mb-4">This decision reflects a core belief: <strong className="text-green-300">code should read like natural language</strong>.</p>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-8">
+                <p className="text-lg mb-4">This decision reflects a core belief: <strong>code should read like natural language</strong>.</p>
                 
                 <div className="space-y-4">
                   <div>
                     <p className="text-sm text-gray-700 mb-1">When you write:</p>
-                    <code className="text-green-300 font-mono">answer = llm_do("What is the meaning of life?")</code>
+                    <code className="text-gray-700 font-mono">answer = llm_do("What is the meaning of life?")</code>
                     <p className="text-sm text-gray-700 mt-1">It reads as: "answer equals llm do what is the meaning of life"</p>
-                    <p className="text-sm text-green-400 font-semibold">✓ That's almost a valid English sentence!</p>
+                    <p className="text-sm text-gray-700 font-semibold">✓ That's almost a valid English sentence!</p>
                   </div>
                   
-                  <div className="pt-4 border-t border-gray-700">
+                  <div className="pt-4 border-t border-gray-200">
                     <p className="text-sm text-gray-700 mb-1">Compare to the original:</p>
-                    <code className="text-red-300 font-mono">answer = llm("What is the meaning of life?")</code>
+                    <code className="text-red-700 font-mono">answer = llm("What is the meaning of life?")</code>
                     <p className="text-sm text-gray-700 mt-1">Which reads as: "answer equals llm what is the meaning of life"</p>
-                    <p className="text-sm text-red-400 font-semibold">✗ That's not English - it's computerese.</p>
+                    <p className="text-sm text-red-700 font-semibold">✗ That's not English - it's computerese.</p>
                   </div>
                 </div>
               </div>
@@ -385,30 +385,30 @@ Sometimes the best API decisions are the ones that make developers forget they'r
               
               <div className="space-y-4">
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">1</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">1</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-green-300 mb-1">Functions Are Actions</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Functions Are Actions</h3>
                     <p className="text-gray-700">If it does something, name it with a verb. No exceptions.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">2</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">2</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-green-300 mb-1">"Do" Is the Ultimate Verb</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">"Do" Is the Ultimate Verb</h3>
                     <p className="text-gray-700">When you need a verb that works for any action, "do" is unbeatable.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">3</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">3</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-green-300 mb-1">Readability {'>'} Brevity</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Readability {'>'} Brevity</h3>
                     <p className="text-gray-700">Three extra characters is a small price for natural reading.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">4</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">4</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-green-300 mb-1">Test by Reading Aloud</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Test by Reading Aloud</h3>
                     <p className="text-gray-700">If it sounds wrong when spoken, it's wrong in code.</p>
                   </div>
                 </div>

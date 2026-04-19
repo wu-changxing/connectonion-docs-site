@@ -18,7 +18,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import { HiOutlineClipboard, HiOutlineCheck, HiOutlineUsers, HiOutlineRocketLaunch, HiOutlineArrowRight, HiOutlineBolt, HiOutlineCodeBracket, HiOutlineCog6Tooth, HiOutlineArrowPath, HiOutlinePlay } from 'react-icons/hi2'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineUsers, HiOutlineRocketLaunch, HiOutlineArrowRight, HiOutlineBolt, HiOutlineCodeBracket, HiOutlineCog6Tooth, HiOutlineArrowPath, HiOutlinePlay, HiOutlineChatBubbleBottomCenterText, HiOutlineDocumentText, HiOutlineCpuChip, HiOutlineSparkles, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineGlobeAlt } from 'react-icons/hi2'
 import CodeWithResult from '../../components/CodeWithResult'
 import { CommandBlock } from '../../components/CommandBlock'
 import { PageHeader } from '../../components/PageHeader'
@@ -47,12 +47,32 @@ export default function AgentDocsPage() {
           markdownFilename="agent.md"
         />
 
+        {/* On This Page — visible on tablet only (md-lg); mobile gets MobileSectionJump, desktop gets sticky right-rail */}
+        <nav className="hidden md:block lg:hidden mb-12 border border-gray-200 rounded-xl overflow-hidden">
+          <div className="px-4 py-2.5 bg-gray-50 border-b border-gray-200">
+            <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">On this page</span>
+          </div>
+          <div className="divide-y divide-gray-100">
+            {[
+              { href: '#quick-start', label: 'Quick Start' },
+              { href: '#api-overview', label: 'Full API Overview' },
+              { href: '#max-iterations', label: 'max_iterations' },
+              { href: '#complete-docs', label: 'Complete Documentation' },
+              { href: '#agents', label: 'Related — Agents' },
+              { href: '#examples', label: 'Real-World Examples' },
+              { href: '#philosophy', label: 'Philosophy' },
+            ].map(({ href, label }) => (
+              <a key={href} href={href} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors group">
+                <span className="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-gray-600 transition-colors flex-shrink-0" />
+                {label}
+              </a>
+            ))}
+          </div>
+        </nav>
+
         {/* Quick Start Section */}
-        <section className="mb-16">
-          <h2 className="heading-2">
-            <HiOutlineRocketLaunch className="w-6 h-6 text-green-600" />
-            Quick Start (60 Seconds)
-          </h2>
+        <section className="mb-16" id="quick-start">
+          <h2 className="heading-2">Quick Start (60 Seconds)</h2>
 
           <CodeWithResult
             code={`from connectonion import Agent
@@ -72,22 +92,19 @@ The result is 714.`}
             language="python"
           />
 
-          <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
-            <p className="text-green-700 font-semibold">
+          <div className="mt-4 callout-sm">
+            <p className="text-sm font-semibold text-gray-900">
               That's it. Your first AI agent in 5 lines.
             </p>
           </div>
         </section>
 
         {/* Full API Overview */}
-        <section className="mb-16">
-          <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-6 h-6 text-green-600" />
-            What Agent Can Do - Full API Overview
-          </h2>
+        <section className="mb-16" id="api-overview">
+          <h2 className="heading-2">What Agent Can Do — Full API Overview</h2>
 
           <p className="text-gray-700 mb-6">
-            After that simple example, here's <span className="text-green-600 font-semibold">everything</span> an Agent can do:
+            After that simple example, here's <span className="font-semibold text-gray-900">everything</span> an Agent can do:
           </p>
 
           {/* Creating an Agent */}
@@ -173,11 +190,11 @@ agent.last_usage          # dict: Last call token usage`}
             />
           </div>
 
-          <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-            <p className="text-green-700 font-semibold mb-2">
+          <div className="mt-6 callout-sm">
+            <p className="text-sm font-semibold text-gray-900 mb-1">
               That's the complete API.
             </p>
-            <p className="text-gray-700 text-sm">
+            <p className="text-gray-600 text-sm">
               Now let's dive into each feature below. Jump to any section that interests you!
             </p>
           </div>
@@ -185,15 +202,12 @@ agent.last_usage          # dict: Last call token usage`}
 
         {/* max_iterations Section */}
         <section className="mb-16" id="max-iterations">
-          <h2 className="heading-2">
-            <HiOutlineArrowPath className="w-8 h-8 text-green-600" />
-            max_iterations
-          </h2>
+          <h2 className="heading-2">max_iterations</h2>
 
-          <div className="flex items-start gap-3 mb-8 p-4 bg-green-50 border border-green-200 rounded-lg">
-            <HiOutlineBolt className="text-green-600 w-5 h-5 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-green-700">
-              <strong className="text-green-800">Quick Facts:</strong>{' '}
+          <div className="flex items-start gap-3 mb-8 callout-sm">
+            <HiOutlineBolt className="icon-ui w-5 h-5 flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-gray-700">
+              <strong className="text-gray-900">Quick Facts:</strong>{' '}
               Default is 10 iterations (works for most tasks!). Fully customizable per-agent or per-task.
             </div>
           </div>
@@ -267,11 +281,11 @@ result = agent.input(
             </div>
 
             {/* When to Adjust */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4">When to Adjust max_iterations</h3>
               <div className="space-y-4 text-gray-700">
                 <div>
-                  <strong className="text-green-600">Increase it when:</strong>
+                  <strong className="text-gray-900">Increase it when:</strong>
                   <ul className="list-disc list-inside ml-4 mt-2 space-y-1 text-sm">
                     <li>Your agent runs complex, multi-step workflows</li>
                     <li>Tasks require multiple tool calls (research, analysis, etc.)</li>
@@ -294,19 +308,19 @@ result = agent.input(
               <h3 className="text-xl font-bold text-gray-900 mb-4">Best Practices</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span><strong>Start with default (10)</strong> - it works for most use cases</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span><strong>Monitor your logs</strong> - check how many iterations tasks actually use</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span><strong>Set per-agent</strong> for specialized agents (researcher=25, calculator=5)</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span><strong>Override per-task</strong> when you know a specific task needs more/less</span>
                 </li>
               </ul>
@@ -315,10 +329,10 @@ result = agent.input(
         </section>
 
         {/* Full Documentation Note */}
-        <section className="mb-16">
-          <div className="p-6 bg-green-50 rounded-xl border border-green-200">
+        <section className="mb-16" id="complete-docs">
+          <div className="p-6 bg-gray-50 rounded-xl border border-gray-200">
             <h2 className="heading-2">
-              <HiOutlineCodeBracket className="w-6 h-6 text-green-600" />
+              <HiOutlineCodeBracket className="w-6 h-6 icon-ui" />
               Complete Documentation
             </h2>
             <p className="text-gray-700 mb-4">
@@ -326,99 +340,129 @@ result = agent.input(
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-4 text-sm">
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Creating Agents
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Managing Tools
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Multi-Turn Conversations
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Iteration Control
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Common Patterns
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
                 Testing Strategies
               </div>
             </div>
-            <p className="text-green-700 font-semibold">
+            <p className="text-sm text-gray-600">
               Use the "Copy" button above to get the full markdown documentation with all details, examples, and patterns.
             </p>
           </div>
         </section>
 
-        {/* Learn More Section */}
-        <section className="mb-16">
-          <h2 className="heading-2">Learn More</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Link
-              href="/tools"
-              className="card-interactive p-6 rounded-lg border border-gray-200 group"
-            >
-              <HiOutlineCodeBracket className="w-8 h-8 text-green-600 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">
-                Tools
-              </h3>
-              <p className="text-sm text-gray-600">
-                Learn how to create powerful tools for your agents
-              </p>
+        {/* Core Concepts Section */}
+        <section className="mb-16" id="agents">
+          <h2 className="heading-2">Agents</h2>
+          <p className="text-gray-600 mb-6">Everything the Agent class can do, in depth.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <Link href="/prompts" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlineChatBubbleBottomCenterText className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">System Prompts</h3>
+                <p className="text-xs text-gray-500">Give your agent a personality and behavior</p>
+              </div>
             </Link>
-
-            <a
-              href="#max-iterations"
-              className="card-interactive p-6 rounded-lg border border-gray-200 group"
-            >
-              <HiOutlineArrowPath className="w-8 h-8 text-green-600 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">
-                max_iterations
-              </h3>
-              <p className="text-sm text-gray-600">
-                Control how many tool calls your agent can make
-              </p>
-            </a>
-
-            <Link
-              href="/prompts"
-              className="card-interactive p-6 rounded-lg border border-gray-200 group"
-            >
-              <HiOutlineCog6Tooth className="w-8 h-8 text-green-600 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">
-                System Prompts
-              </h3>
-              <p className="text-sm text-gray-600">
-                Give your agent a personality and behavior
-              </p>
+            <Link href="/tools" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlineCodeBracket className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">Tools</h3>
+                <p className="text-xs text-gray-500">Create functions your agent can call</p>
+              </div>
             </Link>
-
-            <Link
-              href="/xray"
-              className="card-interactive p-6 rounded-lg border border-gray-200 group"
-            >
-              <HiOutlineBolt className="w-8 h-8 text-green-600 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">
-                Debug with @xray
-              </h3>
-              <p className="text-sm text-gray-600">
-                See what your agent is thinking during execution
-              </p>
+            <Link href="/models" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlineCpuChip className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">Models</h3>
+                <p className="text-xs text-gray-500">GPT-4o, Gemini, Claude, and managed co/ models</p>
+              </div>
+            </Link>
+            <Link href="/llm_do" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlineSparkles className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">LLM Function</h3>
+                <p className="text-xs text-gray-500">Call LLMs directly without an agent loop</p>
+              </div>
+            </Link>
+            <Link href="/on_events" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlineChartBarSquare className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">Event System</h3>
+                <p className="text-xs text-gray-500">Hooks into agent lifecycle: before/after LLM, tools, errors</p>
+              </div>
+            </Link>
+            <Link href="/plugin" className="card-interactive flex items-start gap-4 p-4 rounded-lg border border-gray-200 group">
+              <HiOutlinePuzzlePiece className="w-5 h-5 icon-ui flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors">Plugin System</h3>
+                <p className="text-xs text-gray-500">Reusable event handler bundles for your agents</p>
+              </div>
             </Link>
           </div>
         </section>
 
+        {/* Real-World Examples */}
+        <section className="mb-16" id="examples">
+          <h2 className="heading-2">Real-World Examples</h2>
+          <p className="text-gray-600 mb-6">Open-source agents built with ConnectOnion.</p>
+          <div className="divide-y divide-gray-100 border border-gray-200 rounded-xl overflow-hidden">
+            <a
+              href="https://github.com/openonion/browser-agent"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between px-5 py-4 bg-white hover:bg-gray-50 transition-colors group"
+            >
+              <div className="flex items-start gap-3">
+                <HiOutlineGlobeAlt className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">browser-agent</h3>
+                  <p className="text-xs text-gray-500 mt-0.5">Stateful web automation — navigate, screenshot, scrape with Playwright</p>
+                </div>
+              </div>
+              <span className="text-xs text-gray-500 whitespace-nowrap flex-shrink-0 ml-4">github.com/openonion ↗</span>
+            </a>
+            <a
+              href="https://github.com/openonion/oo-chat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between px-5 py-4 bg-white hover:bg-gray-50 transition-colors group"
+            >
+              <div className="flex items-start gap-3">
+                <HiOutlineChatBubbleBottomCenterText className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">oo-chat</h3>
+                  <p className="text-xs text-gray-500 mt-0.5">Open-source chat UI for AI agents — self-hostable, React-based</p>
+                </div>
+              </div>
+              <span className="text-xs text-gray-500 whitespace-nowrap flex-shrink-0 ml-4">github.com/openonion ↗</span>
+            </a>
+          </div>
+        </section>
+
         {/* Philosophy */}
-        <section className="mb-16">
+        <section className="mb-16" id="philosophy">
           <div className="p-8 bg-gray-50 rounded-xl border border-gray-200">
             <h2 className="heading-2">Philosophy</h2>
-            <p className="text-xl text-green-700 font-semibold mb-6">
+            <p className="text-xl font-semibold text-gray-900 mb-6 accent-italic">
               "Keep simple things simple, make complicated things possible"
             </p>
 

@@ -18,10 +18,7 @@ export default function EvalPluginPage() {
             { label: 'eval' },
           ]}
           icon={HiOutlineCodeBracket}
-          iconColor="text-blue-400"
-          iconBgFrom="from-blue-600/20"
-          iconBgTo="to-cyan-600/20"
-          iconBorderColor="border-blue-500/30"
+          iconColor="icon-ui"
           title="eval"
           description="Debug and test your agent prompts and tools"
           markdownPath="/useful-plugins/eval.md"
@@ -32,19 +29,19 @@ export default function EvalPluginPage() {
         <section className="mb-12">
           <h2 className="heading-2">What it does</h2>
           <p className="text-gray-700 mb-6">
-            The <code className="bg-gray-800 px-2 py-1 rounded">eval</code> plugin helps you debug agents during development:
+            The <code className="bg-gray-100 px-2 py-1 rounded">eval</code> plugin helps you debug agents during development:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-blue-900/20 border border-blue-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineViewfinderCircle className="w-5 h-5 text-blue-400" />
+                <HiOutlineViewfinderCircle className="w-5 h-5 icon-ui" />
                 <h3 className="font-semibold">Generate Expected (after_user_input)</h3>
               </div>
               <p className="text-sm text-gray-700">Generates what should happen to complete the task (unless already set by re_act plugin).</p>
             </div>
-            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
+                <HiOutlineCheckCircle className="w-5 h-5 text-green-600" />
                 <h3 className="font-semibold">Evaluate (on_complete)</h3>
               </div>
               <p className="text-sm text-gray-700">After agent finishes, evaluates if the task was truly completed.</p>
@@ -74,7 +71,7 @@ Result: 100
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy eval</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-700"><code className="bg-gray-100 px-2 py-1 rounded">co copy eval</code></Link> to get an editable copy.
           </p>
         </section>
 
@@ -82,7 +79,7 @@ Result: 100
         <section className="mb-12">
           <h2 className="heading-2">Combined with re_act</h2>
           <p className="text-gray-700 mb-4">
-            When used with <code className="bg-gray-800 px-2 py-1 rounded">re_act</code>, the eval plugin skips generating expected outcomes (re_act's plan serves as the expected):
+            When used with <code className="bg-gray-100 px-2 py-1 rounded">re_act</code>, the eval plugin skips generating expected outcomes (re_act's plan serves as the expected):
           </p>
           <CodeWithResult
             code={`from connectonion import Agent
@@ -154,20 +151,20 @@ def evaluate_completion(agent):
           <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
+                <tr className="border-b border-gray-200">
                   <th scope="col" className="text-left py-2 text-gray-700">Event</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Handler</th>
                   <th scope="col" className="text-left py-2 text-gray-700">Purpose</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-700/50">
-                  <td className="py-2"><code className="text-blue-300">after_user_input</code></td>
+                <tr className="border-b border-gray-200/50">
+                  <td className="py-2"><code className="text-gray-700">after_user_input</code></td>
                   <td className="py-2">generate_expected</td>
                   <td className="py-2 text-gray-700">Set expected outcome</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><code className="text-blue-300">on_complete</code></td>
+                  <td className="py-2"><code className="text-gray-700">on_complete</code></td>
                   <td className="py-2">evaluate_completion</td>
                   <td className="py-2 text-gray-700">Evaluate if task complete</td>
                 </tr>
@@ -181,15 +178,15 @@ def evaluate_completion(agent):
           <h2 className="heading-2">Use Cases</h2>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
-              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
               <span><strong>Development:</strong> Verify your agent completes tasks correctly</span>
             </li>
             <li className="flex items-start gap-2">
-              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
               <span><strong>Testing:</strong> Automated evaluation of agent responses</span>
             </li>
             <li className="flex items-start gap-2">
-              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
               <span><strong>Debugging:</strong> Identify incomplete or incorrect tool usage</span>
             </li>
           </ul>
@@ -199,7 +196,7 @@ def evaluate_completion(agent):
         <section className="mb-12">
           <h2 className="heading-2">Source</h2>
           <p className="text-gray-700">
-            <code className="bg-gray-800 px-2 py-1 rounded">connectonion/useful_plugins/eval.py</code>
+            <code className="bg-gray-100 px-2 py-1 rounded">connectonion/useful_plugins/eval.py</code>
           </p>
           <CodeWithResult
             code={`# The plugin is just a list of event handlers

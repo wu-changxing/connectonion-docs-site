@@ -31,7 +31,7 @@ export function DocsSidebar() {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState<SearchResult[]>([])
   const [selectedIndex, setSelectedIndex] = useState(0)
-  const [openSections, setOpenSections] = useState<string[]>(['Getting Started', 'Core Concepts'])
+  const [openSections, setOpenSections] = useState<string[]>([])
   const [isClientMounted, setIsClientMounted] = useState(false)
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copying' | 'success'>('idle')
   const pathname = usePathname()
@@ -50,6 +50,7 @@ export function DocsSidebar() {
 
     navData.forEach(item => {
       if (item.section === 'Admin') return
+      if (item.section === 'Blog') return
       if ((item as any).hidden) return
       if (childItems.has(item.href)) return
 
@@ -62,38 +63,23 @@ export function DocsSidebar() {
   const getChildren = (parentHref: string) =>
     navData.filter(item => (item as any).parent === parentHref && !(item as any).hidden)
 
+  // On mount: open only the current section
   useEffect(() => {
-    let sections = openSections
-    const saved = localStorage.getItem('docs-open-sections')
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved)
-        if (parsed && parsed.length > 0) sections = parsed
-      } catch { /* keep default */ }
-    }
     const currentPage = navData.find(page => page.href === pathname)
-    if (currentPage && !sections.includes(currentPage.section)) {
-      sections = [...sections, currentPage.section]
-    }
-    setOpenSections(sections)
+    setOpenSections(currentPage ? [currentPage.section] : ['Getting Started'])
     setIsClientMounted(true)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // On navigation: always collapse all, expand only current section
   useEffect(() => {
     if (!isClientMounted) return
     const currentPage = navData.find(page => page.href === pathname)
-    if (currentPage && !openSections.includes(currentPage.section)) {
-      setOpenSections(prev => [...prev, currentPage.section])
+    if (currentPage) {
+      setOpenSections([currentPage.section])
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, isClientMounted])
-
-  useEffect(() => {
-    if (isClientMounted) {
-      localStorage.setItem('docs-open-sections', JSON.stringify(openSections))
-    }
-  }, [openSections, isClientMounted])
 
   const performSearch = useCallback(async (query: string) => {
     if (!query.trim()) { setSearchResults([]); return }
@@ -197,79 +183,54 @@ export function DocsSidebar() {
   }
 
   return (
-    <div className="w-full sm:w-64 lg:w-72 xl:w-80 bg-white border-r border-gray-200 flex flex-col h-screen sticky top-0 z-40">
-      {/* Header */}
-      <div className="p-4 border-b border-gray-200">
-        <Link href="/" className="flex items-center gap-3 group">
-          <img src="/onion-logo.png" alt="ConnectOnion Logo" className="w-8 h-8 rounded-lg object-cover" />
-          <div>
-            <div className="text-base font-semibold text-gray-900">ConnectOnion</div>
-            <div className="text-xs text-gray-500">Documentation</div>
+    <div className="w-full sm:w-64 lg:w-64 xl:w-72 bg-white border-r border-gray-100 flex flex-col h-screen sticky top-0 lg:top-10 z-40 lg:h-[calc(100vh-2.5rem)]">
+      {/* Header — only shown in mobile drawer; desktop has top bar */}
+      <div className="lg:hidden px-4 py-3 border-b border-gray-100">
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <img src="/onion-logo.png" alt="ConnectOnion Logo" className="w-7 h-7 rounded-md object-cover" />
+          <div className="flex-1 min-w-0">
+            <div className="text-sm font-semibold text-gray-900 leading-tight">ConnectOnion</div>
+            <div className="text-[11px] text-gray-500 leading-tight">Docs</div>
           </div>
         </Link>
       </div>
 
       {/* Search */}
-      <div className="p-3 pb-2 bg-gray-50 border-b border-gray-200">
+      <div className="px-3 py-2.5 border-b border-gray-100">
         <div className="relative group">
-          <HiOutlineMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 transition-colors group-focus-within:text-green-600" aria-hidden="true" />
+          <HiOutlineMagnifyingGlass className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 transition-colors group-focus-within:text-green-600" aria-hidden="true" />
           <input
             ref={searchInputRef}
             type="text"
             placeholder="Search docs..."
             aria-label="Search documentation"
-            aria-describedby="search-hint"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-8 py-2 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-green-500 focus:ring-2 focus:ring-green-500/15 focus:outline-none transition-all text-sm"
+            className="w-full pl-8 pr-8 py-1.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:bg-white focus:border-green-500 focus:ring-2 focus:ring-green-500/10 focus:outline-none transition-all text-sm"
           />
           {searchQuery ? (
             <button
               onClick={() => { setSearchQuery(''); setSearchResults([]) }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 hover:bg-gray-100 rounded transition-colors"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-200 rounded transition-colors"
               aria-label="Clear search"
             >
-              <HiOutlineXMark className="w-3.5 h-3.5 text-gray-400" />
+              <HiOutlineXMark className="w-3 h-3 text-gray-400" />
             </button>
           ) : (
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 font-mono px-1.5 py-0.5 bg-gray-100 rounded border border-gray-200">
+            <div className="absolute right-2 top-1/2 -translate-y-1/2 text-[9px] text-gray-500 font-mono px-1 py-0.5 bg-white rounded border border-gray-200">
               ⌘K
             </div>
           )}
         </div>
-
-        {!searchQuery && (
-          <div id="search-hint" className="mt-1.5 text-xs text-gray-400">
-            Typo-tolerant · Smart matching
-          </div>
-        )}
         {searchQuery && (
-          <div className="mt-1.5 text-[11px] text-gray-400">
-            {searchResults.length === 0 ? 'No results found' : `${searchResults.length} result${searchResults.length !== 1 ? 's' : ''} · Arrow keys to navigate`}
+          <div className="mt-1 text-[10px] text-gray-500 px-0.5">
+            {searchResults.length === 0 ? 'No results' : `${searchResults.length} result${searchResults.length !== 1 ? 's' : ''} · ↑↓ navigate`}
           </div>
         )}
-      </div>
-
-      {/* Copy All Docs */}
-      <div className="px-3 py-2 border-b border-gray-200">
-        <button
-          onClick={handleCopyAllDocs}
-          disabled={copyStatus === 'copying'}
-          className="w-full min-h-[40px] flex items-center justify-center gap-2 py-2 px-4 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 rounded-lg text-white font-medium text-sm transition-colors"
-          aria-label={copyStatus === 'copying' ? 'Copying documentation' : copyStatus === 'success' ? 'Copied!' : 'Copy all docs to clipboard'}
-        >
-          {copyStatus === 'copying' ? (
-            <><div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" /><span>Copying...</span></>
-          ) : copyStatus === 'success' ? (
-            <><HiOutlineCheck className="w-4 h-4" /><span>Copied!</span></>
-          ) : (
-            <><HiOutlineClipboard className="w-4 h-4" /><span>Copy All Docs</span></>
-          )}
-        </button>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto py-3 px-2 custom-scrollbar bg-white">
+      <nav className="flex-1 overflow-y-auto py-2 px-2 custom-scrollbar bg-white">
         {/* Search Results */}
         {searchQuery && searchResults.length > 0 && (
           <div className="mb-3 mx-1">
@@ -299,7 +260,7 @@ export function DocsSidebar() {
                             <SearchHighlight text={result.snippet} query={searchQuery} />
                           </p>
                         )}
-                        <div className="text-[10px] text-gray-400 mt-1">{result.item.section}</div>
+                        <div className="text-[10px] text-gray-500 mt-1">{result.item.section}</div>
                       </div>
                     </div>
                   </Link>
@@ -310,23 +271,27 @@ export function DocsSidebar() {
         )}
 
         {/* Regular Navigation */}
-        {Object.entries(navigationSections).map(([section, items]) => (
-          <div key={section} className="mb-1">
+        {Object.entries(navigationSections).map(([section, items], idx) => (
+          <div key={section} className={`mb-3 ${idx > 0 ? 'border-t border-gray-100 pt-2' : ''}`}>
             <button
               onClick={() => toggleSection(section)}
-              className="w-full flex items-center justify-between px-3 py-1.5 mb-1 text-left text-[11px] font-semibold text-gray-400 uppercase tracking-wider hover:text-gray-600 transition-colors"
+              className={`w-full flex items-center justify-between px-2 py-1 mb-1 text-left text-xs font-semibold tracking-wide transition-colors rounded-md ${
+                openSections.includes(section)
+                  ? 'text-gray-800 hover:text-gray-900'
+                  : 'text-gray-400 hover:text-gray-700'
+              }`}
             >
               <span className="flex-1 truncate">
                 <SearchHighlight text={section} query={searchQuery} />
               </span>
               {openSections.includes(section)
                 ? <HiOutlineChevronDown className="w-3 h-3 flex-shrink-0" />
-                : <HiOutlineChevronRight className="w-3 h-3 flex-shrink-0" />
+                : <HiOutlineChevronRight className="w-3 h-3 flex-shrink-0 opacity-40" />
               }
             </button>
 
             {openSections.includes(section) && (
-              <ul className="space-y-0.5" role="list">
+              <ul className="space-y-px" role="list">
                 {items.map((item) => {
                   const isActive = pathname === item.href
                   const IconComponent = item.icon
@@ -337,28 +302,18 @@ export function DocsSidebar() {
                       <div className="relative group">
                         <Link
                           href={item.href}
-                          className={`block px-3 py-2 text-sm rounded-lg mx-1 transition-all ${
+                          className={`block px-2.5 py-1.5 text-sm rounded-md mx-0.5 transition-all ${
                             isActive
-                              ? 'bg-green-50 text-green-800 font-medium border-l-2 border-green-600 pl-2.5'
-                              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                              ? 'bg-green-50 text-green-900 font-semibold border-l-[3px] border-green-600 pl-[7px]'
+                              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-2.5'
                           }`}
                           aria-current={isActive ? 'page' : undefined}
                         >
                           <div className="flex items-center gap-2">
                             {IconComponent && (
-                              <IconComponent className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-green-600' : 'text-gray-400'}`} />
+                              <IconComponent className={`w-3.5 h-3.5 flex-shrink-0 ${isActive ? 'text-green-700' : 'text-gray-400'}`} />
                             )}
-                            <SearchHighlight text={item.title} query={searchQuery} className="truncate flex-1" />
-                            {item.difficulty && (
-                              <span className={`text-xs px-1.5 py-0.5 rounded-full font-medium flex-shrink-0 ${
-                                item.difficulty === 'Start Here'   ? 'bg-green-100 text-green-700'
-                                : item.difficulty === 'Beginner'  ? 'bg-blue-50 text-blue-600'
-                                : item.difficulty === 'Intermediate' ? 'bg-amber-50 text-amber-600'
-                                : 'bg-gray-100 text-gray-500'
-                              }`}>
-                                {item.difficulty}
-                              </span>
-                            )}
+                            <SearchHighlight text={item.title} query={searchQuery} className="truncate flex-1 text-[13px]" />
                           </div>
                         </Link>
 
@@ -384,7 +339,7 @@ export function DocsSidebar() {
                       </div>
 
                       {children.length > 0 && (
-                        <ul className="ml-4 mt-0.5 space-y-0.5 border-l border-gray-200 pl-2" role="list">
+                        <ul className="ml-3.5 mt-px space-y-px border-l border-gray-100 pl-2.5" role="list">
                           {children.map((child) => {
                             const isChildActive = pathname === child.href
                             const ChildIcon = child.icon
@@ -392,18 +347,18 @@ export function DocsSidebar() {
                               <li key={child.href} role="listitem" className="relative group">
                                 <Link
                                   href={child.href}
-                                  className={`block px-3 py-1.5 text-sm rounded-lg transition-all ${
+                                  className={`block px-2.5 py-1 text-[12px] rounded-md transition-all ${
                                     isChildActive
-                                      ? 'bg-green-50 text-green-800 font-medium'
-                                      : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50'
+                                      ? 'bg-green-50 text-green-900 font-semibold border-l-[3px] border-green-600 pl-[7px]'
+                                      : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50 pl-2.5'
                                   }`}
                                   aria-current={isChildActive ? 'page' : undefined}
                                 >
-                                  <div className="flex items-center gap-2">
+                                  <div className="flex items-center gap-1.5">
                                     {ChildIcon && (
-                                      <ChildIcon className={`w-3.5 h-3.5 flex-shrink-0 ${isChildActive ? 'text-green-600' : 'text-gray-400'}`} />
+                                      <ChildIcon className={`w-3 h-3 flex-shrink-0 ${isChildActive ? 'text-gray-600' : 'text-gray-400'}`} />
                                     )}
-                                    <SearchHighlight text={child.title} query={searchQuery} className="truncate flex-1 text-xs" />
+                                    <SearchHighlight text={child.title} query={searchQuery} className="truncate flex-1" />
                                   </div>
                                 </Link>
                               </li>
@@ -421,30 +376,45 @@ export function DocsSidebar() {
 
         {searchQuery && searchResults.length === 0 && (
           <div className="px-4 py-8 text-center">
-            <div className="text-gray-400 mb-1">No results found</div>
-            <div className="text-xs text-gray-300">Try different keywords</div>
+            <div className="text-gray-600 mb-1">No results found</div>
+            <div className="text-xs text-gray-500">Try different keywords</div>
           </div>
         )}
       </nav>
 
       {/* Footer */}
-      <div className="border-t border-gray-200 bg-gray-50">
-        <div className="flex items-center justify-around py-2 px-2">
+      <div className="border-t border-gray-100 px-2 py-2">
+        <div className="flex items-center gap-1">
           <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener noreferrer"
-            className="p-2 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all" title="GitHub">
-            <FaGithub className="w-4 h-4" />
+            className="p-2 rounded-md text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all" title="GitHub">
+            <FaGithub className="w-3.5 h-3.5" />
           </a>
           <a href="https://pypi.org/project/connectonion/" target="_blank" rel="noopener noreferrer"
-            className="p-2 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all" title="PyPI">
-            <FaPython className="w-4 h-4" />
+            className="p-2 rounded-md text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all" title="PyPI">
+            <FaPython className="w-3.5 h-3.5" />
           </a>
           <a href="https://discord.gg/4xfD9k8AUF" target="_blank" rel="noopener noreferrer"
-            className="p-2 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all" title="Discord">
-            <FaDiscord className="w-4 h-4" />
+            className="p-2 rounded-md text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all" title="Discord">
+            <FaDiscord className="w-3.5 h-3.5" />
           </a>
-          <div className="flex items-center gap-1.5 px-2">
+          <button
+            onClick={handleCopyAllDocs}
+            disabled={copyStatus === 'copying'}
+            className="p-2 rounded-md text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all disabled:opacity-50"
+            title={copyStatus === 'success' ? 'Copied!' : 'Copy all docs to clipboard'}
+            aria-label={copyStatus === 'copying' ? 'Copying documentation' : copyStatus === 'success' ? 'Copied!' : 'Copy all docs to clipboard'}
+          >
+            {copyStatus === 'copying' ? (
+              <div className="w-3.5 h-3.5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
+            ) : copyStatus === 'success' ? (
+              <HiOutlineCheck className="w-3.5 h-3.5 text-green-600" />
+            ) : (
+              <HiOutlineClipboard className="w-3.5 h-3.5" />
+            )}
+          </button>
+          <div className="ml-auto flex items-center gap-1 pr-1">
             <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-            <span className="text-xs text-gray-400">v{VERSION}</span>
+            <span className="text-[10px] text-gray-500 font-mono">v{VERSION}</span>
           </div>
         </div>
       </div>

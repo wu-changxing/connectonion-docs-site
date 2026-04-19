@@ -322,8 +322,8 @@ Press Enter to continue, or explore the menu. No manual required.
         {/* Header */}
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl border border-purple-200">
-              <HiOutlineBugAnt className="w-8 h-8 text-purple-400" />
+            <div className="p-3 bg-gradient-to-br from-gray-500/20 to-gray-500/20 rounded-xl border border-gray-200">
+              <HiOutlineBugAnt className="w-8 h-8 text-gray-500" />
             </div>
             <div>
               <div className="text-sm text-gray-700 mb-1">Design Decision</div>
@@ -343,7 +343,7 @@ Press Enter to continue, or explore the menu. No manual required.
         {/* The Problem */}
         <section className="mb-12">
           <h2 className="heading-2">
-            <HiOutlineCommandLine className="w-6 h-6 text-blue-400" />
+            <HiOutlineCommandLine className="w-6 h-6 text-gray-400" />
             The Problem: Debugging AI Agents in the Dark
           </h2>
           <p className="text-gray-700 mb-4">
@@ -357,7 +357,7 @@ agent.input("Send email to John")
             language="python"
           />
           <p className="text-gray-700 mt-4">
-            We needed a way to <strong className="text-white">see inside agent execution</strong>, understand decisions, and test "what if" scenarios. The question was: <strong className="text-white">how?</strong>
+            We needed a way to <strong className="text-gray-900">see inside agent execution</strong>, understand decisions, and test "what if" scenarios. The question was: <strong className="text-gray-900">how?</strong>
           </p>
         </section>
 
@@ -374,8 +374,8 @@ agent.input("Send email to John")
             <div className="text-red-400 font-semibold mb-2">User Feedback:</div>
             <div className="text-gray-700 italic">"I think 4 is too complicated, two or three at most"</div>
           </div>
-          <div className="bg-blue-500/10 border border-blue-200 rounded-lg p-4">
-            <div className="text-blue-400 font-semibold mb-2">Lesson #1:</div>
+          <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
+            <div className="text-gray-700 font-semibold mb-2">Lesson #1:</div>
             <div className="text-gray-700">More features ≠ better UX. High learning curve before being productive.</div>
           </div>
         </section>
@@ -393,8 +393,8 @@ agent.input("Send email to John")
             <div className="text-red-400 font-semibold mb-2">User Feedback:</div>
             <div className="text-gray-700 italic">"When we do auto-debug, the input to the agent should default have a mode"</div>
           </div>
-          <div className="bg-blue-500/10 border border-blue-200 rounded-lg p-4">
-            <div className="text-blue-400 font-semibold mb-2">Lesson #2:</div>
+          <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
+            <div className="text-gray-700 font-semibold mb-2">Lesson #2:</div>
             <div className="text-gray-700">Symbolic shortcuts (?, {'>>>'}) require learning. Not discoverable without docs.</div>
           </div>
         </section>
@@ -408,41 +408,41 @@ agent.input("Send email to John")
             We added clear, named mode indicators to show where input goes:
           </p>
           <CodeWithResult code={codeIteration3} language="text" className="mb-4" />
-          <div className="bg-yellow-500/10 border border-yellow-200 rounded-lg p-4 mb-4">
-            <div className="text-yellow-400 font-semibold mb-2">User Feedback:</div>
+          <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4 mb-4">
+            <div className="text-gray-700 font-semibold mb-2">User Feedback:</div>
             <div className="text-gray-700 italic">"The AI should be something more intuitive like 'AI Ask' or something like that"</div>
           </div>
-          <div className="bg-blue-500/10 border border-blue-200 rounded-lg p-4">
-            <div className="text-blue-400 font-semibold mb-2">Lesson #3:</div>
+          <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
+            <div className="text-gray-700 font-semibold mb-2">Lesson #3:</div>
             <div className="text-gray-700">Names matter. "AI" is ambiguous - "AI Ask" is self-explanatory. Progress made but still not simple enough.</div>
           </div>
         </section>
 
         {/* The Breakthrough */}
         <section className="mb-12">
-          <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-200 rounded-lg p-6 mb-6">
+          <div className="bg-gradient-to-r from-gray-500/20 to-gray-500/20 border border-gray-200 rounded-lg p-6 mb-6">
             <h2 className="heading-2">
-              <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+              <HiOutlineBolt className="w-6 h-6 text-gray-400" />
               The Breakthrough Question
             </h2>
             <p className="text-gray-700 text-lg">
-              "What would <strong className="text-white">Unix creators</strong> or <strong className="text-white">Steve Jobs</strong> design?"
+              "What would <strong className="text-gray-900">Unix creators</strong> or <strong className="text-gray-900">Steve Jobs</strong> design?"
             </p>
           </div>
           <p className="text-gray-700 mb-4">
             This forced us to apply timeless design principles instead of following our assumptions:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4">
-              <div className="text-blue-400 font-semibold mb-2">Unix Philosophy</div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <div className="text-gray-700 font-semibold mb-2">Unix Philosophy</div>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Do one thing well</li>
                 <li>• Compose simply</li>
                 <li>• Ship early, validate</li>
               </ul>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4">
-              <div className="text-purple-400 font-semibold mb-2">Steve Jobs</div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <div className="text-gray-500 font-semibold mb-2">Steve Jobs</div>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Eliminate unnecessary</li>
                 <li>• Focus on essence</li>
@@ -455,22 +455,22 @@ agent.input("Send email to John")
         {/* Final Design */}
         <section className="mb-12">
           <h2 className="heading-2">
-            <MenuIcon className="w-6 h-6 text-green-400" />
+            <MenuIcon className="w-6 h-6 text-green-600" />
             Iteration 4: Agent-First Menu ✅
           </h2>
           <p className="text-gray-700 mb-4">
             The final design that actually works:
           </p>
           <CodeWithResult code={codeFinal} language="text" className="mb-4" />
-          <div className="bg-green-500/10 border border-green-200 rounded-lg p-4">
-            <div className="text-green-400 font-semibold mb-4">Why This Works:</div>
+          <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-4">
+            <div className="text-green-600 font-semibold mb-4">Why This Works:</div>
             <ul className="text-gray-700 space-y-2 text-sm">
-              <li>✅ <strong className="text-white">Agent-first by default</strong> - Press Enter to continue (simplest action)</li>
-              <li>✅ <strong className="text-white">Progressive disclosure</strong> - See options, discover gradually</li>
-              <li>✅ <strong className="text-white">Multiple input methods</strong> - Arrow keys (beginner) OR shortcuts (expert)</li>
-              <li>✅ <strong className="text-white">Always visible help</strong> - Tips on every screen, zero memorization</li>
-              <li>✅ <strong className="text-white">Universal commands</strong> - <code className="bg-gray-800 px-1 rounded">/menu</code> and <code className="bg-gray-800 px-1 rounded">/continue</code> work everywhere</li>
-              <li>✅ <strong className="text-white">No dead ends</strong> - Always a way back or forward</li>
+              <li>✅ <strong className="text-gray-900">Agent-first by default</strong> - Press Enter to continue (simplest action)</li>
+              <li>✅ <strong className="text-gray-900">Progressive disclosure</strong> - See options, discover gradually</li>
+              <li>✅ <strong className="text-gray-900">Multiple input methods</strong> - Arrow keys (beginner) OR shortcuts (expert)</li>
+              <li>✅ <strong className="text-gray-900">Always visible help</strong> - Tips on every screen, zero memorization</li>
+              <li>✅ <strong className="text-gray-900">Universal commands</strong> - <code className="bg-gray-100 px-1 rounded">/menu</code> and <code className="bg-gray-100 px-1 rounded">/continue</code> work everywhere</li>
+              <li>✅ <strong className="text-gray-900">No dead ends</strong> - Always a way back or forward</li>
             </ul>
           </div>
         </section>
@@ -481,31 +481,31 @@ agent.input("Send email to John")
             Key Lessons from Five Iterations
           </h2>
           <div className="space-y-4">
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">1. Listen to User Feedback</h3>
               <p className="text-gray-700 text-sm">
                 We almost built the wrong thing FIVE times. User feedback redirected us every time. Without it, we'd have shipped a complex, unusable debugger.
               </p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">2. Ask "What Would Masters Design?"</h3>
               <p className="text-gray-700 text-sm">
                 Unix and Steve Jobs principles aren't abstract - they're actionable. Single purpose per mode. Eliminate unnecessary. Visual over cognitive load.
               </p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">3. Default Action Should Be Effortless</h3>
               <p className="text-gray-700 text-sm">
                 Most users just want to continue. Make that one keystroke: Enter. If the default is perfect, 80% never need advanced features.
               </p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">4. Visual Discovery {'>'}Command Recall</h3>
               <p className="text-gray-700 text-sm">
                 Menu navigation beats typed commands for discoverability. See all options immediately. No memorization required.
               </p>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">5. Iteration Beats Planning</h3>
               <p className="text-gray-700 text-sm">
                 We couldn't have designed the final version first. Each failure taught us something essential. Embrace iteration.
@@ -516,11 +516,11 @@ agent.input("Send email to John")
 
         {/* Try It */}
         <section className="mb-12">
-          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-200 rounded-lg p-8">
+          <div className="bg-gradient-to-r from-gray-500/20 to-gray-500/20 border border-gray-200 rounded-lg p-8">
             <h2 className="heading-2">Try It Yourself</h2>
             <CodeWithResult code={codeUsage} language="python" className="mb-4" />
             <p className="text-gray-700 text-sm">
-              Press Enter to continue, or explore the menu. <strong className="text-white">No manual required.</strong>
+              Press Enter to continue, or explore the menu. <strong className="text-gray-900">No manual required.</strong>
             </p>
           </div>
         </section>

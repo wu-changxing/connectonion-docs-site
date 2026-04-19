@@ -17,10 +17,7 @@ export default function TodoListPage() {
             { label: 'Todo List' }
           ]}
           icon={HiOutlineClipboardDocumentList}
-          iconColor="text-yellow-400"
-          iconBgFrom="from-yellow-600/20"
-          iconBgTo="to-orange-600/20"
-          iconBorderColor="border-yellow-500/30"
+          iconColor="icon-ui"
           title="TodoList"
           description="Task tracking tool for agents to manage complex, multi-step tasks."
           markdownPath="/useful-tools/todo_list.md"
@@ -37,7 +34,7 @@ todo = TodoList()`}
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy todo_list</code></Link> to get an editable copy.
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-700"><code className="bg-gray-100 px-2 py-1 rounded">co copy todo_list</code></Link> to get an editable copy.
           </p>
         </section>
 
@@ -46,19 +43,19 @@ todo = TodoList()`}
           <h2 className="heading-2">Why Use TodoList?</h2>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Track progress</strong> on complex tasks with multiple steps</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Show users</strong> what the agent is working on</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Organize</strong> multi-step workflows</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-yellow-400 mt-1">•</span>
+              <span className="text-gray-400 mt-1">•</span>
               <span><strong>Prevent</strong> forgetting steps in complex tasks</span>
             </li>
           </ul>
@@ -68,8 +65,8 @@ todo = TodoList()`}
         <section className="mb-12">
           <h2 className="heading-2">When to Use</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-green-900/20 border border-green-200 rounded-lg">
-              <h3 className="text-green-400 font-semibold mb-2">Use when:</h3>
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 className="text-gray-700 font-semibold mb-2">Use when:</h3>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Task requires <strong>3+ distinct steps</strong></li>
                 <li>• User provides <strong>multiple tasks</strong></li>
@@ -77,8 +74,8 @@ todo = TodoList()`}
                 <li>• You want to show <strong>progress</strong></li>
               </ul>
             </div>
-            <div className="p-4 bg-red-900/20 border border-red-200 rounded-lg">
-              <h3 className="text-red-400 font-semibold mb-2">Don't use when:</h3>
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 className="text-gray-700 font-semibold mb-2">Don't use when:</h3>
               <ul className="text-gray-700 text-sm space-y-1">
                 <li>• Task is <strong>trivial</strong> (1-2 simple steps)</li>
                 <li>• Task is <strong>purely conversational</strong></li>
@@ -137,29 +134,29 @@ todo.add("Update docs", "Updating docs")`}
         {/* Task States */}
         <section className="mb-12">
           <h2 className="heading-2">Task States</h2>
-          <div className="overflow-x-auto rounded-lg border border-slate-700">
+          <div className="overflow-x-auto rounded-lg border border-gray-200">
             <table className="w-full text-sm text-left">
-              <thead className="text-xs uppercase bg-slate-800/50">
+              <thead className="text-xs uppercase bg-gray-100">
                 <tr>
-                  <th className="px-4 py-3 text-slate-200">Icon</th>
-                  <th className="px-4 py-3 text-slate-200">Status</th>
-                  <th className="px-4 py-3 text-slate-200">Description</th>
+                  <th className="px-4 py-3 text-gray-700">Icon</th>
+                  <th className="px-4 py-3 text-gray-700">Status</th>
+                  <th className="px-4 py-3 text-gray-700">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-700">
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 text-2xl">○</td>
-                  <td className="px-4 py-3 font-mono text-yellow-300">pending</td>
+              <tbody className="divide-y divide-gray-200 bg-white">
+                <tr>
+                  <td className="px-4 py-3 text-2xl text-gray-500">○</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">pending</td>
                   <td className="px-4 py-3 text-gray-700">Not yet started</td>
                 </tr>
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 text-2xl">◐</td>
-                  <td className="px-4 py-3 font-mono text-yellow-300">in_progress</td>
+                <tr>
+                  <td className="px-4 py-3 text-2xl text-gray-600">◐</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">in_progress</td>
                   <td className="px-4 py-3 text-gray-700">Currently working on</td>
                 </tr>
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 text-2xl">●</td>
-                  <td className="px-4 py-3 font-mono text-yellow-300">completed</td>
+                <tr>
+                  <td className="px-4 py-3 text-2xl text-green-600">●</td>
+                  <td className="px-4 py-3 font-mono text-green-700">completed</td>
                   <td className="px-4 py-3 text-gray-700">Finished</td>
                 </tr>
               </tbody>
@@ -173,8 +170,8 @@ todo.add("Update docs", "Updating docs")`}
           <p className="text-gray-700 mb-4">When tasks change, TodoList shows a panel:</p>
           <div className="bg-slate-900 border border-slate-700 rounded-lg p-4 font-mono text-sm">
             <div className="text-slate-400">╭─── Tasks (1/3) ───────────────────────────────╮</div>
-            <div className="text-gray-700">│ ● Fix authentication bug                       │</div>
-            <div className="text-yellow-400">│ ◐ Running tests                                │</div>
+            <div className="text-slate-200">│ ● Fix authentication bug                       │</div>
+            <div className="text-slate-100">│ ◐ Running tests                                │</div>
             <div className="text-slate-500">│ ○ Update docs                                  │</div>
             <div className="text-slate-400">╰────────────────────────────────────────────────╯</div>
           </div>

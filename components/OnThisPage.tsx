@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 interface Heading {
   id: string
@@ -11,18 +12,37 @@ interface Heading {
 export function OnThisPage() {
   const [headings, setHeadings] = useState<Heading[]>([])
   const [activeId, setActiveId] = useState<string>('')
+  const pathname = usePathname()
 
   useEffect(() => {
-    const elements = Array.from(document.querySelectorAll('h2, h3'))
-    const items: Heading[] = elements
-      .filter(el => el.id)
-      .map(el => ({
-        id: el.id,
-        text: el.textContent?.trim() || '',
-        level: parseInt(el.tagName[1]),
-      }))
-    setHeadings(items)
-  }, [])
+    setHeadings([])
+    setActiveId('')
+    // Small delay so the new page content is in the DOM before scanning
+    const timer = setTimeout(() => {
+      const elements = Array.from(document.querySelectorAll('h2.heading-2, h3.heading-3'))
+      const items: Heading[] = elements.map(el => {
+        if (!el.id) {
+          const slug = (el.textContent || '')
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-|-$/g, '')
+            .slice(0, 60)
+          el.id = slug
+        }
+        ;(el as HTMLElement).style.scrollMarginTop = '6rem'
+        return {
+          id: el.id,
+          text: el.textContent?.trim() || '',
+          level: parseInt(el.tagName[1]),
+        }
+      }).filter(h => h.text && h.id)
+      setHeadings(items)
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [pathname])
 
   useEffect(() => {
     if (headings.length === 0) return
@@ -48,24 +68,25 @@ export function OnThisPage() {
   if (headings.length < 2) return null
 
   return (
-    <nav className="sticky top-24 w-56 flex-shrink-0 hidden xl:block">
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+    <nav className="sticky top-[6.5rem] w-56 flex-shrink-0">
+      <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-3 pl-2">
         On this page
       </p>
-      <ul className="space-y-1">
+      <ul className="space-y-0.5">
         {headings.map(h => (
           <li key={h.id}>
             <a
               href={`#${h.id}`}
-              className={`block text-sm py-0.5 transition-colors ${
-                h.level === 3 ? 'pl-3' : ''
+              title={h.text}
+              className={`flex items-center text-[12.5px] py-1 rounded-md transition-all border-l-2 ${
+                h.level === 3 ? 'pl-4' : 'pl-2'
               } ${
                 activeId === h.id
-                  ? 'text-green-700 font-medium'
-                  : 'text-gray-500 hover:text-gray-900'
+                  ? 'text-green-700 font-semibold border-green-500 bg-green-50/60'
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50 border-transparent'
               }`}
             >
-              {h.text}
+              <span className="truncate leading-snug">{h.text}</span>
             </a>
           </li>
         ))}
