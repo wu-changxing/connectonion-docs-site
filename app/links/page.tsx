@@ -1,530 +1,269 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { HiOutlineCube, HiOutlineBookOpen, HiOutlineEnvelope, HiOutlineGlobeAlt, HiOutlineArrowTopRightOnSquare, HiOutlineClipboard, HiOutlineCheck, HiOutlineShare, HiOutlineLink as LinkIcon, HiOutlineHeart, HiOutlineSparkles, HiOutlineCodeBracket, HiOutlineDocumentText, HiOutlineArrowRight, HiOutlineQrCode } from 'react-icons/hi2'
 import {
-  FaRocket, FaComments, FaBook, FaMobile, FaHandshake,
-  FaGithub, FaDiscord, FaTwitter, FaYoutube, FaLinkedin,
-  FaInstagram, FaTiktok, FaUsers
-} from 'react-icons/fa'
+  HiOutlineArrowTopRightOnSquare,
+  HiOutlineShare,
+  HiOutlineQrCode,
+  HiOutlineBookOpen,
+  HiOutlineDocumentText,
+  HiOutlineCodeBracket,
+  HiOutlineEnvelope,
+  HiOutlineSparkles,
+  HiOutlineHeart,
+  HiOutlineBugAnt,
+  HiOutlineLink as LinkIcon,
+  HiOutlineArrowRight
+} from 'react-icons/hi2'
+import { SiGithub, SiDiscord, SiX, SiYoutube, SiLinkedin, SiInstagram, SiTiktok, SiPypi } from 'react-icons/si'
+import { FaUsers } from 'react-icons/fa6'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import QRCode from 'qrcode'
 
-interface LinkItem {
+interface LinkRow {
   title: string
-  description?: string
   url: string
   icon: React.ElementType
-  color: string
-  bgColor: string
-  borderColor: string
+  action?: string
   external?: boolean
   available?: boolean
 }
 
 interface LinkSection {
-  title: string | React.ReactElement
-  description?: string
-  links: LinkItem[]
+  marker: string
+  title: string
+  epigraph: string
+  rows: LinkRow[]
 }
 
+const sections: LinkSection[] = [
+  {
+    marker: '§ I',
+    title: 'Core Platform',
+    epigraph: 'Where the protocol lives — source, package, canonical docs.',
+    rows: [
+      { title: 'GitHub Repository', url: 'https://github.com/wu-changxing/connectonion', icon: SiGithub, action: 'VISIT', external: true, available: true },
+      { title: 'PyPI Package', url: 'https://pypi.org/project/connectonion/', icon: SiPypi, action: 'INSTALL', external: true, available: true },
+      { title: 'Documentation', url: 'https://docs.connectonion.com', icon: HiOutlineBookOpen, action: 'READ', external: true, available: true }
+    ]
+  },
+  {
+    marker: '§ II',
+    title: 'Community',
+    epigraph: 'People building with ConnectOnion — ask, share, argue.',
+    rows: [
+      { title: 'Discord Server', url: 'https://discord.gg/4xfD9k8AUF', icon: SiDiscord, action: 'JOIN', external: true, available: true },
+      { title: 'GitHub Discussions', url: 'https://github.com/wu-changxing/connectonion/discussions', icon: FaUsers, action: 'BROWSE', external: true, available: true }
+    ]
+  },
+  {
+    marker: '§ III',
+    title: 'Social',
+    epigraph: 'Release notes, demos, and the occasional onion joke.',
+    rows: [
+      { title: 'X / Twitter', url: 'https://x.com/ConnectOnionAI', icon: SiX, action: 'FOLLOW', external: true, available: true },
+      { title: 'YouTube', url: 'https://www.youtube.com/@openonionai', icon: SiYoutube, action: 'SUBSCRIBE', external: true, available: true },
+      { title: 'LinkedIn', url: 'https://www.linkedin.com/company/openonion/', icon: SiLinkedin, action: 'CONNECT', external: true, available: true },
+      { title: 'Instagram', url: 'https://www.instagram.com/openonionai/', icon: SiInstagram, action: 'FOLLOW', external: true, available: true },
+      { title: 'TikTok', url: 'https://www.tiktok.com/@closeonion', icon: SiTiktok, action: 'FOLLOW', external: true, available: true }
+    ]
+  },
+  {
+    marker: '§ IV',
+    title: 'Resources',
+    epigraph: 'Longer-form writing — blog posts, examples, reference.',
+    rows: [
+      { title: 'Blog', url: 'https://docs.connectonion.com/blog', icon: HiOutlineDocumentText, action: 'READ', external: true, available: true },
+      { title: 'Examples', url: 'https://docs.connectonion.com/examples', icon: HiOutlineCodeBracket, action: 'BROWSE', external: true, available: true },
+      { title: 'API Reference', url: 'https://docs.connectonion.com/tools', icon: HiOutlineBookOpen, action: 'READ', external: true, available: true }
+    ]
+  },
+  {
+    marker: '§ V',
+    title: 'Support',
+    epigraph: 'Something broken, missing, or on your mind — tell us.',
+    rows: [
+      { title: 'Report Issues', url: 'https://github.com/wu-changxing/connectonion/issues', icon: HiOutlineBugAnt, action: 'FILE', external: true, available: true },
+      { title: 'Email Contact', url: 'mailto:contact@connectonion.com', icon: HiOutlineEnvelope, action: 'SOON', external: true, available: false }
+    ]
+  }
+]
+
 export default function LinksPage() {
-  const [copiedUrl, setCopiedUrl] = useState<string | null>(null)
   const [showQR, setShowQR] = useState(false)
   const [qrCodeDataUrl, setQrCodeDataUrl] = useState<string>('')
 
   useEffect(() => {
-    const generateQRCode = async () => {
-      try {
-        const url = 'https://docs.connectonion.com/links'
-        const dataUrl = await QRCode.toDataURL(url, {
-          width: 256,
-          margin: 1,
-          color: {
-            dark: '#6B46C1',
-            light: '#FFFFFF'
-          },
-          errorCorrectionLevel: 'H',
-        })
-        setQrCodeDataUrl(dataUrl)
-      } catch (err) {
-        console.error('Error generating QR code:', err)
-      }
-    }
-    
-    generateQRCode()
+    QRCode.toDataURL('https://docs.connectonion.com/links', {
+      width: 256,
+      margin: 1,
+      color: { dark: '#111827', light: '#FFFFFF' },
+      errorCorrectionLevel: 'H'
+    }).then(setQrCodeDataUrl)
   }, [])
 
-  const handleCopyLink = (url: string, title: string) => {
-    navigator.clipboard.writeText(url)
-    setCopiedUrl(title)
-    setTimeout(() => setCopiedUrl(null), 2000)
-  }
-
   const handleSharePage = () => {
-    const url = window.location.href
+    const url = 'https://docs.connectonion.com/links'
     if (navigator.share) {
       navigator.share({
-        title: 'ConnectOnion - All Links',
-        text: 'Check out ConnectOnion - Build AI agents with simple, powerful Python code',
-        url: url
-      })
+        title: 'ConnectOnion — All Links',
+        text: 'Build AI agents with simple, powerful Python code',
+        url
+      }).catch(() => navigator.clipboard.writeText(url))
     } else {
-      handleCopyLink(url, 'page')
+      navigator.clipboard.writeText(url)
     }
-  }
-
-  const linkSections: LinkSection[] = [
-    {
-      title: (
-        <span className="flex items-center gap-2">
-          <FaRocket className="inline-flex w-5 h-5 text-gray-500" />
-          Core Platform
-        </span>
-      ),
-      description: 'Essential ConnectOnion resources',
-      links: [
-        {
-          title: 'GitHub Repository',
-          description: 'Source code, issues, and contributions',
-          url: 'https://github.com/wu-changxing/connectonion',
-          icon: FaGithub,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        },
-        {
-          title: 'PyPI Package',
-          description: 'Install via pip',
-          url: 'https://pypi.org/project/connectonion/',
-          icon: HiOutlineCube,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        },
-        {
-          title: 'Documentation',
-          description: 'Complete guides and API reference',
-          url: 'https://docs.connectonion.com',
-          icon: HiOutlineBookOpen,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        }
-      ]
-    },
-    {
-      title: (
-        <span className="flex items-center gap-2">
-          <FaComments className="inline-flex w-5 h-5 text-gray-500" />
-          Community
-        </span>
-      ),
-      description: 'Join our growing community',
-      links: [
-        {
-          title: 'Discord Server',
-          description: 'Chat with the community',
-          url: 'https://discord.gg/4xfD9k8AUF',
-          icon: FaDiscord,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        },
-        {
-          title: 'GitHub Discussions',
-          description: 'Ask questions and share ideas',
-          url: 'https://github.com/wu-changxing/connectonion/discussions',
-          icon: FaUsers,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        }
-      ]
-    },
-    {
-      title: (
-        <span className="flex items-center gap-2">
-          <FaMobile className="inline-flex w-5 h-5 text-gray-500" />
-          Social Media
-        </span>
-      ),
-      description: 'Follow us for updates and content',
-      links: [
-        {
-          title: 'Twitter / X',
-          description: 'Latest news and updates',
-          url: 'https://x.com/ConnectOnionAI',
-          icon: FaTwitter,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        },
-        {
-          title: 'YouTube',
-          description: 'Video tutorials and demos',
-          url: 'https://www.youtube.com/@openonionai',
-          icon: FaYoutube,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        },
-        {
-          title: 'LinkedIn',
-          description: 'Professional updates',
-          url: 'https://www.linkedin.com/company/openonion/',
-          icon: FaLinkedin,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        },
-        {
-          title: 'Instagram',
-          description: 'Behind the scenes',
-          url: 'https://www.instagram.com/openonionai/',
-          icon: FaInstagram,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        },
-        {
-          title: 'TikTok',
-          description: 'Quick tips and demos',
-          url: 'https://www.tiktok.com/@closeonion',
-          icon: FaTiktok,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        }
-      ]
-    },
-    {
-      title: (
-        <span className="flex items-center gap-2">
-          <FaBook className="inline-flex w-5 h-5 text-gray-500" />
-          Resources
-        </span>
-      ),
-      description: 'Learn and explore',
-      links: [
-        {
-          title: 'Blog',
-          description: 'Design decisions and insights',
-          url: 'https://docs.connectonion.com/blog',
-          icon: HiOutlineDocumentText,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        },
-        {
-          title: 'Examples',
-          description: 'Sample projects and tutorials',
-          url: 'https://docs.connectonion.com/examples',
-          icon: HiOutlineCodeBracket,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        },
-        {
-          title: 'API Reference',
-          description: 'Technical documentation',
-          url: 'https://docs.connectonion.com/tools',
-          icon: HiOutlineDocumentText,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        }
-      ]
-    },
-    {
-      title: (
-        <span className="flex items-center gap-2">
-          <FaHandshake className="inline-flex w-5 h-5 text-gray-500" />
-          Support
-        </span>
-      ),
-      description: 'Get help and contribute',
-      links: [
-        {
-          title: 'Report Issues',
-          description: 'Bug reports and feature requests',
-          url: 'https://github.com/wu-changxing/connectonion/issues',
-          icon: HiOutlineSparkles,
-          color: 'text-gray-500',
-          bgColor: 'bg-gray-100',
-          borderColor: 'border-gray-400/30',
-          external: true,
-          available: true
-        },
-        {
-          title: 'Email Contact',
-          description: 'Reach out directly',
-          url: 'mailto:contact@connectonion.com',
-          icon: HiOutlineEnvelope,
-          color: 'text-gray-700',
-          bgColor: 'bg-gray-50',
-          borderColor: 'border-gray-600/30',
-          external: true,
-          available: false
-        }
-      ]
-    }
-  ]
-
-  const LinkCard = ({ link }: { link: LinkItem }) => {
-    const Icon = link.icon
-    const isClickable = link.available && link.url !== '#'
-    
-    const cardClasses = "relative group w-full p-6 rounded-2xl transition-all duration-300 bg-white border border-gray-200 " +
-      (isClickable ? "hover:border-gray-400 hover:shadow-md cursor-pointer" : "opacity-60 cursor-not-allowed")
-
-    const content = (
-      <div className={cardClasses}>
-        {!link.available && (
-          <div className="absolute -top-2 -right-2 px-3 py-1 bg-gray-100 border border-gray-200 rounded-full flex items-center gap-1">
-            <span className="text-xs font-medium text-gray-500">Coming Soon</span>
-          </div>
-        )}
-
-        <div className="flex items-start gap-4">
-          <div className="p-3 rounded-xl bg-gray-100 border border-gray-300 group-hover:border-gray-400 transition-colors">
-            <Icon className="w-6 h-6 text-gray-700" />
-          </div>
-          <div className="flex-1 min-w-0">
-            <h3 className="heading-4 text-gray-900 mb-1 flex items-baseline gap-1.5 flex-wrap">
-              <span>{link.title}</span>
-              {link.external && isClickable && (
-                <>
-                  <HiOutlineArrowTopRightOnSquare className="w-3.5 h-3.5 text-gray-400 flex-shrink-0 self-center" />
-                  <span className="sr-only">opens in new tab</span>
-                </>
-              )}
-            </h3>
-            {link.description && (
-              <p className="text-sm text-gray-600">{link.description}</p>
-            )}
-          </div>
-        </div>
-
-        {isClickable && (
-          <button
-            onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-              handleCopyLink(link.url, link.title)
-            }}
-            className="absolute top-4 right-4 p-2 min-w-[44px] min-h-[44px] rounded-lg bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100"
-            aria-label={"Copy " + link.title + " link"}
-            title={"Copy " + link.title + " link"}
-          >
-            {copiedUrl === link.title ? (
-              <HiOutlineCheck className="w-4 h-4 text-green-600" />
-            ) : (
-              <HiOutlineClipboard className="w-4 h-4 text-gray-600" />
-            )}
-          </button>
-        )}
-      </div>
-    )
-    
-    if (!isClickable) {
-      return content
-    }
-    
-    if (link.external) {
-      return (
-        <a
-          href={link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block"
-        >
-          {content}
-        </a>
-      )
-    }
-    
-    return (
-      <Link href={link.url} className="block">
-        {content}
-      </Link>
-    )
   }
 
   return (
-    <div className="px-4 md:px-8 py-16 md:py-24">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-          <Link href="/" className="hover:text-gray-500 transition-colors">
-            Docs
-          </Link>
-          <HiOutlineArrowRight className="w-4 h-4" />
-          <span className="text-gray-900">Links</span>
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-24">
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 text-sm text-gray-500 mb-10">
+        <Link href="/" className="hover:text-gray-900 transition-colors">Docs</Link>
+        <HiOutlineArrowRight className="w-3.5 h-3.5" />
+        <span className="text-gray-900">Links</span>
+      </div>
+
+      {/* Header */}
+      <header className="mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+          <div className="flex-1">
+            <div className="flex items-center gap-2 text-xs font-mono text-gray-500 uppercase tracking-widest mb-4">
+              <LinkIcon className="w-3.5 h-3.5" />
+              <span>Index / Directory</span>
+            </div>
+            <h1 className="heading-1 mb-3">
+              ConnectOnion <span className="accent-italic">links</span>.
+            </h1>
+            <p className="text-lg text-gray-700 max-w-[52ch]">
+              Everything — source, docs, community, socials — indexed in one page. Scannable, linkable, shareable.
+            </p>
+          </div>
+          <CopyMarkdownButton markdownPath="/links.md" filename="links.md" className="flex-shrink-0" />
         </div>
 
-        <div className="mb-12">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
-                <LinkIcon className="w-8 h-8 text-gray-500" />
-              </div>
-              <div>
-                <h1 className="heading-1">ConnectOnion Links</h1>
-                <p className="text-lg text-gray-700">
-                  All our platforms and resources in one place. Build AI agents with simple, powerful Python code.
-                </p>
-              </div>
-            </div>
-            <CopyMarkdownButton markdownPath="/links.md" filename="links.md" className="flex-shrink-0" />
-          </div>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <button
+            onClick={handleSharePage}
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 hover:bg-gray-800 text-white rounded-lg text-sm font-medium transition-colors min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2"
+          >
+            <HiOutlineShare className="w-4 h-4" />
+            Share
+          </button>
+          <button
+            onClick={() => setShowQR(!showQR)}
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 rounded-lg text-sm font-medium transition-colors min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2"
+            aria-expanded={showQR}
+          >
+            <HiOutlineQrCode className="w-4 h-4" />
+            {showQR ? 'Hide QR' : 'Show QR'}
+          </button>
         </div>
-          
-          <div className="flex flex-wrap justify-center gap-4">
-            <button
-              onClick={handleSharePage}
-              className="flex items-center gap-2 px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors font-medium min-h-[44px] shadow-sm"
-              aria-label="Share this page via system share menu or copy link"
-            >
-              <HiOutlineShare className="w-5 h-5" />
-              Share Page
-            </button>
-            <button
-              onClick={() => setShowQR(!showQR)}
-              className="flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 rounded-lg transition-colors font-medium min-h-[44px]"
-              aria-expanded={showQR}
-              aria-label={showQR ? "Hide QR code" : "Show QR code for this page"}
-            >
-              <HiOutlineQrCode className="w-5 h-5" />
-              QR Code
-            </button>
-          </div>
-          
-          {showQR && qrCodeDataUrl && (
-            <div className="mt-8 inline-block animate-fadeIn">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-700 via-pink-600 to-blue-600 rounded-3xl blur-xl opacity-60 animate-pulse"></div>
-                
-                <div className="relative bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 p-1 rounded-3xl shadow-2xl">
-                  <div className="bg-white rounded-2xl p-6">
-                    <div className="relative">
-                      <img 
-                        src={qrCodeDataUrl}
-                        alt="QR Code for ConnectOnion Links" 
-                        className="w-64 h-64 rounded-lg"
-                      />
-                      
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="bg-white rounded-xl p-2 shadow-lg">
-                          <img
-                            src="/onion-logo.png"
-                            alt="ConnectOnion logo overlay on QR code"
-                            width={48}
-                            height={48}
-                            className="rounded-lg"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-4 text-center">
-                      <div className="flex items-center justify-center gap-2 mb-2">
-                        <HiOutlineQrCode className="w-5 h-5 text-gray-700" />
-                        <p className="text-lg font-semibold text-gray-800">Scan to Connect</p>
-                      </div>
-                      <p className="text-sm text-gray-600">
-                        docs.connectonion.com/links
-                      </p>
-                      <div className="mt-3 flex items-center justify-center gap-3">
-                        <div className="flex items-center gap-1 text-xs text-gray-500">
-                          <HiOutlineSparkles className="w-3 h-3" />
-                          <span>Quick Access</span>
-                        </div>
-                        <div className="text-gray-700">•</div>
-                        <div className="flex items-center gap-1 text-xs text-gray-500">
-                          <LinkIcon className="w-3 h-3" />
-                          <span>All Links</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
+        {showQR && qrCodeDataUrl && (
+          <div className="mt-6 inline-block bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+            <div className="relative w-[200px]">
+              <img src={qrCodeDataUrl} alt="QR code for docs.connectonion.com/links" className="w-[200px] h-[200px] rounded-lg" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="bg-white rounded-md p-1 shadow-sm">
+                  <img src="/onion-logo.png" alt="" width={32} height={32} className="rounded" />
                 </div>
-                
-                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-gray-300 rounded-tl-lg"></div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-gray-300 rounded-tr-lg"></div>
-                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-gray-300 rounded-bl-lg"></div>
-                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-gray-300 rounded-br-lg"></div>
               </div>
             </div>
-          )}
-        
-        <div className="space-y-12 mt-12">
-          {linkSections.map((section, idx) => (
-            <div key={idx}>
-              <div className="mb-6">
-                <h2 className="heading-2">
-                  {section.title}
-                </h2>
-                {section.description && (
-                  <p className="text-base text-gray-700">{section.description}</p>
-                )}
-              </div>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {section.links.map((link, linkIdx) => (
-                  <LinkCard key={linkIdx} link={link} />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        <div className="mt-16 pt-8 border-t border-gray-200 text-center">
-          <p className="text-gray-700 mb-4">
-            ConnectOnion is open source and community-driven
-          </p>
-          <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-            <span>Made with</span>
-            <HiOutlineHeart className="w-4 h-4 text-red-500 fill-current" />
-            <span>by the ConnectOnion team</span>
+            <p className="mt-3 text-xs font-mono text-gray-500 text-center">docs.connectonion.com/links</p>
           </div>
-          <div className="mt-4 flex items-center justify-center gap-2">
-            <HiOutlineSparkles className="w-4 h-4 text-gray-500" />
-            <span className="text-sm text-gray-500">
-              Add your link? Contact us on Discord!
+        )}
+      </header>
+
+      {/* Directory — editorial index with dot-leaders */}
+      <div className="space-y-14">
+        {sections.map((section) => (
+          <section key={section.marker}>
+            <div className="mb-5">
+              <div className="flex items-baseline gap-3 mb-2">
+                <span className="font-mono text-xs text-gray-400 tracking-widest uppercase">{section.marker}</span>
+                <h2 className="text-2xl font-semibold text-gray-900 tracking-tight">{section.title}</h2>
+              </div>
+              <p className="italic text-gray-500 max-w-[52ch]" style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: '0.9375rem' }}>
+                {section.epigraph}
+              </p>
+            </div>
+
+            <ul className="border-t border-gray-200">
+              {section.rows.map((row) => {
+                const Icon = row.icon
+                const isClickable = row.available !== false
+                const inner = (
+                  <div className="group flex items-center gap-4 py-4 border-b border-gray-200 transition-colors">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg border border-gray-200 bg-white group-hover:border-gray-400 group-hover:bg-gray-50 transition-colors flex-shrink-0">
+                      <Icon className="w-[18px] h-[18px] text-gray-700 group-hover:text-gray-900 transition-colors" aria-hidden />
+                    </div>
+                    <span className="text-[15px] text-gray-900 group-hover:text-gray-900 whitespace-nowrap">
+                      {row.title}
+                    </span>
+                    <span
+                      className="flex-1 text-gray-300 overflow-hidden whitespace-nowrap select-none"
+                      style={{ letterSpacing: '0.35em', transform: 'translateY(-3px)' }}
+                      aria-hidden
+                    >
+                      {'·'.repeat(200)}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-mono tracking-widest text-gray-500 group-hover:text-green-700 transition-colors whitespace-nowrap">
+                      {row.action || 'VISIT'}
+                      {isClickable && <HiOutlineArrowTopRightOnSquare className="w-3.5 h-3.5" aria-hidden />}
+                    </span>
+                  </div>
+                )
+
+                if (!isClickable) {
+                  return (
+                    <li key={row.title} className="opacity-50">
+                      {inner}
+                    </li>
+                  )
+                }
+
+                return (
+                  <li key={row.title}>
+                    {row.external ? (
+                      <a href={row.url} target="_blank" rel="noopener noreferrer" className="block focus:outline-none focus-visible:bg-gray-50 rounded">
+                        {inner}
+                      </a>
+                    ) : (
+                      <Link href={row.url} className="block focus:outline-none focus-visible:bg-gray-50 rounded">
+                        {inner}
+                      </Link>
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+        ))}
+      </div>
+
+      {/* Footer */}
+      <footer className="mt-20 pt-10 border-t border-gray-200">
+        <div className="flex flex-col items-center text-center gap-3">
+          <div className="flex items-center gap-1.5 text-sm text-gray-600">
+            <span>Open source.</span>
+            <span className="text-gray-300">·</span>
+            <span>Community-driven.</span>
+            <span className="text-gray-300">·</span>
+            <span className="inline-flex items-center gap-1">
+              Made with <HiOutlineHeart className="w-3.5 h-3.5 text-green-600" aria-hidden /> by the ConnectOnion team.
             </span>
           </div>
+          <p className="text-xs text-gray-500 inline-flex items-center gap-1.5">
+            <HiOutlineSparkles className="w-3 h-3" aria-hidden />
+            Add your link? Ping us on Discord.
+          </p>
         </div>
-        
-        <ContentNavigation />
-      </div>
+      </footer>
+
+      <ContentNavigation />
     </div>
   )
 }
