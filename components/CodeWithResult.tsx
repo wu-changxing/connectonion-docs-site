@@ -40,7 +40,15 @@
 import { useState } from 'react'
 import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCommandLine, HiOutlineCodeBracket } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
+
+// Strip per-token background boxes — keep foreground colors only
+const monokai = Object.fromEntries(
+  Object.entries(okaidia).map(([key, val]) => [
+    key,
+    { ...(val as React.CSSProperties), background: undefined, backgroundColor: undefined }
+  ])
+)
 
 interface CodeWithResultProps {
   code: string
