@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { CommandBlock } from '../../../components/CommandBlock'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
+import { PageHeader } from '../../../components/PageHeader'
 
 export default function BrowserPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -157,29 +158,19 @@ co -b "screenshot $DEPLOY_URL save to artifacts/deployed.png"
   return (
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
-        {/* Header with Copy Button */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">
-          <div className="flex-1">
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm text-gray-700 mb-4">
-              <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
-              <HiOutlineArrowRight className="w-4 h-4" />
-              <Link href="/tools" className="hover:text-gray-900 transition-colors">Tools</Link>
-              <HiOutlineArrowRight className="w-4 h-4" />
-              <span className="text-gray-900">Browser Screenshots</span>
-            </nav>
-            
-            <h1 className="h1 md:"heading-1>Browser Screenshots</h1>
-            <p className="text-lg md:text-xl text-gray-700">
-              Quick browser screenshots for debugging web applications
-            </p>
-          </div>
-          <CopyMarkdownButton
-            markdownPath="/tools/browser/browser.md"
-            filename="browser.md"
-            className="flex-shrink-0"
-          />
-        </div>
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Tools', href: '/tools' },
+            { label: 'Browser Screenshots' }
+          ]}
+          icon={HiOutlineCamera}
+          iconColor="icon-ui"
+          title="Browser Screenshots"
+          description="Quick browser screenshots for debugging web applications"
+          markdownPath="/tools/browser/browser.md"
+          markdownFilename="browser.md"
+        />
 
         {/* Quick Start Card */}
         <div className="mb-12 p-6 bg-gradient-to-r from-gray-50 to-gray-50 border border-gray-200 rounded-lg">

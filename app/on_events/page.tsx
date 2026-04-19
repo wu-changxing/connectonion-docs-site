@@ -18,6 +18,7 @@ import CodeWithResult from '../../components/CodeWithResult'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function OnEventsPage() {
 
@@ -346,37 +347,24 @@ Errors: 0
   return (
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
-        {/* Header with Breadcrumb and Copy Button */}
-        <div className="mb-12">
-          <nav className="flex items-center gap-2 text-sm text-gray-700 mb-4">
-            <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
-            <HiOutlineArrowRight className="w-4 h-4" />
-            <span className="text-gray-900">Events (on_events)</span>
-          </nav>
-
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-            <div className="flex-1">
-              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full">
-                <HiOutlineSparkles className="w-4 h-4 text-gray-500" />
-                <span className="text-xs font-medium text-gray-700">New in v0.9</span>
-              </div>
-
-              <h1 className="heading-1">
-                Hook into agent lifecycle
-              </h1>
-
-              <p className="text-xl text-gray-700">
-                React to events in your agent's execution flow. Add logging, monitoring, reflection, and custom behavior at every step.
-              </p>
-            </div>
-
-            <CopyMarkdownButton
-              content={pageContent}
-              filename="event-system.md"
-              className="flex-shrink-0"
-            />
-          </div>
-        </div>
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Events (on_events)' }
+          ]}
+          icon={HiOutlineBolt}
+          iconColor="icon-ui"
+          title="Events (on_events)"
+          description="React to events in your agent's execution flow — logging, monitoring, reflection, custom behavior at every step."
+          badge={
+            <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+              <HiOutlineSparkles className="w-3 h-3" />
+              New in v0.9
+            </span>
+          }
+          markdownContent={pageContent}
+          markdownFilename="event-system.md"
+        />
 
         {/* 12 Event Types — definition list */}
         <section className="mb-12">

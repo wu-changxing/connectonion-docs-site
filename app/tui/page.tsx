@@ -6,6 +6,7 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import CodeWithResult from '../../components/CodeWithResult'
+import { PageHeader } from '../../components/PageHeader'
 
 const components = [
   { id: 'chat', name: 'Chat', title: 'Chat', description: 'Full chat interface with agent integration', icon: HiOutlineCommandLine, href: '/tui/chat', usage: 'Chat(agent=agent).run()', category: 'input' },
@@ -30,32 +31,18 @@ export default function TUIPage() {
   return (
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-          <Link href="/" className="hover:text-gray-500 transition-colors">
-            Docs
-          </Link>
-          <HiOutlineArrowRight className="w-4 h-4" />
-          <span className="text-gray-900">TUI Components</span>
-        </div>
-
-        {/* Header */}
-        <div className="mb-12">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
-                <HiOutlineCommandLine className="w-8 h-8 text-gray-500" />
-              </div>
-              <div>
-                <h1 className="heading-1">TUI Components</h1>
-                <p className="text-lg text-gray-700">
-                  Terminal UI components from <code className="bg-gray-100 px-2 py-1 rounded text-gray-600">connectonion.tui</code>
-                </p>
-              </div>
-            </div>
-            <CopyMarkdownButton markdownPath="/tui.md" filename="tui.md" className="flex-shrink-0" />
-          </div>
-        </div>
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'TUI Components' }
+          ]}
+          icon={HiOutlineCommandLine}
+          iconColor="icon-ui"
+          title="TUI Components"
+          description="Terminal UI components from connectonion.tui"
+          markdownPath="/tui.md"
+          markdownFilename="tui.md"
+        />
 
         {/* Quick Start */}
         <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
@@ -90,11 +77,14 @@ console.print(status.render())`}
         {/* Architecture */}
         <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="heading-2">Architecture</h2>
-          <pre className="bg-gray-100 border border-gray-200 rounded p-4 overflow-x-auto text-sm text-gray-700">
-{`User Input → TUI Component → Terminal (Rich) → User
+          <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+            <div className="px-4 py-2 bg-gray-800 border-b border-gray-700">
+              <span className="text-xs font-mono text-gray-400"># data flow</span>
+            </div>
+            <pre className="px-5 py-4 text-sm font-mono text-gray-300 overflow-x-auto leading-relaxed">{`User Input → TUI Component → Terminal (Rich) → User
      ↑                              ↓
-     └──── Keyboard Events ────────┘`}
-          </pre>
+     └──── Keyboard Events ────────┘`}</pre>
+          </div>
           <p className="text-gray-700 mt-4">
             Components use <strong>Rich</strong> for terminal rendering, <strong>raw mode</strong> for keyboard capture, and <strong>ANSI codes</strong> for styling.
           </p>

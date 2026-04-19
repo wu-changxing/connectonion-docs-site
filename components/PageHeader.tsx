@@ -33,6 +33,7 @@ interface PageHeaderProps {
   badge?: ReactNode
   markdownPath?: string
   markdownFilename?: string
+  markdownContent?: string
 }
 
 export function PageHeader({
@@ -47,6 +48,7 @@ export function PageHeader({
   badge,
   markdownPath,
   markdownFilename,
+  markdownContent,
 }: PageHeaderProps) {
   return (
     <>
@@ -81,9 +83,10 @@ export function PageHeader({
               <p className="text-lg text-gray-500 font-[family-name:var(--font-instrument-serif)] italic">{description}</p>
             </div>
           </div>
-          {markdownPath && (
+          {(markdownPath || markdownContent) && (
             <CopyMarkdownButton
               markdownPath={markdownPath}
+              content={markdownContent}
               filename={markdownFilename}
               className="flex-shrink-0"
             />

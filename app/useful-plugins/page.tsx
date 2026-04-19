@@ -6,6 +6,7 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import CodeWithResult from '../../components/CodeWithResult'
+import { PageHeader } from '../../components/PageHeader'
 
 const plugins = [
   {
@@ -140,38 +141,24 @@ export default function UsefulPluginsPage() {
   return (
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
-      {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-          <Link href="/" className="hover:text-gray-500 transition-colors">
-            Docs
-          </Link>
-          <HiOutlineArrowRight className="w-4 h-4" />
-          <span className="text-gray-900">Useful Plugins</span>
-        </div>
-
-        {/* Header */}
-        <div className="mb-12">
-          <div className="flex flex-col gap-4 mb-4">
-            <div className="flex items-start gap-3">
-              <div className="p-3 bg-gray-100 rounded-xl border border-gray-200 flex-shrink-0">
-                <HiOutlineCube className="w-8 h-8 text-gray-500" />
-              </div>
-              <div className="min-w-0">
-                <div className="flex flex-wrap items-center gap-2">
-                  <h1 className="heading-1">Useful Plugins</h1>
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                    <HiOutlineSparkles className="w-3 h-3" />
-                    Built-in
-                  </span>
-                </div>
-                <p className="text-lg text-gray-700">
-                  Pre-built plugins from <code className="bg-gray-100 px-2 py-1 rounded text-gray-700 text-sm whitespace-nowrap">connectonion.useful_plugins</code>
-                </p>
-              </div>
-            </div>
-            <CopyMarkdownButton markdownPath="/useful-plugins.md" filename="useful-plugins.md" className="flex-shrink-0" />
-          </div>
-        </div>
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Useful Plugins' }
+          ]}
+          icon={HiOutlineCube}
+          iconColor="icon-ui"
+          title="Useful Plugins"
+          description="Pre-built plugins from connectonion.useful_plugins"
+          badge={
+            <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+              <HiOutlineSparkles className="w-3 h-3" />
+              Built-in
+            </span>
+          }
+          markdownPath="/useful-plugins.md"
+          markdownFilename="useful-plugins.md"
+        />
 
         {/* What is a Plugin */}
         <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">

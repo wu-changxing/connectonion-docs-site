@@ -6,6 +6,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
+import { PageHeader } from '../../../components/PageHeader'
 
 export default function XrayTracePage() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -518,33 +519,19 @@ Works seamlessly with:
 
   return (
     <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24">
-      {/* Header with Copy Button */}
-      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">
-        <div className="flex-1">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-700 mb-4 overflow-x-auto">
-            <Link href="/" className="hover:text-gray-900 transition-colors whitespace-nowrap">Home</Link>
-            <HiOutlineArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-            <Link href="/xray" className="hover:text-gray-900 transition-colors whitespace-nowrap">@xray</Link>
-            <HiOutlineArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-            <span className="text-gray-900 whitespace-nowrap">trace()</span>
-          </nav>
-
-          <h1 className="heading-1">
-            <HiOutlineEye className="w-8 h-8 sm:w-10 sm:h-10 text-gray-500 flex-shrink-0" />
-            <span>xray.trace()</span>
-          </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-3xl">
-            Visual execution tracing for ConnectOnion agents. See exactly what happened during agent execution with timing, inputs, outputs, and errors.
-          </p>
-        </div>
-        
-        <CopyMarkdownButton 
-          content={markdownContent}
-          filename="xray-trace-guide.md"
-          className="lg:ml-8 flex-shrink-0 self-start"
-        />
-      </div>
+      <PageHeader
+        breadcrumbs={[
+          { label: 'Docs', href: '/' },
+          { label: '@xray', href: '/xray' },
+          { label: 'trace()' }
+        ]}
+        icon={HiOutlineEye}
+        iconColor="icon-ui"
+        title="xray.trace()"
+        description="Visual execution tracing for ConnectOnion agents — timing, inputs, outputs, and errors at a glance."
+        markdownContent={markdownContent}
+        markdownFilename="xray-trace-guide.md"
+      />
 
       {/* Key Features */}
       <section className="mb-12 sm:mb-16">
