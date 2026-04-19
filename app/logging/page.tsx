@@ -17,33 +17,38 @@ export default function LoggingPage() {
     setTimeout(() => setCopiedCode(null), 2000)
   }
 
-  const CodeBlock = ({ code, language = 'python', id }: { code: string; language?: string; id: string }) => (
-    <div className="relative group max-w-4xl mx-auto">
-      <button
-        onClick={() => handleCopyCode(code, id)}
-        className="absolute right-2 top-2 p-2 bg-gray-700 hover:bg-gray-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity z-10"
-        aria-label="Copy code"
-      >
-        {copiedCode === id ? (
-          <HiOutlineCheck className="w-4 h-4 text-green-600" />
-        ) : (
-          <HiOutlineClipboard className="w-4 h-4 text-gray-700" />
-        )}
-      </button>
-      <SyntaxHighlighter
-        language={language}
-        style={monokai}
-        customStyle={{
-          borderRadius: '0.5rem',
-          padding: '1.25rem',
-          margin: 0,
-          fontSize: '0.875rem',
-          lineHeight: '1.5',
-          overflowX: 'auto'
-        }}
-      >
-        {code}
-      </SyntaxHighlighter>
+  const CodeBlock = ({ code, language = 'python', id, fileName }: { code: string; language?: string; id: string; fileName?: string }) => (
+    <div className="group rounded-lg overflow-hidden border border-gray-700 bg-gray-900">
+      <div className="flex items-center justify-between px-4 py-2 bg-gray-800 border-b border-gray-700">
+        <span className="text-xs font-mono text-gray-400">{fileName || (language === 'bash' ? '# shell' : language === 'yaml' ? 'yaml' : 'python')}</span>
+        <button
+          onClick={() => handleCopyCode(code, id)}
+          className="p-1.5 rounded text-gray-400 hover:text-white hover:bg-gray-700 transition-colors opacity-60 hover:opacity-100 md:opacity-0 md:group-hover:opacity-100"
+          aria-label="Copy code"
+        >
+          {copiedCode === id ? (
+            <HiOutlineCheck className="w-3.5 h-3.5 text-green-400" />
+          ) : (
+            <HiOutlineClipboard className="w-3.5 h-3.5" />
+          )}
+        </button>
+      </div>
+      <div className="overflow-x-auto">
+        <SyntaxHighlighter
+          language={language}
+          style={monokai}
+          customStyle={{
+            background: 'transparent',
+            padding: '1rem 1.25rem',
+            margin: 0,
+            fontSize: '0.8125rem',
+            lineHeight: '1.65',
+            overflowX: 'visible'
+          }}
+        >
+          {code}
+        </SyntaxHighlighter>
+      </div>
     </div>
   )
 

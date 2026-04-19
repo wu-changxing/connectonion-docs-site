@@ -78,7 +78,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
     <div className="relative group">
       <button
         onClick={() => handleCopyCode(code, id)}
-        className="absolute right-2 top-2 p-2.5 min-w-[44px] min-h-[44px] bg-gray-700 hover:bg-gray-600 active:bg-gray-500 focus-visible:outline-2 focus-visible:outline-purple-400 focus-visible:outline-offset-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all z-10"
+        className="absolute right-2 top-2 p-2.5 min-w-[44px] min-h-[44px] bg-gray-700 hover:bg-gray-600 active:bg-gray-500 focus-visible:outline-2 focus-visible:outline-purple-400 focus-visible:outline-offset-2 rounded-lg opacity-60 hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all z-10"
         aria-label="Copy code"
       >
         {copiedCode === id ? (

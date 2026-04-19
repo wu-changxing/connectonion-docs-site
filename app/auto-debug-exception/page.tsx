@@ -20,7 +20,7 @@ export default function AutoDebugExceptionPage() {
     <div className="relative group max-w-4xl mx-auto">
       <button
         onClick={() => handleCopyCode(code, id)}
-        className="absolute right-2 top-2 p-2 bg-gray-700 hover:bg-gray-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity z-10"
+        className="absolute right-2 top-2 p-2 bg-gray-700 hover:bg-gray-600 rounded-lg opacity-60 hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10"
         aria-label="Copy code"
       >
         {copiedCode === id ? (

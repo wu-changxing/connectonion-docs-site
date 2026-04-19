@@ -491,6 +491,14 @@ agent = Agent(
             </p>
 
             <div className="space-y-8">
+
+              {/* ── Phase I: User Input ───────────────────────────────── */}
+              <div className="flex items-center gap-3 pt-2">
+                <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">§ I · User Input</span>
+                <div className="flex-1 border-t border-dashed border-gray-200" />
+                <span className="text-[10px] text-gray-400 font-mono">1 event</span>
+              </div>
+
               {/* after_user_input */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
@@ -518,6 +526,13 @@ agent = Agent("assistant", on_events=[
 # Useful for: time-aware agents, logging, session metadata`}
                   language="python"
                 />
+              </div>
+
+              {/* ── Phase II: Per-Iteration ───────────────────────────── */}
+              <div className="flex items-center gap-3 pt-2">
+                <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">§ II · Per-Iteration</span>
+                <div className="flex-1 border-t border-dashed border-gray-200" />
+                <span className="text-[10px] text-gray-400 font-mono">4 events</span>
               </div>
 
               {/* before_iteration */}
@@ -598,6 +613,13 @@ agent = Agent("assistant", tools=[search], on_events=[
 # Useful for: reflection, chain-of-thought, meta-cognition`}
                   language="python"
                 />
+              </div>
+
+              {/* ── Phase III: Tool Execution ─────────────────────────── */}
+              <div className="flex items-center gap-3 pt-2">
+                <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">§ III · Tool Execution</span>
+                <div className="flex-1 border-t border-dashed border-gray-200" />
+                <span className="text-[10px] text-gray-400 font-mono">5 events</span>
               </div>
 
               {/* before_each_tool */}
@@ -753,6 +775,13 @@ agent = Agent("assistant", tools=[api_call], on_events=[
 # Useful for: error logging, retry logic, fallback behavior`}
                   language="python"
                 />
+              </div>
+
+              {/* ── Phase IV: Lifecycle ───────────────────────────────── */}
+              <div className="flex items-center gap-3 pt-2">
+                <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">§ IV · Lifecycle</span>
+                <div className="flex-1 border-t border-dashed border-gray-200" />
+                <span className="text-[10px] text-gray-400 font-mono">3 events</span>
               </div>
 
               {/* after_iteration */}
