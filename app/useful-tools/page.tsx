@@ -118,11 +118,8 @@ export default function UsefulToolsPage() {
         />
 
         {/* Quick Usage */}
-        <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h2 className="heading-2 flex items-center gap-2">
-            <HiOutlineCodeBracket className="w-5 h-5 text-gray-500" />
-            Quick Usage
-          </h2>
+        <div className="mb-12 section-featured">
+          <h2 className="heading-2 mb-4">Quick Usage</h2>
           <CodeWithResult
             code={`from connectonion import Agent
 from connectonion.useful_tools import gmail, memory, web_fetch

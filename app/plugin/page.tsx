@@ -42,11 +42,8 @@ export default function PluginPage() {
         />
 
         {/* Quick Start */}
-        <section className="mb-16">
-          <h2 className="heading-2">
-            <HiOutlinePlay className="text-gray-500 w-7 h-7" />
-            Quick Start
-          </h2>
+        <section className="mb-16 section-featured">
+          <h2 className="heading-2 mb-4">Quick Start</h2>
 
           <CodeWithResult
             code={`from connectonion import Agent

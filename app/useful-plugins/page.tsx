@@ -161,8 +161,8 @@ export default function UsefulPluginsPage() {
         />
 
         {/* What is a Plugin */}
-        <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h2 className="heading-2">What is a Plugin?</h2>
+        <div className="mb-12 section-featured">
+          <h2 className="heading-2 mb-4">What is a Plugin?</h2>
           <p className="text-gray-700 mb-4">
             A plugin is a reusable list of event handlers. Use <code className="bg-gray-100 px-2 py-1 rounded">plugins=[...]</code> to add pre-packaged functionality to any agent.
           </p>

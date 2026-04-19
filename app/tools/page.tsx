@@ -232,7 +232,7 @@ browser.close()`
 
       {/* Quick Start */}
       <section className="mb-14">
-        <h2 className="heading-2 flex items-center gap-2"><HiOutlineSquare3Stack3D className="w-5 h-5 text-gray-500 flex-shrink-0" />Quick Start</h2>
+        <h2 className="heading-2">Quick Start</h2>
         <CodeWithResult 
           code={quickStart}
           result={`>>> agent = Agent("helper", tools=[search], max_iterations=5)
@@ -253,7 +253,7 @@ Based on my search, here are some excellent Python tutorials for you:
 
       {/* Function Tools */}
       <section className="mb-14">
-        <h2 className="heading-2 flex items-center gap-2"><HiOutlineCodeBracket className="w-5 h-5 icon-ui flex-shrink-0" />Function Tools</h2>
+        <h2 className="heading-2">Function Tools</h2>
         <p className="text-gray-700 mb-4">Use Python type hints as your interface. Keep signatures explicit and return structures when needed.</p>
         <div className="grid grid-cols-1 gap-6">
           <CodeWithResult 
@@ -279,7 +279,7 @@ I'll search for the top 3 results about vector databases.
 
       {/* Stateful Tools (Playwright) */}
       <section className="mb-16">
-        <h2 className="heading-2 flex items-center gap-2"><HiOutlineComputerDesktop className="w-5 h-5 icon-ui flex-shrink-0" />Stateful Tools: Playwright</h2>
+        <h2 className="heading-2">Stateful Tools: Playwright</h2>
         <CodeWithResult 
           code={playwright}
           result={`>>> browser = Browser()
@@ -300,7 +300,7 @@ I'll search for the top 3 results about vector databases.
 
       {/* Class Instance vs Individual Methods */}
       <section className="mb-16">
-        <h2 className="heading-2 flex items-center gap-2"><HiOutlineCog6Tooth className="w-5 h-5 icon-ui flex-shrink-0" />Class Instance vs Individual Methods</h2>
+        <h2 className="heading-2">Class Instance vs Individual Methods</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-sm font-semibold text-gray-700 mb-4 flex items-center gap-2 uppercase tracking-wide">

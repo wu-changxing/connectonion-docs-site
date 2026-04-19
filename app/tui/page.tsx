@@ -45,11 +45,8 @@ export default function TUIPage() {
         />
 
         {/* Quick Start */}
-        <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h2 className="heading-2 flex items-center gap-2">
-            <HiOutlineCodeBracket className="w-5 h-5 text-gray-500" />
-            Quick Start
-          </h2>
+        <div className="mb-12 section-featured">
+          <h2 className="heading-2 mb-4">Quick Start</h2>
           <CodeWithResult
             code={`from connectonion.tui import pick, Input, StatusBar
 from rich.console import Console
@@ -136,59 +133,59 @@ console.print(status.render())`}
                 <tr className="border-b border-gray-200 bg-gray-50">
                   <th className="text-left px-4 py-3 text-gray-700 font-semibold">Component</th>
                   <th className="text-left px-4 py-3 text-gray-700 font-semibold">Purpose</th>
-                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Import</th>
+                  <th className="hidden md:table-cell text-left px-4 py-3 text-gray-700 font-semibold">Import</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-4 py-3"><Link href="/tui/chat" className="text-gray-700 font-medium hover:text-gray-900">Chat</Link></td>
                   <td className="px-4 py-3 text-gray-600">Full chat interface with agent</td>
-                  <td className="px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Chat</code></td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Chat</code></td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-4 py-3"><Link href="/tui/input" className="text-gray-700 font-medium hover:text-gray-900">Input</Link></td>
                   <td className="px-4 py-3 text-gray-600">Text input with autocomplete</td>
-                  <td className="px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Input</code></td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Input</code></td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-4 py-3"><Link href="/tui/pick" className="text-gray-700 font-medium hover:text-gray-900">pick</Link></td>
                   <td className="px-4 py-3 text-gray-600">Single-select menu</td>
-                  <td className="px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import pick</code></td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import pick</code></td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-4 py-3"><Link href="/tui/dropdown" className="text-gray-700 font-medium hover:text-gray-900">Dropdown</Link></td>
                   <td className="px-4 py-3 text-gray-600">Dropdown menus</td>
-                  <td className="px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Dropdown</code></td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Dropdown</code></td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-4 py-3"><Link href="/tui/status-bar" className="text-gray-700 font-medium hover:text-gray-900">StatusBar</Link></td>
                   <td className="px-4 py-3 text-gray-600">Powerline-style status</td>
-                  <td className="px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import StatusBar</code></td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import StatusBar</code></td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-4 py-3"><Link href="/tui/footer" className="text-gray-700 font-medium hover:text-gray-900">Footer</Link></td>
                   <td className="px-4 py-3 text-gray-600">Footer with help text</td>
-                  <td className="px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Footer</code></td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Footer</code></td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-4 py-3"><Link href="/tui/divider" className="text-gray-700 font-medium hover:text-gray-900">Divider</Link></td>
                   <td className="px-4 py-3 text-gray-600">Visual dividers</td>
-                  <td className="px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Divider</code></td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import Divider</code></td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-4 py-3"><Link href="/tui/fuzzy" className="text-gray-700 font-medium hover:text-gray-900">fuzzy</Link></td>
                   <td className="px-4 py-3 text-gray-600">Fuzzy matching</td>
-                  <td className="px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import fuzzy_match</code></td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import fuzzy_match</code></td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-4 py-3"><Link href="/tui/keys" className="text-gray-700 font-medium hover:text-gray-900">keys</Link></td>
                   <td className="px-4 py-3 text-gray-600">Keyboard input</td>
-                  <td className="px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import getch</code></td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import getch</code></td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-4 py-3"><Link href="/tui/providers" className="text-gray-700 font-medium hover:text-gray-900">providers</Link></td>
                   <td className="px-4 py-3 text-gray-600">Autocomplete data sources</td>
-                  <td className="px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import FileProvider</code></td>
+                  <td className="hidden md:table-cell px-4 py-3"><code className="text-xs text-gray-600">from connectonion.tui import FileProvider</code></td>
                 </tr>
               </tbody>
             </table>

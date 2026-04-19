@@ -70,12 +70,9 @@ export default function LoggingPage() {
 
         {/* Quick Start */}
         <section className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <HiOutlinePlay className="w-6 h-6 text-gray-500" />
-            <h2 className="heading-2">Quick Start</h2>
-          </div>
+          <h2 className="heading-2 mb-6">Quick Start</h2>
 
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-12">
+          <div className="section-featured mb-12">
             <CodeBlock
               code={`# Default: logs to .co/logs/{name}.log + .co/sessions/{name}_{timestamp}.yaml
 agent = Agent("assistant")
@@ -95,10 +92,7 @@ agent = Agent("assistant", log="debug.log")`}
 
         {/* Logging Modes */}
         <section className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <HiOutlineCommandLine className="w-6 h-6 text-gray-500" />
-            <h2 className="heading-2">Logging Modes</h2>
-          </div>
+          <h2 className="heading-2 mb-6">Logging Modes</h2>
 
           <div className="overflow-hidden rounded-xl border border-gray-200 bg-gray-50 backdrop-blur mb-8">
             <table className="w-full text-left text-sm">
@@ -152,10 +146,7 @@ agent = Agent("assistant", log="debug.log")`}
 
         {/* Log Locations */}
         <section className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <HiOutlineFolderOpen className="w-6 h-6 text-gray-500" />
-            <h2 className="heading-2">Log Locations</h2>
-          </div>
+          <h2 className="heading-2 mb-6">Log Locations</h2>
 
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
             <CodeBlock
@@ -172,10 +163,7 @@ agent = Agent("assistant", log="debug.log")`}
 
         {/* Plain Text Format */}
         <section className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <HiOutlineCommandLine className="w-6 h-6 text-gray-500" />
-            <h2 className="heading-2">Plain Text Format (.co/logs/)</h2>
-          </div>
+          <h2 className="heading-2 mb-6">Plain Text Format (.co/logs/)</h2>
 
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
             <CodeBlock
@@ -197,10 +185,7 @@ Session started: 2024-12-02 10:32:14
 
         {/* Session YAML Format */}
         <section className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <HiOutlineCircleStack className="w-6 h-6 text-gray-500" />
-            <h2 className="heading-2">Session YAML Format (.co/sessions/)</h2>
-          </div>
+          <h2 className="heading-2 mb-6">Session YAML Format (.co/sessions/)</h2>
 
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-6">
             <p className="text-gray-700 mb-4">Sessions are saved as YAML for replay and eval:</p>
@@ -243,10 +228,7 @@ turns:
 
         {/* View Logs */}
         <section className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <HiOutlineEye className="w-6 h-6 text-gray-500" />
-            <h2 className="heading-2">View Logs</h2>
-          </div>
+          <h2 className="heading-2 mb-6">View Logs</h2>
 
           <div className="space-y-6">
             <div>
@@ -273,10 +255,7 @@ turns:
 
         {/* Environment Variable */}
         <section className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <HiOutlineCommandLine className="w-6 h-6 text-gray-500" />
-            <h2 className="heading-2">Environment Variable</h2>
-          </div>
+          <h2 className="heading-2 mb-6">Environment Variable</h2>
 
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
             <p className="text-gray-700 mb-4">Override log file via environment (highest priority):</p>
@@ -286,10 +265,7 @@ turns:
 
         {/* Git Ignore */}
         <section className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <HiOutlineFolderOpen className="w-6 h-6 text-gray-500" />
-            <h2 className="heading-2">Git Ignore</h2>
-          </div>
+          <h2 className="heading-2 mb-6">Git Ignore</h2>
 
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
             <div className="flex items-start gap-4">

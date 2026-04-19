@@ -625,6 +625,18 @@ section > .heading-2:first-child {
   margin-bottom: 4rem;
 }
 
+/* ── Featured section — Quick Start / primary example callout ────
+   Used for the first / most important section on any doc page.
+   White background + green left border = editorial "lead" treatment.
+   Reference sections remain gray — this one stands out.            */
+.section-featured {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 3px solid #16a34a;
+  border-radius: 0 0.75rem 0.75rem 0;
+  padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+}
+
 /* Positive outcome callout — success / "it works" message         */
 .callout-success {
   background: #f9fafb;

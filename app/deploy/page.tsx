@@ -40,10 +40,7 @@ export default function DeployPage() {
 
         {/* Two Options */}
         <section className="mb-20">
-          <h2 className="heading-2">
-            <HiOutlineArrowRight className="w-8 h-8 text-gray-500" />
-            Two Deployment Options
-          </h2>
+          <h2 className="heading-2">Two Deployment Options</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white border-2 border-gray-900 rounded-lg p-6 relative">
@@ -101,10 +98,7 @@ export default function DeployPage() {
 
         {/* 60-Second Quick Start */}
         <section className="mb-20">
-          <h2 className="heading-2">
-            <HiOutlineBolt className="w-8 h-8 icon-ui" />
-            60-Second Quick Start
-          </h2>
+          <h2 className="heading-2">60-Second Quick Start</h2>
 
           <p className="text-gray-700 mb-6 text-lg">
             Deploy your agent with the CLI - one command:
