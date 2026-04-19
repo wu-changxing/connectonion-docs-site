@@ -187,8 +187,30 @@ DATABASE_URL=postgres://...`}
           </div>
         </section>
 
+        {/* Self-Host paths guide */}
+        <section className="mb-12">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="flex-1 border-t border-dashed border-gray-200" />
+            <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">Self-Host Paths</span>
+            <div className="flex-1 border-t border-dashed border-gray-200" />
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { label: 'VPS / bare metal', target: '#self-host-with-host', desc: 'Python + host()' },
+              { label: 'Docker / container', target: '#docker-deployment', desc: 'Any Docker host' },
+              { label: 'Google Cloud', target: '#deploy-to-google-cloud-run', desc: 'Cloud Run' },
+              { label: 'AWS', target: '#deploy-to-aws', desc: 'EC2 or ECS' },
+            ].map(({ label, target, desc }) => (
+              <a key={label} href={target} className="group flex flex-col gap-1 p-3 rounded-lg border border-gray-200 bg-white hover:border-gray-400 hover:shadow-sm transition-all">
+                <span className="text-xs font-semibold text-gray-700 group-hover:text-gray-900">{label}</span>
+                <span className="text-[11px] font-mono text-gray-400">{desc} →</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
         {/* Self-Host with host() */}
-        <section className="mb-20">
+        <section className="mb-20" id="self-host-with-host">
           <h2 className="heading-2">
             <HiOutlineServer className="w-8 h-8 icon-ui" />
             Self-Host with host()
@@ -236,7 +258,7 @@ gunicorn agent:app -w 4 -k uvicorn.workers.UvicornWorker`}
         </section>
 
         {/* Docker Deployment */}
-        <section className="mb-20">
+        <section className="mb-20" id="docker-deployment">
           <h2 className="heading-2">
             <HiOutlineCube className="w-8 h-8 icon-ui" />
             Docker Deployment
@@ -316,7 +338,7 @@ Agent serving at: 0x3d4017c3e843895a...`}
         </section>
 
         {/* GCP Cloud Run */}
-        <section className="mb-20">
+        <section className="mb-20" id="deploy-to-google-cloud-run">
           <h2 className="heading-2">
             <HiOutlineCloud className="w-8 h-8 icon-ui" />
             Deploy to Google Cloud Run
@@ -372,7 +394,7 @@ Agent address: 0x3d4017c3e843895a92b70aa74d1b7ebc...`}
         </section>
 
         {/* AWS Deployment */}
-        <section className="mb-20">
+        <section className="mb-20" id="deploy-to-aws">
           <h2 className="heading-2">
             <HiOutlineServer className="w-8 h-8 icon-ui" />
             Deploy to AWS
