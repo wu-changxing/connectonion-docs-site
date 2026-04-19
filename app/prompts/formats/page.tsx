@@ -3,9 +3,9 @@
 import { useState } from 'react'
 import { HiOutlineClipboard, HiOutlineCheck, HiOutlineArrowRight, HiOutlineInformationCircle } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
 import { ContentNavigation } from '../../../components/ContentNavigation'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export default function FormatsPage() {
   const [copied, setCopied] = useState(false)
@@ -79,7 +79,7 @@ agent = Agent("bot", system_prompt="prompts/assistant")          # No extension`
             <div className="p-4">
               <SyntaxHighlighter
                 language="python"
-                style={monokai}
+                style={okaidia}
                 customStyle={{ background: 'transparent', padding: 0, margin: 0, fontSize: '0.875rem', lineHeight: '1.6' }}
               >
                 {codeExample}

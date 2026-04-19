@@ -14,9 +14,9 @@ import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCodeBracket, HiOutlineArro
 import Link from 'next/link'
 import { FaShieldAlt, FaBolt, FaWrench, FaBullseye } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const agentCode = `from connectonion import Agent
 
@@ -295,7 +295,7 @@ Build on this foundation for more complex agents that need to handle user input 
             <div className="p-6">
               <SyntaxHighlighter 
                 language="python" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,
@@ -340,7 +340,7 @@ Build on this foundation for more complex agents that need to handle user input 
             <div className="p-6">
               <SyntaxHighlighter 
                 language="python" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,

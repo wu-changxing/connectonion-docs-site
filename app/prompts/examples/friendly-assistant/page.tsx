@@ -3,9 +3,9 @@
 import React, { useState } from 'react'
 import { HiOutlineClipboard, HiOutlineCheck, HiOutlineUser, HiOutlineArrowRight, HiOutlineArrowLeft, HiOutlineArrowDownTray, HiOutlineLightBulb, HiOutlineChatBubbleOvalLeft, HiOutlineHeart } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../../../components/CopyMarkdownButton'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const promptContent = `# Friendly Assistant
 
@@ -180,7 +180,7 @@ ${expectedOutput}
             <div className="p-6">
               <SyntaxHighlighter 
                 language="markdown" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,
@@ -227,7 +227,7 @@ ${expectedOutput}
             <div className="p-6">
               <SyntaxHighlighter 
                 language="python" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,

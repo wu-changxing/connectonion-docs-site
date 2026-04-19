@@ -5,10 +5,10 @@ import Link from 'next/link'
 import { HiOutlineEnvelope, HiOutlinePaperAirplane, HiOutlineCheck, HiOutlineClipboard, HiOutlineBolt, HiOutlineShieldCheck, HiOutlineGlobeAlt, HiOutlineArrowRight } from 'react-icons/hi2'
 import { FaStar, FaEnvelope } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { CommandBlock } from '../../../components/CommandBlock'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { PageHeader } from '../../../components/PageHeader'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export default function SendEmailPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -34,7 +34,7 @@ export default function SendEmailPage() {
       </button>
       <SyntaxHighlighter 
         language={language} 
-        style={monokai}
+        style={okaidia}
         customStyle={{
           borderRadius: '0.5rem',
           padding: '1.25rem',

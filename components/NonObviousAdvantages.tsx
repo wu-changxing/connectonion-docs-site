@@ -2,7 +2,7 @@
 
 import { HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineSquares2X2, HiOutlineCommandLine, HiOutlineWrench, HiOutlineGlobeAlt, HiOutlineUsers } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 interface Advantage {
   icon: React.ComponentType<{ className?: string }>
@@ -130,7 +130,7 @@ export function NonObviousAdvantages() {
                       <div className="overflow-x-auto">
                         <SyntaxHighlighter
                           language="python"
-                          style={monokai}
+                          style={okaidia}
                           customStyle={{
                             margin: 0,
                             padding: '0.75rem',

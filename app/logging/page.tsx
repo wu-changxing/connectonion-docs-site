@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import { HiOutlineDocumentText, HiOutlineCheck, HiOutlineClipboard, HiOutlinePlay, HiOutlineEye, HiOutlineCommandLine, HiOutlineFolderOpen, HiOutlineCircleStack } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export default function LoggingPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -36,7 +36,7 @@ export default function LoggingPage() {
       <div className="overflow-x-auto bg-gray-900">
         <SyntaxHighlighter
           language={language}
-          style={monokai}
+          style={okaidia}
           customStyle={{
             background: 'transparent',
             padding: '1rem 1.25rem',

@@ -3,9 +3,9 @@
 import React, { useState } from 'react'
 import { HiOutlineClipboard, HiOutlineCheck, HiOutlineShieldCheck, HiOutlineArrowRight, HiOutlineArrowLeft, HiOutlineArrowDownTray, HiOutlineLightBulb, HiOutlineChatBubbleOvalLeft, HiOutlineExclamationTriangle, HiOutlineLockClosed } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../../../components/CopyMarkdownButton'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const promptContent = `# Security Analyst
 
@@ -278,7 +278,7 @@ ${expectedOutput}
             <div className="p-6">
               <SyntaxHighlighter 
                 language="markdown" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,
@@ -325,7 +325,7 @@ ${expectedOutput}
             <div className="p-6">
               <SyntaxHighlighter 
                 language="python" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,

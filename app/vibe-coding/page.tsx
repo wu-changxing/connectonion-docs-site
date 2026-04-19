@@ -4,10 +4,10 @@ import { useState } from 'react'
 import { HiOutlineDocumentText, HiOutlineClipboard, HiOutlineCheck, HiOutlineSparkles, HiOutlineArrowRight, HiOutlineBolt, HiOutlineBookOpen, HiOutlineCursorArrowRays, HiOutlineRocketLaunch, HiOutlineCodeBracket, HiOutlineCommandLine, HiOutlineArrowDownTray, HiOutlineChevronRight, HiOutlineViewfinderCircle } from 'react-icons/hi2'
 import { FaBullseye, FaRocket, FaEnvelope, FaLightbulb, FaGift } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
 import { MacOSDownload } from '../../components/MacOSDownload'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export default function VibeCodingPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -89,7 +89,7 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
       </button>
       <SyntaxHighlighter 
         language={language} 
-        style={monokai}
+        style={okaidia}
         customStyle={{
           borderRadius: '0.5rem',
           padding: '1.25rem',

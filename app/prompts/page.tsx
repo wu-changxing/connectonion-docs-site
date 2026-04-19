@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import { HiOutlineClipboard, HiOutlineCheck, HiOutlineDocumentText, HiOutlineArrowRight, HiOutlineInformationCircle, HiOutlineExclamationTriangle, HiOutlineFolderOpen, HiOutlineChatBubbleOvalLeft } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export default function PromptsOverviewPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -149,7 +149,7 @@ result = agent.input(
               <div className="p-4">
                 <SyntaxHighlighter
                   language="bash"
-                  style={monokai}
+                  style={okaidia}
                   customStyle={{ background: 'transparent', padding: 0, margin: 0, fontSize: '0.875rem', lineHeight: '1.6' }}
                 >
                   {folderTree}
@@ -175,7 +175,7 @@ result = agent.input(
               <div className="p-4">
                 <SyntaxHighlighter
                   language="markdown"
-                  style={monokai}
+                  style={okaidia}
                   customStyle={{ background: 'transparent', padding: 0, margin: 0, fontSize: '0.875rem', lineHeight: '1.6' }}
                 >
                   {recommendedMarkdown}
@@ -201,7 +201,7 @@ result = agent.input(
               <div className="p-4">
                 <SyntaxHighlighter
                   language="python"
-                  style={monokai}
+                  style={okaidia}
                   customStyle={{ background: 'transparent', padding: 0, margin: 0, fontSize: '0.875rem', lineHeight: '1.6' }}
                 >
                   {loadFromMarkdown}
@@ -265,7 +265,7 @@ result = agent.input(
               <div className="p-4">
                 <SyntaxHighlighter
                   language="python"
-                  style={monokai}
+                  style={okaidia}
                   customStyle={{ background: 'transparent', padding: 0, margin: 0, fontSize: '0.875rem', lineHeight: '1.5' }}
                 >
                   {quickStartCode}
@@ -299,7 +299,7 @@ result = agent.input(
             <div className="p-4">
               <SyntaxHighlighter
                 language="python"
-                style={monokai}
+                style={okaidia}
                 customStyle={{ background: 'transparent', padding: 0, margin: 0, fontSize: '0.875rem', lineHeight: '1.5' }}
               >
                 {iterationCode}

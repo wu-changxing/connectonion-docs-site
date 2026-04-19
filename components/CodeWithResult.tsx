@@ -40,7 +40,12 @@
 import { useState } from 'react'
 import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCommandLine, HiOutlineCodeBracket } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
+// ⚠️ DO NOT replace `okaidia` with a custom theme object.
+// okaidia is the canonical monokai palette — all tokens have calibrated
+// colors and there are no problematic per-token backgrounds. The container
+// bg `#272822` below is monokai's native pre background; matching them
+// means no stripping, no CSS hacks, no invisible identifiers.
 
 interface CodeWithResultProps {
   code: string
@@ -157,11 +162,11 @@ export default function CodeWithResult({
   }
 
   return (
-    <div className={`code-block bg-gray-900 rounded-lg overflow-hidden shadow-lg shadow-black/30 border border-gray-700 ${className}`}>
-      <div className="flex flex-col divide-y divide-gray-700">
+    <div className={`code-block bg-[#272822] rounded-lg overflow-hidden shadow-lg shadow-black/40 border border-[#3e3d32] ${className}`}>
+      <div className="flex flex-col divide-y divide-[#3e3d32]">
         {/* Code Section */}
         <div className="relative">
-          <div className="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
+          <div className="flex items-center justify-between bg-[#1e1f1c] px-4 py-3 border-b border-[#3e3d32]">
             <div className="flex items-center gap-2">
               {language === 'python' ? (
                 <div className="flex items-center gap-2">
@@ -191,7 +196,7 @@ export default function CodeWithResult({
               <span className="text-[11px] font-mono text-gray-500 select-none hidden sm:block">{language}</span>
               <button
                 onClick={handleCopy}
-                className="text-gray-400 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors p-2.5 rounded hover:bg-gray-700 min-h-[44px] min-w-[44px] flex items-center justify-center"
+                className="text-gray-500 hover:text-gray-200 focus:text-white focus:outline-none focus:ring-2 focus:ring-[#3e3d32] focus:ring-offset-2 focus:ring-offset-[#1e1f1c] transition-colors p-2.5 rounded hover:bg-[#3e3d32] min-h-[44px] min-w-[44px] flex items-center justify-center"
                 title="Copy code"
                 aria-label="Copy code to clipboard"
               >
@@ -199,45 +204,37 @@ export default function CodeWithResult({
               </button>
             </div>
           </div>
-          <div className="relative bg-gray-900">
+          <div className="relative bg-[#272822]">
             <div className="p-4 md:p-6 overflow-x-auto custom-scrollbar">
               <SyntaxHighlighter
                 language={language}
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,
                   margin: 0,
-                  fontSize: '0.8125rem',
-                  lineHeight: '1.7',
-                  overflow: 'visible',
-                  fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace'
+                  overflow: 'visible'
                 }}
                 showLineNumbers={false}
                 wrapLines={false}
                 wrapLongLines={false}
                 PreTag="div"
-                codeTagProps={{
-                  style: {
-                    fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
-                  }
-                }}
               >
                 {code}
               </SyntaxHighlighter>
             </div>
-            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-gray-900 to-transparent pointer-events-none lg:hidden" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#272822] to-transparent pointer-events-none lg:hidden" />
           </div>
         </div>
 
         {/* Result Section */}
         {result && (
           <div>
-            <div className="flex items-center gap-2 px-4 py-2 border-b border-gray-700">
+            <div className="flex items-center gap-2 px-4 py-2 border-b border-[#3e3d32]">
               <HiOutlineCommandLine className="w-3.5 h-3.5 text-green-500" />
               <span className="text-xs font-mono text-gray-400">output</span>
             </div>
-            <div className="p-4 md:p-6 overflow-x-auto custom-scrollbar bg-gray-900">
+            <div className="p-4 md:p-6 overflow-x-auto custom-scrollbar bg-[#272822]">
               <div className="space-y-0.5">
                 {renderPythonRepl(result)}
               </div>

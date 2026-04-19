@@ -3,9 +3,9 @@
 import { useState } from 'react'
 import { HiOutlineBugAnt, HiOutlineBolt, HiOutlineCheck, HiOutlineClipboard, HiOutlineExclamationTriangle, HiOutlineCodeBracket } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export default function AutoDebugExceptionPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -31,7 +31,7 @@ export default function AutoDebugExceptionPage() {
       </button>
       <SyntaxHighlighter
         language={language}
-        style={monokai}
+        style={okaidia}
         customStyle={{
           borderRadius: '0.5rem',
           padding: '1.25rem',

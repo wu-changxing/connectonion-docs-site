@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineClock, HiOutlineBolt, HiOutlinePlay, HiOutlineEye } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 import { PageHeader } from '../../../components/PageHeader'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export default function XrayTracePage() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -606,7 +606,7 @@ Works seamlessly with:
                   <div className="overflow-x-auto max-h-[400px] sm:max-h-[500px] lg:max-h-[600px]">
                     <SyntaxHighlighter 
                       language="python" 
-                      style={monokai}
+                      style={okaidia}
                       customStyle={{
                         background: 'transparent',
                         padding: '1rem',

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 interface ComparisonSection {
   title: string
@@ -315,7 +315,7 @@ export function FrameworkComparison() {
               <div className="overflow-x-auto">
                 <SyntaxHighlighter
                   language="python"
-                  style={monokai}
+                  style={okaidia}
                   customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6' }}
                   wrapLongLines={false}
                 >
@@ -335,7 +335,7 @@ export function FrameworkComparison() {
               <div className="overflow-x-auto">
                 <SyntaxHighlighter
                   language="python"
-                  style={monokai}
+                  style={okaidia}
                   customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6' }}
                   wrapLongLines={false}
                 >

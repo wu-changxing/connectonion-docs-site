@@ -4,7 +4,6 @@ import { FaDiscord, FaGithub } from 'react-icons/fa'
 import { HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineCheckCircle, HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineBugAnt, HiOutlineSparkles, HiOutlineCpuChip, HiOutlineTableCells, HiOutlineDocumentText, HiOutlinePuzzlePiece, HiOutlineArrowRight } from 'react-icons/hi2'
 import Link from 'next/link'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { CommandBlock } from '../components/CommandBlock'
 import { CopyMarkdownButton } from '../components/CopyMarkdownButton'
 import { ContentNavigation } from '../components/ContentNavigation'
@@ -12,6 +11,7 @@ import { FrameworkComparison } from '../components/FrameworkComparison'
 import { MacOSDownload } from '../components/MacOSDownload'
 import { AIFirstDevelopment } from '../components/AIFirstDevelopment'
 import { NonObviousAdvantages } from '../components/NonObviousAdvantages'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { VERSION } from '../lib/version'
 
 export default function HomePage() {
@@ -92,7 +92,7 @@ export default function HomePage() {
             <div className="bg-gray-900">
               <SyntaxHighlighter
                 language="python"
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: '1rem 1.25rem',
