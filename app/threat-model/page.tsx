@@ -52,47 +52,21 @@ function ThreatCard({
   onToggle: () => void
   visible: boolean
 }) {
+  // Monochrome card, severity indicated only by a small dot + label.
+  // One accent color per severity; no backgrounds, no gradients, no rings.
   const severityColors = {
-    'H+H': {
-      border: 'border-rose-400',
-      bg: 'bg-rose-50',
-      ring: 'ring-rose-200',
-      badge: 'bg-rose-100 border-rose-400 text-rose-700',
-      label: 'text-rose-600',
-      gradient: 'from-rose-50'
-    },
-    'H+M': {
-      border: 'border-amber-400',
-      bg: 'bg-amber-50',
-      ring: 'ring-amber-200',
-      badge: 'bg-amber-100 border-amber-400 text-amber-700',
-      label: 'text-amber-600',
-      gradient: 'from-amber-50'
-    },
-    'L+H': {
-      border: 'border-cyan-400',
-      bg: 'bg-cyan-50',
-      ring: 'ring-cyan-200',
-      badge: 'bg-cyan-100 border-cyan-400 text-cyan-700',
-      label: 'text-cyan-700',
-      gradient: 'from-cyan-50'
-    },
-    'P': {
-      border: 'border-purple-400',
-      bg: 'bg-purple-50',
-      ring: 'ring-purple-200',
-      badge: 'bg-purple-100 border-purple-400 text-purple-700',
-      label: 'text-purple-600',
-      gradient: 'from-purple-50'
-    }
+    'H+H': { dot: 'bg-red-600',    label: 'text-red-700' },
+    'H+M': { dot: 'bg-amber-600',  label: 'text-amber-700' },
+    'L+H': { dot: 'bg-gray-500',   label: 'text-gray-700' },
+    'P':   { dot: 'bg-gray-400',   label: 'text-gray-600' }
   }
 
   const colors = severityColors[severity]
-  
+
   if (!visible) return null
 
   return (
-    <div id={id} className={`relative rounded-lg overflow-hidden border-l-4 ${colors.border} bg-gradient-to-r ${colors.gradient} to-transparent ring-1 ${colors.ring} transition-all duration-300`}>
+    <div id={id} className="relative rounded-lg overflow-hidden border border-gray-200 bg-white hover:border-gray-300 transition-colors">
       
       <button
         onClick={onToggle}
@@ -100,21 +74,19 @@ function ThreatCard({
         aria-controls={`${id}-panel`}
         className="w-full px-3 sm:px-4 py-4 text-left bg-white hover:bg-gray-50 active:bg-gray-100 transition-colors min-h-[60px] touch-manipulation"
       >
-        <div className="flex items-start sm:items-center justify-between gap-2" id={`${id}-header`}>
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2 flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <span className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] sm:text-xs font-medium border ${colors.badge}`}>
-                {severity}
-              </span>
-              <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${colors.label} flex-shrink-0`} />
-            </div>
-            <div className="text-gray-900 font-semibold text-sm sm:text-base leading-snug">
-              <span className="opacity-60 mr-1">{number})</span>
+        <div className="flex items-start sm:items-center justify-between gap-3" id={`${id}-header`}>
+          <div className="flex items-center gap-3 flex-1 min-w-0">
+            <span className={`w-2 h-2 rounded-full ${colors.dot} flex-shrink-0`} aria-hidden />
+            <span className="font-mono text-[11px] text-gray-400 tabular-nums select-none flex-shrink-0">
+              {String(number).padStart(2, '0')}
+            </span>
+            <Icon className="w-4 h-4 text-gray-500 flex-shrink-0 hidden sm:block" />
+            <div className="text-gray-900 font-semibold text-sm sm:text-base leading-snug truncate">
               {title}
             </div>
           </div>
-          <div className="flex items-center gap-2 flex-shrink-0">
-            <span className={`hidden lg:inline text-[10px] font-bold ${colors.label} uppercase tracking-wider`}>
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <span className={`hidden lg:inline text-[10px] font-mono font-semibold ${colors.label} uppercase tracking-widest`}>
               {severityLabel}
             </span>
             <div className={`p-2 -mr-1 rounded-full transition-colors ${expanded ? 'bg-gray-200' : ''}`}>
@@ -155,15 +127,11 @@ export default function ThreatModelPage() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [showScrollTop, setShowScrollTop] = useState(false)
 
-  // Default expansion: collapse on mobile, expand first on mobile
+  // Default: all collapsed. Users get a scannable list of threats first,
+  // then expand the ones they care about. Previously opened all 10 on
+  // desktop which created a very long page of colored diagrams.
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth >= 1024) {
-        setExpandedThreats(Array.from({ length: 10 }, (_, i) => `threat-${i + 1}`))
-      } else {
-        setExpandedThreats(['threat-1'])
-      }
-    }
+    setExpandedThreats(['threat-1'])
   }, [])
 
   // Track scroll progress and show/hide scroll to top
@@ -719,44 +687,46 @@ export default function ThreatModelPage() {
       </div>
 
       {/* Header */}
-      <div className="mb-12">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
-              <HiOutlineShieldExclamation className="w-8 h-8 text-gray-500" />
+      <header className="mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+          <div className="flex-1">
+            <div className="flex items-center gap-2 text-xs font-mono text-gray-500 uppercase tracking-widest mb-4">
+              <HiOutlineShieldExclamation className="w-3.5 h-3.5" />
+              <span>Security / Guide</span>
             </div>
-            <div>
-              <h1 className="heading-1">Threat Model</h1>
-              <p className="text-lg text-gray-600">
-                Practical risks and copy-paste playbooks. No clicks, just read and apply.
-              </p>
-            </div>
+            <h1 className="heading-1 mb-3">
+              Threat <span className="accent-italic">model</span>.
+            </h1>
+            <p className="text-lg text-gray-700 max-w-[52ch]">
+              Practical risks and copy-paste playbooks. No clicks, just read and apply.
+            </p>
           </div>
           <CopyMarkdownButton markdownPath="/threat-model.md" filename="threat-model.md" className="flex-shrink-0" />
         </div>
-      </div>
+      </header>
 
       {/* Severity Guide and Filters */}
       <Section id="severity-guide" title="Severity Guide" icon={<HiOutlineScale className="w-4 h-4 text-gray-400" />}>
+        <div className="mb-6 rounded-lg border border-gray-200 bg-white overflow-hidden">
+          <dl className="divide-y divide-gray-200">
+            {[
+              { dot: 'bg-red-600',   label: 'text-red-700',   code: 'CRITICAL',   key: 'H+H', desc: 'Immediate action — fix before shipping.' },
+              { dot: 'bg-amber-600', label: 'text-amber-700', code: 'HIGH',       key: 'H+M', desc: 'Priority fix — schedule this sprint.' },
+              { dot: 'bg-gray-500',  label: 'text-gray-700',  code: 'MONITOR',    key: 'L+H', desc: 'Plan defense — watch and hardening.' },
+              { dot: 'bg-gray-400',  label: 'text-gray-600',  code: 'PERSISTENT', key: 'P',   desc: 'Continuous guard — ongoing discipline.' }
+            ].map((row) => (
+              <div key={row.code} className="flex items-center gap-4 px-4 py-2.5">
+                <span className={`w-2 h-2 rounded-full ${row.dot} flex-shrink-0`} aria-hidden />
+                <span className={`font-mono text-[11px] font-semibold tracking-widest uppercase ${row.label} w-28 flex-shrink-0`}>
+                  {row.code}
+                </span>
+                <span className="font-mono text-[11px] text-gray-400 w-10 flex-shrink-0">{row.key}</span>
+                <dd className="text-sm text-gray-700 flex-1">{row.desc}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
         <div className="mb-6 p-3 sm:p-4 rounded-lg bg-gray-50 border border-gray-200">
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            <div className="text-center p-2">
-              <div className="text-xs font-bold text-rose-400 mb-1">CRITICAL (H+H)</div>
-              <div className="text-[10px] text-gray-600">Immediate action</div>
-            </div>
-            <div className="text-center p-2">
-              <div className="text-xs font-bold text-amber-400 mb-1">HIGH (H+M)</div>
-              <div className="text-[10px] text-gray-600">Priority fix</div>
-            </div>
-            <div className="text-center p-2">
-              <div className="text-xs font-bold text-cyan-400 mb-1">MONITOR (L+H)</div>
-              <div className="text-[10px] text-gray-600">Plan defense</div>
-            </div>
-            <div className="text-center p-2">
-              <div className="text-xs font-bold text-purple-400 mb-1">PERSISTENT (P)</div>
-              <div className="text-[10px] text-gray-600">Continuous guard</div>
-            </div>
-          </div>
           
           {/* Mobile-optimized filter controls */}
           <div className="space-y-3">
@@ -777,49 +747,34 @@ export default function ThreatModelPage() {
               </select>
             </div>
             
-            {/* Desktop filter buttons */}
+            {/* Desktop filter buttons — monochrome, dot indicates severity */}
             <div className="hidden sm:flex flex-wrap gap-2">
-              <button 
-                onClick={() => setFilter('all')} 
-                className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'all' ? 'bg-gray-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
-                }`}
-              >
-                <HiOutlineFunnel className="w-3 h-3 inline mr-1" />
-                All Threats (10)
-              </button>
-              <button 
-                onClick={() => setFilter('H+H')} 
-                className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'H+H' ? 'bg-rose-100 text-rose-700 border border-rose-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
-                }`}
-              >
-                Critical (3)
-              </button>
-              <button 
-                onClick={() => setFilter('H+M')} 
-                className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'H+M' ? 'bg-amber-100 text-amber-700 border border-amber-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
-                }`}
-              >
-                High (3)
-              </button>
-              <button 
-                onClick={() => setFilter('L+H')} 
-                className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'L+H' ? 'bg-cyan-100 text-cyan-700 border border-cyan-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
-                }`}
-              >
-                Monitor (3)
-              </button>
-              <button 
-                onClick={() => setFilter('P')} 
-                className={`px-4 py-2.5 text-xs rounded-md transition-colors min-h-[44px] ${
-                  filter === 'P' ? 'bg-purple-100 text-purple-700 border border-purple-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
-                }`}
-              >
-                Persistent (1)
-              </button>
+              {[
+                { key: 'all' as const, label: 'All',        count: 10, dot: null            },
+                { key: 'H+H' as const, label: 'Critical',   count: 3,  dot: 'bg-red-600'    },
+                { key: 'H+M' as const, label: 'High',       count: 3,  dot: 'bg-amber-600'  },
+                { key: 'L+H' as const, label: 'Monitor',    count: 3,  dot: 'bg-gray-500'   },
+                { key: 'P'   as const, label: 'Persistent', count: 1,  dot: 'bg-gray-400'   }
+              ].map((tab) => {
+                const active = filter === tab.key
+                return (
+                  <button
+                    key={tab.key}
+                    onClick={() => setFilter(tab.key)}
+                    className={`inline-flex items-center gap-2 px-4 py-2.5 text-xs font-medium rounded-md transition-colors min-h-[44px] border ${
+                      active
+                        ? 'bg-gray-900 text-white border-gray-900'
+                        : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                    }`}
+                  >
+                    {tab.dot
+                      ? <span className={`w-1.5 h-1.5 rounded-full ${tab.dot}`} aria-hidden />
+                      : <HiOutlineFunnel className="w-3 h-3" aria-hidden />}
+                    <span>{tab.label}</span>
+                    <span className={`font-mono text-[10px] ${active ? 'text-gray-400' : 'text-gray-400'}`}>{tab.count}</span>
+                  </button>
+                )
+              })}
             </div>
             
             {/* Expand/Collapse controls */}
@@ -876,9 +831,9 @@ export default function ThreatModelPage() {
             'Strong defaults beat rules',
             'Local-first reduces surface'
           ].map((insight, i) => (
-            <div key={i} className="rounded-md border border-gray-200 bg-gray-50 hover:bg-gray-100 hover:border-gray-300 transition-colors px-3 py-3 flex items-center gap-3 min-h-[44px]">
-              <HiOutlineSquare3Stack3D className="w-4 h-4 text-cyan-600 flex-shrink-0"/>
-              <p className="text-gray-600 text-sm">{insight}</p>
+            <div key={i} className="rounded-md border border-gray-200 bg-white hover:border-gray-300 transition-colors px-4 py-3 flex items-center gap-3 min-h-[44px]">
+              <span className="font-mono text-[11px] text-gray-400 tabular-nums w-6 flex-shrink-0">{String(i + 1).padStart(2, '0')}</span>
+              <p className="text-gray-800 text-sm">{insight}</p>
             </div>
           ))}
         </div>
@@ -896,9 +851,9 @@ export default function ThreatModelPage() {
             'Improve under stress',
             'Fast recovery'
           ].map((principle, i) => (
-            <div key={i} className="rounded-md border border-gray-200 bg-gray-50 hover:bg-gray-100 hover:border-gray-300 transition-colors px-3 py-3 flex items-center gap-3 min-h-[44px]">
-              <HiOutlineBolt className="w-4 h-4 text-rose-600 flex-shrink-0"/>
-              <p className="text-gray-600 text-sm">{principle}</p>
+            <div key={i} className="rounded-md border border-gray-200 bg-white hover:border-gray-300 transition-colors px-4 py-3 flex items-center gap-3 min-h-[44px]">
+              <span className="font-mono text-[11px] text-gray-400 tabular-nums w-6 flex-shrink-0">{String(i + 1).padStart(2, '0')}</span>
+              <p className="text-gray-800 text-sm">{principle}</p>
             </div>
           ))}
         </div>
