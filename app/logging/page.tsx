@@ -33,7 +33,7 @@ export default function LoggingPage() {
           )}
         </button>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto bg-gray-900">
         <SyntaxHighlighter
           language={language}
           style={monokai}

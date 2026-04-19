@@ -40,15 +40,7 @@
 import { useState } from 'react'
 import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCommandLine, HiOutlineCodeBracket } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
-
-// Strip per-token background boxes — keep foreground colors only
-const monokai = Object.fromEntries(
-  Object.entries(okaidia).map(([key, val]) => [
-    key,
-    { ...(val as React.CSSProperties), background: undefined, backgroundColor: undefined }
-  ])
-)
+import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 interface CodeWithResultProps {
   code: string
@@ -207,7 +199,7 @@ export default function CodeWithResult({
               </button>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative bg-gray-900">
             <div className="p-4 md:p-6 overflow-x-auto custom-scrollbar">
               <SyntaxHighlighter
                 language={language}
@@ -245,7 +237,7 @@ export default function CodeWithResult({
               <HiOutlineCommandLine className="w-3.5 h-3.5 text-green-500" />
               <span className="text-xs font-mono text-gray-400">output</span>
             </div>
-            <div className="p-4 md:p-6 overflow-x-auto custom-scrollbar">
+            <div className="p-4 md:p-6 overflow-x-auto custom-scrollbar bg-gray-900">
               <div className="space-y-0.5">
                 {renderPythonRepl(result)}
               </div>
