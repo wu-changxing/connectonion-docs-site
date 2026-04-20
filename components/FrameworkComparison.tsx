@@ -305,18 +305,18 @@ export function FrameworkComparison() {
             <p className="text-sm text-gray-500">{active.subtitle}</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-4 items-stretch">
             {/* ConnectOnion */}
-            <div className="rounded-xl border-2 border-gray-900 overflow-hidden">
+            <div className="rounded-xl border-2 border-gray-900 overflow-hidden flex flex-col">
               <div className="flex items-center justify-between px-4 py-2.5 bg-gray-900 border-b border-gray-700">
                 <span className="text-xs font-bold px-2 py-1 rounded bg-white text-gray-900">ConnectOnion</span>
                 <span className="text-xs font-mono text-gray-300">{active.connectonion.lines}</span>
               </div>
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto flex-1" style={{ background: '#111827' }}>
                 <SyntaxHighlighter
                   language="python"
                   style={okaidia}
-                  customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6' }}
+                  customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6', height: '100%' }}
                   wrapLongLines={false}
                 >
                   {active.connectonion.code}
@@ -325,18 +325,18 @@ export function FrameworkComparison() {
             </div>
 
             {/* Other Framework */}
-            <div className="rounded-xl border border-gray-300 overflow-hidden">
-              <div className="flex items-center justify-between px-4 py-2.5 bg-gray-100 border-b border-gray-200">
+            <div className="rounded-xl border-2 border-gray-900 overflow-hidden flex flex-col">
+              <div className="flex items-center justify-between px-4 py-2.5 bg-gray-900 border-b border-gray-700">
                 <span className="text-xs font-bold px-2 py-1 rounded bg-gray-500 text-white">{active.other.framework}</span>
-                <span className={`text-xs font-mono ${active.other.lines === 'DEPRECATED' ? 'text-red-500' : 'text-gray-500'}`}>
+                <span className={`text-xs font-mono ${active.other.lines === 'DEPRECATED' ? 'text-red-500' : 'text-gray-300'}`}>
                   {active.other.lines}
                 </span>
               </div>
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto flex-1" style={{ background: '#111827' }}>
                 <SyntaxHighlighter
                   language="python"
                   style={okaidia}
-                  customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6' }}
+                  customStyle={{ margin: 0, padding: '1rem', background: '#111827', fontSize: '0.8125rem', lineHeight: '1.6', height: '100%' }}
                   wrapLongLines={false}
                 >
                   {active.other.code}
