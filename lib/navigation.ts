@@ -80,7 +80,6 @@ export const navigation = [
     icon: HiOutlineArrowUpTray,
     section: 'Getting Started',
     difficulty: 'New',
-    hidden: true, // Hide from sidebar - coming soon
     keywords: ['deploy', 'hosting', 'cloud', 'production', 'docker', 'gcp', 'agents'],
     prev: { href: '/cli', title: 'CLI Reference' },
     next: { href: '/agent', title: 'Agent' }
