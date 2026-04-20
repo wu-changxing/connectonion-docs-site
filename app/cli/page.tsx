@@ -525,8 +525,8 @@ Continue? (y/N): y
               <span>Git repository with committed code</span>
             </li>
             <li className="flex items-start gap-2">
-              <HiOutlineChevronRight className="w-4 h-4 icon-ui mt-1" />
-              <span><code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.co/config.toml</code> (created by <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co create</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co init</code>)</span>
+              <HiOutlineChevronRight className="w-4 h-4 text-emerald-400 mt-1" />
+              <span><code className="bg-black/30 px-2 py-1 rounded">.co/host.yaml</code> (created by <code className="bg-black/30 px-2 py-1 rounded">co create</code> or <code className="bg-black/30 px-2 py-1 rounded">co init</code>)</span>
             </li>
             <li className="flex items-start gap-2">
               <HiOutlineChevronRight className="w-4 h-4 icon-ui mt-1" />
@@ -543,7 +543,7 @@ Continue? (y/N): y
 Deploying to ConnectOnion Cloud...
 
   Project: my-agent
-  Secrets: 3 keys
+  Env vars: 3 keys
 
 Uploading...
 Building...
@@ -959,7 +959,7 @@ Generating custom template with AI...
                     type: 'folder',
                     comment: 'ConnectOnion metadata',
                     children: [
-                      { name: 'config.toml', type: 'file', icon: 'config', comment: 'Project configuration' },
+                      { name: 'host.yaml', type: 'file', icon: 'config', comment: 'Project configuration' },
                       {
                         name: 'keys',
                         type: 'folder',

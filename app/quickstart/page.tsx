@@ -157,7 +157,7 @@ export default function QuickStartPage() {
                   type: 'folder',
                   comment: 'ConnectOnion config',
                   children: [
-                    { name: 'config.toml', type: 'file', icon: 'config' },
+                    { name: 'host.yaml', type: 'file', icon: 'config' },
                     {
                       name: 'docs',
                       type: 'folder',
