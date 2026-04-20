@@ -187,22 +187,15 @@ browser.close()`
             { label: 'Tools' }
           ]}
           icon={HiOutlineWrench}
-          iconColor="text-emerald-400"
-          iconBgFrom="from-emerald-600/20"
-          iconBgTo="to-blue-600/20"
-          iconBorderColor="border-emerald-500/30"
           title="Tools"
           description="Build powerful, reusable function tools and stateful class tools."
           markdownPath="/tools/tools.md"
           markdownFilename="tools.md"
         />
         
-        <div className="bg-blue-900/30 border border-blue-500/50 rounded-lg p-4 mt-4">
-          <p className="text-blue-300 text-sm">
-            <strong className="flex items-center gap-2">
-              <FaLightbulb className="inline-flex w-4 h-4 text-yellow-400" />
-              Pro Tip:
-            </strong> For class-based tools, pass the instance directly!
+        <div className="callout-sm mt-4">
+          <p className="text-gray-600 text-sm">
+            <strong className="text-gray-900">Pro Tip:</strong> For class-based tools, pass the instance directly!
             ConnectOnion automatically discovers all public methods with type hints.
           </p>
         </div>
@@ -211,12 +204,10 @@ browser.close()`
         <div className="flex gap-2 my-6">
           <button
             onClick={() => setActiveTab('function')}
-            className={`min-h-[44px] px-6 py-3 rounded-lg font-medium transition-all
-              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
-              focus:ring-offset-gray-900 ${
+            className={`min-h-[44px] px-4 py-2 rounded-lg text-sm font-medium transition-all border ${
               activeTab === 'function'
-                ? 'bg-blue-600 text-white shadow-lg'
-                : 'bg-gray-800 text-gray-200 hover:text-white hover:bg-gray-700'
+                ? 'bg-gray-900 text-white border-gray-900'
+                : 'bg-white text-gray-600 border-gray-200 hover:border-gray-400 hover:text-gray-900'
             }`}
             aria-pressed={activeTab === 'function'}
             aria-label="View function tools documentation"
@@ -226,12 +217,10 @@ browser.close()`
           </button>
           <button
             onClick={() => setActiveTab('class')}
-            className={`min-h-[44px] px-6 py-3 rounded-lg font-medium transition-all
-              focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2
-              focus:ring-offset-gray-900 ${
+            className={`min-h-[44px] px-4 py-2 rounded-lg text-sm font-medium transition-all border ${
               activeTab === 'class'
-                ? 'bg-purple-600 text-white shadow-lg'
-                : 'bg-gray-800 text-gray-200 hover:text-white hover:bg-gray-700'
+                ? 'bg-gray-900 text-white border-gray-900'
+                : 'bg-white text-gray-600 border-gray-200 hover:border-gray-400 hover:text-gray-900'
             }`}
             aria-pressed={activeTab === 'class'}
             aria-label="View class-based tools documentation"
@@ -243,7 +232,7 @@ browser.close()`
 
       {/* Quick Start */}
       <section className="mb-14">
-        <h2 className="heading-2"><HiOutlineSquare3Stack3D className="w-5 h-5 text-purple-400"/>Quick Start</h2>
+        <h2 className="heading-2">Quick Start</h2>
         <CodeWithResult 
           code={quickStart}
           result={`>>> agent = Agent("helper", tools=[search], max_iterations=5)
@@ -264,8 +253,8 @@ Based on my search, here are some excellent Python tutorials for you:
 
       {/* Function Tools */}
       <section className="mb-14">
-        <h2 className="heading-2"><HiOutlineCodeBracket className="w-5 h-5 text-blue-400"/>Function Tools</h2>
-        <p className="text-slate-100 mb-4">Use Python type hints as your interface. Keep signatures explicit and return structures when needed.</p>
+        <h2 className="heading-2">Function Tools</h2>
+        <p className="text-gray-700 mb-4">Use Python type hints as your interface. Keep signatures explicit and return structures when needed.</p>
         <div className="grid grid-cols-1 gap-6">
           <CodeWithResult 
             code={functionTool}
@@ -290,7 +279,7 @@ I'll search for the top 3 results about vector databases.
 
       {/* Stateful Tools (Playwright) */}
       <section className="mb-16">
-        <h2 className="heading-2"><HiOutlineComputerDesktop className="w-5 h-5 text-emerald-400"/>Stateful Tools: Playwright</h2>
+        <h2 className="heading-2">Stateful Tools: Playwright</h2>
         <CodeWithResult 
           code={playwright}
           result={`>>> browser = Browser()
@@ -311,11 +300,11 @@ I'll search for the top 3 results about vector databases.
 
       {/* Class Instance vs Individual Methods */}
       <section className="mb-16">
-        <h2 className="heading-2"><HiOutlineCog6Tooth className="w-5 h-5 text-amber-400"/>Class Instance vs Individual Methods</h2>
+        <h2 className="heading-2">Class Instance vs Individual Methods</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
-              <FaCheckCircle className="inline-flex w-5 h-5 text-green-400" />
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-sm font-semibold text-gray-700 mb-4 flex items-center gap-2 uppercase tracking-wide">
+              <FaCheckCircle className="inline-flex w-4 h-4 text-gray-400" />
               Recommended: Class Instance
             </h3>
             <CodeWithResult 
@@ -333,9 +322,9 @@ agent = Agent("browser_agent", tools=[browser])`}
               className="text-sm"
             />
           </div>
-          <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-red-400 mb-4 flex items-center gap-2">
-              <FaTimes className="inline-flex w-5 h-5 text-red-400" />
+          <div className="bg-gray-50 border border-dashed border-gray-300 rounded-lg p-6">
+            <h3 className="text-sm font-semibold text-gray-500 mb-4 flex items-center gap-2 uppercase tracking-wide">
+              <FaTimes className="inline-flex w-4 h-4 text-gray-400" />
               Verbose: Individual Methods
             </h3>
             <CodeWithResult 
@@ -360,12 +349,9 @@ agent = Agent("browser_agent", tools=[
             />
           </div>
         </div>
-        <div className="bg-blue-900/30 border border-blue-500/50 rounded-lg p-4 mt-4">
-          <p className="text-blue-300 text-sm">
-            <strong className="flex items-center gap-2">
-              <FaLightbulb className="inline-flex w-4 h-4 text-yellow-400" />
-              ConnectOnion's Smart Discovery:
-            </strong> When you pass a class instance, ConnectOnion automatically
+        <div className="callout-sm mt-4">
+          <p className="text-gray-600 text-sm">
+            <strong className="text-gray-900">ConnectOnion's Smart Discovery:</strong> When you pass a class instance, ConnectOnion automatically
             finds all public methods with proper type hints and makes them available as tools. Much cleaner code!
           </p>
         </div>

@@ -9,7 +9,7 @@ import { PageHeader } from '../../../components/PageHeader'
 
 export default function ProvidersPage() {
   return (
-    <div className="px-4 md:px-8 py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24 doc-content--reference">
       <div className="max-w-4xl mx-auto">
         <PageHeader
           breadcrumbs={[
@@ -18,10 +18,7 @@ export default function ProvidersPage() {
             { label: 'Providers' },
           ]}
           icon={HiOutlineCircleStack}
-          iconColor="text-pink-400"
-          iconBgFrom="from-pink-600/20"
-          iconBgTo="to-purple-600/20"
-          iconBorderColor="border-pink-500/30"
+          iconColor="icon-ui"
           title="Autocomplete Providers"
           description="Data providers for autocomplete in Input and CommandPalette"
           markdownPath="/tui/providers.md"
@@ -50,7 +47,7 @@ text = Input(triggers={"/": commands}).run()`}
         {/* StaticProvider */}
         <section className="mb-12">
           <h2 className="heading-2">StaticProvider</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Provider for static list of items:
           </p>
 
@@ -87,7 +84,7 @@ provider = StaticProvider([
         {/* FileProvider */}
         <section className="mb-12">
           <h2 className="heading-2">FileProvider</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Provider for filesystem autocomplete:
           </p>
           <CodeWithResult
@@ -110,7 +107,7 @@ provider = FileProvider(root="src/")
         {/* Custom Provider */}
         <section className="mb-12">
           <h2 className="heading-2">Custom Provider</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Implement the Provider protocol:
           </p>
           <CodeWithResult
@@ -135,7 +132,7 @@ class MyProvider:
         ...`}
             language="python"
           />
-          <p className="text-sm text-slate-100 mt-4">
+          <p className="text-sm text-gray-700 mt-4">
             Returns list of <code>DropdownItem</code> or tuples <code>(display, value, score, positions)</code>.
           </p>
         </section>
@@ -144,19 +141,19 @@ class MyProvider:
         <section className="mb-12">
           <h2 className="heading-2">Built-in Providers</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg hover:border-purple-400/50 transition-all">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineDocumentText className="w-5 h-5 text-blue-400" />
+                <HiOutlineDocumentText className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">FileProvider</h3>
               </div>
-              <p className="text-sm text-slate-100">Browse filesystem with type-specific icons</p>
+              <p className="text-sm text-gray-700">Browse filesystem with type-specific icons</p>
             </div>
-            <div className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg hover:border-purple-400/50 transition-all">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg hover:border-gray-400 transition-all">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineListBullet className="w-5 h-5 text-green-400" />
+                <HiOutlineListBullet className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">StaticProvider</h3>
               </div>
-              <p className="text-sm text-slate-100">Static list of options with optional metadata</p>
+              <p className="text-sm text-gray-700">Static list of options with optional metadata</p>
             </div>
           </div>
         </section>
@@ -165,13 +162,13 @@ class MyProvider:
         <section className="mb-12">
           <h2 className="heading-2">Related</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/tui/input" className="p-4 bg-gray-800/50 rounded-lg hover:bg-gray-800 hover:border-purple-400/50 border border-transparent transition-all min-h-[48px]">
-              <strong className="text-white">Input</strong>
-              <p className="text-sm text-slate-100">Text input with trigger-based autocomplete</p>
+            <Link href="/tui/input" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-200 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
+              <strong className="text-gray-900">Input</strong>
+              <p className="text-sm text-gray-700">Text input with trigger-based autocomplete</p>
             </Link>
-            <Link href="/tui/dropdown" className="p-4 bg-gray-800/50 rounded-lg hover:bg-gray-800 hover:border-purple-400/50 border border-transparent transition-all min-h-[48px]">
-              <strong className="text-white">Dropdown</strong>
-              <p className="text-sm text-slate-100">The dropdown component that displays results</p>
+            <Link href="/tui/dropdown" className="p-4 bg-gray-100 rounded-lg hover:bg-gray-200 hover:border-gray-300/50 border border-transparent transition-all min-h-[48px]">
+              <strong className="text-gray-900">Dropdown</strong>
+              <p className="text-sm text-gray-700">The dropdown component that displays results</p>
             </Link>
           </div>
         </section>

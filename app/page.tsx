@@ -1,10 +1,9 @@
 'use client'
 
 import { FaDiscord, FaGithub } from 'react-icons/fa'
-import { HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineCheckCircle, HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineBugAnt, HiOutlineSparkles } from 'react-icons/hi2'
+import { HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineCheckCircle, HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineBugAnt, HiOutlineSparkles, HiOutlineCpuChip, HiOutlineTableCells, HiOutlineDocumentText, HiOutlinePuzzlePiece, HiOutlineArrowRight } from 'react-icons/hi2'
 import Link from 'next/link'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { CommandBlock } from '../components/CommandBlock'
 import { CopyMarkdownButton } from '../components/CopyMarkdownButton'
 import { ContentNavigation } from '../components/ContentNavigation'
@@ -12,56 +11,102 @@ import { FrameworkComparison } from '../components/FrameworkComparison'
 import { MacOSDownload } from '../components/MacOSDownload'
 import { AIFirstDevelopment } from '../components/AIFirstDevelopment'
 import { NonObviousAdvantages } from '../components/NonObviousAdvantages'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { VERSION } from '../lib/version'
 
 export default function HomePage() {
   return (
     <main>
-      {/* Hero Section - Compact with Philosophy */}
-      <section className="flex items-center justify-center px-4 md:px-6 py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-purple-900/5 to-transparent" />
+      {/* Top Nav */}
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100 px-4 md:px-8 py-3">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2.5">
+            <img src="/onion-logo.png" alt="ConnectOnion" className="w-7 h-7 rounded-md" />
+            <span className="font-semibold text-gray-900 text-sm">ConnectOnion</span>
+          </Link>
+          <div className="flex items-center gap-2">
+            <Link href="/quickstart" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors hidden sm:block">
+              Quickstart
+            </Link>
+            <Link href="/agent" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors hidden sm:block">
+              Docs
+            </Link>
+            <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
+              <FaGithub className="w-4 h-4" />
+            </a>
+            <Link href="/quickstart" className="text-sm font-medium bg-gray-900 text-white px-4 py-1.5 rounded-lg hover:bg-gray-700 transition-colors">
+              Get Started
+            </Link>
+          </div>
+        </div>
+      </nav>
 
-        <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h1 className="heading-1 text-gradient-hero mb-2">
-            ConnectOnion
+      {/* Hero Section */}
+      <section className="flex items-center justify-center px-4 md:px-6 py-20 md:py-32 relative border-b border-gray-100 overflow-hidden">
+        {/* Dot-grid texture — fades to edges */}
+        <div className="absolute inset-0 pointer-events-none select-none" style={{
+          backgroundImage: 'radial-gradient(circle, #d1d5db 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+          WebkitMaskImage: 'radial-gradient(ellipse at 50% 40%, rgba(0,0,0,0.35) 0%, transparent 68%)',
+          maskImage: 'radial-gradient(ellipse at 50% 40%, rgba(0,0,0,0.35) 0%, transparent 68%)',
+        }} />
+
+        <div className="w-full max-w-2xl mx-auto text-center relative z-10">
+          {/* Brand eyebrow */}
+          <div className="flex items-center justify-center gap-2 mb-5">
+            <span className="text-sm font-medium text-gray-500">ConnectOnion</span>
+            <span className="text-gray-400">·</span>
+            <span className="px-2 py-0.5 bg-gray-100 text-green-700 text-xs font-semibold rounded-full">v{VERSION}</span>
+          </div>
+
+          {/* Value proposition headline */}
+          <h1 className="heading-1 mb-4 text-balance">
+            Build AI Agents in{' '}
+            <span className="accent-italic text-[1.05em]">2 lines</span>{' '}
+            of Python
           </h1>
 
-          <div className="mb-4">
-            <span className="px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-semibold rounded-full">v{VERSION}</span>
-          </div>
-
-          {/* Philosophy - The Core Message */}
-          <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 leading-relaxed">
-            <span className="text-purple-400 font-bold block sm:inline">Keep simple things simple</span>
-            <span className="text-slate-400 hidden sm:inline mx-2">,</span>
-            <span className="text-green-400 font-bold block sm:inline">make complicated things possible</span>
-          </div>
+          {/* Philosophy — now secondary */}
+          <p className="text-base sm:text-lg text-gray-500 mb-8 leading-relaxed text-balance">
+            Keep simple things simple, make complicated things possible.
+            No boilerplate. No framework lock-in. Just Python.
+          </p>
 
           {/* Install Command */}
           <div className="mb-6 max-w-md mx-auto">
-            <div className="bg-black/60 backdrop-blur-sm border-2 border-purple-500/30 rounded-xl p-2 hover:border-purple-500/60 transition-all shadow-2xl">
-              <CommandBlock commands={['pip install connectonion']} />
-            </div>
+            <CommandBlock commands={['pip install connectonion']} />
           </div>
 
-          {/* Quick Code Example */}
-          <div className="bg-gray-900/50 rounded-xl border border-gray-700 overflow-hidden mb-8 max-w-lg mx-auto text-left">
-            <div className="overflow-x-auto">
+          {/* Hero code block — full-width terminal treatment */}
+          <div className="mb-8 text-left rounded-xl overflow-hidden border border-gray-700 shadow-xl shadow-black/20">
+            {/* Terminal chrome */}
+            <div className="bg-gray-800 px-4 py-2.5 flex items-center gap-3 border-b border-gray-700">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                <div className="w-3 h-3 rounded-full bg-green-500/80" />
+              </div>
+              <span className="text-xs text-gray-400 font-mono flex-1 text-center">agent.py</span>
+              <span className="text-xs text-gray-600 font-mono">Python 3.11</span>
+            </div>
+            <div className="bg-gray-900">
               <SyntaxHighlighter
                 language="python"
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
-                  padding: '0.75rem',
+                  padding: '1rem 1.25rem',
                   margin: 0,
-                  fontSize: '0.7rem',
-                  lineHeight: '1.6',
-                  minWidth: 'max-content'
+                  fontSize: '0.875rem',
+                  lineHeight: '1.75',
                 }}
               >
 {`from connectonion import Agent
 
-agent = Agent("You are helpful", tools=[get_weather])
+def get_weather(city: str) -> str:
+    return f"72°F, sunny in {city}"
+
+agent = Agent("assistant", tools=[get_weather])
 agent.input("What's the weather in NYC?")`}
               </SyntaxHighlighter>
             </div>
@@ -73,7 +118,7 @@ agent.input("What's the weather in NYC?")`}
               Quick Start →
             </a>
             <div className="flex items-center gap-3 sm:gap-4">
-              <a href="https://github.com/wu-changxing/connectonion" className="btn btn-secondary inline-flex items-center justify-center gap-2">
+              <a href="https://github.com/openonion/connectonion" className="btn btn-secondary inline-flex items-center justify-center gap-2">
                 <FaGithub className="w-4 h-4" />
                 <span>GitHub</span>
               </a>
@@ -84,32 +129,74 @@ agent.input("What's the weather in NYC?")`}
             </div>
           </div>
         </div>
+
+        {/* Scroll cue */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce opacity-40">
+          <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
       </section>
 
-      {/* Trust Indicators - Compact */}
-      <section className="py-8 md:py-12 px-4 md:px-6 border-t border-purple-900/30 bg-gray-900/20">
+      {/* Docs Quick Access — jump straight into documentation */}
+      <section className="py-10 px-4 md:px-6 border-b border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-[11px] font-semibold text-gray-500 tracking-[0.12em] uppercase mb-5">Documentation</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+            {[
+              { href: '/quickstart', icon: HiOutlineRocketLaunch, label: 'Quick Start', sub: 'Get running in 60s' },
+              { href: '/agent', icon: HiOutlineCpuChip, label: 'Agent API', sub: 'Core class + methods' },
+              { href: '/cli', icon: HiOutlineCommandLine, label: 'CLI Reference', sub: 'co commands & flags' },
+              { href: '/models', icon: HiOutlineTableCells, label: 'Models', sub: 'GPT / Claude / Gemini' },
+              { href: '/useful-plugins', icon: HiOutlinePuzzlePiece, label: 'Plugins', sub: 'ReAct, Eval, Shell...' },
+              { href: '/tui', icon: HiOutlineCommandLine, label: 'TUI Components', sub: 'pick, chat, fuzzy...' },
+              { href: '/auto-debug', icon: HiOutlineBugAnt, label: 'Auto Debug', sub: 'Interactive breakpoints' },
+              { href: '/logging', icon: HiOutlineDocumentText, label: 'Logging', sub: 'Logs, sessions, YAML' },
+            ].map(({ href, icon: Icon, label, sub }) => (
+              <Link
+                key={href}
+                href={href}
+                className="group flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-gray-400 hover:bg-gray-50 transition-all"
+              >
+                <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-md flex items-center justify-center group-hover:bg-white group-hover:border group-hover:border-gray-300 transition-all">
+                  <Icon className="w-4 h-4 text-gray-500 group-hover:text-gray-700" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-sm font-medium text-gray-900 leading-tight">{label}</div>
+                  <div className="text-xs text-gray-500 leading-tight">{sub}</div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-4 text-right">
+            <Link href="/agent" className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-gray-800 transition-colors">
+              All documentation <HiOutlineArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Indicators */}
+      <section className="py-6 px-4 md:px-6 border-b border-gray-100 bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-3 sm:gap-4">
-            <a href="https://connectonion.com" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center justify-center">
-              <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=flat-square" alt="Production Ready" className="h-5" />
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a href="https://github.com/openonion/connectonion/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License" />
             </a>
-            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center justify-center">
-              <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="MIT License" className="h-5" />
+            <a href="https://pypi.org/project/connectonion/" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python 3.9+" />
             </a>
-            <a href="https://python.org" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center justify-center">
-              <img src="https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python" alt="Python 3.9+" className="h-5" />
-            </a>
-            <a href="https://pepy.tech/projects/connectonion" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center justify-center">
-              <img src="https://static.pepy.tech/personalized-badge/connectonion?period=total&units=international_system&left_color=black&right_color=green&left_text=downloads" alt="PyPI Downloads" className="h-5" />
+            <a href="https://pepy.tech/projects/connectonion" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/pypi/dm/connectonion?label=PyPI%20downloads" alt="PyPI Downloads" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* Non-Obvious Advantages - What other frameworks don't have */}
+      {/* Non-Obvious Advantages */}
       <NonObviousAdvantages />
 
-      {/* Framework Comparison - Code-level differences */}
+      {/* Framework Comparison */}
       <FrameworkComparison />
 
       {/* AI-First Development */}
@@ -118,163 +205,144 @@ agent.input("What's the weather in NYC?")`}
       {/* macOS App Download */}
       <MacOSDownload />
 
-      {/* Free Credits Banner - Compact */}
-      <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-green-900/10 to-transparent">
+      {/* Free Credits Banner */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-50 border-y border-gray-100">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-green-900/40 to-green-900/10 rounded-xl p-6 border-2 border-green-500/50 relative overflow-hidden">
+          <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm relative overflow-hidden">
             <div className="absolute top-3 right-3">
-              <span className="bg-green-500 text-black text-xs font-bold px-2 py-1 rounded-full animate-pulse">FREE</span>
+              <span className="bg-gray-500 text-white text-xs font-bold px-2 py-1 rounded-full">FREE</span>
             </div>
             <div className="flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-white mb-2">$5 Free Credits - No API Key Needed</h3>
-                <p className="text-slate-200 text-sm">
-                  Get $5 free credits to try Gemini 3 Flash Preview, GPT-4o, Claude, and more. Start building immediately.
+                <h3 className="text-xl font-bold text-gray-900 mb-2">$5 Free Credits — No API Key Needed</h3>
+                <p className="text-gray-600 text-sm">
+                  Get $5 free credits to try Gemini 2.5 Pro, GPT-4o, Claude, and more. Start building immediately.
                 </p>
               </div>
-              <div className="bg-black/40 rounded-lg p-4 font-mono text-sm border border-green-500/20">
-                <div><span className="text-green-400">model=</span><span className="text-yellow-300">"co/gemini-3-flash-preview"</span></div>
-                <div className="text-slate-200 text-xs mt-1">Check balance: co status</div>
+              <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm border border-gray-700">
+                <div><span className="text-green-400">model=</span><span className="text-yellow-300">"co/gemini-2.5-pro"</span></div>
+                <div className="text-gray-400 text-xs mt-1">Check balance: co status</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Capabilities - 3 Cards */}
+      {/* What You Can Build */}
       <section className="py-16 md:py-24 px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="heading-2">What You Can Build</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Functions = Tools */}
-            <div className="card-interactive bg-gradient-to-br from-purple-900/30 to-purple-900/10 rounded-xl p-6 border border-purple-500/30">
-              <HiOutlineBolt className="w-8 h-8 text-purple-400 mb-4" />
-              <h3 className="text-lg font-bold text-white mb-4">Functions = Tools</h3>
-              <div className="bg-black/30 rounded-lg p-3 font-mono text-xs mb-4">
-                <div className="text-slate-100">def search(q: str):</div>
-                <div className="text-slate-100 pl-4">return results</div>
+          <div className="grid md:grid-cols-3 gap-5">
+            <div className="card-interactive rounded-xl p-6 border border-gray-200">
+              <HiOutlineBolt className="w-7 h-7 text-gray-500 mb-4" />
+              <h3 className="text-base font-bold text-gray-900 mb-3">Functions = Tools</h3>
+              <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs mb-4">
+                <div className="text-gray-100">def search(q: str):</div>
+                <div className="text-gray-100 pl-4">return results</div>
               </div>
-              <p className="text-sm text-slate-200">No wrappers. No decorators. Just functions.</p>
+              <p className="text-sm text-gray-600">No wrappers. No decorators. Just functions.</p>
             </div>
 
-            {/* Deploy Anywhere */}
-            <div className="card-interactive bg-gradient-to-br from-blue-900/30 to-blue-900/10 rounded-xl p-6 border border-blue-500/30">
-              <HiOutlineGlobeAlt className="w-8 h-8 text-blue-400 mb-4" />
-              <h3 className="text-lg font-bold text-white mb-4">Deploy Anywhere</h3>
-              <div className="bg-black/30 rounded-lg p-3 font-mono text-xs mb-4">
-                <div className="text-blue-400">agent.serve()</div>
-                <div className="text-slate-400"># Globally accessible</div>
+            <div className="card-interactive rounded-xl p-6 border border-gray-200">
+              <HiOutlineGlobeAlt className="w-7 h-7 text-gray-500 mb-4" />
+              <h3 className="text-base font-bold text-gray-900 mb-3">Deploy Anywhere</h3>
+              <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs mb-4">
+                <div className="text-green-400">agent.serve()</div>
+                <div className="text-gray-400"># Globally accessible</div>
               </div>
-              <p className="text-sm text-slate-200">From your laptop. No AWS needed.</p>
+              <p className="text-sm text-gray-600">From your laptop. No AWS needed.</p>
             </div>
 
-            {/* Connect Agents */}
-            <div className="card-interactive bg-gradient-to-br from-green-900/30 to-green-900/10 rounded-xl p-6 border border-green-500/30">
-              <HiOutlineRocketLaunch className="w-8 h-8 text-green-400 mb-4" />
-              <h3 className="text-lg font-bold text-white mb-4">Connect Agents</h3>
-              <div className="bg-black/30 rounded-lg p-3 font-mono text-xs mb-4">
+            <div className="card-interactive rounded-xl p-6 border border-gray-200">
+              <HiOutlineRocketLaunch className="w-7 h-7 text-gray-500 mb-4" />
+              <h3 className="text-base font-bold text-gray-900 mb-3">Connect Agents</h3>
+              <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs mb-4">
                 <div className="text-green-400">other = connect("0x...")</div>
-                <div className="text-slate-400"># Agents as tools</div>
+                <div className="text-gray-400"># Agents as tools</div>
               </div>
-              <p className="text-sm text-slate-200">Build agent networks. Like the internet, but for AI.</p>
+              <p className="text-sm text-gray-600">Build agent networks. Like the internet, but for AI.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Production Ready - 4 Small Cards */}
-      <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-900/20">
+      {/* Production Ready */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-50 border-y border-gray-100">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="heading-2">Production Ready</h2>
-            <p className="text-slate-200">Built for production from day one</p>
+            <p className="text-gray-500">Built for production from day one</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="card-interactive p-4 text-center">
-              <HiOutlineCommandLine className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-              <h4 className="text-sm font-bold text-white mb-1">Auto Log</h4>
-              <p className="text-xs text-slate-200">.co/logs/</p>
+            <div className="card-interactive p-5 text-center bg-white rounded-xl border border-gray-200">
+              <HiOutlineCommandLine className="w-6 h-6 icon-ui mx-auto mb-2" />
+              <h4 className="text-sm font-bold text-gray-900 mb-1">Auto Log</h4>
+              <p className="text-xs text-gray-500">.co/logs/</p>
             </div>
-
-            <div className="card-interactive p-4 text-center">
-              <HiOutlineBugAnt className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-              <h4 className="text-sm font-bold text-white mb-1">@xray</h4>
-              <p className="text-xs text-slate-200">Breakpoints</p>
+            <div className="card-interactive p-5 text-center bg-white rounded-xl border border-gray-200">
+              <HiOutlineBugAnt className="w-6 h-6 icon-ui mx-auto mb-2" />
+              <h4 className="text-sm font-bold text-gray-900 mb-1">@xray</h4>
+              <p className="text-xs text-gray-500">Breakpoints</p>
             </div>
-
-            <div className="card-interactive p-4 text-center">
-              <HiOutlineSparkles className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-              <h4 className="text-sm font-bold text-white mb-1">Plugins</h4>
-              <p className="text-xs text-slate-200">Just functions</p>
+            <div className="card-interactive p-5 text-center bg-white rounded-xl border border-gray-200">
+              <HiOutlineSparkles className="w-6 h-6 icon-ui mx-auto mb-2" />
+              <h4 className="text-sm font-bold text-gray-900 mb-1">Plugins</h4>
+              <p className="text-xs text-gray-500">Just functions</p>
             </div>
-
-            <div className="card-interactive p-4 text-center">
-              <HiOutlineCheckCircle className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-              <h4 className="text-sm font-bold text-white mb-1">Human Loop</h4>
-              <p className="text-xs text-slate-200">Approval flows</p>
+            <div className="card-interactive p-5 text-center bg-white rounded-xl border border-gray-200">
+              <HiOutlineCheckCircle className="w-6 h-6 icon-ui mx-auto mb-2" />
+              <h4 className="text-sm font-bold text-gray-900 mb-1">Human Loop</h4>
+              <p className="text-xs text-gray-500">Approval flows</p>
             </div>
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/quickstart" className="inline-flex items-center justify-center min-h-[44px] px-4 text-sm text-purple-400 hover:text-purple-300 transition-colors underline underline-offset-4">
+            <Link href="/quickstart" className="inline-flex items-center justify-center min-h-[44px] px-4 text-sm text-gray-600 hover:text-gray-900 transition-colors underline underline-offset-4">
               Learn more in docs →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Philosophy - Compact */}
+      {/* Stats */}
       <section className="py-16 md:py-24 px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="text-2xl md:text-3xl font-bold mb-8 leading-relaxed">
-            "<span className="text-purple-400">Keep simple things simple</span>,
-            <span className="text-green-400"> make complicated things possible</span>"
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 text-left">
-            <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-              <div className="text-2xl font-bold text-purple-400 mb-2">8 lines</div>
-              <p className="text-sm text-slate-200">For basic agents. No boilerplate.</p>
+        <div className="max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-5 text-left">
+            <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
+              <div className="text-2xl font-bold text-gray-900 mb-2">8 lines</div>
+              <p className="text-sm text-gray-600">For basic agents. No boilerplate.</p>
             </div>
-            <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-              <div className="text-2xl font-bold text-green-400 mb-2">Full power</div>
-              <p className="text-sm text-slate-200">Production features when you need them.</p>
+            <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
+              <div className="text-2xl font-bold text-gray-900 mb-2">Full power</div>
+              <p className="text-sm text-gray-600">Production features when you need them.</p>
             </div>
-            <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-              <div className="text-2xl font-bold text-blue-400 mb-2">Your code</div>
-              <p className="text-sm text-slate-200">Not framework code. Just Python.</p>
+            <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
+              <div className="text-2xl font-bold text-gray-900 mb-2">Your code</div>
+              <p className="text-sm text-gray-600">Not framework code. Just Python.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Community + CTA */}
-      <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-900/20">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-50 border-t border-gray-100">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="heading-2 mb-6">Ready to Start?</h2>
 
           <div className="flex justify-center gap-4 mb-8">
-            <a
-              href="https://discord.gg/4xfD9k8AUF"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card-interactive p-4 flex items-center gap-3"
-            >
-              <FaDiscord className="w-6 h-6 text-purple-400" />
-              <span className="font-semibold text-white">Discord</span>
+            <a href="https://discord.gg/4xfD9k8AUF" target="_blank" rel="noopener noreferrer"
+              className="card-interactive p-4 flex items-center gap-3 rounded-xl border border-gray-200 bg-white">
+              <FaDiscord className="w-5 h-5 text-indigo-500" />
+              <span className="font-semibold text-gray-900">Discord</span>
             </a>
-            <a
-              href="https://github.com/wu-changxing/connectonion"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card-interactive p-4 flex items-center gap-3"
-            >
-              <FaGithub className="w-6 h-6 text-blue-400" />
-              <span className="font-semibold text-white">GitHub</span>
+            <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener noreferrer"
+              className="card-interactive p-4 flex items-center gap-3 rounded-xl border border-gray-200 bg-white">
+              <FaGithub className="w-5 h-5 text-gray-800" />
+              <span className="font-semibold text-gray-900">GitHub</span>
             </a>
           </div>
 
@@ -286,7 +354,7 @@ agent.input("What's the weather in NYC?")`}
             Quick Start →
           </Link>
 
-          <p className="mt-4 text-sm text-slate-200">
+          <p className="mt-4 text-sm text-gray-500">
             60 seconds to your first agent. No AWS. Just code.
           </p>
         </div>

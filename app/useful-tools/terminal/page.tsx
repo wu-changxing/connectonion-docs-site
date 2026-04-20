@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 export default function TerminalPage() {
   return (
-    <div className="px-4 md:px-8 py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24 doc-content--reference">
       <div className="max-w-4xl mx-auto">
         <PageHeader
           breadcrumbs={[
@@ -17,10 +17,7 @@ export default function TerminalPage() {
             { label: 'Terminal' }
           ]}
           icon={HiOutlineCommandLine}
-          iconColor="text-orange-400"
-          iconBgFrom="from-orange-600/20"
-          iconBgTo="to-red-600/20"
-          iconBorderColor="border-orange-500/30"
+          iconColor="icon-ui"
           title="Terminal"
           description="Interactive terminal utilities: selection menus, file browser, and input with autocomplete."
           markdownPath="/useful-tools/terminal.md"
@@ -46,15 +43,15 @@ path = browse_files()
 cmd = input_with_at("> ")`}
             language="python"
           />
-          <p className="text-slate-100 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy terminal</code></Link> to get an editable copy.
+          <p className="text-gray-700 mt-4 text-sm">
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-700"><code className="bg-gray-100 px-2 py-1 rounded">co copy terminal</code></Link> to get an editable copy.
           </p>
         </section>
 
         {/* pick() */}
         <section className="mb-12">
           <h2 className="heading-2">pick()</h2>
-          <p className="text-slate-100 mb-4">Single-select menu with keyboard navigation.</p>
+          <p className="text-gray-700 mb-4">Single-select menu with keyboard navigation.</p>
           <CodeWithResult
             code={`# List options (press 1, 2, 3 or arrow keys)
 choice = pick("Apply this command?", [
@@ -75,7 +72,7 @@ choice = pick("Continue?", {
         {/* yes_no() */}
         <section className="mb-12">
           <h2 className="heading-2">yes_no()</h2>
-          <p className="text-slate-100 mb-4">Simple binary confirmation.</p>
+          <p className="text-gray-700 mb-4">Simple binary confirmation.</p>
           <CodeWithResult
             code={`ok = yes_no("Delete this file?")
 # Press y → True, n → False`}
@@ -86,7 +83,7 @@ choice = pick("Continue?", {
         {/* browse_files() */}
         <section className="mb-12">
           <h2 className="heading-2">browse_files()</h2>
-          <p className="text-slate-100 mb-4">Navigate and select files.</p>
+          <p className="text-gray-700 mb-4">Navigate and select files.</p>
           <CodeWithResult
             code={`path = browse_files()
 # Arrow keys to navigate
@@ -100,7 +97,7 @@ choice = pick("Continue?", {
         {/* input_with_at() */}
         <section className="mb-12">
           <h2 className="heading-2">input_with_at()</h2>
-          <p className="text-slate-100 mb-4">Text input with @ file autocomplete.</p>
+          <p className="text-gray-700 mb-4">Text input with @ file autocomplete.</p>
           <CodeWithResult
             code={`cmd = input_with_at("> ")
 # User types: "edit @"
@@ -113,34 +110,34 @@ choice = pick("Continue?", {
         {/* Keyboard Controls */}
         <section className="mb-12">
           <h2 className="heading-2">Keyboard Controls</h2>
-          <div className="overflow-x-auto rounded-lg border border-slate-700">
+          <div className="overflow-x-auto rounded-lg border border-gray-200">
             <table className="w-full text-sm text-left">
-              <thead className="text-xs uppercase bg-slate-800/50">
+              <thead className="text-xs uppercase bg-gray-100">
                 <tr>
-                  <th className="px-4 py-3 text-slate-200">Key</th>
-                  <th className="px-4 py-3 text-slate-200">Action</th>
+                  <th className="px-4 py-3 text-gray-700">Key</th>
+                  <th className="px-4 py-3 text-gray-700">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-700">
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-orange-300">↑/↓</td>
-                  <td className="px-4 py-3 text-slate-100">Navigate options</td>
+              <tbody className="divide-y divide-gray-200">
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-gray-700">↑/↓</td>
+                  <td className="px-4 py-3 text-gray-700">Navigate options</td>
                 </tr>
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-orange-300">1-9</td>
-                  <td className="px-4 py-3 text-slate-100">Quick select by number</td>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-gray-700">1-9</td>
+                  <td className="px-4 py-3 text-gray-700">Quick select by number</td>
                 </tr>
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-orange-300">Enter</td>
-                  <td className="px-4 py-3 text-slate-100">Confirm selection</td>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-gray-700">Enter</td>
+                  <td className="px-4 py-3 text-gray-700">Confirm selection</td>
                 </tr>
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-orange-300">Esc</td>
-                  <td className="px-4 py-3 text-slate-100">Cancel</td>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-gray-700">Esc</td>
+                  <td className="px-4 py-3 text-gray-700">Cancel</td>
                 </tr>
-                <tr className="bg-slate-900/30">
-                  <td className="px-4 py-3 font-mono text-orange-300">@</td>
-                  <td className="px-4 py-3 text-slate-100">Trigger file autocomplete</td>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-mono text-gray-700">@</td>
+                  <td className="px-4 py-3 text-gray-700">Trigger file autocomplete</td>
                 </tr>
               </tbody>
             </table>

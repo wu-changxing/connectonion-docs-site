@@ -14,9 +14,9 @@ import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCodeBracket, HiOutlineArro
 import Link from 'next/link'
 import { FaShieldAlt, FaBolt, FaWrench, FaBullseye } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const agentCode = `from connectonion import Agent
 
@@ -195,28 +195,28 @@ Build on this foundation for more complex agents that need to handle user input 
       {/* Navigation */}
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-        <Link href="/" className="hover:text-purple-400 transition-colors">
+      <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
+        <Link href="/" className="hover:text-gray-500 transition-colors">
           Docs
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/examples" className="hover:text-purple-400 transition-colors">
+        <Link href="/examples" className="hover:text-gray-500 transition-colors">
           Examples
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <span className="text-white">Calculator Agent</span>
+        <span className="text-gray-900">Calculator Agent</span>
       </div>
 
       {/* Header */}
       <div className="mb-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-br from-blue-600/20 to-indigo-600/20 rounded-xl border border-blue-500/30">
-              <HiOutlineCodeBracket className="w-8 h-8 text-blue-400" />
+            <div className="p-3 bg-gray-50 rounded-xl border border-gray-200">
+              <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
             </div>
             <div>
               <h1 className="heading-1">Calculator Agent</h1>
-              <p className="text-lg text-slate-100">
+              <p className="text-lg text-gray-700">
                 Learn input validation, error handling, and security best practices by building a safe math calculator.
               </p>
             </div>
@@ -230,39 +230,39 @@ Build on this foundation for more complex agents that need to handle user input 
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-blue-900/20 border border-blue-500/30 rounded-xl">
-        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <HiOutlineLightBulb className="w-6 h-6 text-blue-400" />
+      <div className="mb-12 p-6 bg-gray-50 border border-gray-200 rounded-xl">
+        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+          <HiOutlineLightBulb className="w-6 h-6 text-gray-500" />
           What You'll Learn
         </h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
-            <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
-              <HiOutlineShieldCheck className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 mx-auto mb-4 bg-gray-200 rounded-lg flex items-center justify-center">
+              <HiOutlineShieldCheck className="w-6 h-6 text-gray-600" />
             </div>
-            <h3 className="text-white font-semibold mb-1">Input Validation</h3>
-            <p className="text-blue-200 text-sm">Secure input filtering and validation</p>
+            <h3 className="text-gray-900 font-semibold mb-1">Input Validation</h3>
+            <p className="text-gray-700 text-sm">Secure input filtering and validation</p>
           </div>
           <div className="text-center">
-            <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
-              <HiOutlineExclamationTriangle className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 mx-auto mb-4 bg-gray-200 rounded-lg flex items-center justify-center">
+              <HiOutlineExclamationTriangle className="w-6 h-6 text-gray-600" />
             </div>
-            <h3 className="text-white font-semibold mb-1">Error Handling</h3>
-            <p className="text-blue-200 text-sm">Graceful error management and feedback</p>
+            <h3 className="text-gray-900 font-semibold mb-1">Error Handling</h3>
+            <p className="text-gray-700 text-sm">Graceful error management and feedback</p>
           </div>
           <div className="text-center">
-            <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
-              <HiOutlineCodeBracket className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 mx-auto mb-4 bg-gray-200 rounded-lg flex items-center justify-center">
+              <HiOutlineCodeBracket className="w-6 h-6 text-gray-600" />
             </div>
-            <h3 className="text-white font-semibold mb-1">Multiple Tools</h3>
-            <p className="text-blue-200 text-sm">Integrating several tools in one agent</p>
+            <h3 className="text-gray-900 font-semibold mb-1">Multiple Tools</h3>
+            <p className="text-gray-700 text-sm">Integrating several tools in one agent</p>
           </div>
           <div className="text-center">
-            <div className="w-12 h-12 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
-              <HiOutlineCommandLine className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 mx-auto mb-4 bg-gray-200 rounded-lg flex items-center justify-center">
+              <HiOutlineCommandLine className="w-6 h-6 text-gray-600" />
             </div>
-            <h3 className="text-white font-semibold mb-1">System Prompts</h3>
-            <p className="text-blue-200 text-sm">Guide tool selection with prompts</p>
+            <h3 className="text-gray-900 font-semibold mb-1">System Prompts</h3>
+            <p className="text-gray-700 text-sm">Guide tool selection with prompts</p>
           </div>
         </div>
       </div>
@@ -273,10 +273,10 @@ Build on this foundation for more complex agents that need to handle user input 
           {/* Basic Example */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">Basic Calculator</h3>
+              <h3 className="text-xl font-semibold text-gray-300">Basic Calculator</h3>
               <button
                 onClick={() => copyToClipboard(agentCode, 'basic')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-400 hover:text-gray-100 transition-colors p-2 rounded-lg hover:bg-gray-700 flex items-center gap-2"
               >
                 {copiedId === 'basic' ? (
                   <>
@@ -295,7 +295,7 @@ Build on this foundation for more complex agents that need to handle user input 
             <div className="p-6">
               <SyntaxHighlighter 
                 language="python" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,
@@ -318,10 +318,10 @@ Build on this foundation for more complex agents that need to handle user input 
           {/* Complete Example */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">Complete Example with Security</h3>
+              <h3 className="text-xl font-semibold text-gray-200">Complete Example with Security</h3>
               <button
                 onClick={() => copyToClipboard(fullExampleCode, 'complete')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-400 hover:text-gray-100 transition-colors p-2 rounded-lg hover:bg-gray-700 flex items-center gap-2"
               >
                 {copiedId === 'complete' ? (
                   <>
@@ -340,7 +340,7 @@ Build on this foundation for more complex agents that need to handle user input 
             <div className="p-6">
               <SyntaxHighlighter 
                 language="python" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,
@@ -366,13 +366,13 @@ Build on this foundation for more complex agents that need to handle user input 
           {/* Output */}
           <div className="bg-gray-900 border border-gray-700 rounded-lg">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
-              <HiOutlineCommandLine className="w-5 h-5 text-blue-400" />
-              <h3 className="text-xl font-semibold text-white">Expected Output</h3>
+              <HiOutlineCommandLine className="w-5 h-5 text-gray-500" />
+              <h3 className="text-xl font-semibold text-gray-200">Expected Output</h3>
             </div>
             
             <div className="p-6">
-              <div className="bg-black/50 rounded-lg p-4 font-mono text-sm">
-                <pre className="text-blue-200 whitespace-pre-wrap">
+              <div className="bg-gray-950 rounded-lg p-4 font-mono text-sm">
+                <pre className="text-green-400 whitespace-pre-wrap">
                   {`=== Calculator Agent Demo ===
 
 Test 1: What's 25 + 17 * 3?
@@ -400,68 +400,68 @@ Response: Calculation: (100 - 25) / 5 + 10 = 25.0`}
           </div>
 
           {/* Security Features */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">Security Features</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Security Features</h3>
             <div className="space-y-4 text-sm">
               <div>
-                <h4 className="font-semibold text-blue-400 mb-2 flex items-center gap-2">
+                <h4 className="font-semibold text-gray-700 mb-2 flex items-center gap-2">
                   <FaShieldAlt className="w-4 h-4" />
                   <span>Input Validation</span>
                 </h4>
-                <p className="text-slate-100">Only allows safe mathematical characters (0-9, +, -, *, /, (, ), ., space).</p>
+                <p className="text-gray-700">Only allows safe mathematical characters (0-9, +, -, *, /, (, ), ., space).</p>
               </div>
               <div>
-                <h4 className="font-semibold text-blue-400 mb-2 flex items-center gap-2">
+                <h4 className="font-semibold text-gray-700 mb-2 flex items-center gap-2">
                   <FaBolt className="w-4 h-4" />
                   <span>Safe Evaluation</span>
                 </h4>
-                <p className="text-slate-100">Pre-filters input before using eval() to prevent code injection.</p>
+                <p className="text-gray-700">Pre-filters input before using eval() to prevent code injection.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-blue-400 mb-2">🚨 Error Handling</h4>
-                <p className="text-slate-100">Catches division by zero, syntax errors, and invalid operations gracefully.</p>
+                <h4 className="font-semibold text-gray-700 mb-2">🚨 Error Handling</h4>
+                <p className="text-gray-700">Catches division by zero, syntax errors, and invalid operations gracefully.</p>
               </div>
             </div>
           </div>
 
           {/* Advanced Features */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Advanced Features</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Advanced Features</h3>
             <div className="space-y-3 text-sm">
-              <div className="p-3 bg-blue-900/20 border border-blue-500/30 rounded">
-                <p className="text-blue-300 font-medium mb-1 flex items-center gap-2">
+              <div className="p-3 bg-gray-50 border border-gray-200 rounded">
+                <p className="text-gray-700 font-medium mb-1 flex items-center gap-2">
                   <FaWrench className="w-4 h-4" />
                   <span>Multiple Tools</span>
                 </p>
-                <ul className="text-blue-200 space-y-1">
+                <ul className="text-gray-700 space-y-1">
                   <li>• <code>calculate()</code> - Core math operations</li>
                   <li>• <code>get_help()</code> - User assistance</li>
                   <li>• <code>validate_expression()</code> - Input checking</li>
                 </ul>
               </div>
-              <div className="p-3 bg-blue-900/20 border border-blue-500/30 rounded">
-                <p className="text-blue-300 font-medium mb-1 flex items-center gap-2">
+              <div className="p-3 bg-gray-50 border border-gray-200 rounded">
+                <p className="text-gray-700 font-medium mb-1 flex items-center gap-2">
                   <FaBullseye className="w-4 h-4" />
                   <span>System Prompt</span>
                 </p>
-                <p className="text-blue-200">Guides the agent on when to use which tool based on user needs.</p>
+                <p className="text-gray-700">Guides the agent on when to use which tool based on user needs.</p>
               </div>
             </div>
           </div>
 
           {/* Download */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Try It Yourself</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Try It Yourself</h3>
             <div className="space-y-3">
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(fullExampleCode)}`}
                 download="calculator_agent.py"
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors font-medium"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors font-medium"
               >
                 <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Complete Example
               </a>
-              <p className="text-xs text-slate-100 text-center">
+              <p className="text-xs text-gray-700 text-center">
                 Complete calculator with security features and error handling
               </p>
             </div>

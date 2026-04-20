@@ -14,28 +14,28 @@ export default function BrowserAutomationExample() {
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-        <Link href="/" className="hover:text-purple-400 transition-colors">
+      <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
+        <Link href="/" className="hover:text-gray-500 transition-colors">
           Docs
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/examples" className="hover:text-purple-400 transition-colors">
+        <Link href="/examples" className="hover:text-gray-500 transition-colors">
           Examples
         </Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <span className="text-white">Browser Automation</span>
+        <span className="text-gray-900">Browser Automation</span>
       </div>
 
       {/* Header */}
       <div className="mb-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
-              <FaChrome className="w-8 h-8 text-purple-400" />
+            <div className="p-3 bg-gradient-to-br from-gray-700/20 to-pink-600/20 rounded-xl border border-gray-200">
+              <FaChrome className="w-8 h-8 text-gray-500" />
             </div>
             <div>
-              <h1 className="heading-1 text-3xl md:text-4xl font-bold text-white mb-2">Browser Automation</h1>
-              <p className="text-lg text-slate-100">
+              <h1 className="heading-1 text-3xl md:text-4xl font-bold text-gray-900 mb-2">Browser Automation</h1>
+              <p className="text-lg text-gray-700">
                 Control web browsers with natural language commands using Playwright.
               </p>
             </div>
@@ -45,27 +45,27 @@ export default function BrowserAutomationExample() {
       </div>
 
       {/* What You'll Learn */}
-      <div className="mb-12 p-6 bg-gradient-to-b from-purple-900/30 to-purple-800/10 border border-purple-500/30 rounded-lg">
+      <div className="mb-12 p-6 bg-gray-50 border border-gray-200 rounded-lg">
         <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-          <HiOutlineGlobeAlt className="w-5 h-5 text-purple-400" />
+          <HiOutlineGlobeAlt className="w-5 h-5 text-gray-500" />
           What You'll Learn
         </h2>
         <div className="grid md:grid-cols-2 gap-3">
           <div className="flex items-start gap-2">
-            <HiOutlineArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-            <span className="text-slate-100">Navigate websites and interact with elements</span>
+            <HiOutlineArrowRight className="w-4 h-4 text-gray-500 mt-1 flex-shrink-0" />
+            <span className="text-gray-700">Navigate websites and interact with elements</span>
           </div>
           <div className="flex items-start gap-2">
-            <HiOutlineArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-            <span className="text-slate-100">Take screenshots (full page or viewport)</span>
+            <HiOutlineArrowRight className="w-4 h-4 text-gray-500 mt-1 flex-shrink-0" />
+            <span className="text-gray-700">Take screenshots (full page or viewport)</span>
           </div>
           <div className="flex items-start gap-2">
-            <HiOutlineArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-            <span className="text-slate-100">Extract content and scrape data</span>
+            <HiOutlineArrowRight className="w-4 h-4 text-gray-500 mt-1 flex-shrink-0" />
+            <span className="text-gray-700">Extract content and scrape data</span>
           </div>
           <div className="flex items-start gap-2">
-            <HiOutlineArrowRight className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-            <span className="text-slate-100">Control browser with natural language</span>
+            <HiOutlineArrowRight className="w-4 h-4 text-gray-500 mt-1 flex-shrink-0" />
+            <span className="text-gray-700">Control browser with natural language</span>
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@ export default function BrowserAutomationExample() {
       {/* Quick Start */}
       <section className="mb-12">
         <h2 className="heading-2">
-          <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+          <HiOutlineBolt className="w-6 h-6 text-gray-400" />
           Quick Start
         </h2>
         
@@ -236,7 +236,7 @@ if __name__ == "__main__":
       {/* Interactive Demo */}
       <section className="mb-12">
         <h2 className="heading-2">
-          <HiOutlinePlay className="w-6 h-6 text-orange-400" />
+          <HiOutlinePlay className="w-6 h-6 text-gray-400" />
           Interactive Demo Script
         </h2>
 
@@ -331,14 +331,14 @@ Demo complete! Check out:
       {/* Common Use Cases */}
       <section className="mb-12">
         <h2 className="heading-2">
-          <HiOutlineMagnifyingGlass className="w-6 h-6 text-blue-400" />
+          <HiOutlineMagnifyingGlass className="w-6 h-6 text-gray-400" />
           Common Use Cases
         </h2>
         
         <div className="grid gap-4">
-          <div className="bg-gray-800/50 p-6 rounded-lg">
+          <div className="bg-gray-100 p-6 rounded-lg">
             <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-              <HiOutlineCamera className="w-5 h-5 text-blue-400" />
+              <HiOutlineCamera className="w-5 h-5 text-gray-400" />
               Website Monitoring
             </h3>
             <CodeWithResult
@@ -353,7 +353,7 @@ Status: All systems operational ✅`}
             />
           </div>
 
-          <div className="bg-gray-800/50 p-6 rounded-lg">
+          <div className="bg-gray-100 p-6 rounded-lg">
             <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
               <HiOutlineGlobeAlt className="w-5 h-5 text-green-400" />
               Data Extraction
@@ -370,9 +370,9 @@ Data saved to products.json`}
             />
           </div>
 
-          <div className="bg-gray-800/50 p-6 rounded-lg">
+          <div className="bg-gray-100 p-6 rounded-lg">
             <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-              <HiOutlineCommandLine className="w-5 h-5 text-purple-400" />
+              <HiOutlineCommandLine className="w-5 h-5 text-gray-500" />
               Form Automation
             </h3>
             <CodeWithResult
@@ -409,45 +409,45 @@ Form submitted successfully`}
       </section>
 
       {/* Pro Tips */}
-      <div className="p-6 bg-gradient-to-b from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-lg mb-12">
+      <div className="p-6 bg-gray-50 border border-gray-200 rounded-lg mb-12">
         <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-          <HiOutlineShieldCheck className="w-5 h-5 text-blue-400" />
+          <HiOutlineShieldCheck className="w-5 h-5 text-gray-400" />
           Pro Tips
         </h2>
-        <ul className="space-y-2 text-slate-100">
+        <ul className="space-y-2 text-gray-700">
           <li className="flex items-start gap-2">
-            <span className="text-blue-400">•</span>
+            <span className="text-gray-500">•</span>
             <span>Use headless mode for production to save resources</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-400">•</span>
+            <span className="text-gray-500">•</span>
             <span>Add waits for dynamic content: <code className="bg-gray-800 px-2 py-0.5 rounded text-sm">page.wait_for_selector()</code></span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-400">•</span>
+            <span className="text-gray-500">•</span>
             <span>Handle errors gracefully with try-except blocks</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-400">•</span>
+            <span className="text-gray-500">•</span>
             <span>Use specific selectors for reliable element targeting</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-400">•</span>
+            <span className="text-gray-500">•</span>
             <span>Clean up resources with <code className="bg-gray-800 px-2 py-0.5 rounded text-sm">browser.close()</code></span>
           </li>
         </ul>
       </div>
 
       {/* Next Steps */}
-      <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-lg p-8 text-center mb-12">
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center mb-12">
         <h2 className="heading-2">Ready to Automate the Web?</h2>
-        <p className="text-slate-100 mb-6">
+        <p className="text-gray-700 mb-6">
           Start building your own browser automation agents with ConnectOnion
         </p>
         <div className="flex gap-4 justify-center">
           <a
             href="/examples"
-            className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             View All Examples
           </a>

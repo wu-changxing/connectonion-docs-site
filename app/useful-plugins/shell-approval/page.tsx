@@ -18,10 +18,7 @@ export default function ShellApprovalPage() {
             { label: 'shell_approval' },
           ]}
           icon={HiOutlineShieldCheck}
-          iconColor="text-orange-400"
-          iconBgFrom="from-orange-600/20"
-          iconBgTo="to-red-600/20"
-          iconBorderColor="border-orange-500/30"
+          iconColor="icon-ui"
           title="shell_approval"
           description="Require user approval before executing shell commands"
           markdownPath="/useful-plugins/shell_approval.md"
@@ -31,23 +28,23 @@ export default function ShellApprovalPage() {
         {/* What it does */}
         <section className="mb-12">
           <h2 className="heading-2">What it does</h2>
-          <p className="text-slate-100 mb-6">
+          <p className="text-gray-700 mb-6">
             Before executing shell commands, this plugin:
           </p>
           <div className="space-y-4">
-            <div className="p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
+                <HiOutlineCheckCircle className="w-5 h-5 text-gray-500" />
                 <h3 className="font-semibold">Auto-approves safe commands</h3>
               </div>
-              <p className="text-sm text-slate-100">Read-only commands like <code>ls</code>, <code>cat</code>, <code>git status</code> execute without prompts.</p>
+              <p className="text-sm text-gray-700">Read-only commands like <code>ls</code>, <code>cat</code>, <code>git status</code> execute without prompts.</p>
             </div>
-            <div className="p-4 bg-orange-900/20 border border-orange-500/30 rounded-lg">
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <HiOutlineXCircle className="w-5 h-5 text-orange-400" />
+                <HiOutlineXCircle className="w-5 h-5 text-gray-400" />
                 <h3 className="font-semibold">Asks approval for other commands</h3>
               </div>
-              <p className="text-sm text-slate-100">Commands that modify files, install packages, or have side effects require user confirmation.</p>
+              <p className="text-sm text-gray-700">Commands that modify files, install packages, or have side effects require user confirmation.</p>
             </div>
           </div>
         </section>
@@ -79,21 +76,21 @@ Execute this command?
 > No, tell agent what I want`}
             language="python"
           />
-          <p className="text-slate-100 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy shell_approval</code></Link> to get an editable copy.
+          <p className="text-gray-700 mt-4 text-sm">
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-700"><code className="bg-gray-100 px-2 py-1 rounded">co copy shell_approval</code></Link> to get an editable copy.
           </p>
         </section>
 
         {/* Safe Commands */}
         <section className="mb-12">
           <h2 className="heading-2">Safe Commands (Auto-Approved)</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             These read-only commands are automatically approved:
           </p>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-gray-800/50 rounded-lg p-4">
-              <h3 className="font-semibold text-green-400 mb-2">File Operations</h3>
-              <ul className="text-sm text-slate-100 space-y-1">
+            <div className="bg-gray-100 rounded-lg p-4">
+              <h3 className="font-semibold text-gray-500 mb-2">File Operations</h3>
+              <ul className="text-sm text-gray-700 space-y-1">
                 <li><code>ls</code>, <code>ll</code></li>
                 <li><code>cat</code>, <code>head</code>, <code>tail</code></li>
                 <li><code>less</code>, <code>more</code></li>
@@ -102,9 +99,9 @@ Execute this command?
                 <li><code>tree</code>, <code>wc</code></li>
               </ul>
             </div>
-            <div className="bg-gray-800/50 rounded-lg p-4">
-              <h3 className="font-semibold text-green-400 mb-2">Git (Read-Only)</h3>
-              <ul className="text-sm text-slate-100 space-y-1">
+            <div className="bg-gray-100 rounded-lg p-4">
+              <h3 className="font-semibold text-gray-500 mb-2">Git (Read-Only)</h3>
+              <ul className="text-sm text-gray-700 space-y-1">
                 <li><code>git status</code></li>
                 <li><code>git log</code></li>
                 <li><code>git diff</code></li>
@@ -113,9 +110,9 @@ Execute this command?
                 <li><code>git remote</code></li>
               </ul>
             </div>
-            <div className="bg-gray-800/50 rounded-lg p-4">
-              <h3 className="font-semibold text-green-400 mb-2">System Info</h3>
-              <ul className="text-sm text-slate-100 space-y-1">
+            <div className="bg-gray-100 rounded-lg p-4">
+              <h3 className="font-semibold text-gray-500 mb-2">System Info</h3>
+              <ul className="text-sm text-gray-700 space-y-1">
                 <li><code>pwd</code>, <code>whoami</code></li>
                 <li><code>env</code>, <code>printenv</code></li>
                 <li><code>uname</code>, <code>hostname</code></li>
@@ -130,29 +127,29 @@ Execute this command?
         {/* Approval Options */}
         <section className="mb-12">
           <h2 className="heading-2">Approval Options</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             When prompted for approval, you can:
           </p>
           <div className="space-y-3">
-            <div className="p-3 bg-gray-800/50 rounded-lg flex items-start gap-3">
-              <span className="text-green-400 font-mono">1.</span>
+            <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
+              <span className="text-gray-500 font-mono">1.</span>
               <div>
-                <strong className="text-white">Yes, execute</strong>
-                <p className="text-sm text-slate-100">Execute this specific command</p>
+                <strong className="text-gray-900">Yes, execute</strong>
+                <p className="text-sm text-gray-700">Execute this specific command</p>
               </div>
             </div>
-            <div className="p-3 bg-gray-800/50 rounded-lg flex items-start gap-3">
-              <span className="text-green-400 font-mono">2.</span>
+            <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
+              <span className="text-gray-500 font-mono">2.</span>
               <div>
-                <strong className="text-white">Auto approve '{'{cmd}'}'</strong>
-                <p className="text-sm text-slate-100">Auto-approve all commands starting with this (e.g., all <code>rm</code> commands for this session)</p>
+                <strong className="text-gray-900">Auto approve '{'{cmd}'}'</strong>
+                <p className="text-sm text-gray-700">Auto-approve all commands starting with this (e.g., all <code>rm</code> commands for this session)</p>
               </div>
             </div>
-            <div className="p-3 bg-gray-800/50 rounded-lg flex items-start gap-3">
-              <span className="text-green-400 font-mono">3.</span>
+            <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
+              <span className="text-gray-500 font-mono">3.</span>
               <div>
-                <strong className="text-white">No, tell agent what I want</strong>
-                <p className="text-sm text-slate-100">Reject and provide feedback to the agent</p>
+                <strong className="text-gray-900">No, tell agent what I want</strong>
+                <p className="text-sm text-gray-700">Reject and provide feedback to the agent</p>
               </div>
             </div>
           </div>
@@ -200,20 +197,20 @@ def _check_approval(agent):
         {/* Events used */}
         <section className="mb-12">
           <h2 className="heading-2">Events Used</h2>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th scope="col" className="text-left py-2 text-slate-100">Event</th>
-                  <th scope="col" className="text-left py-2 text-slate-100">Handler</th>
-                  <th scope="col" className="text-left py-2 text-slate-100">Purpose</th>
+                <tr className="border-b border-gray-200">
+                  <th scope="col" className="text-left py-2 text-gray-700">Event</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Handler</th>
+                  <th scope="col" className="text-left py-2 text-gray-700">Purpose</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-2"><code className="text-orange-300">before_each_tool</code></td>
+                  <td className="py-2"><code className="text-gray-700">before_each_tool</code></td>
                   <td className="py-2">_check_approval</td>
-                  <td className="py-2 text-slate-100">Check and prompt before shell commands</td>
+                  <td className="py-2 text-gray-700">Check and prompt before shell commands</td>
                 </tr>
               </tbody>
             </table>
@@ -223,8 +220,8 @@ def _check_approval(agent):
         {/* Source */}
         <section className="mb-12">
           <h2 className="heading-2">Source</h2>
-          <p className="text-slate-100">
-            <code className="bg-gray-800 px-2 py-1 rounded">connectonion/useful_plugins/shell_approval.py</code>
+          <p className="text-gray-700">
+            <code className="bg-gray-100 px-2 py-1 rounded">connectonion/useful_plugins/shell_approval.py</code>
           </p>
           <CodeWithResult
             code={`# The plugin is just a list with one event handler

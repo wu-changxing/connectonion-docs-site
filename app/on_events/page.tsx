@@ -13,11 +13,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { HiOutlineBolt, HiOutlineArrowRight, HiOutlineChartBar, HiOutlineClock, HiOutlineCodeBracket, HiOutlineSquare3Stack3D, HiOutlinePlay, HiOutlineArrowLeft, HiOutlineSparkles, HiOutlineShieldCheck } from 'react-icons/hi2'
+import { HiOutlineBolt, HiOutlineArrowRight, HiOutlineChartBar, HiOutlineClock, HiOutlineCodeBracket, HiOutlineSquare3Stack3D, HiOutlinePlay, HiOutlineArrowLeft, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineCheckCircle, HiOutlineXCircle } from 'react-icons/hi2'
 import CodeWithResult from '../../components/CodeWithResult'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
+import { PageHeader } from '../../components/PageHeader'
 
 export default function OnEventsPage() {
 
@@ -346,177 +347,64 @@ Errors: 0
   return (
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
-        {/* Header with Breadcrumb and Copy Button */}
-        <div className="mb-12">
-          <nav className="flex items-center gap-2 text-sm text-slate-100 mb-4">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <HiOutlineArrowRight className="w-4 h-4" />
-            <span className="text-white">Events (on_events)</span>
-          </nav>
+        <PageHeader
+          breadcrumbs={[
+            { label: 'Docs', href: '/' },
+            { label: 'Events (on_events)' }
+          ]}
+          icon={HiOutlineBolt}
+          iconColor="icon-ui"
+          title="Events (on_events)"
+          description="React to events in your agent's execution flow — logging, monitoring, reflection, custom behavior at every step."
+          badge={
+            <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+              <HiOutlineSparkles className="w-3 h-3" />
+              New in v0.9
+            </span>
+          }
+          markdownContent={pageContent}
+          markdownFilename="event-system.md"
+        />
 
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-            <div className="flex-1">
-              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-gradient-to-r from-green-900/30 to-green-800/10 border border-green-500/30 rounded-full">
-                <HiOutlineSparkles className="w-4 h-4 text-green-400" />
-                <span className="text-xs font-medium text-green-200">NEW</span>
-              </div>
-
-              <h1 className="heading-1">
-                Hook into agent lifecycle
-              </h1>
-
-              <p className="text-xl text-slate-100">
-                React to events in your agent's execution flow. Add logging, monitoring, reflection, and custom behavior at every step.
-              </p>
-            </div>
-
-            <CopyMarkdownButton
-              content={pageContent}
-              filename="event-system.md"
-              className="flex-shrink-0"
-            />
-          </div>
-        </div>
-
-        {/* 12 Event Types Visual */}
+        {/* 12 Event Types — definition list */}
         <section className="mb-12">
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 md:p-8">
-            <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
-              <HiOutlineCodeBracket className="text-blue-400 w-5 h-5" />
-              12 Event Types
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-blue-900/50 border border-blue-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlinePlay className="text-blue-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">after_user_input</div>
-                  <div className="text-slate-100 text-xs">Fires once per turn</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-indigo-900/50 border border-indigo-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineClock className="text-indigo-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">before_iteration</div>
-                  <div className="text-slate-100 text-xs">Before each iteration starts</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-purple-900/50 border border-purple-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineCodeBracket className="text-purple-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">before_llm</div>
-                  <div className="text-slate-100 text-xs">Before each LLM call</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-green-900/50 border border-green-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineChartBar className="text-green-400 w-5 h-5" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">after_llm</div>
-                  <div className="text-slate-100 text-xs">After each LLM response</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-yellow-900/50 border border-yellow-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineBolt className="text-yellow-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">before_each_tool</div>
-                  <div className="text-slate-100 text-xs">Before each individual tool</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-orange-900/50 border border-orange-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineSquare3Stack3D className="text-orange-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">before_tools</div>
-                  <div className="text-slate-100 text-xs">Once before all tools in batch</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-cyan-900/50 border border-cyan-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineClock className="text-cyan-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">after_each_tool</div>
-                  <div className="text-slate-100 text-xs">After each tool (logging only)</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-teal-900/50 border border-teal-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineChartBar className="text-teal-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">after_tools</div>
-                  <div className="text-slate-100 text-xs">Once after all tools (safe for messages)</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-red-900/50 border border-red-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineSquare3Stack3D className="text-red-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">on_error</div>
-                  <div className="text-slate-100 text-xs">When tool execution fails</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-pink-900/50 border border-pink-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineChartBar className="text-pink-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">after_iteration</div>
-                  <div className="text-slate-100 text-xs">After iteration (checkpoints, can stop)</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-amber-900/50 border border-amber-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineShieldCheck className="text-amber-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">on_stop_signal</div>
-                  <div className="text-slate-100 text-xs">When interrupted (cleanup)</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-emerald-900/50 border border-emerald-500 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                  <HiOutlineClock className="text-emerald-400 w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">on_complete</div>
-                  <div className="text-slate-100 text-xs">After agent finishes task</div>
-                </div>
-              </div>
+          <div className="border border-gray-200 rounded-lg overflow-hidden">
+            <div className="bg-gray-50 border-b border-gray-200 px-4 py-2.5 flex items-center gap-2">
+              <HiOutlineCodeBracket className="text-gray-400 w-4 h-4" />
+              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">12 Event Types</span>
             </div>
+            <dl className="divide-y divide-gray-100">
+              {[
+                { name: 'after_user_input', desc: 'Fires once per turn, after user input is added' },
+                { name: 'before_iteration', desc: 'Before each iteration starts — poll IO, check mode changes' },
+                { name: 'before_llm', desc: 'Before each LLM call — inject context, modify messages' },
+                { name: 'after_llm', desc: 'After each LLM response — track latency, log outputs' },
+                { name: 'before_each_tool', desc: 'Before each individual tool execution' },
+                { name: 'before_tools', desc: 'Once before all tools in a batch fire' },
+                { name: 'after_each_tool', desc: 'After each individual tool — logging only, don\'t add messages' },
+                { name: 'after_tools', desc: 'Once after all tools complete — safe place to add messages' },
+                { name: 'on_error', desc: 'When tool execution fails or tool is not found' },
+                { name: 'after_iteration', desc: 'After each iteration — checkpoints, can stop the loop' },
+                { name: 'on_stop_signal', desc: 'When stop_signal is set — cleanup interrupted operations' },
+                { name: 'on_complete', desc: 'Fires once after agent finishes the task' },
+              ].map(({ name, desc }) => (
+                <div key={name} className="flex items-baseline gap-4 px-4 py-2.5 hover:bg-gray-50 transition-colors">
+                  <code className="font-mono text-sm text-gray-900 min-w-[10rem] flex-shrink-0">{name}</code>
+                  <span className="text-sm text-gray-500">{desc}</span>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 
         {/* Main Content */}
-        <div className="prose prose-invert max-w-none">
+        <div className="prose prose-gray max-w-none">
 
           {/* Quick Start */}
           <section className="mb-16">
             <h2 className="heading-2">Quick Start</h2>
 
-            <p className="text-slate-100 mb-6">
+            <p className="text-gray-700 mb-6">
               Add event handlers to your agent in 3 simple steps:
             </p>
 
@@ -543,14 +431,14 @@ agent.input("Search for Python")`}
               language="python"
             />
 
-            <div className="bg-blue-900/20 border-l-4 border-blue-500 p-4 my-6 rounded-r">
-              <p className="text-sm text-slate-100">
-                <strong className="text-blue-400">Tip:</strong> Event handlers receive the <code className="text-blue-300 bg-blue-950/50 px-1 rounded">agent</code> instance, giving you full access to <code className="text-blue-300 bg-blue-950/50 px-1 rounded">current_session</code>, messages, trace, and more.
+            <div className="bg-gray-50 border-l-4 border-gray-300 p-4 my-6 rounded-r">
+              <p className="text-sm text-gray-700">
+                <strong className="text-gray-700">Tip:</strong> Event handlers receive the <code className="text-gray-700 bg-gray-100 px-1 rounded">agent</code> instance, giving you full access to <code className="text-gray-700 bg-gray-100 px-1 rounded">current_session</code>, messages, trace, and more.
               </p>
             </div>
 
-            <h3 className="text-lg font-semibold mb-4 text-gray-100">Group multiple handlers</h3>
-            <p className="text-slate-100 mb-4">
+            <h3 className="text-lg font-semibold mb-4 text-gray-900">Group multiple handlers</h3>
+            <p className="text-gray-700 mb-4">
               You can pass multiple handlers to the same event type:
             </p>
 
@@ -572,10 +460,10 @@ agent = Agent(
               language="python"
             />
 
-            <div className="bg-gray-800/50 border border-gray-700 p-4 my-6 rounded-lg">
-              <p className="text-sm text-slate-100">
-                <strong className="text-gray-300">Note: Decorator Syntax</strong><br/>
-                You can also use <code className="text-blue-300 bg-blue-950/50 px-1 rounded">@before_each_tool</code> decorator instead of <code className="text-blue-300 bg-blue-950/50 px-1 rounded">before_each_tool(fn)</code>.
+            <div className="bg-gray-100 border border-gray-200 p-4 my-6 rounded-lg">
+              <p className="text-sm text-gray-700">
+                <strong className="text-gray-700">Note: Decorator Syntax</strong><br/>
+                You can also use <code className="text-gray-700 bg-gray-100 px-1 rounded">@before_each_tool</code> decorator instead of <code className="text-gray-700 bg-gray-100 px-1 rounded">before_each_tool(fn)</code>.
                 We recommend wrapper style because it's easier for LLMs to understand when reading your code.
                 But if you prefer decorators, they work too.
               </p>
@@ -586,20 +474,28 @@ agent = Agent(
           <section className="mb-16">
             <h2 className="heading-2">All Event Types</h2>
 
-            <p className="text-slate-100 mb-6">
+            <p className="text-gray-700 mb-6">
               Here's when each event fires and what you can do with it:
             </p>
 
             <div className="space-y-8">
+
+              {/* ── Phase I: User Input ───────────────────────────────── */}
+              <div className="flex items-center gap-3 pt-2">
+                <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">§ I · User Input</span>
+                <div className="flex-1 border-t border-dashed border-gray-200" />
+                <span className="text-[10px] text-gray-400 font-mono">1 event</span>
+              </div>
+
               {/* after_user_input */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-blue-900/50 border border-blue-500 rounded flex items-center justify-center">
-                    <HiOutlinePlay className="text-blue-400 w-5 h-5" />
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                    <HiOutlinePlay className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">after_user_input</h3>
-                    <p className="text-sm text-slate-100">Fires once per turn, after user input is added</p>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">after_user_input</h3>
+                    <p className="text-sm text-gray-700">Fires once per turn, after user input is added</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -620,15 +516,22 @@ agent = Agent("assistant", on_events=[
                 />
               </div>
 
+              {/* ── Phase II: Per-Iteration ───────────────────────────── */}
+              <div className="flex items-center gap-3 pt-2">
+                <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">§ II · Per-Iteration</span>
+                <div className="flex-1 border-t border-dashed border-gray-200" />
+                <span className="text-[10px] text-gray-400 font-mono">4 events</span>
+              </div>
+
               {/* before_iteration */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-indigo-900/50 border border-indigo-500 rounded flex items-center justify-center">
-                    <HiOutlineClock className="text-indigo-400 w-5 h-5" />
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                    <HiOutlineClock className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">before_iteration</h3>
-                    <p className="text-sm text-slate-100">Fires before each iteration starts (poll IO, check mode changes)</p>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">before_iteration</h3>
+                    <p className="text-sm text-gray-700">Fires before each iteration starts (poll IO, check mode changes)</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -651,14 +554,14 @@ agent = Agent("assistant", on_events=[
               </div>
 
               {/* after_llm */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-green-900/50 border border-green-500 rounded flex items-center justify-center">
-                    <HiOutlineChartBar className="text-green-400 w-5 h-5" />
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                    <HiOutlineChartBar className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">after_llm</h3>
-                    <p className="text-sm text-slate-100">Fires after each LLM response (multiple times per turn)</p>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">after_llm</h3>
+                    <p className="text-sm text-gray-700">Fires after each LLM response (multiple times per turn)</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -700,15 +603,22 @@ agent = Agent("assistant", tools=[search], on_events=[
                 />
               </div>
 
+              {/* ── Phase III: Tool Execution ─────────────────────────── */}
+              <div className="flex items-center gap-3 pt-2">
+                <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">§ III · Tool Execution</span>
+                <div className="flex-1 border-t border-dashed border-gray-200" />
+                <span className="text-[10px] text-gray-400 font-mono">5 events</span>
+              </div>
+
               {/* before_each_tool */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-yellow-900/50 border border-yellow-500 rounded flex items-center justify-center">
-                    <HiOutlineBolt className="text-yellow-400 w-5 h-5" />
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                    <HiOutlineBolt className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">before_each_tool</h3>
-                    <p className="text-sm text-slate-100">Fires before EACH individual tool execution</p>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">before_each_tool</h3>
+                    <p className="text-sm text-gray-700">Fires before EACH individual tool execution</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -729,14 +639,14 @@ agent = Agent("assistant", tools=[search], on_events=[
               </div>
 
               {/* before_tools */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-orange-900/50 border border-orange-500 rounded flex items-center justify-center">
-                    <HiOutlineSquare3Stack3D className="text-orange-400 w-5 h-5" />
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                    <HiOutlineSquare3Stack3D className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">before_tools</h3>
-                    <p className="text-sm text-slate-100">Fires ONCE before ALL tools in a batch</p>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">before_tools</h3>
+                    <p className="text-sm text-gray-700">Fires ONCE before ALL tools in a batch</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -754,18 +664,18 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
               </div>
 
               {/* after_each_tool */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-cyan-900/50 border border-cyan-500 rounded flex items-center justify-center">
-                    <HiOutlineClock className="text-cyan-400 w-5 h-5" />
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                    <HiOutlineClock className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">after_each_tool</h3>
-                    <p className="text-sm text-slate-100">Fires after EACH tool (logging only, NOT for messages)</p>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">after_each_tool</h3>
+                    <p className="text-sm text-gray-700">Fires after EACH tool (logging only, NOT for messages)</p>
                   </div>
                 </div>
-                <div className="bg-red-900/20 border-l-4 border-red-500 p-4 mb-4 rounded-r">
-                  <p className="text-sm text-slate-100">
+                <div className="bg-gray-50 border-l-4 border-gray-400 p-4 mb-4 rounded-r">
+                  <p className="text-sm text-gray-700">
                     <strong className="text-red-400">WARNING:</strong> Do NOT add messages here! This breaks Anthropic Claude's API message ordering.
                   </p>
                 </div>
@@ -788,19 +698,19 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
               </div>
 
               {/* after_tools */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-teal-900/50 border border-teal-500 rounded flex items-center justify-center">
-                    <HiOutlineChartBar className="text-teal-400 w-5 h-5" />
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                    <HiOutlineChartBar className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">after_tools</h3>
-                    <p className="text-sm text-slate-100">Fires ONCE after ALL tools complete (safe for messages)</p>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">after_tools</h3>
+                    <p className="text-sm text-gray-700">Fires ONCE after ALL tools complete (safe for messages)</p>
                   </div>
                 </div>
-                <div className="bg-green-900/20 border-l-4 border-green-500 p-4 mb-4 rounded-r">
-                  <p className="text-sm text-slate-100">
-                    <strong className="text-green-400">SAFE:</strong> This is the correct place to add reflection messages after tools.
+                <div className="bg-gray-50 border-l-4 border-gray-300 p-4 mb-4 rounded-r">
+                  <p className="text-sm text-gray-700">
+                    <strong className="text-green-700">SAFE:</strong> This is the correct place to add reflection messages after tools.
                   </p>
                 </div>
                 <CodeWithResult
@@ -824,14 +734,14 @@ agent = Agent("assistant", tools=[search, analyze], on_events=[
               </div>
 
               {/* on_error */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-red-900/50 border border-red-500 rounded flex items-center justify-center">
-                    <HiOutlineSquare3Stack3D className="text-red-400 w-5 h-5" />
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                    <HiOutlineSquare3Stack3D className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">on_error</h3>
-                    <p className="text-sm text-slate-100">Fires when tool execution fails or tool not found</p>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">on_error</h3>
+                    <p className="text-sm text-gray-700">Fires when tool execution fails or tool not found</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -855,15 +765,22 @@ agent = Agent("assistant", tools=[api_call], on_events=[
                 />
               </div>
 
+              {/* ── Phase IV: Lifecycle ───────────────────────────────── */}
+              <div className="flex items-center gap-3 pt-2">
+                <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">§ IV · Lifecycle</span>
+                <div className="flex-1 border-t border-dashed border-gray-200" />
+                <span className="text-[10px] text-gray-400 font-mono">3 events</span>
+              </div>
+
               {/* after_iteration */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-pink-900/50 border border-pink-500 rounded flex items-center justify-center">
-                    <HiOutlineChartBar className="text-pink-400 w-5 h-5" />
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                    <HiOutlineChartBar className="text-gray-500 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">after_iteration</h3>
-                    <p className="text-sm text-slate-100">Fires after each iteration (checkpoints, can control loop continuation)</p>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">after_iteration</h3>
+                    <p className="text-sm text-gray-700">Fires after each iteration (checkpoints, can control loop continuation)</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -892,19 +809,19 @@ agent = Agent("assistant", tools=[search], on_events=[
               </div>
 
               {/* on_stop_signal */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-amber-900/50 border border-amber-500 rounded flex items-center justify-center">
-                    <HiOutlineShieldCheck className="text-amber-400 w-5 h-5" />
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                    <HiOutlineShieldCheck className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">on_stop_signal</h3>
-                    <p className="text-sm text-slate-100">Fires when stop_signal is set (cleanup interrupted operations)</p>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">on_stop_signal</h3>
+                    <p className="text-sm text-gray-700">Fires when stop_signal is set (cleanup interrupted operations)</p>
                   </div>
                 </div>
-                <div className="bg-yellow-900/20 border-l-4 border-yellow-500 p-4 mb-4 rounded-r">
-                  <p className="text-sm text-slate-100">
-                    <strong className="text-yellow-400">Note:</strong> Mutually exclusive with on_complete - either this fires (interrupted) OR on_complete fires (normal completion), never both.
+                <div className="bg-gray-50 border-l-4 border-gray-400 p-4 mb-4 rounded-r">
+                  <p className="text-sm text-gray-700">
+                    <strong className="text-gray-700">Note:</strong> Mutually exclusive with on_complete - either this fires (interrupted) OR on_complete fires (normal completion), never both.
                   </p>
                 </div>
                 <CodeWithResult
@@ -936,14 +853,14 @@ agent = Agent("assistant", tools=[write, read], on_events=[
               </div>
 
               {/* on_complete */}
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-emerald-900/50 border border-emerald-500 rounded flex items-center justify-center">
-                    <HiOutlineClock className="text-emerald-400 w-5 h-5" />
+                  <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                    <HiOutlineClock className="text-gray-400 w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-100">on_complete</h3>
-                    <p className="text-sm text-slate-100">Fires once after agent finishes task</p>
+                    <h3 className="text-sm font-bold font-mono text-gray-900">on_complete</h3>
+                    <p className="text-sm text-gray-700">Fires once after agent finishes task</p>
                   </div>
                 </div>
                 <CodeWithResult
@@ -972,7 +889,7 @@ agent = Agent("assistant", tools=[search], on_events=[
           <section className="mb-16">
             <h2 className="heading-2">Combining Multiple Events</h2>
 
-            <p className="text-slate-100 mb-6">
+            <p className="text-gray-700 mb-6">
               Use multiple event handlers together for comprehensive monitoring and control:
             </p>
 
@@ -1044,9 +961,9 @@ agent.input("Search and analyze Python")`}
             <h2 className="heading-2">Key Concepts</h2>
 
             <div className="space-y-6">
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-gray-100">Event Handler Signature</h3>
-                <p className="text-slate-100 mb-4">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">Event Handler Signature</h3>
+                <p className="text-gray-700 mb-4">
                   All event handlers receive the agent instance:
                 </p>
                 <CodeWithResult
@@ -1070,26 +987,26 @@ agent.input("Search and analyze Python")`}
                 />
               </div>
 
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-gray-100">Message Injection Timing</h3>
-                <p className="text-slate-100 mb-4">
-                  <strong className="text-white">Important:</strong> Use <code className="text-blue-300 bg-blue-950/50 px-1 rounded">after_tools</code> to inject messages after tool execution:
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">Message Injection Timing</h3>
+                <p className="text-gray-700 mb-4">
+                  <strong className="text-gray-900">Important:</strong> Use <code className="text-gray-700 bg-gray-100 px-1 rounded">after_tools</code> to inject messages after tool execution:
                 </p>
-                <div className="bg-red-900/20 border-l-4 border-red-500 p-4 mb-4 rounded-r">
-                  <p className="text-sm text-slate-100">
-                    <strong className="text-red-400">❌ Don't use after_each_tool:</strong> Injecting messages during tool execution breaks Anthropic Claude's message sequence (all tool_results must follow tool_use)
+                <div className="bg-gray-50 border-l-4 border-gray-400 p-4 mb-4 rounded-r">
+                  <p className="text-sm text-gray-700">
+                    <strong className="text-red-500 inline-flex items-center gap-1"><HiOutlineXCircle className="w-4 h-4 flex-shrink-0" />Don't use after_each_tool:</strong> Injecting messages during tool execution breaks Anthropic Claude's message sequence (all tool_results must follow tool_use)
                   </p>
                 </div>
-                <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
-                  <p className="text-sm text-slate-100">
-                    <strong className="text-green-400">✅ Use after_tools:</strong> Fires once after ALL tool results are added to messages, safe for reflection injection
+                <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
+                  <p className="text-sm text-gray-700">
+                    <strong className="text-green-700 inline-flex items-center gap-1"><HiOutlineCheckCircle className="w-4 h-4 flex-shrink-0" />Use after_tools:</strong> Fires once after ALL tool results are added to messages, safe for reflection injection
                   </p>
                 </div>
               </div>
 
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-gray-100">Error Handling</h3>
-                <p className="text-slate-100 mb-4">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">Error Handling</h3>
+                <p className="text-gray-700 mb-4">
                   Event handlers follow fail-fast principle:
                 </p>
                 <CodeWithResult
@@ -1116,7 +1033,7 @@ agent.input("test")  # Raises RuntimeError`}
 
             <div className="space-y-8">
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-100">1. Performance Monitoring Dashboard</h3>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">1. Performance Monitoring Dashboard</h3>
                 <CodeWithResult
                   code={`class PerformanceMonitor:
     def __init__(self):
@@ -1167,7 +1084,7 @@ Errors: 0`}
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-100">2. Automatic Context Injection</h3>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">2. Automatic Context Injection</h3>
                 <CodeWithResult
                   code={`def inject_company_context(agent):
     """Add company-specific context to every query"""
@@ -1192,7 +1109,7 @@ agent = Agent(
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-100">3. Smart Retry Logic</h3>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">3. Smart Retry Logic</h3>
                 <CodeWithResult
                   code={`class RetryHandler:
     def __init__(self, max_retries=3):
@@ -1236,66 +1153,66 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
           <section className="mb-16">
             <h2 className="heading-2">API Reference</h2>
 
-            <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 text-gray-100">Event Wrapper Functions</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">Event Wrapper Functions</h3>
               <div className="space-y-4 text-sm">
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_user_input(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires once per turn after user input is added to session.</p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">after_user_input(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires once per turn after user input is added to session.</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_iteration(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires before each iteration starts (poll IO, check mode changes).</p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">before_iteration(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires before each iteration starts (poll IO, check mode changes).</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_llm(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires before each LLM call.</p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">before_llm(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires before each LLM call.</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_llm(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires after each LLM response.</p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">after_llm(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires after each LLM response.</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_each_tool(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires before EACH individual tool execution. Access pending tool via <code className="text-blue-300 bg-blue-950/50 px-1 rounded">agent.current_session['pending_tool']</code>.</p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">before_each_tool(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires before EACH individual tool execution. Access pending tool via <code className="text-gray-700 bg-gray-100 px-1 rounded">agent.current_session['pending_tool']</code>.</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">before_tools(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires ONCE before ALL tools in a batch execute.</p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">before_tools(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires ONCE before ALL tools in a batch execute.</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_each_tool(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires after EACH individual tool. <strong className="text-red-400">WARNING:</strong> Do NOT add messages here!</p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">after_each_tool(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires after EACH individual tool. <strong className="text-red-400">WARNING:</strong> Do NOT add messages here!</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_tools(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires ONCE after ALL tools complete. <strong className="text-green-400">SAFE</strong> for adding messages.</p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">after_tools(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires ONCE after ALL tools complete. <strong className="text-green-700">SAFE</strong> for adding messages.</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_error(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires when tool execution fails or tool is not found.</p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">on_error(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires when tool execution fails or tool is not found.</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">after_iteration(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires after each iteration (checkpoints, can control loop continuation).</p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">after_iteration(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires after each iteration (checkpoints, can control loop continuation).</p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_stop_signal(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires when stop_signal is set (cleanup interrupted operations). <strong className="text-yellow-400">Mutually exclusive with on_complete.</strong></p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">on_stop_signal(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires when stop_signal is set (cleanup interrupted operations). <strong className="text-gray-700">Mutually exclusive with on_complete.</strong></p>
                 </div>
                 <div>
-                  <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded">on_complete(func: Callable[[Agent], None]) → EventHandler</code>
-                  <p className="text-slate-100 mt-2">Fires once after agent completes the task.</p>
+                  <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">on_complete(func: Callable[[Agent], None]) → EventHandler</code>
+                  <p className="text-gray-700 mt-2">Fires once after agent completes the task.</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 mt-6">
-              <h3 className="text-lg font-semibold mb-4 text-gray-100">Agent Constructor</h3>
-              <code className="text-blue-300 bg-blue-950/50 px-2 py-1 rounded text-sm">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mt-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">Agent Constructor</h3>
+              <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded text-sm">
                 Agent(name, tools, on_events: Optional[List[EventHandler]] = None, ...)
               </code>
-              <p className="text-slate-100 mt-4 text-sm">
+              <p className="text-gray-700 mt-4 text-sm">
                 <strong>on_events</strong>: List of event handlers wrapped with event type functions
               </p>
             </div>
@@ -1306,33 +1223,33 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
             <h2 className="heading-2">Best Practices</h2>
 
             <div className="space-y-4">
-              <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
-                <p className="text-sm text-slate-100">
-                  <strong className="text-green-400">✅ Keep handlers simple:</strong> Each event handler should do one thing well. Compose multiple handlers for complex behavior.
+              <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
+                <p className="text-sm text-gray-700">
+                  <strong className="text-green-700 inline-flex items-center gap-1"><HiOutlineCheckCircle className="w-4 h-4 flex-shrink-0" />Keep handlers simple:</strong> Each event handler should do one thing well. Compose multiple handlers for complex behavior.
                 </p>
               </div>
 
-              <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
-                <p className="text-sm text-slate-100">
-                  <strong className="text-green-400">✅ Use after_tools for message injection:</strong> This is the safe time to inject reflection/context after ALL tools in a batch complete.
+              <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
+                <p className="text-sm text-gray-700">
+                  <strong className="text-green-700 inline-flex items-center gap-1"><HiOutlineCheckCircle className="w-4 h-4 flex-shrink-0" />Use after_tools for message injection:</strong> This is the safe time to inject reflection/context after ALL tools in a batch complete.
                 </p>
               </div>
 
-              <div className="bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
-                <p className="text-sm text-slate-100">
-                  <strong className="text-green-400">✅ Handle exceptions internally:</strong> If your event handler can fail, catch exceptions to prevent stopping the agent.
+              <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r">
+                <p className="text-sm text-gray-700">
+                  <strong className="text-green-700 inline-flex items-center gap-1"><HiOutlineCheckCircle className="w-4 h-4 flex-shrink-0" />Handle exceptions internally:</strong> If your event handler can fail, catch exceptions to prevent stopping the agent.
                 </p>
               </div>
 
-              <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r">
-                <p className="text-sm text-slate-100">
-                  <strong className="text-red-400">❌ Don't inject during tool execution:</strong> Using after_each_tool to inject messages breaks Anthropic Claude's tool_result message ordering.
+              <div className="bg-gray-50 border-l-4 border-gray-400 p-4 rounded-r">
+                <p className="text-sm text-gray-700">
+                  <strong className="text-red-500 inline-flex items-center gap-1"><HiOutlineXCircle className="w-4 h-4 flex-shrink-0" />Don't inject during tool execution:</strong> Using after_each_tool to inject messages breaks Anthropic Claude's tool_result message ordering.
                 </p>
               </div>
 
-              <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r">
-                <p className="text-sm text-slate-100">
-                  <strong className="text-red-400">❌ Don't do heavy computation:</strong> Event handlers run synchronously and block agent execution. Keep them fast.
+              <div className="bg-gray-50 border-l-4 border-gray-400 p-4 rounded-r">
+                <p className="text-sm text-gray-700">
+                  <strong className="text-red-500 inline-flex items-center gap-1"><HiOutlineXCircle className="w-4 h-4 flex-shrink-0" />Don't do heavy computation:</strong> Event handlers run synchronously and block agent execution. Keep them fast.
                 </p>
               </div>
             </div>
@@ -1343,24 +1260,24 @@ agent = Agent("resilient", tools=[flaky_api], on_events=[
             <h2 className="heading-2">Next Steps</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Link href="/xray" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-purple-500 transition-colors">
-                <h3 className="text-lg font-semibold mb-2 text-gray-100">@xray Debugging →</h3>
-                <p className="text-sm text-slate-100">See what your agent is thinking with the @xray decorator</p>
+              <Link href="/xray" className="block p-6 bg-white border border-gray-200 rounded-lg hover:border-gray-400 hover:shadow-sm transition-all">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900">@xray Debugging →</h3>
+                <p className="text-sm text-gray-600">See what your agent is thinking with the @xray decorator</p>
               </Link>
 
-              <Link href="/auto-debug" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-blue-500 transition-colors">
-                <h3 className="text-lg font-semibold mb-2 text-gray-100">Auto-Debug →</h3>
-                <p className="text-sm text-slate-100">Interactive debugging with breakpoints and step-through</p>
+              <Link href="/auto-debug" className="block p-6 bg-white border border-gray-200 rounded-lg hover:border-gray-400 hover:shadow-sm transition-all">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900">Auto-Debug →</h3>
+                <p className="text-sm text-gray-600">Interactive debugging with breakpoints and step-through</p>
               </Link>
 
-              <Link href="/agent" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-green-500 transition-colors">
-                <h3 className="text-lg font-semibold mb-2 text-gray-100">Agent Reference →</h3>
-                <p className="text-sm text-slate-100">Complete API documentation for the Agent class</p>
+              <Link href="/agent" className="block p-6 bg-white border border-gray-200 rounded-lg hover:border-gray-400 hover:shadow-sm transition-all">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900">Agent Reference →</h3>
+                <p className="text-sm text-gray-600">Complete API documentation for the Agent class</p>
               </Link>
 
-              <Link href="/examples" className="block p-6 bg-gray-900 border border-gray-700 rounded-lg hover:border-yellow-500 transition-colors">
-                <h3 className="text-lg font-semibold mb-2 text-gray-100">Examples →</h3>
-                <p className="text-sm text-slate-100">Browse more real-world agent examples</p>
+              <Link href="/examples" className="block p-6 bg-white border border-gray-200 rounded-lg hover:border-gray-400 hover:shadow-sm transition-all">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900">Examples →</h3>
+                <p className="text-sm text-gray-600">Browse more real-world agent examples</p>
               </Link>
             </div>
           </section>

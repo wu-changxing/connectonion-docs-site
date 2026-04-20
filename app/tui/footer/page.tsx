@@ -17,10 +17,7 @@ export default function FooterPage() {
             { label: 'Footer' },
           ]}
           icon={HiOutlineRectangleGroup}
-          iconColor="text-orange-400"
-          iconBgFrom="from-orange-600/20"
-          iconBgTo="to-yellow-600/20"
-          iconBorderColor="border-orange-500/30"
+          iconColor="icon-ui"
           title="Footer"
           description="Simple footer with tips/hints display"
           markdownPath="/tui/footer.md"
@@ -75,7 +72,7 @@ text = Input(
         {/* Example Output */}
         <section className="mb-12">
           <h2 className="heading-2">Example Output</h2>
-          <pre className="bg-gray-900 rounded-lg p-4 text-sm text-slate-100 overflow-x-auto">
+          <pre className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-sm text-gray-700 overflow-x-auto">
 {`? help  / commands  @ contacts`}
           </pre>
         </section>

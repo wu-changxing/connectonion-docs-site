@@ -9,7 +9,7 @@ import { PageHeader } from '../../../components/PageHeader'
 
 export default function DropdownPage() {
   return (
-    <div className="px-4 md:px-8 py-16 md:py-24">
+    <div className="px-4 md:px-8 py-16 md:py-24 doc-content--reference">
       <div className="max-w-4xl mx-auto">
         <PageHeader
           breadcrumbs={[
@@ -18,10 +18,7 @@ export default function DropdownPage() {
             { label: 'Dropdown' },
           ]}
           icon={HiOutlineChevronDown}
-          iconColor="text-green-400"
-          iconBgFrom="from-green-600/20"
-          iconBgTo="to-emerald-600/20"
-          iconBorderColor="border-green-500/30"
+          iconColor="icon-ui"
           title="Dropdown"
           description="Selection list component for autocomplete menus"
           markdownPath="/tui/dropdown.md"
@@ -49,7 +46,7 @@ dropdown = Dropdown(items, max_visible=5, style="modern")`}
         {/* DropdownItem */}
         <section className="mb-12">
           <h2 className="heading-2">DropdownItem</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Structured item with rich metadata:
           </p>
 
@@ -120,37 +117,37 @@ item = DropdownItem(display="/today", value="/today")`}
         {/* File Icons */}
         <section className="mb-12">
           <h2 className="heading-2">File Icons</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Built-in icons for common file types:
           </p>
-          <div className="bg-gray-800/50 rounded-lg p-4">
+          <div className="bg-gray-100 rounded-lg p-4">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left py-2 text-slate-100">Icon</th>
-                  <th className="text-left py-2 text-slate-100">Type</th>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-2 text-gray-700">Icon</th>
+                  <th className="text-left py-2 text-gray-700">Type</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">📁</td>
-                  <td className="py-2 text-slate-100">folder</td>
+                  <td className="py-2 text-gray-700">folder</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">📄</td>
-                  <td className="py-2 text-slate-100">file (default)</td>
+                  <td className="py-2 text-gray-700">file (default)</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">🐍</td>
-                  <td className="py-2 text-slate-100">.py</td>
+                  <td className="py-2 text-gray-700">.py</td>
                 </tr>
-                <tr className="border-b border-gray-700/50">
+                <tr className="border-b border-gray-200">
                   <td className="py-2 text-2xl">📜</td>
-                  <td className="py-2 text-slate-100">.js, .ts</td>
+                  <td className="py-2 text-gray-700">.js, .ts</td>
                 </tr>
                 <tr>
                   <td className="py-2 text-2xl">⚙️</td>
-                  <td className="py-2 text-slate-100">.json, .yaml</td>
+                  <td className="py-2 text-gray-700">.json, .yaml</td>
                 </tr>
               </tbody>
             </table>

@@ -9,7 +9,7 @@ import { PageHeader } from '../../../components/PageHeader'
 
 export default function ReceiveEmailsPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="bg-white text-gray-900">
       <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
         <PageHeader
           breadcrumbs={[
@@ -18,10 +18,7 @@ export default function ReceiveEmailsPage() {
             { label: 'Receive' }
           ]}
           icon={HiOutlineInbox}
-          iconColor="text-blue-400"
-          iconBgFrom="from-blue-600/20"
-          iconBgTo="to-cyan-600/20"
-          iconBorderColor="border-blue-500/30"
+          iconColor="icon-ui"
           title="Receive Emails"
           description="Check your inbox with one line. Process emails safely. Keep it simple."
           markdownPath="/agent-emails/receive.md"
@@ -31,9 +28,9 @@ export default function ReceiveEmailsPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-gray-400" />
             <h2 className="heading-2">Quick Start</h2>
-            <span className="text-sm text-gray-500 bg-gray-800 px-3 py-1 rounded-full">10 seconds</span>
+            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">10 seconds</span>
           </div>
 
           <CodeWithResult
@@ -45,15 +42,15 @@ emails = get_emails()`}
             fileName="quickstart.py"
           />
 
-          <p className="text-green-400 font-semibold text-center mt-4">That's it. You have your emails.</p>
+          <p className="text-gray-700 font-semibold text-center mt-4">That's it. You have your emails.</p>
         </section>
 
         {/* Core Concept */}
         <section className="mb-16">
           <h2 className="heading-2">Core Concept</h2>
 
-          <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-8 mb-8">
-            <p className="text-lg text-slate-100 mb-6">Three functions. That's all:</p>
+          <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-8 mb-8">
+            <p className="text-lg text-gray-700 mb-6">Three functions. That's all:</p>
             <CodeWithResult
               code={`get_emails(last=10, unread=False)  # Get emails
 send_email(to, subject, message)    # Send email
@@ -61,8 +58,8 @@ mark_read(email_id)                 # Mark as read after processing`}
               language="python"
               fileName="core.py"
             />
-            <div className="mt-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
-              <p className="text-yellow-300 font-medium">
+            <div className="mt-6 p-4 bg-gray-500/10 border border-gray-200 rounded-lg">
+              <p className="text-gray-700 font-medium">
                 Important: Emails are NOT auto-marked as read. You control when to mark them.
               </p>
             </div>
@@ -73,7 +70,7 @@ mark_read(email_id)                 # Mark as read after processing`}
         <section className="mb-16">
           <h2 className="heading-2">Setup</h2>
 
-          <p className="text-slate-100 mb-4">Set your email credentials:</p>
+          <p className="text-gray-700 mb-4">Set your email credentials:</p>
           <CommandBlock
             commands={[
               'export EMAIL_ADDRESS="you@example.com"',
@@ -82,9 +79,9 @@ mark_read(email_id)                 # Mark as read after processing`}
             ]}
           />
 
-          <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
-            <p className="text-blue-300 text-sm">
-              <strong>Gmail users:</strong> Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" className="underline hover:text-blue-200">App Password</a>, not your regular password.
+          <div className="mt-6 p-4 bg-gray-500/10 border border-gray-200 rounded-lg">
+            <p className="text-gray-600 text-sm">
+              <strong>Gmail users:</strong> Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" className="underline hover:text-gray-900">App Password</a>, not your regular password.
             </p>
           </div>
         </section>
@@ -96,7 +93,7 @@ mark_read(email_id)                 # Mark as read after processing`}
           <div className="space-y-12">
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineEye className="w-5 h-5 text-blue-400" />
+                <HiOutlineEye className="w-5 h-5 text-gray-400" />
                 Check for new emails
               </h3>
               <CodeWithResult
@@ -118,7 +115,7 @@ for email in new_emails:
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineClock className="w-5 h-5 text-purple-400" />
+                <HiOutlineClock className="w-5 h-5 text-gray-500" />
                 Get latest email
               </h3>
               <CodeWithResult
@@ -134,7 +131,7 @@ if emails:
 
             <div>
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineEnvelope className="w-5 h-5 text-green-400" />
+                <HiOutlineEnvelope className="w-5 h-5 text-gray-500" />
                 Reply to emails
               </h3>
               <CodeWithResult
@@ -163,31 +160,31 @@ for email in get_emails(unread=True):
           <h2 className="heading-2">API Reference</h2>
 
           <div className="space-y-8">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-6">
-              <h3 className="text-lg font-semibold mb-4 text-blue-300 font-mono">get_emails(last=10, unread=False)</h3>
-              <p className="text-slate-100 mb-4">Fetch emails from your inbox.</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700 font-mono">get_emails(last=10, unread=False)</h3>
+              <p className="text-gray-700 mb-4">Fetch emails from your inbox.</p>
               <div className="space-y-2 text-sm">
-                <p><code className="bg-gray-800 px-2 py-0.5 rounded">last</code> - Number of emails to fetch (default: 10)</p>
-                <p><code className="bg-gray-800 px-2 py-0.5 rounded">unread</code> - Only fetch unread emails (default: False)</p>
+                <p><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">last</code> - Number of emails to fetch (default: 10)</p>
+                <p><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">unread</code> - Only fetch unread emails (default: False)</p>
               </div>
               <div className="mt-4">
-                <p className="text-sm text-slate-100">Returns list of email dicts with: id, from, subject, date, body</p>
+                <p className="text-sm text-gray-700">Returns list of email dicts with: id, from, subject, date, body</p>
               </div>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-6">
-              <h3 className="text-lg font-semibold mb-4 text-green-300 font-mono">mark_read(email_id)</h3>
-              <p className="text-slate-100 mb-4">Mark an email as read.</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700 font-mono">mark_read(email_id)</h3>
+              <p className="text-gray-700 mb-4">Mark an email as read.</p>
               <div className="space-y-2 text-sm">
-                <p><code className="bg-gray-800 px-2 py-0.5 rounded">email_id</code> - The email ID from get_emails()</p>
+                <p><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">email_id</code> - The email ID from get_emails()</p>
               </div>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl hover:border-purple-400/50 hover:bg-gray-800/50 transition-all p-6">
-              <h3 className="text-lg font-semibold mb-4 text-yellow-300 font-mono">mark_unread(email_id)</h3>
-              <p className="text-slate-100 mb-4">Mark an email as unread.</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700 font-mono">mark_unread(email_id)</h3>
+              <p className="text-gray-700 mb-4">Mark an email as unread.</p>
               <div className="space-y-2 text-sm">
-                <p><code className="bg-gray-800 px-2 py-0.5 rounded">email_id</code> - The email ID from get_emails()</p>
+                <p><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">email_id</code> - The email ID from get_emails()</p>
               </div>
             </div>
           </div>
@@ -237,9 +234,9 @@ agent.input("Check my inbox and summarize what's there")`}
           <h2 className="heading-2">get_emails vs Gmail</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
-              <h3 className="font-semibold mb-4 text-blue-300">get_emails (IMAP)</h3>
-              <ul className="space-y-2 text-sm text-slate-100">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold mb-4 text-gray-900">get_emails (IMAP)</h3>
+              <ul className="space-y-2 text-sm text-gray-700">
                 <li>Simple functions</li>
                 <li>Works with any email provider</li>
                 <li>Uses EMAIL_PASSWORD env var</li>
@@ -247,20 +244,20 @@ agent.input("Check my inbox and summarize what's there")`}
                 <li>Best for simple automation</li>
               </ul>
             </div>
-            <div className="bg-green-900/20 border border-green-500/30 rounded-xl p-6">
-              <h3 className="font-semibold mb-4 text-green-300">Gmail (OAuth)</h3>
-              <ul className="space-y-2 text-sm text-slate-100">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold mb-4 text-gray-900">Gmail (OAuth)</h3>
+              <ul className="space-y-2 text-sm text-gray-700">
                 <li>Full Gmail class with many methods</li>
                 <li>Gmail-specific features (labels, archive, star)</li>
-                <li>Uses <code className="bg-gray-800 px-1 rounded">co auth google</code></li>
+                <li>Uses <code className="bg-gray-100 px-1 rounded">co auth google</code></li>
                 <li>Search, CRM, contact analysis</li>
                 <li>Best for advanced Gmail automation</li>
               </ul>
             </div>
           </div>
 
-          <p className="text-center mt-6 text-slate-100">
-            Need more features? Check out <Link href="/gmail" className="text-purple-400 hover:text-purple-300 underline">Gmail</Link> for full inbox management.
+          <p className="text-center mt-6 text-gray-700">
+            Need more features? Check out <Link href="/gmail" className="text-gray-500 hover:text-gray-700 underline">Gmail</Link> for full inbox management.
           </p>
         </section>
 

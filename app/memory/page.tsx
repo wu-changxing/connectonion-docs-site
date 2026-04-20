@@ -9,7 +9,7 @@ import { PageHeader } from '../../components/PageHeader'
 
 export default function MemoryPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="bg-white text-gray-900">
       <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
         <PageHeader
           breadcrumbs={[
@@ -17,10 +17,6 @@ export default function MemoryPage() {
             { label: 'Memory' }
           ]}
           icon={HiOutlineCpuChip}
-          iconColor="text-amber-400"
-          iconBgFrom="from-amber-600/20"
-          iconBgTo="to-orange-600/20"
-          iconBorderColor="border-amber-500/30"
           title="Memory System"
           description="Give your agents persistent memory using markdown-based storage."
           markdownPath="/memory.md"
@@ -30,7 +26,7 @@ export default function MemoryPage() {
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineLightBulb className="w-6 h-6 text-yellow-400" />
+            <HiOutlineLightBulb className="w-6 h-6 text-gray-400" />
             <h2 className="heading-2">Quick Start</h2>
           </div>
 
@@ -56,49 +52,49 @@ agent.input("What do I know about Alice?")`}
         <section className="mb-16">
           <h2 className="heading-2">What is Memory?</h2>
           
-          <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-8 mb-8">
-            <p className="text-lg text-slate-100 mb-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 mb-8">
+            <p className="text-lg text-gray-700 mb-6">
               Memory is a simple, file-based storage system that lets your agents:
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-start gap-3">
-                <HiOutlineBookmark className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineBookmark className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Persistent Storage</p>
-                  <p className="text-sm text-slate-200">Save information across sessions</p>
+                  <p className="text-sm text-gray-600">Save information across sessions</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <HiOutlineCircleStack className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineCircleStack className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Key-Value Retrieval</p>
-                  <p className="text-sm text-slate-200">Retrieve information by specific keys</p>
+                  <p className="text-sm text-gray-600">Retrieve information by specific keys</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <HiOutlineMagnifyingGlass className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineMagnifyingGlass className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Regex Search</p>
-                  <p className="text-sm text-slate-200">Search across all memories with patterns</p>
+                  <p className="text-sm text-gray-600">Search across all memories with patterns</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <HiOutlineDocumentText className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                <HiOutlineDocumentText className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Markdown Format</p>
-                  <p className="text-sm text-slate-200">Organize knowledge in human-readable format</p>
+                  <p className="text-sm text-gray-600">Organize knowledge in human-readable format</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
-            <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-blue-400">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+            <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-gray-900">
               <HiOutlineFolderOpen className="w-5 h-5" />
               Storage Strategy
             </h3>
-            <p className="text-slate-100">
-              Memories start in a single <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">memory.md</code> file. When the file exceeds 3000 lines, it automatically splits into a directory structure with separate <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">.md</code> files per memory key.
+            <p className="text-gray-700">
+              Memories start in a single <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">memory.md</code> file. When the file exceeds 3000 lines, it automatically splits into a directory structure with separate <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.md</code> files per memory key.
             </p>
           </div>
         </section>
@@ -106,7 +102,7 @@ agent.input("What do I know about Alice?")`}
         {/* Installation */}
         <section className="mb-16">
           <h2 className="heading-2">Installation</h2>
-          <p className="text-slate-100 mb-4">Memory is included in ConnectOnion:</p>
+          <p className="text-gray-700 mb-4">Memory is included in ConnectOnion:</p>
           <CommandBlock commands={['pip install connectonion']} />
         </section>
 
@@ -143,23 +139,23 @@ agent = Agent("assistant", tools=[memory])`}
                 language="python"
                 fileName="agent_with_memory.py"
               />
-              <div className="mt-6 bg-gray-900/50 border border-gray-700 rounded-xl p-6">
-                <p className="text-slate-100 mb-4">Now your agent has access to 4 memory methods:</p>
-                <ul className="space-y-2 text-sm font-mono text-slate-100">
+              <div className="mt-6 bg-gray-50 border border-gray-200 rounded-xl p-6">
+                <p className="text-gray-700 mb-4">Now your agent has access to 4 memory methods:</p>
+                <ul className="space-y-2 text-sm font-mono text-gray-700">
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-400">write_memory(key, content)</span>
+                    <span className="text-gray-500">write_memory(key, content)</span>
                     <span className="text-gray-500">- Save or update information</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-400">read_memory(key)</span>
+                    <span className="text-gray-500">read_memory(key)</span>
                     <span className="text-gray-500">- Retrieve information</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-400">list_memories()</span>
+                    <span className="text-gray-500">list_memories()</span>
                     <span className="text-gray-500">- Show all stored memories</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-400">search_memory(pattern)</span>
+                    <span className="text-gray-500">search_memory(pattern)</span>
                     <span className="text-gray-500">- Search with regex</span>
                   </li>
                 </ul>
@@ -174,22 +170,22 @@ agent = Agent("assistant", tools=[memory])`}
 
           <div className="space-y-12">
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-purple-300 font-mono">write_memory</h3>
-              <p className="text-slate-100 mb-4">Save information to memory:</p>
+              <h3 className="text-2xl font-semibold mb-4 text-gray-700 font-mono">write_memory</h3>
+              <p className="text-gray-700 mb-4">Save information to memory:</p>
               <CodeWithResult 
                 code={`memory.write_memory("alice-notes", "Alice prefers email\\nAlice works at TechCorp")
 # Returns: "Memory saved: alice-notes"`}
                 language="python"
                 fileName="write.py"
               />
-              <div className="mt-4 text-sm text-slate-200">
+              <div className="mt-4 text-sm text-gray-600">
                 <strong>Keys are sanitized:</strong> Only alphanumeric, hyphens, and underscores allowed. Converted to lowercase.
               </div>
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-purple-300 font-mono">read_memory</h3>
-              <p className="text-slate-100 mb-4">Retrieve saved information:</p>
+              <h3 className="text-2xl font-semibold mb-4 text-gray-700 font-mono">read_memory</h3>
+              <p className="text-gray-700 mb-4">Retrieve saved information:</p>
               <CodeWithResult 
                 code={`memory.read_memory("alice-notes")
 # Returns:
@@ -203,8 +199,8 @@ agent = Agent("assistant", tools=[memory])`}
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-purple-300 font-mono">list_memories</h3>
-              <p className="text-slate-100 mb-4">Show all stored memories:</p>
+              <h3 className="text-2xl font-semibold mb-4 text-gray-700 font-mono">list_memories</h3>
+              <p className="text-gray-700 mb-4">Show all stored memories:</p>
               <CodeWithResult 
                 code={`memory.list_memories()
 # Returns:
@@ -218,8 +214,8 @@ agent = Agent("assistant", tools=[memory])`}
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-purple-300 font-mono">search_memory</h3>
-              <p className="text-slate-100 mb-4">Search across all memories using regex:</p>
+              <h3 className="text-2xl font-semibold mb-4 text-gray-700 font-mono">search_memory</h3>
+              <p className="text-gray-700 mb-4">Search across all memories using regex:</p>
               <CodeWithResult 
                 code={`# Simple text search (case-sensitive by default)
 memory.search_memory("email")
@@ -326,19 +322,19 @@ agent.input("What did I learn about Python's history?")`}
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-2xl font-semibold mb-4">Single File (Default)</h3>
-              <p className="text-slate-100 mb-4">Memories start in a single <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">memory.md</code> file using section headers:</p>
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-sm text-slate-100">
-                <div className="text-purple-400 font-bold">## alice-notes</div>
+              <p className="text-gray-700 mb-4">Memories start in a single <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">memory.md</code> file using section headers:</p>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm text-gray-700">
+                <div className="text-gray-700 font-bold">## alice-notes</div>
                 <div className="mt-2">Alice prefers email communication<br/>Works at TechCorp</div>
-                <div className="text-purple-400 font-bold mt-4">## bob-notes</div>
+                <div className="text-gray-700 font-bold mt-4">## bob-notes</div>
                 <div className="mt-2">Bob from Marketing<br/>Prefers phone calls</div>
               </div>
             </div>
 
             <div>
               <h3 className="text-2xl font-semibold mb-4">Auto-Split to Directory</h3>
-              <p className="text-slate-100 mb-4">When <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">memory.md</code> exceeds 3000 lines, it automatically migrates:</p>
-              <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-sm text-slate-100">
+              <p className="text-gray-700 mb-4">When <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">memory.md</code> exceeds 3000 lines, it automatically migrates:</p>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm text-gray-700">
                 <div>memory/</div>
                 <div className="pl-4">├── alice-notes.md</div>
                 <div className="pl-4">├── bob-notes.md</div>
@@ -353,8 +349,8 @@ agent.input("What did I learn about Python's history?")`}
           <h2 className="heading-2">Best Practices</h2>
           
           <div className="space-y-6">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
-              <h3 className="font-semibold text-purple-300 mb-2">1. Use Descriptive Keys</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">1. Use Descriptive Keys</h3>
               <CodeWithResult 
                 code={`# Good
 memory.write_memory("alice-techcorp-contact-info", content)
@@ -366,9 +362,9 @@ memory.write_memory("note1", content)`}
               />
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
-              <h3 className="font-semibold text-purple-300 mb-2">2. Structure Your Content</h3>
-              <p className="text-slate-100 mb-2">Use markdown formatting for better organization:</p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">2. Structure Your Content</h3>
+              <p className="text-gray-700 mb-2">Use markdown formatting for better organization:</p>
               <CodeWithResult 
                 code={`content = """# Alice - TechCorp
 

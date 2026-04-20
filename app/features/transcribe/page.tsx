@@ -19,10 +19,7 @@ export default function TranscribePage() {
           { label: 'Transcribe' }
         ]}
         icon={HiOutlineMicrophone}
-        iconColor="text-purple-400"
-        iconBgFrom="from-purple-600/20"
-        iconBgTo="to-pink-600/20"
-        iconBorderColor="border-purple-500/30"
+        iconColor="icon-ui"
         title="Audio Transcription"
         description="Convert audio files to text using Gemini's multimodal capabilities. Simple one-function interface for transcription."
         markdownPath="/transcribe/transcribe.md"
@@ -48,13 +45,13 @@ All right, so here we are in front of the elephants...`}
           className="mb-6"
         />
 
-        <p className="text-slate-100">That's it! One function for audio-to-text.</p>
+        <p className="text-gray-700">That's it! One function for audio-to-text.</p>
       </section>
 
       {/* With Context Hints */}
       <section className="mb-12">
         <h2 className="heading-2">With Context Hints</h2>
-        <p className="text-slate-100 mb-4">Improve accuracy for domain-specific terms:</p>
+        <p className="text-gray-700 mb-4">Improve accuracy for domain-specific terms:</p>
 
         <CodeWithResult
           code={`# Technical meeting with specific names
@@ -98,7 +95,7 @@ print(text)`}
         <div className="space-y-8">
           {/* Meeting Minutes */}
           <div>
-            <h3 className="text-lg font-semibold text-green-400 mb-4">Meeting Minutes</h3>
+            <h3 className="text-lg font-semibold text-gray-700 mb-4">Meeting Minutes</h3>
             <CodeWithResult
               code={`def get_meeting_minutes(audio_path: str) -> str:
     """Transcribe and summarize a meeting."""
@@ -127,7 +124,7 @@ print(text)`}
 
           {/* Voice Notes Processing */}
           <div>
-            <h3 className="text-lg font-semibold text-green-400 mb-4">Voice Notes Processing</h3>
+            <h3 className="text-lg font-semibold text-gray-700 mb-4">Voice Notes Processing</h3>
             <CodeWithResult
               code={`from pathlib import Path
 
@@ -150,7 +147,7 @@ Remember to add the new transcribe feature to the docs...`}
 
           {/* Use as Agent Tool */}
           <div>
-            <h3 className="text-lg font-semibold text-green-400 mb-4">Use as Agent Tool</h3>
+            <h3 className="text-lg font-semibold text-gray-700 mb-4">Use as Agent Tool</h3>
             <CodeWithResult
               code={`from connectonion import Agent, transcribe
 
@@ -176,37 +173,37 @@ The team discussed the Q4 roadmap and agreed to...`}
         <div className="table-wrapper">
           <table className="min-w-full border-collapse">
             <thead>
-              <tr className="border-b border-gray-700">
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Parameter</th>
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Type</th>
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Default</th>
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Description</th>
+              <tr className="border-b border-gray-200">
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Parameter</th>
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Type</th>
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Default</th>
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Description</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4"><code className="text-purple-400">audio</code></td>
-                <td className="py-3 px-4 text-slate-100">str</td>
-                <td className="py-3 px-4 text-slate-100">required</td>
-                <td className="py-3 px-4 text-slate-100">Path to audio file</td>
+                <td className="py-3 px-4"><code className="text-gray-500">audio</code></td>
+                <td className="py-3 px-4 text-gray-700">str</td>
+                <td className="py-3 px-4 text-gray-700">required</td>
+                <td className="py-3 px-4 text-gray-700">Path to audio file</td>
               </tr>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4"><code className="text-purple-400">prompt</code></td>
-                <td className="py-3 px-4 text-slate-100">str</td>
-                <td className="py-3 px-4 text-slate-100">None</td>
-                <td className="py-3 px-4 text-slate-100">Context hints for accuracy</td>
+                <td className="py-3 px-4"><code className="text-gray-500">prompt</code></td>
+                <td className="py-3 px-4 text-gray-700">str</td>
+                <td className="py-3 px-4 text-gray-700">None</td>
+                <td className="py-3 px-4 text-gray-700">Context hints for accuracy</td>
               </tr>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4"><code className="text-purple-400">model</code></td>
-                <td className="py-3 px-4 text-slate-100">str</td>
-                <td className="py-3 px-4 text-slate-100">"co/gemini-3-flash-preview"</td>
-                <td className="py-3 px-4 text-slate-100">Model to use</td>
+                <td className="py-3 px-4"><code className="text-gray-500">model</code></td>
+                <td className="py-3 px-4 text-gray-700">str</td>
+                <td className="py-3 px-4 text-gray-700">"co/gemini-3-flash-preview"</td>
+                <td className="py-3 px-4 text-gray-700">Model to use</td>
               </tr>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4"><code className="text-purple-400">timestamps</code></td>
-                <td className="py-3 px-4 text-slate-100">bool</td>
-                <td className="py-3 px-4 text-slate-100">False</td>
-                <td className="py-3 px-4 text-slate-100">Include timestamps in output</td>
+                <td className="py-3 px-4"><code className="text-gray-500">timestamps</code></td>
+                <td className="py-3 px-4 text-gray-700">bool</td>
+                <td className="py-3 px-4 text-gray-700">False</td>
+                <td className="py-3 px-4 text-gray-700">Include timestamps in output</td>
               </tr>
             </tbody>
           </table>
@@ -217,16 +214,16 @@ The team discussed the Q4 roadmap and agreed to...`}
       <section className="mb-12">
         <h2 className="heading-2">Supported Formats</h2>
 
-        <div className="bg-gray-900 rounded-lg p-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <div className="flex flex-wrap gap-3 mb-4">
             {['WAV', 'MP3', 'AIFF', 'AAC', 'OGG', 'FLAC', 'M4A', 'WebM'].map((format) => (
-              <span key={format} className="px-3 py-1 bg-gray-800 rounded-full text-green-400 text-sm font-mono">
+              <span key={format} className="px-3 py-1 bg-gray-100 border border-gray-300 rounded-full text-gray-700 text-sm font-mono">
                 {format}
               </span>
             ))}
           </div>
-          <p className="text-slate-100">
-            <strong className="text-purple-400">Token cost:</strong> 32 tokens per second of audio (1 minute = 1,920 tokens)
+          <p className="text-gray-700">
+            <strong className="text-gray-500">Token cost:</strong> 32 tokens per second of audio (1 minute = 1,920 tokens)
           </p>
         </div>
       </section>
@@ -258,15 +255,15 @@ transcribe("audio.mp3", model="gemini-2.5-flash")`}
 
         <div className="grid md:grid-cols-2 gap-4">
           {[
-            { text: "Simple API - One function for all transcription needs", icon: <FaCheckCircle className="text-green-400" /> },
-            { text: "Context hints - Improve accuracy with domain terms", icon: <FaCheckCircle className="text-green-400" /> },
-            { text: "Multiple formats - WAV, MP3, FLAC, and more", icon: <FaCheckCircle className="text-green-400" /> },
-            { text: "Timestamps - Optional time markers in output", icon: <FaCheckCircle className="text-green-400" /> },
-            { text: "Managed keys - Works out of the box with co/ models", icon: <FaCheckCircle className="text-green-400" /> }
+            { text: "Simple API - One function for all transcription needs", icon: <FaCheckCircle className="text-green-600" /> },
+            { text: "Context hints - Improve accuracy with domain terms", icon: <FaCheckCircle className="text-green-600" /> },
+            { text: "Multiple formats - WAV, MP3, FLAC, and more", icon: <FaCheckCircle className="text-green-600" /> },
+            { text: "Timestamps - Optional time markers in output", icon: <FaCheckCircle className="text-green-600" /> },
+            { text: "Managed keys - Works out of the box with co/ models", icon: <FaCheckCircle className="text-green-600" /> }
           ].map((item, i) => (
-            <div key={i} className="bg-gray-900 rounded-lg p-4 flex items-start gap-3">
+            <div key={i} className="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-start gap-3">
               <span className="text-2xl">{item.icon}</span>
-              <span className="text-slate-100">{item.text}</span>
+              <span className="text-gray-700">{item.text}</span>
             </div>
           ))}
         </div>
@@ -279,32 +276,32 @@ transcribe("audio.mp3", model="gemini-2.5-flash")`}
         <div className="table-wrapper">
           <table className="min-w-full border-collapse">
             <thead>
-              <tr className="border-b border-gray-700">
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Feature</th>
-                <th scope="col" className="text-left py-3 px-4 text-green-400">transcribe()</th>
-                <th scope="col" className="text-left py-3 px-4 text-green-400">Agent()</th>
+              <tr className="border-b border-gray-200">
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Feature</th>
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">transcribe()</th>
+                <th scope="col" className="text-left py-3 px-4 text-gray-700 font-semibold">Agent()</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4 text-slate-100">Purpose</td>
-                <td className="py-3 px-4 text-slate-100">Audio to text</td>
-                <td className="py-3 px-4 text-slate-100">Multi-step workflows</td>
+                <td className="py-3 px-4 text-gray-700">Purpose</td>
+                <td className="py-3 px-4 text-gray-700">Audio to text</td>
+                <td className="py-3 px-4 text-gray-700">Multi-step workflows</td>
               </tr>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4 text-slate-100">Input</td>
-                <td className="py-3 px-4 text-slate-100">Audio files</td>
-                <td className="py-3 px-4 text-slate-100">Text prompts</td>
+                <td className="py-3 px-4 text-gray-700">Input</td>
+                <td className="py-3 px-4 text-gray-700">Audio files</td>
+                <td className="py-3 px-4 text-gray-700">Text prompts</td>
               </tr>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4 text-slate-100">Output</td>
-                <td className="py-3 px-4 text-slate-100">Plain text</td>
-                <td className="py-3 px-4 text-slate-100">Agent responses</td>
+                <td className="py-3 px-4 text-gray-700">Output</td>
+                <td className="py-3 px-4 text-gray-700">Plain text</td>
+                <td className="py-3 px-4 text-gray-700">Agent responses</td>
               </tr>
               <tr className="border-b border-gray-800">
-                <td className="py-3 px-4 text-slate-100">Best for</td>
-                <td className="py-3 px-4 text-slate-100">Transcription</td>
-                <td className="py-3 px-4 text-slate-100">Complex tasks</td>
+                <td className="py-3 px-4 text-gray-700">Best for</td>
+                <td className="py-3 px-4 text-gray-700">Transcription</td>
+                <td className="py-3 px-4 text-gray-700">Complex tasks</td>
               </tr>
             </tbody>
           </table>
@@ -355,17 +352,17 @@ Audio file not found`}
         <h2 className="heading-2">Next Steps</h2>
 
         <div className="grid md:grid-cols-3 gap-4">
-          <Link href="/llm_do" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
-            <h3 className="text-lg font-semibold text-white mb-2">Learn about llm_do()</h3>
-            <p className="text-sm text-slate-100">For one-shot LLM calls</p>
+          <Link href="/llm_do" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Learn about llm_do()</h3>
+            <p className="text-sm text-gray-700">For one-shot LLM calls</p>
           </Link>
-          <Link href="/agent" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
-            <h3 className="text-lg font-semibold text-white mb-2">Explore Agents</h3>
-            <p className="text-sm text-slate-100">For multi-step workflows</p>
+          <Link href="/agent" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Explore Agents</h3>
+            <p className="text-sm text-gray-700">For multi-step workflows</p>
           </Link>
-          <Link href="/tools" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950">
-            <h3 className="text-lg font-semibold text-white mb-2">See Tools</h3>
-            <p className="text-sm text-slate-100">For extending agents</p>
+          <Link href="/tools" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">See Tools</h3>
+            <p className="text-sm text-gray-700">For extending agents</p>
           </Link>
         </div>
       </section>

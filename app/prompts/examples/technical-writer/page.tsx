@@ -1,11 +1,11 @@
 'use client'
 
 import React, { useState } from 'react'
-import { HiOutlineClipboard, HiOutlineCheck, HiOutlineDocumentText, HiOutlineArrowRight, HiOutlineArrowLeft, HiOutlineArrowDownTray, HiOutlineLightBulb, HiOutlineChatBubbleOvalLeft, HiOutlineBookOpen, HiOutlineRectangleGroup } from 'react-icons/hi2'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineDocumentText, HiOutlineArrowRight, HiOutlineArrowLeft, HiOutlineArrowDownTray, HiOutlineLightBulb, HiOutlineChatBubbleOvalLeft, HiOutlineBookOpen, HiOutlineRectangleGroup, HiOutlineCheckCircle, HiOutlineUserGroup } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../../../components/CopyMarkdownButton'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const promptContent = `# Technical Documentation Specialist
 
@@ -194,32 +194,32 @@ ${expectedOutput}
   return (
     <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+      <nav className="flex items-center gap-2 text-sm text-gray-700 mb-8">
+        <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
+        <Link href="/prompts" className="hover:text-gray-900 transition-colors">System Prompts</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts/examples" className="hover:text-white transition-colors">Examples</Link>
+        <Link href="/prompts/examples" className="hover:text-gray-900 transition-colors">Examples</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <span className="text-white">Technical Writer</span>
+        <span className="text-gray-900">Technical Writer</span>
       </nav>
 
       {/* Header */}
       <div className="flex items-start justify-between mb-12">
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 bg-indigo-600 rounded-xl flex items-center justify-center">
+            <div className="w-16 h-16 bg-gray-900 rounded-xl flex items-center justify-center">
               <span className="text-2xl font-bold text-white">6</span>
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <HiOutlineDocumentText className="w-8 h-8 text-indigo-400" />
+                <HiOutlineDocumentText className="w-8 h-8 text-gray-500" />
                 <h1 className="heading-1">Technical Documentation Specialist</h1>
-                <span className="px-3 py-1 bg-indigo-900/50 text-indigo-300 rounded-full text-sm font-medium">
+                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
                   Expert
                 </span>
               </div>
-              <p className="text-xl text-slate-100">
+              <p className="text-xl text-gray-700">
                 Master comprehensive documentation frameworks with user-centric writing principles.
               </p>
             </div>
@@ -234,31 +234,31 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-indigo-900/20 border border-indigo-500/30 rounded-xl">
-        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <HiOutlineLightBulb className="w-6 h-6 text-indigo-400" />
+      <div className="mb-12 p-6 bg-gray-50 border border-gray-200 rounded-xl">
+        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+          <HiOutlineLightBulb className="w-6 h-6 text-gray-500" />
           Key Learning Concepts
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-3">
-            <HiOutlineBookOpen className="w-5 h-5 text-indigo-400 mt-1 flex-shrink-0" />
+            <HiOutlineBookOpen className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Documentation Principles</h3>
-              <p className="text-indigo-200 text-sm">5 core principles that guide all technical writing decisions</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Documentation Principles</h3>
+              <p className="text-gray-700 text-sm">5 core principles that guide all technical writing decisions</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineRectangleGroup className="w-5 h-5 text-indigo-400 mt-1 flex-shrink-0" />
+            <HiOutlineRectangleGroup className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Structure Template</h3>
-              <p className="text-indigo-200 text-sm">6-section format ensures comprehensive documentation coverage</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Structure Template</h3>
+              <p className="text-gray-700 text-sm">6-section format ensures comprehensive documentation coverage</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-indigo-400 mt-1 flex-shrink-0" />
+            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Quality Standards</h3>
-              <p className="text-indigo-200 text-sm">Checklist-driven approach ensures documentation effectiveness</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Quality Standards</h3>
+              <p className="text-gray-700 text-sm">Checklist-driven approach ensures documentation effectiveness</p>
             </div>
           </div>
         </div>
@@ -267,12 +267,12 @@ ${expectedOutput}
       <div className="grid lg:grid-cols-2 gap-12">
         {/* Prompt Content */}
         <div className="space-y-8">
-          <div className="bg-gray-900 border border-gray-700 rounded-lg">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">System Prompt</h3>
+          <div className="bg-white border border-gray-200 rounded-lg">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-900">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-700 transition-colors p-2 rounded-lg hover:bg-gray-100 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -291,7 +291,7 @@ ${expectedOutput}
             <div className="p-6">
               <SyntaxHighlighter 
                 language="markdown" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,
@@ -314,12 +314,12 @@ ${expectedOutput}
           </div>
 
           {/* Usage Example */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">Usage Example</h3>
+          <div className="bg-white border border-gray-200 rounded-lg">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-900">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-700 transition-colors p-2 rounded-lg hover:bg-gray-100 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -338,7 +338,7 @@ ${expectedOutput}
             <div className="p-6">
               <SyntaxHighlighter 
                 language="python" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,
@@ -362,15 +362,15 @@ ${expectedOutput}
         {/* Right Panel */}
         <div className="space-y-8">
           {/* Expected Output */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg">
-            <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
-              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-indigo-400" />
-              <h3 className="text-xl font-semibold text-white">Expected Output</h3>
+          <div className="bg-white border border-gray-200 rounded-lg">
+            <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-200">
+              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500" />
+              <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
             <div className="p-6">
-              <div className="bg-black/50 rounded-lg p-4 font-mono text-sm ">
-                <pre className="text-indigo-200 whitespace-pre-wrap">
+              <div className="bg-gray-950 rounded-lg p-4 font-mono text-sm ">
+                <pre className="text-gray-300 whitespace-pre-wrap">
                   {expectedOutput}
                 </pre>
               </div>
@@ -378,37 +378,37 @@ ${expectedOutput}
           </div>
 
           {/* Analysis */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">Expert Documentation Techniques</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Expert Documentation Techniques</h3>
             <div className="space-y-4 text-sm">
               <div>
-                <h4 className="font-semibold text-indigo-400 mb-2">📋 Structured Templates</h4>
-                <p className="text-slate-100">6-section format ensures comprehensive coverage for any documentation type.</p>
+                <h4 className="font-semibold text-gray-700 mb-2 flex items-center gap-1.5"><HiOutlineClipboard className="w-4 h-4 flex-shrink-0" />Structured Templates</h4>
+                <p className="text-gray-700">6-section format ensures comprehensive coverage for any documentation type.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-indigo-400 mb-2">✅ Quality Assurance</h4>
-                <p className="text-slate-100">Built-in checklist prevents common documentation problems.</p>
+                <h4 className="font-semibold text-gray-700 mb-2 flex items-center gap-1.5"><HiOutlineCheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />Quality Assurance</h4>
+                <p className="text-gray-700">Built-in checklist prevents common documentation problems.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-indigo-400 mb-2">👥 User-Centric Focus</h4>
-                <p className="text-slate-100">Always considers reader's skill level and real-world usage scenarios.</p>
+                <h4 className="font-semibold text-gray-700 mb-2 flex items-center gap-1.5"><HiOutlineUserGroup className="w-4 h-4 flex-shrink-0" />User-Centric Focus</h4>
+                <p className="text-gray-700">Always considers reader's skill level and real-world usage scenarios.</p>
               </div>
             </div>
           </div>
 
           {/* Download Options */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Download & Customize</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Download & Customize</h3>
             <div className="space-y-3">
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(promptContent)}`}
                 download="technical_writer.md"
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-white transition-colors font-medium"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors font-medium"
               >
                 <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File
               </a>
-              <p className="text-xs text-slate-100 text-center">
+              <p className="text-xs text-gray-700 text-center">
                 Perfect for API documentation and technical writing systems
               </p>
             </div>
@@ -417,22 +417,22 @@ ${expectedOutput}
       </div>
 
       {/* Navigation */}
-      <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
+      <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-200">
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Previous in series</p>
-          <Link 
-            href="/prompts/examples/data-analyst" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+          <p className="text-sm text-gray-700 mb-1">Previous in series</p>
+          <Link
+            href="/prompts/examples/data-analyst"
+            className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors font-medium"
           >
             <HiOutlineArrowLeft className="w-4 h-4" />
             5. Data Analyst
           </Link>
         </div>
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Next in series</p>
-          <Link 
-            href="/prompts/examples/security-analyst" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+          <p className="text-sm text-gray-700 mb-1">Next in series</p>
+          <Link
+            href="/prompts/examples/security-analyst"
+            className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors font-medium"
           >
             7. Security Analyst
             <HiOutlineArrowRight className="w-4 h-4" />

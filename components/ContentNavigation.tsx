@@ -12,67 +12,52 @@
 import Link from 'next/link'
 import { HiOutlineArrowLeft, HiOutlineArrowRight } from 'react-icons/hi2'
 import { usePathname } from 'next/navigation'
-import { getPageByHref, getExamplePages } from '../lib/navigation'
+import { getPageByHref } from '../lib/navigation'
 
 export function ContentNavigation() {
   const pathname = usePathname()
   const currentPage = getPageByHref(pathname)
-  
+
   if (!currentPage) return null
-  
+
   const { prev, next } = currentPage
-  
-  // Show example dots for example pages
-  const isExample = currentPage.section === 'Examples' && currentPage.exampleIndex !== undefined
-  const examplePages = isExample ? getExamplePages() : []
-  
+  const prevPage = prev ? getPageByHref(prev.href) : null
+  const nextPage = next ? getPageByHref(next.href) : null
+
   return (
-    <div className="mt-16 pt-8 border-t border-gray-700">
-      {/* Example Series Dots */}
-      {isExample && examplePages.length > 0 && (
-        <div className="flex items-center justify-center gap-2 mb-8">
-          {examplePages.map((example, idx) => (
-            <Link
-              key={example.href}
-              href={example.href}
-              className={`w-2 h-2 rounded-full transition-all ${
-                idx === currentPage.exampleIndex
-                  ? 'bg-purple-400 w-6'
-                  : 'bg-gray-600 hover:bg-gray-500'
-              }`}
-              title={example.title}
-            />
-          ))}
-        </div>
-      )}
-      
-      {/* Navigation Buttons */}
-      <div className="flex items-center justify-between">
+    <div className="mt-20 pt-10 border-t border-gray-100">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {prev ? (
           <Link
             href={prev.href}
-            className="group flex items-center gap-3 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all"
+            className="group flex flex-col gap-1.5 px-5 py-4 bg-gray-50 hover:bg-white border border-gray-200 hover:border-gray-400 hover:shadow-sm rounded-xl transition-all"
           >
-            <HiOutlineArrowLeft className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-            <div className="text-left">
-              <div className="text-xs text-gray-400 mb-1">Previous</div>
-              <div className="text-sm font-medium text-white">{prev.title}</div>
+            <div className="flex items-center gap-1.5 text-gray-500 group-hover:text-gray-600 transition-colors">
+              <HiOutlineArrowLeft className="w-3.5 h-3.5" />
+              <span className="text-[11px] font-semibold uppercase tracking-widest">Previous</span>
             </div>
+            {prevPage?.section && (
+              <div className="text-[11px] text-gray-500 font-mono">{prevPage.section}</div>
+            )}
+            <div className="text-sm font-semibold text-gray-900 group-hover:text-black transition-colors leading-snug">{prev.title}</div>
           </Link>
         ) : (
           <div />
         )}
-        
+
         {next ? (
           <Link
             href={next.href}
-            className="group flex items-center gap-3 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all"
+            className="group flex flex-col gap-1.5 px-5 py-4 bg-gray-50 hover:bg-white border border-gray-200 hover:border-gray-400 hover:shadow-sm rounded-xl transition-all sm:items-end sm:text-right"
           >
-            <div className="text-right">
-              <div className="text-xs text-gray-400 mb-1">Next</div>
-              <div className="text-sm font-medium text-white">{next.title}</div>
+            <div className="flex items-center gap-1.5 text-gray-500 group-hover:text-gray-600 transition-colors sm:flex-row-reverse">
+              <HiOutlineArrowRight className="w-3.5 h-3.5" />
+              <span className="text-[11px] font-semibold uppercase tracking-widest">Next</span>
             </div>
-            <HiOutlineArrowRight className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+            {nextPage?.section && (
+              <div className="text-[11px] text-gray-500 font-mono">{nextPage.section}</div>
+            )}
+            <div className="text-sm font-semibold text-gray-900 group-hover:text-black transition-colors leading-snug">{next.title}</div>
           </Link>
         ) : (
           <div />

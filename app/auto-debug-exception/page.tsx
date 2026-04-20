@@ -3,9 +3,9 @@
 import { useState } from 'react'
 import { HiOutlineBugAnt, HiOutlineBolt, HiOutlineCheck, HiOutlineClipboard, HiOutlineExclamationTriangle, HiOutlineCodeBracket } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export default function AutoDebugExceptionPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -20,18 +20,18 @@ export default function AutoDebugExceptionPage() {
     <div className="relative group max-w-4xl mx-auto">
       <button
         onClick={() => handleCopyCode(code, id)}
-        className="absolute right-2 top-2 p-2 bg-gray-700 hover:bg-gray-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity z-10"
+        className="absolute right-2 top-2 p-2 bg-gray-700 hover:bg-gray-600 rounded-lg opacity-60 hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10"
         aria-label="Copy code"
       >
         {copiedCode === id ? (
-          <HiOutlineCheck className="w-4 h-4 text-green-400" />
+          <HiOutlineCheck className="w-4 h-4 text-green-600" />
         ) : (
-          <HiOutlineClipboard className="w-4 h-4 text-slate-100" />
+          <HiOutlineClipboard className="w-4 h-4 text-gray-700" />
         )}
       </button>
       <SyntaxHighlighter
         language={language}
-        style={monokai}
+        style={okaidia}
         customStyle={{
           borderRadius: '0.5rem',
           padding: '1.25rem',
@@ -47,7 +47,7 @@ export default function AutoDebugExceptionPage() {
   )
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="bg-white text-gray-900">
       <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
         <PageHeader
           breadcrumbs={[
@@ -55,10 +55,7 @@ export default function AutoDebugExceptionPage() {
             { label: 'Auto Debug Exception' }
           ]}
           icon={HiOutlineBugAnt}
-          iconColor="text-red-400"
-          iconBgFrom="from-red-500/20"
-          iconBgTo="to-orange-500/20"
-          iconBorderColor="border-red-500/30"
+          iconColor="icon-ui"
           title="Auto Debug Exception"
           description="AI debugger for uncaught exceptions with runtime inspection"
           markdownPath="/debug/exceptions.md"
@@ -66,14 +63,14 @@ export default function AutoDebugExceptionPage() {
         />
 
         {/* Important Notice */}
-        <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-6 mb-16">
+        <div className="bg-gray-500/10 border border-gray-200 rounded-xl p-6 mb-16">
           <div className="flex items-start gap-3">
-            <HiOutlineExclamationTriangle className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
+            <HiOutlineExclamationTriangle className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
             <div>
-              <p className="font-semibold text-yellow-400 mb-2">Debugs ONLY uncaught exceptions</p>
-              <p className="text-sm text-slate-100">
+              <p className="font-semibold text-gray-700 mb-2">Debugs ONLY uncaught exceptions</p>
+              <p className="text-sm text-gray-700">
                 This feature only works for uncaught exceptions - crashes, raised exceptions, and failed assertions.
-                For logic errors that don't crash, use <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">raise</code> or <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">assert</code> to convert them to exceptions.
+                For logic errors that don't crash, use <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-700">raise</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-700">assert</code> to convert them to exceptions.
               </p>
             </div>
           </div>
@@ -82,13 +79,13 @@ export default function AutoDebugExceptionPage() {
         {/* Quick Start */}
         <section className="mb-20">
           <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-yellow-400" />
+            <HiOutlineBolt className="w-6 h-6 text-gray-400" />
             <h2 className="heading-2">Quick Start</h2>
-            <span className="text-sm text-gray-500 bg-gray-800 px-3 py-1 rounded-full">30 seconds to AI debugging</span>
+            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">30 seconds to AI debugging</span>
           </div>
 
-          <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-xl p-8 border border-red-500/20 mb-8">
-            <p className="text-xl font-semibold mb-6 text-red-300">One line to enable. Automatic AI analysis on crashes.</p>
+          <div className="bg-gray-50 rounded-xl p-8 border border-gray-200 mb-8">
+            <p className="text-xl font-semibold mb-6 text-gray-900">One line to enable. Automatic AI analysis on crashes.</p>
             <CodeBlock
               code={`from connectonion import auto_debug_exception
 
@@ -102,23 +99,23 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
             />
           </div>
 
-          <div className="bg-gray-900/50 rounded-lg p-6 border border-gray-700 mb-8">
-            <h3 className="text-lg font-semibold mb-4 text-red-300">When this crashes, the AI will:</h3>
+          <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 mb-8">
+            <h3 className="text-lg font-semibold mb-4 text-gray-900">When this crashes, the AI will:</h3>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <span className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full font-bold flex-shrink-0">1</span>
+                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-bold flex-shrink-0">1</span>
                 <p>Show the normal Python traceback first</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full font-bold flex-shrink-0">2</span>
+                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-bold flex-shrink-0">2</span>
                 <p>Execute code in the crashed context to understand what happened</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full font-bold flex-shrink-0">3</span>
+                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-bold flex-shrink-0">3</span>
                 <p>Test potential fixes with your actual data</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full font-bold flex-shrink-0">4</span>
+                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-bold flex-shrink-0">4</span>
                 <p>Provide a working solution you can copy-paste</p>
               </div>
             </div>
@@ -130,28 +127,28 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
           <h2 className="heading-2">What Makes This Special</h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <HiOutlineCodeBracket className="w-8 h-8 text-red-400 mb-4" />
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <HiOutlineCodeBracket className="w-8 h-8 text-gray-500 mb-4" />
               <h3 className="text-xl font-semibold mb-4">Live Runtime Access</h3>
-              <p className="text-slate-100 text-sm">
+              <p className="text-gray-700 text-sm">
                 The AI isn't just reading your code - it has access to the actual runtime state when the crash occurred.
                 It can execute any Python expression using your variables and see the real values that caused the problem.
               </p>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <HiOutlineCheck className="w-8 h-8 text-green-400 mb-4" />
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <HiOutlineCheck className="w-8 h-8 text-green-600 mb-4" />
               <h3 className="text-xl font-semibold mb-4">Verified Solutions</h3>
-              <p className="text-slate-100 text-sm">
+              <p className="text-gray-700 text-sm">
                 Every fix is tested with your actual data before being suggested.
                 No more "this might work" - only proven solutions that actually work with your data.
               </p>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-              <HiOutlineBugAnt className="w-8 h-8 text-red-400 mb-4" />
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <HiOutlineBugAnt className="w-8 h-8 text-gray-500 mb-4" />
               <h3 className="text-xl font-semibold mb-4">Precise Analysis</h3>
-              <p className="text-slate-100 text-sm">
+              <p className="text-gray-700 text-sm">
                 The AI can explore your data structures, check types, validate assumptions,
                 and trace variables through the call stack to find the root cause.
               </p>
@@ -162,42 +159,42 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
         {/* Runtime Inspection Tools */}
         <section className="mb-20">
           <h2 className="heading-2">Runtime Inspection Tools</h2>
-          <p className="text-slate-100 mb-8 text-lg">
+          <p className="text-gray-700 mb-8 text-lg">
             The AI has access to powerful tools for investigating the crashed state:
           </p>
 
           <div className="space-y-4">
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
-              <h3 className="font-mono text-red-400 text-lg mb-2">execute_in_frame(code)</h3>
-              <p className="text-slate-100 text-sm">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="font-mono text-gray-700 text-lg mb-2">execute_in_frame(code)</h3>
+              <p className="text-gray-700 text-sm">
                 Run any Python code in the exception context. Check variables, test expressions, explore the state.
               </p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
-              <h3 className="font-mono text-red-400 text-lg mb-2">inspect_object(name)</h3>
-              <p className="text-slate-100 text-sm">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="font-mono text-gray-700 text-lg mb-2">inspect_object(name)</h3>
+              <p className="text-gray-700 text-sm">
                 Deep dive into any object - see its type, attributes, methods, and values.
               </p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
-              <h3 className="font-mono text-red-400 text-lg mb-2">test_fix(original, fixed)</h3>
-              <p className="text-slate-100 text-sm">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="font-mono text-gray-700 text-lg mb-2">test_fix(original, fixed)</h3>
+              <p className="text-gray-700 text-sm">
                 Test a potential fix using the actual runtime data before suggesting it to you.
               </p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
-              <h3 className="font-mono text-red-400 text-lg mb-2">validate_assumption(hypothesis)</h3>
-              <p className="text-slate-100 text-sm">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="font-mono text-gray-700 text-lg mb-2">validate_assumption(hypothesis)</h3>
+              <p className="text-gray-700 text-sm">
                 Test hypotheses about what caused the crash by running code in the crashed context.
               </p>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
-              <h3 className="font-mono text-red-400 text-lg mb-2">trace_variable(var_name)</h3>
-              <p className="text-slate-100 text-sm">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="font-mono text-gray-700 text-lg mb-2">trace_variable(var_name)</h3>
+              <p className="text-gray-700 text-sm">
                 See how a variable's value changed through the call stack leading to the crash.
               </p>
             </div>
@@ -212,7 +209,7 @@ average = sum(u["age"] for u in data["users"]) / len(data["users"])  # Crashes!`
             {/* Example 1: Division by Zero */}
             <div>
               <h3 className="heading-3">
-                <span className="text-red-400">1.</span> Empty Collection Crash
+                <span className="text-gray-500">1.</span> Empty Collection Crash
               </h3>
               <CodeBlock
                 code={`from connectonion import auto_debug_exception
@@ -229,12 +226,12 @@ result = calculate_metrics([])  # 💥 Multiple issues!`}
                 id="example-1"
               />
 
-              <div className="mt-6 bg-gray-900/70 border border-red-500/30 rounded-lg p-6">
-                <p className="font-semibold text-red-300 mb-4">AI Runtime Debug Analysis:</p>
+              <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <p className="font-semibold text-gray-700 mb-4">AI Runtime Debug Analysis:</p>
                 <div className="space-y-4 text-sm">
                   <div>
-                    <p className="font-semibold text-purple-400 mb-2">What I found:</p>
-                    <ul className="space-y-1 text-slate-100 font-mono text-xs">
+                    <p className="font-semibold text-gray-500 mb-2">What I found:</p>
+                    <ul className="space-y-1 text-gray-700 font-mono text-xs">
                       <li>• Executed: len(scores) → 0</li>
                       <li>• Executed: sum(scores) → 0</li>
                       <li>• The division 0/0 causes ZeroDivisionError</li>
@@ -242,11 +239,11 @@ result = calculate_metrics([])  # 💥 Multiple issues!`}
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold text-purple-400 mb-2">Why it failed:</p>
-                    <p className="text-slate-100">Empty list causes division by zero and max()/min() to fail</p>
+                    <p className="font-semibold text-gray-500 mb-2">Why it failed:</p>
+                    <p className="text-gray-700">Empty list causes division by zero and max()/min() to fail</p>
                   </div>
                   <div>
-                    <p className="font-semibold text-green-400 mb-2">Verified fix (tested with your data):</p>
+                    <p className="font-semibold text-gray-700 mb-2">Verified fix (tested with your data):</p>
                     <CodeBlock
                       code={`def calculate_metrics(scores):
     if not scores:
@@ -270,7 +267,7 @@ result = calculate_metrics([])  # 💥 Multiple issues!`}
             {/* Example 2: KeyError */}
             <div>
               <h3 className="heading-3">
-                <span className="text-red-400">2.</span> Nested Dictionary Access
+                <span className="text-gray-500">2.</span> Nested Dictionary Access
               </h3>
               <CodeBlock
                 code={`from connectonion import auto_debug_exception
@@ -291,19 +288,19 @@ theme = response['data']['user']['settings']['theme']  # 💥 KeyError!`}
                 id="example-2"
               />
 
-              <div className="mt-6 bg-gray-900/70 border border-red-500/30 rounded-lg p-6">
-                <p className="font-semibold text-red-300 mb-4">AI Runtime Debug Analysis:</p>
+              <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <p className="font-semibold text-gray-700 mb-4">AI Runtime Debug Analysis:</p>
                 <div className="space-y-4 text-sm">
                   <div>
-                    <p className="font-semibold text-purple-400 mb-2">What I found:</p>
-                    <ul className="space-y-1 text-slate-100 font-mono text-xs">
+                    <p className="font-semibold text-gray-500 mb-2">What I found:</p>
+                    <ul className="space-y-1 text-gray-700 font-mono text-xs">
                       <li>• Executed: response['data']['user'].keys() → ['profile']</li>
                       <li>• Missing key: 'settings' not in user dict</li>
                       <li>• Available: only 'profile' exists</li>
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold text-green-400 mb-2">Verified fix:</p>
+                    <p className="font-semibold text-gray-700 mb-2">Verified fix:</p>
                     <CodeBlock
                       code={`# Use .get() with default value
 theme = response.get('data', {}).get('user', {}).get('settings', {}).get('theme', 'light')
@@ -323,10 +320,10 @@ else:
             {/* Example 3: Logic Error with Assert */}
             <div>
               <h3 className="heading-3">
-                <span className="text-red-400">3.</span> Debugging Logic Errors with Assert
+                <span className="text-gray-500">3.</span> Debugging Logic Errors with Assert
               </h3>
-              <p className="text-slate-100 mb-4">
-                For logic errors that don't crash, use <code className="bg-gray-800 px-2 py-0.5 rounded text-red-400">assert</code> to trigger AI debugging:
+              <p className="text-gray-700 mb-4">
+                For logic errors that don't crash, use <code className="bg-gray-100 px-2 py-0.5 rounded text-red-700">assert</code> to trigger AI debugging:
               </p>
               <CodeBlock
                 code={`from connectonion import auto_debug_exception, Agent
@@ -347,10 +344,10 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
                 id="example-3"
               />
 
-              <div className="mt-6 bg-blue-500/10 border border-blue-500/30 rounded-lg p-6">
-                <p className="font-semibold text-blue-300 mb-2">💡 Pro Tip:</p>
-                <p className="text-slate-100 text-sm">
-                  Use <code className="bg-gray-800 px-2 py-0.5 rounded">assert</code> statements to catch logic errors and wrong AI outputs.
+              <div className="mt-6 bg-gray-500/10 border border-gray-200 rounded-lg p-6">
+                <p className="font-semibold text-gray-700 mb-2">💡 Pro Tip:</p>
+                <p className="text-gray-700 text-sm">
+                  Use <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">assert</code> statements to catch logic errors and wrong AI outputs.
                   When an assertion fails, auto_debug_exception kicks in with full runtime access to help you understand what went wrong.
                 </p>
               </div>
@@ -363,61 +360,61 @@ assert actual == "negative", f"Wrong sentiment for '{text}': got '{actual}'"  # 
           <h2 className="heading-2">What It Debugs</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 text-green-400 flex items-center gap-2">
+            <div className="bg-gray-500/10 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-semibold mb-4 text-green-600 flex items-center gap-2">
                 <HiOutlineCheck className="w-5 h-5" />
                 Debugs These
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Crashes: KeyError, TypeError, ZeroDivisionError, etc.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Raised exceptions: raise ValueError("invalid")</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Failed assertions: assert x {'>'} 0, "must be positive"</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span className="text-green-600">✓</span>
                   <span>Any uncaught exception that reaches sys.excepthook</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 text-red-400 flex items-center gap-2">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700 flex items-center gap-2">
                 <HiOutlineExclamationTriangle className="w-5 h-5" />
                 Doesn't Debug These
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">✗</span>
+                  <span className="text-gray-500">✗</span>
                   <span>Logic errors that don't raise exceptions</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">✗</span>
+                  <span className="text-gray-500">✗</span>
                   <span>Wrong outputs (unless you assert they're correct)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">✗</span>
+                  <span className="text-gray-500">✗</span>
                   <span>Performance issues (slow code that runs fine)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">✗</span>
+                  <span className="text-gray-500">✗</span>
                   <span>Infinite loops (code that never raises an exception)</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="mt-8 bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-6">
-            <p className="font-semibold text-yellow-400 mb-2">Solution:</p>
-            <p className="text-slate-100 text-sm">
-              To debug logic errors, convert them to exceptions using <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">raise</code> or <code className="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">assert</code>.
+          <div className="mt-8 bg-gray-500/10 border border-gray-200 rounded-lg p-6">
+            <p className="font-semibold text-gray-700 mb-2">Solution:</p>
+            <p className="text-gray-700 text-sm">
+              To debug logic errors, convert them to exceptions using <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-700">raise</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-700">assert</code>.
               This triggers auto_debug_exception and gives you AI analysis with runtime inspection.
             </p>
           </div>
@@ -445,7 +442,7 @@ auto_debug_exception(model="claude-sonnet-4")`}
 
             <div>
               <h3 className="text-xl font-semibold mb-4">Disable Temporarily</h3>
-              <p className="text-slate-100 mb-4">Set environment variable to disable:</p>
+              <p className="text-gray-700 mb-4">Set environment variable to disable:</p>
               <CodeBlock
                 code={`# In your .env file
 CONNECTONION_AUTO_DEBUG=false
@@ -461,21 +458,21 @@ export CONNECTONION_AUTO_DEBUG=false`}
 
         {/* Philosophy */}
         <section className="mb-20">
-          <div className="bg-gradient-to-br from-red-500/10 via-orange-500/10 to-red-500/10 rounded-2xl p-10 border border-red-500/20">
+          <div className="bg-gray-50 rounded-2xl p-10 border border-gray-200">
             <h2 className="heading-2">Philosophy</h2>
-            <p className="text-2xl font-semibold text-red-300 mb-6">
+            <p className="text-2xl font-semibold text-gray-900 mb-6">
               No more guessing. Get verified solutions.
             </p>
-            <p className="text-slate-100 mb-6">
+            <p className="text-gray-700 mb-6">
               Traditional debugging tools show you *what* crashed. We show you *why* it crashed and *how* to fix it -
               tested with your actual data.
             </p>
-            <p className="text-slate-100 mb-8">
+            <p className="text-gray-700 mb-8">
               The AI has live access to your program's runtime state. It can execute code, inspect objects, and test fixes
               before suggesting them. Every solution is verified to work with your data.
             </p>
             <div className="text-center">
-              <p className="text-xl font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+              <p className="text-xl font-bold text-gray-900">
                 From crash to solution in seconds.
               </p>
             </div>

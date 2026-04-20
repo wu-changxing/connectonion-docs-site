@@ -89,10 +89,10 @@ export default function Navigation({ markdownContent, markdownPath, filename = '
           {/* Premium Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-gray-500 to-gray-500 flex items-center justify-center shadow-lg">
                 <HiOutlineBolt className="w-4 h-4 text-white" />
               </div>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-gray-500 to-gray-500 opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-300" />
             </div>
             <div className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300">
               ConnectOnion
@@ -224,7 +224,7 @@ function NavLink({ href, children, icon, external = false }: {
         {icon}
         {children}
       </span>
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-r from-gray-500/10 to-gray-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </Component>
   )
 }

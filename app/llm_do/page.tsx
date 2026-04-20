@@ -51,17 +51,14 @@ export default function LLMPage() {
 
 
   return (
-    <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
+    <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12 doc-content--reference">
       <PageHeader
         breadcrumbs={[
           { label: 'Docs', href: '/' },
           { label: 'LLM Function' }
         ]}
         icon={HiOutlineBolt}
-        iconColor="text-blue-400"
-        iconBgFrom="from-blue-600/20"
-        iconBgTo="to-purple-600/20"
-        iconBorderColor="border-blue-500/30"
+        iconColor="icon-ui"
         title="One-shot LLM Calls"
         description="Make direct LLM calls with optional structured output. Supports OpenAI, Google Gemini, and Anthropic models through a unified interface."
         markdownPath="/llm_do/llm_do.md"
@@ -90,7 +87,7 @@ answer = llm_do("What's 2+2?", model="claude-haiku-4-5")`}
                 className="mb-6"
               />
               
-              <p className="text-slate-100">That's it! One function for any LLM task across multiple providers.</p>
+              <p className="text-gray-700">That's it! One function for any LLM task across multiple providers.</p>
             </section>
 
             {/* With Structured Output */}
@@ -129,7 +126,7 @@ print(result.keywords)`}
               <div className="space-y-8">
                 {/* Extract Data from Text */}
                 <div>
-                  <h3 className="text-xl font-semibold text-green-400 mb-4">Extract Data from Text</h3>
+                  <h3 className="text-xl font-semibold text-gray-600 mb-4">Extract Data from Text</h3>
                   <CodeWithResult 
                     code={`from pydantic import BaseModel
 
@@ -154,7 +151,7 @@ print(invoice.total_amount)`}
 
                 {/* Use Custom Prompts */}
                 <div>
-                  <h3 className="text-xl font-semibold text-green-400 mb-4">Use Custom Prompts</h3>
+                  <h3 className="text-xl font-semibold text-gray-600 mb-4">Use Custom Prompts</h3>
                   <CodeWithResult 
                     code={`# With prompt file
 summary = llm_do(
@@ -176,7 +173,7 @@ Hola mundo`}
 
                 {/* Quick Analysis Tool */}
                 <div>
-                  <h3 className="text-xl font-semibold text-green-400 mb-4">Quick Analysis Tool</h3>
+                  <h3 className="text-xl font-semibold text-gray-600 mb-4">Quick Analysis Tool</h3>
                   <CodeWithResult 
                     code={`def analyze_feedback(text: str) -> str:
     """Analyze customer feedback with structured output."""
@@ -238,38 +235,38 @@ llm_do("Hello", model="claude-opus-4-5")`}
             <section className="mb-12">
               <h2 className="heading-2">Structured Output Compatibility</h2>
 
-              <p className="text-slate-100 mb-4">
-                When using <code className="bg-gray-800 px-1.5 py-0.5 rounded text-sm">output=</code> with Pydantic models,
+              <p className="text-gray-700 mb-4">
+                When using <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">output=</code> with Pydantic models,
                 note these compatibility differences:
               </p>
 
               <div className="table-wrapper mb-6">
                 <table className="min-w-full border-collapse">
                   <thead>
-                    <tr className="border-b border-gray-700">
-                      <th className="text-left py-3 px-4 text-green-400">Provider</th>
-                      <th className="text-left py-3 px-4 text-green-400">Structured Output Support</th>
+                    <tr className="border-b border-gray-200">
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Provider</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Structured Output Support</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100"><strong>OpenAI</strong></td>
-                      <td className="py-3 px-4 text-slate-100">All models</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4 text-gray-700"><strong>OpenAI</strong></td>
+                      <td className="py-3 px-4 text-gray-700">All models</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100"><strong>Google Gemini</strong></td>
-                      <td className="py-3 px-4 text-slate-100">All models</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4 text-gray-700"><strong>Google Gemini</strong></td>
+                      <td className="py-3 px-4 text-gray-700">All models</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100"><strong>Anthropic Claude</strong></td>
-                      <td className="py-3 px-4 text-slate-100">Only 4.5/4.1 series (claude-sonnet-4-5, claude-opus-4-5, claude-opus-4-1, claude-haiku-4-5)</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4 text-gray-700"><strong>Anthropic Claude</strong></td>
+                      <td className="py-3 px-4 text-gray-700">Only 4.5/4.1 series (claude-sonnet-4-5, claude-opus-4-5, claude-opus-4-1, claude-haiku-4-5)</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-4 mb-6">
-                <p className="text-sm text-yellow-300">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-6">
+                <p className="text-sm text-gray-700">
                   <strong>Note:</strong> Legacy Claude models (claude-sonnet-4, claude-opus-4) do NOT support structured outputs.
                   Use Claude 4.5 or 4.1 series for structured output tasks.
                 </p>
@@ -301,43 +298,43 @@ Answer(result=4)`}
               <div className="table-wrapper">
                 <table className="min-w-full border-collapse">
                   <thead>
-                    <tr className="border-b border-gray-700">
-                      <th className="text-left py-3 px-4 text-green-400">Parameter</th>
-                      <th className="text-left py-3 px-4 text-green-400">Type</th>
-                      <th className="text-left py-3 px-4 text-green-400">Default</th>
-                      <th className="text-left py-3 px-4 text-green-400">Description</th>
+                    <tr className="border-b border-gray-200">
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Parameter</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Type</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Default</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Description</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4"><code className="text-purple-400">input</code></td>
-                      <td className="py-3 px-4 text-slate-100">str</td>
-                      <td className="py-3 px-4 text-slate-100">required</td>
-                      <td className="py-3 px-4 text-slate-100">The input text/question</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4"><code className="text-gray-500">input</code></td>
+                      <td className="py-3 px-4 text-gray-700">str</td>
+                      <td className="py-3 px-4 text-gray-700">required</td>
+                      <td className="py-3 px-4 text-gray-700">The input text/question</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4"><code className="text-purple-400">output</code></td>
-                      <td className="py-3 px-4 text-slate-100">BaseModel</td>
-                      <td className="py-3 px-4 text-slate-100">None</td>
-                      <td className="py-3 px-4 text-slate-100">Pydantic model for structured output</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4"><code className="text-gray-500">output</code></td>
+                      <td className="py-3 px-4 text-gray-700">BaseModel</td>
+                      <td className="py-3 px-4 text-gray-700">None</td>
+                      <td className="py-3 px-4 text-gray-700">Pydantic model for structured output</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4"><code className="text-purple-400">prompt</code></td>
-                      <td className="py-3 px-4 text-slate-100">str|Path</td>
-                      <td className="py-3 px-4 text-slate-100">None</td>
-                      <td className="py-3 px-4 text-slate-100">System prompt (string or file path)</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4"><code className="text-gray-500">prompt</code></td>
+                      <td className="py-3 px-4 text-gray-700">str|Path</td>
+                      <td className="py-3 px-4 text-gray-700">None</td>
+                      <td className="py-3 px-4 text-gray-700">System prompt (string or file path)</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4"><code className="text-purple-400">model</code></td>
-                      <td className="py-3 px-4 text-slate-100">str</td>
-                      <td className="py-3 px-4 text-slate-100">"co/gemini-2.5-flash"</td>
-                      <td className="py-3 px-4 text-slate-100">Model to use (supports OpenAI, Gemini, Claude)</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4"><code className="text-gray-500">model</code></td>
+                      <td className="py-3 px-4 text-gray-700">str</td>
+                      <td className="py-3 px-4 text-gray-700">"co/gemini-2.5-flash"</td>
+                      <td className="py-3 px-4 text-gray-700">Model to use (supports OpenAI, Gemini, Claude)</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4"><code className="text-purple-400">temperature</code></td>
-                      <td className="py-3 px-4 text-slate-100">float</td>
-                      <td className="py-3 px-4 text-slate-100">0.1</td>
-                      <td className="py-3 px-4 text-slate-100">Randomness (0=deterministic, 2=creative)</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4"><code className="text-gray-500">temperature</code></td>
+                      <td className="py-3 px-4 text-gray-700">float</td>
+                      <td className="py-3 px-4 text-gray-700">0.1</td>
+                      <td className="py-3 px-4 text-gray-700">Randomness (0=deterministic, 2=creative)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -350,15 +347,15 @@ Answer(result=4)`}
               
               <div className="grid md:grid-cols-2 gap-4">
                 {[
-                  { text: "One-shot execution - Single LLM round, no loops", icon: <FaCheckCircle className="text-green-400" /> },
-                  { text: "Type safety - Full IDE autocomplete with Pydantic", icon: <FaCheckCircle className="text-green-400" /> },
-                  { text: "Flexible prompts - Inline strings or external files", icon: <FaCheckCircle className="text-green-400" /> },
-                  { text: "Smart defaults - Fast model, low temperature", icon: <FaCheckCircle className="text-green-400" /> },
-                  { text: "Clean errors - Clear messages when things go wrong", icon: <FaCheckCircle className="text-green-400" /> }
+                  { text: "One-shot execution - Single LLM round, no loops", icon: <FaCheckCircle className="text-gray-600" /> },
+                  { text: "Type safety - Full IDE autocomplete with Pydantic", icon: <FaCheckCircle className="text-gray-600" /> },
+                  { text: "Flexible prompts - Inline strings or external files", icon: <FaCheckCircle className="text-gray-600" /> },
+                  { text: "Smart defaults - Fast model, low temperature", icon: <FaCheckCircle className="text-gray-600" /> },
+                  { text: "Clean errors - Clear messages when things go wrong", icon: <FaCheckCircle className="text-gray-600" /> }
                 ].map((item, i) => (
-                  <div key={i} className="bg-gray-900 rounded-lg p-4 flex items-start gap-3">
+                  <div key={i} className="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-start gap-3">
                     <span className="text-2xl">{item.icon}</span>
-                    <span className="text-slate-100">{item.text}</span>
+                    <span className="text-gray-700">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -371,7 +368,7 @@ Answer(result=4)`}
               <div className="space-y-6">
                 {/* Data Extraction */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-4">Data Extraction</h3>
+                  <h3 className="text-lg font-semibold text-gray-600 mb-4">Data Extraction</h3>
                   <CodeWithResult 
                     code={`from pydantic import BaseModel
 
@@ -396,7 +393,7 @@ Job: software engineer`}
 
                 {/* Quick Decisions */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-4">Quick Decisions</h3>
+                  <h3 className="text-lg font-semibold text-gray-600 mb-4">Quick Decisions</h3>
                   <CodeWithResult 
                     code={`is_urgent = llm_do("Customer says: My server is down!")
 if "urgent" in is_urgent.lower():
@@ -410,7 +407,7 @@ This appears to be an urgent issue that requires immediate attention.`}
 
                 {/* Format Conversion */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-4">Format Conversion</h3>
+                  <h3 className="text-lg font-semibold text-gray-600 mb-4">Format Conversion</h3>
                   <CodeWithResult 
                     code={`class JSONData(BaseModel):
     data: dict
@@ -425,7 +422,7 @@ print(json_result.data)`}
 
                 {/* Validation */}
                 <div>
-                  <h3 className="text-lg font-semibold text-green-400 mb-4">Validation</h3>
+                  <h3 className="text-lg font-semibold text-gray-600 mb-4">Validation</h3>
                   <CodeWithResult 
                     code={`def validate_input(user_text: str) -> bool:
     result = llm_do(
@@ -447,23 +444,23 @@ False`}
             <section className="mb-12">
               <h2 className="heading-2">Tips</h2>
               
-              <div className="bg-gray-900 rounded-lg p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                 <ol className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <span className="text-green-400 font-bold">1.</span>
-                    <span className="text-slate-100"><strong>Use low temperature (0-0.3) for consistent results</strong></span>
+                    <span className="text-gray-600 font-bold">1.</span>
+                    <span className="text-gray-700"><strong>Use low temperature (0-0.3) for consistent results</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-400 font-bold">2.</span>
-                    <span className="text-slate-100"><strong>Provide examples in your prompt for better accuracy</strong></span>
+                    <span className="text-gray-600 font-bold">2.</span>
+                    <span className="text-gray-700"><strong>Provide examples in your prompt for better accuracy</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-400 font-bold">3.</span>
-                    <span className="text-slate-100"><strong>Use Pydantic models for anything structured</strong></span>
+                    <span className="text-gray-600 font-bold">3.</span>
+                    <span className="text-gray-700"><strong>Use Pydantic models for anything structured</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-400 font-bold">4.</span>
-                    <span className="text-slate-100"><strong>Cache prompts in files for reusability</strong></span>
+                    <span className="text-gray-600 font-bold">4.</span>
+                    <span className="text-gray-700"><strong>Cache prompts in files for reusability</strong></span>
                   </li>
                 </ol>
               </div>
@@ -476,37 +473,37 @@ False`}
               <div className="table-wrapper">
                 <table className="min-w-full border-collapse">
                   <thead>
-                    <tr className="border-b border-gray-700">
-                      <th className="text-left py-3 px-4 text-green-400">Feature</th>
-                      <th className="text-left py-3 px-4 text-green-400">llm_do()</th>
-                      <th className="text-left py-3 px-4 text-green-400">Agent()</th>
+                    <tr className="border-b border-gray-200">
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Feature</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">llm_do()</th>
+                      <th className="text-left py-3 px-4 text-gray-700 font-semibold">Agent()</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100">Purpose</td>
-                      <td className="py-3 px-4 text-slate-100">One-shot calls</td>
-                      <td className="py-3 px-4 text-slate-100">Multi-step workflows</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4 text-gray-700">Purpose</td>
+                      <td className="py-3 px-4 text-gray-700">One-shot calls</td>
+                      <td className="py-3 px-4 text-gray-700">Multi-step workflows</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100">Tools</td>
-                      <td className="py-3 px-4 text-slate-100">No</td>
-                      <td className="py-3 px-4 text-slate-100">Yes</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4 text-gray-700">Tools</td>
+                      <td className="py-3 px-4 text-gray-700">No</td>
+                      <td className="py-3 px-4 text-gray-700">Yes</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100">Iterations</td>
-                      <td className="py-3 px-4 text-slate-100">Always 1</td>
-                      <td className="py-3 px-4 text-slate-100">Up to max_iterations</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4 text-gray-700">Iterations</td>
+                      <td className="py-3 px-4 text-gray-700">Always 1</td>
+                      <td className="py-3 px-4 text-gray-700">Up to max_iterations</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100">State</td>
-                      <td className="py-3 px-4 text-slate-100">Stateless</td>
-                      <td className="py-3 px-4 text-slate-100">Maintains history</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4 text-gray-700">State</td>
+                      <td className="py-3 px-4 text-gray-700">Stateless</td>
+                      <td className="py-3 px-4 text-gray-700">Maintains history</td>
                     </tr>
-                    <tr className="border-b border-gray-800">
-                      <td className="py-3 px-4 text-slate-100">Best for</td>
-                      <td className="py-3 px-4 text-slate-100">Quick tasks</td>
-                      <td className="py-3 px-4 text-slate-100">Complex automation</td>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-3 px-4 text-gray-700">Best for</td>
+                      <td className="py-3 px-4 text-gray-700">Quick tasks</td>
+                      <td className="py-3 px-4 text-gray-700">Complex automation</td>
                     </tr>
                   </tbody>
                 </table>
@@ -558,17 +555,17 @@ Output didn't match model: 2 validation errors for ComplexModel...`}
               <h2 className="heading-2">Next Steps</h2>
               
               <div className="grid md:grid-cols-3 gap-4">
-                <Link href="/agents" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
-                  <h3 className="text-lg font-semibold text-white mb-2">Learn about Agents</h3>
-                  <p className="text-sm text-slate-100">For multi-step workflows</p>
+                <Link href="/agents" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Learn about Agents</h3>
+                  <p className="text-sm text-gray-700">For multi-step workflows</p>
                 </Link>
-                <Link href="/tools" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
-                  <h3 className="text-lg font-semibold text-white mb-2">Explore Tools</h3>
-                  <p className="text-sm text-slate-100">For extending agents</p>
+                <Link href="/tools" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Explore Tools</h3>
+                  <p className="text-sm text-gray-700">For extending agents</p>
                 </Link>
-                <Link href="/xray" className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
-                  <h3 className="text-lg font-semibold text-white mb-2">See @xray</h3>
-                  <p className="text-sm text-slate-100">For debugging</p>
+                <Link href="/xray" className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-400 hover:shadow-sm transition-all">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">See @xray</h3>
+                  <p className="text-sm text-gray-700">For debugging</p>
                 </Link>
               </div>
             </section>

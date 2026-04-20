@@ -17,10 +17,7 @@ export default function DividerPage() {
             { label: 'Divider' },
           ]}
           icon={HiOutlineMinus}
-          iconColor="text-slate-400"
-          iconBgFrom="from-slate-600/20"
-          iconBgTo="to-gray-600/20"
-          iconBorderColor="border-slate-500/30"
+          iconColor="icon-ui"
           title="Divider"
           description="Simple horizontal line separator"
           markdownPath="/tui/divider.md"

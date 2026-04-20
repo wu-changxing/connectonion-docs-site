@@ -17,10 +17,7 @@ export default function ShellPage() {
             { label: 'Shell' }
           ]}
           icon={HiOutlineCommandLine}
-          iconColor="text-orange-400"
-          iconBgFrom="from-orange-600/20"
-          iconBgTo="to-red-600/20"
-          iconBorderColor="border-orange-500/30"
+          iconColor="icon-ui"
           title="Shell"
           description="Shell command execution tool."
           markdownPath="/useful-tools/shell.md"
@@ -36,8 +33,8 @@ export default function ShellPage() {
 shell = Shell()`}
             language="python"
           />
-          <p className="text-slate-100 mt-4 text-sm">
-            Want to customize? Run <Link href="/cli" className="text-purple-400 hover:text-purple-300"><code className="bg-gray-800 px-2 py-1 rounded">co copy shell</code></Link> to get an editable copy.
+          <p className="text-gray-700 mt-4 text-sm">
+            Want to customize? Run <Link href="/cli" className="text-gray-500 hover:text-gray-700"><code className="bg-gray-100 px-2 py-1 rounded">co copy shell</code></Link> to get an editable copy.
           </p>
         </section>
 
@@ -45,8 +42,8 @@ shell = Shell()`}
         <section className="mb-12">
           <h2 className="heading-2">API</h2>
 
-          <h3 className="text-lg font-semibold text-white mb-3">run(command)</h3>
-          <p className="text-slate-100 mb-4">Execute a shell command, returns output.</p>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">run(command)</h3>
+          <p className="text-gray-700 mb-4">Execute a shell command, returns output.</p>
           <CodeWithResult
             code={`result = shell.run("ls -la")
 # Returns: "total 12\\ndrwxr-xr-x  8 user staff..."
@@ -59,8 +56,8 @@ result = shell.run("python --version")
             language="python"
           />
 
-          <h3 className="text-lg font-semibold text-white mb-3 mt-8">run_in_dir(command, directory)</h3>
-          <p className="text-slate-100 mb-4">Execute command in a specific directory.</p>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-8">run_in_dir(command, directory)</h3>
+          <p className="text-gray-700 mb-4">Execute command in a specific directory.</p>
           <CodeWithResult
             code={`result = shell.run_in_dir("npm install", "/path/to/project")
 # Returns: "added 100 packages..."

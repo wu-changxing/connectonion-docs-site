@@ -13,9 +13,9 @@ const toolCategories = [
     title: 'Email',
     description: 'Send and receive emails through various providers',
     icon: HiOutlineEnvelope,
-    color: 'text-blue-400',
-    bgColor: 'bg-blue-900/20',
-    borderColor: 'border-blue-500/30',
+    color: 'icon-ui',
+    bgColor: 'bg-gray-50',
+    borderColor: 'border-gray-200',
     tools: [
       { name: 'Gmail', href: '/gmail', description: 'Full Gmail integration with OAuth', status: 'available' },
       { name: 'Outlook', href: '/outlook', description: 'Microsoft 365 email integration', status: 'available' },
@@ -27,9 +27,9 @@ const toolCategories = [
     title: 'Calendar',
     description: 'Schedule meetings and manage calendars',
     icon: HiOutlineCalendar,
-    color: 'text-purple-400',
-    bgColor: 'bg-purple-900/20',
-    borderColor: 'border-purple-500/30',
+    color: 'icon-ui',
+    bgColor: 'bg-gray-50',
+    borderColor: 'border-gray-200',
     tools: [
       { name: 'Google Calendar', href: '/google-integration', description: 'Google Calendar integration', status: 'available' },
       { name: 'Microsoft Calendar', href: '/microsoft-integration', description: 'Outlook Calendar integration', status: 'available' },
@@ -40,9 +40,9 @@ const toolCategories = [
     title: 'Memory & Storage',
     description: 'Persistent memory and knowledge storage',
     icon: HiOutlineCpuChip,
-    color: 'text-green-400',
-    bgColor: 'bg-green-900/20',
-    borderColor: 'border-green-500/30',
+    color: 'icon-ui',
+    bgColor: 'bg-gray-50',
+    borderColor: 'border-gray-200',
     tools: [
       { name: 'Memory', href: '/memory', description: 'RAG-powered persistent memory', status: 'available' },
     ]
@@ -52,9 +52,9 @@ const toolCategories = [
     title: 'Web',
     description: 'Fetch and interact with web content',
     icon: HiOutlineGlobeAlt,
-    color: 'text-cyan-400',
-    bgColor: 'bg-cyan-900/20',
-    borderColor: 'border-cyan-500/30',
+    color: 'icon-ui',
+    bgColor: 'bg-gray-50',
+    borderColor: 'border-gray-200',
     tools: [
       { name: 'WebFetch', href: '/web-fetch', description: 'Fetch and parse web pages', status: 'available' },
     ]
@@ -64,9 +64,9 @@ const toolCategories = [
     title: 'System',
     description: 'System and terminal operations',
     icon: HiOutlineCommandLine,
-    color: 'text-orange-400',
-    bgColor: 'bg-orange-900/20',
-    borderColor: 'border-orange-500/30',
+    color: 'icon-ui',
+    bgColor: 'bg-gray-50',
+    borderColor: 'border-gray-200',
     tools: [
       { name: 'Shell', href: '/useful-tools/shell', description: 'Execute shell commands', status: 'available' },
       { name: 'Terminal', href: '/useful-tools/terminal', description: 'Interactive terminal sessions', status: 'available' },
@@ -77,9 +77,9 @@ const toolCategories = [
     title: 'Productivity',
     description: 'Task management and productivity tools',
     icon: HiOutlineClipboardDocumentList,
-    color: 'text-yellow-400',
-    bgColor: 'bg-yellow-900/20',
-    borderColor: 'border-yellow-500/30',
+    color: 'icon-ui',
+    bgColor: 'bg-gray-50',
+    borderColor: 'border-gray-200',
     tools: [
       { name: 'Todo List', href: '/useful-tools/todo-list', description: 'Task management for agents', status: 'available' },
     ]
@@ -89,9 +89,9 @@ const toolCategories = [
     title: 'Developer',
     description: 'Development and code tools',
     icon: HiOutlineCodeBracket,
-    color: 'text-pink-400',
-    bgColor: 'bg-pink-900/20',
-    borderColor: 'border-pink-500/30',
+    color: 'icon-ui',
+    bgColor: 'bg-gray-50',
+    borderColor: 'border-gray-200',
     tools: [
       { name: 'FileTools', href: '/useful-tools/file-tools', description: 'Read/edit files with safety tracking', status: 'available' },
       { name: 'Diff Writer', href: '/useful-tools/diff-writer', description: 'Write code diffs', status: 'available' },
@@ -110,10 +110,7 @@ export default function UsefulToolsPage() {
             { label: 'Useful Tools' }
           ]}
           icon={HiOutlineWrench}
-          iconColor="text-purple-400"
-          iconBgFrom="from-purple-600/20"
-          iconBgTo="to-pink-600/20"
-          iconBorderColor="border-purple-500/30"
+          iconColor="icon-ui"
           title="Useful Tools"
           description="Pre-built tools from connectonion.useful_tools"
           markdownPath="/useful-tools.md"
@@ -121,11 +118,8 @@ export default function UsefulToolsPage() {
         />
 
         {/* Quick Usage */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/20">
-          <h2 className="heading-2 flex items-center gap-2">
-            <HiOutlineCodeBracket className="w-5 h-5 text-purple-400" />
-            Quick Usage
-          </h2>
+        <div className="mb-12 section-featured">
+          <h2 className="heading-2 mb-4">Quick Usage</h2>
           <CodeWithResult
             code={`from connectonion import Agent
 from connectonion.useful_tools import gmail, memory, web_fetch
@@ -144,14 +138,14 @@ agent.input("Search my emails for invoices from last week")`}
         {/* Tool Categories */}
         <div className="space-y-8 mb-12">
           {toolCategories.map((category) => (
-            <div key={category.id} className={`p-6 rounded-lg border ${category.borderColor} ${category.bgColor} hover:border-purple-400/30 transition-all`}>
+            <div key={category.id} className={`p-6 rounded-lg border ${category.borderColor} ${category.bgColor} hover:border-gray-300/30 transition-all`}>
               <div className="flex items-center gap-3 mb-4">
-                <div className={`p-2 rounded-lg bg-gray-800 ${category.color}`}>
+                <div className={`p-2 rounded-lg bg-gray-100 border border-gray-200 ${category.color}`}>
                   <category.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white">{category.title}</h3>
-                  <p className="text-sm text-slate-100">{category.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-900">{category.title}</h3>
+                  <p className="text-sm text-gray-700">{category.description}</p>
                 </div>
               </div>
 
@@ -160,23 +154,23 @@ agent.input("Search my emails for invoices from last week")`}
                   <Link
                     key={tool.name}
                     href={tool.href}
-                    className={`group block p-4 rounded-lg bg-gray-800/50 hover:bg-gray-800 hover:border-purple-400/30 border border-transparent transition-all min-h-[48px] ${
+                    className={`group block p-4 rounded-lg bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-300 transition-all min-h-[48px] ${
                       tool.status === 'coming-soon' ? 'opacity-60 pointer-events-none' : ''
                     }`}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="font-semibold text-white group-hover:text-purple-300 transition-colors">
+                      <h3 className="font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">
                         {tool.name}
                       </h3>
                       {tool.status === 'coming-soon' ? (
-                        <span className="text-xs px-2 py-1 bg-gray-700 text-gray-400 rounded-full">
+                        <span className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
                           Coming Soon
                         </span>
                       ) : (
-                        <HiOutlineArrowRight className="w-4 h-4 text-slate-100 group-hover:text-white transition-colors" />
+                        <HiOutlineArrowRight className="w-4 h-4 text-gray-700 group-hover:text-gray-900 transition-colors" />
                       )}
                     </div>
-                    <p className="text-sm text-slate-100">{tool.description}</p>
+                    <p className="text-sm text-gray-700">{tool.description}</p>
                   </Link>
                 ))}
               </div>
@@ -185,9 +179,9 @@ agent.input("Search my emails for invoices from last week")`}
         </div>
 
         {/* Customizing Built-in Tools */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg border border-green-500/20">
+        <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="heading-2">Customizing Built-in Tools</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Need to modify a built-in tool? Copy it to your project:
           </p>
           <CodeWithResult
@@ -201,7 +195,7 @@ co copy shell memory gmail`}
 ✓ Copied: ./tools/gmail.py`}
             language="bash"
           />
-          <p className="text-slate-100 mt-4 mb-4">
+          <p className="text-gray-700 mt-4 mb-4">
             Then import from your local copy and customize:
           </p>
           <CodeWithResult
@@ -213,15 +207,15 @@ from tools.shell import Shell  # Customize freely!`}
             result=""
             language="python"
           />
-          <p className="text-sm text-slate-100 mt-4">
-            See <Link href="/cli" className="text-purple-400 hover:text-purple-300">co copy</Link> for full details.
+          <p className="text-sm text-gray-700 mt-4">
+            See <Link href="/cli" className="text-gray-500 hover:text-gray-700">co copy</Link> for full details.
           </p>
         </div>
 
         {/* Building Custom Tools */}
-        <div className="mb-12 p-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-500/20">
+        <div className="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="heading-2">Building Custom Tools</h2>
-          <p className="text-slate-100 mb-4">
+          <p className="text-gray-700 mb-4">
             Any Python function can be a tool. Just pass it to the Agent:
           </p>
           <CodeWithResult
@@ -233,8 +227,8 @@ agent = Agent("assistant", tools=[my_custom_tool])`}
             result=""
             language="python"
           />
-          <p className="text-sm text-slate-100 mt-4">
-            Learn more in the <Link href="/tools" className="text-purple-400 hover:text-purple-300">Tools documentation</Link>.
+          <p className="text-sm text-gray-700 mt-4">
+            Learn more in the <Link href="/tools" className="text-gray-500 hover:text-gray-700">Tools documentation</Link>.
           </p>
         </div>
 

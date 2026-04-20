@@ -44,13 +44,14 @@ export const navigation = [
     section: 'Getting Started',
     keywords: ['cursor', 'ai', 'vibe', 'coding', 'drag', 'drop', 'docs'],
     prev: { href: '/quickstart', title: 'Quick Start' },
-    next: { href: '/cli', title: 'CLI Reference' }
+    next: { href: '/agent', title: 'Agent' }
   },
+  // ─── CLI ───────────────────────────────────────────────────────
   {
     title: 'CLI Reference',
     href: '/cli',
     icon: HiOutlineCommandLine,
-    section: 'Getting Started',
+    section: 'CLI',
     keywords: ['command', 'terminal', 'co', 'commands', 'cli'],
     prev: { href: '/vibe-coding', title: 'Vibe Coding Guide' },
     next: { href: '/cli/ai', title: 'co ai' }
@@ -59,8 +60,7 @@ export const navigation = [
     title: 'co ai',
     href: '/cli/ai',
     icon: HiOutlineSparkles,
-    section: 'Getting Started',
-    parent: '/cli',
+    section: 'CLI',
     keywords: ['ai', 'coding', 'agent', 'terminal', 'one-shot', 'interactive', 'web', 'server'],
     prev: { href: '/cli', title: 'CLI Reference' },
     next: { href: '/cli/browser-command', title: 'co browser' }
@@ -69,8 +69,7 @@ export const navigation = [
     title: 'co browser',
     href: '/cli/browser-command',
     icon: HiOutlineCamera,
-    section: 'Getting Started',
-    parent: '/cli',
+    section: 'CLI',
     keywords: ['browser', 'screenshot', 'automation', 'debug', 'playwright', 'viewport'],
     prev: { href: '/cli/ai', title: 'co ai' },
     next: { href: '/agent', title: 'Agent' }
@@ -87,12 +86,12 @@ export const navigation = [
     next: { href: '/agent', title: 'Agent' }
   },
 
-  // ─── Core Concepts ─────────────────────────────────────────────
+  // ─── Agent API ─────────────────────────────────────────────
   {
     title: 'Agent',
     href: '/agent',
     icon: HiOutlineUsers,
-    section: 'Core Concepts',
+    section: 'Agent API',
     difficulty: 'Essential',
     keywords: ['agent', 'create', 'orchestrator', 'core', 'llm', 'conversation', 'iteration'],
     prev: { href: '/cli', title: 'CLI Reference' },
@@ -102,7 +101,7 @@ export const navigation = [
     title: 'System Prompts',
     href: '/prompts',
     icon: HiOutlineChatBubbleBottomCenterText,
-    section: 'Core Concepts',
+    section: 'Agent API',
     difficulty: 'Start Here',
     keywords: ['template', 'prompt', 'system', 'message', 'personality', 'behavior'],
     prev: { href: '/agent', title: 'Agent' },
@@ -112,7 +111,7 @@ export const navigation = [
     title: 'Prompt Formats',
     href: '/prompts/formats',
     icon: HiOutlineDocumentText,
-    section: 'Core Concepts',
+    section: 'Agent API',
     parent: '/prompts',
     keywords: ['format', 'prompt', 'template', 'syntax'],
     prev: { href: '/prompts', title: 'System Prompts' },
@@ -122,7 +121,7 @@ export const navigation = [
     title: 'Tools',
     href: '/tools',
     icon: HiOutlineCodeBracket,
-    section: 'Core Concepts',
+    section: 'Agent API',
     keywords: ['function', 'utility', 'actions', 'capabilities', 'tools'],
     prev: { href: '/prompts/formats', title: 'Prompt Formats' },
     next: { href: '/models', title: 'Models' }
@@ -131,7 +130,7 @@ export const navigation = [
     title: 'Models',
     href: '/models',
     icon: HiOutlineCpuChip,
-    section: 'Core Concepts',
+    section: 'Agent API',
     keywords: ['model', 'gpt', 'gemini', 'claude', 'anthropic', 'openai', 'google', 'llm', 'ai'],
     prev: { href: '/tools', title: 'Tools' },
     next: { href: '/models/pricing', title: 'Pricing' }
@@ -140,7 +139,7 @@ export const navigation = [
     title: 'Pricing',
     href: '/models/pricing',
     icon: HiOutlineCurrencyDollar,
-    section: 'Core Concepts',
+    section: 'Agent API',
     parent: '/models',
     keywords: ['pricing', 'cost', 'credits', 'tokens', 'billing', 'managed keys', 'purchase', 'pay', 'price'],
     prev: { href: '/models', title: 'Models' },
@@ -150,7 +149,7 @@ export const navigation = [
     title: 'LLM Function',
     href: '/llm_do',
     icon: HiOutlineSparkles,
-    section: 'Core Concepts',
+    section: 'Agent API',
     keywords: ['ai', 'model', 'openai', 'language', 'llm_do', 'direct', 'gemini', 'anthropic', 'claude'],
     prev: { href: '/models/pricing', title: 'Pricing' },
     next: { href: '/on_events', title: 'Event System (on_events)' }
@@ -159,7 +158,7 @@ export const navigation = [
     title: 'Event System (on_events)',
     href: '/on_events',
     icon: HiOutlineChartBarSquare,
-    section: 'Core Concepts',
+    section: 'Agent API',
     difficulty: 'NEW',
     keywords: ['events', 'on_events', 'hooks', 'lifecycle', 'monitoring', 'after_llm', 'before_tool', 'after_tool', 'on_error', 'after_user_input', 'before_llm'],
     prev: { href: '/llm_do', title: 'LLM Function' },
@@ -169,7 +168,7 @@ export const navigation = [
     title: 'Plugin System',
     href: '/plugin',
     icon: HiOutlinePuzzlePiece,
-    section: 'Core Concepts',
+    section: 'Agent API',
     difficulty: 'NEW',
     keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'custom', 'create', 'build'],
     prev: { href: '/on_events', title: 'Event System (on_events)' },
@@ -752,43 +751,7 @@ export const navigation = [
     parent: '/xray',
     keywords: ['trace', 'flow', 'visual', 'debug', 'execution'],
     prev: { href: '/xray', title: '@xray Decorator' },
-    next: { href: '/examples', title: 'All Examples' }
-  },
-
-  // ─── Examples ──────────────────────────────────────────────────
-  {
-    title: 'All Examples',
-    href: '/examples',
-    icon: HiOutlineFolderOpen,
-    section: 'Examples',
-    difficulty: 'Browse',
-    keywords: ['examples', 'samples', 'demos', 'tutorials'],
-    prev: { href: '/xray/trace', title: 'trace() Visual Flow' },
-    next: { href: '/examples/calculator', title: 'Calculator' }
-  },
-  {
-    title: 'Calculator',
-    href: '/examples/calculator',
-    icon: HiOutlineCalculator,
-    section: 'Examples',
-    difficulty: 'Beginner',
-    keywords: ['calculator', 'math', 'compute', 'arithmetic', 'tools', 'functions'],
-    prev: { href: '/examples', title: 'All Examples' },
-    next: { href: '/examples/browser', title: 'Browser Automation' },
-    exampleIndex: 0,
-    totalExamples: 2
-  },
-  {
-    title: 'Browser Automation',
-    href: '/examples/browser',
-    icon: FaChrome,
-    section: 'Examples',
-    difficulty: 'Intermediate',
-    keywords: ['browser', 'automation', 'screenshot', 'playwright', 'web', 'scraping'],
-    prev: { href: '/examples/calculator', title: 'Calculator' },
-    next: { href: '/blog', title: 'All Posts' },
-    exampleIndex: 1,
-    totalExamples: 2
+    next: { href: '/blog', title: 'All Posts' }
   },
 
   // ─── Blog ──────────────────────────────────────────────────────
@@ -798,7 +761,7 @@ export const navigation = [
     icon: HiOutlineBookOpen,
     section: 'Blog',
     keywords: ['blog', 'posts', 'articles', 'news'],
-    prev: { href: '/examples/browser', title: 'Browser Automation' },
+    prev: { href: '/xray/trace', title: 'trace() Visual Flow' },
     next: { href: '/blog/input-method', title: 'Why `input()` Over `run()`' }
   },
   {
@@ -927,7 +890,3 @@ export function getPagesBySection(section: string) {
   return navigation.filter(page => page.section === section)
 }
 
-// Helper to get example pages
-export function getExamplePages() {
-  return navigation.filter(page => page.section === 'Examples' && page.exampleIndex !== undefined)
-}

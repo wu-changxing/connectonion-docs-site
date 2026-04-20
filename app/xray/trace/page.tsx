@@ -3,9 +3,10 @@
 import { useState } from 'react'
 import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineClock, HiOutlineBolt, HiOutlinePlay, HiOutlineEye } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
+import { PageHeader } from '../../../components/PageHeader'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export default function XrayTracePage() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -518,51 +519,37 @@ Works seamlessly with:
 
   return (
     <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24">
-      {/* Header with Copy Button */}
-      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">
-        <div className="flex-1">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-slate-100 mb-4 overflow-x-auto">
-            <Link href="/" className="hover:text-white transition-colors whitespace-nowrap">Home</Link>
-            <HiOutlineArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-            <Link href="/xray" className="hover:text-white transition-colors whitespace-nowrap">@xray</Link>
-            <HiOutlineArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-            <span className="text-white whitespace-nowrap">trace()</span>
-          </nav>
-
-          <h1 className="heading-1">
-            <HiOutlineEye className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 flex-shrink-0" />
-            <span>xray.trace()</span>
-          </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-slate-100 max-w-3xl">
-            Visual execution tracing for ConnectOnion agents. See exactly what happened during agent execution with timing, inputs, outputs, and errors.
-          </p>
-        </div>
-        
-        <CopyMarkdownButton 
-          content={markdownContent}
-          filename="xray-trace-guide.md"
-          className="lg:ml-8 flex-shrink-0 self-start"
-        />
-      </div>
+      <PageHeader
+        breadcrumbs={[
+          { label: 'Docs', href: '/' },
+          { label: '@xray', href: '/xray' },
+          { label: 'trace()' }
+        ]}
+        icon={HiOutlineEye}
+        iconColor="icon-ui"
+        title="xray.trace()"
+        description="Visual execution tracing for ConnectOnion agents — timing, inputs, outputs, and errors at a glance."
+        markdownContent={markdownContent}
+        markdownFilename="xray-trace-guide.md"
+      />
 
       {/* Key Features */}
       <section className="mb-12 sm:mb-16">
-        <h2 className="h2text-xl sm:"heading-2>Key Features</h2>
+        <h2 className="heading-2">Key Features</h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: HiOutlineCommandLine, title: 'Visual Flow', desc: 'See all tool calls in sequence', color: 'text-blue-400' },
-            { icon: HiOutlineClock, title: 'Performance', desc: 'Execution timing for each step', color: 'text-green-400' },
-            { icon: HiOutlineEye, title: 'Smart Display', desc: 'Intelligent data truncation', color: 'text-purple-400' },
-            { icon: HiOutlineBolt, title: 'Error Tracking', desc: 'Clear error display and details', color: 'text-red-400' }
+            { icon: HiOutlineCommandLine, title: 'Visual Flow', desc: 'See all tool calls in sequence', color: 'text-gray-500' },
+            { icon: HiOutlineClock, title: 'Performance', desc: 'Execution timing for each step', color: 'text-gray-500' },
+            { icon: HiOutlineEye, title: 'Smart Display', desc: 'Intelligent data truncation', color: 'text-gray-500' },
+            { icon: HiOutlineBolt, title: 'Error Tracking', desc: 'Clear error display and details', color: 'text-gray-500' }
           ].map((feature, i) => {
             const IconComponent = feature.icon
             return (
-              <div key={i} className="bg-gray-900 border border-gray-700 rounded-lg p-6 text-center hover:border-gray-600 transition-colors">
+              <div key={i} className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center hover:border-gray-300 transition-colors">
                 <IconComponent className={`w-8 h-8 ${feature.color} mx-auto mb-4`} />
-                <h3 className="font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-slate-100 text-sm">{feature.desc}</p>
+                <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-gray-700 text-sm">{feature.desc}</p>
               </div>
             )
           })}
@@ -571,33 +558,33 @@ Works seamlessly with:
 
       {/* Progressive Examples */}
       <section className="mb-12 sm:mb-16">
-        <h2 className="h2text-xl sm:"heading-2>Progressive Examples</h2>
-        <p className="text-slate-100 mb-8">
+        <h2 className="heading-2">Progressive Examples</h2>
+        <p className="text-gray-700 mb-8">
           Learn xray.trace() from simple to advanced with these progressive examples. Each builds on the previous concepts.
         </p>
         
         <div className="space-y-12">
           {Object.entries(examples).map(([id, example], index) => (
-            <div key={id} className="bg-gray-900/50 border border-gray-700 rounded-xl p-4 sm:p-6 lg:p-8">
+            <div key={id} className="bg-gray-50 border border-gray-200 rounded-xl p-4 sm:p-6 lg:p-8">
               {/* Example Header */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
                 <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                  <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-r from-gray-500 to-gray-500 rounded-lg flex items-center justify-center text-white font-bold text-lg">
                     {index + 1}
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">{example.title}</h3>
-                    <p className="text-slate-100 text-xs sm:text-sm">{example.description}</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900">{example.title}</h3>
+                    <p className="text-gray-700 text-xs sm:text-sm">{example.description}</p>
                   </div>
                 </div>
                 <button
                   onClick={() => copyToClipboard(example.code, id)}
-                  className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2 self-start sm:self-auto"
+                  className="text-gray-700 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-100 flex items-center gap-2 self-start sm:self-auto"
                 >
                   {copiedId === id ? (
                     <>
-                      <HiOutlineCheck className="w-4 h-4 text-green-400" />
-                      <span className="text-green-400 text-sm hidden sm:inline">Copied!</span>
+                      <HiOutlineCheck className="w-4 h-4 text-gray-500" />
+                      <span className="text-gray-600 text-sm hidden sm:inline">Copied!</span>
                     </>
                   ) : (
                     <>
@@ -612,14 +599,14 @@ Works seamlessly with:
                 {/* Code Panel */}
                 <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
                   <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-700 bg-gray-800">
-                    <HiOutlinePlay className="w-4 h-4 text-blue-400" />
-                    <span className="text-sm font-medium text-slate-100">Python Code</span>
+                    <HiOutlinePlay className="w-4 h-4 text-gray-500" />
+                    <span className="text-sm font-medium text-gray-300">Python Code</span>
                   </div>
                   
                   <div className="overflow-x-auto max-h-[400px] sm:max-h-[500px] lg:max-h-[600px]">
                     <SyntaxHighlighter 
                       language="python" 
-                      style={monokai}
+                      style={okaidia}
                       customStyle={{
                         background: 'transparent',
                         padding: '1rem',
@@ -645,8 +632,8 @@ Works seamlessly with:
                 {/* Output Panel */}
                 <div className="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
                   <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-700 bg-gray-800">
-                    <HiOutlineCommandLine className="w-4 h-4 text-green-400" />
-                    <span className="text-sm font-medium text-slate-100">Trace Output</span>
+                    <HiOutlineCommandLine className="w-4 h-4 text-gray-500" />
+                    <span className="text-sm font-medium text-gray-300">Trace Output</span>
                   </div>
                   
                   <div className="p-2 sm:p-4">
@@ -662,11 +649,11 @@ Works seamlessly with:
                             .replace(/OUT\s*←/g, '<span class="text-green-400">OUT ←</span>')
                             .replace(/ERR\s*✗/g, '<span class="text-red-400">ERR ✗</span>')
                             .replace(/(\d+(?:\.\d+)?)(ms|s)/g, '<span class="text-cyan-300">$1$2</span>')
-                            .replace(/Total:/g, '<span class="text-purple-400 font-semibold">Total:</span>')
+                            .replace(/Total:/g, '<span class="text-gray-500 font-semibold">Total:</span>')
                             .replace(/Context:/g, '<span class="text-yellow-400">Context:</span>')
                             .replace(/\[Starting\]/g, '<span class="text-orange-400">[Starting]</span>')
                             .replace(/Pro tip:/g, '<span class="text-green-300 font-semibold">💡 Pro tip:</span>')
-                            .replace(/IDE Debugging Session:/g, '<span class="text-purple-300 font-bold text-base">💡 IDE Debugging Session:</span>')
+                            .replace(/IDE Debugging Session:/g, '<span class="text-gray-400 font-bold text-base">💡 IDE Debugging Session:</span>')
                             .replace(/Breakpoint at/g, '<span class="text-orange-300">🔸 Breakpoint at</span>')
                             .replace(/Final trace/g, '<span class="text-green-300">🎯 Final trace</span>')
                             .replace(/⚠️\s+SLOW/g, '<span class="text-yellow-400 font-semibold">⚠️ SLOW</span>')
@@ -697,60 +684,60 @@ Works seamlessly with:
 
       {/* Visual Format Reference */}
       <section className="mb-12 sm:mb-16">
-        <h2 className="h2text-xl sm:"heading-2>Visual Format Reference</h2>
+        <h2 className="heading-2">Visual Format Reference</h2>
         
-        <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 sm:p-6">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             <div>
-              <h4 className="font-semibold text-white mb-4">Status Indicators</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">Status Indicators</h4>
               <div className="space-y-2 font-mono text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400">•</span>
-                  <span className="text-slate-100">Successful execution</span>
+                  <span className="text-green-600">•</span>
+                  <span className="text-gray-700">Successful execution</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-red-400">ERROR</span>
-                  <span className="text-slate-100">Failed execution</span>
+                  <span className="text-gray-700">Failed execution</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-yellow-400">...</span>
-                  <span className="text-slate-100">Pending/in-progress</span>
+                  <span className="text-gray-400">...</span>
+                  <span className="text-gray-700">Pending/in-progress</span>
                 </div>
               </div>
             </div>
             
             <div>
-              <h4 className="font-semibold text-white mb-4">Data Flow</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">Data Flow</h4>
               <div className="space-y-2 font-mono text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="text-blue-400">IN  →</span>
-                  <span className="text-slate-100">Input parameters</span>
+                  <span className="text-gray-600">IN  →</span>
+                  <span className="text-gray-700">Input parameters</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400">OUT ←</span>
-                  <span className="text-slate-100">Return values</span>
+                  <span className="text-green-600">OUT ←</span>
+                  <span className="text-gray-700">Return values</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-red-400">ERR ✗</span>
-                  <span className="text-slate-100">Error messages</span>
+                  <span className="text-gray-700">Error messages</span>
                 </div>
               </div>
             </div>
             
             <div>
-              <h4 className="font-semibold text-white mb-4">Timing Display</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">Timing Display</h4>
               <div className="space-y-2 font-mono text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="text-cyan-400">0.03ms</span>
-                  <span className="text-slate-100">Sub-millisecond</span>
+                  <span className="text-gray-500">0.03ms</span>
+                  <span className="text-gray-700">Sub-millisecond</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-cyan-400">45ms</span>
-                  <span className="text-slate-100">Typical operations</span>
+                  <span className="text-gray-500">45ms</span>
+                  <span className="text-gray-700">Typical operations</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-cyan-400">2.3s</span>
-                  <span className="text-slate-100">Longer operations</span>
+                  <span className="text-gray-500">2.3s</span>
+                  <span className="text-gray-700">Longer operations</span>
                 </div>
               </div>
             </div>
@@ -759,17 +746,17 @@ Works seamlessly with:
       </section>
 
       {/* Navigation */}
-      <nav className="flex justify-between items-center pt-8 border-t border-gray-800">
+      <nav className="flex justify-between items-center pt-8 border-t border-gray-200">
         <Link 
           href="/xray" 
-          className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
         >
           <HiOutlineArrowRight className="w-4 h-4 rotate-180" />
           @xray Overview
         </Link>
         <Link 
           href="/examples" 
-          className="flex items-center gap-2 text-slate-100 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
         >
           Complete Examples
           <HiOutlineArrowRight className="w-4 h-4" />

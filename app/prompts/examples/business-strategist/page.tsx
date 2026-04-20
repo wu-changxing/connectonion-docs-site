@@ -3,9 +3,9 @@
 import React, { useState } from 'react'
 import { HiOutlineClipboard, HiOutlineCheck, HiOutlineArrowTrendingUp, HiOutlineArrowRight, HiOutlineArrowLeft, HiOutlineArrowDownTray, HiOutlineLightBulb, HiOutlineChatBubbleOvalLeft, HiOutlineViewfinderCircle, HiOutlineChartBar } from 'react-icons/hi2'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { okaidia as monokai } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Link from 'next/link'
 import { CopyMarkdownButton } from '../../../../components/CopyMarkdownButton'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const promptContent = `# Business Strategist
 
@@ -217,32 +217,32 @@ ${expectedOutput}
   return (
     <div className="max-w-4xl mx-auto px-8 py-16 md:py-24 lg:py-16 md:py-24 pt-16 lg:pt-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-slate-100 mb-8">
-        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+      <nav className="flex items-center gap-2 text-sm text-gray-700 mb-8">
+        <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts" className="hover:text-white transition-colors">System Prompts</Link>
+        <Link href="/prompts" className="hover:text-gray-900 transition-colors">System Prompts</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <Link href="/prompts/examples" className="hover:text-white transition-colors">Examples</Link>
+        <Link href="/prompts/examples" className="hover:text-gray-900 transition-colors">Examples</Link>
         <HiOutlineArrowRight className="w-4 h-4" />
-        <span className="text-white">Business Strategist</span>
+        <span className="text-gray-900">Business Strategist</span>
       </nav>
 
       {/* Header */}
       <div className="flex items-start justify-between mb-12">
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 bg-pink-600 rounded-xl flex items-center justify-center">
+            <div className="w-16 h-16 bg-gray-900 rounded-xl flex items-center justify-center">
               <span className="text-2xl font-bold text-white">8</span>
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <HiOutlineArrowTrendingUp className="w-8 h-8 text-pink-400" />
+                <HiOutlineArrowTrendingUp className="w-8 h-8 text-gray-500" />
                 <h1 className="heading-1">Business Strategist</h1>
-                <span className="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-sm font-medium">
+                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
                   Expert
                 </span>
               </div>
-              <p className="text-xl text-slate-100">
+              <p className="text-xl text-gray-700">
                 Master strategic thinking frameworks with comprehensive market analysis and executive decision-making.
               </p>
             </div>
@@ -257,31 +257,31 @@ ${expectedOutput}
       </div>
 
       {/* Key Concepts */}
-      <div className="mb-12 p-6 bg-pink-900/20 border border-pink-500/30 rounded-xl">
-        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <HiOutlineLightBulb className="w-6 h-6 text-pink-400" />
+      <div className="mb-12 p-6 bg-gray-50 border border-gray-200 rounded-xl">
+        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+          <HiOutlineLightBulb className="w-6 h-6 text-gray-500" />
           Key Learning Concepts
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-3">
-            <HiOutlineViewfinderCircle className="w-5 h-5 text-pink-400 mt-1 flex-shrink-0" />
+            <HiOutlineViewfinderCircle className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Strategic Framework</h3>
-              <p className="text-pink-200 text-sm">3-pillar analysis framework for comprehensive strategic evaluation</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Strategic Framework</h3>
+              <p className="text-gray-700 text-sm">3-pillar analysis framework for comprehensive strategic evaluation</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineChartBar className="w-5 h-5 text-pink-400 mt-1 flex-shrink-0" />
+            <HiOutlineChartBar className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Decision Matrix</h3>
-              <p className="text-pink-200 text-sm">Weighted criteria system for objective strategy comparison</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Decision Matrix</h3>
+              <p className="text-gray-700 text-sm">Weighted criteria system for objective strategy comparison</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-pink-400 mt-1 flex-shrink-0" />
+            <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-white font-semibold mb-1">Executive Communication</h3>
-              <p className="text-pink-200 text-sm">Structure optimized for C-level strategic decision making</p>
+              <h3 className="text-gray-900 font-semibold mb-1">Executive Communication</h3>
+              <p className="text-gray-700 text-sm">Structure optimized for C-level strategic decision making</p>
             </div>
           </div>
         </div>
@@ -290,12 +290,12 @@ ${expectedOutput}
       <div className="grid lg:grid-cols-2 gap-12">
         {/* Prompt Content */}
         <div className="space-y-8">
-          <div className="bg-gray-900 border border-gray-700 rounded-lg">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">System Prompt</h3>
+          <div className="bg-white border border-gray-200 rounded-lg">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-900">System Prompt</h3>
               <button
                 onClick={() => copyToClipboard(promptContent, 'prompt')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-700 transition-colors p-2 rounded-lg hover:bg-gray-100 flex items-center gap-2"
               >
                 {copiedId === 'prompt' ? (
                   <>
@@ -314,7 +314,7 @@ ${expectedOutput}
             <div className="p-6 ">
               <SyntaxHighlighter 
                 language="markdown" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,
@@ -337,12 +337,12 @@ ${expectedOutput}
           </div>
 
           {/* Usage Example */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-              <h3 className="text-xl font-semibold text-white">Usage Example</h3>
+          <div className="bg-white border border-gray-200 rounded-lg">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-900">Usage Example</h3>
               <button
                 onClick={() => copyToClipboard(usageExample, 'usage')}
-                className="text-slate-100 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                className="text-gray-700 hover:text-gray-700 transition-colors p-2 rounded-lg hover:bg-gray-100 flex items-center gap-2"
               >
                 {copiedId === 'usage' ? (
                   <>
@@ -361,7 +361,7 @@ ${expectedOutput}
             <div className="p-6">
               <SyntaxHighlighter 
                 language="python" 
-                style={monokai}
+                style={okaidia}
                 customStyle={{
                   background: 'transparent',
                   padding: 0,
@@ -385,15 +385,15 @@ ${expectedOutput}
         {/* Right Panel */}
         <div className="space-y-8">
           {/* Expected Output */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg">
-            <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-700">
-              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-pink-400" />
-              <h3 className="text-xl font-semibold text-white">Expected Output</h3>
+          <div className="bg-white border border-gray-200 rounded-lg">
+            <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-200">
+              <HiOutlineChatBubbleOvalLeft className="w-5 h-5 text-gray-500" />
+              <h3 className="text-xl font-semibold text-gray-900">Expected Output</h3>
             </div>
             
             <div className="p-6">
-              <div className="bg-black/50 rounded-lg p-4 font-mono text-sm ">
-                <pre className="text-pink-200 whitespace-pre-wrap">
+              <div className="bg-gray-950 rounded-lg p-4 font-mono text-sm ">
+                <pre className="text-gray-300 whitespace-pre-wrap">
                   {expectedOutput}
                 </pre>
               </div>
@@ -401,37 +401,37 @@ ${expectedOutput}
           </div>
 
           {/* Analysis */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">Strategic Leadership Techniques</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Strategic Leadership Techniques</h3>
             <div className="space-y-4 text-sm">
               <div>
-                <h4 className="font-semibold text-pink-400 mb-2">📊 Data-Driven Decisions</h4>
-                <p className="text-slate-100">Quantitative analysis with market sizing and financial projections for credible recommendations.</p>
+                <h4 className="font-semibold text-gray-500 mb-2">📊 Data-Driven Decisions</h4>
+                <p className="text-gray-700">Quantitative analysis with market sizing and financial projections for credible recommendations.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-pink-400 mb-2">⚖️ Comparative Analysis</h4>
-                <p className="text-slate-100">Side-by-side strategy evaluation with weighted scoring for objective decision-making.</p>
+                <h4 className="font-semibold text-gray-500 mb-2">⚖️ Comparative Analysis</h4>
+                <p className="text-gray-700">Side-by-side strategy evaluation with weighted scoring for objective decision-making.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-pink-400 mb-2">🛡️ Risk Management</h4>
-                <p className="text-slate-100">Proactive identification of risks with specific mitigation strategies and contingency plans.</p>
+                <h4 className="font-semibold text-gray-500 mb-2">🛡️ Risk Management</h4>
+                <p className="text-gray-700">Proactive identification of risks with specific mitigation strategies and contingency plans.</p>
               </div>
             </div>
           </div>
 
           {/* Download Options */}
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Download & Customize</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Download & Customize</h3>
             <div className="space-y-3">
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(promptContent)}`}
                 download="business_strategist.md"
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-pink-600 hover:bg-pink-700 rounded-lg text-white transition-colors font-medium"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors font-medium"
               >
                 <HiOutlineArrowDownTray className="w-4 h-4" />
                 Download Prompt File
               </a>
-              <p className="text-xs text-slate-100 text-center">
+              <p className="text-xs text-gray-700 text-center">
                 Perfect for strategic planning and business analysis applications
               </p>
             </div>
@@ -440,22 +440,22 @@ ${expectedOutput}
       </div>
 
       {/* Navigation */}
-      <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-800">
+      <nav className="flex justify-between items-center pt-12 mt-12 border-t border-gray-200">
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Previous in series</p>
-          <Link 
-            href="/prompts/examples/security-analyst" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+          <p className="text-sm text-gray-700 mb-1">Previous in series</p>
+          <Link
+            href="/prompts/examples/security-analyst"
+            className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors font-medium"
           >
             <HiOutlineArrowLeft className="w-4 h-4" />
             7. Security Analyst
           </Link>
         </div>
         <div className="text-center">
-          <p className="text-sm text-slate-100 mb-1">Complete!</p>
-          <Link 
-            href="/prompts/examples" 
-            className="flex items-center gap-2 text-white hover:text-slate-100 transition-colors font-medium"
+          <p className="text-sm text-gray-700 mb-1">Complete!</p>
+          <Link
+            href="/prompts/examples"
+            className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors font-medium"
           >
             View All Examples
             <HiOutlineArrowRight className="w-4 h-4" />

@@ -174,30 +174,30 @@ Sometimes the best technical decisions are the least technical ones.`
   return (
     <div className="w-full">
       <main className="p-4 lg:p-8 lg:px-16 pb-20">
-          <article className="prose prose-invert max-w-none">
+          <article className="prose prose-gray max-w-2xl mx-auto">
             <div className="mb-8 flex justify-between items-start">
               <div>
                 <h1 className="heading-1">
                   Why We Chose "Trust"
                 </h1>
-                <p className="text-slate-100 text-lg">December 2024 • Design Decision #003</p>
+                <p className="text-gray-700 text-lg">December 2024 • Design Decision #003</p>
               </div>
               <CopyMarkdownButton content={blogContent} />
             </div>
 
-            <div className="mt-8 space-y-6 text-gray-200">
-              <p className="text-lg leading-relaxed text-slate-100 italic">
+            <div className="mt-8 space-y-6 text-gray-700">
+              <p className="text-xl leading-relaxed text-gray-600 italic">
                 The Story Behind ConnectOnion's Authentication Keyword
               </p>
 
               <p className="text-lg leading-relaxed">
-                When designing ConnectOnion's agent-to-agent authentication system, we faced a crucial decision: what should we call the parameter that controls how agents verify each other? After evaluating 15+ options and extensive discussion, we settled on <code className="bg-gray-800/50 text-purple-300 px-2 py-1 rounded font-mono text-sm">trust</code>. Here's why.
+                When designing ConnectOnion's agent-to-agent authentication system, we faced a crucial decision: what should we call the parameter that controls how agents verify each other? After evaluating 15+ options and extensive discussion, we settled on <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded font-mono text-sm">trust</code>. Here's why.
               </p>
 
               <h2 className="heading-2">The Challenge: Finding a Bidirectional Word</h2>
               
               <p>Our authentication system needed a keyword that works in two directions:</p>
-              <ol className="list-decimal list-inside space-y-2 ml-4 text-slate-100">
+              <ol className="list-decimal list-inside space-y-2 ml-4 text-gray-700">
                 <li><strong>As a service provider</strong>: "Who can use my services?"</li>
                 <li><strong>As a service consumer</strong>: "Which services do I trust?"</li>
               </ol>
@@ -213,14 +213,14 @@ Sometimes the best technical decisions are the least technical ones.`
                   { name: 'policy / rules', reason: 'Too formal and configuration-heavy. Doesn\'t match our natural language approach.', icon: '📋' },
                   { name: 'security / safe', reason: 'Too broad and creates fear. Security implies threats; we want collaboration.', icon: '🔒' },
                 ].map((option, idx) => (
-                  <div key={idx} className="flex gap-4 p-4 bg-gray-800/30 rounded-lg border border-gray-700">
+                  <div key={idx} className="flex gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                     <div className="text-2xl">{option.icon}</div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-red-400 mb-1">
                         <HiOutlineXCircle className="inline w-4 h-4 mr-1" />
                         {option.name}
                       </h3>
-                      <p className="text-slate-100 text-sm">{option.reason}</p>
+                      <p className="text-gray-700 text-sm">{option.reason}</p>
                     </div>
                   </div>
                 ))}
@@ -251,14 +251,14 @@ Sometimes the best technical decisions are the least technical ones.`
                     examples: ['Trust is earned through successful interactions, not certificates']
                   }
                 ].map((point, idx) => (
-                  <div key={idx} className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-xl p-6">
-                    <h3 className="text-xl font-semibold text-purple-300 mb-2 flex items-center gap-2">
-                      <HiOutlineCheckCircle className="w-5 h-5 text-green-400" />
+                  <div key={idx} className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                      <HiOutlineCheckCircle className="w-5 h-5 text-green-600" />
                       {point.title}
                     </h3>
-                    <p className="text-slate-100 mb-4">{point.description}</p>
+                    <p className="text-gray-700 mb-4">{point.description}</p>
                     {point.examples && (
-                      <ul className="list-disc list-inside space-y-1 ml-4 text-slate-100 text-sm">
+                      <ul className="list-disc list-inside space-y-1 ml-4 text-gray-700 text-sm">
                         {point.examples.map((ex, i) => (
                           <li key={i}>{ex}</li>
                         ))}
@@ -270,12 +270,12 @@ Sometimes the best technical decisions are the least technical ones.`
 
               <h2 className="heading-2">Clear Configuration</h2>
               
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden">
-                <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
-                  <span className="text-sm text-slate-100 font-mono">config.py</span>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
+                <div className="bg-gray-100 px-4 py-2 border-b border-gray-200">
+                  <span className="text-sm text-gray-700 font-mono">config.py</span>
                 </div>
                 <pre className="p-4 text-sm overflow-x-auto">
-                  <code className="text-purple-300">{`# Instantly understandable
+                  <code className="text-gray-600">{`# Instantly understandable
 agent = Agent(name="helper", trust="open")
 
 # Compare to alternatives:
@@ -289,9 +289,9 @@ agent = Agent(name="helper", mode="dev")         # Mode of what?`}</code>
               
               <p>Just as Unix uses simple, composable commands, we use simple trust levels that combine with prompts for complex behavior:</p>
               
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg overflow-hidden mt-4">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden mt-4">
                 <pre className="p-4 text-sm overflow-x-auto">
-                  <code className="text-purple-300">{`# Simple trust + smart prompt = sophisticated behavior
+                  <code className="text-gray-600">{`# Simple trust + smart prompt = sophisticated behavior
 agent = Agent(
     name="analyzer",
     trust="tested",
@@ -303,7 +303,7 @@ agent = Agent(
               <h2 className="heading-2">The Bigger Picture</h2>
               
               <p>Choosing "trust" reflects ConnectOnion's philosophy:</p>
-              <ul className="list-disc list-inside space-y-2 ml-4 text-slate-100">
+              <ul className="list-disc list-inside space-y-2 ml-4 text-gray-700">
                 <li><strong>Human-first design</strong>: Use words people understand</li>
                 <li><strong>Progressive enhancement</strong>: Start simple, add complexity through composition</li>
                 <li><strong>Behavioral over cryptographic</strong>: Actions matter more than certificates</li>
@@ -311,7 +311,7 @@ agent = Agent(
               </ul>
 
               <div className="border-t border-gray-800 mt-16 pt-8">
-                <p className="text-slate-100 italic text-lg">
+                <p className="text-gray-700 italic text-lg">
                   Sometimes the best technical decisions are the least technical ones.
                 </p>
               </div>
