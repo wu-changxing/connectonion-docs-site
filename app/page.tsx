@@ -184,10 +184,10 @@ agent.input("What's the weather in NYC?")`}
               <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License" />
             </a>
             <a href="https://pypi.org/project/connectonion/" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python 3.9+" />
+              <img src="https://img.shields.io/badge/python-3.10+-blue.svg" alt="Python 3.10+" className="h-7 md:h-8" />
             </a>
             <a href="https://pepy.tech/projects/connectonion" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.shields.io/pypi/dm/connectonion?label=PyPI%20downloads" alt="PyPI Downloads" />
+              <img src="https://static.pepy.tech/personalized-badge/connectonion?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads" alt="PyPI Downloads" className="h-7 md:h-8" />
             </a>
           </div>
         </div>
