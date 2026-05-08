@@ -257,15 +257,13 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
             <div>
               <h3 className="text-2xl font-semibold mb-4">Check your email address</h3>
               <p className="text-gray-700 mb-4">
-                Your email is configured in <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">.co/config.toml</code>:
+                Your email is configured in <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">~/.co/keys.env</code>:
               </p>
-              <CodeBlock 
-                code={`[agent]
-address = "0x04e1c4ae3c57d716383153479dae869e51e86d43d88db8dfa22fba7533f3968d"
-short_address = "0x04e1c4ae"
-email = "0x04e1c4ae@mail.openonion.ai"
-email_active = false  # Becomes true after 'co auth'`}
-                language="toml"
+              <CodeBlock
+                code={`AGENT_ADDRESS=0x04e1c4ae3c57d716383153479dae869e51e86d43d88db8dfa22fba7533f3968d
+AGENT_EMAIL=0x04e1c4ae@mail.openonion.ai
+IS_EMAIL_ACTIVE=false  # Becomes true after 'co auth'`}
+                language="bash"
                 id="config-example"
               />
             </div>
@@ -574,7 +572,7 @@ print(f"Report sent: {result['success']}")`}
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
-                <span>Stored in <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-xs">.co/config.toml</code></span>
+                <span>Stored in <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-xs">~/.co/keys.env</code></span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>

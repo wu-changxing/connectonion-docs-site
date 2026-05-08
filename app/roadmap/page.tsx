@@ -209,7 +209,7 @@ export default function RoadmapPage() {
           icon={HiOutlineRocketLaunch}
           title="Roadmap"
           description="Track our progress from v0.0.1 to v1.0 and beyond."
-          badge={<span className="px-2 py-1 bg-gray-900 text-white text-xs font-semibold rounded-full">v0.9.2</span>}
+          badge={<span className="px-2 py-1 bg-gray-900 text-white text-xs font-semibold rounded-full">v0.9.3</span>}
           markdownPath="/roadmap.md"
           markdownFilename="roadmap.md"
         />
@@ -229,7 +229,7 @@ export default function RoadmapPage() {
             <div className="text-xs text-gray-500 mt-1">Planned</div>
           </div>
           <div className="p-4 bg-white border border-gray-200 rounded-xl text-center">
-            <div className="text-2xl font-bold text-gray-900">v0.9.2</div>
+            <div className="text-2xl font-bold text-gray-900">v0.9.3</div>
             <div className="text-xs text-gray-500 mt-1">Current Version</div>
           </div>
         </div>

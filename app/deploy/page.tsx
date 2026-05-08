@@ -136,7 +136,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
               </div>
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
-                <span><code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.co/config.toml</code> (created by <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co create</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co init</code>)</span>
+                <span><code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">.co/host.yaml</code> (created by <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co create</code> or <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-800">co init</code>)</span>
               </div>
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
@@ -148,15 +148,12 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
           <div className="mt-6">
             <h3 className="text-xl font-semibold mb-4">Configuration</h3>
             <CodeWithResult
-              code={`# .co/config.toml
-[project]
-name = "my-agent"
-secrets = ".env"
-
-[deploy]
-entrypoint = "agent.py"`}
-              language="toml"
-              fileName=".co/config.toml"
+              code={`# .co/host.yaml
+name: my-agent
+entrypoint: agent.py
+env: .env`}
+              language="yaml"
+              fileName=".co/host.yaml"
             />
           </div>
 

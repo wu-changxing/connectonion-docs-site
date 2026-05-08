@@ -193,7 +193,7 @@ my-project/
 ├── README.md          # Project documentation (meta-agent only)
 ├── .env.example       # Environment variables template
 └── .co/               # ConnectOnion metadata
-    ├── config.toml
+    ├── host.yaml
     └── docs/
         └── connectonion.md  # Embedded framework documentation
 ```

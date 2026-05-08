@@ -47,7 +47,7 @@ Re-deploying the same project updates the same URL (like Heroku).
 ### Requirements
 
 - Git repository with committed code
-- `.co/config.toml` (created by `co create` or `co init`)
+- `.co/host.yaml` (created by `co create` or `co init`)
 - Authenticated (`co auth`)
 
 ### How It Works
@@ -60,14 +60,11 @@ You upload source code, we handle the rest.
 
 ### Configuration
 
-```toml
-# .co/config.toml
-[project]
-name = "my-agent"
-secrets = ".env"
-
-[deploy]
-entrypoint = "agent.py"
+```yaml
+# .co/host.yaml
+name: my-agent
+entrypoint: agent.py
+env: .env
 ```
 
 ### Secrets

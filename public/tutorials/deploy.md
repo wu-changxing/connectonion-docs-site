@@ -107,20 +107,19 @@ my-agent/
 ├── prompt.md             # System prompt
 ├── .env                  # Local secrets (NOT deployed)
 ├── .co/
-│   └── config.toml       # Project configuration
+│   └── host.yaml        # Project configuration
 └── .git/                 # Git repository
 ```
 
 ## Configuration
 
-The `.co/config.toml` contains project metadata:
+The `.co/host.yaml` contains project metadata:
 
-```toml
-[project]
-name = "my-agent"
-version = "0.1.0"
-created = "2024-01-15"
-template = "minimal"
+```yaml
+name: my-agent
+entrypoint: agent.py
+trust: careful
+env: .env
 ```
 
 ## Secrets Management

@@ -37,7 +37,7 @@ from tools.send_email import send_email  # Your local copy
 
 ```bash
 # 1. Check if email is activated
-cat .co/config.toml | grep email_active
+grep IS_EMAIL_ACTIVE ~/.co/keys.env
 # If false, run: co auth
 
 # 2. Test directly
@@ -142,14 +142,12 @@ Every agent automatically gets an email address:
 
 ### Check your email address
 
-Your email address is configured when you run `co create` or `co init` and stored in `.co/config.toml`:
+Your email address is configured when you run `co create` or `co init` and stored in `~/.co/keys.env`:
 
-```toml
-[agent]
-address = "0x04e1c4ae3c57d716383153479dae869e51e86d43d88db8dfa22fba7533f3968d"
-short_address = "0x04e1c4ae"
-email = "0x04e1c4ae@mail.openonion.ai"
-email_active = false  # Becomes true after 'co auth'
+```bash
+AGENT_ADDRESS=0x04e1c4ae3c57d716383153479dae869e51e86d43d88db8dfa22fba7533f3968d
+AGENT_EMAIL=0x04e1c4ae@mail.openonion.ai
+IS_EMAIL_ACTIVE=false  # Becomes true after 'co auth'
 ```
 
 Access it from your agent:
@@ -185,9 +183,9 @@ $ co auth  # Run this anytime to activate
 
 To check your email status:
 ```bash
-$ cat .co/config.toml | grep email
-email = "0x04e1c4ae@mail.openonion.ai"
-email_active = true  # true = active, false = inactive
+$ grep -E 'AGENT_EMAIL|IS_EMAIL_ACTIVE' ~/.co/keys.env
+AGENT_EMAIL=0x04e1c4ae@mail.openonion.ai
+IS_EMAIL_ACTIVE=true  # true = active, false = inactive
 ```
 
 ### Want a custom name?
@@ -361,7 +359,7 @@ Automatic rate limiting prevents abuse:
 ### Behind the Scenes
 
 - Email address configured during `co create` or `co init`
-- Stored in `.co/config.toml` for your project
+- Stored in `~/.co/keys.env` (env vars on your machine)
 - Uses Resend API for delivery via `mail.openonion.ai` domain
 - Automatic retry on temporary failures
 - Logs all emails for debugging
@@ -373,8 +371,8 @@ Automatic rate limiting prevents abuse:
 
 1. **Check activation status**:
    ```bash
-   cat .co/config.toml | grep email_active
-   # Should show: email_active = true
+   grep IS_EMAIL_ACTIVE ~/.co/keys.env
+   # Should show: IS_EMAIL_ACTIVE=true
    ```
    If false, run `co auth` to activate.
 
