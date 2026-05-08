@@ -1131,13 +1131,11 @@ Every agent automatically gets an email address:
 
 ### Email Configuration
 
-Your email is stored in `.co/host.yaml`:
-```yaml
-agent:
-  address: "0x04e1c4ae3c57d716383153479dae869e51e86d43d88db8dfa22fba7533f3968d"
-  short_address: "0x04e1c4ae"
-  email: "0x04e1c4ae@mail.openonion.ai"
-  email_active: false  # Becomes true after 'co auth'
+Your email is stored in `~/.co/keys.env`:
+```bash
+AGENT_ADDRESS=0x04e1c4ae3c57d716383153479dae869e51e86d43d88db8dfa22fba7533f3968d
+AGENT_EMAIL=0x04e1c4ae@mail.openonion.ai
+IS_EMAIL_ACTIVE=false  # Becomes true after 'co auth'
 ```
 
 ### Using with an Agent
