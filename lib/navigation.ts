@@ -11,7 +11,7 @@
 import {
   HiOutlineHome, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
   HiOutlineArrowsRightLeft, HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineCalculator, HiOutlineCloud, HiOutlineBookOpen,
-  HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone, HiOutlineArrowPath
+  HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone, HiOutlineArrowPath, HiOutlineFolderPlus, HiOutlineKey, HiOutlineDocumentDuplicate
 } from 'react-icons/hi2'
 import { VscComment, VscGitMerge, VscFileCode, VscKey, VscServerProcess } from 'react-icons/vsc'
 import { FaChrome } from 'react-icons/fa'
@@ -54,6 +54,46 @@ export const navigation = [
     section: 'CLI',
     keywords: ['command', 'terminal', 'co', 'commands', 'cli'],
     prev: { href: '/vibe-coding', title: 'Vibe Coding Guide' },
+    next: { href: '/cli/create', title: 'co create' }
+  },
+  {
+    title: 'co create',
+    href: '/cli/create',
+    icon: HiOutlineFolderPlus,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['create', 'project', 'scaffold', 'new', 'template', 'minimal', 'web-research', 'playwright'],
+    prev: { href: '/cli', title: 'CLI Reference' },
+    next: { href: '/cli/init', title: 'co init' }
+  },
+  {
+    title: 'co init',
+    href: '/cli/init',
+    icon: HiOutlineRocketLaunch,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['init', 'initialize', 'existing', 'project', '.env', 'merge', 'docs'],
+    prev: { href: '/cli/create', title: 'co create' },
+    next: { href: '/cli/auth', title: 'co auth' }
+  },
+  {
+    title: 'co auth',
+    href: '/cli/auth',
+    icon: HiOutlineKey,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['auth', 'authenticate', 'login', 'token', 'managed', 'keys', 'google', 'oauth'],
+    prev: { href: '/cli/init', title: 'co init' },
+    next: { href: '/cli/copy', title: 'co copy' }
+  },
+  {
+    title: 'co copy',
+    href: '/cli/copy',
+    icon: HiOutlineDocumentDuplicate,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['copy', 'tools', 'plugins', 'prompts', 'templates', 'reuse'],
+    prev: { href: '/cli/init', title: 'co init' },
     next: { href: '/cli/ai', title: 'co ai' }
   },
   {
@@ -61,8 +101,9 @@ export const navigation = [
     href: '/cli/ai',
     icon: HiOutlineSparkles,
     section: 'CLI',
+    parent: '/cli',
     keywords: ['ai', 'coding', 'agent', 'terminal', 'one-shot', 'interactive', 'web', 'server'],
-    prev: { href: '/cli', title: 'CLI Reference' },
+    prev: { href: '/cli/copy', title: 'co copy' },
     next: { href: '/cli/browser-command', title: 'co browser' }
   },
   {
@@ -70,6 +111,7 @@ export const navigation = [
     href: '/cli/browser-command',
     icon: HiOutlineCamera,
     section: 'CLI',
+    parent: '/cli',
     keywords: ['browser', 'screenshot', 'automation', 'debug', 'playwright', 'viewport'],
     prev: { href: '/cli/ai', title: 'co ai' },
     next: { href: '/agent', title: 'Agent' }
