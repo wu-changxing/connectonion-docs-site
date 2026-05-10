@@ -2,6 +2,26 @@
 
 Give your agents persistent memory using markdown-based storage.
 
+## Usage
+
+**Option 1: Import directly**
+
+```python
+from connectonion import Memory
+
+agent = Agent("assistant", tools=[Memory()])
+```
+
+**Option 2: Copy and customize**
+
+```bash
+co copy memory
+```
+
+```python
+from tools.memory import Memory  # Your local copy
+```
+
 ## Quick Start
 
 ```python
@@ -463,6 +483,21 @@ print(os.path.exists("memory.md"))  # Should be True
 - See [Examples](../examples/memory_agent.py) for complete working code
 - Learn about [Plugins](./plugin.md) for automatic memory behaviors
 - Explore [Multi-Agent Systems](./multi-agent.md) with shared memory
+
+## Customizing
+
+Need to modify Memory's behavior? Copy the source to your project:
+
+```bash
+co copy memory
+```
+
+Then import from your local copy:
+
+```python
+# from connectonion import Memory  # Before
+from tools.memory import Memory      # After - customize freely!
+```
 
 ## Related Documentation
 

@@ -145,9 +145,8 @@ Every agent automatically gets an email address:
 Your email address is configured when you run `co create` or `co init` and stored in `~/.co/keys.env`:
 
 ```bash
-AGENT_ADDRESS=0x04e1c4ae3c57d716383153479dae869e51e86d43d88db8dfa22fba7533f3968d
 AGENT_EMAIL=0x04e1c4ae@mail.openonion.ai
-IS_EMAIL_ACTIVE=false  # Becomes true after 'co auth'
+IS_EMAIL_ACTIVE=true  # Set to true after 'co auth'
 ```
 
 Access it from your agent:
@@ -183,9 +182,9 @@ $ co auth  # Run this anytime to activate
 
 To check your email status:
 ```bash
-$ grep -E 'AGENT_EMAIL|IS_EMAIL_ACTIVE' ~/.co/keys.env
+$ grep AGENT_EMAIL ~/.co/keys.env
 AGENT_EMAIL=0x04e1c4ae@mail.openonion.ai
-IS_EMAIL_ACTIVE=true  # true = active, false = inactive
+IS_EMAIL_ACTIVE=true
 ```
 
 ### Want a custom name?
@@ -359,7 +358,7 @@ Automatic rate limiting prevents abuse:
 ### Behind the Scenes
 
 - Email address configured during `co create` or `co init`
-- Stored in `~/.co/keys.env` (env vars on your machine)
+- Stored in `~/.co/keys.env` (as `AGENT_EMAIL`)
 - Uses Resend API for delivery via `mail.openonion.ai` domain
 - Automatic retry on temporary failures
 - Logs all emails for debugging

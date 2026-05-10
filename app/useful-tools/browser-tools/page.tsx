@@ -94,6 +94,10 @@ with BrowserAutomation() as browser:
               <h3 className="font-semibold text-gray-900 mb-2">Interaction</h3>
               <ul className="text-sm text-gray-600 space-y-1 font-mono">
                 <li>click(description)</li>
+                <li>hover(description)</li>
+                <li>mouse_click(x, y)</li>
+                <li>right_click(description)</li>
+                <li>double_click(description)</li>
                 <li>keyboard_type(text)</li>
                 <li>keyboard_press(key)</li>
                 <li>scroll(times?, description?)</li>
@@ -158,8 +162,48 @@ browser.take_screenshot("login_page.png")
 browser.take_screenshot(full_page=True)
 
 # Headless vs visible
-BrowserAutomation(headless=True)   # Default — runs in background
-BrowserAutomation(headless=False)  # Open visible window`}
+BrowserAutomation(headless=False)  # Default — opens visible window
+BrowserAutomation(headless=True)   # Runs in background (faster, no window)`}
+            language="python"
+          />
+        </section>
+
+        {/* Hover and Advanced Mouse */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCpuChip className="w-8 h-8 text-gray-400" />
+            Hover &amp; Advanced Mouse
+          </h2>
+          <p className="text-gray-700 mb-6">
+            Reveal hover menus, click exact pixel coordinates, or open context menus:
+          </p>
+          <CodeWithResult
+            code={`browser.hover("the Like button")         # Hover to reveal menus/tooltips
+browser.take_screenshot()                # See what appeared
+browser.mouse_click(x, y)                # Click exact coordinates (for hover menus)
+
+browser.right_click("the file icon")     # Open context menu
+browser.double_click("the file name")    # Double-click to open/select`}
+            language="python"
+          />
+          <div className="mt-4 bg-gray-50 border border-gray-200 rounded-lg p-4 text-sm text-gray-700">
+            <code className="font-mono">mouse_click(x, y)</code> is useful after <code className="font-mono">hover()</code> — clicking by description would re-scan the DOM and dismiss the hover menu.
+          </div>
+        </section>
+
+        {/* System Info */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
+            System Info
+          </h2>
+          <p className="text-gray-700 mb-6">
+            Call <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">get_system_info()</code> before using keyboard shortcuts to get the correct modifier key for the current OS:
+          </p>
+          <CodeWithResult
+            code={`info = browser.get_system_info()
+# → "OS: macOS. Use Meta for shortcuts (Meta+a select all, Meta+c copy...)"
+# → "OS: Windows. Use Control for shortcuts..."`}
             language="python"
           />
         </section>

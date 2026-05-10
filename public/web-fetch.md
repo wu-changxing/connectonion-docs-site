@@ -2,6 +2,26 @@
 
 Web fetching tool with single-responsibility functions.
 
+## Usage
+
+**Option 1: Import directly**
+
+```python
+from connectonion import WebFetch
+
+agent = Agent("researcher", tools=[WebFetch()])
+```
+
+**Option 2: Copy and customize**
+
+```bash
+co copy web_fetch
+```
+
+```python
+from tools.web_fetch import WebFetch  # Your local copy
+```
+
 ## Installation
 
 ```python
@@ -112,4 +132,19 @@ web = WebFetch()
 agent = Agent("researcher", tools=[web])
 
 agent.input("What does stripe.com do?")
+```
+
+## Customizing
+
+Need to modify WebFetch's behavior? Copy the source to your project:
+
+```bash
+co copy web_fetch
+```
+
+Then import from your local copy:
+
+```python
+# from connectonion import WebFetch  # Before
+from tools.web_fetch import WebFetch  # After - customize freely!
 ```

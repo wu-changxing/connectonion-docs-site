@@ -287,7 +287,7 @@ agent.input("Which projects are blocked?")
 
             <div>
               <h3 className="text-2xl font-semibold mb-4">Example 3: Research Assistant</h3>
-              <CodeWithResult 
+              <CodeWithResult
                 code={`from connectonion import Agent, Memory
 
 def web_search(query: str) -> str:
@@ -310,6 +310,111 @@ agent.input("Research the history of Python programming and save key points")
 agent.input("What did I learn about Python's history?")`}
                 language="python"
                 fileName="research_assistant.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">Example 4: Multi-Agent Shared Memory</h3>
+              <p className="text-gray-700 mb-4">Pass the same Memory instance to multiple agents so they share knowledge:</p>
+              <CodeWithResult
+                code={`from connectonion import Agent, Memory
+
+# Shared memory between agents
+shared_memory = Memory(memory_dir="shared_knowledge")
+
+researcher = Agent(
+    name="researcher",
+    system_prompt="You research and document findings.",
+    tools=[shared_memory]
+)
+
+writer = Agent(
+    name="writer",
+    system_prompt="You write articles based on research.",
+    tools=[shared_memory]
+)
+
+# Researcher saves findings
+researcher.input("Research AI trends and save the findings")
+
+# Writer uses the same memory
+writer.input("Write an article based on AI trends research")`}
+                language="python"
+                fileName="multi_agent_memory.py"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Advanced Patterns */}
+        <section className="mb-16">
+          <h2 className="heading-2">Advanced Patterns</h2>
+
+          <div className="space-y-12">
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">Memory with Different Tools</h3>
+              <p className="text-gray-700 mb-4">Memory works alongside any other tools:</p>
+              <CodeWithResult
+                code={`from connectonion import Agent, Memory
+
+def calculate(expression: str) -> float:
+    """Calculate math expressions."""
+    return eval(expression)
+
+def send_email(to: str, subject: str, body: str) -> str:
+    """Send an email."""
+    # Implementation
+    return "Email sent"
+
+memory = Memory()
+
+agent = Agent(
+    name="multi-tool-agent",
+    tools=[calculate, send_email, memory]
+)`}
+                language="python"
+                fileName="multi_tool.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">Custom File Organization</h3>
+              <p className="text-gray-700 mb-4">Use separate Memory files for different purposes:</p>
+              <CodeWithResult
+                code={`# Separate memory files for different purposes
+customer_memory = Memory(memory_file="data/customers.md")
+project_memory = Memory(memory_file="data/projects.md")
+research_memory = Memory(memory_file="data/research.md")
+
+agent = Agent(
+    name="organized-agent",
+    tools=[customer_memory, project_memory, research_memory]
+)`}
+                language="python"
+                fileName="organized.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">Regex Search Patterns</h3>
+              <p className="text-gray-700 mb-4">Powerful pattern matching across all stored memories:</p>
+              <CodeWithResult
+                code={`# Find email addresses
+memory.search_memory(r"\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b")
+
+# Find phone numbers
+memory.search_memory(r"\\d{3}-\\d{3}-\\d{4}")
+
+# Find dates (YYYY-MM-DD)
+memory.search_memory(r"\\d{4}-\\d{2}-\\d{2}")
+
+# Find URLs
+memory.search_memory(r"https?://[^\\s]+")
+
+# Case-insensitive keyword with word boundaries
+memory.search_memory(r"(?i)\\bproject\\b")`}
+                language="python"
+                fileName="regex_patterns.py"
               />
             </div>
           </div>
@@ -365,7 +470,7 @@ memory.write_memory("note1", content)`}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="font-semibold text-gray-900 mb-2">2. Structure Your Content</h3>
               <p className="text-gray-700 mb-2">Use markdown formatting for better organization:</p>
-              <CodeWithResult 
+              <CodeWithResult
                 code={`content = """# Alice - TechCorp
 
 ## Contact Info
@@ -379,6 +484,122 @@ memory.write_memory("alice-techcorp", content)`}
                 fileName="structure.py"
               />
             </div>
+
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">3. Keep Memories Updated</h3>
+              <p className="text-gray-700 mb-2">Periodically prune or refresh stale notes:</p>
+              <CodeWithResult
+                code={`# Update or overwrite outdated memories
+agent.input("Review and update any memories older than 6 months")`}
+                language="python"
+                fileName="updates.py"
+              />
+            </div>
+
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">4. Search Before Creating</h3>
+              <p className="text-gray-700 mb-2">Avoid duplicates by checking first:</p>
+              <CodeWithResult
+                code={`# Check if similar memory exists
+agent.input("Do we have any notes about Alice?")
+# Agent will search before creating duplicate memory`}
+                language="python"
+                fileName="search_first.py"
+              />
+            </div>
+
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">5. Use Consistent Naming</h3>
+              <p className="text-gray-700 mb-2">Pick a key prefix convention and stick to it:</p>
+              <CodeWithResult
+                code={`memory.write_memory("customer-alice-techcorp", ...)
+memory.write_memory("customer-bob-acmecorp", ...)
+memory.write_memory("project-alpha", ...)
+memory.write_memory("project-beta", ...)`}
+                language="python"
+                fileName="naming.py"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Limitations */}
+        <section className="mb-16">
+          <h2 className="heading-2">Limitations</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">Storage</h3>
+              <p className="text-sm text-gray-700">All memories are loaded during search. For very large stores (&gt;1000 files or &gt;100MB), consider a database backend.</p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">Concurrency</h3>
+              <p className="text-sm text-gray-700">File-based storage isn&apos;t optimized for high concurrency. Multiple agents writing to the same memory may race.</p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">Search Performance</h3>
+              <p className="text-sm text-gray-700">Regex search scans linearly. For large-scale search, consider Elasticsearch or similar.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Troubleshooting */}
+        <section className="mb-16">
+          <h2 className="heading-2">Troubleshooting</h2>
+
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-3">&ldquo;Memory not found&rdquo;</h3>
+              <p className="text-gray-700 mb-3">Keys are sanitized — list all stored memories to see actual keys:</p>
+              <CodeWithResult
+                code={`print(memory.list_memories())`}
+                language="python"
+                fileName="check_keys.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-3">&ldquo;Invalid key name&rdquo;</h3>
+              <p className="text-gray-700 mb-3">Use only alphanumeric characters, hyphens, and underscores:</p>
+              <CodeWithResult
+                code={`# Good
+memory.write_memory("alice-notes", content)
+
+# Bad — will be rejected or sanitized
+memory.write_memory("alice@notes!", content)`}
+                language="python"
+                fileName="key_format.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-3">Memory file not created</h3>
+              <p className="text-gray-700 mb-3">The file is created on first write, not on construction:</p>
+              <CodeWithResult
+                code={`import os
+memory = Memory()
+memory.write_memory("test", "content")
+print(os.path.exists("memory.md"))  # True`}
+                language="python"
+                fileName="creation.py"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Customizing */}
+        <section className="mb-16">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-gray-700 mb-4">
+            Need to modify Memory&apos;s behavior? Copy the source into your project and import from there:
+          </p>
+          <CommandBlock commands={['co copy memory']} />
+          <div className="mt-6">
+            <CodeWithResult
+              code={`# from connectonion import Memory  # Before
+from tools.memory import Memory      # After — customize freely`}
+              language="python"
+              fileName="custom_import.py"
+            />
           </div>
         </section>
 
