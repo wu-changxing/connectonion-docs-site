@@ -167,7 +167,7 @@ T+15                       ◄────────────────�
        ◄── approval_needed─                     io.receive() BLOCKS
                                                  waiting for response...
 
-T+20   ✕ DISCONNECT         mark_suspended()
+T+20   ✕ DISCONNECT         (status stays running)
                             (queues stay alive)   (still blocked)
 
 T+25   RECONNECT ──────────► registry.get() → FOUND
@@ -282,7 +282,7 @@ T+35                        ◄────────────────�
 
           <div className="space-y-3 mt-4">
             {[
-              { label: 'No special cases', desc: 'Completed, suspended — same rule.' },
+              { label: 'No special cases', desc: 'connected only — same rule.' },
               { label: 'Results already on disk', desc: 'JSONL storage has the final result.' },
               { label: 'Client can still poll', desc: 'GET /sessions/{id} works for 24h.' },
               { label: 'Background job', desc: 'Runs every 60s to sweep expired sessions.' },
@@ -399,7 +399,7 @@ iteration: 5                iteration: 10
   ↑ client session: 4 messages       # client sent history
   ↕ merged sessions (server newer)   # server had newer data
 
-✓ CONNECT identity=0x2f3d... session=aad5... status=executing
+✓ CONNECT identity=0x2f3d... session=aad5... status=running
   ↻ reattaching to running agent     # reconnecting mid-execution
 
 ✓ INPUT identity=0x2f3d... session=aad5... prompt=analyze this...
@@ -440,7 +440,7 @@ T+5    Client refreshes → WebSocket disconnects
          → _pipe_ws_io hangs forever
 
 T+10   New WebSocket connects → CONNECT { session_id }
-       → registry.get() finds session, still 'executing'
+       → registry.get() finds session, still 'running'
        → Reattach: uses SAME io object
        → BUT io._closed = True → io.send() drops all events
        → Agent can't send to new client`}

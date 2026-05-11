@@ -98,7 +98,15 @@ Waiting for tasks...`}
               </div>
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
-                <span><strong>P2P Relay</strong> → Connect from anywhere via relay</span>
+                <span><strong>P2P Relay</strong> → Connect from anywhere via relay (1s auto-reconnect on drop)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
+                <span><strong>Mid-execution input</strong> → Users can send messages while the agent is still working — server queues them and the agent picks them up at the next iteration boundary</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
+                <span><strong>Reconnect replay</strong> → Client passes <code className="bg-gray-100 px-1 rounded text-sm">last_msg_id</code> on CONNECT and gets back any events it missed during a WS drop</span>
               </div>
             </div>
           </div>

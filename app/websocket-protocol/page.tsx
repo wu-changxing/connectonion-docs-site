@@ -93,7 +93,7 @@ export default function WebSocketProtocolPage() {
 │   CONNECT carries:   auth + session (conversation history)     │
 │   INPUT carries:     just the prompt (session already set)     │
 │                                                                │
-│   Server decides:    new / connected / executing               │
+│   Server decides:    new / connected / running                 │
 │                                                                │
 └────────────────────────────────────────────────────────────────┘`}
           </Diagram>
@@ -115,35 +115,28 @@ export default function WebSocketProtocolPage() {
 
           <Diagram label="State transitions">
 {`    ╭──────────╮
-    │   new    │◄──────────────────── session_id not found
+    │   new    │◄──── session_id not found / first connect
     ╰────┬─────╯
          │ CONNECT
          ↓
     ╭──────────╮
-    │connected │◄──── agent done (OUTPUT) ◄──── user reconnects
-    ╰────┬─────╯                                (within 10min)
+    │connected │── 10min idle ─► REMOVED
+    │ (idle)   │
+    ╰────┬─────╯
          │ INPUT
          ↓
     ╭──────────╮
-    │executing │──── agent working (LLM → tools → LLM)
+    │ running  │── 1h idle (stuck) ─► REMOVED
     ╰────┬─────╯
-         │
-    ┌────┴────────────────────┐
-    │                         │
-    ↓ agent done              ↓ WS disconnects
-    ╭──────────╮         ╭───────────╮
-    │connected │         │ suspended │
-    │ (idle)   │         │ (grace)   │
-    ╰──────────╯         ╰─────┬─────╯
-         │                     │
-         │ next INPUT          ├── reconnect within 10min → connected
-         ↓                     │
-    ╭──────────╮               └── 10min idle → removed
-    │executing │
+         │ agent done
+         ↓
+    ╭──────────╮
+    │connected │── 10min idle ─► REMOVED
     ╰──────────╯
 
-    Key insight: "completed" is NOT a session state.
-    It's an execution state. The session stays alive.`}
+    Two states only: 'running' (agent working) and 'connected' (idle, alive).
+    WS disconnect does NOT change session.status — IO queues survive the WS,
+    a reconnecting client just re-subscribes via CONNECT { last_msg_id }.`}
           </Diagram>
         </section>
 
@@ -184,19 +177,20 @@ export default function WebSocketProtocolPage() {
           </Diagram>
 
           <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Resume After Page Refresh (agent still running)</h3>
-          <Diagram label="Reconnect to executing agent">
+          <Diagram label="Reconnect to running agent">
 {`Client                                    Server
   │                                         │
-  │    (agent still executing on server)    │
+  │    (agent still running on server)      │
   │                                         │
   │── WS open ────────────────────────────►│
   │                                         │
   │── CONNECT ─────────────────────────────►│  verify signature
-  │   { session_id: "abc", session: {...} } │  registry.get("abc") → executing
+  │   { session_id, last_msg_id, session }  │  registry.get(...) → running
+  │                                         │  io.rewind_to(last_msg_id)
   │                                         │  merge sessions if server newer
   │                                         │
-  │◄── CONNECTED ──────────────────────────│  { session_id: "abc", status: "executing" }
-  │◄── buffered events ───────────────────│  drain queued events
+  │◄── CONNECTED ──────────────────────────│  { session_id, status: "running" }
+  │◄── replayed events (after last_msg_id)│  pump io._msgs_from_agent
   │◄── PING ───────────────────────────────│  keep-alive resumes
   │                                         │
   │◄── stream events ─────────────────────│  live again
@@ -258,6 +252,7 @@ export default function WebSocketProtocolPage() {
           <JsonBlock>{`{
   "type": "CONNECT",
   "session_id": "550e8400-...",
+  "last_msg_id": "ev-9f12...",
   "session": { "messages": [...], "mode": "safe" },
   "payload": { "to": "0x3d4017c3e843...", "timestamp": 1702234567 },
   "from": "0xClientPublicKey",
@@ -283,6 +278,11 @@ export default function WebSocketProtocolPage() {
                   <td className="px-4 py-3 font-mono text-gray-700">session</td>
                   <td className="px-4 py-3 text-gray-600">No</td>
                   <td className="px-4 py-3 text-gray-600">Conversation history (messages, mode, etc.)</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-700">last_msg_id</td>
+                  <td className="px-4 py-3 text-gray-600">No</td>
+                  <td className="px-4 py-3 text-gray-600">ID of the last agent event the client fully rendered. On resume of a running session, server rewinds its event cursor to right after this id and replays anything missed. Omit (or null) to replay all in-flight events of the current execution.</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">payload</td>
@@ -323,13 +323,13 @@ export default function WebSocketProtocolPage() {
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-gray-600">Provided</td>
-                  <td className="px-4 py-3 text-gray-600">In registry, executing</td>
-                  <td className="px-4 py-3 font-mono text-gray-700">&quot;executing&quot;</td>
-                  <td className="px-4 py-3 text-gray-600">Reattach IO, pipe buffered events</td>
+                  <td className="px-4 py-3 text-gray-600">In registry, running</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">&quot;running&quot;</td>
+                  <td className="px-4 py-3 text-gray-600">io.rewind_to(last_msg_id), spawn new forward task</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-gray-600">Provided</td>
-                  <td className="px-4 py-3 text-gray-600">In registry, connected/suspended</td>
+                  <td className="px-4 py-3 text-gray-600">In registry, connected</td>
                   <td className="px-4 py-3 font-mono text-gray-700">&quot;connected&quot;</td>
                   <td className="px-4 py-3 text-gray-600">Merge sessions, reset idle timer</td>
                 </tr>
@@ -345,7 +345,7 @@ export default function WebSocketProtocolPage() {
 
           <h4 className="text-lg font-semibold text-gray-900 mt-8 mb-2">INPUT</h4>
           <p className="text-gray-700 mb-4">
-            Send a prompt. Only valid after CONNECTED. <strong>No session data — just the prompt.</strong>
+            Send a prompt. Only valid after CONNECTED. <strong>No session data — just the prompt.</strong> If the session already has a running agent, the server routes this as <strong>runtime input</strong> (mid-execution interjection) instead of starting a second agent. The prompt is appended to the running agent&apos;s message history at the next iteration, and the server replies <code className="bg-gray-100 px-1 rounded">RUNTIME_INPUT_ACK</code> instead of starting a new OUTPUT cycle.
           </p>
           <JsonBlock>{`{
   "type": "INPUT",
@@ -448,9 +448,9 @@ export default function WebSocketProtocolPage() {
                   <td className="px-4 py-3 text-gray-600">Send INPUT when ready</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-700">&quot;executing&quot;</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">&quot;running&quot;</td>
                   <td className="px-4 py-3 text-gray-700">Agent still running</td>
-                  <td className="px-4 py-3 text-gray-600">Wait for events/OUTPUT</td>
+                  <td className="px-4 py-3 text-gray-600">Wait for replayed/streaming events</td>
                 </tr>
               </tbody>
             </table>
@@ -502,8 +502,23 @@ export default function WebSocketProtocolPage() {
             </table>
           </div>
 
+          <h4 className="text-lg font-semibold text-gray-700 mt-8 mb-2">RUNTIME_INPUT_ACK</h4>
+          <p className="text-gray-700 mb-4">
+            Acknowledges an INPUT that arrived while the agent was running. The prompt has been queued and will be picked up at the agent&apos;s next iteration boundary. No new OUTPUT cycle — the original input&apos;s OUTPUT carries the agent&apos;s final response addressing both prompts.
+          </p>
+          <JsonBlock>{`{
+  "type": "RUNTIME_INPUT_ACK",
+  "session_id": "550e8400-...",
+  "id": "runtime-input-7c2a..."
+}`}</JsonBlock>
+
           <h4 className="text-lg font-semibold text-red-700 mt-8 mb-2">ERROR</h4>
-          <JsonBlock>{`{ "type": "ERROR", "message": "Something went wrong" }`}</JsonBlock>
+          <p className="text-gray-700 mb-4">Malformed input or protocol violations. For JSON parse errors, the server also returns the offending payload so the client can locate the bug.</p>
+          <JsonBlock>{`{
+  "type": "ERROR",
+  "message": "Invalid JSON: Expecting property name enclosed in double quotes at line 2 col 5 (pos 18)",
+  "received": "{type: 'INPUT', ...}"
+}`}</JsonBlock>
         </section>
 
         {/* Architecture Diagram */}
@@ -618,7 +633,7 @@ signature → OK             (same WS, already authenticated)`}
   │           │
   │           ├── "new"       → session expired, start fresh (client has history)
   │           ├── "connected" → session alive, ready for INPUT
-  │           └── "executing" → agent running, events will stream
+  │           └── "running" → agent running, events will stream
   │
   └── No  → show empty state, wait for user input
               → CONNECT (no session_id) on first message`}
@@ -646,7 +661,7 @@ signature → OK             (same WS, already authenticated)`}
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-gray-700 mb-2">v0.11.x — Session survives execution (current)</p>
               <pre className="text-sm font-mono text-gray-700">{`WS open → CONNECT { auth, session_id?, session }
-         → CONNECTED { status: new/connected/executing }
+         → CONNECTED { status: new/connected/running }
 
          INPUT { prompt }   → events → OUTPUT  (session stays alive)
          INPUT { prompt }   → events → OUTPUT  (again, same session)
@@ -680,7 +695,7 @@ WS close → 10min grace → session cleaned up`}</pre>
   ↑ client session: 4 messages       # client sent history
   ↕ merged sessions (server newer)   # server had newer data
 
-✓ CONNECT identity=0x2f3d... session=aad5... status=executing
+✓ CONNECT identity=0x2f3d... session=aad5... status=running
   ↻ reattaching to running agent     # reconnecting mid-execution
 
 ✓ INPUT identity=0x2f3d... session=aad5... prompt=analyze this...
