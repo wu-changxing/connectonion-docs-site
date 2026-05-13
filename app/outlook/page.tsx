@@ -25,6 +25,34 @@ export default function OutlookPage() {
           markdownFilename="outlook.md"
         />
 
+        {/* Usage */}
+        <section className="mb-16">
+          <h2 className="heading-2">Usage</h2>
+          <div className="space-y-6">
+            <div>
+              <p className="text-gray-700 mb-3 font-semibold">Option 1: Import directly</p>
+              <CodeWithResult
+                code={`from connectonion import Outlook
+
+agent = Agent("assistant", tools=[Outlook()])`}
+                language="python"
+                fileName="import.py"
+              />
+            </div>
+            <div>
+              <p className="text-gray-700 mb-3 font-semibold">Option 2: Copy and customize</p>
+              <CommandBlock commands={['co copy outlook']} />
+              <div className="mt-3">
+                <CodeWithResult
+                  code={`from tools.outlook import Outlook  # Your local copy`}
+                  language="python"
+                  fileName="copy.py"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
@@ -53,6 +81,7 @@ agent.input("Send an email to alice@example.com saying hello")`}
           <CommandBlock commands={['co auth microsoft']} />
 
           <p className="text-gray-700 mt-4">Your agent can now read and manage Outlook emails.</p>
+          <p className="text-gray-700 mt-3"><strong>Switch accounts?</strong> Run <code className="bg-gray-100 px-2 py-0.5 rounded">co auth microsoft</code> again to connect a different Microsoft account.</p>
         </section>
 
         {/* Agent Methods - Reading */}
@@ -204,6 +233,20 @@ agent.input("Find all emails about the quarterly report")
 agent.input("How many unread emails do I have?")`}
             language="python"
             fileName="complete_example.py"
+          />
+        </section>
+
+        {/* Customizing */}
+        <section className="mb-16">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-gray-700 mb-4">Need to modify Outlook's behavior? Copy the source to your project:</p>
+          <CommandBlock commands={['co copy outlook']} />
+          <p className="text-gray-700 mt-4 mb-3">Then import from your local copy:</p>
+          <CodeWithResult
+            code={`# from connectonion import Outlook  # Before
+from tools.outlook import Outlook    # After - customize freely!`}
+            language="python"
+            fileName="customize.py"
           />
         </section>
 

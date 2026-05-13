@@ -208,6 +208,146 @@ browser.double_click("the file name")    # Double-click to open/select`}
           />
         </section>
 
+        {/* Typing */}
+        <section className="mb-20">
+          <h2 className="heading-2">Typing</h2>
+          <CodeWithResult
+            code={`browser.click("the email input")
+browser.keyboard_type("user@example.com")
+
+browser.keyboard_press("Enter")
+browser.keyboard_press("Control+Enter")
+browser.keyboard_press("Escape")
+browser.keyboard_press("Tab")`}
+            language="python"
+          />
+          <p className="text-gray-700 mt-4 text-sm">
+            After <code className="bg-gray-100 px-2 py-1 rounded font-mono">keyboard_type()</code>, call <code className="bg-gray-100 px-2 py-1 rounded font-mono">take_screenshot()</code> to verify the text landed in the right field.
+          </p>
+        </section>
+
+        {/* Scrolling */}
+        <section className="mb-20">
+          <h2 className="heading-2">Scrolling</h2>
+          <CodeWithResult
+            code={`browser.scroll()                                     # 5 scrolls on main content
+browser.scroll(times=3, description="the sidebar")  # Scroll a specific area`}
+            language="python"
+          />
+          <p className="text-gray-700 mt-4 text-sm">
+            Uses AI to pick the best scroll strategy (element scroll, page scroll, or mouse wheel).
+          </p>
+        </section>
+
+        {/* Reading Page Content */}
+        <section className="mb-20">
+          <h2 className="heading-2">Reading Page Content</h2>
+          <CodeWithResult
+            code={`browser.get_text()                           # All visible text from the page
+browser.get_links_from_page()                # All unique URLs
+browser.get_links_from_page("github.com")   # URLs containing "github.com"`}
+            language="python"
+          />
+        </section>
+
+        {/* Forms */}
+        <section className="mb-20">
+          <h2 className="heading-2">Forms</h2>
+          <CodeWithResult
+            code={`browser.select_option("country dropdown", "Australia")
+browser.check_checkbox("I agree to terms")
+browser.check_checkbox("newsletter", checked=False)  # Uncheck`}
+            language="python"
+          />
+        </section>
+
+        {/* Waiting */}
+        <section className="mb-20">
+          <h2 className="heading-2">Waiting</h2>
+          <CodeWithResult
+            code={`browser.wait(2)                              # Wait 2 seconds
+browser.wait_for_element("the save button") # Wait for element to appear
+browser.wait_for_text("Payment successful") # Wait for text on page
+browser.wait_for_manual_login("Gmail")      # Pause for 2FA/CAPTCHA`}
+            language="python"
+          />
+        </section>
+
+        {/* Viewport */}
+        <section className="mb-20">
+          <h2 className="heading-2">Viewport</h2>
+          <CodeWithResult
+            code={`browser.set_viewport(1920, 1080)
+browser.set_viewport(375, 812)   # iPhone`}
+            language="python"
+          />
+        </section>
+
+        {/* Use with Agent */}
+        <section className="mb-20">
+          <h2 className="heading-2">Use with Agent</h2>
+          <CodeWithResult
+            code={`from connectonion import Agent
+from connectonion.useful_tools.browser_tools import BrowserAutomation
+
+browser = BrowserAutomation(headless=False)  # Visible for debugging
+agent = Agent("scraper", tools=[browser], model="co/gemini-2.5-pro")
+
+agent.input("Go to news.ycombinator.com, get the top 5 story titles")
+agent.input("Navigate to github.com/trending and screenshot the page")
+agent.input("Fill in the contact form on example.com with test data")`}
+            language="python"
+          />
+        </section>
+
+        {/* Common Patterns */}
+        <section className="mb-20">
+          <h2 className="heading-2">Common Patterns</h2>
+
+          <h3 className="text-xl font-semibold mb-4">Login once, reuse session</h3>
+          <CodeWithResult
+            code={`browser = BrowserAutomation()
+browser.go_to("https://app.example.com/login")
+browser.wait_for_manual_login("example.com")  # Log in once
+
+# Every run after: session is restored from ~/.co/browser_profile/`}
+            language="python"
+          />
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Screenshot workflow</h3>
+          <CodeWithResult
+            code={`browser.go_to("https://example.com")
+browser.click("Login")
+browser.keyboard_type("user@example.com")
+browser.keyboard_press("Tab")
+browser.keyboard_type("password123")
+browser.take_screenshot("before_submit.png")
+browser.keyboard_press("Enter")
+browser.wait(2)
+browser.take_screenshot("after_login.png")`}
+            language="python"
+          />
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Data extraction</h3>
+          <CodeWithResult
+            code={`browser.go_to("https://example.com/products")
+text = browser.get_text()
+links = browser.get_links_from_page("/product/")`}
+            language="python"
+          />
+        </section>
+
+        {/* Notes */}
+        <section className="mb-20">
+          <h2 className="heading-2">Notes</h2>
+          <ul className="space-y-2 text-gray-700">
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Uses Google Chrome if installed (better site compatibility), otherwise falls back to Chromium</span></li>
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Viewport defaults to 1920×1200 for maximum content visibility</span></li>
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Output is truncated when used as an agent tool to prevent token overflow</span></li>
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Windows is not supported</span></li>
+          </ul>
+        </section>
+
         <ContentNavigation />
       </div>
     </div>

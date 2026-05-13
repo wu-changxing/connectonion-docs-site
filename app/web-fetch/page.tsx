@@ -44,6 +44,48 @@ agent.input("Get contact info from acme.com")`}
           />
         </section>
 
+        {/* Usage */}
+        <section className="mb-16">
+          <h2 className="heading-2">Usage</h2>
+
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-3">Option 1: Import directly</h3>
+              <CodeWithResult
+                code={`from connectonion import WebFetch
+
+agent = Agent("researcher", tools=[WebFetch()])`}
+                language="python"
+                fileName="import_direct.py"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-3">Option 2: Copy and customize</h3>
+              <CommandBlock commands={['co copy web_fetch']} />
+              <div className="mt-4">
+                <CodeWithResult
+                  code={`from tools.web_fetch import WebFetch  # Your local copy`}
+                  language="python"
+                  fileName="import_local.py"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Installation */}
+        <section className="mb-16">
+          <h2 className="heading-2">Installation</h2>
+          <CodeWithResult
+            code={`from connectonion import WebFetch
+
+web = WebFetch()`}
+            language="python"
+            fileName="install.py"
+          />
+        </section>
+
         {/* Low-Level Methods */}
         <section className="mb-16">
           <h2 className="heading-2">Low-Level Methods</h2>
@@ -57,8 +99,8 @@ agent.input("Get contact info from acme.com")`}
               </h3>
               <p className="text-gray-700 text-sm mb-4">HTTP GET request, returns raw HTML</p>
               <CodeWithResult
-                code={`html = web.fetch("https://example.com")
-# Returns raw HTML string`}
+                code={`html = web.fetch("example.com")
+# Returns: "<!DOCTYPE html>..."`}
                 language="python"
                 fileName="fetch.py"
               />
@@ -67,13 +109,12 @@ agent.input("Get contact info from acme.com")`}
             <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
               <h3 className="font-semibold text-gray-700 font-mono mb-2 flex items-center gap-2">
                 <HiOutlineDocumentText className="w-4 h-4" />
-                strip_tags(html, max_chars=10000)
+                strip_tags(html)
               </h3>
               <p className="text-gray-700 text-sm mb-4">Strip HTML tags, returns body text only</p>
               <CodeWithResult
-                code={`html = web.fetch("https://example.com")
-text = web.strip_tags(html)
-# Returns clean plain text (body content only)`}
+                code={`text = web.strip_tags(html)
+# Returns clean text without HTML`}
                 language="python"
                 fileName="strip_tags.py"
               />
@@ -84,7 +125,13 @@ text = web.strip_tags(html)
                 <HiOutlineDocumentText className="w-4 h-4" />
                 get_title(html)
               </h3>
-              <p className="text-gray-700 text-sm">Get page title from HTML</p>
+              <p className="text-gray-700 text-sm mb-4">Get page title</p>
+              <CodeWithResult
+                code={`title = web.get_title(html)
+# Returns: "Example Domain"`}
+                language="python"
+                fileName="get_title.py"
+              />
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
@@ -92,7 +139,13 @@ text = web.strip_tags(html)
                 <HiOutlineLink className="w-4 h-4" />
                 get_links(html)
               </h3>
-              <p className="text-gray-700 text-sm">Extract all links from HTML</p>
+              <p className="text-gray-700 text-sm mb-4">Extract all links from HTML</p>
+              <CodeWithResult
+                code={`links = web.get_links(html)
+# Returns: [{'text': 'Home', 'href': '/'}, {'text': 'About', 'href': '/about'}]`}
+                language="python"
+                fileName="get_links.py"
+              />
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
@@ -100,7 +153,13 @@ text = web.strip_tags(html)
                 <HiOutlineEnvelope className="w-4 h-4" />
                 get_emails(html)
               </h3>
-              <p className="text-gray-700 text-sm">Extract email addresses from HTML</p>
+              <p className="text-gray-700 text-sm mb-4">Extract email addresses from HTML</p>
+              <CodeWithResult
+                code={`emails = web.get_emails(html)
+# Returns: ['support@example.com', 'sales@company.org']`}
+                language="python"
+                fileName="get_emails.py"
+              />
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
@@ -108,7 +167,14 @@ text = web.strip_tags(html)
                 <HiOutlineShare className="w-4 h-4" />
                 get_social_links(html)
               </h3>
-              <p className="text-gray-700 text-sm">Extract social media links (Twitter, LinkedIn, Facebook, etc.)</p>
+              <p className="text-gray-700 text-sm mb-4">Extract social media links</p>
+              <CodeWithResult
+                code={`html = web.fetch("openai.com")
+social = web.get_social_links(html)
+# Returns: {'twitter': 'https://x.com/OpenAI', 'youtube': '...', 'github': '...'}`}
+                language="python"
+                fileName="get_social_links.py"
+              />
             </div>
           </div>
         </section>
@@ -126,8 +192,8 @@ text = web.strip_tags(html)
               </h3>
               <p className="text-gray-700 text-sm mb-4">Use LLM to understand what a page/company does</p>
               <CodeWithResult
-                code={`result = web.analyze_page("https://stripe.com")
-# Returns: "Stripe is a payment processing platform that..."}`}
+                code={`result = web.analyze_page("stripe.com")
+# Returns: "Stripe is a technology company that builds economic infrastructure..."`}
                 language="python"
                 fileName="analyze_page.py"
               />
@@ -138,19 +204,32 @@ text = web.strip_tags(html)
                 <HiOutlineMagnifyingGlass className="w-4 h-4" />
                 get_contact_info(url)
               </h3>
-              <p className="text-gray-700 text-sm mb-4">Extract contact information (email, phone, address) using LLM</p>
+              <p className="text-gray-700 text-sm mb-4">Extract contact information using LLM</p>
               <CodeWithResult
-                code={`info = web.get_contact_info("https://acme.com")
-# Returns: {
-#   "email": "contact@acme.com",
-#   "phone": "+1-555-0123",
-#   "address": "123 Main St, City"
-# }`}
+                code={`result = web.get_contact_info("stripe.com/contact")
+# Returns: "Email: support@stripe.com, Phone: ..."`}
                 language="python"
                 fileName="get_contact_info.py"
               />
             </div>
           </div>
+        </section>
+
+        {/* Composing Functions */}
+        <section className="mb-16">
+          <h2 className="heading-2">Composing Functions</h2>
+          <p className="text-gray-700 mb-4">Chain low-level methods together for custom workflows:</p>
+          <CodeWithResult
+            code={`# Get clean text from a URL
+text = web.strip_tags(web.fetch("example.com"))
+
+# Get title and text
+html = web.fetch("example.com")
+title = web.get_title(html)
+text = web.strip_tags(html)`}
+            language="python"
+            fileName="compose.py"
+          />
         </section>
 
         {/* Example Agent */}
@@ -261,6 +340,23 @@ agent = Agent("researcher", tools=[web])`}
             language="python"
             fileName="config.py"
           />
+        </section>
+
+        {/* Customizing */}
+        <section className="mb-16">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-gray-700 mb-4">
+            Need to modify WebFetch&apos;s behavior? Copy the source into your project and import from there:
+          </p>
+          <CommandBlock commands={['co copy web_fetch']} />
+          <div className="mt-6">
+            <CodeWithResult
+              code={`# from connectonion import WebFetch  # Before
+from tools.web_fetch import WebFetch  # After — customize freely!`}
+              language="python"
+              fileName="custom_import.py"
+            />
+          </div>
         </section>
 
         {/* Navigation */}

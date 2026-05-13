@@ -25,6 +25,34 @@ export default function ReceiveEmailsPage() {
           markdownFilename="receive-emails.md"
         />
 
+        {/* Usage */}
+        <section className="mb-16">
+          <h2 className="heading-2">Usage</h2>
+          <div className="space-y-6">
+            <div>
+              <p className="text-gray-700 mb-3 font-semibold">Option 1: Import directly</p>
+              <CodeWithResult
+                code={`from connectonion import get_emails, mark_read
+
+agent = Agent("assistant", tools=[get_emails, mark_read])`}
+                language="python"
+                fileName="import.py"
+              />
+            </div>
+            <div>
+              <p className="text-gray-700 mb-3 font-semibold">Option 2: Copy and customize</p>
+              <CommandBlock commands={['co copy get_emails']} />
+              <div className="mt-3">
+                <CodeWithResult
+                  code={`from tools.get_emails import get_emails, mark_read  # Your local copy`}
+                  language="python"
+                  fileName="copy.py"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
@@ -34,7 +62,7 @@ export default function ReceiveEmailsPage() {
           </div>
 
           <CodeWithResult
-            code={`from connectonion import get_emails
+            code={`from connectonion import get_emails, send_email, mark_read
 
 # Get your emails
 emails = get_emails()`}
@@ -53,8 +81,8 @@ emails = get_emails()`}
             <p className="text-lg text-gray-700 mb-6">Three functions. That's all:</p>
             <CodeWithResult
               code={`get_emails(last=10, unread=False)  # Get emails
-send_email(to, subject, message)    # Send email
-mark_read(email_id)                 # Mark as read after processing`}
+send_email(to, subject, message)   # Send email (already done)
+mark_read(email_id)                # Mark as read after processing`}
               language="python"
               fileName="core.py"
             />
@@ -70,18 +98,12 @@ mark_read(email_id)                 # Mark as read after processing`}
         <section className="mb-16">
           <h2 className="heading-2">Setup</h2>
 
-          <p className="text-gray-700 mb-4">Set your email credentials:</p>
-          <CommandBlock
-            commands={[
-              'export EMAIL_ADDRESS="you@example.com"',
-              'export EMAIL_PASSWORD="your-app-password"',
-              'export IMAP_SERVER="imap.gmail.com"  # Optional, defaults to Gmail'
-            ]}
-          />
+          <p className="text-gray-700 mb-4">No configuration needed. Your agent's email is provisioned automatically:</p>
+          <CommandBlock commands={['co init', 'co auth']} />
 
-          <div className="mt-6 p-4 bg-gray-500/10 border border-gray-200 rounded-lg">
+          <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
             <p className="text-gray-600 text-sm">
-              <strong>Gmail users:</strong> Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" className="underline hover:text-gray-900">App Password</a>, not your regular password.
+              Your agent receives emails at <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">0x{'{your_key}'}@mail.openonion.ai</code>, stored in <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">~/.co/keys.env</code> as <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">AGENT_EMAIL</code>.
             </p>
           </div>
         </section>
@@ -168,7 +190,21 @@ for email in get_emails(unread=True):
                 <p><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">unread</code> - Only fetch unread emails (default: False)</p>
               </div>
               <div className="mt-4">
-                <p className="text-sm text-gray-700">Returns list of email dicts with: id, from, subject, date, body</p>
+                <p className="text-sm text-gray-700 mb-2">Returns list of email dicts:</p>
+                <CodeWithResult
+                  code={`[
+    {
+        'id': 'msg_123',
+        'from': 'alice@example.com',
+        'subject': 'Project Update',
+        'message': 'The new feature is ready...',
+        'timestamp': '2024-01-15T10:30:00Z',
+        'read': False
+    }
+]`}
+                  language="python"
+                  fileName="email_dict.py"
+                />
               </div>
             </div>
 
@@ -229,36 +265,53 @@ agent.input("Check my inbox and summarize what's there")`}
           />
         </section>
 
-        {/* vs Gmail */}
+        {/* Why No Auto-Mark */}
         <section className="mb-16">
-          <h2 className="heading-2">get_emails vs Gmail</h2>
+          <h2 className="heading-2">Why No Auto-Mark?</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="font-semibold mb-4 text-gray-900">get_emails (IMAP)</h3>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li>Simple functions</li>
-                <li>Works with any email provider</li>
-                <li>Uses EMAIL_PASSWORD env var</li>
-                <li>Basic read/mark operations</li>
-                <li>Best for simple automation</li>
-              </ul>
+              <h3 className="font-semibold mb-4 text-gray-900">The problem with auto-marking</h3>
+              <CodeWithResult
+                code={`# BAD: Auto-mark on fetch
+emails = get_emails(unread=True)  # Server marks as read
+process_emails(emails)            # Crashes!
+# Emails lost forever - marked read but not processed!`}
+                language="python"
+                fileName="bad.py"
+              />
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="font-semibold mb-4 text-gray-900">Gmail (OAuth)</h3>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li>Full Gmail class with many methods</li>
-                <li>Gmail-specific features (labels, archive, star)</li>
-                <li>Uses <code className="bg-gray-100 px-1 rounded">co auth google</code></li>
-                <li>Search, CRM, contact analysis</li>
-                <li>Best for advanced Gmail automation</li>
-              </ul>
+              <h3 className="font-semibold mb-4 text-gray-900">Our safe approach</h3>
+              <CodeWithResult
+                code={`# GOOD: Explicit marking
+emails = get_emails(unread=True)  # Stays unread
+process_emails(emails)            # Process them
+mark_read([e['id'] for e in emails])  # Mark only after success`}
+                language="python"
+                fileName="good.py"
+              />
             </div>
           </div>
 
           <p className="text-center mt-6 text-gray-700">
-            Need more features? Check out <Link href="/gmail" className="text-gray-500 hover:text-gray-700 underline">Gmail</Link> for full inbox management.
+            Need full Gmail features (labels, search, CRM)? Check out <Link href="/gmail" className="text-gray-500 hover:text-gray-700 underline">Gmail</Link>.
           </p>
+        </section>
+
+        {/* Philosophy */}
+        <section className="mb-16">
+          <div className="bg-gray-50 rounded-2xl p-10 border border-gray-200">
+            <h2 className="heading-2">Philosophy</h2>
+            <p className="text-xl font-semibold text-gray-900 mb-4">Three functions for everything email:</p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+              <li><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">get_emails()</code> - Read emails</li>
+              <li><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">send_email()</code> - Send emails</li>
+              <li><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">mark_read()</code> - Mark as processed</li>
+            </ul>
+            <p className="text-gray-700 mb-6">No complexity. No confusion. Just email.</p>
+            <p className="text-center text-xl font-bold text-gray-900">Keep simple things simple.</p>
+          </div>
         </section>
 
         {/* Navigation */}

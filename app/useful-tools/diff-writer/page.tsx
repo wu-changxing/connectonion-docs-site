@@ -182,6 +182,22 @@ print(diff)`}
           />
         </section>
 
+        {/* Customizing */}
+        <section className="mb-12">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-gray-700 mb-4">Need to modify DiffWriter's behavior? Copy the source to your project:</p>
+          <CodeWithResult
+            code={`co copy diff_writer`}
+            language="bash"
+          />
+          <p className="text-gray-700 mt-4 mb-4">Then import from your local copy:</p>
+          <CodeWithResult
+            code={`# from connectonion import DiffWriter  # Before
+from tools.diff_writer import DiffWriter  # After - customize freely!`}
+            language="python"
+          />
+        </section>
+
         <ContentNavigation />
       </div>
     </div>

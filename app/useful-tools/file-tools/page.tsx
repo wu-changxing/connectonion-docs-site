@@ -234,6 +234,39 @@ agent = Agent("custom", tools=[read_file, edit, write])
           />
         </section>
 
+        {/* Implementation Details */}
+        <section className="mb-12">
+          <h2 className="heading-2">Implementation Details</h2>
+
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Snapshot Tracking (MD5)</h3>
+          <ul className="space-y-2 text-gray-700 mb-6">
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Hash calculated on <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">read_file()</code></span></li>
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Validated before <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">edit()</code> and <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">multi_edit()</code></span></li>
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Updated after successful edits</span></li>
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>More reliable than timestamps</span></li>
+          </ul>
+
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Why write() Enforces New-File-Only</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4">
+            <p className="text-gray-700 mb-2"><strong>Old behavior (removed):</strong> Used DiffWriter, showed diff, asked for approval</p>
+            <p className="text-gray-700"><strong>Problem:</strong> Over-complicated, required agent.io, didn't make sense for new files</p>
+          </div>
+          <p className="text-gray-700 mb-2"><strong>New behavior:</strong> Simple create-only function</p>
+          <ul className="space-y-2 text-gray-700">
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>New files → no diff to show, just create</span></li>
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Existing files → error, forces agent to use <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">edit()</code> with validation</span></li>
+          </ul>
+        </section>
+
+        {/* See Also */}
+        <section className="mb-12">
+          <h2 className="heading-2">See Also</h2>
+          <ul className="space-y-2 text-gray-700">
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span><Link href="/useful-tools/diff-writer" className="text-gray-700 underline hover:text-gray-900">DiffWriter</Link> — Alternative file editing with visual diffs (legacy)</span></li>
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Shell — Execute shell commands</span></li>
+          </ul>
+        </section>
+
         <ContentNavigation />
       </div>
     </div>

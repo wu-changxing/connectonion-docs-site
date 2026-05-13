@@ -81,6 +81,54 @@ export default function SendEmailPage() {
           markdownFilename="send-email.md"
         />
 
+        {/* Usage */}
+        <section className="mb-16">
+          <h2 className="heading-2">Usage</h2>
+          <div className="space-y-6 max-w-4xl mx-auto">
+            <div>
+              <p className="text-gray-700 mb-3 font-semibold">Option 1: Import directly</p>
+              <CodeBlock
+                code={`from connectonion import send_email
+
+agent = Agent("assistant", tools=[send_email])`}
+                id="usage-import"
+              />
+            </div>
+            <div>
+              <p className="text-gray-700 mb-3 font-semibold">Option 2: Copy and customize</p>
+              <CommandBlock commands={['co copy send_email']} />
+              <div className="mt-3">
+                <CodeBlock
+                  code={`from tools.send_email import send_email  # Your local copy`}
+                  id="usage-copy"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Debug */}
+        <section className="mb-16">
+          <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
+            <h2 className="heading-2">Quick Debug</h2>
+            <p className="text-gray-700 mb-4">Email not working? Try this:</p>
+            <CodeBlock
+              code={`# 1. Check if email is activated
+grep IS_EMAIL_ACTIVE ~/.co/keys.env
+# If false, run: co auth
+
+# 2. Test directly
+python -c "from connectonion import send_email; print(send_email('your@email.com', 'Test', 'It works!'))"
+
+# 3. Common fixes
+co auth  # Refresh token if expired
+co init  # If missing .co directory`}
+              language="bash"
+              id="quick-debug"
+            />
+          </div>
+        </section>
+
         {/* Quick Start */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
@@ -260,9 +308,8 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
                 Your email is configured in <code className="bg-gray-800 px-2 py-0.5 rounded">~/.co/keys.env</code>:
               </p>
               <CodeBlock
-                code={`AGENT_ADDRESS=0x04e1c4ae3c57d716383153479dae869e51e86d43d88db8dfa22fba7533f3968d
-AGENT_EMAIL=0x04e1c4ae@mail.openonion.ai
-IS_EMAIL_ACTIVE=false  # Becomes true after 'co auth'`}
+                code={`AGENT_EMAIL=0x04e1c4ae@mail.openonion.ai
+IS_EMAIL_ACTIVE=true  # Set to true after 'co auth'`}
                 language="bash"
                 id="config-example"
               />
@@ -373,7 +420,15 @@ Email activated! Your agent can now send emails.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-gray-500">•</span>
-                  <span><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">"Authentication failed"</code> - Token issue</span>
+                  <span><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">"Authentication failed"</code> - Token expired, run <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co auth</code></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-gray-500">•</span>
+                  <span><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">"Email not activated"</code> - Run <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co auth</code> to activate</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-gray-500">•</span>
+                  <span><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">"Not in a ConnectOnion project"</code> - Run <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co init</code> first</span>
                 </li>
               </ul>
             </div>
@@ -493,11 +548,11 @@ print(f"Report sent: {result['success']}")`}
                 </li>
                 <li className="flex justify-between">
                   <span className="text-gray-700">Plus tier:</span>
-                  <span className="font-mono">1,000 emails/month</span>
+                  <span className="font-mono">10,000 emails/month</span>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-gray-700">Pro tier:</span>
-                  <span className="font-mono">10,000 emails/month</span>
+                  <span className="font-mono">50,000 emails/month</span>
                 </li>
               </ul>
             </div>
@@ -590,6 +645,54 @@ print(f"Report sent: {result['success']}")`}
                 <span className="text-gray-500">•</span>
                 <span>SPF/DKIM configured</span>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Troubleshooting */}
+        <section className="mb-16">
+          <h2 className="heading-2">Troubleshooting</h2>
+          <div className="space-y-6 max-w-4xl mx-auto">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="text-lg font-semibold mb-3">Check activation status</h3>
+              <CodeBlock
+                code={`grep IS_EMAIL_ACTIVE ~/.co/keys.env
+# Should show: IS_EMAIL_ACTIVE=true`}
+                language="bash"
+                id="trouble-activation"
+              />
+              <p className="text-sm text-gray-700 mt-3">If false, run <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co auth</code> to activate.</p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="text-lg font-semibold mb-3">Check for errors</h3>
+              <CodeBlock
+                code={`result = send_email("test@example.com", "Test", "Testing")
+if not result['success']:
+    print(f"Error: {result['error']}")`}
+                id="trouble-errors"
+              />
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="text-lg font-semibold mb-3">Debug mode</h3>
+              <p className="text-sm text-gray-700 mb-3">See what's happening under the hood:</p>
+              <CodeBlock
+                code={`import os
+os.environ['CONNECTONION_DEBUG'] = '1'
+
+from connectonion import send_email
+result = send_email("test@example.com", "Debug Test", "Testing with debug")
+# Will show detailed API calls and responses`}
+                id="trouble-debug"
+              />
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="text-lg font-semibold mb-3">Check quota</h3>
+              <CodeBlock
+                code={`from connectonion import get_agent_info
+info = get_agent_info()
+print(f"Email quota: {info.get('email_quota_remaining', 'Unknown')} remaining")`}
+                id="trouble-quota"
+              />
             </div>
           </div>
         </section>

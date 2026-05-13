@@ -24,6 +24,26 @@ export default function SlashCommandPage() {
           markdownFilename="slash-command.md"
         />
 
+        {/* Usage */}
+        <section className="mb-12">
+          <h2 className="heading-2">Usage</h2>
+          <p className="text-gray-700 mb-3 font-semibold">Option 1: Import directly</p>
+          <CodeWithResult
+            code={`from connectonion import SlashCommand
+
+cmd = SlashCommand.load("today")`}
+            language="python"
+          />
+          <p className="text-gray-700 mb-3 mt-6 font-semibold">Option 2: Copy and customize</p>
+          <CodeWithResult code={`co copy slash_command`} language="bash" />
+          <div className="mt-3">
+            <CodeWithResult
+              code={`from tools.slash_command import SlashCommand  # Your local copy`}
+              language="python"
+            />
+          </div>
+        </section>
+
         {/* Quick Start */}
         <section className="mb-12">
           <h2 className="heading-2">Quick Start</h2>
@@ -140,6 +160,19 @@ filtered = cmd.filter_tools(all_tools)
 commands = SlashCommand.list_all()
 for cmd in commands:
     print(f"/{cmd.name} - {cmd.description}")`}
+            language="python"
+          />
+        </section>
+
+        {/* Customizing */}
+        <section className="mb-12">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-gray-700 mb-4">Need to modify SlashCommand's behavior? Copy the source to your project:</p>
+          <CodeWithResult code={`co copy slash_command`} language="bash" />
+          <p className="text-gray-700 mb-4 mt-6">Then import from your local copy:</p>
+          <CodeWithResult
+            code={`# from connectonion import SlashCommand  # Before
+from tools.slash_command import SlashCommand  # After - customize freely!`}
             language="python"
           />
         </section>

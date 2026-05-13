@@ -24,6 +24,24 @@ export default function TerminalPage() {
           markdownFilename="terminal.md"
         />
 
+        {/* Usage */}
+        <section className="mb-12">
+          <h2 className="heading-2">Usage</h2>
+          <p className="text-gray-700 mb-3 font-semibold">Option 1: Import directly</p>
+          <CodeWithResult
+            code={`from connectonion import pick, yes_no, browse_files, input_with_at`}
+            language="python"
+          />
+          <p className="text-gray-700 mb-3 mt-6 font-semibold">Option 2: Copy and customize</p>
+          <CodeWithResult code={`co copy terminal`} language="bash" />
+          <div className="mt-3">
+            <CodeWithResult
+              code={`from tools.terminal import pick, yes_no, browse_files, input_with_at  # Your local copy`}
+              language="python"
+            />
+          </div>
+        </section>
+
         {/* Quick Start */}
         <section className="mb-12">
           <h2 className="heading-2">Quick Start</h2>
@@ -142,6 +160,19 @@ choice = pick("Continue?", {
               </tbody>
             </table>
           </div>
+        </section>
+
+        {/* Customizing */}
+        <section className="mb-12">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-gray-700 mb-4">Need to modify terminal utilities? Copy the source to your project:</p>
+          <CodeWithResult code={`co copy terminal`} language="bash" />
+          <p className="text-gray-700 mb-4 mt-6">Then import from your local copy:</p>
+          <CodeWithResult
+            code={`# from connectonion import pick, yes_no  # Before
+from tools.terminal import pick, yes_no   # After - customize freely!`}
+            language="python"
+          />
         </section>
 
         <ContentNavigation />

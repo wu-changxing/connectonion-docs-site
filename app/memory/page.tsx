@@ -603,6 +603,25 @@ from tools.memory import Memory      # After — customize freely`}
           </div>
         </section>
 
+        {/* Related Documentation */}
+        <section className="mb-16">
+          <h2 className="heading-2">Related Documentation</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            <Link href="/agents" className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:bg-gray-100 transition-all flex items-center justify-between">
+              <span className="font-medium text-gray-900">Agent Basics</span>
+              <HiOutlineArrowRight className="w-4 h-4 text-gray-500" />
+            </Link>
+            <Link href="/tools" className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:bg-gray-100 transition-all flex items-center justify-between">
+              <span className="font-medium text-gray-900">Tools</span>
+              <HiOutlineArrowRight className="w-4 h-4 text-gray-500" />
+            </Link>
+            <Link href="/plugins" className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:bg-gray-100 transition-all flex items-center justify-between">
+              <span className="font-medium text-gray-900">Plugins</span>
+              <HiOutlineArrowRight className="w-4 h-4 text-gray-500" />
+            </Link>
+          </div>
+        </section>
+
         {/* Navigation */}
         <ContentNavigation />
       </div>

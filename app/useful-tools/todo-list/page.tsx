@@ -129,6 +129,43 @@ todo.add("Update docs", "Updating docs")`}
 # ● Update docs`}
             language="python"
           />
+
+          <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-8">update(todos)</h3>
+          <p className="text-gray-700 mb-4">Replace entire todo list (for bulk updates).</p>
+          <CodeWithResult
+            code={`todo.update([
+    {"content": "Step 1", "status": "completed", "active_form": "Doing step 1"},
+    {"content": "Step 2", "status": "in_progress", "active_form": "Doing step 2"},
+    {"content": "Step 3", "status": "pending", "active_form": "Doing step 3"},
+])`}
+            language="python"
+          />
+
+          <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-8">clear()</h3>
+          <p className="text-gray-700 mb-4">Clear all todos.</p>
+          <CodeWithResult
+            code={`todo.clear()`}
+            language="python"
+          />
+        </section>
+
+        {/* Properties */}
+        <section className="mb-12">
+          <h2 className="heading-2">Properties</h2>
+
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">progress</h3>
+          <p className="text-gray-700 mb-4">Get completion percentage (0.0 to 1.0).</p>
+          <CodeWithResult
+            code={`print(todo.progress)  # 0.33 (1 of 3 completed)`}
+            language="python"
+          />
+
+          <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-8">current_task</h3>
+          <p className="text-gray-700 mb-4">Get the currently in_progress task.</p>
+          <CodeWithResult
+            code={`print(todo.current_task)  # "Running tests"`}
+            language="python"
+          />
         </section>
 
         {/* Task States */}
@@ -229,7 +266,72 @@ todo.start("Task B")  # Now works`}
           />
 
           <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-8">Mark Complete Immediately</h3>
-          <p className="text-gray-700 mb-4">Complete tasks as soon as done, don't batch.</p>
+          <p className="text-gray-700 mb-4">Complete tasks as soon as done, don't batch:</p>
+          <CodeWithResult
+            code={`# Good
+todo.complete("Step 1")
+# ... do step 2 ...
+todo.complete("Step 2")
+
+# Bad - batching completions
+# ... do all steps ...
+todo.complete("Step 1")
+todo.complete("Step 2")
+todo.complete("Step 3")`}
+            language="python"
+          />
+        </section>
+
+        {/* Example: Multi-Step Task */}
+        <section className="mb-12">
+          <h2 className="heading-2">Example: Multi-Step Task</h2>
+          <CodeWithResult
+            code={`from connectonion import Agent, TodoList, DiffWriter
+
+todo = TodoList()
+writer = DiffWriter()
+
+agent = Agent(
+    "developer",
+    tools=[todo, writer],
+    system_prompt="""
+    You are a developer. For complex tasks:
+    1. Break into steps using TodoList
+    2. Start each step before working
+    3. Complete each step when done
+    """
+)
+
+agent.input("Create a REST API with user CRUD operations")
+
+# Agent workflow:
+# 1. todo.add("Create User model", "Creating User model")
+# 2. todo.add("Add GET /users endpoint", "Adding GET endpoint")
+# 3. todo.add("Add POST /users endpoint", "Adding POST endpoint")
+# ...
+# 4. todo.start("Create User model")
+# 5. writer.write("models.py", "...")
+# 6. todo.complete("Create User model")
+# 7. todo.start("Add GET /users endpoint")
+# ...`}
+            language="python"
+          />
+        </section>
+
+        {/* Customizing */}
+        <section className="mb-12">
+          <h2 className="heading-2">Customizing</h2>
+          <p className="text-gray-700 mb-4">Need to modify TodoList's behavior? Copy the source to your project:</p>
+          <CodeWithResult
+            code={`co copy todo_list`}
+            language="bash"
+          />
+          <p className="text-gray-700 mt-4 mb-4">Then import from your local copy:</p>
+          <CodeWithResult
+            code={`# from connectonion import TodoList  # Before
+from tools.todo_list import TodoList  # After - customize freely!`}
+            language="python"
+          />
         </section>
 
         <ContentNavigation />
