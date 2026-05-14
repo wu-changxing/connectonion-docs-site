@@ -279,9 +279,8 @@ export default function CLIPage() {
                   <td className="px-4 py-3 font-mono text-sm text-gray-700">--template</td>
                   <td className="px-4 py-3 text-gray-700">
                     Choose template: <code className="bg-gray-100 px-2 py-1 rounded text-xs">minimal</code>,
-                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">playwright</code>,
-                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">email-agent</code>,
-                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">meta-agent</code>,
+                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">browser</code>,
+                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">coder</code>,
                     <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">web-research</code>,
                     <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">custom</code>
                   </td>
@@ -317,9 +316,8 @@ export default function CLIPage() {
   ✓ Detected OpenAI API key
 ✔ Choose a template:
   ❯ Minimal - Simple starting point
-    Playwright - Browser automation
-    Email Agent - Email tools & OAuth
-    Meta Agent - Agent that builds agents
+    Browser - Playwright web automation
+    Coder - Code-writing agent
     Web Research - Data analysis & web scraping
     Custom - AI generates based on your needs
 
@@ -410,8 +408,8 @@ Next steps:
 {`from connectonion import llm_do
 
 # Use co/ prefix for managed models
-response = llm_do("Hello", model="co/gpt-5")
-response = llm_do("Hello", model="co/claude-sonnet-4-5")
+response = llm_do("Hello", model="co/gpt-4o")
+response = llm_do("Hello", model="co/claude-sonnet-4")
 response = llm_do("Hello", model="co/gemini-2.5-pro")`}
           </div>
         </div>
@@ -772,77 +770,52 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             </ul>
           </div>
 
-          {/* Playwright Template */}
+          {/* Browser Template */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-              Playwright
+              Browser
             </h3>
             <p className="text-gray-700 mb-4">
-              Browser automation agent with stateful web tools:
+              Browser automation agent with stateful Playwright-backed tools:
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Stateful browser (start, navigate, click, fill)
+                Stateful browser (open_browser, go_to, click, keyboard_type)
               </li>
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Screenshot capture with device presets
+                Screenshot capture with viewport control
               </li>
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Content scraping and link extraction
+                Content extraction (get_text, extract_data, get_links_from_page)
               </li>
             </ul>
           </div>
 
-          {/* Email Agent Template */}
+          {/* Coder Template */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-              Email Agent
+              Coder
             </h3>
             <p className="text-gray-700 mb-4">
-              Email automation with send, receive, and management:
+              Code-writing agent with file and shell tools:
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-500" />
-                SMTP sending and IMAP reading
+                File editing tools (read, write, diff)
               </li>
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-500" />
-                Gmail and Outlook OAuth integration
+                Shell and bash execution
               </li>
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-500" />
-                Email filtering and management tools
-              </li>
-            </ul>
-          </div>
-
-          {/* Meta Agent Template */}
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-              Meta Agent
-            </h3>
-            <p className="text-gray-700 mb-4">
-              An agent that knows ConnectOnion and helps you build agents:
-            </p>
-            <ul className="space-y-2 text-gray-700 text-sm">
-              <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Built-in framework knowledge
-              </li>
-              <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Generates agent code from descriptions
-              </li>
-              <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Includes complete docs context
+                Todo list for multi-step plans
               </li>
             </ul>
           </div>

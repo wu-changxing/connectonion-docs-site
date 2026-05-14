@@ -44,7 +44,7 @@ Most security terms only work in one direction. We needed something that natural
 ### 7. \`mode\` / \`env\`
 **Why not**: Too generic. Could mean anything - doesn't clearly indicate authentication purpose.
 
-### 8. \`strict\` / \`open\` / \`tested\`
+### 8. \`strict\` / \`open\` / \`careful\`
 **Why not**: These became our trust *levels*, but the parameter itself needed a clearer name.
 
 ### 9. \`require\` / \`expect\`
@@ -84,9 +84,9 @@ Everyone understands trust. It's not technical jargon. Your grandmother knows wh
 
 ### 3. **Progressive, Not Binary**
 Trust has levels:
-- \`trust="open"\` - Trust everyone (development)
-- \`trust="tested"\` - Trust verified agents (staging)
-- \`trust="strict"\` - Trust allowlisted agents (production)
+- \`trust="open"\` - Accept every caller (development)
+- \`trust="careful"\` - Default; LLM evaluates unknown callers (staging)
+- \`trust="strict"\` - Whitelisted addresses or established contacts only (production)
 
 This mirrors how human trust works - it's earned and has degrees.
 
@@ -96,12 +96,12 @@ We're not doing cryptographic verification. We're doing behavioral verification.
 ### 5. **Clear Configuration**
 \`\`\`python
 # Instantly understandable
-agent = Agent(name="helper", trust="open")
+host(create_agent, trust="open")
 
 # Compare to alternatives:
-agent = Agent(name="helper", auth="permissive")  # What's permissive auth?
-agent = Agent(name="helper", verify="none")      # Verify none? Confusing.
-agent = Agent(name="helper", mode="dev")         # Mode of what?
+host(create_agent, auth="permissive")  # What's permissive auth?
+host(create_agent, verify="none")      # Verify none? Confusing.
+host(create_agent, mode="dev")         # Mode of what?
 \`\`\`
 
 ## The Unix Philosophy Connection
@@ -109,49 +109,54 @@ agent = Agent(name="helper", mode="dev")         # Mode of what?
 Just as Unix uses simple, composable commands, we use simple trust levels that combine with prompts for complex behavior:
 
 \`\`\`python
-# Simple trust + smart prompt = sophisticated behavior
-agent = Agent(
-    name="analyzer",
-    trust="tested",
-    system_prompt="Only accept tasks from agents that have successfully completed 10+ analyses"
+# Simple trust + smart policy = sophisticated behavior
+host(
+    create_agent,
+    trust="""
+    ---
+    allow: [whitelisted, contact]
+    default: ask
+    ---
+    Only accept tasks from agents that have successfully completed 10+ analyses
+    """
 )
 \`\`\`
 
-The prompt handles the sophisticated logic. The trust parameter stays simple.
+The policy handles the sophisticated logic. The trust parameter stays simple.
 
 ## Trust in Action
 
 ### Service Provider Perspective
 \`\`\`python
-@agent.on_request
-def handle_request(task, sender):
-    # trust="strict" already filtered untrusted senders
-    # We only see requests from trusted agents
-    return process_task(task)
+# trust="strict" filters untrusted callers at the host boundary
+host(create_agent, trust="strict")
+# Inside the agent we only see requests from whitelisted callers / contacts
 \`\`\`
 
 ### Service Consumer Perspective
 \`\`\`python
-# Only connect to trusted services
-providers = agent.find_services(trust="tested")
+# Connect to a known agent address (trust runs on their side)
+agent = connect("0x3d4017c3...")
+response = agent.input("Translate hello to Spanish")
 \`\`\`
 
-### Mutual Trust Building
+### Promoting a Caller to Contact
 \`\`\`python
-# Start cautious
-agent = Agent(name="researcher", trust="tested")
+# Strict mode accepts whitelisted addresses + established contacts.
+# After enough successful interactions, your TrustAgent can promote
+# a caller to "contact" so future requests fast-path past the LLM.
+from connectonion.network.trust import TrustAgent
 
-# After successful interactions, upgrade
-if interaction_count > 100 and success_rate > 0.95:
-    agent.add_trusted_contact(other_agent)
+trust = TrustAgent("careful")
+trust.promote_to_contact("0xpartner...")
 \`\`\`
 
 ## What This Enables
 
 1. **Gradual Rollouts**: Start with \`trust="strict"\`, gradually open up
 2. **Development Freedom**: Use \`trust="open"\` for rapid prototyping
-3. **Natural Language Policies**: Combine with prompts for sophisticated rules
-4. **Behavioral Security**: Trust through proven track record, not credentials
+3. **Natural Language Policies**: Combine fast YAML rules with LLM-evaluated prose
+4. **Behavioral Security**: Trust earned through proven track record, not certificates
 
 ## The Bigger Picture
 
@@ -243,7 +248,7 @@ Sometimes the best technical decisions are the least technical ones.`
                   {
                     title: 'Progressive, Not Binary',
                     description: 'Trust has levels that mirror human relationships',
-                    examples: ['trust="open" - Development', 'trust="tested" - Staging', 'trust="strict" - Production']
+                    examples: ['trust="open" - Development', 'trust="careful" - Staging', 'trust="strict" - Production']
                   },
                   {
                     title: 'Matches Our Philosophy',
@@ -294,7 +299,7 @@ agent = Agent(name="helper", mode="dev")         # Mode of what?`}</code>
                   <code className="text-gray-600">{`# Simple trust + smart prompt = sophisticated behavior
 agent = Agent(
     name="analyzer",
-    trust="tested",
+    trust="careful",
     system_prompt="Only accept tasks from agents that have successfully completed 10+ analyses"
 )`}</code>
                 </pre>

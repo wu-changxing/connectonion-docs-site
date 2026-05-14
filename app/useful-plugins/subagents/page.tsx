@@ -67,7 +67,7 @@ Architecture summary:
             code={`---
 name: reviewer
 description: Code reviewer that checks for bugs and style issues
-model: co/claude-opus-4-5
+model: co/claude-opus-4-1
 max_iterations: 10
 tools:
   - glob

@@ -96,7 +96,7 @@ export default function QuickStartPage() {
               { n: 2, label: 'Create Your First Agent', href: '#create-agent', time: '20s' },
               { n: 3, label: 'Run Your Agent', href: '#run', time: '10s' },
               { n: 4, label: 'Customize Your Agent', href: '#customize', time: '5 min' },
-              { n: 5, label: 'Playwright Web Automation', href: '#playwright', time: '5 min' },
+              { n: 5, label: 'Browser Web Automation', href: '#browser', time: '5 min' },
               { n: 6, label: 'Create a Custom Tool Agent', href: '#custom-tool', time: '5 min' },
               { n: 7, label: 'Debugging with @xray', href: '#xray', time: '2 min' },
             ].map(({ n, label, href, time }) => (
@@ -343,21 +343,21 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
         Steps 5–7 are optional specialization paths — pick what matches your use case.
       </p>
 
-      {/* Playwright Template */}
-      <section className="mb-16 pt-4" id="playwright">
-        <h2 id="playwright" className="heading-2 flex items-center gap-3 mb-5">
+      {/* Browser Template */}
+      <section className="mb-16 pt-4" id="browser">
+        <h2 id="browser" className="heading-2 flex items-center gap-3 mb-5">
           <span className="inline-flex items-center px-2 py-0.5 bg-gray-100 text-gray-500 text-xs font-mono rounded border border-gray-200 flex-shrink-0">alt</span>
-          Playwright Web Automation
+          Browser Web Automation
         </h2>
 
         <p className="text-gray-600 mb-6">
-          For web automation tasks, use the Playwright template:
+          For web automation tasks, use the browser template (Playwright-backed):
         </p>
 
         <div className="mb-6">
           <CommandBlock
             commands={[
-              'co create my-browser-bot --template playwright',
+              'co create my-browser-bot --template browser',
               'cd my-browser-bot'
             ]}
           />
@@ -368,19 +368,19 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
           <div className="grid sm:grid-cols-2 gap-3 text-gray-700 text-sm">
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>start_browser()</strong> - Launch browser</span>
+              <span><strong>open_browser()</strong> - Launch browser</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>navigate()</strong> - Go to URLs</span>
+              <span><strong>go_to(url)</strong> - Navigate to URLs</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>scrape_content()</strong> - Extract content</span>
+              <span><strong>get_text()</strong> - Extract page text</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>fill_form()</strong> - Complete forms</span>
+              <span><strong>extract_data(selector)</strong> - Extract by selector</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
@@ -388,15 +388,23 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>extract_links()</strong> - Get all links</span>
+              <span><strong>get_links_from_page()</strong> - Get all links</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>click()</strong> - Click elements</span>
+              <span><strong>click(description)</strong> - Click elements</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>execute_javascript()</strong> - Run JS</span>
+              <span><strong>keyboard_type(text)</strong> - Type text</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-gray-400 mt-1">•</span>
+              <span><strong>select_option(field, opt)</strong> - Pick from dropdowns</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-gray-400 mt-1">•</span>
+              <span><strong>wait_for_element(desc)</strong> - Wait for elements</span>
             </div>
           </div>
           <p className="text-gray-700 mt-4 text-sm">

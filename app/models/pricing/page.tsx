@@ -31,7 +31,7 @@ export default function PricingPage() {
             </div>
             <div className="flex items-start gap-3">
               <span className="text-gray-500 font-bold text-lg">2.</span>
-              <p>Use any model with the <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co/</code> prefix: <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">model=&quot;co/gpt-5&quot;</code></p>
+              <p>Use any model with the <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co/</code> prefix: <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">model=&quot;co/gpt-4o&quot;</code></p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-gray-500 font-bold text-lg">3.</span>
@@ -72,28 +72,10 @@ export default function PricingPage() {
             </thead>
             <tbody className="divide-y divide-gray-200">
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">gpt-5</code></td>
-                <td className="px-4 py-3 text-gray-700">$1.25</td>
-                <td className="px-4 py-3 text-gray-700">$10.00</td>
-                <td className="px-4 py-3 text-gray-600">Coding, agentic tasks</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">gpt-5-mini</code></td>
-                <td className="px-4 py-3 text-gray-700">$0.25</td>
-                <td className="px-4 py-3 text-gray-700">$2.00</td>
-                <td className="px-4 py-3 text-gray-600">Fast, cost-effective</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">gpt-5-nano</code></td>
-                <td className="px-4 py-3 text-gray-700">$0.05</td>
-                <td className="px-4 py-3 text-gray-700">$0.40</td>
-                <td className="px-4 py-3 text-gray-600">Cheapest OpenAI</td>
-              </tr>
-              <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">gpt-4o</code></td>
                 <td className="px-4 py-3 text-gray-700">$2.50</td>
                 <td className="px-4 py-3 text-gray-700">$10.00</td>
-                <td className="px-4 py-3 text-gray-600">Previous gen flagship</td>
+                <td className="px-4 py-3 text-gray-600">Coding, agentic tasks</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">gpt-4o-mini</code></td>
@@ -102,10 +84,22 @@ export default function PricingPage() {
                 <td className="px-4 py-3 text-gray-600">Most cost-effective</td>
               </tr>
               <tr>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">o1</code></td>
+                <td className="px-4 py-3 text-gray-700">$15.00</td>
+                <td className="px-4 py-3 text-gray-700">$60.00</td>
+                <td className="px-4 py-3 text-gray-600">Advanced reasoning</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">o1-mini</code></td>
+                <td className="px-4 py-3 text-gray-700">$3.00</td>
+                <td className="px-4 py-3 text-gray-700">$12.00</td>
+                <td className="px-4 py-3 text-gray-600">Faster reasoning</td>
+              </tr>
+              <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">o4-mini</code></td>
                 <td className="px-4 py-3 text-gray-700">$3.00</td>
                 <td className="px-4 py-3 text-gray-700">$12.00</td>
-                <td className="px-4 py-3 text-gray-600">Reasoning</td>
+                <td className="px-4 py-3 text-gray-600">Newest reasoning</td>
               </tr>
             </tbody>
           </table>
@@ -133,16 +127,10 @@ export default function PricingPage() {
                 <td className="px-4 py-3 text-gray-600">State-of-the-art reasoning</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3-flash-preview</code></td>
-                <td className="px-4 py-3 text-gray-700">$0.50</td>
-                <td className="px-4 py-3 text-gray-700">$3.00</td>
-                <td className="px-4 py-3 text-gray-600">Fastest Gemini 3</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3.1-flash-lite-preview</code></td>
-                <td className="px-4 py-3 text-gray-700">$0.10</td>
-                <td className="px-4 py-3 text-gray-700">$0.40</td>
-                <td className="px-4 py-3 text-gray-600">Ultra fast, cheapest Gemini 3</td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3-pro-image-preview</code></td>
+                <td className="px-4 py-3 text-gray-700">$2.00</td>
+                <td className="px-4 py-3 text-gray-700">$12.00</td>
+                <td className="px-4 py-3 text-gray-600">Image generation</td>
               </tr>
               <tr>
                 <td className="px-4 py-3">
@@ -160,16 +148,16 @@ export default function PricingPage() {
                 <td className="px-4 py-3 text-gray-600">Best price-performance</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-2.5-flash-lite</code></td>
-                <td className="px-4 py-3 text-gray-700">$0.10</td>
-                <td className="px-4 py-3 text-gray-700">$0.40</td>
-                <td className="px-4 py-3 text-gray-600">Ultra fast, cheapest</td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-1.5-pro</code></td>
+                <td className="px-4 py-3 text-gray-700">$1.25</td>
+                <td className="px-4 py-3 text-gray-700">$5.00</td>
+                <td className="px-4 py-3 text-gray-600">2M context</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-2.0-flash</code></td>
-                <td className="px-4 py-3 text-gray-700">$0.10</td>
-                <td className="px-4 py-3 text-gray-700">$0.40</td>
-                <td className="px-4 py-3 text-gray-600">Previous gen workhorse</td>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-1.5-flash</code></td>
+                <td className="px-4 py-3 text-gray-700">$0.075</td>
+                <td className="px-4 py-3 text-gray-700">$0.30</td>
+                <td className="px-4 py-3 text-gray-600">Fast, lightweight</td>
               </tr>
             </tbody>
           </table>
@@ -191,34 +179,34 @@ export default function PricingPage() {
             </thead>
             <tbody className="divide-y divide-gray-200">
               <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">claude-opus-4-5</code></td>
-                <td className="px-4 py-3 text-gray-700">$5.00</td>
-                <td className="px-4 py-3 text-gray-700">$25.00</td>
-                <td className="px-4 py-3 text-gray-600">Most capable</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">claude-sonnet-4-5</code></td>
-                <td className="px-4 py-3 text-gray-700">$3.00</td>
-                <td className="px-4 py-3 text-gray-700">$15.00</td>
-                <td className="px-4 py-3 text-gray-600">Best balance</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">claude-haiku-4-5</code></td>
-                <td className="px-4 py-3 text-gray-700">$1.00</td>
-                <td className="px-4 py-3 text-gray-700">$5.00</td>
-                <td className="px-4 py-3 text-gray-600">Fastest Claude</td>
-              </tr>
-              <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">claude-opus-4-1</code></td>
                 <td className="px-4 py-3 text-gray-700">$15.00</td>
                 <td className="px-4 py-3 text-gray-700">$75.00</td>
-                <td className="px-4 py-3 text-gray-600">Specialized reasoning</td>
+                <td className="px-4 py-3 text-gray-600">Most capable</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">claude-opus-4</code></td>
+                <td className="px-4 py-3 text-gray-700">$15.00</td>
+                <td className="px-4 py-3 text-gray-700">$75.00</td>
+                <td className="px-4 py-3 text-gray-600">Previous-gen flagship</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">claude-sonnet-4</code></td>
                 <td className="px-4 py-3 text-gray-700">$3.00</td>
                 <td className="px-4 py-3 text-gray-700">$15.00</td>
-                <td className="px-4 py-3 text-gray-600">Previous gen</td>
+                <td className="px-4 py-3 text-gray-600">Balanced intelligence and speed</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">claude-3-5-sonnet</code></td>
+                <td className="px-4 py-3 text-gray-700">$3.00</td>
+                <td className="px-4 py-3 text-gray-700">$15.00</td>
+                <td className="px-4 py-3 text-gray-600">Strong general-purpose</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">claude-3-5-haiku</code></td>
+                <td className="px-4 py-3 text-gray-700">$0.80</td>
+                <td className="px-4 py-3 text-gray-700">$4.00</td>
+                <td className="px-4 py-3 text-gray-600">Fastest, most cost-efficient</td>
               </tr>
             </tbody>
           </table>

@@ -313,12 +313,12 @@ I'll search for the top 3 results about vector databases.
 # Clean & automatic - ConnectOnion discovers all methods!
 agent = Agent("browser_agent", tools=[browser])`}
               result={`Auto-discovers all public methods:
-- start_browser()
-- navigate()
+- open_browser()
+- go_to()
 - take_screenshot()
-- scrape_content()
-- extract_links()
-- close_browser()`}
+- get_text()
+- get_links_from_page()
+- close()`}
               className="text-sm"
             />
           </div>
@@ -332,12 +332,12 @@ agent = Agent("browser_agent", tools=[browser])`}
 
 # Verbose - must list every method manually
 agent = Agent("browser_agent", tools=[
-    browser.start_browser,
-    browser.navigate,
+    browser.open_browser,
+    browser.go_to,
     browser.take_screenshot,
-    browser.scrape_content,
-    browser.extract_links,
-    browser.close_browser
+    browser.get_text,
+    browser.get_links_from_page,
+    browser.close
     # Easy to forget methods!
 ])`}
               result={`Problems:

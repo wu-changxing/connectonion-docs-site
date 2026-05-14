@@ -37,7 +37,7 @@ export default function UlwPage() {
 from connectonion.useful_plugins import tool_approval, ulw
 
 # ulw requires tool_approval to work
-agent = Agent("worker", plugins=[tool_approval, ulw], model="co/claude-opus-4-5")`}
+agent = Agent("worker", plugins=[tool_approval, ulw], model="co/claude-opus-4-1")`}
             language="python"
           />
           <p className="text-gray-600 mt-4 text-sm">ULW mode works by setting a <code className="bg-gray-100 px-1 rounded">skip_tool_approval</code> flag that tells the <code className="bg-gray-100 px-1 rounded">tool_approval</code> plugin to skip all checks.</p>

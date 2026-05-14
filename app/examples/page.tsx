@@ -12,12 +12,12 @@ const examples = [
     id: 'browser-agent',
     repo: 'openonion/browser-agent',
     title: 'Browser Agent',
-    description: 'A fully autonomous browser automation agent. Controls Chromium with natural language — navigate, click, scrape, screenshot, and fill forms.',
+    description: 'A fully autonomous browser automation agent. Controls Chromium with natural language — navigate, click, type, extract, and screenshot.',
     icon: HiOutlineGlobeAlt,
     tags: ['Playwright', 'Web Scraping', 'Screenshots', 'Automation'],
     github: 'https://github.com/openonion/browser-agent',
     usage: `from connectonion import Agent
-from connectonion.useful_tools import BrowserAutomation
+from connectonion.useful_tools.browser_tools import BrowserAutomation
 
 agent = Agent("browser", tools=[BrowserAutomation()])
 agent.input("Go to github.com and screenshot the trending page")`
@@ -30,10 +30,9 @@ agent.input("Go to github.com and screenshot the trending page")`
     icon: HiOutlineEnvelope,
     tags: ['Gmail', 'IMAP', 'Inbox', 'Drafts'],
     github: 'https://github.com/openonion/email-agent',
-    usage: `from connectonion import Agent
-from connectonion.useful_tools import GmailPlugin
+    usage: `from connectonion import Agent, Gmail
 
-agent = Agent("email", tools=[GmailPlugin()])
+agent = Agent("email", tools=[Gmail()])
 agent.input("Summarise my unread emails from today")`
   },
   {

@@ -80,7 +80,7 @@ print(answer)
 answer = llm_do("What's 2+2?", model="gemini-2.5-flash")
 
 # Anthropic Claude
-answer = llm_do("What's 2+2?", model="claude-haiku-4-5")`}
+answer = llm_do("What's 2+2?", model="claude-3-5-haiku")`}
                 result={`>>> answer = llm_do("What's 2+2?")
 >>> print(answer)
 4`}
@@ -207,25 +207,25 @@ agent = Agent("support", tools=[analyze_feedback])`}
 
               <CodeWithResult
                 code={`# OpenAI models
-llm_do("Hello", model="gpt-5")
-llm_do("Hello", model="gpt-5-mini")
-llm_do("Hello", model="gpt-5-nano")
+llm_do("Hello", model="gpt-4o")
+llm_do("Hello", model="gpt-4o-mini")
+llm_do("Hello", model="o1-mini")
 
 # Google Gemini models
 llm_do("Hello", model="gemini-2.5-pro")
 llm_do("Hello", model="gemini-2.5-flash")
 
 # Anthropic Claude models
-llm_do("Hello", model="claude-sonnet-4-5")
-llm_do("Hello", model="claude-haiku-4-5")
-llm_do("Hello", model="claude-opus-4-5")`}
-                result={`>>> llm_do("Hello", model="gpt-5")
+llm_do("Hello", model="claude-sonnet-4")
+llm_do("Hello", model="claude-3-5-haiku")
+llm_do("Hello", model="claude-opus-4-1")`}
+                result={`>>> llm_do("Hello", model="gpt-4o")
 'Hello! How can I assist you today?'
 
 >>> llm_do("Hello", model="gemini-2.5-flash")
 'Hello there! How can I help you?'
 
->>> llm_do("Hello", model="claude-haiku-4-5")
+>>> llm_do("Hello", model="claude-3-5-haiku")
 'Hello! How may I assist you today?'`}
                 className="mb-6"
               />
@@ -259,17 +259,10 @@ llm_do("Hello", model="claude-opus-4-5")`}
                     </tr>
                     <tr className="border-b border-gray-200">
                       <td className="py-3 px-4 text-gray-700"><strong>Anthropic Claude</strong></td>
-                      <td className="py-3 px-4 text-gray-700">Only 4.5/4.1 series (claude-sonnet-4-5, claude-opus-4-5, claude-opus-4-1, claude-haiku-4-5)</td>
+                      <td className="py-3 px-4 text-gray-700">Claude 4 series (claude-opus-4-1, claude-opus-4, claude-sonnet-4) and Claude 3.5 series</td>
                     </tr>
                   </tbody>
                 </table>
-              </div>
-
-              <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-6">
-                <p className="text-sm text-gray-700">
-                  <strong>Note:</strong> Legacy Claude models (claude-sonnet-4, claude-opus-4) do NOT support structured outputs.
-                  Use Claude 4.5 or 4.1 series for structured output tasks.
-                </p>
               </div>
 
               <CodeWithResult
@@ -281,11 +274,8 @@ class Answer(BaseModel):
 # Works with all providers
 llm_do("What is 2+2?", output=Answer, model="co/gpt-4o-mini")       # ✅
 llm_do("What is 2+2?", output=Answer, model="co/gemini-2.5-flash")  # ✅
-llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4-5") # ✅
-
-# Legacy Claude models do NOT support structured output
-# llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4") # ❌`}
-                result={`>>> llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4-5")
+llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4")   # ✅`}
+                result={`>>> llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4")
 Answer(result=4)`}
                 className="mb-4"
               />

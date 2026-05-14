@@ -83,9 +83,9 @@ Python is a high-level, interpreted programming language known for its simplicit
             After receiving user input, the plugin generates a brief plan:
           </p>
           <CodeWithResult
-            code={`# Internal: plan_task handler
+            code={`# Internal: acknowledge_request handler
 @after_user_input
-def plan_task(agent):
+def acknowledge_request(agent):
     user_prompt = agent.current_session.get('user_prompt', '')
     tool_names = agent.tools.names()
 
@@ -163,7 +163,7 @@ agent.input("Search for Python")
               <tbody>
                 <tr className="border-b border-gray-200/50">
                   <td className="py-2"><code className="text-gray-600">after_user_input</code></td>
-                  <td className="py-2">plan_task</td>
+                  <td className="py-2">acknowledge_request</td>
                   <td className="py-2 text-gray-700">Generate initial plan</td>
                 </tr>
                 <tr>
@@ -184,7 +184,7 @@ agent.input("Search for Python")
           </p>
           <CodeWithResult
             code={`# The plugin is just a list of event handlers
-re_act = [plan_task, reflect]`}
+re_act = [acknowledge_request, reflect]`}
             language="python"
           />
         </section>
