@@ -127,6 +127,12 @@ export default function PricingPage() {
             </thead>
             <tbody className="divide-y divide-gray-200">
               <tr>
+                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3.5-flash</code></td>
+                <td className="px-4 py-3 text-gray-700">$1.50</td>
+                <td className="px-4 py-3 text-gray-700">$9.00</td>
+                <td className="px-4 py-3 text-gray-600">Latest Gemini 3.5 Flash</td>
+              </tr>
+              <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3-pro-preview</code></td>
                 <td className="px-4 py-3 text-gray-700">$2.00</td>
                 <td className="px-4 py-3 text-gray-700">$12.00</td>

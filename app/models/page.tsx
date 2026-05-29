@@ -99,6 +99,7 @@ response = agent.input("Hello!")
 - **o4-mini** - OpenAI's newest reasoning model
 
 ### Google Gemini Models
+- **gemini-3.5-flash** - Latest Gemini 3.5 Flash
 - **gemini-3-pro-preview** - State-of-the-art reasoning, 1M context
 - **gemini-3-flash-preview** - Fastest Gemini 3 model
 - **gemini-3.1-flash-lite-preview** - Ultra fast, cheapest Gemini 3
@@ -435,6 +436,10 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
                 Gemini 3 (Newest)
               </h3>
               <div className="space-y-3">
+                <div className="flex items-start">
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.5-flash</code>
+                  <span className="text-gray-700">Latest Gemini 3.5 Flash</span>
+                </div>
                 <div className="flex items-start">
                   <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-preview</code>
                   <span className="text-gray-700">State-of-the-art reasoning, 1M context - <strong className="text-gray-900">Most intelligent</strong></span>
