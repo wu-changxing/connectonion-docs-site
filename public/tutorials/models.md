@@ -46,6 +46,9 @@ agent = Agent("assistant", model="co/o4-mini")
 
 ### Gemini 3 (Newest - State-of-the-Art Reasoning)
 ```python
+# Latest Gemini 3.5 Flash
+agent = Agent("assistant", model="co/gemini-3.5-flash")
+
 # Most intelligent model family with state-of-the-art reasoning
 agent = Agent("assistant", model="co/gemini-3-pro-preview")
 
@@ -125,6 +128,7 @@ agent = Agent("assistant", model="co/claude-opus-4")
 | co/gpt-4o | 128K tokens |
 | co/o4-mini | 128K tokens |
 | **Google** | |
+| co/gemini-3.5-flash | 1M tokens |
 | co/gemini-3-pro-preview | 1M tokens |
 | co/gemini-3-flash-preview | 1M tokens |
 | co/gemini-2.5-pro | 2M tokens |

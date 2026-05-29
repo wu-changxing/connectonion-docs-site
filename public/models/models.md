@@ -49,6 +49,9 @@ agent = Agent("assistant", model="co/o4-mini")
 
 ### Gemini 3 (Newest - State-of-the-Art Reasoning)
 ```python
+# Latest Gemini 3.5 Flash
+agent = Agent("assistant", model="co/gemini-3.5-flash")
+
 # Most intelligent model family with state-of-the-art reasoning
 agent = Agent("assistant", model="co/gemini-3-pro-preview")
 
@@ -149,6 +152,7 @@ agent = Agent("assistant", model="mistral/mistral-medium-latest")
 | gpt-4o | 128K tokens |
 | o4-mini | 128K tokens |
 | **Google** | |
+| gemini-3.5-flash | 1M tokens |
 | gemini-3-pro-preview | 1M tokens |
 | gemini-3-flash-preview | 1M tokens |
 | gemini-2.5-pro | 2M tokens |
@@ -177,6 +181,7 @@ All prices are **per 1M tokens**:
 
 | Model | Input | Output | Notes |
 |-------|-------|--------|-------|
+| gemini-3.5-flash | $1.50 | $9.00 | Latest Gemini 3.5 Flash |
 | gemini-3-pro-preview | $2.00 | $12.00 | State-of-the-art reasoning |
 | gemini-3-flash-preview | $0.50 | $3.00 | Fastest Gemini 3 |
 | gemini-3.1-flash-lite-preview | $0.10 | $0.40 | Ultra fast, cheapest Gemini 3 |
