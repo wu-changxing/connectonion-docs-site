@@ -119,6 +119,15 @@ with BrowserAutomation() as browser:
                 <li>wait_for_manual_login(site)</li>
               </ul>
             </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <h3 className="font-semibold text-gray-700 mb-2">Forms</h3>
+              <ul className="text-sm text-gray-600 space-y-1 font-mono">
+                <li>select_option(field, option)</li>
+                <li>check_checkbox(description, checked?)</li>
+                <li>upload_file_by_selector(selector, file_path)</li>
+                <li>upload_file_after_click_by_selector(selector, file_path)</li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -259,6 +268,26 @@ browser.check_checkbox("I agree to terms")
 browser.check_checkbox("newsletter", checked=False)  # Uncheck`}
             language="python"
           />
+        </section>
+
+        {/* File Uploads */}
+        <section className="mb-20">
+          <h2 className="heading-2">File Uploads</h2>
+          <CodeWithResult
+            code={`# Upload to an existing file input. Hidden inputs are supported.
+browser.upload_file_by_selector('input[type="file"]', "cover.png")
+
+# Click an upload button that opens the OS file picker, then attach the file.
+browser.upload_file_after_click_by_selector(
+    "button",
+    "cover.png",
+    text="Upload from computer",
+)`}
+            language="python"
+          />
+          <p className="text-gray-700 mt-4 text-sm">
+            Both upload helpers accept <code className="bg-gray-100 px-2 py-1 rounded font-mono">frame_url_contains</code> and <code className="bg-gray-100 px-2 py-1 rounded font-mono">frame_name</code> for upload controls inside iframes. Pass <code className="bg-gray-100 px-2 py-1 rounded font-mono">index</code> when a selector matches multiple controls.
+          </p>
         </section>
 
         {/* Waiting */}
