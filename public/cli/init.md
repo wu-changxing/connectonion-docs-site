@@ -196,7 +196,7 @@ $ co init  # After global config exists
 co init [options]
 
 Options:
-  --template, -t          Template to use (minimal/web-research/playwright/custom)
+  --template, -t          Template to use (minimal/playwright/coder/co-ai/web-research/custom)
   --no-ai                 Disable AI features (not recommended)
   --key                   API key to use (saves to global config)
   --force                 Initialize even in special directories
@@ -414,7 +414,7 @@ co init -t custom --description "Monitor a site and alert me"
 
 ## Options (the useful bits)
 
-- `--template, -t`: `minimal` | `playwright` | `custom`
+- `--template, -t`: `minimal` | `playwright` | `coder` | `co-ai` | `web-research` | `custom`
 - `--key`: paste an API key (auto-detects provider and appends to `.env`)
 - `--force`: continue in non-empty/special directories
 - `--yes, -y`: accept defaults and skip prompts

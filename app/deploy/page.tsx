@@ -116,13 +116,19 @@ co deploy`}
             result={`Deploying to ConnectOnion Cloud...
 
   Project: my-agent
-  Env vars: 3 keys
+  Source: /Users/me/my-agent
+  Package: 12.3 KB (8 files)
+  Env: /Users/me/my-agent/.env (3 keys)
 
-Uploading...
-Building...
+Uploading package to https://oo.openonion.ai...
+Deployment: a1b2c3d4
+Building container on ConnectOnion Cloud...
+  [1/100] status: deploying
+  [2/100] status: running
 
 Deployed!
-Agent URL: https://my-agent-abc123.agents.openonion.ai`}
+Agent URL: https://my-agent-0x7a9f3b2c.agents.openonion.ai
+Dashboard: https://o.openonion.ai/dashboard`}
             language="bash"
             fileName="Terminal"
           />
@@ -132,7 +138,7 @@ Agent URL: https://my-agent-abc123.agents.openonion.ai`}
             <div className="space-y-2 text-gray-700">
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
-                <span>Git repository with committed code</span>
+                <span>Initialized ConnectOnion project</span>
               </div>
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />

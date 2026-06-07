@@ -280,8 +280,8 @@ export default function CLIPage() {
                   <td className="px-4 py-3 text-gray-700">
                     Choose template: <code className="bg-gray-100 px-2 py-1 rounded text-xs">minimal</code>,
                     <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">playwright</code>,
-                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">email-agent</code>,
-                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">meta-agent</code>,
+                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">coder</code>,
+                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">co-ai</code>,
                     <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">web-research</code>,
                     <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">custom</code>
                   </td>
@@ -522,7 +522,7 @@ Continue? (y/N): y
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
               <HiOutlineChevronRight className="w-4 h-4 icon-ui mt-1" />
-              <span>Git repository with committed code</span>
+              <span>Initialized ConnectOnion project</span>
             </li>
             <li className="flex items-start gap-2">
               <HiOutlineChevronRight className="w-4 h-4 text-emerald-400 mt-1" />
@@ -543,13 +543,19 @@ Continue? (y/N): y
 Deploying to ConnectOnion Cloud...
 
   Project: my-agent
-  Env vars: 3 keys
+  Source: /Users/me/my-agent
+  Package: 12.3 KB (8 files)
+  Env: /Users/me/my-agent/.env (3 keys)
 
-Uploading...
-Building...
+Uploading package to https://oo.openonion.ai...
+Deployment: a1b2c3d4
+Building container on ConnectOnion Cloud...
+  [1/100] status: deploying
+  [2/100] status: running
 
 Deployed!
-Agent URL: https://my-agent-abc123.agents.openonion.ai`}
+Agent URL: https://my-agent-0x7a9f3b2c.agents.openonion.ai
+Dashboard: https://o.openonion.ai/dashboard`}
           </pre>
         </div>
 

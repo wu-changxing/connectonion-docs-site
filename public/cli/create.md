@@ -195,7 +195,7 @@ co create [name] [options]
 
 Options:
   [name]                    Project name (optional, will prompt)
-  --template, -t            Template to use (minimal/web-research/playwright/custom)
+  --template, -t            Template to use (minimal/playwright/coder/co-ai/web-research/custom)
   --description, -d         Description for custom template
   --no-ai                   Disable AI features (not recommended)
   --key                     API key to use (overrides global)
