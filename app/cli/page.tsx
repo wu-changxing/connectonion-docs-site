@@ -127,7 +127,7 @@ export default function CLIPage() {
           </div>
           <div className="divide-y divide-gray-50">
             {[
-              { cmd: 'co status', desc: 'Check credit balance', href: '#co-status' },
+              { cmd: 'co status', desc: 'Check balance and deployments', href: '#co-status' },
               { cmd: 'co deploy', desc: 'Deploy agent to cloud', href: '#co-deploy' },
               { cmd: 'co doctor', desc: 'Diagnose config issues', href: '#co-doctor' },
               { cmd: 'co reset', desc: 'Reset account', href: '#co-reset' },
@@ -425,7 +425,7 @@ response = llm_do("Hello", model="co/gemini-2.5-pro")`}
         </h2>
 
         <p className="text-gray-700 mb-6">
-          Check your account balance and managed keys usage.
+          Check your account balance, managed keys usage, and deployed agents.
         </p>
 
         <CommandBlock commands={['co status']} />
@@ -438,7 +438,11 @@ response = llm_do("Hello", model="co/gemini-2.5-pro")`}
 
 Address:  0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a
 Email:    0x7a9f3b2c@mail.openonion.ai
-Balance:  $5.00`}
+Balance:  $5.00
+
+Deployed Agents
+Project       Status    Active  Container  URL
+co-ai-agent   running   yes     running    https://co-ai-agent-0x....agents.openonion.ai`}
           </pre>
         </div>
       </section>
