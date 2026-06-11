@@ -287,7 +287,7 @@ export default function CLIPage() {
                   <td className="px-4 py-3 font-mono text-sm text-gray-700">--template</td>
                   <td className="px-4 py-3 text-gray-700">
                     Choose template: <code className="bg-gray-100 px-2 py-1 rounded text-xs">minimal</code>,
-                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">playwright</code>,
+                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">browser</code>,
                     <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">coder</code>,
                     <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">co-ai</code>,
                     <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">web-research</code>,
@@ -325,9 +325,8 @@ export default function CLIPage() {
   ✓ Detected OpenAI API key
 ✔ Choose a template:
   ❯ Minimal - Simple starting point
-    Playwright - Browser automation
-    Email Agent - Email tools & OAuth
-    Meta Agent - Agent that builds agents
+    Browser - Playwright web automation
+    Coder - Code-writing agent
     Web Research - Data analysis & web scraping
     Custom - AI generates based on your needs
 
@@ -418,8 +417,8 @@ Next steps:
 {`from connectonion import llm_do
 
 # Use co/ prefix for managed models
-response = llm_do("Hello", model="co/gpt-5")
-response = llm_do("Hello", model="co/claude-sonnet-4-5")
+response = llm_do("Hello", model="co/gpt-4o")
+response = llm_do("Hello", model="co/claude-sonnet-4")
 response = llm_do("Hello", model="co/gemini-2.5-pro")`}
           </div>
         </div>
@@ -569,6 +568,32 @@ Deployed!
 Agent URL: https://my-agent-0x7a9f3b2c.agents.openonion.ai
 Dashboard: https://o.openonion.ai/dashboard`}
           </pre>
+        </div>
+
+        <div className="mt-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Template Deploys</h3>
+          <p className="text-gray-700 mb-4">
+            Deploy a built-in template plus any combination of skills — no local project needed:
+          </p>
+          <CommandBlock commands={['co deploy --template co-ai --name my-agent --skills ~/skills/a ~/skills/b']} />
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full border border-gray-200 rounded-lg overflow-hidden">
+              <tbody className="divide-y divide-gray-200">
+                <tr>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-700">--template</td>
+                  <td className="px-4 py-3 text-gray-700 text-sm">Any <code className="bg-gray-100 px-2 py-1 rounded text-xs">co create</code> template; creates a temporary project, deploys it, cleans up on success</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-700">--name</td>
+                  <td className="px-4 py-3 text-gray-700 text-sm">Project name and URL (default <code className="bg-gray-100 px-2 py-1 rounded text-xs">{'{template}-agent'}</code>) — different skill combos run side by side</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-sm text-gray-700">--skills</td>
+                  <td className="px-4 py-3 text-gray-700 text-sm">One or more paths bundled into <code className="bg-gray-100 px-2 py-1 rounded text-xs">.co/skills/</code>. A single skill (contains <code className="bg-gray-100 px-2 py-1 rounded text-xs">SKILL.md</code>) nests under its directory name; a directory of skills merges its contents</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
@@ -840,77 +865,52 @@ Dashboard: https://o.openonion.ai/dashboard`}
             </ul>
           </div>
 
-          {/* Playwright Template */}
+          {/* Browser Template */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-              Playwright
+              Browser
             </h3>
             <p className="text-gray-700 mb-4">
-              Browser automation agent with stateful web tools:
+              Browser automation agent with stateful Playwright-backed tools:
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Stateful browser (start, navigate, click, fill)
+                Stateful browser (open_browser, go_to, click, keyboard_type)
               </li>
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Screenshot capture with device presets
+                Screenshot capture with viewport control
               </li>
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Content scraping and link extraction
+                Content extraction (get_text, extract_data, get_links_from_page)
               </li>
             </ul>
           </div>
 
-          {/* Email Agent Template */}
+          {/* Coder Template */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-              Email Agent
+              Coder
             </h3>
             <p className="text-gray-700 mb-4">
-              Email automation with send, receive, and management:
+              Code-writing agent with file and shell tools:
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-500" />
-                SMTP sending and IMAP reading
+                File editing tools (read, write, diff)
               </li>
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-500" />
-                Gmail and Outlook OAuth integration
+                Shell and bash execution
               </li>
               <li className="flex items-center gap-2">
                 <HiOutlineChevronRight className="w-4 h-4 text-gray-500" />
-                Email filtering and management tools
-              </li>
-            </ul>
-          </div>
-
-          {/* Meta Agent Template */}
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-              Meta Agent
-            </h3>
-            <p className="text-gray-700 mb-4">
-              An agent that knows ConnectOnion and helps you build agents:
-            </p>
-            <ul className="space-y-2 text-gray-700 text-sm">
-              <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Built-in framework knowledge
-              </li>
-              <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Generates agent code from descriptions
-              </li>
-              <li className="flex items-center gap-2">
-                <HiOutlineChevronRight className="w-4 h-4 text-gray-400" />
-                Includes complete docs context
+                Todo list for multi-step plans
               </li>
             </ul>
           </div>
