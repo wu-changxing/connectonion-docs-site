@@ -112,7 +112,7 @@ export const navigation = [
     icon: HiOutlineCamera,
     section: 'CLI',
     parent: '/cli',
-    keywords: ['browser', 'screenshot', 'automation', 'debug', 'playwright', 'viewport'],
+    keywords: ['browser', 'automation', 'session', 'daemon', 'function', 'do', 'agent', 'playwright', 'screenshot', 'scripting', 'headless'],
     prev: { href: '/cli/ai', title: 'co ai' },
     next: { href: '/agent', title: 'Agent' }
   },

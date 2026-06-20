@@ -1,11 +1,11 @@
 /**
  * @purpose CLI browser command documentation
- * @context Shows how to use `co browser` for screenshots and automation
+ * @context Shows how to use `co browser` — direct function dispatch + the `do` agent, over one persistent browser session
  */
 
 'use client'
 
-import { HiOutlineCamera, HiOutlineDevicePhoneMobile, HiOutlineComputerDesktop, HiOutlineBolt, HiOutlineCodeBracket } from 'react-icons/hi2'
+import { HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineCodeBracket, HiOutlineComputerDesktop, HiOutlineCommandLine, HiOutlineCpuChip } from 'react-icons/hi2'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { PageHeader } from '../../../components/PageHeader'
@@ -22,322 +22,244 @@ export default function CliBrowserCommandPage() {
               { label: 'CLI', href: '/cli' },
               { label: 'co browser' }
             ]}
-            icon={HiOutlineCamera}
+            icon={HiOutlineGlobeAlt}
             iconColor="icon-ui"
             title="co browser"
-            description="Quick browser screenshots and automation with one command. Perfect for debugging, testing, and visual proof."
+            description="Drive one real browser from the shell — call browser functions directly, or hand a task to the AI agent. The browser stays open between commands."
           />
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <p className="text-lg font-semibold text-gray-900">
-              <strong>Quick Start:</strong> <code className="bg-gray-100 px-2 py-1 rounded">co browser "screenshot localhost:3000"</code> - instant screenshot, no code required.
+              <strong>Quick Start:</strong> <code className="bg-gray-100 px-2 py-1 rounded">co browser go_to news.ycombinator.com</code> opens a browser. The next command drives the same window.
             </p>
           </div>
         </section>
 
-        {/* Basic Usage */}
+        {/* Quick Start */}
         <section className="mb-20">
           <h2 className="heading-2">
             <HiOutlineBolt className="w-8 h-8 text-gray-700" />
-            Basic Usage
+            Quick Start (60 seconds)
           </h2>
 
           <CodeWithResult
-            code={`co browser "screenshot localhost:3000"`}
-            result={`[browser] Taking screenshot of http://localhost:3000
-[browser] Saved to .tmp/screenshot_20260310_143022.png
-
-✓ Screenshot saved successfully`}
+            code={`co browser go_to news.ycombinator.com    # opens a browser, navigates
+co browser get_current_url               # → https://news.ycombinator.com/
+co browser take_screenshot /tmp/shot.png # saves a PNG
+co browser close                         # done`}
+            result={`Navigated to https://news.ycombinator.com/
+https://news.ycombinator.com/
+Browser closed`}
             language="bash"
           />
 
           <p className="text-gray-600 mt-4">
-            Saves to <code className="bg-gray-100 px-2 py-1 rounded">.tmp/screenshot_YYYYMMDD_HHMMSS.png</code> by default.
+            The browser stays open <strong>between commands</strong>. Each <code className="bg-gray-100 px-2 py-1 rounded">co browser ...</code> call drives the <em>same</em> window — your navigation, cookies, and logged-in session persist until you <code className="bg-gray-100 px-2 py-1 rounded">close</code>.
           </p>
         </section>
 
-        {/* Command Format */}
+        {/* Two ways */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
-            Command Format
+            <HiOutlineCpuChip className="w-8 h-8 text-gray-700" />
+            Two Ways to Drive It
           </h2>
 
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
-            <code className="text-lg text-gray-700">
-              co browser "screenshot [URL] [save to PATH] [size SIZE]"
-            </code>
-          </div>
-
-          <p className="text-gray-700 mb-4">All parts except URL are optional.</p>
-
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Basic Screenshots</h3>
-              <CodeWithResult
-                code={`# Local development
-co browser "screenshot localhost:3000"
-
-# Specific port
-co browser "screenshot localhost:8080"
-
-# External site
-co browser "screenshot example.com"
-
-# Full URL
-co browser "screenshot https://docs.connectonion.com"`}
-                language="bash"
-              />
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-semibold mb-2">Direct function call</h3>
+              <code className="text-sm bg-gray-100 px-2 py-1 rounded">co browser go_to x.com</code>
+              <p className="text-gray-600 text-sm mt-3">Deterministic, instant, free (no LLM). For scripting and exact steps you already know.</p>
             </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Save to Specific Path</h3>
-              <CodeWithResult
-                code={`# Save to temp directory
-co browser "screenshot localhost:3000 save to /tmp/debug.png"
-
-# Save to current directory
-co browser "screenshot localhost:3000 save to homepage.png"
-
-# Save to subdirectory
-co browser "screenshot localhost:3000 save to screenshots/test.png"`}
-                language="bash"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Device Sizes</h3>
-              <CodeWithResult
-                code={`# iPhone viewport
-co browser "screenshot localhost:3000 size iphone"
-
-# Custom dimensions
-co browser "screenshot localhost:3000 size 390x844"
-
-# Common presets
-co browser "screenshot localhost:3000 size ipad"
-co browser "screenshot localhost:3000 size desktop"`}
-                language="bash"
-              />
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-semibold mb-2">Natural language</h3>
+              <code className="text-sm bg-gray-100 px-2 py-1 rounded">co browser do "find the cheapest flight"</code>
+              <p className="text-gray-600 text-sm mt-3">The AI agent figures out the steps. For when you don&apos;t want to spell them out.</p>
             </div>
           </div>
+
+          <p className="text-gray-700 mb-4">Both drive the <strong>same live browser</strong>, so you can mix them — script the boring parts, let the agent handle the hard part:</p>
+
+          <CodeWithResult
+            code={`co browser go_to myapp.com/login
+co browser do "log me in and open the billing page"   # agent takes over the same window
+co browser take_screenshot /tmp/billing.png           # back to a direct call`}
+            language="bash"
+          />
         </section>
 
-        {/* Device Presets */}
+        {/* How it works */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineDevicePhoneMobile className="w-8 h-8 text-gray-700" />
-            Device Presets
+            <HiOutlineCommandLine className="w-8 h-8 text-gray-700" />
+            How It Works
           </h2>
+
+          <p className="text-gray-700 mb-6">
+            The first <code className="bg-gray-100 px-2 py-1 rounded">co browser</code> command starts a small background <strong>daemon</strong> that owns one browser. Every later command connects to it over a local socket and drives that same browser. The daemon lives exactly as long as the browser:
+          </p>
+
+          <div className="bg-gray-900 text-gray-100 rounded-lg p-6 mb-6 overflow-x-auto">
+            <pre className="text-sm leading-relaxed">{`co browser go_to x.com   ──► starts daemon ──► opens browser ─┐
+co browser click "Login" ──────────────────► same browser    │  state persists
+co browser screenshot    ──────────────────► same browser    │
+co browser close         ──► browser closes ──► daemon exits ─┘`}</pre>
+          </div>
+
+          <p className="text-gray-700 mb-6">
+            You never manage the daemon directly — the <strong>first command starts it</strong>, and <code className="bg-gray-100 px-2 py-1 rounded">close</code> (or closing the window) stops it. There is no separate &quot;start&quot; step.
+          </p>
+
+          <h3 className="text-xl font-semibold mb-4">How a command is dispatched</h3>
+          <p className="text-gray-700 mb-4">The first word is compared against the browser&apos;s function names:</p>
 
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-gray-200 rounded-lg">
               <thead className="bg-gray-100">
                 <tr>
-                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Preset</th>
-                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Dimensions</th>
-                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Device</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">You type</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">What happens</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-700">iphone</td>
-                  <td className="px-4 py-3 text-gray-700">390x844</td>
-                  <td className="px-4 py-3 text-gray-600">iPhone 14/15</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">co browser go_to x.com</td>
+                  <td className="px-4 py-3 text-gray-600"><code className="bg-gray-100 px-1 rounded">go_to</code> <strong>is</strong> a function → runs it directly</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-700">android</td>
-                  <td className="px-4 py-3 text-gray-700">360x800</td>
-                  <td className="px-4 py-3 text-gray-600">Common Android</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">co browser do &quot;...&quot;</td>
+                  <td className="px-4 py-3 text-gray-600"><code className="bg-gray-100 px-1 rounded">do</code> → hands the instruction to the AI agent</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-mono text-gray-700">ipad</td>
-                  <td className="px-4 py-3 text-gray-700">768x1024</td>
-                  <td className="px-4 py-3 text-gray-600">iPad</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 font-mono text-gray-700">desktop</td>
-                  <td className="px-4 py-3 text-gray-700">1920x1080</td>
-                  <td className="px-4 py-3 text-gray-600">Full HD Desktop</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">co browser frobnicate</td>
+                  <td className="px-4 py-3 text-gray-600">matches nothing → <code className="bg-gray-100 px-1 rounded">unknown command</code> (exit 1)</td>
                 </tr>
               </tbody>
             </table>
           </div>
+
+          <p className="text-gray-600 text-sm mt-4">
+            Quote natural-language instructions: <code className="bg-gray-100 px-2 py-1 rounded">co browser do &quot;click the blue button&quot;</code>. A bare word that happens to be a function name (like <code className="bg-gray-100 px-1 rounded">click</code>) is treated as a direct call, not language.
+          </p>
         </section>
 
-        {/* Complete Examples */}
-        <section className="mb-20">
-          <h2 className="heading-2">
-            <HiOutlineComputerDesktop className="w-8 h-8 text-gray-700" />
-            Complete Examples
-          </h2>
-
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Debug Mobile Checkout</h3>
-              <CodeWithResult
-                code={`co browser "screenshot localhost:3000/checkout save to /tmp/checkout-mobile.png size iphone"`}
-                language="bash"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Document Bug</h3>
-              <CodeWithResult
-                code={`co browser "screenshot localhost:3000/xray save to bug-report.png size 1920x1080"`}
-                language="bash"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Test Responsive Design</h3>
-              <CodeWithResult
-                code={`# Test multiple viewports
-co browser "screenshot localhost:3000 save to mobile.png size 390x844"
-co browser "screenshot localhost:3000 save to tablet.png size 768x1024"
-co browser "screenshot localhost:3000 save to desktop.png size 1920x1080"`}
-                language="bash"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* URL Handling */}
+        {/* Discovering functions */}
         <section className="mb-20">
           <h2 className="heading-2">
             <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
-            URL Handling
+            Discovering Functions
           </h2>
 
           <p className="text-gray-700 mb-6">
-            The command intelligently handles URLs:
+            The CLI describes itself — run <code className="bg-gray-100 px-2 py-1 rounded">help</code> to list every callable function with its arguments and a one-line summary (no browser is launched). This is the fastest way, for a person or an AI agent, to find the exact function name and arguments before calling it.
           </p>
 
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <div className="space-y-3 font-mono text-sm">
-              <div className="flex items-center gap-4">
-                <span className="text-gray-500">localhost</span>
-                <span className="text-slate-600">→</span>
-                <span className="text-gray-700">http://localhost</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="text-gray-500">localhost:3000</span>
-                <span className="text-slate-600">→</span>
-                <span className="text-gray-700">http://localhost:3000</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="text-gray-500">example.com</span>
-                <span className="text-slate-600">→</span>
-                <span className="text-gray-700">https://example.com</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="text-gray-500">http://example.com</span>
-                <span className="text-slate-600">→</span>
-                <span className="text-gray-700">http://example.com</span>
-                <span className="text-slate-500">(unchanged)</span>
-              </div>
-            </div>
-          </div>
+          <CodeWithResult
+            code={`co browser help`}
+            result={`Functions:
+  go_to(url) — Navigate to a URL.
+  take_screenshot(path=None, full_page=False) — Take a screenshot of the current page...
+  click(description) — Click on an element using natural language description.
+  get_links_from_page(domain_filter='') — Extract all unique links from the current page...
+  ...`}
+            language="bash"
+          />
         </section>
 
-        {/* Use Cases */}
+        {/* Common functions */}
         <section className="mb-20">
           <h2 className="heading-2">
             <HiOutlineBolt className="w-8 h-8 text-gray-700" />
-            Use Cases
+            Common Functions
           </h2>
 
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">1. Debug Local Development</h3>
-              <CodeWithResult
-                code={`# Quick check of homepage
-co browser "screenshot localhost:3000"
+          <p className="text-gray-700 mb-4">Any function listed by <code className="bg-gray-100 px-2 py-1 rounded">co browser help</code> is callable. The ones you&apos;ll reach for most:</p>
 
-# Debug specific route
-co browser "screenshot localhost:3000/api/status"`}
-                language="bash"
-              />
-            </div>
+          <CodeWithResult
+            code={`co browser go_to <url>                     # navigate
+co browser get_current_url                 # print the current URL
+co browser get_text                        # print visible page text
+co browser take_screenshot /tmp/shot.png [--full-page]
+co browser click "<description or selector>"
+co browser type_text_by_selector <css> "<text>"
+co browser get_links_from_page             # one link per line
+co browser scroll                          # scroll the main content
+co browser close                           # close browser, stop daemon`}
+            language="bash"
+          />
 
-            <div>
-              <h3 className="text-xl font-semibold mb-4">2. Document Bugs</h3>
-              <CodeWithResult
-                code={`# Capture error state
-co browser "screenshot localhost:3000/error save to bug.png"
-
-# Mobile-specific issue
-co browser "screenshot localhost:3000/mobile-bug save to mobile-issue.png size iphone"`}
-                language="bash"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">3. Test Responsive Design</h3>
-              <CodeWithResult
-                code={`# Test different viewports
-for size in iphone android ipad desktop; do
-  co browser "screenshot localhost:3000 save to view-$size.png size $size"
-done`}
-                language="bash"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">4. CI/CD Integration</h3>
-              <CodeWithResult
-                code={`# In GitHub Actions or similar
-co browser "screenshot $DEPLOY_URL save to artifacts/deployed.png"`}
-                language="bash"
-              />
-            </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
+            <p className="text-gray-700 text-sm">
+              <strong>Use absolute paths for files.</strong> The daemon resolves relative paths against <em>its own</em> working directory (where it was first started), not the directory you run each command from. <code className="bg-gray-100 px-1 rounded">take_screenshot /tmp/shot.png</code> is predictable; a bare <code className="bg-gray-100 px-1 rounded">shot.png</code> lands in the daemon&apos;s <code className="bg-gray-100 px-1 rounded">.tmp/</code> folder.
+            </p>
           </div>
         </section>
 
-        {/* Framework Examples */}
+        {/* Scripting */}
         <section className="mb-20">
           <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
-            Framework Examples
+            <HiOutlineCommandLine className="w-8 h-8 text-gray-700" />
+            Scripting
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-lg font-semibold mb-3">Next.js</h3>
-              <CodeWithResult
-                code={`co browser "screenshot localhost:3000"
-co browser "screenshot localhost:3000/_error save to error.png"`}
-                language="bash"
-              />
-            </div>
+          <p className="text-gray-700 mb-6">
+            Output is clean stdout, errors go to stderr, and the exit code is <code className="bg-gray-100 px-2 py-1 rounded">0</code> on success / <code className="bg-gray-100 px-2 py-1 rounded">1</code> on failure — so commands compose like any Unix tool:
+          </p>
 
-            <div>
-              <h3 className="text-lg font-semibold mb-3">FastAPI</h3>
-              <CodeWithResult
-                code={`co browser "screenshot localhost:8000"
-co browser "screenshot localhost:8000/docs save to api-docs.png"`}
-                language="bash"
-              />
-            </div>
+          <CodeWithResult
+            code={`# Capture a value
+url=$(co browser get_current_url)
 
-            <div>
-              <h3 className="text-lg font-semibold mb-3">Django</h3>
-              <CodeWithResult
-                code={`co browser "screenshot localhost:8000"
-co browser "screenshot localhost:8000/admin save to admin.png"`}
-                language="bash"
-              />
-            </div>
+# Pipe list output (one item per line)
+co browser get_links_from_page | grep github | wc -l
 
-            <div>
-              <h3 className="text-lg font-semibold mb-3">React Dev Server</h3>
-              <CodeWithResult
-                code={`co browser "screenshot localhost:3000"
-co browser "screenshot localhost:3000 size iphone"`}
-                language="bash"
-              />
-            </div>
-          </div>
+# Fail-fast in a script
+co browser go_to "$DEPLOY_URL" && co browser take_screenshot /tmp/deployed.png`}
+            language="bash"
+          />
+        </section>
+
+        {/* Headless vs GUI */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineComputerDesktop className="w-8 h-8 text-gray-700" />
+            Headless vs GUI
+          </h2>
+
+          <p className="text-gray-700 mb-6">
+            By default the browser is <strong>visible</strong> (a real Chrome window you can watch). Add <code className="bg-gray-100 px-2 py-1 rounded">--headless</code> for scripts/CI:
+          </p>
+
+          <CodeWithResult
+            code={`co browser --headless go_to example.com    # no window
+co browser go_to example.com               # visible window (default)`}
+            language="bash"
+          />
+
+          <p className="text-gray-600 mt-4">
+            The mode is fixed when the daemon starts (the first command). To switch modes, <code className="bg-gray-100 px-2 py-1 rounded">co browser close</code> first, then start again with the mode you want.
+          </p>
+        </section>
+
+        {/* Natural language agent */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCpuChip className="w-8 h-8 text-gray-700" />
+            Natural Language Agent
+          </h2>
+
+          <p className="text-gray-700 mb-6">
+            <code className="bg-gray-100 px-2 py-1 rounded">do</code> runs the full AI browser agent on the live browser and prints its final answer:
+          </p>
+
+          <CodeWithResult
+            code={`co browser do "search for wireless headphones and list the top 3 prices"`}
+            language="bash"
+          />
+
+          <p className="text-gray-600 mt-4">
+            This path uses managed keys — run <code className="bg-gray-100 px-2 py-1 rounded">co auth</code> once if you see an authentication message.
+          </p>
         </section>
 
         {/* Installation */}
@@ -347,17 +269,11 @@ co browser "screenshot localhost:3000 size iphone"`}
             Installation
           </h2>
 
-          <p className="text-gray-700 mb-6">
-            Browser features require Playwright:
-          </p>
+          <p className="text-gray-700 mb-6">The browser needs Playwright:</p>
 
           <CodeWithResult
-            code={`# Install Playwright
-pip install playwright
-playwright install chromium
-
-# Or install ConnectOnion with browser support
-pip install connectonion[browser]`}
+            code={`pip install playwright
+playwright install chromium`}
             language="bash"
           />
         </section>
@@ -366,83 +282,63 @@ pip install connectonion[browser]`}
         <section className="mb-20">
           <h2 className="heading-2">
             <HiOutlineCodeBracket className="w-8 h-8 icon-ui" />
-            Common Errors
+            Error Messages
           </h2>
 
-          <div className="space-y-4">
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="font-mono text-sm text-red-700 mb-2">
-                ❌ Browser tools not installed
-              </p>
-              <p className="text-gray-600 text-sm">
-                Run: <code className="bg-gray-100 px-2 py-1 rounded">pip install playwright && playwright install chromium</code>
-              </p>
+          <p className="text-gray-700 mb-6">
+            Errors print to <strong>stderr</strong> and exit with code <code className="bg-gray-100 px-2 py-1 rounded">1</code>. Each one tells you the next step — handy when an AI agent is driving the CLI and needs to self-correct.
+          </p>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Unknown function</h3>
+              <CodeWithResult
+                code={`co browser frobnicate`}
+                result={`unknown command: frobnicate
+Run 'co browser help' to list functions, or 'co browser do "<instruction>"' for natural language.`}
+                language="bash"
+              />
             </div>
 
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="font-mono text-sm text-red-700 mb-2">
-                ❌ Cannot reach http://localhost:3000
-              </p>
-              <p className="text-gray-600 text-sm">
-                Is your server running? Start it first.
-              </p>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Wrong arguments</h3>
+              <CodeWithResult
+                code={`co browser go_to`}
+                result={`TypeError: BrowserAutomation.go_to() missing 1 required positional argument: 'url'
+usage: go_to(url)`}
+                language="bash"
+              />
+              <p className="text-gray-600 text-sm mt-2">The <code className="bg-gray-100 px-1 rounded">usage:</code> line shows the exact signature — pass the missing argument.</p>
             </div>
 
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="font-mono text-sm text-red-700 mb-2">
-                ❌ Natural language browser agent unavailable. Set OPENAI_API_KEY
-              </p>
-              <p className="text-gray-600 text-sm">
-                Set your OpenAI API key for natural language commands
-              </p>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Authentication required (only for <code className="bg-gray-100 px-1 rounded">do</code>)</h3>
+              <CodeWithResult
+                code={`co browser do "find the price"`}
+                result={`Browser agent requires authentication. Run: co auth`}
+                language="bash"
+              />
             </div>
-          </div>
-        </section>
 
-        {/* Tips */}
-        <section className="mb-20">
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Tips & Best Practices</h3>
-            <div className="space-y-3 text-gray-700">
-              <div>
-                <strong className="text-gray-700">Quick Debug:</strong> Just <code className="bg-gray-100 px-2 py-1 rounded">co browser "screenshot localhost:3000"</code> for instant feedback
-              </div>
-              <div>
-                <strong className="text-gray-700">Organize Screenshots:</strong> Use descriptive paths like <code className="bg-gray-100 px-2 py-1 rounded">save to bugs/issue-123.png</code>
-              </div>
-              <div>
-                <strong className="text-gray-700">Test Viewports:</strong> Use device names (iphone, ipad) for common sizes
-              </div>
-              <div>
-                <strong className="text-gray-700">Timestamps:</strong> Default filenames include timestamp for versioning
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Playwright not installed</h3>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                <p className="font-mono text-sm text-gray-700">Browser tools not installed. Run: pip install playwright &amp;&amp; playwright install chromium</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Limitations */}
+        {/* See also */}
         <section className="mb-20">
-          <h2 className="heading-2">
-            <HiOutlineCodeBracket className="w-8 h-8 text-gray-500" />
-            Limitations
-          </h2>
-
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <ul className="space-y-2 text-gray-600">
-              <li>• Screenshots only (no interaction, clicking, forms)</li>
-              <li>• Single page at a time</li>
-              <li>• Headless browser only</li>
-              <li>• PNG format only</li>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">See Also</h3>
+            <ul className="space-y-2 text-gray-700">
+              <li>• <a href="/cli/auth" className="text-gray-700 hover:underline">co auth</a> — managed keys for the <code className="bg-gray-100 px-1 rounded">do</code> agent</li>
+              <li>• <a href="/useful-tools/browser-tools" className="text-gray-700 hover:underline">BrowserAutomation</a> — the browser tools used in your own agents</li>
+              <li>• <a href="/tools/browser" className="text-gray-700 hover:underline">Browser agent</a> — full browser automation in code</li>
             </ul>
           </div>
-
-          <p className="text-gray-600 mt-4">
-            For complex browser automation, use the full{' '}
-            <a href="/tools/browser" className="text-gray-700 hover:underline">
-              ConnectOnion browser agent
-            </a>{' '}
-            or Playwright directly.
-          </p>
         </section>
 
         {/* Navigation */}
