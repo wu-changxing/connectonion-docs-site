@@ -98,7 +98,7 @@ Waiting for tasks...`}
               </div>
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
-                <span><strong>P2P Relay</strong> → Connect from anywhere via relay (1s auto-reconnect on drop)</span>
+                <span><strong>P2P Relay</strong> → Connect from anywhere via relay (auto-reconnect with backoff on drop)</span>
               </div>
               <div className="flex items-start gap-2">
                 <HiOutlineCheck className="w-5 h-5 icon-ui mt-0.5 flex-shrink-0" />
