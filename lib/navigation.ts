@@ -518,7 +518,7 @@ export const navigation = [
     icon: HiOutlinePhoto,
     section: 'Useful Plugins',
     parent: '/useful-plugins',
-    keywords: ['image', 'vision', 'base64', 'screenshot', 'format'],
+    keywords: ['image', 'vision', 'base64', 'screenshot', 'format', 'upload', 'oo-api', 'url', 'context'],
     prev: { href: '/useful-plugins/eval', title: 'eval' },
     next: { href: '/useful-plugins/shell-approval', title: 'shell_approval' }
   },
