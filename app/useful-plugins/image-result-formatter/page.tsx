@@ -41,6 +41,13 @@ export default function ImageResultFormatterPage() {
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
+                <HiOutlineArrowRight className="w-5 h-5 icon-ui" />
+                <h3 className="font-semibold">Uploads to oo-api, keeps a short URL</h3>
+              </div>
+              <p className="text-sm text-gray-700">Image bytes go to oo-api (content-addressed storage); the message history keeps only a ~70-byte <code>/img</code> URL, so screenshots never bloat the replayed context. Requires <code>OPENONION_API_KEY</code> (set up by <code>co init</code>).</p>
+            </div>
+            <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
                 <HiOutlineSparkles className="w-5 h-5 icon-ui" />
                 <h3 className="font-semibold">Converts to vision format</h3>
               </div>
@@ -94,11 +101,11 @@ The screenshot shows a simple webpage with the heading "Example Domain"...`}
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-2">With Plugin</h3>
-              <p className="text-sm text-gray-700 mb-2">The LLM receives proper image format:</p>
+              <p className="text-sm text-gray-700 mb-2">The LLM receives a proper image message with a short URL:</p>
               <code className="text-xs text-gray-700 block bg-gray-100 border border-gray-200 p-2 rounded overflow-x-auto">
-                {`{type: "image_url", url: "data:image/png;..."}`}
+                {`{type: "image_url", url: "https://oo.openonion.ai/img/a3f9..."}`}
               </code>
-              <p className="text-sm text-gray-700 mt-2">LLM can see and analyze the image!</p>
+              <p className="text-sm text-gray-700 mt-2">LLM can see the image, and the history stays ~70 bytes per screenshot!</p>
             </div>
           </div>
         </section>
@@ -107,35 +114,43 @@ The screenshot shows a simple webpage with the heading "Example Domain"...`}
         <section className="mb-12">
           <h2 className="heading-2">How it works</h2>
           <CodeWithResult
-            code={`@after_tools
-def _format_image_result(agent):
-    trace = agent.current_session['trace'][-1]
+            code={`def _format_image_result(agent):
+    """Runs on after_tools: replace base64 tool results with an image message."""
+    for trace_entry in agent.current_session['trace']:
+        is_image, mime_type, base64_data = _is_base64_image(trace_entry.get('result'))
+        if not is_image:
+            continue
 
-    if trace['type'] != 'tool_execution' or trace['status'] != 'success':
-        return
+        # Upload bytes to oo-api; only a short URL enters the history
+        image_url = _upload_to_oo_api(base64_data, mime_type)
 
-    result = trace['result']
-    is_image, mime_type, base64_data = _is_base64_image(result)
+        # Shorten the tool message (save tokens)
+        tool_msg['content'] = "Tool returned an image (provided below)"
 
-    if not is_image:
-        return
+        # Insert a user message the vision model can see
+        messages.insert(tool_index + 1, {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": f"Here is the image from '{tool_name}':"},
+                {"type": "image_url", "image_url": {"url": image_url}}
+            ]
+        })
 
-    # Find and modify the tool result message
-    messages = agent.current_session['messages']
-    for i, msg in enumerate(reversed(messages)):
-        if msg['role'] == 'tool' and msg.get('tool_call_id') == trace['call_id']:
-            # Shorten tool message (save tokens)
-            msg['content'] = "Screenshot captured (image provided below)"
+        if agent.io:
+            agent.io.send_image(image_url)  # real-time display in oo-chat
 
-            # Insert user message with actual image
-            messages.insert(len(messages) - i, {
-                "role": "user",
-                "content": [
-                    {"type": "text", "text": "Tool returned an image. See below."},
-                    {"type": "image_url", "image_url": {"url": f"data:{mime_type};base64,{base64_data}"}}
-                ]
-            })
-            break`}
+
+def _upload_to_oo_api(base64_data, mime_type):
+    """POST bytes to oo-api, get back a stable /img URL."""
+    base = os.getenv("OPENONION_API_URL", "https://oo.openonion.ai")
+    resp = requests.post(
+        f"{base}/api/v1/images",
+        headers={"Authorization": f"Bearer {os.environ['OPENONION_API_KEY']}"},
+        files={"file": ("screenshot", base64.b64decode(base64_data), mime_type)},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    return resp.json()["url"]`}
             language="python"
           />
         </section>
