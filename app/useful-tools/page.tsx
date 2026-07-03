@@ -94,6 +94,7 @@ const toolCategories = [
     borderColor: 'border-gray-200',
     tools: [
       { name: 'FileTools', href: '/useful-tools/file-tools', description: 'Read/edit files with safety tracking', status: 'available' },
+      { name: 'read_file', href: '/useful-tools/read-file', description: 'Read any file: text, images, PDF, PPTX, DOCX, audio, video', status: 'available' },
       { name: 'Diff Writer', href: '/useful-tools/diff-writer', description: 'Write code diffs', status: 'available' },
       { name: 'Slash Command', href: '/useful-tools/slash-command', description: 'Custom CLI commands', status: 'available' },
     ]

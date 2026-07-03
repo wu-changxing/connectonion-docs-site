@@ -447,6 +447,16 @@ export const navigation = [
     section: 'Useful Tools',
     keywords: ['file', 'tools', 'read', 'write', 'edit', 'glob', 'grep', 'snapshot', 'md5', 'permission'],
     prev: { href: '/useful-tools/todo-list', title: 'Todo List' },
+    next: { href: '/useful-tools/read-file', title: 'read_file' }
+  },
+  {
+    title: 'read_file',
+    href: '/useful-tools/read-file',
+    icon: HiOutlineDocumentText,
+    section: 'Useful Tools',
+    difficulty: 'New',
+    keywords: ['read', 'file', 'read_file', 'pdf', 'image', 'vision', 'pptx', 'powerpoint', 'docx', 'word', 'audio', 'video', 'transcript', 'multi-format', 'co copy'],
+    prev: { href: '/useful-tools/file-tools', title: 'FileTools' },
     next: { href: '/useful-tools/browser-tools', title: 'BrowserAutomation' }
   },
   {
@@ -455,7 +465,7 @@ export const navigation = [
     icon: FaChrome,
     section: 'Useful Tools',
     keywords: ['browser', 'playwright', 'automation', 'click', 'screenshot', 'navigate', 'session', 'persistent'],
-    prev: { href: '/useful-tools/file-tools', title: 'FileTools' },
+    prev: { href: '/useful-tools/read-file', title: 'read_file' },
     next: { href: '/google-integration', title: 'Google Integration' }
   },
 
