@@ -43,10 +43,11 @@ Agent(
     tools=[func1, func2],                 # Optional: functions agent can call
     system_prompt="You are helpful",      # Optional: personality/behavior
     model="co/gemini-2.5-pro",            # Optional: LLM model (default: co/gemini-2.5-pro)
-    max_iterations=10,                    # Optional: how many tool calls allowed
+    max_iterations=100,                   # Optional: how many tool calls allowed (default: 100)
     api_key="sk-...",                     # Optional: override environment variable
     llm=custom_llm,                       # Optional: bring your own LLM instance
-    trust="tested",                       # Optional: security verification
+    plugins=[my_plugin],                  # Optional: list of plugin event handler lists
+    on_events=[after_llm(handler)],       # Optional: custom event handlers
     quiet=False,                          # Optional: suppress console output
     log=True                              # Optional: logging configuration
 )
@@ -241,7 +242,7 @@ Final Response (when LLM is done)
 
 The agent loops until:
 - LLM provides a final answer (no more tool calls), OR
-- Max iterations reached (default: 10)
+- Max iterations reached (default: 100)
 
 ---
 
@@ -283,10 +284,10 @@ result = agent.execute_tool("calculator", {"expression": "2+2"})
 # Returns:
 {
   "name": "calculator",
-  "arguments": {"expression": "2+2"},
+  "args": {"expression": "2+2"},
   "result": "4",
   "status": "success",      # or "error", "not_found"
-  "timing": 1.23            # milliseconds
+  "timing_ms": 1.23         # milliseconds
 }
 ```
 
@@ -453,17 +454,17 @@ Default model is `co/gemini-2.5-pro`. You can use:
 # OpenAI models
 agent = Agent("bot", model="gpt-4o-mini")
 agent = Agent("bot", model="gpt-4o")
-agent = Agent("bot", model="o1-mini")
+agent = Agent("bot", model="o4-mini")
 agent = Agent("bot", model="o1")
 
 # Anthropic Claude
-agent = Agent("bot", model="claude-3-5-sonnet-20241022")
-agent = Agent("bot", model="claude-3-5-haiku-20241022")
+agent = Agent("bot", model="claude-sonnet-4-5")
+agent = Agent("bot", model="claude-haiku-4-5")
 agent = Agent("bot", model="claude-opus-4")
 
 # Google Gemini
-agent = Agent("bot", model="gemini-1.5-pro")
-agent = Agent("bot", model="gemini-1.5-flash")
+agent = Agent("bot", model="gemini-2.5-pro")
+agent = Agent("bot", model="gemini-2.5-flash")
 agent = Agent("bot", model="gemini-2.0-flash-exp")
 ```
 
@@ -472,7 +473,7 @@ agent = Agent("bot", model="gemini-2.0-flash-exp")
 ```python
 # Use managed keys instead of your own
 agent = Agent("bot", model="co/gpt-4o-mini")
-agent = Agent("bot", model="co/claude-3-5-sonnet")
+agent = Agent("bot", model="co/claude-sonnet-4-5")
 ```
 
 ### API Keys
@@ -493,7 +494,7 @@ agent = Agent("bot", api_key="sk-...", model="gpt-4o-mini")
 from connectonion.llm import AnthropicLLM
 
 custom_llm = AnthropicLLM(
-    model="claude-3-5-sonnet-20241022",
+    model="claude-sonnet-4-5",
     api_key="sk-ant-..."
 )
 
@@ -591,8 +592,8 @@ Token usage is automatically shown in console logs after each LLM call:
 
 Cost tracking works with all supported providers:
 - OpenAI (gpt-4o, gpt-4o-mini, o1, o3-mini, o4-mini)
-- Anthropic Claude (claude-3-5-sonnet, claude-3-5-haiku, claude-opus-4)
-- Google Gemini (gemini-2.5-pro, gemini-2.5-flash, gemini-1.5-pro)
+- Anthropic Claude (claude-opus-4-5, claude-sonnet-4-5, claude-haiku-4-5)
+- Google Gemini (gemini-3-pro-preview, gemini-2.5-pro, gemini-2.5-flash)
 
 Unknown models use default pricing estimates.
 
@@ -718,50 +719,29 @@ See [xray.md](../debug/xray.md) for complete debugging guide and [console.md](..
 
 ---
 
-## Trust & Security
+## Tool Approval & Security
 
-Add verification before risky tools execute:
-
-### Trust Levels
+Use the `tool_approval` plugin to add web-based approval for dangerous tool calls:
 
 ```python
+from connectonion.useful_plugins import tool_approval, shell_approval
+
+# Web-based approval (for hosted agents)
 agent = Agent(
     "bot",
-    tools=[delete_database],
-    trust="tested"  # Requires manual approval before execution
+    tools=[bash],
+    plugins=[tool_approval]
+)
+
+# CLI approval for shell commands
+agent = Agent(
+    "bot",
+    tools=[bash],
+    plugins=[shell_approval]
 )
 ```
 
-**Trust levels:**
-- `"open"` - No verification (default)
-- `"tested"` - Manual approval required
-- `"strict"` - Both manual approval + verification logic
-
-### Trust Policies (Natural Language)
-
-```python
-agent = Agent(
-    "bot",
-    tools=[deploy_code],
-    trust="policies/production.md"  # Checks against policy file
-)
-```
-
-### Custom Trust Agent
-
-```python
-# Create a verifier agent
-verifier = Agent("security", tools=[scan_code, check_safety])
-
-# Use it to verify tools
-agent = Agent(
-    "bot",
-    tools=[risky_tool],
-    trust=verifier  # Custom verification logic
-)
-```
-
-See [trust.md](trust.md) for complete security guide.
+See [tool_approval.md](../useful_plugins/tool_approval.md) and [shell_approval.md](../useful_plugins/shell_approval.md) for complete docs.
 
 ---
 
@@ -810,7 +790,7 @@ def create_analyst(name: str, tools: list) -> Agent:
         name=name,
         tools=tools,
         system_prompt=Path("prompts/analyst.md"),
-        model="claude-3-5-sonnet-20241022",
+        model="claude-sonnet-4-5",
         max_iterations=15,
         log=f"logs/{name}.log"
     )
@@ -914,14 +894,14 @@ import pytest
 
 @pytest.mark.real_api
 def test_real_agent():
-    """Requires OPENAI_API_KEY in environment."""
-    agent = Agent("test", tools=[search], model="gpt-4o-mini")
+    """Requires OPENONION_API_KEY or GEMINI_API_KEY in environment."""
+    agent = Agent("test", tools=[search], model="co/gemini-2.5-flash")
     result = agent.input("Search for Python")
     assert "Python" in result
 
 # Run tests:
-# pytest -m "not real_api"  # Skip real API tests
-# pytest -m real_api         # Only integration tests
+# pytest                     # Default: unit + offline e2e (real_api excluded)
+# pytest -m real_api         # Only real-API tests (needs keys, costs money)
 ```
 
 ---
@@ -1054,7 +1034,7 @@ agent.input("Find Python docs")
 
 ### Complex Case
 ```python
-trust_agent = Agent("verifier", tools=[scan_code])
+from connectonion.useful_plugins import shell_approval
 
 agent = Agent(
     name="production",
@@ -1062,7 +1042,7 @@ agent = Agent(
     tools=[deploy, rollback, monitor],
     system_prompt=Path("prompts/ops.md"),
     max_iterations=30,
-    trust=trust_agent,
+    plugins=[shell_approval],
     log="/var/log/agents/production.log"
 )
 

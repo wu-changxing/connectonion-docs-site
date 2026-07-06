@@ -16,7 +16,7 @@ What `co auth` does:
 - Authenticates your agent and saves a secure token
 - Token is saved to `~/.co/keys.env` as `OPENONION_API_KEY`
 - If your project has a `.env`, it's updated too
-- `~/.co/keys.env` gains `AGENT_EMAIL` and `IS_EMAIL_ACTIVE=true`
+- `~/.co/keys.env` gains `IS_EMAIL_ACTIVE=true`
 
 What `co auth google` does:
 - Connects your Google account for Gmail Send and Calendar Read
@@ -35,8 +35,8 @@ response = llm_do("Hello", model="co/gpt-4o")
 
 Works across providers:
 - `co/gpt-4o`, `co/gpt-4o-mini`
-- `co/claude-3-5-sonnet`, `co/claude-3-5-haiku`
-- `co/gemini-1.5-pro`, `co/gemini-1.5-flash`
+- `co/claude-sonnet-4-5`, `co/claude-haiku-4-5`
+- `co/gemini-2.5-pro`, `co/gemini-2.5-flash`
 
 ## Troubleshooting
 

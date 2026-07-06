@@ -7,15 +7,15 @@ Make direct LLM calls with optional structured output. Supports OpenAI, Google G
 ```python
 from connectonion import llm_do
 
-# OpenAI (default)
+# Default: co/gemini-2.5-flash (managed key, no setup needed)
 answer = llm_do("What's 2+2?")  
 print(answer)  # "4"
 
-# Google Gemini
-answer = llm_do("What's 2+2?", model="gemini-1.5-flash")  
+# Google Gemini (your own key)
+answer = llm_do("What's 2+2?", model="gemini-2.5-flash")  
 
 # Anthropic Claude
-answer = llm_do("What's 2+2?", model="claude-3-5-haiku-20241022")
+answer = llm_do("What's 2+2?", model="claude-haiku-4-5")
 ```
 
 That's it! One function for any LLM task across multiple providers.
