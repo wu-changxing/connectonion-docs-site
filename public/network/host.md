@@ -171,38 +171,65 @@ ws.onmessage = (e) => console.log(JSON.parse(e.data));
 Persistent connection to relay server for discoverability. Runs automatically.
 
 ```
-Agent                              Relay Server
-  │                                     │
-  │── ANNOUNCE (register) ────────────>│  Every 60s (heartbeat)
-  │   {address, endpoints, tools}       │
-  │                                     │
-  │<─────────────── INPUT ─────────────│  From remote client
-  │   {input_id, prompt}                │
-  │                                     │
-  │── OUTPUT ─────────────────────────>│  Back to client
-  │   {input_id, result}                │
+Client                          Relay Server                        Agent
+  │                                  │                                │
+  │                                  │<── ANNOUNCE (register) ────────│  Every 60s
+  │                                  │    {address, endpoints}        │
+  │                                  │                                │
+  │── CONNECT {session_id} ────────>│── forward as-is ─────────────>│
+  │                                  │                                │
+  │<── CONNECTED {session_id} ─────│<── route by session_id ────────│
+  │                                  │                                │
+  │── INPUT ───────────────────────>│── forward as-is ─────────────>│
+  │                                  │                                │
+  │<── streaming {session_id} ─────│<── route by session_id ────────│
+  │    (thinking, tool_call, ...)    │                                │
+  │                                  │                                │
+  │<── OUTPUT {session_id} ────────│<── route by session_id ────────│
 ```
 
-**Flow:**
-1. On startup, agent connects to relay via WebSocket
-2. Agent sends ANNOUNCE with address, endpoints, tools
-3. Relay stores agent info (now discoverable)
-4. Agent re-sends ANNOUNCE every 60s (heartbeat)
-5. When client calls `connect("0xaddress")`:
-   - Client queries relay for agent endpoints
-   - Client tries direct connection first
-   - Falls back to relay routing if needed
-6. Relay forwards INPUT to agent, agent sends OUTPUT back
+**How it works:**
+
+On startup, the agent process runs two things in the same event loop:
+- **ASGI server** on port 8000 — handles direct HTTP and WebSocket connections
+- **Relay loop** — maintains a long-lived WebSocket to `wss://oo.openonion.ai/ws/announce`
+
+When a client connects through the relay:
+
+1. Client creates a `session_id` and opens WebSocket to relay's `/ws/input`
+2. Relay forwards messages as-is to the agent through the announce WebSocket
+3. Agent's relay loop routes by `session_id` and opens a local WebSocket to its own `ws://127.0.0.1:8000/ws` — the same endpoint that handles direct connections
+4. The local `/ws` handler processes the full protocol (CONNECT, INPUT, streaming, OUTPUT) as if it were a normal client
+5. Every response carries `session_id` (injected by the `/ws` handler). Responses flow back: local `/ws` → relay loop → announce WebSocket → relay routes by `session_id` → client
+
+The relay is a pure forwarder — it doesn't parse or modify messages, just routes by `session_id`. All protocol handling (authentication, session management, IO queues, streaming events) happens in the existing `/ws` handler. This means relay connections get the exact same features as direct connections: streaming, tool calls, ask_user, session recovery, etc.
+
+**Registration:**
+1. Agent sends ANNOUNCE with address and endpoints every 60s
+2. Relay stores agent info (now discoverable)
+3. When client calls `connect("0xaddress")`, SDK tries direct connection first, falls back to relay if needed
 
 ### Heartbeat & Keep-Alive
 
 | Connection | Mechanism | Interval | Purpose |
 |------------|-----------|----------|---------|
 | HTTP | None | N/A | Stateless request/response |
-| WebSocket /ws | Server PING | 30s | Detect dead connections |
-| Relay | Agent ANNOUNCE | 60s | Stay registered, update endpoints |
+| WebSocket /ws (direct or via relay) | Server PING → client | 30s | Keep the client session alive; client replies PONG |
+| Agent ↔ relay link | Agent ANNOUNCE | 60s | Stay registered, update endpoints |
+
+A relay session has **two independent keepalives**. The 30s server PING is the *client*-session keepalive — it is forwarded end-to-end through the relay to the browser/SDK so its 60s-silence monitor doesn't declare the connection dead and reconnect. The 60s ANNOUNCE is a *different* thing: it only keeps the agent↔relay link alive and registered, and never reaches the client, so it can't substitute for the PING. (This is why `run_ws_session` runs with `enable_ping=True` on the relay path too — earlier builds disabled it there and idle relay sessions churned every ~60s.)
 
 **Relay cleanup:** Agents not announcing for 120s are removed from registry.
+
+### Relay connection stability
+
+The relay loop is a long-lived supervisor, not a one-shot connect. A relay registration is meant to live for days, so any transient fault — a network blip surfacing as `OSError`, the relay redeploying, a DNS hiccup, a malformed frame — is normal operation, not a bug. The supervisor catches everything except cancellation, logs, backs off, and reconnects:
+
+- **Survive any transient fault.** Without this, the first non-`ConnectionClosed` error would escape the loop and silently kill the announce task: the agent keeps serving *direct* connections but never announces again, so its relay registration goes stale and it becomes unreachable via the relay until the process restarts.
+- **Capped exponential backoff with jitter.** Reconnect delays follow `1, 2, 4, 8, 16, 30s` (capped). The first retry is an exact 1s for fast single-blip recovery; from the second attempt on, up to 1s of random jitter is added so a recovering relay doesn't get a thundering herd. A clean disconnect resets the counter, so the next reconnect is immediate.
+- **Escalate persistent failures.** After 5 consecutive failures the log line goes loud (red) so a permanent problem — revoked key, decommissioned relay, a real bug — is surfaced instead of buried in a dim 1s loop forever.
+
+On the model side, the OpenOnion LLM client uses a widened 20s connect timeout and 5 retries (600s read budget) so a brief network blip is absorbed rather than aborting the whole agent run with a timeout.
 
 ### Worker Isolation
 

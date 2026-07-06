@@ -171,7 +171,6 @@ $ co init  # First time ever
   ✓ Generated master keypair
   ✓ Your address: 0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a
   ✓ Your email: 0x7a9f3b2c@mail.openonion.ai
-  ✓ Created ~/.co/host.yaml
   ✓ Created ~/.co/keys.env
 
 [continues with project initialization...]
@@ -196,7 +195,7 @@ $ co init  # After global config exists
 co init [options]
 
 Options:
-  --template, -t          Template to use (minimal/playwright/coder/co-ai/web-research/custom)
+  --template, -t          Template to use (minimal/web-research/browser/custom)
   --no-ai                 Disable AI features (not recommended)
   --key                   API key to use (saves to global config)
   --force                 Initialize even in special directories
@@ -210,7 +209,7 @@ Same templates as `co create`:
 
 1. **minimal** - Basic agent with simple tools
 2. **web-research** - Web scraping and research
-3. **playwright** - Browser automation
+3. **browser** - Browser automation
 4. **custom** - AI-generated based on description
 
 ## Special Directory Warnings
@@ -403,18 +402,18 @@ co init
 ## Templates
 
 - minimal: basic agent
-- playwright: browser automation
+- browser: browser automation
 - custom: describe it, we generate it with AI
 
 ```bash
 co init -t minimal
-co init -t playwright
+co init -t browser
 co init -t custom --description "Monitor a site and alert me"
 ```
 
 ## Options (the useful bits)
 
-- `--template, -t`: `minimal` | `playwright` | `coder` | `co-ai` | `web-research` | `custom`
+- `--template, -t`: `minimal` | `browser` | `custom`
 - `--key`: paste an API key (auto-detects provider and appends to `.env`)
 - `--force`: continue in non-empty/special directories
 - `--yes, -y`: accept defaults and skip prompts

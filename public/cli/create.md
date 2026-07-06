@@ -104,7 +104,7 @@ $ co create another-agent
 
 ```
 ~/.co/
-├── keys.env             # Identity (AGENT_ADDRESS, AGENT_EMAIL) + shared API keys
+├── keys.env             # Shared API keys and identity
 ├── keys/                # Master identity
 │   ├── agent.key        # Private key (for signing)
 │   └── recovery.txt     # Recovery phrase
@@ -129,38 +129,6 @@ my-agent/
 
 Note: Projects use global address/email by default.
 
-## Configuration Files
-
-### Global Identity (`~/.co/keys.env`)
-
-```bash
-AGENT_CONFIG_PATH=/Users/you/.co
-AGENT_ADDRESS=0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a
-AGENT_EMAIL=0x7a9f3b2c@mail.openonion.ai
-IS_EMAIL_ACTIVE=true                # Becomes true after `co auth`
-OPENONION_API_KEY=eyJhbGciOiJI...   # If authenticated
-# Plus any third-party API keys you've added
-```
-
-### Project Config (`.co/host.yaml`)
-
-```yaml
-name: my-agent
-entrypoint: agent.py
-env: .env
-```
-
-### API Keys (`.env`)
-
-Automatically copied from `~/.co/keys.env`:
-
-```bash
-# my-agent/.env
-OPENAI_API_KEY=sk-proj-xxx
-ANTHROPIC_API_KEY=sk-ant-xxx
-# Any other keys from global config
-```
-
 ## Address and Email Management
 
 All projects use the global identity (address + email) from `~/.co`. Run `co status` to view your address and email.
@@ -170,9 +138,10 @@ All projects use the global identity (address + email) from `~/.co`. Run `co sta
 ### Available Templates
 
 1. **minimal** - Basic agent with simple tools
-2. **web-research** - Web scraping and research capabilities
-3. **playwright** - Browser automation
-4. **custom** - AI-generated based on your description
+2. **coder** - Filesystem + shell access for coding tasks
+3. **browser** - Browser automation with Playwright
+4. **web-research** - Web scraping and research capabilities
+5. **custom** - AI-generated based on your description
 
 ### Template Selection
 
@@ -195,7 +164,7 @@ co create [name] [options]
 
 Options:
   [name]                    Project name (optional, will prompt)
-  --template, -t            Template to use (minimal/playwright/coder/co-ai/web-research/custom)
+  --template, -t            Template to use (minimal/coder/browser/web-research/custom)
   --description, -d         Description for custom template
   --no-ai                   Disable AI features (not recommended)
   --key                     API key to use (overrides global)
