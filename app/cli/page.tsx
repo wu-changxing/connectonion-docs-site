@@ -44,7 +44,7 @@
 'use client'
 
 import { useState } from 'react'
-import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineDocumentText, HiOutlineCube, HiOutlineCodeBracket, HiOutlineExclamationCircle, HiOutlineBolt, HiOutlineBookOpen, HiOutlineChevronRight, HiOutlineKey, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineFolderOpen, HiOutlineExclamationTriangle, HiOutlineCheckCircle } from 'react-icons/hi2'
+import { HiOutlineClipboard, HiOutlineCheck, HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineDocumentText, HiOutlineCube, HiOutlineCodeBracket, HiOutlineExclamationCircle, HiOutlineBolt, HiOutlineBookOpen, HiOutlineChevronRight, HiOutlineKey, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineFolderOpen, HiOutlineExclamationTriangle, HiOutlineCheckCircle, HiOutlineEnvelope } from 'react-icons/hi2'
 import { FaLightbulb, FaBolt } from 'react-icons/fa'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import Link from 'next/link'
@@ -92,6 +92,7 @@ export default function CLIPage() {
             {[
               { cmd: 'co ai', desc: 'AI coding agent in your terminal', href: '#co-ai' },
               { cmd: 'co browser', desc: 'Screenshots, scraping & automation', href: '#co-browser' },
+              { cmd: 'co outlook', desc: 'Send and read Outlook email', href: '#co-outlook' },
             ].map(({ cmd, desc, href }) => (
               <a key={cmd} href={href} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors group">
                 <code className="font-mono text-sm font-semibold text-gray-900 w-32 flex-shrink-0 group-hover:text-gray-700">{cmd}</code>
@@ -716,6 +717,75 @@ Dashboard: https://o.openonion.ai/dashboard`}
               co browser documentation
             </Link>{' '}
             for URL handling, framework examples, and advanced usage.
+          </p>
+        </div>
+      </section>
+
+      {/* Outlook Email */}
+      <section className="mb-16" id="co-outlook">
+        <h2 className="heading-2">
+          <HiOutlineEnvelope className="w-6 h-6 text-gray-400" />
+          co outlook
+        </h2>
+
+        <p className="text-gray-700 mb-6">
+          Send, read, and search email from your Outlook account — straight from the terminal.
+          Connect your Microsoft account once with <code className="bg-gray-100 px-2 py-1 rounded">co auth microsoft</code>, then:
+        </p>
+
+        <div className="space-y-4 mb-8">
+          <CommandBlock
+            title="Show your inbox (numbered table)"
+            commands={['co outlook']}
+          />
+
+          <CommandBlock
+            title="Read email #3 from the last listing (marks it read)"
+            commands={['co outlook read 3']}
+          />
+
+          <CommandBlock
+            title="Send an email"
+            commands={['co outlook send alice@example.com "Quarterly report" "Draft attached, feedback welcome."']}
+          />
+
+          <CommandBlock
+            title="Attach files and CC someone (repeat --attach for multiple)"
+            commands={['co outlook send alice@example.com "Screenshots" "See attached" --cc bob@example.com --attach shot1.png --attach shot2.png']}
+          />
+
+          <CommandBlock
+            title="Schedule delivery: +30m, +2h, or a UTC ISO time"
+            commands={['co outlook send alice@example.com "Reminder" "Standup in 30" --at +30m']}
+          />
+
+          <CommandBlock
+            title="Pipe a body from stdin with message '-'"
+            commands={['git log --oneline -10 | co outlook send alice@example.com "This week" -']}
+          />
+
+          <CommandBlock
+            title="Sent mail and search"
+            commands={['co outlook sent', 'co outlook search "invoice"']}
+          />
+        </div>
+
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+          <p className="text-sm text-gray-600">
+            <span className="font-semibold inline-flex items-center gap-1">
+              <FaLightbulb className="text-gray-400 text-sm" />
+              <span>Tip:</span>
+            </span> Scheduled sends (<code className="bg-gray-50 px-1 rounded">--at</code>) use Exchange deferred delivery — the email waits server-side, so your machine can go offline. Attachments go through Microsoft Graph, which caps the total at about 3 MB.
+          </p>
+        </div>
+
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+          <p className="text-gray-700">
+            <strong>Learn more:</strong> See the{' '}
+            <Link href="/outlook" className="text-gray-700 hover:text-gray-900 underline">
+              Outlook documentation
+            </Link>{' '}
+            for the agent tool, all CLI options, and troubleshooting.
           </p>
         </div>
       </section>
