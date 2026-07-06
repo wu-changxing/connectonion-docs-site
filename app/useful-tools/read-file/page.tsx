@@ -141,12 +141,16 @@ tool result  →  a normal text tool-message in the conversation
       ▼
 image_result_formatter plugin        (runs on the after_tools event)
       │  1. detects the  data:image/…;base64,…  URL in the result
-      │  2. replaces the tool message with a short placeholder
-      │  3. inserts a user message: { "type": "image_url", "image_url": {...} }
+      │  2. uploads the bytes to oo-api → gets back a short /img URL
+      │  3. replaces the tool message with a short placeholder
+      │  4. inserts a user message: { "type": "image_url", "image_url": {"url": "…/img/…"} }
       ▼
 next LLM call  →  the model SEES the image (vision), not base64 text`}
             language="text"
           />
+          <p className="text-gray-600 text-sm mt-4 mb-2">
+            Only the ~70-byte <code className="bg-gray-100 px-1 rounded">/img</code> URL enters the message history — never the base64 — so screenshots don&apos;t bloat the replayed context or session logs. The upload needs <code className="bg-gray-100 px-1 rounded">OPENONION_API_KEY</code> (set up by <code className="bg-gray-100 px-1 rounded">co init</code>); oo-api stores the bytes and materializes them per provider at call time (e.g. inlines them for Gemini, which can&apos;t fetch URLs).
+          </p>
           <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-3 text-sm text-gray-700">
             <p>
               <strong>Why a plugin, and not read_file itself?</strong> A tool&apos;s return value can only become a <em>text</em> tool-message. Putting an image into the conversation means mutating the message list, which is only safe on the <code className="bg-gray-100 px-1 rounded">after_tools</code> event — so a plugin does it. This is the same path browser screenshots use.
