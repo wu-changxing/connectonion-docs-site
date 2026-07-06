@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { HiOutlineEnvelope, HiOutlineInbox, HiOutlineMagnifyingGlass, HiOutlineArchiveBox, HiOutlineChartBar, HiOutlineArrowRight, HiOutlineBolt, HiOutlinePaperAirplane, HiOutlineArrowUturnLeft } from 'react-icons/hi2'
+import { HiOutlineEnvelope, HiOutlineInbox, HiOutlineMagnifyingGlass, HiOutlineArchiveBox, HiOutlineChartBar, HiOutlineArrowRight, HiOutlineBolt, HiOutlinePaperAirplane, HiOutlineArrowUturnLeft, HiOutlineCommandLine } from 'react-icons/hi2'
 import { FaMicrosoft } from 'react-icons/fa'
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
@@ -82,6 +82,67 @@ agent.input("Send an email to alice@example.com saying hello")`}
 
           <p className="text-gray-700 mt-4">Your agent can now read and manage Outlook emails.</p>
           <p className="text-gray-700 mt-3"><strong>Switch accounts?</strong> Run <code className="bg-gray-100 px-2 py-0.5 rounded">co auth microsoft</code> again to connect a different Microsoft account.</p>
+        </section>
+
+        {/* CLI */}
+        <section className="mb-16">
+          <div className="flex items-center gap-3 mb-8">
+            <HiOutlineCommandLine className="w-6 h-6 text-gray-500" />
+            <h2 className="heading-2">CLI: co outlook</h2>
+          </div>
+
+          <p className="text-gray-700 mb-6">
+            You don&apos;t need an agent to use your mailbox — the same Outlook connection powers a CLI. After <code className="bg-gray-100 px-2 py-0.5 rounded">co auth microsoft</code>, work with your email directly from the terminal:
+          </p>
+
+          <div className="space-y-4 mb-8">
+            <CommandBlock
+              title="Show your inbox as a numbered table (● marks unread)"
+              commands={['co outlook']}
+            />
+            <CommandBlock
+              title="Only unread, or more emails"
+              commands={['co outlook inbox --unread', 'co outlook inbox --last 25']}
+            />
+            <CommandBlock
+              title="Read email #3 from the last listing (marks it read)"
+              commands={['co outlook read 3']}
+            />
+            <CommandBlock
+              title="Send an email"
+              commands={['co outlook send alice@example.com "Quarterly report" "Draft attached, feedback welcome."']}
+            />
+            <CommandBlock
+              title="Sent mail and search"
+              commands={['co outlook sent', 'co outlook search "invoice"']}
+            />
+          </div>
+
+          <h3 className="text-2xl font-semibold mb-6">Send options</h3>
+
+          <div className="space-y-4 mb-8">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">--cc, --bcc</h4>
+              <p className="text-gray-700 text-sm">CC / BCC recipients (comma-separated for multiple)</p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">--attach, -a</h4>
+              <p className="text-gray-700 text-sm">Attach a local file — images, screenshots, PDFs. Repeat the flag for multiple files. Microsoft Graph caps the total at about 3 MB.</p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">--at</h4>
+              <p className="text-gray-700 text-sm">Schedule delivery: <code className="bg-gray-100 px-1 rounded">+30m</code>, <code className="bg-gray-100 px-1 rounded">+2h</code>, or a UTC ISO time like <code className="bg-gray-100 px-1 rounded">2026-07-06T15:30:00Z</code>. Uses Exchange deferred delivery, so the email waits server-side even if your machine goes offline.</p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <h4 className="font-semibold text-gray-700 font-mono text-sm mb-1">message = &apos;-&apos;</h4>
+              <p className="text-gray-700 text-sm">Read the email body from stdin — pipe in command output or a file.</p>
+            </div>
+          </div>
+
+          <CommandBlock
+            title="Everything together"
+            commands={['co outlook send alice@example.com "Screenshots" "See attached" --cc bob@example.com --attach shot1.png --attach shot2.png --at +2h']}
+          />
         </section>
 
         {/* Agent Methods - Reading */}

@@ -382,7 +382,7 @@ export const navigation = [
     icon: HiOutlineEnvelope,
     section: 'Useful Tools',
     difficulty: 'New',
-    keywords: ['outlook', 'microsoft', 'email', 'inbox', 'oauth', 'office', '365', 'graph', 'send'],
+    keywords: ['outlook', 'microsoft', 'email', 'inbox', 'oauth', 'office', '365', 'graph', 'send', 'cli', 'co outlook', 'schedule', 'attach'],
     prev: { href: '/gmail', title: 'Gmail' },
     next: { href: '/useful-tools/diff-writer', title: 'Diff Writer' }
   },
