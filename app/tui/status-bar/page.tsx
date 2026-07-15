@@ -20,7 +20,7 @@ export default function StatusBarPage() {
           iconColor="icon-ui"
           title="StatusBar"
           description="Powerline-style status bar with colored segments"
-          markdownPath="/tui/status-bar.md"
+          markdownPath="/tui/status_bar.md"
           markdownFilename="status-bar.md"
         />
 

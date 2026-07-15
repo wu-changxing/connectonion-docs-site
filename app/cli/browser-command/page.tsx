@@ -26,6 +26,7 @@ export default function CliBrowserCommandPage() {
             iconColor="icon-ui"
             title="co browser"
             description="Drive one persistent, logged-in browser from the shell — and let several AI agents share it without stepping on each other's pages."
+            markdownPath="/co-browser.md"
           />
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">

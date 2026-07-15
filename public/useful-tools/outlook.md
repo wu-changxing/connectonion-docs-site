@@ -44,6 +44,10 @@ Your agent can now read and manage Outlook emails.
 
 **Switch accounts?** Run `co auth microsoft` again to connect a different Microsoft account.
 
+**Prefer the terminal?** The same functions are available as
+[`co outlook`](../cli/outlook.md) commands (`inbox`, `read`, `send`, `reply`,
+`sent`, `search`, `scheduled`).
+
 ## Agent Methods
 
 ### Reading
@@ -52,6 +56,11 @@ Your agent can now read and manage Outlook emails.
 - Read emails from inbox
 - `last`: Number of emails (default: 10)
 - `unread`: Only unread emails (default: False)
+
+**`list_inbox(last=10, unread=False)`**
+- Programmatic counterpart of `read_inbox()` — returns a list of dicts
+  (`id`, `from`, `from_name`, `subject`, `date`, `snippet`, `unread`)
+  instead of a formatted string. Used by the `co outlook` CLI.
 
 **`get_sent_emails(max_results=10)`**
 - Get emails you sent
@@ -67,16 +76,44 @@ Your agent can now read and manage Outlook emails.
 
 ### Sending
 
-**`send(to, subject, body, cc=None, bcc=None)`**
-- Send email via Microsoft Graph API
+**`send(to, subject, body, cc=None, bcc=None, attachments=None, send_at=None)`**
+- Send email via Microsoft Graph API, now or scheduled
 - `to`: Recipient email (comma-separated for multiple)
 - `subject`: Email subject
 - `body`: Email body (plain text)
 - `cc`: Optional CC recipients
 - `bcc`: Optional BCC recipients
+- `attachments`: Optional list of local file paths (images, screenshots,
+  PDFs, etc. — Graph sendMail limit is ~3MB total)
+- `send_at`: Optional UTC ISO time (e.g. `"2026-07-06T15:30:00Z"`) —
+  Exchange holds delivery until then (deferred send, works with just the
+  `Mail.Send` scope)
 
-**`reply(email_id, body)`**
-- Reply to an existing email
+```python
+outlook.send(
+    "alice@example.com", "Report", "See attached.",
+    attachments=["report.pdf", "screenshot.png"],
+    send_at="2026-07-06T15:30:00Z",
+)
+```
+
+**`reply(email_id, body, send_at=None)`**
+- Reply to an existing email (threaded), now or scheduled
+- `body` is plain text — paragraphs (blank-line separated) convert to HTML
+  `<p>` blocks and single newlines to `<br>`, with HTML characters escaped,
+  so replies keep their formatting in Outlook
+- `send_at`: Optional UTC ISO time — Exchange holds delivery until then
+
+### Scheduled sends
+
+**`get_scheduled(max_results=25)`**
+- List emails waiting for scheduled delivery (deferred-send drafts)
+- Returns dicts with `id`, `subject`, `to`, `send_at` (UTC ISO)
+
+**`cancel_scheduled(email_id)`**
+- Cancel a scheduled email by deleting its deferred draft before delivery
+- Works on personal outlook.com accounts; some Exchange work/school
+  tenants reject the delete with 403 — there, use Outlook's "Cancel Send"
 
 ### Actions
 

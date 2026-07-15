@@ -20,7 +20,7 @@ export default function GmailPage() {
           iconColor="icon-ui"
           title="Gmail"
           description="Give your agents full Gmail access. Read, search, organize, and analyze emails."
-          markdownPath="/useful_tools/gmail.md"
+          markdownPath="/useful-tools/gmail.md"
           markdownFilename="gmail.md"
         />
 
