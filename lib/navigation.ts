@@ -114,6 +114,46 @@ export const navigation = [
     parent: '/cli',
     keywords: ['browser', 'automation', 'session', 'daemon', 'function', 'do', 'agent', 'patchright', 'playwright', 'screenshot', 'scripting', 'headless', 'tab', 'multi-agent', 'CO_WHO', 'exit codes', 'stealth'],
     prev: { href: '/cli/ai', title: 'co ai' },
+    next: { href: '/cli/email', title: 'co email' }
+  },
+  {
+    title: 'co email',
+    href: '/cli/email',
+    icon: HiOutlineEnvelope,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['email', 'agent email', 'inbox', 'send', 'read', 'mail.openonion.ai', 'name', 'upgrade', 'domain', 'quota'],
+    prev: { href: '/cli/browser-command', title: 'co browser' },
+    next: { href: '/cli/setup', title: 'co setup' }
+  },
+  {
+    title: 'co setup',
+    href: '/cli/setup',
+    icon: HiOutlineCog,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['setup', 'identity', 'agent.json', 'profile', 'keys', 'publish', 'alias', 'bio', 'skill library'],
+    prev: { href: '/cli/email', title: 'co email' },
+    next: { href: '/cli/skills', title: 'co skills' }
+  },
+  {
+    title: 'co skills',
+    href: '/cli/skills',
+    icon: HiOutlinePuzzlePiece,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['skills', 'discover', 'copy', 'manifest', 'import', 'claude', 'codex', 'cursor', 'kiro', 'SKILL.md', 'index.json'],
+    prev: { href: '/cli/setup', title: 'co setup' },
+    next: { href: '/cli/sub', title: 'co sub' }
+  },
+  {
+    title: 'co sub',
+    href: '/cli/sub',
+    icon: HiOutlineArrowPath,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['sub', 'subscribe', 'follow', 'publisher', 'sync', 'mirror', 'fan-out', 'relay', 'subscriptions', '0x address'],
+    prev: { href: '/cli/skills', title: 'co skills' },
     next: { href: '/agent', title: 'Agent' }
   },
   {

@@ -93,6 +93,7 @@ export default function CLIPage() {
               { cmd: 'co ai', desc: 'AI coding agent in your terminal', href: '#co-ai' },
               { cmd: 'co browser', desc: 'Screenshots, scraping & automation', href: '#co-browser' },
               { cmd: 'co outlook', desc: 'Send and read Outlook email', href: '#co-outlook' },
+              { cmd: 'co email', desc: "Your agent's own email address", href: '/cli/email' },
             ].map(({ cmd, desc, href }) => (
               <a key={cmd} href={href} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors group">
                 <code className="font-mono text-sm font-semibold text-gray-900 w-32 flex-shrink-0 group-hover:text-gray-700">{cmd}</code>
@@ -112,6 +113,7 @@ export default function CLIPage() {
               { cmd: 'co create [name]', desc: 'Scaffold a new agent project', href: '#co-create' },
               { cmd: 'co init', desc: 'Add ConnectOnion to current directory', href: '#co-init' },
               { cmd: 'co auth', desc: 'Get managed keys + $5 free credits', href: '#co-auth' },
+              { cmd: 'co setup', desc: 'Global identity + skill library in ~/.co/', href: '/cli/setup' },
             ].map(({ cmd, desc, href }) => (
               <a key={cmd} href={href} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors group">
                 <code className="font-mono text-sm text-gray-700 w-32 flex-shrink-0">{cmd}</code>
@@ -128,6 +130,8 @@ export default function CLIPage() {
           </div>
           <div className="divide-y divide-gray-50">
             {[
+              { cmd: 'co skills', desc: 'Discover & import skills from your coding agents', href: '/cli/skills' },
+              { cmd: 'co sub', desc: 'Subscribe to published agents', href: '/cli/sub' },
               { cmd: 'co status', desc: 'Check balance and deployments', href: '#co-status' },
               { cmd: 'co deploy', desc: 'Deploy agent to cloud', href: '#co-deploy' },
               { cmd: 'co doctor', desc: 'Diagnose config issues', href: '#co-doctor' },
