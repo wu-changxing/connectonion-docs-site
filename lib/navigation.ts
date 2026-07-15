@@ -112,7 +112,7 @@ export const navigation = [
     icon: HiOutlineCamera,
     section: 'CLI',
     parent: '/cli',
-    keywords: ['browser', 'automation', 'session', 'daemon', 'function', 'do', 'agent', 'playwright', 'screenshot', 'scripting', 'headless'],
+    keywords: ['browser', 'automation', 'session', 'daemon', 'function', 'do', 'agent', 'patchright', 'playwright', 'screenshot', 'scripting', 'headless', 'tab', 'multi-agent', 'CO_WHO', 'exit codes', 'stealth'],
     prev: { href: '/cli/ai', title: 'co ai' },
     next: { href: '/agent', title: 'Agent' }
   },
@@ -382,7 +382,7 @@ export const navigation = [
     icon: HiOutlineEnvelope,
     section: 'Useful Tools',
     difficulty: 'New',
-    keywords: ['outlook', 'microsoft', 'email', 'inbox', 'oauth', 'office', '365', 'graph', 'send', 'cli', 'co outlook', 'schedule', 'attach'],
+    keywords: ['outlook', 'microsoft', 'email', 'inbox', 'oauth', 'office', '365', 'graph', 'send', 'cli', 'co outlook', 'schedule', 'scheduled', 'cancel', 'reply', 'attach'],
     prev: { href: '/gmail', title: 'Gmail' },
     next: { href: '/useful-tools/diff-writer', title: 'Diff Writer' }
   },

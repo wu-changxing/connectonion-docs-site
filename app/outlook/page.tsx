@@ -113,6 +113,10 @@ agent.input("Send an email to alice@example.com saying hello")`}
               commands={['co outlook send alice@example.com "Quarterly report" "Draft attached, feedback welcome."']}
             />
             <CommandBlock
+              title="Reply to email #3 (threaded; --at schedules it)"
+              commands={['co outlook reply 3 "Sounds good, see you then."']}
+            />
+            <CommandBlock
               title="Sent mail and search"
               commands={['co outlook sent', 'co outlook search "invoice"']}
             />
@@ -143,6 +147,27 @@ agent.input("Send an email to alice@example.com saying hello")`}
             title="Everything together"
             commands={['co outlook send alice@example.com "Screenshots" "See attached" --cc bob@example.com --attach shot1.png --attach shot2.png --at +2h']}
           />
+
+          <h3 className="text-2xl font-semibold mt-10 mb-6">Manage scheduled sends</h3>
+
+          <p className="text-gray-700 mb-6">
+            Scheduled emails sit in Drafts until delivery time. See what&apos;s queued — and cancel before Exchange sends it:
+          </p>
+
+          <div className="space-y-4 mb-6">
+            <CommandBlock
+              title="What's queued, and when it sends"
+              commands={['co outlook scheduled']}
+            />
+            <CommandBlock
+              title="Cancel #1 before it goes out"
+              commands={['co outlook cancel 1']}
+            />
+          </div>
+
+          <p className="text-gray-600 text-sm">
+            <code className="bg-gray-100 px-1 rounded">cancel</code> deletes the pending message so it never goes out. Some Exchange work/school tenants reject the delete with 403 — there, use Outlook&apos;s own &quot;Cancel Send&quot;. On personal outlook.com accounts cancel works normally.
+          </p>
         </section>
 
         {/* Agent Methods - Reading */}
