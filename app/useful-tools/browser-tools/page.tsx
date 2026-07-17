@@ -370,10 +370,10 @@ links = browser.get_links_from_page("/product/")`}
         <section className="mb-20">
           <h2 className="heading-2">Notes</h2>
           <ul className="space-y-2 text-gray-700">
-            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Uses Google Chrome if installed (better site compatibility), otherwise falls back to Chromium</span></li>
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Uses Google Chrome if installed (better site compatibility); if no browser exists, chromium is auto-installed per-user (no admin rights, v1.2.1+)</span></li>
             <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Viewport defaults to 1920×1200 for maximum content visibility</span></li>
             <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Output is truncated when used as an agent tool to prevent token overflow</span></li>
-            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Windows is not supported</span></li>
+            <li className="flex items-start gap-2"><span className="text-gray-400 mt-1">•</span><span>Runs natively on Windows since v1.2.1 (named-pipe transport — no WSL), plus macOS and Linux</span></li>
           </ul>
         </section>
 

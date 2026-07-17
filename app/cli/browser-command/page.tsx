@@ -341,7 +341,7 @@ co browser -t scrape do "collect every plan name and monthly price into a list"`
           </h2>
 
           <p className="text-gray-700 mb-6">
-            A small <strong>daemon</strong> owns the one browser and listens on a Unix socket; each <code className="bg-gray-100 px-2 py-1 rounded">co browser …</code> invocation is a short-lived client that sends one request and prints the reply. Every terminal on the machine talks to the <strong>same</strong> daemon — there is one browser, one board, no matter where you type. The daemon serializes commands, tracks per-tab ownership, and keeps the browser alive between commands. It starts automatically on first use and exits when you <code className="bg-gray-100 px-1 rounded">close</code> it.
+            A small <strong>daemon</strong> owns the one browser and listens on a Unix socket (macOS/Linux) or a named pipe (Windows — native since v1.2.1, no WSL); each <code className="bg-gray-100 px-2 py-1 rounded">co browser …</code> invocation is a short-lived client that sends one request and prints the reply. Every terminal on the machine talks to the <strong>same</strong> daemon — there is one browser, one board, no matter where you type. The daemon serializes commands, tracks per-tab ownership, and keeps the browser alive between commands. It starts automatically on first use and exits when you <code className="bg-gray-100 px-1 rounded">close</code> it.
           </p>
 
           <p className="text-gray-700 mb-6">
@@ -349,7 +349,7 @@ co browser -t scrape do "collect every plan name and monthly price into a list"`
           </p>
 
           <p className="text-gray-700 mb-4">
-            The browser runs on <strong>Patchright</strong>, a stealth-patched, API-compatible Playwright fork:
+            The browser runs on <strong>Patchright</strong>, a stealth-patched, API-compatible Playwright fork. Setup is zero-touch since v1.2.1: desktop Chrome is auto-detected and preferred, and if no browser exists the first page-driving command auto-installs chromium (per-user, no admin rights). To install manually instead:
           </p>
 
           <CodeWithResult
