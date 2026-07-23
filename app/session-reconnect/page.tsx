@@ -6,7 +6,7 @@
 
 'use client'
 
-import { HiOutlineArrowPath, HiOutlineSquare3Stack3D, HiOutlineQueueList, HiOutlineSignal, HiOutlineTrash, HiOutlineArchiveBox, HiOutlineArrowsRightLeft, HiOutlineCommandLine, HiOutlineExclamationTriangle } from 'react-icons/hi2'
+import { HiOutlineArrowPath, HiOutlineSquare3Stack3D, HiOutlineQueueList, HiOutlineSignal, HiOutlineTrash, HiOutlineArchiveBox, HiOutlineArrowsRightLeft, HiOutlineCommandLine } from 'react-icons/hi2'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
 
@@ -265,20 +265,22 @@ T+35                        ◄────────────────�
           </h2>
 
           <p className="text-gray-700 mb-4 text-lg">
-            One rule for all non-running sessions:
+            Two different thresholds, by status:
           </p>
 
           <Diagram label="Cleanup rule">
-{`             status != 'running'
-             AND idle > 10min
-                   │
-                   ▼
-          ┌────────────────┐
-          │ REMOVE from    │
-          │ registry       │
-          │ (memory freed) │
-          └────────────────┘`}
+{`  status == 'connected'  AND idle > 10min   ─┐
+  status == 'running'    AND idle > 1hr     ─┤
+                                              ▼
+                                   ┌────────────────┐
+                                   │ REMOVE from    │
+                                   │ registry       │
+                                   │ (memory freed) │
+                                   └────────────────┘`}
           </Diagram>
+          <p className="text-gray-600 text-sm mt-3">
+            A live-running session gets a much longer grace period than one that's merely connected but idle.
+          </p>
 
           <div className="space-y-3 mt-4">
             {[
@@ -414,57 +416,6 @@ iteration: 5                iteration: 10
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-gray-600 mb-1">Still logged</p>
               <p className="text-sm text-gray-500">ADMIN_*, ONBOARD_SUBMIT, and unexpected types print <code className="bg-gray-100 px-1 rounded">← WS recv:</code>.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Known Issue */}
-        <section className="mb-20">
-          <h2 className="heading-2">
-            <HiOutlineExclamationTriangle className="w-8 h-8 text-gray-400" />
-            Known Issue: Reconnect During Approval
-          </h2>
-
-          <p className="text-gray-700 mb-4 text-lg">
-            When a client refreshes while the agent is blocked waiting for approval (e.g., bash tool), reconnection fails. Three bugs compound:
-          </p>
-
-          <Diagram label="Bug chain: refresh during approval">
-{`T+0    Agent sends approval_needed, blocks on io.receive()
-T+5    Client refreshes → WebSocket disconnects
-       → io.close() puts sentinel in io._incoming
-       → io.receive() unblocks with {"type": "io_closed"}
-       → Agent treats as "connection closed" error
-       → run_agent() has NO try/finally
-         → agent_finished.set() NEVER fires
-         → _pipe_ws_io hangs forever
-
-T+10   New WebSocket connects → CONNECT { session_id }
-       → registry.get() finds session, still 'running'
-       → Reattach: uses SAME io object
-       → BUT io._closed = True → io.send() drops all events
-       → Agent can't send to new client`}
-          </Diagram>
-
-          <div className="space-y-3 mt-4">
-            {[
-              { label: 'run_agent() has no error handling', desc: 'If agent crashes, agent_finished.set() never fires. _pipe_ws_io hangs forever waiting.' },
-              { label: 'Reattach uses closed IO', desc: 'On reconnect, the server reattaches to the old io object with _closed = True. io.send() silently drops all events.' },
-              { label: 'Two _pipe_ws_io loops compete', desc: 'The old loop (stuck) and the new loop (from reattach) both reference the same agent_finished event.' },
-            ].map(({ label, desc }) => (
-              <div key={label} className="flex items-start gap-3">
-                <span className="text-gray-400 mt-0.5">&#x2022;</span>
-                <p className="text-sm text-gray-600"><strong className="text-gray-900">{label}.</strong> {desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-6">
-            <p className="text-sm font-semibold text-gray-700 mb-2">Fix plan</p>
-            <div className="space-y-2 text-sm text-gray-600">
-              <p>1. <strong>run_agent()</strong>: wrap in try/finally — always set agent_finished, capture error in error_holder.</p>
-              <p>2. <strong>Reattach</strong>: reopen IO — reset io._closed = False so agent can send events through new WebSocket.</p>
-              <p>3. <strong>Old _pipe_ws_io</strong>: detect superseded — when new connection reattaches, old pipe should exit cleanly.</p>
             </div>
           </div>
         </section>

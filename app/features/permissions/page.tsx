@@ -30,9 +30,9 @@ export default function PermissionsPage() {
           <h2 className="heading-2">Permission Layers</h2>
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 font-mono text-sm overflow-x-auto shadow-xl">
             <pre className="text-gray-700 whitespace-pre">{`┌─────────────────────────────────────────────────────────────┐
-│ 1. SAFE_TOOLS - Always auto-approved                       │
-│    read_file, glob, grep (read-only operations)            │
-│    Stored as: source='safe', expires='never'               │
+│ 1. Safe tools - Always auto-approved                        │
+│    Any tool NOT in DANGEROUS_TOOLS (read, glob, grep, ls...) │
+│    Classification is implicit — safety is the default        │
 └─────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────┐
@@ -361,32 +361,41 @@ session['permissions'] = snapshot  # User's write preserved ✓`}
           </div>
         </section>
 
-        {/* SAFE_TOOLS */}
+        {/* Safe tools */}
         <section className="mb-12">
-          <h2 className="heading-2">1. SAFE_TOOLS - Always Auto-Approved</h2>
-          <p className="text-gray-700 mb-4">Read-only operations that can't harm the system:</p>
+          <h2 className="heading-2">1. Safe Tools - Always Auto-Approved</h2>
+          <p className="text-gray-700 mb-4">
+            There's no explicit "safe" allowlist — safety is the default. Any tool <em>not</em> in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">DANGEROUS_TOOLS</code> is auto-approved:
+          </p>
           <CodeWithResult
-            code={`SAFE_TOOLS = [
-    'FileTools.read_file',
-    'FileTools.glob',
-    'FileTools.grep',
-    'ls',
-    'list_directory',
-    'tree'
-]`}
+            code={`DANGEROUS_TOOLS = {
+    # Shell execution
+    'bash', 'shell', 'run', 'run_in_dir',
+    # File modification
+    'write', 'edit', 'multi_edit',
+    # Background tasks
+    'run_background',
+    # Task control
+    'kill_task',
+    # External communication
+    'send_email', 'post',
+    # Deletion
+    'delete', 'remove',
+}
+# Everything else — read, glob, grep, ls, etc. — is auto-approved`}
             language="python"
           />
           <div className="mt-4 bg-gray-50 border border-gray-200 rounded-lg p-4">
             <p className="text-gray-700">
-              <strong>No approval needed</strong> - these tools are always safe to execute.
+              <strong>No approval needed</strong> - tools outside <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">DANGEROUS_TOOLS</code> are always safe to execute.
             </p>
           </div>
 
           <h3 className="heading-3 mt-6">Example</h3>
           <CodeWithResult
             code={`agent.input("Find all Python files and read main.py")
-# → FileTools.glob("**/*.py") - auto-approved ✓
-# → FileTools.read_file("main.py") - auto-approved ✓`}
+# → glob("**/*.py") - auto-approved ✓ (not in DANGEROUS_TOOLS)
+# → read("main.py") - auto-approved ✓ (not in DANGEROUS_TOOLS)`}
             language="python"
           />
         </section>

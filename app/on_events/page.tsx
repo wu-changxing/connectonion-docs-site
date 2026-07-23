@@ -26,8 +26,9 @@ export default function OnEventsPage() {
 
 Hook into agent lifecycle to add logging, monitoring, reflection, and custom behavior at every step.
 
-## 12 Event Types
+## 13 Event Types
 
+- **on_agent_ready**: Once during agent initialization, when core components are ready
 - **after_user_input**: Fires once per turn
 - **before_iteration**: Before each iteration starts (poll IO, check mode changes)
 - **before_llm**: Before each LLM call

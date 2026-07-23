@@ -42,13 +42,15 @@ writer = DiffWriter()`}
         <section className="mb-12">
           <h2 className="heading-2">API</h2>
 
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">write(path, content)</h3>
-          <p className="text-gray-700 mb-4">Write content to a file with diff display and user approval.</p>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">write(agent, path, content)</h3>
+          <p className="text-gray-700 mb-4">
+            Write content to a file with diff display and user approval. <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">agent</code> is injected automatically when this is used as an agent tool — the LLM never sees that parameter.
+          </p>
           <CodeWithResult
-            code={`result = writer.write("hello.py", "print('hello')")
-# Shows colorized diff
-# Asks user to choose: 1=Yes, 2=Yes to all, 3=No + feedback
-# Returns: "Wrote 15 bytes to hello.py" or feedback message`}
+            code={`result = writer.write(agent, "hello.py", "print('hello')")
+# Sends a diff preview + approval prompt over agent.io (WebSocket)
+# If no io channel is attached, auto-approves and writes immediately
+# Returns: "Wrote 15 bytes to hello.py" or a rejection + feedback message`}
             language="python"
           />
 
@@ -72,25 +74,9 @@ writer = DiffWriter()`}
         {/* Approval Options */}
         <section className="mb-12">
           <h2 className="heading-2">Approval Options</h2>
-          <p className="text-gray-700 mb-4">When a file change is proposed, user sees:</p>
-          <div className="bg-slate-900 border border-slate-700 rounded-lg p-4 font-mono text-sm mb-4">
-            <div className="text-slate-400">╭─── Changes to hello.py ────────────────────────╮</div>
-            <div className="text-slate-300">│ --- a/hello.py                                 │</div>
-            <div className="text-slate-300">│ +++ b/hello.py                                 │</div>
-            <div className="text-slate-300">│ @@ -1,2 +1,3 @@                                │</div>
-            <div className="text-slate-300">│  def hello():                                  │</div>
-            <div className="text-red-400">│ -    pass                                      │</div>
-            <div className="text-green-400">│ +    print("Hello!")                           │</div>
-            <div className="text-slate-400">╰────────────────────────────────────────────────╯</div>
-            <div className="mt-4 text-slate-300">
-              Choose an option:<br/>
-              &nbsp;&nbsp;1 - Yes, apply this change<br/>
-              &nbsp;&nbsp;2 - Yes to all (auto-approve for this session)<br/>
-              &nbsp;&nbsp;3 - No, and tell agent what to do instead<br/>
-              <br/>
-              Apply changes to hello.py? [1/2/3]:
-            </div>
-          </div>
+          <p className="text-gray-700 mb-4">
+            When a file change is proposed in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">mode="normal"</code>, DiffWriter sends a diff preview and an approval question over <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">agent.io</code> (a WebSocket channel) — there's no built-in terminal prompt. The frontend renders whatever UI it wants around these three options:
+          </p>
 
           <div className="overflow-x-auto rounded-lg border border-gray-200">
             <table className="w-full text-sm text-left">
@@ -102,34 +88,43 @@ writer = DiffWriter()`}
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-500">1</td>
+                  <td className="px-4 py-3 text-gray-700">"Yes, apply this change"</td>
                   <td className="px-4 py-3 text-gray-700">Apply this change, ask again for next change</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-500">2</td>
-                  <td className="px-4 py-3 text-gray-700">Apply this and all future changes (session-wide)</td>
+                  <td className="px-4 py-3 text-gray-700">"Yes to all (auto-approve)"</td>
+                  <td className="px-4 py-3 text-gray-700">Apply this and switch to <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">auto</code> mode for the rest of the session</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-gray-500">3</td>
+                  <td className="px-4 py-3 text-gray-700">"No, reject and give feedback"</td>
                   <td className="px-4 py-3 text-gray-700">Reject + provide feedback for agent to try again</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <p className="text-gray-700 mt-4 text-sm">
+            If no <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">io</code> channel is attached (e.g. running outside a hosted/web session), the write is auto-approved without prompting.
+          </p>
         </section>
 
         {/* Options */}
         <section className="mb-12">
-          <h2 className="heading-2">Options</h2>
+          <h2 className="heading-2">Modes</h2>
 
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">auto_approve</h3>
-          <p className="text-gray-700 mb-4">Skip approval prompts (for automation).</p>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">mode</h3>
+          <p className="text-gray-700 mb-4">Three permission modes, like Claude Code's Shift+Tab cycle.</p>
           <CodeWithResult
-            code={`# Ask for approval (default)
-writer = DiffWriter(auto_approve=False)
+            code={`# Prompt for every edit (default)
+writer = DiffWriter(mode="normal")
 
-# Auto-approve all writes
-writer = DiffWriter(auto_approve=True)`}
+# Auto-approve all writes, no prompting
+writer = DiffWriter(mode="auto")
+
+# Read-only: preview what would happen, never write
+writer = DiffWriter(mode="plan")
+
+# Also configurable: preview_limit (max chars in diff preview, default 2000)
+writer = DiffWriter(mode="normal", preview_limit=5000)`}
             language="python"
           />
         </section>
@@ -140,13 +135,12 @@ writer = DiffWriter(auto_approve=True)`}
           <CodeWithResult
             code={`from connectonion import Agent, DiffWriter
 
-writer = DiffWriter()
+writer = DiffWriter()  # mode="normal" by default
 agent = Agent("coder", tools=[writer])
 
 agent.input("create a hello.py file with a hello world function")
-# Agent calls writer.write()
-# User sees diff and chooses 1, 2, or 3
-# If 3: User provides feedback, agent receives it and tries again`}
+# Agent calls write(agent, path, content) — the tool executor injects "agent"
+# User sees a diff preview and approves, auto-approves, or rejects with feedback`}
             language="python"
           />
         </section>
@@ -154,9 +148,9 @@ agent.input("create a hello.py file with a hello world function")
         {/* Feedback Flow */}
         <section className="mb-12">
           <h2 className="heading-2">Feedback Flow</h2>
-          <p className="text-gray-700 mb-4">When user chooses option 3 (reject):</p>
+          <p className="text-gray-700 mb-4">When the user rejects a change:</p>
           <ol className="list-decimal list-inside space-y-2 text-gray-700">
-            <li>User is prompted: "What should the agent do instead?"</li>
+            <li>User is asked: "What should the agent do instead for hello.py?"</li>
             <li>User types feedback, e.g., "use snake_case for function names"</li>
             <li>Agent receives: <code className="bg-gray-100 px-2 py-1 rounded text-gray-500">"User rejected changes to hello.py. Feedback: use snake_case for function names"</code></li>
             <li>Agent can retry with the feedback</li>
@@ -168,14 +162,14 @@ agent.input("create a hello.py file with a hello world function")
           <h2 className="heading-2">Common Use Cases</h2>
           <CodeWithResult
             code={`# Interactive coding with approval
-writer = DiffWriter()
+writer = DiffWriter(mode="normal")
 agent = Agent("coder", tools=[writer])
 
 # CI/CD automation - skip prompts
-writer = DiffWriter(auto_approve=True)
+writer = DiffWriter(mode="auto")
 agent = Agent("automation", tools=[writer])
 
-# Preview changes only
+# Preview changes only, no writes
 diff = writer.diff("config.py", new_config)
 print(diff)`}
             language="python"

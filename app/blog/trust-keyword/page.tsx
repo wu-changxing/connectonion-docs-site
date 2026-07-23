@@ -85,7 +85,7 @@ Everyone understands trust. It's not technical jargon. Your grandmother knows wh
 ### 3. **Progressive, Not Binary**
 Trust has levels:
 - \`trust="open"\` - Trust everyone (development)
-- \`trust="tested"\` - Trust verified agents (staging)
+- \`trust="careful"\` - Trust verified agents (staging)
 - \`trust="strict"\` - Trust allowlisted agents (production)
 
 This mirrors how human trust works - it's earned and has degrees.
@@ -96,12 +96,12 @@ We're not doing cryptographic verification. We're doing behavioral verification.
 ### 5. **Clear Configuration**
 \`\`\`python
 # Instantly understandable
-agent = Agent(name="helper", trust="open")
+host(create_agent, trust="open")
 
 # Compare to alternatives:
-agent = Agent(name="helper", auth="permissive")  # What's permissive auth?
-agent = Agent(name="helper", verify="none")      # Verify none? Confusing.
-agent = Agent(name="helper", mode="dev")         # Mode of what?
+host(create_agent, auth="permissive")  # What's permissive auth?
+host(create_agent, verify="none")      # Verify none? Confusing.
+host(create_agent, mode="dev")         # Mode of what?
 \`\`\`
 
 ## The Unix Philosophy Connection
@@ -110,40 +110,37 @@ Just as Unix uses simple, composable commands, we use simple trust levels that c
 
 \`\`\`python
 # Simple trust + smart prompt = sophisticated behavior
-agent = Agent(
-    name="analyzer",
-    trust="tested",
-    system_prompt="Only accept tasks from agents that have successfully completed 10+ analyses"
-)
+def create_agent():
+    return Agent(
+        name="analyzer",
+        system_prompt="Only accept tasks from agents that have successfully completed 10+ analyses"
+    )
+
+host(create_agent, trust="careful")
 \`\`\`
 
-The prompt handles the sophisticated logic. The trust parameter stays simple.
+The prompt handles the sophisticated logic. The trust parameter stays simple. (Trust enforcement lives at the \`host()\` boundary, not on the \`Agent\` itself — the agent does the work, the host controls access.)
 
 ## Trust in Action
 
 ### Service Provider Perspective
 \`\`\`python
-@agent.on_request
-def handle_request(task, sender):
-    # trust="strict" already filtered untrusted senders
-    # We only see requests from trusted agents
-    return process_task(task)
+# trust="strict" filters untrusted senders before a request
+# ever reaches your agent — no decorator needed
+def create_agent():
+    return Agent(name="analyzer", tools=[process_task])
+
+host(create_agent, trust="strict")
 \`\`\`
 
 ### Service Consumer Perspective
 \`\`\`python
-# Only connect to trusted services
-providers = agent.find_services(trust="tested")
-\`\`\`
+from connectonion import connect
 
-### Mutual Trust Building
-\`\`\`python
-# Start cautious
-agent = Agent(name="researcher", trust="tested")
-
-# After successful interactions, upgrade
-if interaction_count > 100 and success_rate > 0.95:
-    agent.add_trusted_contact(other_agent)
+# Connect to a remote agent by its address
+remote = connect("0x3d4017c3...")
+response = remote.input("Analyze this dataset")
+print(response.text)
 \`\`\`
 
 ## What This Enables
@@ -243,7 +240,7 @@ Sometimes the best technical decisions are the least technical ones.`
                   {
                     title: 'Progressive, Not Binary',
                     description: 'Trust has levels that mirror human relationships',
-                    examples: ['trust="open" - Development', 'trust="tested" - Staging', 'trust="strict" - Production']
+                    examples: ['trust="open" - Development', 'trust="careful" - Staging', 'trust="strict" - Production']
                   },
                   {
                     title: 'Matches Our Philosophy',
@@ -276,12 +273,12 @@ Sometimes the best technical decisions are the least technical ones.`
                 </div>
                 <pre className="p-4 text-sm overflow-x-auto">
                   <code className="text-gray-600">{`# Instantly understandable
-agent = Agent(name="helper", trust="open")
+host(create_agent, trust="open")
 
 # Compare to alternatives:
-agent = Agent(name="helper", auth="permissive")  # What's permissive auth?
-agent = Agent(name="helper", verify="none")      # Verify none? Confusing.
-agent = Agent(name="helper", mode="dev")         # Mode of what?`}</code>
+host(create_agent, auth="permissive")  # What's permissive auth?
+host(create_agent, verify="none")      # Verify none? Confusing.
+host(create_agent, mode="dev")         # Mode of what?`}</code>
                 </pre>
               </div>
 
@@ -292,11 +289,13 @@ agent = Agent(name="helper", mode="dev")         # Mode of what?`}</code>
               <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden mt-4">
                 <pre className="p-4 text-sm overflow-x-auto">
                   <code className="text-gray-600">{`# Simple trust + smart prompt = sophisticated behavior
-agent = Agent(
-    name="analyzer",
-    trust="tested",
-    system_prompt="Only accept tasks from agents that have successfully completed 10+ analyses"
-)`}</code>
+def create_agent():
+    return Agent(
+        name="analyzer",
+        system_prompt="Only accept tasks from agents that have successfully completed 10+ analyses"
+    )
+
+host(create_agent, trust="careful")`}</code>
                 </pre>
               </div>
 

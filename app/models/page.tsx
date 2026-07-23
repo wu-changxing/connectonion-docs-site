@@ -99,10 +99,9 @@ response = agent.input("Hello!")
 - **o4-mini** - OpenAI's newest reasoning model
 
 ### Google Gemini Models
-- **gemini-3.5-flash** - Latest Gemini 3.5 Flash
+- **gemini-3.6-flash** - Newest fast Gemini, 1M context
+- **gemini-3.5-flash** - Previous fast Gemini
 - **gemini-3-pro-preview** - State-of-the-art reasoning, 1M context
-- **gemini-3-flash-preview** - Fastest Gemini 3 model
-- **gemini-3.1-flash-lite-preview** - Ultra fast, cheapest Gemini 3
 - **gemini-2.5-pro** - Default model, best price-performance for agents
 - **gemini-2.5-flash** - Best price-performance ratio
 - **gemini-2.0-flash** - Previous gen workhorse
@@ -201,7 +200,7 @@ response = agent.input("Explain quantum computing")`}
 
           <div className="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
             <p className="text-sm text-gray-600">
-              ⭐ <strong>Bonus:</strong> <a href="https://github.com/wu-changxing/connectonion" target="_blank" rel="noopener" className="underline hover:text-gray-800">Star our repo</a> for an additional 100K tokens!
+              ⭐ <strong>Bonus:</strong> <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener" className="underline hover:text-gray-800">Star our repo</a> for an additional 100K tokens!
             </p>
           </div>
         </div>
@@ -272,7 +271,7 @@ response = agent.input("Explain quantum computing")`}
                 <td className="px-4 py-3 text-gray-700">Most capable Claude</td>
               </tr>
               <tr>
-                <td className="px-4 py-3"><code className="text-sm">mistral-large-latest</code></td>
+                <td className="px-4 py-3"><code className="text-sm">mistral/mistral-large-latest</code></td>
                 <td className="px-4 py-3">Mistral</td>
                 <td className="px-4 py-3">128K</td>
                 <td className="px-4 py-3 text-gray-700">High performance European model</td>
@@ -437,24 +436,20 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.6-flash</code>
+                  <span className="text-gray-700">Newest fast Gemini, 1M context</span>
+                </div>
+                <div className="flex items-start">
                   <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.5-flash</code>
-                  <span className="text-gray-700">Latest Gemini 3.5 Flash</span>
+                  <span className="text-gray-700">Previous fast Gemini</span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-preview</code>
                   <span className="text-gray-700">State-of-the-art reasoning, 1M context - <strong className="text-gray-900">Most intelligent</strong></span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-flash-preview</code>
-                  <span className="text-gray-700">Fastest Gemini 3 model</span>
-                </div>
-                <div className="flex items-start">
                   <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3-pro-image-preview</code>
                   <span className="text-gray-700">Image generation with grounded generation</span>
-                </div>
-                <div className="flex items-start">
-                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.1-flash-lite-preview</code>
-                  <span className="text-gray-700">Ultra fast, cheapest Gemini 3</span>
                 </div>
               </div>
             </div>
@@ -557,22 +552,22 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-large-latest</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">mistral/mistral-large-latest</code>
                   <span className="text-gray-700">Most capable Mistral model - High performance European model</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-small-latest</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">mistral/mistral-small-latest</code>
                   <span className="text-gray-700">Balanced performance and efficiency</span>
                 </div>
                 <div className="flex items-start">
-                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">mistral-medium-latest</code>
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">mistral/mistral-medium-latest</code>
                   <span className="text-gray-700">Mid-tier performance</span>
                 </div>
               </div>
               <div className="mt-4 p-3 bg-gray-50 rounded border border-gray-200">
                 <p className="text-xs text-gray-500">
-                  <span className="inline-flex items-center gap-1"><HiOutlineExclamationTriangle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />Mistral models require your own API key</span> (<code className="bg-gray-100 px-1 rounded">MISTRAL_API_KEY</code>).
-                  Managed keys (<code className="bg-gray-100 px-1 rounded">co/</code> prefix) are not yet available for Mistral.
+                  <span className="inline-flex items-center gap-1"><HiOutlineExclamationTriangle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />Mistral models require the <code className="bg-gray-100 px-1 rounded">mistral/</code> prefix and your own API key</span> (<code className="bg-gray-100 px-1 rounded">MISTRAL_API_KEY</code>).
+                  Unlike other providers, there's no bare-name inference — the prefix is required. Managed keys (<code className="bg-gray-100 px-1 rounded">co/</code> prefix) are not yet available for Mistral.
                 </p>
               </div>
             </div>

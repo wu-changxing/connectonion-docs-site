@@ -122,12 +122,16 @@ export default function UsefulToolsPage() {
         <div className="mb-12 section-featured">
           <h2 className="heading-2 mb-4">Quick Usage</h2>
           <CodeWithResult
-            code={`from connectonion import Agent
-from connectonion.useful_tools import gmail, memory, web_fetch
+            code={`from connectonion import Agent, Gmail, Memory, WebFetch
+
+gmail = Gmail()
+memory = Memory()
+web_fetch = WebFetch()
 
 agent = Agent(
     "assistant",
-    tools=[gmail.search, gmail.send, memory.remember, web_fetch.fetch]
+    tools=[gmail, memory, web_fetch]
+    # Each public method (search_emails, send, write_memory, fetch, ...) becomes a tool
 )
 
 agent.input("Search my emails for invoices from last week")`}

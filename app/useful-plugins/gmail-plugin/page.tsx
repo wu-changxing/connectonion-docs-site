@@ -129,14 +129,16 @@ CRM updated: john@example.com`}
             code={`@after_each_tool
 def sync_crm_after_send(agent):
     trace = agent.current_session['trace'][-1]
+    if trace['type'] != 'tool_result':
+        return
 
     # Only after successful email sends
-    if trace['tool_name'] not in ('send', 'reply'):
+    if trace['name'] not in ('send', 'reply'):
         return
     if trace['status'] != 'success':
         return
 
-    to = trace['arguments'].get('to', '')
+    to = trace['args'].get('to', '')
     if not to:
         return
 

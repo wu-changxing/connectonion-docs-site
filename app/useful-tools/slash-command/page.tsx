@@ -156,9 +156,9 @@ cmd.tools         # ["Gmail.search_emails", "WebFetch"]
 # Filter tools for command
 filtered = cmd.filter_tools(all_tools)
 
-# List all available commands
+# List all available commands (returns Dict[str, SlashCommand])
 commands = SlashCommand.list_all()
-for cmd in commands:
+for cmd in commands.values():
     print(f"/{cmd.name} - {cmd.description}")`}
             language="python"
           />

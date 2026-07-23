@@ -176,8 +176,8 @@ This decision influenced our entire API design philosophy:
 \`\`\`python
 # We consistently chose user mental models:
 agent.input("...")           # Not agent.run()
-agent.history.summary()       # Not agent.get_execution_log()
-agent.tools = [...]          # Not agent.register_capabilities()
+agent.last_usage             # Not agent.get_execution_stats()
+agent.tools                  # Not agent.register_capabilities()
 \`\`\`
 
 ## Looking Back

@@ -116,10 +116,9 @@ The result is 714.`}
     tools=[func1, func2],                 # Optional: functions agent can call
     system_prompt="You are helpful",      # Optional: personality/behavior
     model="co/gemini-2.5-pro",            # Optional: LLM model (default: co/gemini-2.5-pro)
-    max_iterations=10,                    # Optional: max tool calls per turn (default: 10)
+    max_iterations=100,                   # Optional: max tool calls per turn (default: 100)
     api_key="sk-...",                     # Optional: override env var
     llm=custom_llm,                       # Optional: custom LLM instance
-    trust="tested",                       # Optional: security verification
     on_events=[after_llm(handler)],       # Optional: event hooks for this agent
     plugins=[re_act, logger],             # Optional: reusable event handler bundles
     quiet=False,                          # Optional: suppress console output
@@ -208,7 +207,7 @@ agent.last_usage          # dict: Last call token usage`}
             <HiOutlineBolt className="icon-ui w-5 h-5 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-gray-700">
               <strong className="text-gray-900">Quick Facts:</strong>{' '}
-              Default is 10 iterations (works for most tasks!). Fully customizable per-agent or per-task.
+              Default is 100 iterations (works for most tasks!). Fully customizable per-agent or per-task.
             </div>
           </div>
 
@@ -237,7 +236,7 @@ agent.last_usage          # dict: Last call token usage`}
               <CodeWithResult
                 code={`from connectonion import Agent
 
-# Default: 10 iterations (works for most tasks!)
+# Default: 100 iterations (works for most tasks!)
 agent = Agent("my_bot", tools=[search, calculate])
 
 # That's it! Just use it:
@@ -266,7 +265,7 @@ research_agent = Agent(
               <h3 className="heading-3">Quick Override for One Task</h3>
               <CodeWithResult
                 code={`# Override max_iterations for a specific task
-agent = Agent("assistant", tools=[search])  # Default: 10
+agent = Agent("assistant", tools=[search])  # Default: 100
 
 # Most tasks use default
 result = agent.input("Simple question")
@@ -486,9 +485,11 @@ agent = Agent(
     tools=[deploy, rollback],
     system_prompt=Path("ops.md"),
     max_iterations=30,
-    trust=trust_agent,
     log="/var/log/production.log"
-)`}</code></pre>
+)
+
+# Trust is configured when hosting, not on the Agent itself
+host(lambda: agent, trust=trust_agent)`}</code></pre>
                 </div>
               </div>
             </div>

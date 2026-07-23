@@ -92,7 +92,7 @@ export default function GoogleIntegrationPage() {
 GOOGLE_ACCESS_TOKEN=ya29.a0A...
 GOOGLE_REFRESH_TOKEN=1//0g...
 GOOGLE_TOKEN_EXPIRES_AT=2025-12-31T23:59:59
-GOOGLE_SCOPES=gmail.send,calendar.readonly
+GOOGLE_SCOPES=gmail.send,calendar
 GOOGLE_EMAIL=your.email@gmail.com`}
             language="bash"
             fileName=".env"
@@ -147,9 +147,9 @@ GOOGLE_EMAIL=your.email@gmail.com`}
                   <td className="py-3 px-4">Use <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">send_email()</code> tool to send emails</td>
                 </tr>
                 <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-gray-500">calendar.readonly</td>
-                  <td className="py-3 px-4">Read calendar events</td>
-                  <td className="py-3 px-4">Read your calendar to check availability</td>
+                  <td className="py-3 px-4 font-mono text-sm text-gray-500">calendar</td>
+                  <td className="py-3 px-4">Read and manage calendar events</td>
+                  <td className="py-3 px-4">Check availability, and create, update, or delete events via <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">GoogleCalendar</code></td>
                 </tr>
                 <tr className="border-b border-gray-800">
                   <td className="py-3 px-4 font-mono text-sm text-gray-500">userinfo.email</td>
@@ -170,10 +170,6 @@ GOOGLE_EMAIL=your.email@gmail.com`}
               <li className="flex items-start gap-2">
                 <span className="text-red-400">✕</span>
                 <span>Read your inbox (use built-in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">get_emails()</code> for that)</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-red-400">✕</span>
-                <span>Delete or modify calendar events</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-red-400">✕</span>
@@ -218,61 +214,23 @@ agent.input("Send an email to alice@example.com saying hello")`}
                 <HiOutlineCalendar className="w-5 h-5 text-gray-500" />
                 Read Calendar Events
               </h3>
-              <CodeWithResult 
-                code={`from connectonion import Agent
-import os
-from google.oauth2.credentials import Credentials
-from googleapiclient.discovery import build
-from datetime import datetime, timedelta
+              <CodeWithResult
+                code={`from connectonion import Agent, GoogleCalendar
 
-def check_calendar(days_ahead: int = 7) -> str:
-    """Check Google Calendar for upcoming events."""
-    # Load credentials from environment
-    creds = Credentials(
-        token=os.getenv("GOOGLE_ACCESS_TOKEN"),
-        refresh_token=os.getenv("GOOGLE_REFRESH_TOKEN"),
-        token_uri="https://oauth2.googleapis.com/token",
-        client_id=os.getenv("GOOGLE_CLIENT_ID"),  # From backend
-        client_secret=os.getenv("GOOGLE_CLIENT_SECRET"),
-        scopes=["https://www.googleapis.com/auth/calendar.readonly"]
-    )
-
-    service = build('calendar', 'v3', credentials=creds)
-
-    # Get events from now to days_ahead
-    now = datetime.utcnow().isoformat() + 'Z'
-    end = (datetime.utcnow() + timedelta(days=days_ahead)).isoformat() + 'Z'
-
-    events_result = service.events().list(
-        calendarId='primary',
-        timeMin=now,
-        timeMax=end,
-        maxResults=10,
-        singleEvents=True,
-        orderBy='startTime'
-    ).execute()
-
-    events = events_result.get('items', [])
-
-    if not events:
-        return f"No events in the next {days_ahead} days"
-
-    summary = f"Upcoming events ({len(events)}):\\n"
-    for event in events:
-        start = event['start'].get('dateTime', event['start'].get('date'))
-        summary += f"- {start}: {event['summary']}\\n"
-
-    return summary
+calendar = GoogleCalendar()
 
 agent = Agent(
     "Calendar Assistant",
-    tools=[check_calendar]
+    tools=[calendar]
 )
 
 agent.input("What's on my calendar this week?")`}
                 language="python"
                 fileName="calendar_agent.py"
               />
+              <p className="text-gray-700 mt-4 text-sm">
+                The <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">GoogleCalendar</code> tool also exposes <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">get_today_events()</code>, <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">create_event()</code>, <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">create_meet()</code>, <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">update_event()</code>, <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">delete_event()</code>, and <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">find_free_slots()</code> — the agent picks whichever methods it needs.
+              </p>
             </div>
           </div>
         </section>
@@ -284,90 +242,23 @@ agent.input("What's on my calendar this week?")`}
             Here's a full agent that can check your calendar and send meeting invites:
           </p>
 
-          <CodeWithResult 
-            code={`from connectonion import Agent, send_email
-import os
-from google.oauth2.credentials import Credentials
-from googleapiclient.discovery import build
-from datetime import datetime, timedelta
+          <CodeWithResult
+            code={`from connectonion import Agent, GoogleCalendar
 
-class SchedulingAssistant:
-    """AI assistant that manages your calendar and sends meeting emails."""
-
-    def __init__(self):
-        # Initialize Google Calendar API
-        creds = Credentials(
-            token=os.getenv("GOOGLE_ACCESS_TOKEN"),
-            refresh_token=os.getenv("GOOGLE_REFRESH_TOKEN"),
-            token_uri="https://oauth2.googleapis.com/token",
-            client_id=os.getenv("GOOGLE_CLIENT_ID"),
-            client_secret=os.getenv("GOOGLE_CLIENT_SECRET"),
-            scopes=["https://www.googleapis.com/auth/calendar.readonly"]
-        )
-        self.calendar = build('calendar', 'v3', credentials=creds)
-
-    def check_availability(self, date_str: str) -> str:
-        """Check if a specific date/time is free on calendar."""
-        # Parse date and check calendar
-        target_date = datetime.fromisoformat(date_str)
-
-        events_result = self.calendar.events().list(
-            calendarId='primary',
-            timeMin=target_date.isoformat() + 'Z',
-            timeMax=(target_date + timedelta(hours=1)).isoformat() + 'Z',
-            singleEvents=True
-        ).execute()
-
-        events = events_result.get('items', [])
-
-        if events:
-            return f"Not available - {len(events)} event(s) scheduled"
-        return "Available"
-
-    def send_meeting_invite(
-        self,
-        to: str,
-        subject: str,
-        datetime_str: str,
-        duration_hours: int = 1
-    ) -> str:
-        """Send meeting invitation email."""
-        meeting_time = datetime.fromisoformat(datetime_str)
-
-        body = f"""
-Hi,
-
-I'd like to schedule a meeting with you.
-
-Date & Time: {meeting_time.strftime('%A, %B %d, %Y at %I:%M %p')}
-Duration: {duration_hours} hour(s)
-
-Please let me know if this works for you.
-
-Best regards
-"""
-
-        result = send_email(to, subject, body)
-        return f"Meeting invite sent to {to}"
-
-# Create tools from methods
-assistant = SchedulingAssistant()
+calendar = GoogleCalendar()
 
 agent = Agent(
     "Scheduling Agent",
-    tools=[
-        assistant.check_availability,
-        assistant.send_meeting_invite
-    ],
+    tools=[calendar],
     system_prompt="""You are a scheduling assistant.
 
 You can:
-1. Check calendar availability
-2. Send meeting invitations via Gmail
+1. Check calendar availability (list_events, find_free_slots)
+2. Create events and invite attendees (create_event, create_meet)
 
 When asked to schedule a meeting:
-1. First check if the proposed time is available
-2. If available, send the meeting invite
+1. First check if the proposed time is free
+2. If available, create the event with the attendee's email so they get invited
 3. Report back to the user
 """
 )
@@ -375,11 +266,14 @@ When asked to schedule a meeting:
 # Use it
 agent.input("""
 Schedule a 1-hour meeting with bob@example.com
-for tomorrow at 2pm. Subject: Q4 Planning Discussion
+for tomorrow at 2pm. Title: Q4 Planning Discussion
 """)`}
             language="python"
             fileName="scheduling_agent.py"
           />
+          <p className="text-gray-700 mt-4 text-sm">
+            Since <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">create_event()</code> accepts an <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">attendees</code> argument, Google Calendar sends the invite itself — no separate email step needed.
+          </p>
         </section>
 
         {/* Troubleshooting */}
@@ -397,7 +291,7 @@ for tomorrow at 2pm. Subject: Q4 Planning Discussion
               <h3 className="text-lg font-semibold mb-4 text-gray-500">Authorization Timeout</h3>
               <p className="text-gray-700 mb-4">If the browser window doesn't complete authorization within 5 minutes:</p>
               <CommandBlock commands={['co auth google']} />
-              <p className="text-sm text-gray-600 mt-2">The command polls the backend every 2 seconds waiting for your authorization.</p>
+              <p className="text-sm text-gray-600 mt-2">The command polls the backend every 5 seconds waiting for your authorization.</p>
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">

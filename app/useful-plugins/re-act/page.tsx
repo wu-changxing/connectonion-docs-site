@@ -35,9 +35,9 @@ export default function ReActPluginPage() {
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineLightBulb className="w-5 h-5 text-gray-500" />
-                <h3 className="font-semibold">Plan (after_user_input)</h3>
+                <h3 className="font-semibold">Acknowledge (after_user_input)</h3>
               </div>
-              <p className="text-sm text-gray-700">Before taking any action, the agent plans what to do based on user input and available tools.</p>
+              <p className="text-sm text-gray-700">Before taking any action, the agent acknowledges the request in 1-2 sentences to show it understood — planning itself is left to the main agent.</p>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
@@ -78,32 +78,34 @@ Python is a high-level, interpreted programming language known for its simplicit
         <section className="mb-12">
           <h2 className="heading-2">How it works</h2>
 
-          <h3 className="heading-3">1. Planning Phase</h3>
+          <h3 className="heading-3">1. Acknowledge Phase</h3>
           <p className="text-gray-700 mb-4">
-            After receiving user input, the plugin generates a brief plan:
+            After receiving user input, the plugin acknowledges the request (not a plan — just confirms understanding):
           </p>
           <CodeWithResult
-            code={`# Internal: plan_task handler
+            code={`# Internal: acknowledge_request handler
 @after_user_input
-def plan_task(agent):
+def acknowledge_request(agent):
     user_prompt = agent.current_session.get('user_prompt', '')
-    tool_names = agent.tools.names()
+    conversation = _format_conversation(agent.current_session.get('messages', []))
 
-    plan = llm_do(
-        f"User request: {user_prompt}\\nAvailable tools: {tool_names}\\nBrief plan:",
-        model="co/gemini-2.5-flash"
+    ack = llm_do(
+        f"Conversation so far:\\n{conversation}\\n\\nCurrent user input: {user_prompt}\\n\\nAcknowledge this request (1-2 sentences):",
+        model="co/gemini-2.5-flash",
+        system_prompt=ACKNOWLEDGE_PROMPT
     )
 
+    agent.current_session['intent'] = ack
     agent.current_session['messages'].append({
         'role': 'assistant',
-        'content': f"💭 {plan}"
+        'content': ack
     })`}
             language="python"
           />
 
           <h3 className="heading-3 mt-8">2. Reflection Phase</h3>
           <p className="text-gray-700 mb-4">
-            After tools execute, the plugin reflects on results:
+            After each batch of tools executes, the plugin reflects on the most recent result:
           </p>
           <CodeWithResult
             code={`# Uses the built-in reflect handler from useful_events_handlers
@@ -111,15 +113,20 @@ def plan_task(agent):
 def reflect(agent):
     trace = agent.current_session['trace'][-1]
 
-    if trace['type'] == 'tool_execution' and trace['status'] == 'success':
+    if trace['type'] != 'tool_result':
+        return
+
+    tool_name = trace['name']
+    tool_args = trace['args']
+
+    if trace['status'] == 'success':
         reflection = llm_do(
-            f"Result: {trace['result'][:200]}\\nWhat did we learn?",
+            f"Action: {tool_name}({tool_args})\\nResult: {str(trace['result'])[:300]}\\nWhat did we learn? What's next?",
             model="co/gemini-2.5-flash"
         )
-
         agent.current_session['messages'].append({
             'role': 'assistant',
-            'content': f"💭 {reflection}"
+            'content': reflection
         })`}
             language="python"
           />
@@ -140,9 +147,9 @@ agent = Agent("assistant", tools=[search], plugins=[re_act, eval])
 
 agent.input("Search for Python")
 # Output includes:
-# 💭 Plan: I'll search for Python information
+# Acknowledge: "I'll search for Python information and explain it to you."
 # [Tool execution]
-# 💭 Reflection: We learned Python is a programming language
+# Reflection: We learned Python is a programming language
 # ✓ Evaluation: Task complete - found and understood Python info`}
             language="python"
           />
@@ -163,8 +170,8 @@ agent.input("Search for Python")
               <tbody>
                 <tr className="border-b border-gray-200/50">
                   <td className="py-2"><code className="text-gray-600">after_user_input</code></td>
-                  <td className="py-2">plan_task</td>
-                  <td className="py-2 text-gray-700">Generate initial plan</td>
+                  <td className="py-2">acknowledge_request</td>
+                  <td className="py-2 text-gray-700">Acknowledge what the user is asking for</td>
                 </tr>
                 <tr>
                   <td className="py-2"><code className="text-gray-600">after_tools</code></td>
@@ -184,7 +191,7 @@ agent.input("Search for Python")
           </p>
           <CodeWithResult
             code={`# The plugin is just a list of event handlers
-re_act = [plan_task, reflect]`}
+re_act = [acknowledge_request, reflect]`}
             language="python"
           />
         </section>

@@ -666,52 +666,33 @@ Dashboard: https://o.openonion.ai/dashboard`}
         </h2>
 
         <p className="text-gray-700 mb-6">
-          Quick browser screenshots and automation. Use <code className="bg-gray-100 px-2 py-1 rounded">-b</code> (short for browser) or the full <code className="bg-gray-100 px-2 py-1 rounded">browser</code> subcommand:
+          Drive one persistent browser from the shell — call functions directly, or hand a task to the AI agent:
         </p>
+
+        <div className="space-y-4 mb-8">
+          <CommandBlock
+            title="Take a screenshot"
+            commands={['co browser go_to example.com', 'co browser take_screenshot screenshot.png']}
+          />
+
+          <CommandBlock
+            title="Let the AI agent figure out the steps"
+            commands={['co browser do "find the pricing page and take a screenshot"']}
+          />
+
+          <CommandBlock
+            title="Screenshot at a specific viewport size"
+            commands={['co browser set_viewport 390 844', 'co browser go_to example.com', 'co browser take_screenshot mobile.png']}
+          />
+        </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
           <p className="text-sm text-gray-600">
             <span className="font-semibold inline-flex items-center gap-1">
               <FaLightbulb className="text-gray-400 text-sm" />
               <span>Tip:</span>
-            </span> <code className="bg-gray-50 px-1 rounded">co -b</code> is short for <code className="bg-gray-50 px-1 rounded">co browser</code>. Both syntaxes work the same way!
+            </span> Run <code className="bg-gray-50 px-1 rounded">co browser help</code> to list every callable function and its arguments. There are no named device presets — pass explicit viewport pixels.
           </p>
-        </div>
-
-        <div className="space-y-4 mb-8">
-          <CommandBlock 
-            title="Take a screenshot (using -b shorthand)"
-            commands={['co -b "screenshot example.com save to screenshot.png"']}
-          />
-
-          <CommandBlock 
-            title="Same command using full syntax"
-            commands={['co browser "screenshot example.com save to screenshot.png"']}
-          />
-
-          <CommandBlock 
-            title="Screenshot with device preset"
-            commands={['co -b "screenshot example.com save to mobile.png size iPhone"']}
-          />
-        </div>
-
-        {/* Device Presets */}
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Device Presets</h3>
-          <div className="grid grid-cols-3 gap-4 text-sm">
-            <div>
-              <span className="font-semibold text-gray-900">iPhone</span>
-              <p className="text-gray-700">390×844</p>
-            </div>
-            <div>
-              <span className="font-semibold text-gray-900">iPad</span>
-              <p className="text-gray-700">768×1024</p>
-            </div>
-            <div>
-              <span className="font-semibold text-gray-900">Desktop</span>
-              <p className="text-gray-700">1920×1080 (default)</p>
-            </div>
-          </div>
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">

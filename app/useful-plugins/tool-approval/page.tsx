@@ -261,7 +261,7 @@ permissions:
               <li className="flex items-start gap-3">
                 <span className="text-gray-500 font-semibold">1.</span>
                 <div>
-                  <strong>Safe tools</strong> - Always approved (SAFE_TOOLS list)
+                  <strong>Safe tools</strong> - Always approved (any tool not in DANGEROUS_TOOLS)
                 </div>
               </li>
               <li className="flex items-start gap-3">
