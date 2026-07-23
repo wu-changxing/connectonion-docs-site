@@ -54,7 +54,7 @@ agent.input("check git log for last 5 commits")`}
             API Reference
           </h2>
           <CodeWithResult
-            code={`bash(command, description, cwd=".", timeout=120)`}
+            code={`bash(command, description="", cwd=".", timeout=120)`}
             language="python"
           />
 
@@ -78,8 +78,8 @@ agent.input("check git log for last 5 commits")`}
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-600">description</td>
                   <td className="px-4 py-3 text-gray-500">str</td>
-                  <td className="px-4 py-3 text-gray-500">required</td>
-                  <td className="px-4 py-3 text-gray-700">What the command does (shown to user)</td>
+                  <td className="px-4 py-3 text-gray-500">""</td>
+                  <td className="px-4 py-3 text-gray-700">What the command does (shown to user). Optional — an LLM should fill it in, but direct callers (scripts, <code className="bg-gray-100 px-1 rounded">remote.call</code>, <code className="bg-gray-100 px-1 rounded">co call</code>) may omit it</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-600">cwd</td>

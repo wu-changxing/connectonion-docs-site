@@ -98,8 +98,8 @@ choice = pick("Pick a color", ["Red", "Green", "Blue"])
                   <td className="py-2 text-gray-700">Confirm selection</td>
                 </tr>
                 <tr>
-                  <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Esc</kbd></td>
-                  <td className="py-2 text-gray-700">Cancel</td>
+                  <td className="py-2"><kbd className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Ctrl+C</kbd></td>
+                  <td className="py-2 text-gray-700">Cancel (raises KeyboardInterrupt — Esc is not handled)</td>
                 </tr>
               </tbody>
             </table>

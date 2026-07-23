@@ -13,7 +13,7 @@ const plugins = [
     id: 're-act',
     name: 're_act',
     title: 'ReAct Pattern',
-    description: 'Implements Reason + Act pattern with planning before action and reflection after tool execution',
+    description: 'Acknowledges the user\'s request before acting, then reflects on what was learned after each batch of tool calls',
     whenToUse: 'When your agent needs to reason step-by-step before acting. Improves accuracy on multi-step tasks.',
     setup: 'zero-config',
     icon: HiOutlineCpuChip,
@@ -21,7 +21,7 @@ const plugins = [
     bgColor: 'bg-white',
     borderColor: 'border-gray-200',
     href: '/useful-plugins/re-act',
-    events: ['after_user_input (plan)', 'after_tools (reflect)'],
+    events: ['after_user_input (acknowledge)', 'after_tools (reflect)'],
     usage: `from connectonion.useful_plugins import re_act
 
 agent = Agent("assistant", tools=[search], plugins=[re_act])`,
@@ -30,16 +30,16 @@ agent = Agent("assistant", tools=[search], plugins=[re_act])`,
   {
     id: 'eval',
     name: 'eval',
-    title: 'Code Evaluation',
-    description: 'Safe code evaluation and execution in a sandboxed environment',
-    whenToUse: 'When your agent generates and runs Python code. Add this to safely execute LLM-generated scripts.',
+    title: 'Task Evaluation',
+    description: 'Generates an expected outcome before the task runs, then LLM-judges whether the agent actually achieved it',
+    whenToUse: 'When you want automated pass/fail scoring of whether your agent completed the task correctly.',
     setup: 'zero-config',
     icon: HiOutlineCodeBracket,
     color: 'text-gray-500',
     bgColor: 'bg-white',
     borderColor: 'border-gray-200',
     href: '/useful-plugins/eval',
-    events: ['after_tools'],
+    events: ['after_user_input (generate_expected)', 'on_complete (evaluate_completion)'],
     usage: `from connectonion.useful_plugins import eval
 
 agent = Agent("assistant", tools=[generate_code], plugins=[eval])`,
@@ -57,7 +57,7 @@ agent = Agent("assistant", tools=[generate_code], plugins=[eval])`,
     bgColor: 'bg-white',
     borderColor: 'border-gray-200',
     href: '/useful-plugins/image-result-formatter',
-    events: ['after_each_tool'],
+    events: ['after_tools'],
     usage: `from connectonion.useful_plugins import image_result_formatter
 
 agent = Agent("assistant", tools=[screenshot], plugins=[image_result_formatter])`,
@@ -75,7 +75,7 @@ agent = Agent("assistant", tools=[screenshot], plugins=[image_result_formatter])
     bgColor: 'bg-white',
     borderColor: 'border-gray-200',
     href: '/useful-plugins/gmail-plugin',
-    events: ['after_user_input', 'after_tools'],
+    events: ['before_each_tool (approval)', 'after_each_tool (CRM sync)'],
     usage: `from connectonion.useful_plugins import gmail_plugin
 
 agent = Agent("email_assistant", plugins=[gmail_plugin])`,
@@ -93,7 +93,7 @@ agent = Agent("email_assistant", plugins=[gmail_plugin])`,
     bgColor: 'bg-white',
     borderColor: 'border-gray-200',
     href: '/useful-plugins/calendar-plugin',
-    events: ['after_user_input', 'after_tools'],
+    events: ['before_each_tool'],
     usage: `from connectonion.useful_plugins import calendar_plugin
 
 agent = Agent("scheduler", plugins=[calendar_plugin])`,

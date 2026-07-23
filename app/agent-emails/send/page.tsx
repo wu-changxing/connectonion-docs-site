@@ -449,11 +449,11 @@ Email activated! Your agent can now send emails.</span>
 agent = Agent(
     "customer_support",
     tools=[send_email],
-    instructions="You help users and send them email confirmations"
+    system_prompt="You help users and send them email confirmations"
 )
 
 # The agent can now send emails autonomously
-response = agent("Send a welcome email to alice@example.com")
+response = agent.input("Send a welcome email to alice@example.com")
 # Agent sends: send_email("alice@example.com", "Welcome!", "Thanks for joining...")`}
                 id="agent-basic"
               />
@@ -474,11 +474,11 @@ def check_system_status() -> dict:
 monitor = Agent(
     "system_monitor",
     tools=[check_system_status, send_email],
-    instructions="Monitor system health and alert admin@example.com if issues"
+    system_prompt="Monitor system health and alert admin@example.com if issues"
 )
 
 # Agent checks system and sends alerts
-monitor("Check the system and alert if there are problems")
+monitor.input("Check the system and alert if there are problems")
 # Agent will:
 # 1. Call check_system_status() 
 # 2. See high CPU (95%)
@@ -674,24 +674,16 @@ if not result['success']:
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-3">Debug mode</h3>
-              <p className="text-sm text-gray-700 mb-3">See what's happening under the hood:</p>
+              <p className="text-sm text-gray-700 mb-3">If <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">send_email</code> is used inside an <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">Agent</code>, point its logging at a file to see every tool call and result:</p>
               <CodeBlock
                 code={`import os
-os.environ['CONNECTONION_DEBUG'] = '1'
+os.environ['CONNECTONION_LOG'] = 'debug.log'
 
-from connectonion import send_email
-result = send_email("test@example.com", "Debug Test", "Testing with debug")
-# Will show detailed API calls and responses`}
+from connectonion import Agent, send_email
+agent = Agent("mailer", tools=[send_email])
+agent.input("Send a test email to test@example.com")
+# Full trace written to debug.log`}
                 id="trouble-debug"
-              />
-            </div>
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-3">Check quota</h3>
-              <CodeBlock
-                code={`from connectonion import get_agent_info
-info = get_agent_info()
-print(f"Email quota: {info.get('email_quota_remaining', 'Unknown')} remaining")`}
-                id="trouble-quota"
               />
             </div>
           </div>

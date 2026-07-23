@@ -358,7 +358,7 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                   <p className="text-gray-700 mb-4">
                     This article covers the design philosophy and evolution of our network protocol. For the complete technical specification including message formats, data structures, and implementation details, see:
                   </p>
-                  <a href="https://github.com/connectonion/connectonion/blob/main/docs/design-decisions/004-designing-agent-network-protocol.md" 
+                  <a href="https://github.com/openonion/connectonion/blob/main/docs/design-decisions/004-designing-agent-network-protocol.md" 
                      className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700 font-medium transition-colors">
                     <span>Full Network Protocol Documentation</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -368,8 +368,8 @@ The best protocol isn't the most sophisticated - it's the one that gets out of t
                 </div>
                 <p className="text-sm text-gray-700 italic">
                   The ConnectOnion network protocol is open source and available at{' '}
-                  <a href="https://github.com/wu-changxing/connectonion" className="text-gray-500 hover:text-gray-700 hover:underline transition-colors">
-                    github.com/wu-changxing/connectonion
+                  <a href="https://github.com/openonion/connectonion" className="text-gray-500 hover:text-gray-700 hover:underline transition-colors">
+                    github.com/openonion/connectonion
                   </a>. 
                   We welcome contributions and feedback as we continue to refine and improve the protocol.
                 </p>

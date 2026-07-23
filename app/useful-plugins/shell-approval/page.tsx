@@ -73,7 +73,8 @@ file1.txt  test.txt  readme.md
 Execute this command?
 > Yes, execute
 > Auto approve 'rm' in this session
-> No, tell agent what I want`}
+> Skip, let agent figure it out
+> Stop, tell agent what I want`}
             language="python"
           />
           <p className="text-gray-700 mt-4 text-sm">
@@ -148,8 +149,15 @@ Execute this command?
             <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
               <span className="text-gray-500 font-mono">3.</span>
               <div>
-                <strong className="text-gray-900">No, tell agent what I want</strong>
-                <p className="text-sm text-gray-700">Reject and provide feedback to the agent</p>
+                <strong className="text-gray-900">Skip, let agent figure it out</strong>
+                <p className="text-sm text-gray-700">Soft reject — this tool call is skipped, the loop continues, and the agent is nudged to ask what you'd prefer</p>
+              </div>
+            </div>
+            <div className="p-3 bg-gray-100 rounded-lg flex items-start gap-3">
+              <span className="text-gray-500 font-mono">4.</span>
+              <div>
+                <strong className="text-gray-900">Stop, tell agent what I want</strong>
+                <p className="text-sm text-gray-700">Hard reject — prompts you for feedback right away and halts the current tool batch</p>
               </div>
             </div>
           </div>
@@ -166,29 +174,38 @@ def _check_approval(agent):
         return
 
     # Only check bash/shell tools
-    if pending['name'] not in ('bash', 'shell', 'run'):
+    if pending['name'] not in ('bash', 'shell', 'run', 'run_in_dir'):
         return
 
     command = pending['arguments'].get('command', '')
+    base_cmd = command.strip().split()[0] if command.strip() else ''
+
+    # Skip if this command type was auto-approved
+    approved_cmds = agent.current_session.get('shell_approved_cmds', set())
+    if base_cmd in approved_cmds:
+        return
 
     # Skip if safe read-only command
     if _is_safe(command):
         return
 
-    # Skip if this command type was auto-approved
-    approved_cmds = agent.current_session.get('shell_approved_cmds', set())
-    if command.split()[0] in approved_cmds:
-        return
-
     # Show command and ask for approval
     choice = pick("Execute this command?", [
         "Yes, execute",
-        f"Auto approve '{command.split()[0]}' in this session",
-        "No, tell agent what I want"
+        f"Auto approve '{base_cmd}' in this session",
+        "Skip, let agent figure it out",
+        "Stop, tell agent what I want",
     ])
 
-    if choice == "No, tell agent what I want":
-        feedback = input("What do you want instead? ")
+    if choice == "Yes, execute":
+        return
+    elif choice.startswith("Auto approve"):
+        agent.current_session.setdefault('shell_approved_cmds', set()).add(base_cmd)
+        return
+    elif choice.startswith("Skip"):
+        raise ValueError(f"User rejected command '{base_cmd}'.")  # soft reject, loop continues
+    else:
+        feedback = input("What do you want the agent to do instead? ")
         raise ValueError(f"User feedback: {feedback}")`}
             language="python"
           />

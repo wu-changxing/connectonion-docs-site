@@ -31,7 +31,7 @@ result = llm_do("Calculate 25 * 4")`
 answer = llm_do("Calculate the compound interest on $1000 at 5% for 3 years")
 
 # Extraction  
-entities = llm_do("Extract all person names from this text: ...", output_type=List[str])
+entities = llm_do("Extract all person names from this text: ...", output=List[str])
 
 # Translation
 spanish = llm_do("Translate to Spanish: Hello world")
@@ -40,10 +40,10 @@ spanish = llm_do("Translate to Spanish: Hello world")
 story = llm_do("Write a haiku about Python programming")
 
 # Validation
-is_valid = llm_do("Is this a valid email? test@example", output_type=bool)
+is_valid = llm_do("Is this a valid email? test@example", output=bool)
 
 # Analysis
-sentiment = llm_do("Analyze sentiment: This product is amazing!", output_type=SentimentScore)`
+sentiment = llm_do("Analyze sentiment: This product is amazing!", output=SentimentScore)`
 
   const codeExample3 = `# With structured output using Pydantic
 from pydantic import BaseModel
@@ -56,7 +56,7 @@ class TodoItem(BaseModel):
 
 todos = llm_do(
     "Create a todo list for building a REST API",
-    output_type=List[TodoItem]
+    output=List[TodoItem]
 )
 # Returns properly typed list of TodoItem objects!`
 
@@ -164,7 +164,7 @@ result = llm_do("Calculate the sum of 1 to 100")
 # With structured output: "llm, do this extraction"
 entities = llm_do(
     "Extract entities from: Apple released iPhone 15",
-    output_type=List[Entity]
+    output=List[Entity]
 )
 
 # The verb makes intent clear
@@ -179,11 +179,11 @@ The verb form made the structured output API more intuitive:
 # Reads naturally: "llm, do this task with this output type"
 todos = llm_do(
     "Create a project plan",
-    output_type=List[TodoItem]
+    output=List[TodoItem]
 )
 
 # Compare to the noun form (awkward):
-# todos = llm("Create a project plan", output_type=List[TodoItem])
+# todos = llm("Create a project plan", output=List[TodoItem])
 # "llm the creation with output type"???
 \`\`\`
 

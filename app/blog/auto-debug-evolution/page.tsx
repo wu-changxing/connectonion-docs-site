@@ -299,7 +299,7 @@ Press Enter to continue, or explore the menu. No manual required.
 
 - [Interactive Debugging Docs](/auto-debug-exception) - Complete guide
 - [\`@xray\` Decorator](/xray) - Mark breakpoints
-- [Design Decision Doc](https://github.com/wu-changxing/connectonion/blob/main/docs/design-decisions/011-interactive-auto-debug-design.md) - Full technical details
+- [Design Decision Doc](https://github.com/openonion/connectonion/blob/main/docs/design-decisions/011-interactive-auto-debug-design.md) - Full technical details
 
 ---
 

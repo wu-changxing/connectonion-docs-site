@@ -33,7 +33,7 @@ export default function FuzzyPage() {
 # Check if query matches text
 matched, score, positions = fuzzy_match("gp", "gpt-4")
 # matched: True
-# score: 16 (higher = better)
+# score: 27 (higher = better)
 # positions: [0, 1] (matched char indices)`}
             language="python"
           />
@@ -80,8 +80,8 @@ matched, score, positions = fuzzy_match(query, text)`}
 
           <h3 className="heading-3 mt-8">Examples</h3>
           <CodeWithResult
-            code={`fuzzy_match("gp", "gpt-4")     # (True, 16, [0, 1])
-fuzzy_match("g4", "gpt-4")     # (True, 7, [0, 4])
+            code={`fuzzy_match("gp", "gpt-4")     # (True, 27, [0, 1])
+fuzzy_match("g4", "gpt-4")     # (True, 22, [0, 4])
 fuzzy_match("xyz", "gpt-4")    # (False, 0, [])
 fuzzy_match("", "anything")    # (True, 0, [])`}
             language="python"

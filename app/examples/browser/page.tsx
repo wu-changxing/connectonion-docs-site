@@ -81,10 +81,10 @@ export default function BrowserAutomationExample() {
           fileName="browser_example.py"
           language="python"
           code={`from connectonion import Agent
-from connectonion.tools import BrowserTool
+from connectonion.useful_tools.browser_tools import BrowserAutomation
 
 # Initialize browser tool
-browser = BrowserTool()
+browser = BrowserAutomation()
 
 # Create agent with browser capabilities
 agent = Agent("browser-bot", tools=[browser])
@@ -452,7 +452,7 @@ Form submitted successfully`}
             View All Examples
           </a>
           <a
-            href="https://github.com/wu-changxing/connectonion"
+            href="https://github.com/openonion/connectonion"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"

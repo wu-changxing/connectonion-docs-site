@@ -97,6 +97,7 @@ const toolCategories = [
       { name: 'read_file', href: '/useful-tools/read-file', description: 'Read any file: text, images, PDF, PPTX, DOCX, audio, video', status: 'available' },
       { name: 'Diff Writer', href: '/useful-tools/diff-writer', description: 'Write code diffs', status: 'available' },
       { name: 'Slash Command', href: '/useful-tools/slash-command', description: 'Custom CLI commands', status: 'available' },
+      { name: 'Codex', href: '/useful-tools/codex', description: 'Drive OpenAI Codex via its native app-server, with resume and per-action approval', status: 'available' },
     ]
   },
 ]
@@ -122,12 +123,16 @@ export default function UsefulToolsPage() {
         <div className="mb-12 section-featured">
           <h2 className="heading-2 mb-4">Quick Usage</h2>
           <CodeWithResult
-            code={`from connectonion import Agent
-from connectonion.useful_tools import gmail, memory, web_fetch
+            code={`from connectonion import Agent, Gmail, Memory, WebFetch
+
+gmail = Gmail()
+memory = Memory()
+web_fetch = WebFetch()
 
 agent = Agent(
     "assistant",
-    tools=[gmail.search, gmail.send, memory.remember, web_fetch.fetch]
+    tools=[gmail, memory, web_fetch]
+    # Each public method (search_emails, send, write_memory, fetch, ...) becomes a tool
 )
 
 agent.input("Search my emails for invoices from last week")`}

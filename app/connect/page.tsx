@@ -273,6 +273,47 @@ The result is 300`}
           />
         </section>
 
+        {/* Direct Tool Execution */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineBolt className="w-8 h-8 text-gray-400" />
+            Direct Tool Execution: remote.call()
+          </h2>
+
+          <p className="text-gray-700 mb-6 text-lg">
+            <code className="bg-gray-100 px-2 py-1 rounded">input(prompt)</code> sends a task to the remote agent&apos;s <strong>LLM</strong> — it reasons, picks tools, and comes back when the whole task is done. When you already know the exact tool and arguments and just want the result, <code className="bg-gray-100 px-2 py-1 rounded">call(tool, **args)</code> is the fast path: no reasoning, no session, no conversation history.
+          </p>
+
+          <CodeWithResult
+            code={`remote = connect("0x3d4017c3...")
+
+# Text out
+print(remote.call("bash", command="co status").text)
+
+# Image out — screenshots come back as base64 in .text; .images extracts them
+shot = remote.call("bash", command="co browser take_screenshot")
+if shot.images:
+    import base64
+    png = base64.b64decode(shot.images[0].split(",", 1)[1])
+    open("page.png", "wb").write(png)`}
+            language="python"
+          />
+
+          <p className="text-gray-700 mt-6 mb-4">
+            The result is an <code className="bg-gray-100 px-2 py-1 rounded">ExecResult</code>: <code className="bg-gray-100 px-2 py-1 rounded">.text</code>, <code className="bg-gray-100 px-2 py-1 rounded">.status</code> (<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">&quot;success&quot;</code>/<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">&quot;error&quot;</code>), <code className="bg-gray-100 px-2 py-1 rounded">.ok</code>, <code className="bg-gray-100 px-2 py-1 rounded">.error</code>, <code className="bg-gray-100 px-2 py-1 rounded">.duration_ms</code>, and <code className="bg-gray-100 px-2 py-1 rounded">.images</code>. It never raises for a tool failure — a crash inside the tool comes back as <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">status=&quot;error&quot;</code>, same as how the LLM loop reports tool errors for retry.
+          </p>
+
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4">
+            <p className="text-sm text-gray-700">
+              <strong>Gated by the remote&apos;s whitelist.</strong> What may run via <code className="bg-gray-100 px-1.5 py-0.5 rounded">call()</code> is the same <code className="bg-gray-100 px-1.5 py-0.5 rounded">permissions:</code> whitelist in the remote&apos;s <code className="bg-gray-100 px-1.5 py-0.5 rounded">.co/host.yaml</code> that its own LLM approval flow uses — one list, same meaning either way. Not on the list → refused with an error result, never executed.
+            </p>
+          </div>
+
+          <p className="text-gray-700 text-sm">
+            From the shell, without writing Python: <code className="bg-gray-100 px-1.5 py-0.5 rounded">co call 0x3d40... co status</code> — see <a href="/cli/call" className="text-gray-700 hover:underline">co call</a>.
+          </p>
+        </section>
+
         {/* Real-World Example */}
         <section className="mb-20">
           <h2 className="heading-2">

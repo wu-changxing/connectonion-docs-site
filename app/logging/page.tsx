@@ -74,7 +74,7 @@ export default function LoggingPage() {
 
           <div className="section-featured mb-12">
             <CodeBlock
-              code={`# Default: logs to .co/logs/{name}.log + .co/sessions/{name}_{timestamp}.yaml
+              code={`# Default: logs to .co/logs/{name}.log + .co/evals/{input_slug}.yaml
 agent = Agent("assistant")
 
 # Quiet mode: no console output, but sessions still recorded
@@ -153,8 +153,10 @@ agent = Agent("assistant", log="debug.log")`}
               code={`.co/
 ├── logs/
 │   └── assistant.log        # Plain text logs
-└── sessions/
-    └── assistant_2024-12-02_10-30-00.yaml  # Session YAML`}
+└── evals/
+    ├── what_should_i_do.yaml       # Session YAML (one per unique first input)
+    └── what_should_i_do/
+        └── run_1.yaml               # Per-run metadata + full messages`}
               language="bash"
               id="log-locations"
             />
@@ -172,7 +174,7 @@ Session started: 2024-12-02 10:32:14
 ============================================================
 
 [10:32:14] INPUT: Generate a Python function...
-[10:32:14] -> LLM Request (co/o4-mini) • 2 msgs • 3 tools
+[10:32:14] -> LLM Request (co/gemini-2.5-pro) • 2 msgs • 3 tools
 [10:32:15] <- LLM Response (1.1s) • 1 tools • 1.2k tokens • $0.0012
 [10:32:15] -> Tool: generate_code({"language": "python"})
 [10:32:15] <- Result (0.05s): def hello(): print("Hi")...
@@ -185,7 +187,7 @@ Session started: 2024-12-02 10:32:14
 
         {/* Session YAML Format */}
         <section className="mb-16">
-          <h2 className="heading-2 mb-6">Session YAML Format (.co/sessions/)</h2>
+          <h2 className="heading-2 mb-6">Session YAML Format (.co/evals/)</h2>
 
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-6">
             <p className="text-gray-700 mb-4">Sessions are saved as YAML for replay and eval:</p>
@@ -195,7 +197,7 @@ timestamp: 2024-12-02 10:32:14
 
 turns:
   - input: "Generate a Python function"
-    model: "co/o4-mini"
+    model: "co/gemini-2.5-pro"
     duration_ms: 2300
     tokens: 1234
     cost: 0.0012
@@ -248,7 +250,7 @@ turns:
 
             <div>
               <h3 className="text-lg font-semibold mb-4 text-gray-700">List sessions</h3>
-              <CommandBlock commands={['ls -la .co/sessions/']} />
+              <CommandBlock commands={['ls -la .co/evals/']} />
             </div>
           </div>
         </section>
@@ -282,7 +284,7 @@ turns:
                 <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                   <CodeBlock
                     code={`.co/logs/
-.co/sessions/
+.co/evals/
 *.log`}
                     language="gitignore"
                     id="gitignore"

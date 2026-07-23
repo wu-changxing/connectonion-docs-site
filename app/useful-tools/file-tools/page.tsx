@@ -112,10 +112,11 @@ ft.write("new.py", ...)   # ✗ Permission denied`}
           <p className="text-gray-700 mb-4">Read file with line numbers. Automatically tracks MD5 snapshot.</p>
           <CodeWithResult
             code={`ft.read_file("app.py")
-# Returns: "1→import os\\n2→from pathlib import Path..."
+# Returns: "     1\\timport os\\n     2\\tfrom pathlib import Path..."
+# (right-aligned line number + tab + content)
 
 ft.read_file("app.py", offset=10, limit=5)
-# Returns: "10→def main():\\n11→    pass..."`}
+# Returns: "    10\\tdef main():\\n    11\\t    pass..."`}
             language="python"
           />
 

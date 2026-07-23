@@ -33,7 +33,7 @@ agent = Agent("greeter", tools=[greet])
 result = agent.input("Say hello to Alice")
 
 # View execution trace
-xray.trace(agent)`,
+xray.trace()`,
       output: `Task: "Say hello to Alice"
 
 [1] • 12ms  greet(name="Alice")
@@ -71,7 +71,7 @@ agent = Agent(
 result = agent.input("Analyze this sample text and create a summary")
 
 # View the execution trace
-xray.trace(agent)`,
+xray.trace()`,
       output: `Task: "Analyze this sample text and create a summary"
 
 [1] • 45ms  analyze_text(text="Analyze this sample text and create a summary")
@@ -121,7 +121,7 @@ agent = Agent(
 result = agent.input("Send notification to user at bad-email-format")
 
 # View trace showing error handling
-xray.trace(agent)`,
+xray.trace()`,
       output: `Task: "Send notification to user at bad-email-format"
 
 [1] • ERROR validate_email(email="bad-email-format")
@@ -185,7 +185,7 @@ agent = Agent(
 result = agent.input("Generate analytics report for user ID 12345")
 
 # Analyze performance bottlenecks
-xray.trace(agent)`,
+xray.trace()`,
       output: `Task: "Generate analytics report for user ID 12345"
 
 [1] • 52ms   fetch_user_data(user_id="12345")
@@ -321,7 +321,7 @@ order_data = {
 result = agent.input(f"Process this order: \{order_data}")
 
 # Final comprehensive trace
-xray.trace(agent)`,
+xray.trace()`,
       output: `💻 IDE Debugging Session - Order Processing:
 
 🔴 Breakpoint 1: process_order() - Line 8
@@ -451,7 +451,7 @@ agent = Agent("my_agent", tools=[my_tool])
 result = agent.input("Process this")
 
 # View execution trace
-xray.trace(agent)
+xray.trace()
 \`\`\`
 
 ## Key Features

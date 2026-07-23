@@ -44,7 +44,7 @@ const sections: LinkSection[] = [
     title: 'Core Platform',
     epigraph: 'Where the protocol lives — source, package, canonical docs.',
     rows: [
-      { title: 'GitHub Repository', url: 'https://github.com/wu-changxing/connectonion', icon: SiGithub, action: 'VISIT', external: true, available: true },
+      { title: 'GitHub Repository', url: 'https://github.com/openonion/connectonion', icon: SiGithub, action: 'VISIT', external: true, available: true },
       { title: 'PyPI Package', url: 'https://pypi.org/project/connectonion/', icon: SiPypi, action: 'INSTALL', external: true, available: true },
       { title: 'Documentation', url: 'https://docs.connectonion.com', icon: HiOutlineBookOpen, action: 'READ', external: true, available: true }
     ]
@@ -55,7 +55,7 @@ const sections: LinkSection[] = [
     epigraph: 'People building with ConnectOnion — ask, share, argue.',
     rows: [
       { title: 'Discord Server', url: 'https://discord.gg/4xfD9k8AUF', icon: SiDiscord, action: 'JOIN', external: true, available: true },
-      { title: 'GitHub Discussions', url: 'https://github.com/wu-changxing/connectonion/discussions', icon: FaUsers, action: 'BROWSE', external: true, available: true }
+      { title: 'GitHub Discussions', url: 'https://github.com/openonion/connectonion/discussions', icon: FaUsers, action: 'BROWSE', external: true, available: true }
     ]
   },
   {
@@ -85,7 +85,7 @@ const sections: LinkSection[] = [
     title: 'Support',
     epigraph: 'Something broken, missing, or on your mind — tell us.',
     rows: [
-      { title: 'Report Issues', url: 'https://github.com/wu-changxing/connectonion/issues', icon: HiOutlineBugAnt, action: 'FILE', external: true, available: true },
+      { title: 'Report Issues', url: 'https://github.com/openonion/connectonion/issues', icon: HiOutlineBugAnt, action: 'FILE', external: true, available: true },
       { title: 'Email Contact', url: 'mailto:contact@connectonion.com', icon: HiOutlineEnvelope, action: 'SOON', external: true, available: false }
     ]
   }

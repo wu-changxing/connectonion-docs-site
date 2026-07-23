@@ -103,8 +103,8 @@ export default function PricingPage() {
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">o4-mini</code></td>
-                <td className="px-4 py-3 text-gray-700">$3.00</td>
-                <td className="px-4 py-3 text-gray-700">$12.00</td>
+                <td className="px-4 py-3 text-gray-700">$1.10</td>
+                <td className="px-4 py-3 text-gray-700">$4.40</td>
                 <td className="px-4 py-3 text-gray-600">Reasoning</td>
               </tr>
             </tbody>
@@ -127,28 +127,25 @@ export default function PricingPage() {
             </thead>
             <tbody className="divide-y divide-gray-200">
               <tr>
+                <td className="px-4 py-3">
+                  <code className="text-sm text-gray-700">gemini-3.6-flash</code>
+                  <span className="ml-2 text-xs bg-gray-100 text-gray-700 px-1.5 py-0.5 rounded">newest</span>
+                </td>
+                <td className="px-4 py-3 text-gray-700">$1.50</td>
+                <td className="px-4 py-3 text-gray-700">$7.50</td>
+                <td className="px-4 py-3 text-gray-600">Newest fast Gemini ($0.15 cached)</td>
+              </tr>
+              <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3.5-flash</code></td>
                 <td className="px-4 py-3 text-gray-700">$1.50</td>
                 <td className="px-4 py-3 text-gray-700">$9.00</td>
-                <td className="px-4 py-3 text-gray-600">Latest Gemini 3.5 Flash</td>
+                <td className="px-4 py-3 text-gray-600">Previous fast Gemini</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3-pro-preview</code></td>
                 <td className="px-4 py-3 text-gray-700">$2.00</td>
                 <td className="px-4 py-3 text-gray-700">$12.00</td>
                 <td className="px-4 py-3 text-gray-600">State-of-the-art reasoning</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3-flash-preview</code></td>
-                <td className="px-4 py-3 text-gray-700">$0.50</td>
-                <td className="px-4 py-3 text-gray-700">$3.00</td>
-                <td className="px-4 py-3 text-gray-600">Fastest Gemini 3</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3.1-flash-lite-preview</code></td>
-                <td className="px-4 py-3 text-gray-700">$0.10</td>
-                <td className="px-4 py-3 text-gray-700">$0.40</td>
-                <td className="px-4 py-3 text-gray-600">Ultra fast, cheapest Gemini 3</td>
               </tr>
               <tr>
                 <td className="px-4 py-3">
@@ -161,15 +158,9 @@ export default function PricingPage() {
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-2.5-flash</code></td>
-                <td className="px-4 py-3 text-gray-700">$0.30</td>
-                <td className="px-4 py-3 text-gray-700">$2.50</td>
+                <td className="px-4 py-3 text-gray-700">$0.15</td>
+                <td className="px-4 py-3 text-gray-700">$0.60</td>
                 <td className="px-4 py-3 text-gray-600">Best price-performance</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-2.5-flash-lite</code></td>
-                <td className="px-4 py-3 text-gray-700">$0.10</td>
-                <td className="px-4 py-3 text-gray-700">$0.40</td>
-                <td className="px-4 py-3 text-gray-600">Ultra fast, cheapest</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-2.0-flash</code></td>
@@ -237,7 +228,7 @@ export default function PricingPage() {
         <div className="space-y-4">
           <div className="bg-gray-50 border border-gray-200 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">Is there a markup over official API pricing?</h3>
-            <p className="text-gray-600 text-sm">No. We charge the same rates as official APIs. The pricing tables above match OpenAI, Google, and Anthropic official pricing.</p>
+            <p className="text-gray-600 text-sm">No markup. Prices above are provider list prices. Note that ConnectOnion's own built-in cost tracking (<code className="bg-gray-100 px-1 rounded">agent.total_cost</code>) has exact rates only for the models registered in its pricing table — models outside that table fall back to a default estimate of $1.00/M input and $3.00/M output.</p>
           </div>
           <div className="bg-gray-50 border border-gray-200 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">Do credits expire?</h3>
@@ -261,7 +252,7 @@ export default function PricingPage() {
           Get Started
         </h3>
         <ul className="space-y-2 text-sm text-gray-700">
-          <li>• <strong>Free credits:</strong> <a href="https://github.com/wu-changxing/connectonion" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-700 underline">Star our repo</a> for $0.90 free credit</li>
+          <li>• <strong>Free credits:</strong> <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-700 underline">Star our repo</a> for $0.90 free credit</li>
           <li>• <strong>Add credits:</strong> <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-700 underline">Purchase credits</a> starting from $0.99</li>
           <li>• <strong>All models:</strong> See the full <a href="/models" className="text-gray-500 hover:text-gray-700 underline">model catalog</a> for capabilities and selection guide</li>
         </ul>

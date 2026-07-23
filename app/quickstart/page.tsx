@@ -96,7 +96,7 @@ export default function QuickStartPage() {
               { n: 2, label: 'Create Your First Agent', href: '#create-agent', time: '20s' },
               { n: 3, label: 'Run Your Agent', href: '#run', time: '10s' },
               { n: 4, label: 'Customize Your Agent', href: '#customize', time: '5 min' },
-              { n: 5, label: 'Playwright Web Automation', href: '#playwright', time: '5 min' },
+              { n: 5, label: 'Browser Web Automation', href: '#playwright', time: '5 min' },
               { n: 6, label: 'Create a Custom Tool Agent', href: '#custom-tool', time: '5 min' },
               { n: 7, label: 'Debugging with @xray', href: '#xray', time: '2 min' },
             ].map(({ n, label, href, time }) => (
@@ -343,21 +343,21 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
         Steps 5–7 are optional specialization paths — pick what matches your use case.
       </p>
 
-      {/* Playwright Template */}
+      {/* Browser Template */}
       <section className="mb-16 pt-4" id="playwright">
         <h2 id="playwright" className="heading-2 flex items-center gap-3 mb-5">
           <span className="inline-flex items-center px-2 py-0.5 bg-gray-100 text-gray-500 text-xs font-mono rounded border border-gray-200 flex-shrink-0">alt</span>
-          Playwright Web Automation
+          Browser Web Automation
         </h2>
 
         <p className="text-gray-600 mb-6">
-          For web automation tasks, use the Playwright template:
+          For web automation tasks, use the browser template:
         </p>
 
         <div className="mb-6">
           <CommandBlock
             commands={[
-              'co create my-browser-bot --template playwright',
+              'co create my-browser-bot --template browser',
               'cd my-browser-bot'
             ]}
           />
@@ -368,19 +368,23 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
           <div className="grid sm:grid-cols-2 gap-3 text-gray-700 text-sm">
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>start_browser()</strong> - Launch browser</span>
+              <span><strong>go_to()</strong> - Navigate to a URL</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>navigate()</strong> - Go to URLs</span>
+              <span><strong>click()</strong> - Click by description (vision LLM, no selectors)</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>scrape_content()</strong> - Extract content</span>
+              <span><strong>keyboard_type()</strong> - Type text</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>fill_form()</strong> - Complete forms</span>
+              <span><strong>get_text()</strong> - Extract page content</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-gray-400 mt-1">•</span>
+              <span><strong>select_option() / check_checkbox()</strong> - Complete forms</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
@@ -388,19 +392,15 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>extract_links()</strong> - Get all links</span>
+              <span><strong>scroll() / wait_for_element()</strong> - Scroll and wait</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>click()</strong> - Click elements</span>
-            </div>
-            <div className="flex items-start gap-2">
-              <span className="text-gray-400 mt-1">•</span>
-              <span><strong>execute_javascript()</strong> - Run JS</span>
+              <span><strong>run_page_script()</strong> - Run JS on the page</span>
             </div>
           </div>
           <p className="text-gray-700 mt-4 text-sm">
-            <strong>Note:</strong> Requires <code className="bg-gray-100 px-2 py-1 rounded font-mono">pip install playwright && playwright install</code>
+            <strong>Note:</strong> Built on <a href="https://github.com/Kaliiiiiiiiii-Vinyzu/patchright" className="underline">Patchright</a> (a stealth-patched Playwright fork). Requires <code className="bg-gray-100 px-2 py-1 rounded font-mono">pip install patchright && patchright install chrome</code> — or if no browser is found, Chromium is auto-installed per-user with no admin rights (v1.2.1+).
           </p>
         </div>
       </section>

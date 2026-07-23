@@ -37,8 +37,9 @@ items = [
     DropdownItem(display="/inbox", value="/inbox", description="Show emails"),
 ]
 
-# Create dropdown
-dropdown = Dropdown(items, max_visible=5, style="modern")`}
+# Create dropdown and set its items
+dropdown = Dropdown(max_visible=5, show_icons=True)
+dropdown.set_items(items)`}
             language="python"
           />
         </section>
@@ -105,11 +106,19 @@ item = DropdownItem(display="/today", value="/today")`}
           <h3 className="heading-3 mt-8">Dropdown</h3>
           <CodeWithResult
             code={`Dropdown(
-    items: list[DropdownItem],
-    max_visible: int = 8,
-    selected: int = 0,
-    style: str = "modern",
-)`}
+    max_visible: int = 8,   # Max items shown at once
+    show_icons: bool = True,
+)
+
+# Populate/replace items after construction:
+dropdown.set_items(items: list[DropdownItem])
+dropdown.clear()
+
+# Navigate and read selection:
+dropdown.down() / dropdown.up()
+dropdown.selected_value      # currently selected item's value
+dropdown.selected_display    # currently selected item's display text
+dropdown.is_empty            # True if no items`}
             language="python"
           />
         </section>

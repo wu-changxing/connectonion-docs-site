@@ -49,19 +49,18 @@ export default function TrustPage() {
                 Quick Start
               </h2>
               <CodeWithResult
-                code={`from connectonion import Agent, need
+                code={`from connectonion import Agent, host, connect
 
-# Simple trust levels
-translator = need("translate", trust="strict")   # Production: verified only
-analyzer = need("analyze", trust="tested")       # Default: test first
-scraper = need("scrape", trust="open")          # Development: trust all
+# Trust is enforced at the host boundary, not on the Agent itself
+def create_agent():
+    return Agent(name="my_service", tools=[process_data])
 
-# For your own agent
-agent = Agent(
-    name="my_service",
-    tools=[process_data],
-    trust="strict"  # Who can use my services
-)`}
+host(create_agent, trust="strict")  # Who can reach my service
+
+# Consumers connect to a remote agent by address
+remote = connect("0x3d4017c3...")
+response = remote.input("Process this data")
+print(response.text)`}
                 result=""
               />
             </section>
@@ -83,13 +82,13 @@ agent = Agent(
                 </div>
                 <CodeWithResult
                   code={`# Development - trust everyone
-agent = need("service", trust="open")
+host(create_agent, trust="open")
 
-# Default - test before trusting
-agent = need("service", trust="tested")
+# Staging - moderate verification (the default)
+host(create_agent, trust="careful")
 
 # Production - only verified/whitelisted
-agent = need("service", trust="strict")`}
+host(create_agent, trust="strict")`}
                   result=""
                 />
               </div>
@@ -105,15 +104,19 @@ agent = need("service", trust="strict")`}
                 </div>
                 <CodeWithResult
                   code={`# Inline policy
-translator = need("translate", trust="""
-    I trust agents that:
-    - Pass capability tests
-    - Respond within 500ms
-    - Are on my whitelist OR from local network
+host(create_agent, trust="""
+---
+allow: [whitelisted, contact]
+deny: [blocked]
+default: ask
+---
+I trust agents that:
+- Pass capability tests
+- Are on my whitelist OR from a known contact
 """)
 
 # From file
-translator = need("translate", trust="./trust_policy.md")`}
+host(create_agent, trust="./trust_policy.md")`}
                   result=""
                 />
                 <div className="mt-4 bg-gray-50 border border-gray-200 rounded-lg p-4">
@@ -142,14 +145,15 @@ I immediately reject agents that:
                   <p className="text-gray-700 mb-2">For maximum control, use a custom trust agent:</p>
                 </div>
                 <CodeWithResult
-                  code={`# Create a trust agent with verification tools
+                  code={`from connectonion.network.trust.tools import check_whitelist, verify_agent, test_capability
+
+# Create a trust agent with verification tools
 trust_agent = Agent(
     name="my_guardian",
     tools=[
         check_whitelist,
-        verify_capability,
-        measure_response_time,
-        check_reputation
+        verify_agent,
+        test_capability
     ],
     system_prompt="""
         You verify other agents before allowing interaction.
@@ -157,91 +161,65 @@ trust_agent = Agent(
     """
 )
 
-# Use it for your agent
-my_agent = Agent(
-    name="my_service",
-    tools=[process_payment],
-    trust=trust_agent  # My guardian protects me
-)
+# Use it to guard your own service
+def create_agent():
+    return Agent(name="my_service", tools=[process_payment])
 
-# And for discovering services
-payment = need("payment processor", trust=trust_agent)`}
+host(create_agent, trust=trust_agent)  # My guardian protects me`}
                   result=""
                 />
+                <p className="text-sm text-gray-600 mt-3">
+                  For most cases, prefer the built-in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">TrustAgent</code> class over a raw <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">Agent</code> — it already implements <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">should_allow()</code>, whitelisting, and onboarding (invite codes, payment verification) out of the box: <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">from connectonion.network.trust import TrustAgent</code>.
+                </p>
               </div>
             </section>
 
-            {/* Bidirectional Trust */}
+            {/* Where Trust Lives */}
             <section>
               <h2 className="heading-2">
                 <HiOutlineUsers className="w-7 h-7 text-gray-500" />
-                Bidirectional Trust
+                Where Trust Lives
               </h2>
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
                 <p className="text-gray-700 mb-4">
-                  The same <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">trust</code> parameter works in both directions:
+                  Trust enforcement happens on the <strong>service provider's</strong> side, at the <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">host()</code> boundary — not on the <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">Agent</code> itself. This keeps the split clean: the agent does the work, the host controls who can reach it.
                 </p>
               </div>
               <CodeWithResult
-                code={`# As a SERVICE provider (who can use me?)
-alice_agent = Agent(
-    name="alice_translator",
-    tools=[translate],
-    trust="tested"  # Users must pass my tests
-)
+                code={`# Alice hosts a translation service
+def create_agent():
+    return Agent(name="alice_translator", tools=[translate])
 
-# As a SERVICE consumer (who do I trust?)
-translator = need("translate", trust="strict")  # I only use verified services
+host(create_agent, trust="strict")  # Only verified callers get through
 
-# Both trust requirements must be satisfied for interaction!`}
-                result=""
-              />
-
-              <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Trust Flow Example</h4>
-                <CodeWithResult
-                  code={`# Alice creates a translation service
-alice = Agent(
-    name="alice_translator",
-    tools=[translate],
-    trust="tested"  # Test users before serving them
-)
-share(alice)
-
-# Bob looks for a translator
-translator = need(
-    "translate to Spanish",
-    trust="strict"  # Bob only uses verified services
-)
+# Bob connects to Alice's agent by address
+from connectonion import connect
+translator = connect("0x_alice_address...")
+result = translator.input("Translate 'hello' to Spanish")
 
 # What happens:
-# 1. Bob's trust agent evaluates Alice (strict check)
-# 2. Alice's trust agent evaluates Bob (test required)
-# 3. Both must approve for connection to succeed`}
-                  result=""
-                />
-              </div>
+# 1. Alice's host receives Bob's request
+# 2. Her trust policy evaluates Bob's identity (strict check)
+# 3. If approved, the request reaches alice_translator; otherwise it's rejected`}
+                result=""
+              />
             </section>
 
             {/* Environment-Based Defaults */}
             <section>
               <h2 className="heading-2">Environment-Based Defaults</h2>
-              <p className="text-gray-700 mb-4">ConnectOnion automatically adjusts trust based on environment:</p>
+              <p className="text-gray-700 mb-4">Set <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">CONNECTONION_ENV</code> and skip the <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">trust</code> argument — the level is picked up automatically:</p>
               <CodeWithResult
-                code={`# No trust parameter needed - auto-detected!
-translator = need("translate")
+                code={`# No trust parameter needed - auto-detected from CONNECTONION_ENV
+host(create_agent)
 
-# In development (localhost, Jupyter)
-# → Defaults to trust="open"
-
-# In test files (test_*.py)
-# → Defaults to trust="tested"
-
-# In production
-# → Defaults to trust="strict"
+# CONNECTONION_ENV=development → trust="open"
+# CONNECTONION_ENV=staging or test → trust="careful"
+# CONNECTONION_ENV=production → trust="strict"
+# unset → defaults to "careful"
 
 # Override when needed
-translator = need("translate", trust="open")  # Force open even in production`}
+host(create_agent, trust="open")  # Force open even if CONNECTONION_ENV=production`}
                 result=""
               />
             </section>
@@ -255,7 +233,7 @@ translator = need("translate", trust="open")  # Force open even in production`}
                   <h4 className="text-lg font-semibold text-gray-900 mb-4">Development Mode</h4>
                   <CodeWithResult
                     code={`# Trust everyone for rapid development
-connectonion.set_default_trust("open")`}
+host(create_agent, trust="open")`}
                     result=""
                   />
                 </div>
@@ -264,8 +242,8 @@ connectonion.set_default_trust("open")`}
                   <h4 className="text-lg font-semibold text-gray-900 mb-4">Production Mode</h4>
                   <CodeWithResult
                     code={`# Strict verification for production
-payment = need("payment processor", trust="strict")
-sensitive = need("data processor", trust="strict")`}
+host(create_payment_agent, trust="strict")
+host(create_data_agent, trust="strict")`}
                     result=""
                   />
                 </div>
@@ -273,10 +251,10 @@ sensitive = need("data processor", trust="strict")`}
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-4">Mixed Trust</h4>
                   <CodeWithResult
-                    code={`# Different trust for different services
-scraper = need("web scraper", trust="open")      # Low risk
-analyzer = need("analyze data", trust="tested")   # Medium risk
-payment = need("process payment", trust="strict") # High risk`}
+                    code={`# Different trust for different services (run as separate hosts)
+host(create_scraper, trust="open")       # Low risk
+host(create_analyzer, trust="careful")   # Medium risk
+host(create_payment_agent, trust="strict") # High risk`}
                     result=""
                   />
                 </div>
@@ -333,23 +311,19 @@ payment = need("process payment", trust="strict") # High risk`}
               <div className="space-y-4">
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
                   <p className="font-semibold text-gray-900 mb-2">Q: What's the default trust level?</p>
-                  <p className="text-gray-700 text-sm">A: <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">"tested"</code> - agents are tested before first use</p>
+                  <p className="text-gray-700 text-sm">A: <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">"careful"</code> if you don't pass <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">trust=</code> and <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">CONNECTONION_ENV</code> isn't set</p>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
-                  <p className="font-semibold text-gray-900 mb-2">Q: Can I change trust after agent creation?</p>
-                  <p className="text-gray-700 text-sm">A: Yes: <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">agent.trust = new_trust_agent</code></p>
+                  <p className="font-semibold text-gray-900 mb-2">Q: Where does trust get configured?</p>
+                  <p className="text-gray-700 text-sm">A: On <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">host()</code>, not on <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">Agent()</code> — trust enforcement moved to the host boundary so the agent itself stays free of access-control logic</p>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
-                  <p className="font-semibold text-gray-900 mb-2">Q: How do trust agents communicate?</p>
-                  <p className="text-gray-700 text-sm">A: They're regular ConnectOnion agents - they talk naturally</p>
-                </div>
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
-                  <p className="font-semibold text-gray-900 mb-2">Q: What if both agents have strict trust?</p>
-                  <p className="text-gray-700 text-sm">A: Both requirements must be met - most restrictive wins</p>
+                  <p className="font-semibold text-gray-900 mb-2">Q: What can a custom trust Agent do?</p>
+                  <p className="text-gray-700 text-sm">A: It's a regular ConnectOnion agent given verification tools (<code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">check_whitelist</code>, <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">verify_agent</code>, etc.) — or use the built-in <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">TrustAgent</code> class for whitelisting and onboarding out of the box</p>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
                   <p className="font-semibold text-gray-900 mb-2">Q: Can I disable trust completely?</p>
-                  <p className="text-gray-700 text-sm">A: Yes: <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">trust="open"</code> accepts everyone without checks</p>
+                  <p className="text-gray-700 text-sm">A: Yes: <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">host(create_agent, trust="open")</code> accepts everyone without checks</p>
                 </div>
               </div>
             </section>
@@ -371,8 +345,8 @@ payment = need("process payment", trust="strict") # High risk`}
                 </div>
                 <div className="p-3 bg-white border border-gray-200 rounded-lg">
                   <p className="text-sm font-medium text-gray-900 mb-1">Testing/Staging?</p>
-                  <code className="text-xs text-gray-700 font-mono">trust="tested"</code>
-                  <p className="text-xs text-gray-500 mt-1">Test before trusting (default)</p>
+                  <code className="text-xs text-gray-700 font-mono">trust="careful"</code>
+                  <p className="text-xs text-gray-500 mt-1">Moderate verification (the default)</p>
                 </div>
                 <div className="p-3 bg-white border border-gray-200 rounded-lg">
                   <p className="text-sm font-medium text-gray-900 mb-1">Production?</p>
