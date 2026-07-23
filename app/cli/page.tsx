@@ -132,6 +132,7 @@ export default function CLIPage() {
             {[
               { cmd: 'co skills', desc: 'Discover & import skills from your coding agents', href: '/cli/skills' },
               { cmd: 'co sub', desc: 'Subscribe to published agents', href: '/cli/sub' },
+              { cmd: 'co call', desc: 'Run one command on a remote agent', href: '/cli/call' },
               { cmd: 'co status', desc: 'Check balance and deployments', href: '#co-status' },
               { cmd: 'co deploy', desc: 'Deploy agent to cloud', href: '#co-deploy' },
               { cmd: 'co doctor', desc: 'Diagnose config issues', href: '#co-doctor' },

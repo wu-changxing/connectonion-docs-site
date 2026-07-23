@@ -97,6 +97,7 @@ const toolCategories = [
       { name: 'read_file', href: '/useful-tools/read-file', description: 'Read any file: text, images, PDF, PPTX, DOCX, audio, video', status: 'available' },
       { name: 'Diff Writer', href: '/useful-tools/diff-writer', description: 'Write code diffs', status: 'available' },
       { name: 'Slash Command', href: '/useful-tools/slash-command', description: 'Custom CLI commands', status: 'available' },
+      { name: 'Codex', href: '/useful-tools/codex', description: 'Drive OpenAI Codex via its native app-server, with resume and per-action approval', status: 'available' },
     ]
   },
 ]

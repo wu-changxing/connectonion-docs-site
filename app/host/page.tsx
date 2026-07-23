@@ -264,6 +264,7 @@ curl -X POST http://localhost:8000/input \\
   "tools": ["translate", "detect_language"],
   "trust": "careful",
   "version": "0.5.10",
+  "balance_usd": 4.87,
   "accepted_inputs": {
     "text": true,
     "images": true,
@@ -277,6 +278,7 @@ curl -X POST http://localhost:8000/input \\
               />
               <p className="text-sm text-gray-500 mt-2">
                 The <code className="bg-gray-100 px-1 rounded">accepted_inputs</code> field tells clients what input types the agent supports and file size limits.
+                <code className="bg-gray-100 px-1 rounded ml-1">balance_usd</code> is included only for agents running on managed <code className="bg-gray-100 px-1 rounded">co/*</code> keys — agents on their own provider API keys omit it. It's also published in the ANNOUNCE profile sent to the relay for discovery.
               </p>
             </div>
           </div>

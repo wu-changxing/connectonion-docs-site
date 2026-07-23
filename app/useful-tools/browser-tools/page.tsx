@@ -217,6 +217,27 @@ browser.double_click("the file name")    # Double-click to open/select`}
           />
         </section>
 
+        {/* Humanized Input */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCpuChip className="w-8 h-8 text-gray-400" />
+            Humanized Input
+          </h2>
+          <p className="text-gray-700 mb-6">
+            Every <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">click()</code>, <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">hover()</code>, <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">keyboard_type()</code>, and <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">scroll()</code> call is automatically humanized — no separate API, it's built into the tools you already use. Patchright already hides driver-level tells (<code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">navigator.webdriver</code>); this layer fixes the shape of the events themselves, which is what behavioral detectors look at:
+          </p>
+          <ul className="space-y-2 text-gray-700 text-sm list-disc list-inside mb-4">
+            <li>Mouse moves along a curved (Bezier) path with a human velocity profile, not a straight-line teleport</li>
+            <li>The cursor remembers its last position per page, so the next action starts from there instead of reappearing on the target pixel</li>
+            <li>Keystroke timing follows a log-normal cadence rather than fixed-interval typing</li>
+            <li>Scroll events mimic a real wheel/trackpad device (a per-page "persona" picks one and keeps it consistent for that session)</li>
+            <li>CJK text is entered via a real OS clipboard paste (with your clipboard saved and restored), falling back to CDP IME composition if paste is blocked</li>
+          </ul>
+          <p className="text-gray-600 text-sm">
+            No tool signatures change — this happens under the hood on every call.
+          </p>
+        </section>
+
         {/* Typing */}
         <section className="mb-20">
           <h2 className="heading-2">Typing</h2>
