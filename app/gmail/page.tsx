@@ -83,6 +83,21 @@ agent.input("Find emails from alice@example.com")`}
           <p className="text-gray-700 mt-3"><strong>Switch accounts?</strong> Run <code className="bg-gray-100 px-2 py-0.5 rounded">co auth google</code> again to connect a different Google account.</p>
         </section>
 
+        {/* CLI */}
+        <section className="mb-16">
+          <h2 className="heading-2">From the Terminal</h2>
+
+          <p className="text-gray-700 mb-4">
+            The same account is a command away — <Link href="/cli/gmail" className="text-gray-700 underline">co gmail</Link> wraps this tool, so you can read, reply, send, and search without writing an agent:
+          </p>
+
+          <CommandBlock commands={['co gmail', 'co gmail read 3', 'co gmail reply 3 "Sounds good."', 'co gmail search "from:alice@example.com is:unread"']} />
+
+          <p className="text-gray-600 text-sm mt-3">
+            Listings are numbered and the numbers refer to your last listing. Piped output carries full message ids.
+          </p>
+        </section>
+
         {/* Agent Methods - Reading */}
         <section className="mb-16">
           <h2 className="heading-2">Agent Methods</h2>
@@ -99,6 +114,15 @@ agent.input("Find emails from alice@example.com")`}
                 <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                   <h4 className="font-semibold text-gray-700 font-mono mb-2">read_inbox(last=10, unread=False)</h4>
                   <p className="text-gray-700 text-sm mb-4">Read emails from inbox</p>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li><code className="bg-gray-100 px-1 rounded">last</code> - Number of emails (default: 10)</li>
+                    <li><code className="bg-gray-100 px-1 rounded">unread</code> - Only unread emails (default: False)</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
+                  <h4 className="font-semibold text-gray-700 font-mono mb-2">list_inbox(last=10, unread=False)</h4>
+                  <p className="text-gray-700 text-sm mb-4">Same fetch as <code className="bg-gray-100 px-1 rounded">read_inbox</code>, but returns a list of <strong>dicts</strong> (id, sender, subject, date, unread) instead of formatted text — the shape <code className="bg-gray-100 px-1 rounded">co gmail</code> renders its table from, and what you want when you&apos;re processing rather than displaying.</p>
                   <ul className="text-sm text-gray-700 space-y-1">
                     <li><code className="bg-gray-100 px-1 rounded">last</code> - Number of emails (default: 10)</li>
                     <li><code className="bg-gray-100 px-1 rounded">unread</code> - Only unread emails (default: False)</li>
@@ -133,6 +157,11 @@ agent.input("Find emails from alice@example.com")`}
                 <HiOutlineMagnifyingGlass className="w-5 h-5 text-green-400" />
                 Search
               </h3>
+
+              <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6 mb-4">
+                <h4 className="font-semibold text-green-700 font-mono mb-2">list_search(query, max_results=10)</h4>
+                <p className="text-gray-700 text-sm">Same Gmail query syntax as <code className="bg-gray-100 px-1 rounded">search_emails</code>, but returns a list of <strong>dicts</strong> (id, sender, subject, date, unread) — structured results you can filter, sort, or feed straight into <code className="bg-gray-100 px-1 rounded">get_email_body()</code>.</p>
+              </div>
 
               <div className="bg-gray-50 border border-gray-200 rounded-xl hover:border-gray-300/50 hover:bg-gray-100 transition-all p-6">
                 <h4 className="font-semibold text-green-700 font-mono mb-2">search_emails(query, max_results=10)</h4>

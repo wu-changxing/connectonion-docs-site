@@ -44,7 +44,7 @@ export const navigation = [
     section: 'Getting Started',
     keywords: ['cursor', 'ai', 'vibe', 'coding', 'drag', 'drop', 'docs'],
     prev: { href: '/quickstart', title: 'Quick Start' },
-    next: { href: '/agent', title: 'Agent' }
+    next: { href: '/deploy', title: 'Deploy' }
   },
   // ─── CLI ───────────────────────────────────────────────────────
   {
@@ -53,7 +53,7 @@ export const navigation = [
     icon: HiOutlineCommandLine,
     section: 'CLI',
     keywords: ['command', 'terminal', 'co', 'commands', 'cli'],
-    prev: { href: '/vibe-coding', title: 'Vibe Coding Guide' },
+    prev: { href: '/deploy', title: 'Deploy' },
     next: { href: '/cli/create', title: 'co create' }
   },
   {
@@ -93,7 +93,7 @@ export const navigation = [
     section: 'CLI',
     parent: '/cli',
     keywords: ['copy', 'tools', 'plugins', 'prompts', 'templates', 'reuse'],
-    prev: { href: '/cli/init', title: 'co init' },
+    prev: { href: '/cli/auth', title: 'co auth' },
     next: { href: '/cli/ai', title: 'co ai' }
   },
   {
@@ -124,6 +124,26 @@ export const navigation = [
     parent: '/cli',
     keywords: ['email', 'agent email', 'inbox', 'send', 'read', 'mail.openonion.ai', 'name', 'upgrade', 'domain', 'quota'],
     prev: { href: '/cli/browser-command', title: 'co browser' },
+    next: { href: '/cli/gmail', title: 'co gmail' }
+  },
+  {
+    title: 'co gmail',
+    href: '/cli/gmail',
+    icon: HiOutlineInbox,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['gmail', 'google', 'inbox', 'unread', 'read', 'reply', 'send', 'sent', 'search', 'query', 'oauth', 'co auth google', 'mail', 'cc', 'bcc', 'stdin'],
+    prev: { href: '/cli/email', title: 'co email' },
+    next: { href: '/cli/gdrive', title: 'co gdrive' }
+  },
+  {
+    title: 'co gdrive',
+    href: '/cli/gdrive',
+    icon: HiOutlineFolderOpen,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['gdrive', 'google drive', 'drive', 'files', 'list', 'search', 'download', 'upload', 'get', 'put', 'rm', 'trash', 'export', 'google docs', 'sheets', 'slides', 'scope', 'oauth'],
+    prev: { href: '/cli/gmail', title: 'co gmail' },
     next: { href: '/cli/setup', title: 'co setup' }
   },
   {
@@ -133,7 +153,7 @@ export const navigation = [
     section: 'CLI',
     parent: '/cli',
     keywords: ['setup', 'identity', 'agent.json', 'profile', 'keys', 'publish', 'alias', 'bio', 'skill library'],
-    prev: { href: '/cli/email', title: 'co email' },
+    prev: { href: '/cli/gdrive', title: 'co gdrive' },
     next: { href: '/cli/skills', title: 'co skills' }
   },
   {
@@ -142,7 +162,7 @@ export const navigation = [
     icon: HiOutlinePuzzlePiece,
     section: 'CLI',
     parent: '/cli',
-    keywords: ['skills', 'discover', 'copy', 'manifest', 'import', 'claude', 'codex', 'cursor', 'kiro', 'SKILL.md', 'index.json'],
+    keywords: ['skills', 'discover', 'copy', 'link', 'manifest', 'import', 'export', 'symlink', 'claude', 'codex', 'cursor', 'kiro', 'SKILL.md', 'index.json'],
     prev: { href: '/cli/setup', title: 'co setup' },
     next: { href: '/cli/sub', title: 'co sub' }
   },
@@ -163,8 +183,8 @@ export const navigation = [
     section: 'Getting Started',
     difficulty: 'New',
     keywords: ['deploy', 'hosting', 'cloud', 'production', 'docker', 'gcp', 'agents'],
-    prev: { href: '/cli', title: 'CLI Reference' },
-    next: { href: '/agent', title: 'Agent' }
+    prev: { href: '/vibe-coding', title: 'Vibe Coding' },
+    next: { href: '/cli', title: 'CLI' }
   },
 
   // ─── Agent API ─────────────────────────────────────────────
@@ -175,7 +195,7 @@ export const navigation = [
     section: 'Agent API',
     difficulty: 'Essential',
     keywords: ['agent', 'create', 'orchestrator', 'core', 'llm', 'conversation', 'iteration'],
-    prev: { href: '/cli', title: 'CLI Reference' },
+    prev: { href: '/cli/sub', title: 'co sub' },
     next: { href: '/prompts', title: 'System Prompts' }
   },
   {
@@ -459,7 +479,7 @@ export const navigation = [
     icon: HiOutlineCommandLine,
     section: 'Useful Tools',
     keywords: ['slash', 'command', 'custom', 'markdown', 'prompt'],
-    prev: { href: '/useful-tools/shell', title: 'Shell' },
+    prev: { href: '/useful-tools/bash', title: 'bash' },
     next: { href: '/useful-tools/terminal', title: 'Terminal' }
   },
   {

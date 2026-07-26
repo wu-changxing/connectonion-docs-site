@@ -128,6 +128,33 @@ Index written to /Users/you/.co/skills/index.json`}
             </div>
 
             <div>
+              <h3 className="text-xl font-semibold mb-3">co skills link</h3>
+              <p className="text-gray-700 mb-3">
+                The other direction. <code className="bg-gray-100 px-1 rounded">discover</code>/<code className="bg-gray-100 px-1 rounded">copy</code> pull skills <strong>in</strong> from your agent tools; <code className="bg-gray-100 px-1 rounded">link</code> pushes ConnectOnion&apos;s <strong>bundled</strong> skills <strong>out</strong> to them — into <code className="bg-gray-100 px-1 rounded">~/.claude/skills/</code> and <code className="bg-gray-100 px-1 rounded">~/.codex/skills/</code> — so Claude Code and Codex can use <code className="bg-gray-100 px-1 rounded">co browser</code>, <code className="bg-gray-100 px-1 rounded">co gmail</code>, <code className="bg-gray-100 px-1 rounded">co gdrive</code> and the rest without you writing anything.
+              </p>
+              <CodeWithResult
+                code={`co skills link`}
+                result={`                     Linking 5 bundled skill(s)
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓
+┃ Skill                          ┃ claude         ┃ codex          ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━┩
+│ browser-workflow-skill-builder │ linked         │ linked         │
+│ co-browser                     │ linked         │ already linked │
+│ co-mail-and-drive              │ linked         │ linked         │
+│ install-connectonion           │ linked         │ linked         │
+│ ship-feature                   │ already linked │ already linked │
+└────────────────────────────────┴────────────────┴────────────────┘`}
+                language="bash"
+              />
+              <p className="text-gray-600 text-sm mt-3">
+                Idempotent — safe to re-run, and it&apos;s how you pick up skills added by a ConnectOnion upgrade. <strong>It will not overwrite a directory you own:</strong> if <code className="bg-gray-100 px-1 rounded">~/.claude/skills/co-browser/</code> is a real directory rather than a link, that&apos;s your own skill of the same name and it&apos;s left alone (reported as <code className="bg-gray-100 px-1 rounded">exists, not ours — skipped</code>). Pass <code className="bg-gray-100 px-1 rounded">--force</code> to replace it.
+              </p>
+              <p className="text-gray-600 text-sm mt-3">
+                On macOS and Linux these are <strong>symlinks</strong>, so an upgrade updates the skills in place. On Windows, where symlinks need Developer Mode or elevation, the files are <strong>copied</strong> instead — re-run <code className="bg-gray-100 px-1 rounded">co skills link</code> after upgrading.
+              </p>
+            </div>
+
+            <div>
               <h3 className="text-xl font-semibold mb-3">co skills manifest</h3>
               <p className="text-gray-700 mb-3">
                 Build skill metadata from a skills directory and merge it into <code className="bg-gray-100 px-1 rounded">agent.json[&quot;skills&quot;]</code> — the shape publishing needs.
@@ -194,6 +221,7 @@ Index written to /Users/you/.co/skills/index.json`}
           <div className="bg-gray-900 text-gray-100 rounded-lg p-6 overflow-x-auto">
             <pre className="text-sm leading-relaxed">{`co skills discover        ← scan agent dirs → index.json
 co skills copy --all      ← materialize ~/.co/skills/
+co skills link            ← push bundled skills out to ~/.claude/ and ~/.codex/
 co skills manifest        ← merge skill metadata into ~/.co/agent.json
 co ai                     ← auto-loads .co/skills/ and ~/.co/skills/
 co setup                  ← runs the full setup sequence
