@@ -1,7 +1,7 @@
 /**
  * @purpose Dashboard docs - giving a hosted agent a Home page via dashboard.html
  * @context Explains the single-file model, the starter written at host startup, editing rules
- *   (no scripting, no external URLs, 512KB cap), the data-ochat-skill button contract, and when
+ *   (no scripting, no external URLs, 2MB cap), the data-ochat-skill button contract, and when
  *   snapshots are pushed over the WebSocket
  * @llm-note The button contract's project-skills-only rule is the non-obvious part: clients
  *   validate against the published profile, which excludes user and builtin skills
@@ -117,7 +117,7 @@ host(lambda: Agent("lisa", tools=[...]))`}
           </div>
 
           <p className="text-gray-700 text-lg">
-            Keep it under <strong>512KB</strong>. The host will not send a larger file, and the Home pane goes blank.
+            Keep it under <strong>2MB</strong>. The host will not send a larger file, and the Home pane goes blank. Inline images are base64, which is ~33% larger than the source file — compress screenshots before embedding them.
           </p>
         </section>
 

@@ -512,7 +512,7 @@ export default function WebSocketProtocolPage() {
   "session_id": "550e8400-..."
 }`}</JsonBlock>
           <p className="text-sm text-gray-500 mt-2">
-            The HTML is agent-authored and untrusted: render it in a sandboxed iframe with scripting and network access blocked. Files over 512KB are not sent.
+            The HTML is agent-authored and untrusted: render it in a sandboxed iframe with scripting and network access blocked. Files over 2MB are not sent.
           </p>
 
           <h4 className="text-lg font-semibold text-gray-700 mt-8 mb-2">RUNTIME_INPUT_ACK</h4>
