@@ -295,6 +295,16 @@ export const navigation = [
     difficulty: 'Essential',
     keywords: ['connect', 'remote', 'network', 'relay', 'distributed', 'client', 'remote agent', 'proxy'],
     prev: { href: '/host', title: 'host()' },
+    next: { href: '/dashboard', title: 'Dashboard' }
+  },
+  {
+    title: 'Dashboard',
+    href: '/dashboard',
+    icon: HiOutlineRectangleGroup,
+    section: 'Network',
+    difficulty: 'NEW',
+    keywords: ['dashboard', 'home', 'home page', 'dashboard.html', 'ui', 'buttons', 'skill button', 'iframe', 'landing', 'ochat', 'chat client'],
+    prev: { href: '/connect', title: 'Connect to Agents' },
     next: { href: '/websocket-protocol', title: 'WebSocket Protocol' }
   },
   {
@@ -302,8 +312,8 @@ export const navigation = [
     href: '/websocket-protocol',
     icon: HiOutlineCodeBracket,
     section: 'Network',
-    keywords: ['websocket', 'protocol', 'connect', 'input', 'output', 'session', 'message', 'auth', 'ping', 'pong', 'reconnect', 'ed25519'],
-    prev: { href: '/connect', title: 'Connect to Agents' },
+    keywords: ['websocket', 'protocol', 'connect', 'input', 'output', 'session', 'message', 'auth', 'ping', 'pong', 'reconnect', 'ed25519', 'dashboard_snapshot'],
+    prev: { href: '/dashboard', title: 'Dashboard' },
     next: { href: '/session-reconnect', title: 'Session Reconnect' }
   },
   {
