@@ -114,11 +114,27 @@ host(lambda: Agent("lisa", tools=[...]))`}
                 No CDN stylesheets, no remote images, no network fonts. Inline your styles and use <code className="bg-white px-2 py-1 rounded">data:</code> URIs for images.
               </p>
             </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+              <p className="font-semibold text-gray-900 mb-1">No links out</p>
+              <p className="text-gray-700">
+                A Home page is one self-contained page. Clients cancel clicks on <code className="bg-white px-2 py-1 rounded">&lt;a href=&quot;https://…&quot;&gt;</code>, so such a link renders as dead text — use an action button when you want the user to <em>do</em> something. Same-page anchors (<code className="bg-white px-2 py-1 rounded">href=&quot;#section&quot;</code>) work normally.
+              </p>
+            </div>
           </div>
 
-          <p className="text-gray-700 text-lg">
+          <p className="text-gray-700 mb-6 text-lg">
             Keep it under <strong>2MB</strong>. The host will not send a larger file, and the Home pane goes blank. Inline images are base64, which is ~33% larger than the source file — compress screenshots before embedding them.
           </p>
+
+          <div className="bg-gray-50 border-l-4 border-gray-300 rounded-r-lg p-5">
+            <p className="font-semibold text-gray-900 mb-2">Why so locked down?</p>
+            <p className="text-gray-700 mb-3">
+              The client renders your <code className="bg-white px-2 py-1 rounded">dashboard.html</code> in a sandboxed iframe under a strict Content-Security-Policy, because from its side the file is untrusted, agent-authored HTML. Everything above follows from that: nothing loads from the network, nothing scripts, and nothing navigates away. A Home page is a glanceable, self-contained page whose one action is running a skill.
+            </p>
+            <p className="text-gray-700">
+              Supporting external links later is a deliberate change to that contract, not a setting — it means deciding what a dashboard may navigate to and how (in-sandbox, where the destination still cannot be trusted, or handed to a real browser tab). Until then, treat the page as a closed surface.
+            </p>
+          </div>
         </section>
 
         {/* Buttons */}
