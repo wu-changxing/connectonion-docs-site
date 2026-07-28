@@ -575,11 +575,17 @@ console.log(response.text)`}
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            The SDK includes a React hook that wraps <code className="bg-gray-100 px-2 py-1 rounded">connect()</code> with state management and localStorage persistence:
+            The <code className="bg-gray-100 px-2 py-1 rounded">@connectonion/react</code> package adds a React hook that wraps <code className="bg-gray-100 px-2 py-1 rounded">connect()</code> with state management and localStorage persistence. Before SDK 0.2.0 it shipped inside <code className="bg-gray-100 px-2 py-1 rounded">connectonion</code> at the <code className="bg-gray-100 px-2 py-1 rounded">connectonion/react</code> subpath:
           </p>
 
           <CodeWithResult
-            code={`import { useAgentForHuman } from 'connectonion/react'
+            code={`npm install @connectonion/react connectonion`}
+            language="bash"
+            fileName="terminal"
+          />
+
+          <CodeWithResult
+            code={`import { useAgentForHuman } from '@connectonion/react'
 
 function ChatPage() {
   const {
@@ -752,7 +758,7 @@ reader.readAsDataURL(file)`}
             <div>
               <h3 className="text-xl font-semibold mb-3">React (useAgentForHuman)</h3>
               <CodeWithResult
-                code={`import { useAgentForHuman, FileAttachment } from 'connectonion/react'
+                code={`import { useAgentForHuman, FileAttachment } from '@connectonion/react'
 
 function Chat() {
   const { input } = useAgentForHuman('0x...', { sessionId: 'my-session' })
@@ -908,7 +914,7 @@ export default function ChatSession({ params }) {
 │                                                   │
 │  page.tsx                                         │
 │    └─ useAgentForHumanSDK()     ← elapsed time, pending   │
-│         └─ useAgentForHuman()   ← connectonion/react      │
+│         └─ useAgentForHuman()   ← @connectonion/react     │
 │              └─ connect()  ← WebSocket to agent   │
 │                                                   │
 │  <Chat />                                         │
