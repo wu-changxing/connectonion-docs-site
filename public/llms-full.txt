@@ -7,7 +7,7 @@ Source: https://docs.connectonion.com | GitHub: https://github.com/openonion/con
 
 ## What is ConnectOnion?
 
-ConnectOnion is an open-source Python framework for building AI agents. Version 0.9.0. License: MIT.
+ConnectOnion is an open-source Python framework for building AI agents. Version 0.9.0. License: Apache-2.0.
 
 **Core facts:**
 - Install: `pip install connectonion`

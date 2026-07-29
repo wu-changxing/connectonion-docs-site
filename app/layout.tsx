@@ -116,7 +116,7 @@ const structuredData = {
   },
   "downloadUrl": "https://pypi.org/project/connectonion/",
   "releaseNotes": "https://github.com/openonion/connectonion/releases",
-  "license": "https://opensource.org/licenses/MIT",
+  "license": "https://opensource.org/licenses/Apache-2.0",
   "programmingLanguage": "Python",
 };
 
@@ -194,7 +194,7 @@ const faqData = {
       "name": "Is ConnectOnion free to use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, ConnectOnion is open-source under the MIT license. You get $5 free credits for managed model access (no API key needed). You can also use your own API keys at no cost from ConnectOnion."
+        "text": "Yes, ConnectOnion is open-source under the Apache-2.0 license. You get $5 free credits for managed model access (no API key needed). You can also use your own API keys at no cost from ConnectOnion."
       }
     },
     {

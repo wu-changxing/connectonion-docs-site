@@ -46,7 +46,7 @@ export default function Footer() {
               <span className="hidden sm:inline text-gray-400">·</span>
               <span>© {currentYear}</span>
               <span className="hidden sm:inline text-gray-400">·</span>
-              <span>MIT License</span>
+              <span>Apache-2.0 License</span>
             </div>
 
             <div className="flex items-center gap-5">

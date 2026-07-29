@@ -81,8 +81,8 @@ export default function HomePage() {
             <a href="https://connectonion.com" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center">
               <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=flat-square" alt="Production Ready" className="h-6" />
             </a>
-            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center">
-              <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="MIT License" className="h-6" />
+            <a href="https://opensource.org/licenses/Apache-2.0" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center">
+              <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square" alt="Apache-2.0 License" className="h-6" />
             </a>
             <a href="https://python.org" target="_blank" rel="noopener noreferrer" className="min-h-[48px] flex items-center">
               <img src="https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python" alt="Python 3.9+" className="h-6" />
@@ -1170,7 +1170,7 @@ Debugging: "Send email to John"
             Truly Open, Truly Community
           </h2>
           <p className="text-lg text-slate-100 mb-8 text-center">
-            MIT-licensed and community-driven. Framework decisions made by users, not a product roadmap.
+            Apache-2.0 licensed and community-driven. Framework decisions made by users, not a product roadmap.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
