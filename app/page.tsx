@@ -181,7 +181,7 @@ agent.input("What's the weather in NYC?")`}
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a href="https://github.com/openonion/connectonion/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License" />
+              <img src="https://img.shields.io/badge/license-Apache_2.0-green.svg" alt="Apache-2.0 License" />
             </a>
             <a href="https://pypi.org/project/connectonion/" target="_blank" rel="noopener noreferrer">
               <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python 3.9+" />

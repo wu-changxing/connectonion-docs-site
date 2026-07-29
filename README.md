@@ -3,7 +3,7 @@
 <div align="center">
 
 ![ConnectOnion](https://img.shields.io/badge/ConnectOnion-Production_Ready-success?style=flat-square)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python)](https://python.org)
 [![Discord](https://img.shields.io/badge/Discord-Join-7289DA?style=flat-square&logo=discord)](https://discord.gg/4xfD9k8AUF)
 
@@ -30,7 +30,7 @@
 ### Why ConnectOnion?
 - **🎯 Simple**: Minimal API surface - just Agent class and functions as tools
 - **🚀 Elegant**: Clean, intuitive design that gets out of your way
-- **🌍 Open Source**: MIT licensed, community-driven development
+- **🌍 Open Source**: Apache-2.0 licensed, community-driven development
 - **⚡ Production Ready**: Battle-tested with major LLM providers
 - **🔧 Flexible**: Works with GPT-5, Gemini 2.5, Claude Opus 4.1
 
@@ -305,14 +305,14 @@ ConnectOnion is available for production use:
 ## 🌟 Open Source
 
 ConnectOnion is proudly open source:
-- **License**: MIT - Use it anywhere, even commercially
+- **License**: Apache-2.0 - Use it anywhere, even commercially
 - **Contributors**: Welcome! See [Contributing Guide](/website-maintenance)
 - **Stars**: ⭐ Star us on [GitHub](https://github.com/wu-changxing/connectonion)
 - **Fork**: Build your own features and share with the community
 
 ## 📜 License
 
-MIT License - See [LICENSE](../LICENSE) for details
+Apache License 2.0 - See [LICENSE](../LICENSE) for details
 
 ---
 
