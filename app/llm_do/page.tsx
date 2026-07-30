@@ -284,7 +284,7 @@ llm_do("What is 2+2?", output=Answer, model="co/gemini-2.5-flash")  # ✅
 llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4-5") # ✅
 
 # Legacy Claude models do NOT support structured output
-# llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4") # ❌`}
+# llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4-5") # ❌`}
                 result={`>>> llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4-5")
 Answer(result=4)`}
                 className="mb-4"

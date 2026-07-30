@@ -43,7 +43,7 @@ response = agent_google.input("Hello! What model are you?")
 print("Google:", response)
 
 # Create an agent with Anthropic's Claude
-agent_claude = Agent("assistant", model="co/claude-opus-4.1")
+agent_claude = Agent("assistant", model="co/claude-opus-4-1")
 response = agent_claude.input("Hello! What model are you?")
 print("Claude:", response)
 ```

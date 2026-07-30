@@ -19,7 +19,7 @@ agent = Agent("assistant")
 result = agent.input("Hello")
 
 # NO - Don't start with this
-agent = Agent("assistant", model="co/gpt-4", temperature=0.7,
+agent = Agent("assistant", model="co/gpt-4o", temperature=0.7,
               tools=[calculator, weather], max_iterations=5)
 ```
 

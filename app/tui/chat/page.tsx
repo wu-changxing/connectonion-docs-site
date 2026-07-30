@@ -35,7 +35,7 @@ agent = Agent("assistant", tools=[search, analyze])
 
 chat = Chat(agent=agent)
 chat.run()`}
-            result={`🤖 Assistant    ● Ready    co/gpt-4  0 tok  $0.0000
+            result={`🤖 Assistant    ● Ready    co/gpt-4o  0 tok  $0.0000
 
 Welcome! How can I help?
 
@@ -167,7 +167,7 @@ chat = Chat(
             Shows real-time information in a three-column layout:
           </p>
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm mb-4">
-            <pre className="text-gray-700">🤖 Assistant    ◐ Thinking (1/10)    co/gpt-4  1,234 tok  $0.0012</pre>
+            <pre className="text-gray-700">🤖 Assistant    ◐ Thinking (1/10)    co/gpt-4o  1,234 tok  $0.0012</pre>
           </div>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
             <li><strong>Left:</strong> Agent name</li>

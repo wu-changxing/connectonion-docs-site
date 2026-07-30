@@ -115,7 +115,7 @@ agent = Agent("assistant", model="co/gemini-2.0-flash")  # Managed
 agent = Agent("assistant", model="gemini-2.0-flash")     # Your key
 
 # Previous gen lite version
-agent = Agent("assistant", model="co/gemini-2.0-flash-lite")  # Managed
+agent = Agent("assistant", model="co/gemini-2.5-flash-lite")  # Managed
 agent = Agent("assistant", model="gemini-2.0-flash-lite")     # Your key
 ```
 
@@ -143,11 +143,11 @@ agent = Agent("assistant", model="co/claude-opus-4-1")    # Managed
 agent = Agent("assistant", model="claude-opus-4-1")       # Your key
 
 # Claude Sonnet 4 - Balanced performance
-agent = Agent("assistant", model="co/claude-sonnet-4")    # Managed
+agent = Agent("assistant", model="co/claude-sonnet-4-5")    # Managed
 agent = Agent("assistant", model="claude-sonnet-4")       # Your key
 
 # Claude Opus 4 - Legacy version
-agent = Agent("assistant", model="co/claude-opus-4")      # Managed
+agent = Agent("assistant", model="co/claude-opus-4-5")      # Managed
 agent = Agent("assistant", model="claude-opus-4")         # Your key
 ```
 
@@ -279,7 +279,7 @@ result = llm_do("What is 2+2?", output=Result, model="co/gemini-2.5-flash")
 # Works with Claude 4.5/4.1 models only
 result = llm_do("What is 2+2?", output=Result, model="co/claude-sonnet-4-5")  # ✅
 result = llm_do("What is 2+2?", output=Result, model="co/claude-haiku-4-5")   # ✅
-# result = llm_do("What is 2+2?", output=Result, model="co/claude-sonnet-4") # ❌ Not supported
+# result = llm_do("What is 2+2?", output=Result, model="co/claude-sonnet-4-5") # ❌ Not supported
 ```
 
 ### Tool Use Support
@@ -472,7 +472,7 @@ from connectonion import Agent
 # With managed keys (easiest)
 agent_openai = Agent("assistant", model="co/gpt-5")
 agent_google = Agent("assistant", model="co/gemini-2.5-pro")
-agent_claude = Agent("assistant", model="co/claude-opus-4.1")
+agent_claude = Agent("assistant", model="co/claude-opus-4-1")
 
 # OR with your own API keys
 agent_openai = Agent("assistant", model="gpt-5")

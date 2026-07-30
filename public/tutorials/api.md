@@ -28,7 +28,7 @@ Agent(
   - `None`: Uses default prompt
 - **api_key** (`Optional[str]`): OpenAI API key (if not using custom LLM)
 - **model** (`str`): Model to use (default: "co/gemini-2.5-pro")
-  - Managed keys: `co/gemini-2.5-pro`, `co/gpt-4o-mini`, `co/claude-3-5-sonnet`
+  - Managed keys: `co/gemini-2.5-pro`, `co/gpt-4o-mini`, `co/claude-sonnet-4-5`
   - Your own key: `gpt-4o-mini`, `claude-3-5-sonnet`, `gemini-1.5-pro`
 
 ### System Prompt Options
