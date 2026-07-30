@@ -253,7 +253,7 @@ export default function CLIPage() {
 
             <CommandBlock 
               title="With all options (no interaction)"
-              commands={['co create my-agent --ai --key sk-proj-xxx --template minimal']}
+              commands={['co create my-agent --ai --key sk-proj-xxx --template co-ai']}
             />
           </div>
         </div>
@@ -286,11 +286,8 @@ export default function CLIPage() {
                 <tr>
                   <td className="px-4 py-3 font-mono text-sm text-gray-700">--template</td>
                   <td className="px-4 py-3 text-gray-700">
-                    Choose template: <code className="bg-gray-100 px-2 py-1 rounded text-xs">minimal</code>,
-                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">browser</code>,
-                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">coder</code>,
-                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">co-ai</code>,
-                    <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">web-research</code>,
+                    Choose template: <code className="bg-gray-100 px-2 py-1 rounded text-xs">co-ai</code>
+                    <span className="text-gray-500 text-sm"> (default — the same agent <code className="bg-gray-100 px-1 rounded text-xs">co ai</code> runs)</span>,
                     <code className="bg-gray-100 px-2 py-1 rounded text-xs ml-2">custom</code>
                   </td>
                 </tr>
@@ -324,13 +321,10 @@ export default function CLIPage() {
 ✔ Paste your API key (or Enter to skip): … sk-proj-abc123
   ✓ Detected OpenAI API key
 ✔ Choose a template:
-  ❯ Minimal - Simple starting point
-    Browser - Playwright web automation
-    Coder - Code-writing agent
-    Web Research - Data analysis & web scraping
-    Custom - AI generates based on your needs
+  ❯ 🚀 Agent - The co ai agent, hosted — specialise it with skills
+    ✨ Custom - AI generates based on needs
 
-✅ Created 'my-agent' with Minimal template
+✅ Created 'my-agent'
 
 Next steps:
   cd my-agent
@@ -364,7 +358,7 @@ Next steps:
 
             <CommandBlock 
               title="Skip prompts with options"
-              commands={['co init --no-ai --template minimal']}
+              commands={['co init --no-ai --template co-ai']}
             />
           </div>
         </div>
@@ -1100,12 +1094,12 @@ Generating custom template with AI...
         <div className="space-y-4">
           <CommandBlock 
             title="Minimal project without AI"
-            commands={['co create simple-bot --no-ai --template minimal']}
+            commands={['co create simple-bot --no-ai --template co-ai']}
           />
 
           <CommandBlock 
             title="Web research project with AI"
-            commands={['co create research-agent --ai --template web-research']}
+            commands={['co create research-agent --ai --template co-ai']}
           />
 
           <CommandBlock 
@@ -1117,7 +1111,7 @@ Generating custom template with AI...
             title="Initialize existing directory"
             commands={[
               'cd my-existing-project',
-              'co init --ai --template minimal'
+              'co init --ai --template co-ai'
             ]}
           />
         </div>

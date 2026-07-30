@@ -76,10 +76,8 @@ export default function CliCreatePage() {
 ========================================
 
 ✔ Choose a template:
-  ❯ Minimal - Simple starting point
-    Web Research - Data scraping & analysis
-    Playwright - Browser automation
-    Custom - AI generates based on needs
+  ❯ 🚀 Agent - The co ai agent, hosted — specialise it with skills
+    ✨ Custom - AI generates based on needs
 
 ✔ Paste your API key (or Enter to skip): › sk-proj-xxx
   ✓ Detected OpenAI API key
@@ -369,7 +367,7 @@ ANTHROPIC_API_KEY=sk-ant-xxx
 co create
 
 # Direct specification
-co create my-bot --template minimal
+co create my-bot --template co-ai
 
 # Custom with description
 co create assistant --template custom --description "Slack integration bot"`}
@@ -450,7 +448,7 @@ co create assistant --template custom --description "Slack integration bot"`}
               'co create my-bot',
               '',
               '# With name + template',
-              'co create my-bot --template web-research',
+              'co create my-bot --template co-ai',
               '',
               '# Accept all defaults',
               'co create quickbot -y'

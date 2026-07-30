@@ -412,7 +412,7 @@ patchright install chrome`}
               <li>• <code className="bg-gray-100 px-1 rounded">co browser help</code> — the live list of every function you can call directly</li>
               <li>• <a href="/cli/auth" className="text-gray-700 hover:underline">co auth</a> — managed keys for the <code className="bg-gray-100 px-1 rounded">do</code> agent</li>
               <li>• <a href="/useful-tools/browser-tools" className="text-gray-700 hover:underline">BrowserAutomation</a> — the browser tools used in your own agents</li>
-              <li>• <a href="/tools/browser" className="text-gray-700 hover:underline">Browser agent</a> — full browser automation in code (<code className="bg-gray-100 px-1 rounded">co create --template browser</code>)</li>
+              <li>• <a href="/tutorials/templates" className="text-gray-700 hover:underline">Templates</a> — the agent <code className="bg-gray-100 px-1 rounded">co create</code> scaffolds drives this same CLI</li>
             </ul>
           </div>
         </section>

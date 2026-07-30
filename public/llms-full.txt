@@ -279,9 +279,9 @@ Default model for `llm_do`: `co/gemini-2.5-flash`.
 All CLI commands:
 
 ```bash
-co create my-agent             # Create new agent project (minimal template)
-co create my-bot --template browser   # Browser automation template
-co create coder --template coder      # Coding agent template
+co create my-agent             # Create new agent project (the co-ai template)
+                               # One template: the same agent `co ai` runs.
+                               # Specialise it with skills in .co/skills/.
 co init                        # Add .co/ to existing directory
 co auth                        # Authenticate for managed keys
 co auth google                 # Connect Google (Gmail, Calendar)

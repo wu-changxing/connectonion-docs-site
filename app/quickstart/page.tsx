@@ -357,8 +357,8 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
         <div className="mb-6">
           <CommandBlock
             commands={[
-              'co create my-browser-bot --template browser',
-              'cd my-browser-bot'
+              'co create my-agent',
+              'cd my-agent'
             ]}
           />
         </div>

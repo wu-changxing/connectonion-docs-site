@@ -170,12 +170,14 @@ ConnectOnion provides different templates for common use cases:
 # Create with minimal template (default)
 co create my-agent
 
-# Create with playwright template
-co create my-browser-bot --template playwright
+# One template: the same agent `co ai` runs — files, shell, browser,
+# planning, sub-agents. Specialise it with skills, not another template.
+co skills copy commit
+co deploy --skills ~/skills/linkedin-post-submit
 
 # Initialize in existing directory
-co init  # Adds .co folder only
-co init --template playwright  # Adds full template
+co init                    # Adds .co folder only
+co init --template co-ai   # Adds the full project
 ```
 
 ## Copy & Customize Built-in Tools

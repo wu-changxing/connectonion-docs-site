@@ -175,8 +175,8 @@ ConnectOnion provides different templates for common use cases:
 # Meta-agent (default) - ConnectOnion development assistant
 co init
 
-# Web automation with Playwright
-co init --template playwright
+# The full project (browser included — it drives `co browser`)
+co init --template co-ai
 ```
 
 ### What Gets Created
