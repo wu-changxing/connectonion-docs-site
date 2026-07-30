@@ -502,6 +502,11 @@ host(create_agent)  # Reads .co/host.yaml automatically`}
               <p className="text-gray-700 mb-4">
                 Used by <code className="bg-gray-100 px-2 py-1 rounded">/info</code> endpoint and ANNOUNCE messages for agent discovery:
               </p>
+              <div className="mb-4 bg-gray-50 border border-gray-200 rounded-lg p-4">
+                <p className="text-gray-700 text-sm">
+                  With the first ANNOUNCE of each relay connection, the host also publishes a display profile — name, tools, model, and <strong>project-level skills only</strong> (<code className="bg-gray-100 px-2 py-0.5 rounded">.co/skills/</code>). Skills from <code className="bg-gray-100 px-2 py-0.5 rounded">~/.co/skills</code> and built-ins never leave the machine. The relay persists the profile and serves it with the agent record, so directories render name and skills even while the agent is offline.
+                </p>
+              </div>
               <CodeWithResult
                 code={`# Natural language description
 summary: I translate text between 100+ languages with cultural context
@@ -577,6 +582,11 @@ trust: careful  # "open", "careful", or "strict"`}
   default: ask`}
                 language="yaml"
               />
+              <div className="mt-4 bg-gray-50 border border-gray-200 rounded-lg p-4">
+                <p className="text-gray-700 text-sm">
+                  When a stranger&apos;s CONNECT hits the gate, the host sends <code className="bg-gray-100 px-2 py-0.5 rounded">ONBOARD_REQUIRED</code> and stashes the CONNECT. After a verified <code className="bg-gray-100 px-2 py-0.5 rounded">ONBOARD_SUBMIT</code> (invite code or payment), the host completes that CONNECT itself and sends <code className="bg-gray-100 px-2 py-0.5 rounded">CONNECTED</code> — the client&apos;s pending input resumes automatically. No second CONNECT, no resend. See the <Link href="/websocket-protocol" className="underline hover:text-gray-900">protocol page</Link> for the full sequence.
+                </p>
+              </div>
             </div>
 
             <div>

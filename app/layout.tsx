@@ -210,7 +210,7 @@ const faqData = {
       "name": "What is co/ prefix in ConnectOnion models?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The co/ prefix routes model calls through OpenOnion managed keys. For example, co/gemini-2.5-pro uses Google Gemini without you needing a Google API key. New accounts get $5 free credits. You can also use your own keys with standard model names like gpt-4o or claude-3-5-sonnet."
+        "text": "The co/ prefix routes model calls through OpenOnion managed keys. For example, co/gemini-2.5-pro uses Google Gemini without you needing a Google API key. New accounts get $5 free credits. You can also use your own keys with standard model names like gpt-5 or claude-sonnet-4-5."
       }
     },
     {

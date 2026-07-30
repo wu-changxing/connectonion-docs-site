@@ -184,6 +184,54 @@ DATABASE_URL=postgres://...`}
           </div>
         </section>
 
+        {/* Template Deploys with Skills */}
+        <section className="mb-20">
+          <h2 className="heading-2">Template Deploys with Skills</h2>
+
+          <p className="text-gray-700 mb-6 text-lg">
+            Deploy a built-in template plus any combination of skills — no local project needed.
+            The CLI creates a temporary project, bundles your skills into <code className="bg-gray-100 px-2 py-1 rounded">.co/skills/</code>, deploys, and cleans up:
+          </p>
+
+          <CodeWithResult
+            code={`co deploy --template co-ai --name linkedin-agent \\
+  --skills ~/skills/linkedin-login ~/skills/linkedin-post-submit`}
+            result={`Creating temporary co-ai project...
+
+Deploying to ConnectOnion Cloud...
+
+  Project: linkedin-agent
+  Skills:
+    ~/skills/linkedin-login -> .co/skills/
+    ~/skills/linkedin-post-submit -> .co/skills/
+
+Deployment: aea819bb
+Building container on ConnectOnion Cloud...
+
+Deployed!
+Agent URL: https://linkedin-agent-0x7a9f3b2c.agents.openonion.ai`}
+            language="bash"
+            fileName="Terminal"
+          />
+
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <div className="space-y-3 text-gray-700">
+              <p>
+                <code className="bg-gray-100 px-2 py-1 rounded">--name</code> sets the project name and URL (default: <code className="bg-gray-100 px-2 py-1 rounded">{'{template}-agent'}</code>) — different skill combinations run side by side instead of overwriting each other.
+              </p>
+              <p>
+                <code className="bg-gray-100 px-2 py-1 rounded">--skills</code> takes one or more paths. A path that is itself a skill (contains <code className="bg-gray-100 px-2 py-1 rounded">SKILL.md</code>) lands at <code className="bg-gray-100 px-2 py-1 rounded">{'.co/skills/{dirname}/'}</code>; a directory of skills has its contents merged in.
+              </p>
+              <p>
+                The <code className="bg-gray-100 px-2 py-1 rounded">co-ai</code> image ships Chrome + Xvfb + Node.js, so browser skills and their node scripts work out of the box.
+              </p>
+              <p>
+                Builds run in the background — if the CLI stops polling before a slow image finishes, the deploy continues server-side. Check progress with <code className="bg-gray-100 px-2 py-1 rounded">co status</code>.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Self-Host paths guide */}
         <section className="mb-12">
           <div className="flex items-center gap-4 mb-6">

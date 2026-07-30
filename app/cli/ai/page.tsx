@@ -277,7 +277,7 @@ EOF`}
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-600">--model</td>
                   <td className="px-4 py-3 font-mono text-gray-500">-m</td>
-                  <td className="px-4 py-3 text-gray-600">co/claude-opus-4-5</td>
+                  <td className="px-4 py-3 text-gray-600">co/gemini-3-flash-preview</td>
                   <td className="px-4 py-3 text-gray-700">LLM model to use</td>
                 </tr>
                 <tr>

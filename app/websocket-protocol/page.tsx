@@ -176,6 +176,33 @@ export default function WebSocketProtocolPage() {
   │◄── OUTPUT ─────────────────────────────│`}
           </Diagram>
 
+          <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Trust Gate (stranger onboarding)</h3>
+          <Diagram label="careful trust: CONNECT interrupted, onboard completes it">
+{`Client                                    Server
+  │                                         │
+  │── CONNECT ─────────────────────────────►│  signature valid, but identity
+  │   { auth, session_id }                  │  is a stranger → gate fires
+  │                                         │  stash the CONNECT
+  │                                         │
+  │◄── ONBOARD_REQUIRED ───────────────────│  { methods: [invite_code, payment] }
+  │                                         │
+  │    (human types an invite code —        │
+  │     no deadline on this wait)           │
+  │                                         │
+  │── ONBOARD_SUBMIT ──────────────────────►│  verify signed payload
+  │   { invite_code, signed }               │  promote identity to contact
+  │                                         │
+  │◄── ONBOARD_SUCCESS ────────────────────│
+  │                                         │  server completes the stashed
+  │                                         │  CONNECT itself — the client
+  │                                         │  must NOT send CONNECT again
+  │◄── CONNECTED ──────────────────────────│  { session_id, status }
+  │                                         │
+  │── INPUT ───────────────────────────────►│  the original input resumes
+  │   { prompt }                            │  and runs exactly once
+  │◄── stream events / OUTPUT ─────────────│`}
+          </Diagram>
+
           <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Resume After Page Refresh (agent still running)</h3>
           <Diagram label="Reconnect to running agent">
 {`Client                                    Server
