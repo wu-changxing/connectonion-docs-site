@@ -84,7 +84,7 @@ agent = Agent("assistant", model="co/gemini-2.5-flash-lite")
 agent = Agent("assistant", model="co/gemini-2.0-flash")
 
 # Previous gen lite version
-agent = Agent("assistant", model="co/gemini-2.0-flash-lite")
+agent = Agent("assistant", model="co/gemini-2.5-flash-lite")
 ```
 
 ## Anthropic Claude Models
@@ -107,10 +107,10 @@ agent = Agent("assistant", model="co/claude-haiku-4-5")
 agent = Agent("assistant", model="co/claude-opus-4-1")
 
 # Claude Sonnet 4 - Balanced performance
-agent = Agent("assistant", model="co/claude-sonnet-4")
+agent = Agent("assistant", model="co/claude-sonnet-4-5")
 
 # Claude Opus 4 - Legacy version
-agent = Agent("assistant", model="co/claude-opus-4")
+agent = Agent("assistant", model="co/claude-opus-4-5")
 ```
 
 ## Mistral AI Models

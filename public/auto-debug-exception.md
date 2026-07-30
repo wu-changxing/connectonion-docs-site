@@ -205,7 +205,7 @@ auto_debug_exception()
 auto_debug_exception(model="co/gpt-4o")
 
 # Use Claude for complex analysis
-auto_debug_exception(model="co/claude-sonnet-4")
+auto_debug_exception(model="co/claude-sonnet-4-5")
 ```
 
 ### Disable Temporarily
