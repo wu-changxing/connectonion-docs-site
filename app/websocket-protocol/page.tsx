@@ -502,6 +502,19 @@ export default function WebSocketProtocolPage() {
             </table>
           </div>
 
+          <h4 className="text-lg font-semibold text-gray-700 mt-8 mb-2">DASHBOARD_SNAPSHOT</h4>
+          <p className="text-gray-700 mb-4">
+            The agent&apos;s <code className="bg-gray-100 px-1 rounded">dashboard.html</code> — its <a href="/dashboard" className="text-blue-600 hover:underline">Home page</a> — for the client to render beside the chat. Sent right after CONNECTED so Home paints before any input, and again after OUTPUT when the run changed the file. Agents without a dashboard never send it, and it is skipped when the file has not changed since this connection last saw it.
+          </p>
+          <JsonBlock>{`{
+  "type": "DASHBOARD_SNAPSHOT",
+  "html": "<!DOCTYPE html>…",
+  "session_id": "550e8400-..."
+}`}</JsonBlock>
+          <p className="text-sm text-gray-500 mt-2">
+            The HTML is agent-authored and untrusted: render it in a sandboxed iframe with scripting and network access blocked. Files over 2MB are not sent.
+          </p>
+
           <h4 className="text-lg font-semibold text-gray-700 mt-8 mb-2">RUNTIME_INPUT_ACK</h4>
           <p className="text-gray-700 mb-4">
             Acknowledges an INPUT that arrived while the agent was running. The prompt has been queued and will be picked up at the agent&apos;s next iteration boundary. No new OUTPUT cycle — the original input&apos;s OUTPUT carries the agent&apos;s final response addressing both prompts.
