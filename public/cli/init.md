@@ -195,7 +195,7 @@ $ co init  # After global config exists
 co init [options]
 
 Options:
-  --template, -t          Template to use (minimal/web-research/browser/custom)
+  --template, -t          Template to use (co-ai/custom)
   --no-ai                 Disable AI features (not recommended)
   --key                   API key to use (saves to global config)
   --force                 Initialize even in special directories
@@ -234,7 +234,7 @@ $ co init
 $ co init -y
 
 # With specific template
-$ co init --template web-research
+$ co init --template co-ai
 ```
 
 ### Adding to Django Project
@@ -413,7 +413,7 @@ co init -t custom --description "Monitor a site and alert me"
 
 ## Options (the useful bits)
 
-- `--template, -t`: `minimal` | `browser` | `custom`
+- `--template, -t`: `co-ai` | `custom`
 - `--key`: paste an API key (auto-detects provider and appends to `.env`)
 - `--force`: continue in non-empty/special directories
 - `--yes, -y`: accept defaults and skip prompts

@@ -124,17 +124,18 @@ mkdir meta-agent
 cd meta-agent
 co init
 
-# Create a web automation agent
-mkdir playwright-agent
-cd playwright-agent
-co init --template playwright
+# Create an agent (it can drive a browser via `co browser`)
+mkdir my-agent
+cd my-agent
+co init --template co-ai
 ```
 
 #### Options
 
-- `--template, -t`: Choose a template (`meta-agent`, `playwright`)
-  - `meta-agent` (default): ConnectOnion development assistant with docs expertise
-  - `playwright`: Web automation agent with stateful browser control
+- `--template, -t`: `co-ai` (the agent) or `custom` (an LLM writes `agent.py`
+  from your `--description`)
+  - `co-ai`: the same agent `co ai` runs — files, shell, browser, planning,
+    sub-agents. Specialise it with skills in `.co/skills/`.
 - `--force`: Overwrite existing files
 
 #### What Gets Created
@@ -228,12 +229,15 @@ result = agent.input("Create a to-do list for building a REST API")
 result = agent.input("Think about whether you completed the task successfully")
 ```
 
-#### Playwright Web Automation Agent
+#### Browser automation
+
+There is no separate browser template — the one agent drives a real browser
+through the `co browser` CLI, and the scaffolded `Dockerfile` ships Chrome so
+it still works once deployed.
 
 ```bash
-$ co init --template playwright
+$ co init --template co-ai
 ✅ ConnectOnion project initialized!
-💡 You're using the 'playwright' template with specialized tools.
 ```
 
 The Playwright template includes stateful browser tools:

@@ -35,10 +35,8 @@ $ co create my-first-agent
 ========================================
 
 ✔ Choose a template:
-  ❯ Minimal - Simple starting point
-    Web Research - Data scraping & analysis
-    Playwright - Browser automation
-    Custom - AI generates based on needs
+  ❯ 🚀 Agent - The co ai agent, hosted — specialise it with skills
+    ✨ Custom - AI generates based on needs
 
 ✔ Paste your API key (or Enter to skip): › sk-proj-xxx
   ✓ Detected OpenAI API key
@@ -73,7 +71,7 @@ $ co create another-agent
 ✓ Using global identity: 0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a
 ✓ Using global email: 0x7a9f3b2c@mail.openonion.ai
 
-✔ Choose a template: › Web Research
+✔ Choose a template: › 🚀 Agent
 
 ✓ Found API keys in ~/.co/keys.env
   ✓ OpenAI key will be copied to project
@@ -151,7 +149,7 @@ $ co create
 ✔ Choose a template: ›
 
 # Direct specification
-$ co create my-bot --template minimal
+$ co create my-bot --template co-ai
 
 # Custom with description
 $ co create assistant --template custom --description "Slack integration bot"
@@ -164,7 +162,7 @@ co create [name] [options]
 
 Options:
   [name]                    Project name (optional, will prompt)
-  --template, -t            Template to use (minimal/coder/browser/web-research/custom)
+  --template, -t            Template to use (co-ai/custom)
   --description, -d         Description for custom template
   --no-ai                   Disable AI features (not recommended)
   --key                     API key to use (overrides global)
@@ -217,7 +215,7 @@ $ co create
 $ co create my-bot
 
 # With template - uses global identity
-$ co create my-bot --template web-research
+$ co create my-bot --template co-ai
 
 # Accept all defaults
 $ co create quickbot -y

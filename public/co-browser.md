@@ -253,5 +253,5 @@ exactly one daemon — the loser exits and its command is served by the winner.
 ## See Also
 
 - `co browser help` — the live list of every function you can call directly.
-- The `browser` and `hosted-browser` project templates (`co create --template browser`)
-  for building agents on top of the same browser automation.
+- The `co-ai` project template (`co create`) — its agent drives this same CLI,
+  so anything you can do here, a deployed agent can do too.

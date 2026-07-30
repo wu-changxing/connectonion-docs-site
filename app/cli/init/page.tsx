@@ -427,7 +427,7 @@ co init -t custom --description "Monitor a site and alert me on changes"`}
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">--template</td>
                   <td className="px-4 py-3 font-mono text-gray-500">-t</td>
-                  <td className="px-4 py-3 text-gray-700"><code className="bg-gray-100 px-1 rounded">minimal</code> | <code className="bg-gray-100 px-1 rounded">playwright</code> | <code className="bg-gray-100 px-1 rounded">custom</code></td>
+                  <td className="px-4 py-3 text-gray-700"><code className="bg-gray-100 px-1 rounded">co-ai</code> | <code className="bg-gray-100 px-1 rounded">custom</code></td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">--key</td>

@@ -60,16 +60,16 @@ mkdir meta-agent
 cd meta-agent
 co init
 
-# Create web automation agent
-mkdir playwright-agent  
-cd playwright-agent
-co init --template playwright
+# Create an agent (it drives a browser through `co browser`)
+mkdir my-agent
+cd my-agent
+co init --template co-ai
 ```
 
 ### CLI Options
 
 - `co init` - Initialize a new agent project
-  - `--template, -t` - Choose template: `meta-agent` (default), `playwright`, `basic` (alias)
+  - `--template, -t` - Choose template: `co-ai` or `custom`
   - `--with-examples` - Include additional example tools
   - `--force` - Overwrite existing files
 
@@ -108,7 +108,8 @@ my-project/
 - `execute_javascript()` - Run JS code
 - `close_browser()` - Clean up resources
 
-Note: Playwright template requires `pip install playwright && playwright install`
+Note: the browser runs through the `co browser` CLI — one daemon owns it, and
+the scaffolded `Dockerfile` ships Chrome so it still works when deployed.
 
 ### Interactive Features
 
