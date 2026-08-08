@@ -48,10 +48,8 @@
 
 'use client'
 
-import { useState } from 'react'
-import { HiOutlinePlay, HiOutlineCommandLine, HiOutlineArrowRight, HiOutlineBolt, HiOutlineDocumentText, HiOutlineClock, HiOutlineCodeBracket, HiOutlineWrench, HiOutlineClipboard, HiOutlineCheck, HiOutlineBugAnt } from 'react-icons/hi2'
-import { FaSearch, FaBullseye } from 'react-icons/fa'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { HiOutlinePlay, HiOutlineArrowRight, HiOutlineBolt, HiOutlineDocumentText, HiOutlineClock, HiOutlineCodeBracket, HiOutlineWrench, HiOutlineBugAnt } from 'react-icons/hi2'
+import { FaBullseye } from 'react-icons/fa'
 import Link from 'next/link'
 import { CommandBlock } from '../../components/CommandBlock'
 import CodeWithResult from '../../components/CodeWithResult'
@@ -60,14 +58,6 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
 
 export default function QuickStartPage() {
-  const [copiedId, setCopiedId] = useState<string | null>(null)
-  
-  const copyToClipboard = (text: string, id: string) => {
-    navigator.clipboard.writeText(text)
-    setCopiedId(id)
-    setTimeout(() => setCopiedId(null), 2000)
-  }
-
   return (
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
@@ -88,7 +78,7 @@ export default function QuickStartPage() {
         <div className="mb-12 border border-gray-200 rounded-xl overflow-hidden">
           <div className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 border-b border-gray-200">
             <HiOutlineClock className="w-4 h-4 text-gray-400" />
-            <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">7 steps · ~2 minutes</span>
+            <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">3-step quick start · optional guides after</span>
           </div>
           <div className="divide-y divide-gray-100">
             {[
@@ -149,7 +139,7 @@ export default function QuickStartPage() {
               type: 'folder',
               children: [
                 { name: 'agent.py', type: 'file', comment: 'Ready-to-run agent with example tools', icon: 'python' },
-                { name: '.env', type: 'file', comment: 'API keys (auto-configured)', icon: 'env' },
+                { name: '.env', type: 'file', comment: 'Project settings and provider credentials', icon: 'env' },
                 { name: 'co-vibecoding-principles-docs-contexts-all-in-one.md', type: 'file', comment: 'Complete framework docs', icon: 'markdown' },
                 { name: '.gitignore', type: 'file', comment: 'Git config', icon: 'git' },
                 {
@@ -178,7 +168,7 @@ export default function QuickStartPage() {
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>API key setup</strong> - Automatic detection from environment or interactive input</span>
+              <span><strong>Credential discovery</strong> - Uses environment, project .env, or your global ConnectOnion login</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
@@ -252,80 +242,27 @@ Tools work by:
             className="mb-4"
           />
 
-          {/* Generate agent code */}
+          {/* Add a skill */}
           <CodeWithResult 
-            code={`# Generate agent code
-result = agent.input("Create a web scraper agent")
-print(result[:500] + "...")  # Show first 500 chars`}
-            result={`>>> result = agent.input("Create a web scraper agent")
->>> print(result[:500] + "...")
-Here's a complete web scraper agent using ConnectOnion:
+            code={`# List the bundled skills, then copy one into this project
+co skills list
+co skills copy co-browser --to-project`}
+            result={`Copied co-browser to .co/skills/co-browser
 
-\`\`\`python
-from connectonion import Agent
-import requests
-from bs4 import BeautifulSoup
-
-def scrape_url(url: str) -> str:
-    """Scrape content from a URL."""
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    return soup.get_text()[:1000]
-
-def extract_links(url: str) -> list[str]:
-    """Extract all links from a webpage."""
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    return [a['href'] for a in soup.find_all('a', href=True)]...`}
+Run it from co ai as /co-browser.`}
             className="mb-4"
           />
 
-          {/* Create tool functions */}
+          {/* Use a built-in integration */}
           <CodeWithResult 
-            code={`# Create tool functions
-result = agent.input("Generate a tool for sending emails")
-print(result)`}
-            result={`>>> result = agent.input("Generate a tool for sending emails")
->>> print(result)
-Here's an email sending tool for your agent:
+            code={`# Connect Google in the browser once
+co auth google
 
-\`\`\`python
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+# Use the supported command instead of embedding an SMTP password
+co gmail send alice@example.com "Hello" "Sent with ConnectOnion"`}
+            result={`Email sent successfully.
 
-def send_email(to: str, subject: str, body: str, from_email: str = "agent@example.com") -> str:
-    """Send an email to the specified recipient.
-    
-    Args:
-        to: Recipient email address
-        subject: Email subject line
-        body: Email body content
-        from_email: Sender email address
-        
-    Returns:
-        Status message indicating success or failure
-    """
-    try:
-        msg = MIMEMultipart()
-        msg['From'] = from_email
-        msg['To'] = to
-        msg['Subject'] = subject
-        msg.attach(MIMEText(body, 'plain'))
-        
-        # Configure your SMTP server
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login(from_email, 'your_app_password')
-        server.send_message(msg)
-        server.quit()
-        
-        return f"Email sent successfully to {to}"
-    except Exception as e:
-        return f"Failed to send email: {str(e)}"
-\`\`\`
-
-Usage: agent = Agent("mailer", tools=[send_email])`}
+Use co doctor to inspect the OAuth source and expiry without printing tokens.`}
             className="mb-4"
           />
         </div>
@@ -343,7 +280,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
         Steps 5–7 are optional specialization paths — pick what matches your use case.
       </p>
 
-      {/* Browser Template */}
+      {/* Browser tools */}
       <section className="mb-16 pt-4" id="playwright">
         <h2 id="playwright" className="heading-2 flex items-center gap-3 mb-5">
           <span className="inline-flex items-center px-2 py-0.5 bg-gray-100 text-gray-500 text-xs font-mono rounded border border-gray-200 flex-shrink-0">alt</span>
@@ -351,7 +288,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
         </h2>
 
         <p className="text-gray-600 mb-6">
-          For web automation tasks, use the browser template:
+          The default co-ai project already includes browser automation:
         </p>
 
         <div className="mb-6">
@@ -400,7 +337,7 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
             </div>
           </div>
           <p className="text-gray-700 mt-4 text-sm">
-            <strong>Note:</strong> Built on <a href="https://github.com/Kaliiiiiiiiii-Vinyzu/patchright" className="underline">Patchright</a> (a stealth-patched Playwright fork). Requires <code className="bg-gray-100 px-2 py-1 rounded font-mono">pip install patchright && patchright install chrome</code> — or if no browser is found, Chromium is auto-installed per-user with no admin rights (v1.2.1+).
+            <strong>Note:</strong> Built on <a href="https://github.com/Kaliiiiiiiiii-Vinyzu/patchright" className="underline">Patchright</a> (a stealth-patched Playwright fork). If no browser is found, ConnectOnion installs Chromium in the user cache with no admin rights. The manual fallback is <code className="bg-gray-100 px-2 py-1 rounded font-mono">python -m patchright install chromium</code>.
           </p>
         </div>
       </section>
@@ -420,35 +357,22 @@ Usage: agent = Agent("mailer", tools=[send_email])`}
         <CodeWithResult 
           code={`from connectonion import Agent
 
-def calculate(expression: str) -> str:
-    """Safely evaluate mathematical expressions."""
-    try:
-        allowed_chars = set('0123456789+-*/()., ')
-        if all(c in allowed_chars for c in expression):
-            result = eval(expression)
-            return f"Result: {result}"
-        else:
-            return "Error: Invalid characters"
-    except Exception as e:
-        return f"Error: {str(e)}"
+def convert_celsius(celsius: float) -> float:
+    """Convert Celsius to Fahrenheit."""
+    return round(celsius * 9 / 5 + 32, 1)
 
 # Create agent with the tool
 agent = Agent(
-    name="calculator", 
-    tools=[calculate],
-    system_prompt="You are a helpful math tutor.",
+    name="converter",
+    tools=[convert_celsius],
+    system_prompt="Use the conversion tool for temperature questions.",
     max_iterations=5  # Simple calculations need few iterations
 )
 
 # Use the agent
-response = agent.input("What is 42 * 17 + 25?")
+response = agent.input("Convert 23 Celsius to Fahrenheit")
 print(response)`}
-          result={`Let me calculate that for you.
-
-42 * 17 = 714
-714 + 25 = 739
-
-The answer is 739.`}
+          result={`23°C is 73.4°F.`}
           className="mb-8"
         />
 
@@ -471,24 +395,21 @@ The answer is 739.`}
 from connectonion import xray
 
 @xray
-def calculate(expression: str) -> str:
-    """Math tool with debugging enabled."""
-    print(f"[SEARCH] Agent '{xray.agent.name}' is calculating: {expression}")
-    print(f"[SEARCH] User's original request: {xray.task}")
-    print(f"[SEARCH] This is iteration #{xray.iteration}"
+def convert_celsius(celsius: float) -> float:
+    """Temperature tool with debugging enabled."""
+    print(f"Agent '{xray.agent.name}' is converting: {celsius}°C")
+    print(f"User request: {xray.task}")
+    print(f"Iteration: {xray.iteration}")
+    return round(celsius * 9 / 5 + 32, 1)
 
-    result = eval(expression)
-    return f"Result: {result}"
-
-agent = Agent("debug_calc", tools=[calculate], max_iterations=5)
-response = agent.input("What's 50 + 30?")
+agent = Agent("debug_converter", tools=[convert_celsius], max_iterations=5)
+response = agent.input("Convert 20 Celsius to Fahrenheit")
 print(response)`}
-          result={`[SEARCH] Agent 'debug_calc' is calculating: 50 + 30
-[SEARCH] User's original request: What's 50 + 30?
-[SEARCH] This is iteration #1
-Result: 80
+          result={`Agent 'debug_converter' is converting: 20.0°C
+User request: Convert 20 Celsius to Fahrenheit
+Iteration: 1
 
-The result is 80.`}
+20°C is 68.0°F.`}
           className="mb-8"
         />
       </section>
@@ -502,7 +423,7 @@ The result is 80.`}
         </h2>
 
         <p className="text-gray-600 mb-6">
-          Debug your agents interactively - pause at breakpoints, inspect state, and test "what if" scenarios:
+          Debug your agents interactively - pause at breakpoints, inspect state, and test &quot;what if&quot; scenarios:
         </p>
 
         <CodeWithResult
@@ -562,7 +483,7 @@ What do you want to do?
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
-              <span><strong>Test edge cases</strong> - Modify variables to explore "what if"</span>
+              <span><strong>Test edge cases</strong> - Modify variables to explore &quot;what if&quot;</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-gray-400 mt-1">•</span>
@@ -590,7 +511,7 @@ What do you want to do?
       <section className="mb-16 pt-4" id="whats-next">
         <h2 id="whats-next" className="heading-2 flex items-center gap-3 mb-5">
           <FaBullseye className="text-gray-400 flex-shrink-0" />
-          <span>What's Next?</span>
+          <span>What&apos;s Next?</span>
         </h2>
 
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
@@ -606,7 +527,7 @@ What do you want to do?
             </div>
             <h3 className="text-base font-semibold text-gray-900 mb-2">Interactive Debugging</h3>
             <p className="text-gray-500 text-sm">
-              Master breakpoints, Python REPL, and "what if" scenario testing for your agents.
+              Master breakpoints, Python REPL, and &quot;what if&quot; scenario testing for your agents.
             </p>
           </Link>
 
@@ -638,7 +559,7 @@ What do you want to do?
             </div>
             <h3 className="text-base font-semibold text-gray-900 mb-2">Deep Dive into @xray</h3>
             <p className="text-gray-500 text-sm">
-              Master debugging and get complete visibility into your agent's decision-making.
+              Master debugging and get complete visibility into your agent&apos;s decision-making.
             </p>
           </Link>
 
