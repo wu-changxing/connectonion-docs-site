@@ -76,7 +76,7 @@ export default function SendEmailPage() {
           icon={HiOutlinePaperAirplane}
           iconColor="icon-ui"
           title="Send Email"
-          description="Send emails with one line of code. No config, no complexity."
+          description="Send from your agent mailbox with traceable failures and safe retries."
           markdownPath="/agent-emails/send.md"
           markdownFilename="send-email.md"
         />
@@ -111,21 +111,24 @@ agent = Agent("assistant", tools=[send_email])`}
         <section className="mb-16">
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
             <h2 className="heading-2">Quick Debug</h2>
-            <p className="text-gray-700 mb-4">Email not working? Try this:</p>
+            <p className="text-gray-700 mb-4">Check the effective credential source, then test the same CLI path users run:</p>
             <CodeBlock
-              code={`# 1. Check if email is activated
-grep IS_EMAIL_ACTIVE ~/.co/keys.env
-# If false, run: co auth
+              code={`# 1. Shows which project/global credential source wins, without printing secrets
+co doctor
 
-# 2. Test directly
-python -c "from connectonion import send_email; print(send_email('your@email.com', 'Test', 'It works!'))"
+# 2. Test the managed agent mailbox
+co email send your@email.com "Test" "It works"
 
-# 3. Common fixes
-co auth  # Refresh token if expired
-co init  # If missing .co directory`}
+# 3. Confirm the accepted send after the oo-api Sent endpoint is deployed
+co email sent`}
               language="bash"
               id="quick-debug"
             />
+            <p className="text-sm text-gray-700 mt-4">
+              If a send times out or returns a 5xx response, keep the printed safe retry key and reuse it with
+              <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded ml-1">--idempotency-key</code>.
+              Do not retry with a new key: the first request may already have been accepted.
+            </p>
           </div>
         </section>
 
@@ -181,8 +184,8 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
               <div className="flex items-start gap-3">
                 <HiOutlineShieldCheck className="w-5 h-5 text-gray-500 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium">Zero configuration</p>
-                  <p className="text-sm text-gray-700">No API keys to manage</p>
+                  <p className="font-medium">Managed credentials</p>
+                  <p className="text-sm text-gray-700">Authenticate once with <code>co auth</code></p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -205,8 +208,13 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
           <div className="mb-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-semibold mb-4">The function signature</h3>
             <CodeBlock 
-              code={`def send_email(to: str, subject: str, message: str) -> dict:
-    """Send an email. Returns success/failure."""`}
+              code={`def send_email(
+    to: str,
+    subject: str,
+    message: str,
+    idempotency_key: str | None = None,
+) -> dict:
+    """Send an email and return correlation data for safe retries."""`}
               id="function-signature"
             />
             <p className="text-gray-700 mt-4 text-center">Three parameters. Nothing else.</p>
@@ -305,11 +313,11 @@ send_email("alice@example.com", "Welcome!", "Thanks for joining us!")`}
             <div>
               <h3 className="text-2xl font-semibold mb-4">Check your email address</h3>
               <p className="text-slate-100 mb-4">
-                Your email is configured in <code className="bg-gray-800 px-2 py-0.5 rounded">~/.co/keys.env</code>:
+                Use <code className="bg-gray-800 px-2 py-0.5 rounded">co doctor</code> to see the effective project/global source without printing credentials:
               </p>
               <CodeBlock
-                code={`AGENT_EMAIL=0x04e1c4ae@mail.openonion.ai
-IS_EMAIL_ACTIVE=true  # Set to true after 'co auth'`}
+                code={`co doctor
+# Reports the effective agent email and whether email is active`}
                 language="bash"
                 id="config-example"
               />
@@ -388,7 +396,9 @@ Email activated! Your agent can now send emails.</span>
                 code={`{
     'success': True,
     'message_id': 'msg_123',
-    'from': '0x1234abcd@mail.openonion.ai'  # Your agent's email
+    'from': '0x1234abcd@mail.openonion.ai',
+    'request_id': 'send-7f6c...',
+    'idempotency_key': 'send-7f6c...'
 }`}
                 language="python"
                 id="return-success"
@@ -400,7 +410,9 @@ Email activated! Your agent can now send emails.</span>
               <CodeBlock 
                 code={`{
     'success': False,
-    'error': 'Rate limit exceeded'
+    'error': 'Request timed out. Retry with the same idempotency key.',
+    'request_id': 'send-7f6c...',
+    'idempotency_key': 'send-7f6c...'
 }`}
                 language="python"
                 id="return-failure"
@@ -425,10 +437,6 @@ Email activated! Your agent can now send emails.</span>
                 <li className="flex items-start gap-2">
                   <span className="text-gray-500">•</span>
                   <span><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">"Email not activated"</code> - Run <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co auth</code> to activate</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-500">•</span>
-                  <span><code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">"Not in a ConnectOnion project"</code> - Run <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co init</code> first</span>
                 </li>
               </ul>
             </div>
@@ -623,11 +631,11 @@ print(f"Report sent: {result['success']}")`}
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
-                <span>Email configured during <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-xs">co init</code></span>
+                <span>Authenticate with <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-xs">co auth</code></span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-purple-400">•</span>
-                <span>Stored in <code className="bg-gray-800 px-2 py-0.5 rounded text-xs">~/.co/keys.env</code></span>
+                <span><code className="bg-gray-800 px-2 py-0.5 rounded text-xs">co doctor</code> reports credential precedence safely</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
@@ -635,11 +643,11 @@ print(f"Report sent: {result['success']}")`}
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
-                <span>Automatic retry on failures</span>
+                <span>Idempotent retries when the same key is reused</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
-                <span>Logs all emails for debugging</span>
+                <span>Returns Request IDs for support and tracing</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
@@ -654,36 +662,35 @@ print(f"Report sent: {result['success']}")`}
           <h2 className="heading-2">Troubleshooting</h2>
           <div className="space-y-6 max-w-4xl mx-auto">
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-3">Check activation status</h3>
+              <h3 className="text-lg font-semibold mb-3">Check the effective credential source</h3>
               <CodeBlock
-                code={`grep IS_EMAIL_ACTIVE ~/.co/keys.env
-# Should show: IS_EMAIL_ACTIVE=true`}
+                code={`co doctor
+# Reports project/global precedence and email activation without exposing tokens`}
                 language="bash"
                 id="trouble-activation"
               />
-              <p className="text-sm text-gray-700 mt-3">If false, run <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co auth</code> to activate.</p>
+              <p className="text-sm text-gray-700 mt-3">If credentials are missing or expired, run <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co auth</code>, then rerun doctor.</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-3">Check for errors</h3>
               <CodeBlock
                 code={`result = send_email("test@example.com", "Test", "Testing")
 if not result['success']:
-    print(f"Error: {result['error']}")`}
+    print(f"Error: {result['error']}")
+    print(f"Request ID: {result['request_id']}")
+    print(f"Safe retry key: {result['idempotency_key']}")`}
                 id="trouble-errors"
               />
+              <p className="text-sm text-gray-700 mt-3">Give the Request ID to support. Reuse the same idempotency key only when retrying that exact message.</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-3">Debug mode</h3>
-              <p className="text-sm text-gray-700 mb-3">If <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">send_email</code> is used inside an <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">Agent</code>, point its logging at a file to see every tool call and result:</p>
+              <h3 className="text-lg font-semibold mb-3">Sent mailbox says it is unavailable</h3>
+              <p className="text-sm text-gray-700 mb-3">Sending and listing Sent mail are separate backend capabilities. During a staggered rollout, sending can succeed while <code className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">co email sent</code> reports that its endpoint is not deployed yet.</p>
               <CodeBlock
-                code={`import os
-os.environ['CONNECTONION_LOG'] = 'debug.log'
-
-from connectonion import Agent, send_email
-agent = Agent("mailer", tools=[send_email])
-agent.input("Send a test email to test@example.com")
-# Full trace written to debug.log`}
-                id="trouble-debug"
+                code={`co email sent
+# If unavailable, deploy the matching oo-api release before the client release.`}
+                language="bash"
+                id="trouble-sent-version"
               />
             </div>
           </div>
