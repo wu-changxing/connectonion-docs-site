@@ -9,4 +9,4 @@
  * connectonion's tests/unit/test_the_version_agrees_with_itself.py reads this
  * file and fails when it disagrees with the package being released.
  */
-export const VERSION = '1.5.15'
+export const VERSION = '1.5.20'
