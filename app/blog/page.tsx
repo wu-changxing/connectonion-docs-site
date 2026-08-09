@@ -6,6 +6,16 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 
 const blogPosts = [
   {
+    title: 'ConnectOnion 1.6.0',
+    subtitle: 'Safer remote agents and a cleaner credential boundary',
+    date: 'August 2026',
+    readTime: '4 min read',
+    href: '/blog/connectonion-1-6',
+    icon: HiOutlineShieldCheck,
+    tags: ['Release', 'Security', 'Email'],
+    excerpt: 'Signed remote-agent control, CLI-local Microsoft credentials, safer email retries, private invite credentials, and verified release artifacts.'
+  },
+  {
     title: 'Designing the Network Protocol',
     subtitle: 'From Complexity to Clarity',
     date: 'December 2024',
