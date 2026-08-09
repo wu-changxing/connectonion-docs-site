@@ -79,7 +79,7 @@ export const pageSEO: Record<string, PageSEO> = {
   },
   '/cli/ai': {
     title: 'co ai - Built-in AI Coding Assistant | ConnectOnion CLI',
-    description: 'Use co ai as an AI coding assistant that understands ConnectOnion. Get help writing agents, debugging tools, and configuring plugins directly in your terminal.',
+    description: 'Use co ai in web chat or resumable JSON mode, delegate bounded work to Codex or Claude Code, and run safe pull-request reviews in GitHub Actions.',
     path: '/cli/ai',
     section: 'Getting Started',
   },

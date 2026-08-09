@@ -25,7 +25,7 @@ export default function CliAiPage() {
             icon={HiOutlineSparkles}
             iconColor="icon-ui"
             title="co ai"
-            description="AI coding agent that works in your project. Start a web chat session or run one-shot prompts — with full access to your files, shell, and tools."
+            description="AI coding agent that works in your project. Start with web chat, run one-shot prompts, or hand a resumable JSON session to another coding agent."
             markdownPath="/cli/ai.md"
             markdownFilename="ai.md"
           />
@@ -53,7 +53,7 @@ export default function CliAiPage() {
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
               <h3 className="font-semibold text-gray-700 mb-2">One-Shot</h3>
               <code className="text-sm text-gray-600">co ai "your prompt"</code>
-              <p className="text-gray-500 text-sm mt-2">Runs the prompt, prints the result, exits. Best for quick tasks and scripting.</p>
+              <p className="text-gray-500 text-sm mt-2">Runs the prompt, prints the result, exits. Add <code className="text-gray-600">--json</code> when another program needs a stable contract.</p>
             </div>
           </div>
         </section>
@@ -146,6 +146,43 @@ co ai "write pytest tests for models/user.py"`}
           </div>
         </section>
 
+        {/* Machine-readable one-shot mode */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineBolt className="w-8 h-8 text-gray-700" />
+            Automate and Resume
+          </h2>
+
+          <p className="text-gray-700 mb-6 text-lg">
+            Scripts and coding agents should request one JSON object on stdout. Keep the returned session ID to continue the same conversation in a later process:
+          </p>
+
+          <CodeWithResult
+            code={`first=$(co ai "Fix the failing tests" --json)
+session=$(printf '%s' "$first" | jq -r .session_id)
+
+co ai "Now update the docs" --resume "$session" --json`}
+            result={`{"session_id":"550e8400-e29b-41d4-a716-446655440000","result":"Tests fixed.","error":null}
+{"session_id":"550e8400-e29b-41d4-a716-446655440000","result":"Docs updated.","error":null}`}
+            language="bash"
+          />
+
+          <div className="mt-6 grid md:grid-cols-2 gap-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+              <h3 className="font-semibold text-gray-900 mb-2">Stable process boundary</h3>
+              <p className="text-sm text-gray-600">Stdout contains exactly <code className="bg-gray-100 px-1 rounded">session_id</code>, <code className="bg-gray-100 px-1 rounded">result</code>, and <code className="bg-gray-100 px-1 rounded">error</code>. Human progress moves to stderr. Failures use a non-zero exit code.</p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+              <h3 className="font-semibold text-gray-900 mb-2">Fail-closed resume</h3>
+              <p className="text-sm text-gray-600">A missing, corrupt, busy, or wrong-project session never becomes a fresh conversation. Sessions are private to the user and bound to the project directory.</p>
+            </div>
+          </div>
+
+          <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-5 text-sm text-amber-900">
+            Resumable JSON mode omits background-process tools because their live process handles cannot cross CLI process boundaries. Use foreground commands when a later invocation must rely on the result.
+          </div>
+        </section>
+
         {/* Project Context */}
         <section className="mb-20">
           <h2 className="heading-2">
@@ -235,8 +272,8 @@ EOF`}
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-gray-700 mb-2">Planning</h3>
               <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Enter plan mode, write plans</li>
-                <li>• Exit plan and implement</li>
+                <li>• Track genuinely multi-step work with visible todos</li>
+                <li>• Handle simple work directly</li>
               </ul>
             </div>
 
@@ -247,6 +284,109 @@ EOF`}
                 <li>• Load and run user-defined skills</li>
               </ul>
             </div>
+          </div>
+        </section>
+
+        {/* Coding-agent delegation */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineSparkles className="w-8 h-8 text-gray-700" />
+            Delegate to Codex or Claude Code
+          </h2>
+
+          <p className="text-gray-700 mb-6 text-lg">
+            When their CLIs are installed and authenticated, <code className="bg-gray-100 px-2 py-1 rounded">co ai</code> can give either provider a bounded task and resume that provider&apos;s session for follow-up fixes. Ask it to review the resulting diff and tests before reporting completion.
+          </p>
+
+          <CodeWithResult
+            code={`co ai "Ask Codex to implement the parser in this repository, run the focused tests, then review its diff"
+
+co ai "Ask Claude Code to investigate the failing integration test. Keep its session for the repair turn"`}
+            language="bash"
+          />
+
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg overflow-x-auto">
+            <table className="w-full text-sm min-w-[680px]">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">co ai mode</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Codex boundary</th>
+                  <th className="text-left px-4 py-3 text-gray-700 font-semibold">Claude Code boundary</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr>
+                  <td className="px-4 py-3 font-medium text-gray-800">Safe</td>
+                  <td className="px-4 py-3 text-gray-600">Read-only; concrete escalation requests use the co ai approval UI</td>
+                  <td className="px-4 py-3 text-gray-600">Normal provider rules; actions needing an interactive prompt fail closed in headless mode</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium text-gray-800">Accept Edits</td>
+                  <td className="px-4 py-3 text-gray-600">Workspace write; other sensitive actions still require approval</td>
+                  <td className="px-4 py-3 text-gray-600">In-scope edits allowed; protected shell or network actions can still fail closed</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium text-gray-800">YOLO / ULW</td>
+                  <td className="px-4 py-3 text-gray-600">Workspace write without prompts; never danger-full-access</td>
+                  <td className="px-4 py-3 text-gray-600">Provider Auto mode; no fallback if the account or organization is ineligible</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-gray-600 mt-5 text-sm">
+            The active mode is reapplied on resume. ConnectOnion never selects Codex <code className="bg-gray-100 px-1 rounded">danger-full-access</code> or Claude Code <code className="bg-gray-100 px-1 rounded">bypassPermissions</code>. A provider can describe a denied action in an otherwise successful result, so status alone is not proof that files changed.
+          </p>
+        </section>
+
+        {/* GitHub Action */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineCodeBracket className="w-8 h-8 text-gray-700" />
+            Review a Pull Request in GitHub Actions
+          </h2>
+
+          <p className="text-gray-700 mb-6 text-lg">
+            The reusable Action runs the bundled review skill against fixed, read-only pull-request evidence, then creates or updates one bounded comment. Trigger it manually from trusted default-branch workflow code and pin the audited ConnectOnion release commit.
+          </p>
+
+          <CodeWithResult
+            code={`name: ConnectOnion PR review
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        required: true
+        type: number
+
+permissions:
+  contents: read
+  pull-requests: read
+  checks: read
+  statuses: read
+  issues: write
+
+concurrency:
+  group: co-ai-review-\${{ inputs.pr_number }}
+  cancel-in-progress: false
+
+jobs:
+  review:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: openonion/connectonion@RELEASE_COMMIT_SHA
+        with:
+          pr-number: \${{ inputs.pr_number }}
+        env:
+          OPENONION_API_KEY: \${{ secrets.OPENONION_API_KEY }}`}
+            language="yaml"
+          />
+
+          <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-5 text-sm text-red-900">
+            Do not combine <code className="bg-red-100 px-1 rounded">pull_request_target</code>, repository secrets, and checkout of untrusted PR code. The shipped Action intentionally reads PR data through a fixed GET-only adapter and never executes the branch.
           </div>
         </section>
 
@@ -277,7 +417,7 @@ EOF`}
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-600">--model</td>
                   <td className="px-4 py-3 font-mono text-gray-500">-m</td>
-                  <td className="px-4 py-3 text-gray-600">co/gemini-3-flash-preview</td>
+                  <td className="px-4 py-3 text-gray-600">co/gemini-3.6-flash</td>
                   <td className="px-4 py-3 text-gray-700">LLM model to use</td>
                 </tr>
                 <tr>
@@ -285,6 +425,30 @@ EOF`}
                   <td className="px-4 py-3 font-mono text-gray-500">-i</td>
                   <td className="px-4 py-3 text-gray-600">100</td>
                   <td className="px-4 py-3 text-gray-700">Max tool iterations per turn</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-600">--yolo</td>
+                  <td className="px-4 py-3 text-gray-500">—</td>
+                  <td className="px-4 py-3 text-gray-600">off</td>
+                  <td className="px-4 py-3 text-gray-700">Skip tool approvals for a trusted autonomous task</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-600">--yolo-turns</td>
+                  <td className="px-4 py-3 text-gray-500">—</td>
+                  <td className="px-4 py-3 text-gray-600">100</td>
+                  <td className="px-4 py-3 text-gray-700">Positive autonomous-turn checkpoint</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-600">--json</td>
+                  <td className="px-4 py-3 text-gray-500">—</td>
+                  <td className="px-4 py-3 text-gray-600">off</td>
+                  <td className="px-4 py-3 text-gray-700">Emit one machine-readable envelope in one-shot mode</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-600">--resume</td>
+                  <td className="px-4 py-3 text-gray-500">—</td>
+                  <td className="px-4 py-3 text-gray-600">—</td>
+                  <td className="px-4 py-3 text-gray-700">Continue a JSON one-shot session by ID</td>
                 </tr>
               </tbody>
             </table>
@@ -295,11 +459,14 @@ EOF`}
               code={`# Different port
 co ai --port 9000
 
-# Faster model
-co ai --model co/gemini-2.5-pro
+# Different model
+co ai --model co/gemini-3.6-flash
 
 # One-shot with options
-co ai "build a microservice" --model co/gpt-4o --max-iterations 50`}
+co ai "build a microservice" --model co/gpt-4o --max-iterations 50
+
+# Trusted bounded autonomy
+co ai --yolo "fix the failing suite" --yolo-turns 20`}
               language="bash"
             />
           </div>

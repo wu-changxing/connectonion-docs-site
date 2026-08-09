@@ -102,7 +102,7 @@ export const navigation = [
     icon: HiOutlineSparkles,
     section: 'CLI',
     parent: '/cli',
-    keywords: ['ai', 'coding', 'agent', 'terminal', 'one-shot', 'interactive', 'web', 'server'],
+    keywords: ['ai', 'coding', 'agent', 'terminal', 'one-shot', 'interactive', 'web', 'server', 'json', 'resume', 'session', 'codex', 'claude code', 'github action', 'pr review'],
     prev: { href: '/cli/copy', title: 'co copy' },
     next: { href: '/cli/browser-command', title: 'co browser' }
   },
@@ -1010,4 +1010,3 @@ export function getPageByHref(href: string) {
 export function getPagesBySection(section: string) {
   return navigation.filter(page => page.section === section)
 }
-
