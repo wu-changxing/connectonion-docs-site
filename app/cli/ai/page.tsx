@@ -467,7 +467,7 @@ co ai --port 9000
 # Different model
 co ai --model co/gemini-3.6-flash
 
-# One-shot with options (read-only by default)
+# One-shot with a read-only request
 co ai "review this service; do not edit files" --model co/gpt-4o --max-iterations 50
 
 # Trusted bounded autonomy
