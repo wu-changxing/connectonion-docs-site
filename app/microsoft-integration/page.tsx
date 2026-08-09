@@ -52,9 +52,10 @@ export default function MicrosoftIntegrationPage() {
             <div className="mt-8 space-y-4">
               <h3 className="text-lg font-semibold text-gray-900">What happens:</h3>
               <ol className="list-decimal list-inside space-y-2 text-gray-700 ml-2">
+                <li>Starts a temporary <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">127.0.0.1</code> callback with an ephemeral encryption key</li>
                 <li>Opens browser to Microsoft OAuth consent screen</li>
                 <li>You authorize Mail + Calendar permissions</li>
-                <li>Credentials saved to <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> (both local and global <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code>)</li>
+                <li>The encrypted result returns directly to the CLI; only after success are credentials saved to local <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> and global <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></li>
                 <li>Ready to use Outlook and Calendar tools immediately</li>
               </ol>
             </div>
@@ -114,7 +115,11 @@ MICROSOFT_EMAIL=your.email@outlook.com`}
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
-                <span>Access tokens expire, but refresh tokens allow automatic renewal</span>
+                <span>oo-api stores no Microsoft token or encrypted credential payload</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-gray-500">•</span>
+                <span>Refresh uses a stateless backend proxy; rotated tokens are saved by the CLI to local env files</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-gray-500">•</span>
@@ -342,7 +347,7 @@ calendar.check_availability("2025-01-15 14:00")  # Check if specific time is fre
               <h3 className="text-lg font-semibold mb-4 text-gray-500">Authorization Timeout</h3>
               <p className="text-gray-700 mb-4">If the browser window doesn't complete authorization within 5 minutes:</p>
               <CommandBlock commands={['co auth microsoft']} />
-              <p className="text-sm text-gray-600 mt-2">The command polls the backend every 5 seconds waiting for your authorization.</p>
+              <p className="text-sm text-gray-600 mt-2">The command waits on its temporary localhost callback. The backend does not store the result for later polling.</p>
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
