@@ -694,8 +694,9 @@ trust:
   deny:
     - blocked
   onboard:
-    invite_code: [OpenOnion, BETA2024]
-    payment: 10
+    # Secrets stay in .env; an unset value disables that onboarding method.
+    invite_code: [$CO_INVITE_CODE]
+    payment: $CO_PAYMENT
   default: ask
 
 port: 8000

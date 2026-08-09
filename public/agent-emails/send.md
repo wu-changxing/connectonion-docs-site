@@ -1,32 +1,40 @@
 # Send Email
 
-> Send emails with one line of code. No config, no complexity.
+> Send from your managed agent mailbox with traceable failures and safe retries.
 
 ---
 
-## 📌 Current Status (as of Sep 2025)
+## Current behavior in 1.6
 
-✅ **Working**: Email sending via `mail.openonion.ai` domain
-✅ **API Endpoint**: `https://oo.openonion.ai/api/v1/email/send`
-✅ **Sender**: Your agent's unique email `0x{your_key}@mail.openonion.ai`
-✅ **JWT Tokens**: No expiration - authenticate once and use forever
+- Sending uses `POST /api/v1/email/send` and your managed agent address.
+- Every attempt has a Request ID and idempotency key.
+- Reusing the same idempotency key makes an uncertain retry safe.
+- Sent-mail listing is a separate backend endpoint and must be deployed before
+  `co email sent` is available.
 
 ## ⚡ Quick Debug
 
-**Email not working? Try this:**
+Check the effective credential source, then test the same CLI path users run:
 
 ```bash
-# 1. Check if email is activated
-grep IS_EMAIL_ACTIVE ~/.co/keys.env
-# If false, run: co auth
+# 1. Shows which project/global source wins without printing secrets
+co doctor
 
-# 2. Test directly
-python -c "from connectonion import send_email; print(send_email('your@email.com', 'Test', 'It works!'))"
+# 2. Test the managed agent mailbox
+co email send your@email.com "Test" "It works"
 
-# 3. Common fixes
-co auth  # Refresh token if expired
-co init  # If missing .co directory
+# 3. Confirm the accepted send after the matching oo-api is deployed
+co email sent
 ```
+
+If a send times out or returns a 5xx response, reuse the printed key for that
+exact message:
+
+```bash
+co email send your@email.com "Test" "It works" --idempotency-key <safe-retry-key>
+```
+
+Do not retry with a new key: the first request may already have been accepted.
 
 ---
 
@@ -56,18 +64,23 @@ Email sent. Done.
 What you get:
 
 - Simple function: `send_email(to, subject, message)`
-- No API keys to manage (already configured)
+- Managed credentials after one `co auth`
 - Your own email address for every agent
 - Professional delivery with good reputation
 
 ### The function
 
 ```python
-def send_email(to: str, subject: str, message: str) -> dict:
-    """Send an email. Returns success/failure."""
+def send_email(
+    to: str,
+    subject: str,
+    message: str,
+    idempotency_key: str | None = None,
+) -> dict:
+    """Send an email and return correlation data for safe retries."""
 ```
 
-Three parameters. Nothing else.
+The first three parameters stay simple. The retry key is optional.
 
 ---
 
@@ -122,12 +135,12 @@ Every agent automatically gets an email address:
 
 ### Check your email address
 
-Your email address is configured when you run `co create` or `co init` and stored in `~/.co/keys.env`:
+Use `co doctor` to see the effective project/global source without printing
+credentials:
 
 ```bash
-AGENT_ADDRESS=0x04e1c4ae3c57d716383153479dae869e51e86d43d88db8dfa22fba7533f3968d
-AGENT_EMAIL=0x04e1c4ae@mail.openonion.ai
-IS_EMAIL_ACTIVE=false  # Becomes true after 'co auth'
+co doctor
+# Reports the effective agent email and whether email is active
 ```
 
 Access it from your agent:
@@ -163,9 +176,7 @@ $ co auth  # Run this anytime to activate
 
 To check your email status:
 ```bash
-$ grep -E 'AGENT_EMAIL|IS_EMAIL_ACTIVE' ~/.co/keys.env
-AGENT_EMAIL=0x04e1c4ae@mail.openonion.ai
-IS_EMAIL_ACTIVE=true  # true = active, false = inactive
+$ co doctor
 ```
 
 ### Want a custom name?
@@ -188,7 +199,9 @@ support@mail.openonion.ai
 {
     'success': True,
     'message_id': 'msg_123',
-    'from': '0x1234abcd@mail.openonion.ai'  # Your agent's email
+    'from': '0x1234abcd@mail.openonion.ai',
+    'request_id': 'send-7f6c...',
+    'idempotency_key': 'send-7f6c...'
 }
 ```
 
@@ -197,7 +210,9 @@ support@mail.openonion.ai
 ```python
 {
     'success': False,
-    'error': 'Rate limit exceeded'
+    'error': 'Request timed out. Retry with the same idempotency key.',
+    'request_id': 'send-7f6c...',
+    'idempotency_key': 'send-7f6c...'
 }
 ```
 
@@ -206,7 +221,6 @@ Common errors:
 - `"Invalid email address"` - Check the recipient
 - `"Authentication failed"` - Token expired, run `co auth`
 - `"Email not activated"` - Run `co auth` to activate
-- `"Not in a ConnectOnion project"` - Run `co init` first
 
 ---
 
@@ -221,7 +235,7 @@ from connectonion import Agent, send_email
 agent = Agent(
     "customer_support",
     tools=[send_email],
-    instructions="You help users and send them email confirmations"
+    system_prompt="You help users and send them email confirmations"
 )
 
 # The agent can now send emails autonomously
@@ -244,7 +258,7 @@ def check_system_status() -> dict:
 monitor = Agent(
     "system_monitor",
     tools=[check_system_status, send_email],
-    instructions="Monitor system health and alert admin@example.com if issues"
+    system_prompt="Monitor system health and alert admin@example.com if issues"
 )
 
 # Agent checks system and sends alerts
@@ -339,33 +353,38 @@ Automatic rate limiting prevents abuse:
 ### Behind the Scenes
 
 - Email address configured during `co create` or `co init`
-- Stored in `~/.co/keys.env` (env vars on your machine)
+- Project credentials take precedence over global credentials; `co doctor`
+  reports the effective source without exposing tokens
 - Uses Resend API for delivery via `mail.openonion.ai` domain
-- Automatic retry on temporary failures
-- Logs all emails for debugging
+- Idempotent retries when the same key is reused
+- Returns Request IDs for support and tracing
 - SPF/DKIM configured for deliverability
 
 ### Troubleshooting
 
 #### Email not sending?
 
-1. **Check activation status**:
+1. **Check the effective credential source**:
    ```bash
-   grep IS_EMAIL_ACTIVE ~/.co/keys.env
-   # Should show: IS_EMAIL_ACTIVE=true
+   co doctor
    ```
-   If false, run `co auth` to activate.
+   Doctor reports project/global precedence and activation without printing
+   secrets. If credentials are missing or expired, run `co auth`, then rerun
+   doctor.
 
 2. **Check for errors**:
    ```python
    result = send_email("test@example.com", "Test", "Testing")
    if not result['success']:
        print(f"Error: {result['error']}")
+       print(f"Request ID: {result['request_id']}")
+       print(f"Safe retry key: {result['idempotency_key']}")
    ```
+   Give the Request ID to support. Reuse the same key only for the exact same
+   message.
 
 3. **Common fixes**:
    - `co auth` - Refresh authentication token
-   - `co init` - Initialize project if missing `.co` directory
    - Check internet connection
 
 4. **Test directly**:
@@ -375,17 +394,14 @@ Automatic rate limiting prevents abuse:
    print(result)
    ```
 
-#### Debug mode
+#### Sent mailbox unavailable
 
-See what's happening under the hood:
+Sending and listing Sent mail are separate backend capabilities. During a
+staggered rollout, sending can succeed while the Sent endpoint is not deployed:
 
-```python
-import os
-os.environ['CONNECTONION_DEBUG'] = '1'
-
-from connectonion import send_email
-result = send_email("test@example.com", "Debug Test", "Testing with debug")
-# Will show detailed API calls and responses
+```bash
+co email sent
+# If unavailable, deploy the matching oo-api release before the client release.
 ```
 
 ---

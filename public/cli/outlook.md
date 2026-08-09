@@ -36,6 +36,10 @@ This opens the Microsoft OAuth flow and saves `MICROSOFT_*` credentials
 missing, any `co outlook` command tells you to run `co auth microsoft` first.
 See [Microsoft Integration](../integrations/microsoft.md) for scope details.
 
+Microsoft credentials remain CLI-local. oo-api performs the OAuth exchange and
+refresh as a stateless proxy, while Outlook saves rotated tokens back to the
+local env files; the backend does not retain the token pair.
+
 ## Commands
 
 ### `co outlook` — Show the inbox

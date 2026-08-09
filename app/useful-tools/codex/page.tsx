@@ -193,7 +193,7 @@ print(result2["resumed"])  # True`}
         <section className="mb-12">
           <h2 className="heading-2">Frontend Contract</h2>
           <p className="text-gray-700">
-            Codex's inner steps are streamed as the <strong>same events</strong> the connectonion-ts SDK already maps to chat items — <code className="bg-gray-100 px-1.5 py-0.5 rounded">tool_call</code> (stable tool ID) and <code className="bg-gray-100 px-1.5 py-0.5 rounded">tool_result</code> — so no frontend or SDK change is needed to render Codex activity.
+            Codex's inner steps are streamed as the <strong>same events</strong> the connection layer bundled in <code className="bg-gray-100 px-1.5 py-0.5 rounded">@connectonion/react</code> already maps to chat items — <code className="bg-gray-100 px-1.5 py-0.5 rounded">tool_call</code> (stable tool ID) and <code className="bg-gray-100 px-1.5 py-0.5 rounded">tool_result</code> — so no frontend or SDK change is needed to render Codex activity.
           </p>
         </section>
 
