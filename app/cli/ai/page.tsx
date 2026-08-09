@@ -159,6 +159,7 @@ co ai "write pytest tests for models/user.py"`}
 
           <CodeWithResult
             code={`first=$(co ai "Fix the failing tests" --json)
+printf '%s\\n' "$first"
 session=$(printf '%s' "$first" | jq -r .session_id)
 
 co ai "Now update the docs" --resume "$session" --json`}
@@ -307,7 +308,11 @@ co ai "Ask Claude Code to diagnose the failing integration test. Report the caus
           />
 
           <p className="text-gray-600 mt-5 text-sm">
-            Those prompts request read-only behavior; they are not permission boundaries. Codex Safe is enforced read-only, while Claude Code Safe follows the provider&apos;s normal rules and the user&apos;s Claude settings. In headless one-shot mode, actions that need an interactive permission prompt fail closed. For delegated edits, use Web Chat and switch to <strong>Accept Edits</strong>, or explicitly choose <code className="bg-gray-100 px-1 rounded">--yolo</code> only for a trusted repository and bounded task.
+            Those prompts request read-only behavior; they are not permission boundaries. Codex Safe starts read-only, while Claude Code Safe follows the provider&apos;s normal rules and the user&apos;s Claude settings. In headless one-shot mode, actions that need an interactive permission prompt fail closed. For delegated edits, use Web Chat and switch to <strong>Accept Edits</strong>, or explicitly choose <code className="bg-gray-100 px-1 rounded">--yolo</code> only for a trusted repository and bounded task.
+          </p>
+
+          <p className="text-gray-600 mt-5 text-sm">
+            In hosted Web Chat, only an operator can approve Codex&apos;s nested requests; shared contacts stay read-only and those requests are denied. Claude Code delegation is operator-only because the local Claude settings may already authorize effects.
           </p>
 
           <div className="mt-6 bg-white border border-gray-200 rounded-lg overflow-x-auto">
@@ -322,8 +327,8 @@ co ai "Ask Claude Code to diagnose the failing integration test. Report the caus
               <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-medium text-gray-800">Safe</td>
-                  <td className="px-4 py-3 text-gray-600">Read-only; Web Chat can show concrete escalation approvals, while one-shot fails closed</td>
-                  <td className="px-4 py-3 text-gray-600">Normal provider rules; actions needing an interactive prompt fail closed in headless mode</td>
+                  <td className="px-4 py-3 text-gray-600">Read-only; a local or hosted-operator Web Chat can show concrete escalation approvals, while one-shot and shared hosted contacts fail closed</td>
+                  <td className="px-4 py-3 text-gray-600">Normal provider rules; actions needing an interactive prompt fail closed in headless mode; hosted delegation is operator-only</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-medium text-gray-800">Accept Edits</td>
@@ -342,6 +347,10 @@ co ai "Ask Claude Code to diagnose the failing integration test. Report the caus
           <p className="text-gray-600 mt-5 text-sm">
             The active mode is reapplied on resume. ConnectOnion never selects Codex <code className="bg-gray-100 px-1 rounded">danger-full-access</code> or Claude Code <code className="bg-gray-100 px-1 rounded">bypassPermissions</code>. A provider can describe a denied action in an otherwise successful result, so status alone is not proof that files changed.
           </p>
+
+          <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-5 text-sm text-amber-900">
+            Stop attempts to terminate the delegated provider&apos;s launch process group or process tree and discards late session state, events, and results. It cannot roll back filesystem or external effects that completed before the interruption.
+          </div>
         </section>
 
         {/* GitHub Action */}
@@ -385,8 +394,7 @@ jobs:
       - uses: openonion/connectonion@RELEASE_COMMIT_SHA
         with:
           pr-number: \${{ inputs.pr_number }}
-        env:
-          OPENONION_API_KEY: \${{ secrets.OPENONION_API_KEY }}`}
+          openonion-api-key: \${{ secrets.OPENONION_API_KEY }}`}
             language="yaml"
           />
 
