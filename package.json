@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@types/react-syntax-highlighter": "^15.5.13",
@@ -27,6 +27,8 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.0",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3"
   }
