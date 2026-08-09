@@ -25,7 +25,7 @@ export default function CliAiPage() {
             icon={HiOutlineSparkles}
             iconColor="icon-ui"
             title="co ai"
-            description="AI coding agent that works in your project. Start with web chat, run one-shot prompts, or hand a resumable JSON session to another coding agent."
+            description="AI coding agent that works in your project. Start with web chat, run one-shot prompts, or let another program or coding agent drive a resumable JSON session."
             markdownPath="/cli/ai.md"
             markdownFilename="ai.md"
           />
@@ -299,11 +299,16 @@ EOF`}
           </p>
 
           <CodeWithResult
-            code={`co ai "Ask Codex to implement the parser in this repository, run the focused tests, then review its diff"
+            code={`# Safe one-shot delegation is read-only
+co ai "Ask Codex to review the parser in this repository. Report findings; do not edit files"
 
-co ai "Ask Claude Code to investigate the failing integration test. Keep its session for the repair turn"`}
+co ai "Ask Claude Code to diagnose the failing integration test. Report the cause; do not modify files"`}
             language="bash"
           />
+
+          <p className="text-gray-600 mt-5 text-sm">
+            For delegated edits, use Web Chat and switch to <strong>Accept Edits</strong>, or explicitly choose <code className="bg-gray-100 px-1 rounded">--yolo</code> only for a trusted repository and bounded task. Default one-shot mode has no Web approval UI, so requests for additional permission fail closed.
+          </p>
 
           <div className="mt-6 bg-white border border-gray-200 rounded-lg overflow-x-auto">
             <table className="w-full text-sm min-w-[680px]">
@@ -317,7 +322,7 @@ co ai "Ask Claude Code to investigate the failing integration test. Keep its ses
               <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-4 py-3 font-medium text-gray-800">Safe</td>
-                  <td className="px-4 py-3 text-gray-600">Read-only; concrete escalation requests use the co ai approval UI</td>
+                  <td className="px-4 py-3 text-gray-600">Read-only; Web Chat can show concrete escalation approvals, while one-shot fails closed</td>
                   <td className="px-4 py-3 text-gray-600">Normal provider rules; actions needing an interactive prompt fail closed in headless mode</td>
                 </tr>
                 <tr>
@@ -397,8 +402,8 @@ jobs:
             Command Reference
           </h2>
 
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <table className="w-full text-sm">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-x-auto">
+            <table className="w-full min-w-[720px] text-sm">
               <thead className="bg-gray-100">
                 <tr>
                   <th className="text-left px-4 py-3 text-gray-700 font-semibold">Option</th>
@@ -436,7 +441,7 @@ jobs:
                   <td className="px-4 py-3 font-mono text-gray-600">--yolo-turns</td>
                   <td className="px-4 py-3 text-gray-500">—</td>
                   <td className="px-4 py-3 text-gray-600">100</td>
-                  <td className="px-4 py-3 text-gray-700">Positive autonomous-turn checkpoint</td>
+                  <td className="px-4 py-3 text-gray-700">Positive autonomous-turn checkpoint; requires <code>--yolo</code></td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-600">--json</td>
@@ -448,7 +453,7 @@ jobs:
                   <td className="px-4 py-3 font-mono text-gray-600">--resume</td>
                   <td className="px-4 py-3 text-gray-500">—</td>
                   <td className="px-4 py-3 text-gray-600">—</td>
-                  <td className="px-4 py-3 text-gray-700">Continue a JSON one-shot session by ID</td>
+                  <td className="px-4 py-3 text-gray-700">Continue a JSON one-shot session by ID; requires <code>--json</code></td>
                 </tr>
               </tbody>
             </table>
@@ -462,13 +467,18 @@ co ai --port 9000
 # Different model
 co ai --model co/gemini-3.6-flash
 
-# One-shot with options
-co ai "build a microservice" --model co/gpt-4o --max-iterations 50
+# One-shot with options (read-only by default)
+co ai "review this service; do not edit files" --model co/gpt-4o --max-iterations 50
 
 # Trusted bounded autonomy
 co ai --yolo "fix the failing suite" --yolo-turns 20`}
               language="bash"
             />
+          </div>
+
+          <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-5 text-sm text-amber-950">
+            <strong>Use <code>--yolo</code> only for trusted, bounded tasks in a recoverable workspace.</strong>{' '}
+            It can run shell commands and write or delete files without asking for each tool approval. Review the resulting diff and run the relevant tests before keeping the changes.
           </div>
         </section>
 
