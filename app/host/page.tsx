@@ -134,6 +134,78 @@ Waiting for tasks...`}
           </div>
         </section>
 
+        {/* Publisher HTTP Routes */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineGlobeAlt className="w-8 h-8 icon-ui" />
+            Publish Your Own HTTP Routes
+          </h2>
+
+          <p className="text-gray-700 mb-6 text-lg">
+            Serve feeds and H5 APIs without an LLM round trip. The route group makes the audience visible in both code and the final URL.
+          </p>
+
+          <CodeWithResult
+            code={`from connectonion import Agent, HTTPResponse, HTTPRouter, host
+
+http = HTTPRouter()
+
+@http.public.get("/feeds/{category}.ics")
+def feed(category: str):
+    return HTTPResponse(
+        build_ics(category),
+        media_type="text/calendar; charset=utf-8",
+    )
+
+@http.contacts.post("/preferences")
+def preferences(request):
+    return {"saved": request.json(), "for": request.identity}
+
+@http.admin.post("/refresh")
+def refresh(request):
+    return {"started": True, "by": request.identity}
+
+host(Agent("events"), http=http)`}
+            language="python"
+            fileName="agent.py"
+          />
+
+          <div className="overflow-x-auto mt-8">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left px-4 py-3 text-gray-500">Group</th>
+                  <th className="text-left px-4 py-3 text-gray-500">URL</th>
+                  <th className="text-left px-4 py-3 text-gray-500">Audience</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-700">http.public</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">/public/*</td>
+                  <td className="px-4 py-3 text-gray-600">Anyone</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-700">http.contacts</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">/contacts/*</td>
+                  <td className="px-4 py-3 text-gray-600">Contacts, whitelist, admins</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-700">http.admin</td>
+                  <td className="px-4 py-3 font-mono text-gray-700">/admin/*</td>
+                  <td className="px-4 py-3 text-gray-600">Admins only</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-3 text-gray-700">
+            <p><strong>Security is route metadata.</strong> The prefix explains the policy; Connectonion does not infer permission from a string.</p>
+            <p>Protected requests bind method, path, query, body digest, timestamp, request ID, and recipient. Signatures are one-use.</p>
+            <p>Do not embed an admin private key in browser JavaScript. Calendar clients cannot normally add signature headers, so subscription feeds should use public URLs.</p>
+          </div>
+        </section>
+
         {/* HTTP API */}
         <section className="mb-20">
           <h2 className="heading-2">

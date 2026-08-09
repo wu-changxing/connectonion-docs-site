@@ -4,6 +4,57 @@
 
 **Looking to deploy?** See [Deploy Your Agent](deploy.md) for production deployment options.
 
+## Custom HTTP routes
+
+Publish deterministic feeds and H5 APIs from the same process without an LLM
+round trip:
+
+```python
+from connectonion import Agent, HTTPResponse, HTTPRouter, host
+
+http = HTTPRouter()
+
+@http.public.get("/feeds/{category}.ics")
+def feed(category: str):
+    return HTTPResponse(
+        build_ics(category),
+        media_type="text/calendar; charset=utf-8",
+    )
+
+@http.contacts.post("/preferences")
+def preferences(request):
+    return {"saved": request.json(), "for": request.identity}
+
+@http.admin.post("/refresh")
+def refresh(request):
+    return {"started": True, "by": request.identity}
+
+host(Agent("events"), http=http)
+```
+
+| Group | URL prefix | Audience |
+|---|---|---|
+| `http.public` | `/public` | Anyone; no signature |
+| `http.contacts` | `/contacts` | Contacts, whitelist, and admins |
+| `http.admin` | `/admin` | Admins only |
+
+The group stores the authorization rule on the route; the prefix is its visible
+representation, not a string parsed to make a security decision. Protected
+signatures bind method, path, canonical query, exact body digest, timestamp,
+one-use request ID, and recipient.
+
+Handlers may be sync or async. Return `dict`/`list` for JSON, `str`, `bytes`,
+`None` for 204, or `HTTPResponse` for explicit status, headers, and media type.
+Path parameters are passed by name; declare `request` for headers, query, body,
+`json()`, and the verified `identity`.
+
+Framework endpoints cannot be shadowed. Current built-ins, `/admin/trust/*`,
+`/superadmin/*`, and the permanent `/_co/*` namespace are reserved.
+
+Never put an admin private key in browser JavaScript. Native calendar clients
+normally cannot add signature headers, so ordinary `.ics` subscriptions should
+use `/public/*`.
+
 ---
 
 ## Quick Start (60 Seconds)
