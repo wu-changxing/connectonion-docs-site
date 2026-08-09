@@ -299,7 +299,7 @@ EOF`}
           </p>
 
           <CodeWithResult
-            code={`# Safe one-shot delegation is read-only
+            code={`# Ask for read-only work in one-shot mode
 co ai "Ask Codex to review the parser in this repository. Report findings; do not edit files"
 
 co ai "Ask Claude Code to diagnose the failing integration test. Report the cause; do not modify files"`}
@@ -307,7 +307,7 @@ co ai "Ask Claude Code to diagnose the failing integration test. Report the caus
           />
 
           <p className="text-gray-600 mt-5 text-sm">
-            For delegated edits, use Web Chat and switch to <strong>Accept Edits</strong>, or explicitly choose <code className="bg-gray-100 px-1 rounded">--yolo</code> only for a trusted repository and bounded task. Default one-shot mode has no Web approval UI, so requests for additional permission fail closed.
+            Those prompts request read-only behavior; they are not permission boundaries. Codex Safe is enforced read-only, while Claude Code Safe follows the provider&apos;s normal rules and the user&apos;s Claude settings. In headless one-shot mode, actions that need an interactive permission prompt fail closed. For delegated edits, use Web Chat and switch to <strong>Accept Edits</strong>, or explicitly choose <code className="bg-gray-100 px-1 rounded">--yolo</code> only for a trusted repository and bounded task.
           </p>
 
           <div className="mt-6 bg-white border border-gray-200 rounded-lg overflow-x-auto">
