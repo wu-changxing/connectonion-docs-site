@@ -461,11 +461,11 @@ result = agent.input("task")`}
           </div>
         </section>
 
-        {/* TypeScript SDK */}
+        {/* TypeScript clients */}
         <section className="mb-20">
           <h2 className="heading-2">
             <HiOutlineCodeBracket className="w-8 h-8 text-gray-400" />
-            TypeScript SDK
+            TypeScript clients
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
@@ -575,7 +575,7 @@ console.log(response.text)`}
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            The React hooks live in a separate package, <code className="bg-gray-100 px-2 py-1 rounded">@connectonion/react</code>, which wraps <code className="bg-gray-100 px-2 py-1 rounded">connect()</code> with state management and localStorage persistence. Install it alongside the SDK — <code className="bg-gray-100 px-2 py-1 rounded">connectonion</code> is a peer dependency:
+            React applications should use <code className="bg-gray-100 px-2 py-1 rounded">@connectonion/react</code>. Since version 0.3.0 it includes the browser connection layer, state management, and localStorage persistence; React is its only peer dependency, so the legacy <code className="bg-gray-100 px-2 py-1 rounded">connectonion</code> TypeScript core is not required:
           </p>
 
           <CodeWithResult
@@ -837,7 +837,7 @@ function Chat() {
           </h2>
 
           <p className="text-gray-700 mb-6 text-lg">
-            <Link href="https://github.com/openonion/oo-chat" className="text-gray-700 hover:text-gray-900 underline">oo-chat</Link> is an open-source Next.js chat client built on the TypeScript SDK. It{"'"}s a complete working example of how to build a chat UI for ConnectOnion agents.
+            <Link href="https://github.com/openonion/oo-chat" className="text-gray-700 hover:text-gray-900 underline">oo-chat</Link> is an open-source Next.js chat client built on <code className="bg-gray-100 px-2 py-1 rounded">@connectonion/react</code>. It{"'"}s a complete working example of how to build a chat UI for ConnectOnion agents.
           </p>
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 overflow-x-auto mb-6">
