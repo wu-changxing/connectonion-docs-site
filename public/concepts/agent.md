@@ -689,7 +689,7 @@ CONNECTONION_LOG=debug.log python agent.py
 See what your agent is thinking inside tool execution:
 
 ```python
-from connectonion.decorators import xray
+from connectonion import xray
 
 @xray
 def search(query: str) -> str:
