@@ -134,8 +134,18 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
             </ul>
           </div>
 
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Tool approval</h3>
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <li>ConnectOnion&apos;s existing Safe policy decides whether a tool is already allowed or needs approval. ACP does not maintain a second tool allowlist.</li>
+              <li>When approval is required, the client receives <code className="bg-gray-100 px-1 rounded">session/request_permission</code> with choices to allow this call, allow for this session, or reject the turn.</li>
+              <li>A session approval becomes durable only after that prompt commits successfully. It survives close and resume for the same session, but never becomes a project-wide grant.</li>
+              <li>Cancellation, close, stdio EOF, client errors, and unknown responses all fail closed. Late replies cannot approve a later prompt or another session.</li>
+            </ul>
+          </div>
+
           <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-5 text-amber-900">
-            ConnectOnion currently receives complete provider responses, so the final assistant answer is one ACP chunk rather than live token streaming. Until ACP permission requests are bridged, Safe mode fails closed when a sensitive tool needs approval.
+            ConnectOnion currently receives complete provider responses, so the final assistant answer is one ACP chunk rather than live token streaming.
           </div>
         </section>
 
