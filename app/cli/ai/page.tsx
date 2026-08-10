@@ -168,6 +168,99 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
             </ul>
           </div>
 
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Connect an ACP host</h3>
+            <p className="text-gray-700 mb-4">
+              ConnectOnion is the ACP agent. Editors such as Zed and JetBrains are clients that start it as a local subprocess. Make sure <code className="bg-gray-100 px-1 rounded">co</code> is on the editor&apos;s PATH and run <code className="bg-gray-100 px-1 rounded">co auth login</code> first when using managed models.
+            </p>
+            <h4 className="font-semibold text-gray-900 mb-2">Zed custom agent</h4>
+            <CodeWithResult
+              code={`{
+  "agent_servers": {
+    "ConnectOnion": {
+      "type": "custom",
+      "command": "co",
+      "args": ["ai", "--acp"],
+      "env": {}
+    }
+  }
+}`}
+              language="json"
+            />
+            <p className="text-sm text-gray-600 mt-2 mb-5">
+              In Zed, open Agent Settings, add a custom agent, then replace the generated entry. Before starting a ConnectOnion thread, disable every server under Settings → AI → MCP Servers because ConnectOnion does not yet accept forwarded MCP servers. Use <code className="bg-gray-100 px-1 rounded">dev: open acp logs</code> to inspect protocol traffic.
+            </p>
+            <h4 className="font-semibold text-gray-900 mb-2">JetBrains custom agent</h4>
+            <CodeWithResult
+              code={`{
+  "default_mcp_settings": {
+    "use_idea_mcp": false,
+    "use_custom_mcp": false
+  },
+  "agent_servers": {
+    "ConnectOnion": {
+      "command": "co",
+      "args": ["ai", "--acp"],
+      "env": {}
+    }
+  }
+}`}
+              language="json"
+            />
+            <p className="text-sm text-gray-600 mt-2">
+              In AI Chat, choose Add Custom Agent and put this entry in <code className="bg-gray-100 px-1 rounded">acp.json</code>. Keep both MCP forwarding settings false until ConnectOnion supports MCP servers. If a desktop app cannot find your shell PATH, use the absolute path returned by <code className="bg-gray-100 px-1 rounded">which co</code> as the command.
+            </p>
+          </div>
+
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div className="p-6 pb-3">
+              <h3 className="text-lg font-semibold text-gray-900">ACP compatibility</h3>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="text-left px-4 py-3 text-gray-700 font-semibold">Boundary</th>
+                    <th className="text-left px-4 py-3 text-gray-700 font-semibold">Status</th>
+                    <th className="text-left px-4 py-3 text-gray-700 font-semibold">Notes</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  <tr>
+                    <td className="px-4 py-3 text-gray-700">Protocol and SDK</td>
+                    <td className="px-4 py-3 text-gray-700">Tested</td>
+                    <td className="px-4 py-3 text-gray-600">ACP protocolVersion 1 with Python SDK &gt;=0.12,&lt;0.13</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-gray-700">Local stdio</td>
+                    <td className="px-4 py-3 text-gray-700">Tested in CI</td>
+                    <td className="px-4 py-3 text-gray-600">Official typed client plus raw framing, EOF, cancellation, resume, modes, and approvals</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-gray-700">Zed / JetBrains</td>
+                    <td className="px-4 py-3 text-gray-700">Custom-agent setup</td>
+                    <td className="px-4 py-3 text-gray-600">Uses the local stdio command above; editor GUI binaries are not run in CI</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-gray-700">Claude Code / Codex</td>
+                    <td className="px-4 py-3 text-gray-700">Peer agents</td>
+                    <td className="px-4 py-3 text-gray-600">They are not ACP clients that launch ConnectOnion</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-gray-700">Extra directories / MCP servers</td>
+                    <td className="px-4 py-3 text-gray-700">Not yet supported</td>
+                    <td className="px-4 py-3 text-gray-600">Non-empty requests fail explicitly instead of being ignored</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-gray-700">Prompt content</td>
+                    <td className="px-4 py-3 text-gray-700">Text only</td>
+                    <td className="px-4 py-3 text-gray-600">Image, audio, and embedded-resource prompt blocks are not yet accepted</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-5 text-amber-900">
             ConnectOnion currently receives complete provider responses, so the final assistant answer is one ACP chunk rather than live token streaming.
           </div>

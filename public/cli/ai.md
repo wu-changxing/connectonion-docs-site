@@ -65,6 +65,61 @@ co ai --acp --yolo --yolo-turns 20
 
 The client cannot grant itself ULW. A resumed ULW session must also fit within the new process's remaining-turn ceiling; malformed or over-authorized saved state is rejected instead of silently downgraded.
 
+#### Connect an ACP host
+
+ConnectOnion is the ACP agent. Editors such as Zed and JetBrains are clients that start it as a local subprocess. Make sure `co` is on the editor's PATH and run `co auth login` first when using managed models.
+
+**Zed:** Open Agent Settings, add a custom agent, then replace the generated entry:
+
+```json
+{
+  "agent_servers": {
+    "ConnectOnion": {
+      "type": "custom",
+      "command": "co",
+      "args": ["ai", "--acp"],
+      "env": {}
+    }
+  }
+}
+```
+
+Before starting a ConnectOnion thread, disable every server under Settings → AI → MCP Servers. Zed forwards configured MCP servers to External Agents, while ConnectOnion does not accept them yet. Use `dev: open acp logs` in Zed to inspect protocol traffic. See [Zed External Agents](https://zed.dev/docs/ai/external-agents).
+
+**JetBrains:** In AI Chat, choose Add Custom Agent and put this entry in `acp.json`:
+
+```json
+{
+  "default_mcp_settings": {
+    "use_idea_mcp": false,
+    "use_custom_mcp": false
+  },
+  "agent_servers": {
+    "ConnectOnion": {
+      "command": "co",
+      "args": ["ai", "--acp"],
+      "env": {}
+    }
+  }
+}
+```
+
+Keep both MCP forwarding settings false until ConnectOnion supports MCP servers. See [JetBrains: ACP configuration](https://www.jetbrains.com/help/ai-assistant/acp.html). If a desktop app cannot find your shell PATH, use the absolute path returned by `which co` as `command`.
+
+#### Compatibility and known limitations
+
+| Boundary | Status | Notes |
+|----------|--------|-------|
+| Protocol and SDK | Tested | ACP `protocolVersion` 1 with Python SDK `>=0.12,<0.13` |
+| Local stdio | Tested in CI | Official typed client plus raw framing, EOF, cancellation, resume, modes, and approvals |
+| Zed / JetBrains | Custom-agent setup | Uses the local stdio command above; editor GUI binaries are not run in CI |
+| Claude Code / Codex | Peer agents | They are not ACP clients that launch ConnectOnion |
+| Additional directories | Not yet supported | Non-empty requests fail explicitly instead of being ignored |
+| MCP servers | Not yet supported | Non-empty requests fail explicitly instead of being ignored |
+| Prompt content | Text only | Image, audio, and embedded-resource prompt blocks are not yet accepted |
+
+The test claim is deliberately narrower than “works everywhere”: CI runs the production stdio adapter against the official ACP client SDK, while the Zed and JetBrains steps above are editor smoke paths.
+
 ## Options
 
 | Option | Short | Default | Description |
