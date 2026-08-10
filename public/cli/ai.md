@@ -47,11 +47,31 @@ Cancellation is cooperative, and late events from a retired turn are not forward
 
 Safe mode continues to use ConnectOnion's existing tool policy. When a sensitive call needs human approval, the ACP client receives `session/request_permission` with choices to allow that call, allow for the current session, or reject the turn. Session grants persist only after a successful prompt commit and can be restored with that session. Cancellation, close, stdio EOF, client errors, malformed responses, and late replies all fail closed.
 
+#### Session modes and authority
+
+| Mode | Behavior |
+|------|----------|
+| Safe | Ask before tools with side effects |
+| Auto | Apply file edits automatically; ask before other risky tools |
+| ULW | Skip approvals for a bounded number of autonomous turns |
+
+Safe and Auto are always available through ACP `session/set_mode`, and the committed mode survives close and resume. Mode changes are idle-only: if a prompt is running, wait for it to finish and retry.
+
+ULW is advertised and accepted only when the operator starts the server with launch-time authority:
+
+```bash
+co ai --acp --yolo --yolo-turns 20
+```
+
+The client cannot grant itself ULW. A resumed ULW session must also fit within the new process's remaining-turn ceiling; malformed or over-authorized saved state is rejected instead of silently downgraded.
+
 ## Options
 
 | Option | Short | Default | Description |
 |--------|-------|---------|-------------|
 | `--acp` | — | off | Serve ACP JSON-RPC over stdin/stdout |
+| `--yolo` | — | off | Authorize bounded ULW mode and skip tool approvals |
+| `--yolo-turns` | — | `100` | Autonomous-turn ceiling when `--yolo` is enabled |
 | `--port` | `-p` | `8000` | Port for web server |
 | `--model` | `-m` | `co/claude-opus-4-5` | LLM model to use |
 | `--max-iterations` | `-i` | `100` | Max tool iterations per turn |
@@ -59,6 +79,7 @@ Safe mode continues to use ConnectOnion's existing tool policy. When a sensitive
 ```bash
 co ai --port 9000
 co ai --model co/gemini-2.5-pro
+co ai --acp --yolo --yolo-turns 20
 co ai "Build an agent" --model co/gpt-4o --max-iterations 50
 ```
 
