@@ -116,7 +116,7 @@ Keep both MCP forwarding settings false until ConnectOnion supports MCP servers.
 | Claude Code / Codex | Peer agents | They are not ACP clients that launch ConnectOnion |
 | Additional directories | Not yet supported | Non-empty requests fail explicitly instead of being ignored |
 | MCP servers | Not yet supported | Non-empty requests fail explicitly instead of being ignored |
-| Prompt content | Text only | Image, audio, and embedded-resource prompt blocks are not yet accepted |
+| Prompt content | Text and resource links | Links are passed as labeled references, not fetched automatically; image, audio, and embedded resources are not yet accepted |
 
 The test claim is deliberately narrower than “works everywhere”: CI runs the production stdio adapter against the official ACP client SDK, while the Zed and JetBrains steps above are editor smoke paths.
 

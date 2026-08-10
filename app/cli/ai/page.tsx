@@ -253,8 +253,8 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
                   </tr>
                   <tr>
                     <td className="px-4 py-3 text-gray-700">Prompt content</td>
-                    <td className="px-4 py-3 text-gray-700">Text only</td>
-                    <td className="px-4 py-3 text-gray-600">Image, audio, and embedded-resource prompt blocks are not yet accepted</td>
+                    <td className="px-4 py-3 text-gray-700">Text and resource links</td>
+                    <td className="px-4 py-3 text-gray-600">Links are passed as labeled references, not fetched automatically; image, audio, and embedded resources are not yet accepted</td>
                   </tr>
                 </tbody>
               </table>
