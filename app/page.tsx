@@ -12,7 +12,7 @@ import { MacOSDownload } from '../components/MacOSDownload'
 import { AIFirstDevelopment } from '../components/AIFirstDevelopment'
 import { NonObviousAdvantages } from '../components/NonObviousAdvantages'
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { VERSION } from '../lib/version'
+import { STABLE_VERSION } from '../lib/version'
 
 export default function HomePage() {
   return (
@@ -56,7 +56,7 @@ export default function HomePage() {
           <div className="flex items-center justify-center gap-2 mb-5">
             <span className="text-sm font-medium text-gray-500">ConnectOnion</span>
             <span className="text-gray-400">·</span>
-            <span className="px-2 py-0.5 bg-gray-100 text-green-700 text-xs font-semibold rounded-full">v{VERSION}</span>
+            <span className="px-2 py-0.5 bg-gray-100 text-green-700 text-xs font-semibold rounded-full">Stable v{STABLE_VERSION}</span>
           </div>
 
           {/* Value proposition headline */}
@@ -76,6 +76,9 @@ export default function HomePage() {
           <div className="mb-6 max-w-md mx-auto">
             <CommandBlock commands={['pip install connectonion']} />
           </div>
+          <p className="text-xs text-gray-500 -mt-3 mb-6">
+            Installs stable. Preview releases require an explicit <code>--pre</code> flag or exact version pin.
+          </p>
 
           {/* Hero code block — full-width terminal treatment */}
           <div className="mb-8 text-left rounded-xl overflow-hidden border border-gray-700 shadow-xl shadow-black/20">

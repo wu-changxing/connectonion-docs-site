@@ -57,6 +57,10 @@ agent = Agent("production",
 pip install connectonion
 ```
 
+This installs the current stable release. Preview builds are opt-in only:
+`pip install --pre --upgrade connectonion`. See
+[Release Channels](https://docs.connectonion.com/releases).
+
 ### Run Documentation Site
 ```bash
 # Clone and run locally
@@ -284,7 +288,8 @@ The documentation site is live and production-ready:
 ### Package Distribution
 ConnectOnion is available for production use:
 - **PyPI**: `pip install connectonion`
-- **Version**: Stable releases with semantic versioning
+- **Version**: Stable by default; alpha, beta, and RC releases require explicit
+  `--pre` or an exact version pin
 - **Support**: Python 3.8+ with async support
 
 ## 🔗 Connect With Us

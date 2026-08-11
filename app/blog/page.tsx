@@ -1,10 +1,32 @@
-'use client'
-
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { HiOutlineArrowLeft, HiOutlineArrowRight, HiOutlineBookOpen, HiOutlineCalendar, HiOutlineClock, HiOutlineUsers, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineServerStack, HiOutlineShieldCheck, HiOutlineChatBubbleLeftRight, HiOutlineSquare3Stack3D } from 'react-icons/hi2'
-import { ContentNavigation } from '../../components/ContentNavigation'
+import { HiOutlineArrowPath, HiOutlineArrowRight, HiOutlineUsers, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineServerStack, HiOutlineShieldCheck, HiOutlineChatBubbleLeftRight, HiOutlineSquare3Stack3D } from 'react-icons/hi2'
+
+export const metadata: Metadata = {
+  title: 'ConnectOnion Design Journal | AI Agent Architecture and Release Decisions',
+  description: 'Read ConnectOnion design decisions, release engineering lessons, ACP architecture, API rationale, and the thinking behind the Python AI agent framework.',
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'Building ConnectOnion — Design Journal',
+    description: 'Design decisions, release engineering lessons, and architecture notes from the ConnectOnion AI agent framework.',
+    url: '/blog',
+    type: 'website',
+  },
+}
 
 const blogPosts = [
+  {
+    title: 'Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS',
+    subtitle: 'A version is a compatibility promise, not a progress counter',
+    date: 'August 2026',
+    readTime: '7 min read',
+    href: '/blog/alpha-beta-rc-before-lts',
+    icon: HiOutlineArrowPath,
+    tags: ['Design Decision', 'Release Engineering', 'ACP'],
+    excerpt: 'Why 1.6 stays stable while ACP and coding-agent features move through an opt-in 1.7 alpha, beta, and RC release train.'
+  },
   {
     title: 'ConnectOnion 1.6.0',
     subtitle: 'Safer remote agents and a cleaner credential boundary',

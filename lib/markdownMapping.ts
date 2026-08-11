@@ -51,6 +51,7 @@ const routeToMarkdownMap: Record<string, string> = {
   '/blog/trust-keyword': '/tutorials/choosing-trust-keyword.md',
   '/blog/llm-do': '/tutorials/choosing-llm-function-name.md',
   '/blog/input-method': '/tutorials/choosing-input-method.md',
+  '/blog/alpha-beta-rc-before-lts': '/tutorials/alpha-beta-rc-before-lts.md',
   
   // Contributing
   '/website-maintenance': '/tutorials/website-maintenance.md',

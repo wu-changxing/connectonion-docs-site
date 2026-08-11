@@ -26,6 +26,9 @@ result = agent.input("Search for Python tutorials")
 pip install connectonion
 \`\`\`
 
+This installs the current stable release. Preview builds require an explicit
+\`--pre\` flag or exact version pin.
+
 For complete documentation, visit: https://connectonion.com
 `;
 

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { HiOutlineRocketLaunch, HiOutlineCube, HiOutlineServerStack, HiOutlineShieldCheck, HiOutlineCpuChip, HiOutlineCheckCircle, HiOutlineClock, HiOutlineExclamationCircle } from 'react-icons/hi2'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
+import { STABLE_VERSION } from '../../lib/version'
 
 export default function RoadmapPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
@@ -65,6 +66,13 @@ export default function RoadmapPage() {
         description: '@xray decorator, auto_debug breakpoints, Python REPL, exception inspector',
         targetDate: 'Mar 2026',
         progress: 100,
+      },
+      {
+        title: 'ACP Agent Server — 1.7.0 train',
+        status: 'in-progress',
+        description: 'Core ACP lifecycle, streaming, resume, approvals, modes, MCP, conformance, and Host/React messages are merged; release gates remain',
+        targetDate: '1.7.0',
+        progress: 85,
       },
     ],
     trust: [
@@ -163,6 +171,13 @@ export default function RoadmapPage() {
         targetDate: 'Q3 2026',
         progress: 0,
       },
+      {
+        title: 'Remote Browser Sessions — 1.8.0 train',
+        status: 'planned',
+        description: 'Async concurrent execution plus encrypted, revocable remote login sessions',
+        targetDate: '1.8.0',
+        progress: 0,
+      },
     ],
   }
 
@@ -208,8 +223,8 @@ export default function RoadmapPage() {
           ]}
           icon={HiOutlineRocketLaunch}
           title="Roadmap"
-          description="Track our progress from v0.0.1 to v1.2 and beyond."
-          badge={<span className="px-2 py-1 bg-gray-900 text-white text-xs font-semibold rounded-full">v1.2.1</span>}
+          description="Maintain stable 1.6 while 1.7 moves through preview validation and 1.8 stays in design."
+          badge={<span className="px-2 py-1 bg-gray-900 text-white text-xs font-semibold rounded-full">Stable v{STABLE_VERSION}</span>}
           markdownPath="/roadmap.md"
           markdownFilename="roadmap.md"
         />
@@ -229,8 +244,8 @@ export default function RoadmapPage() {
             <div className="text-xs text-gray-500 mt-1">Planned</div>
           </div>
           <div className="p-4 bg-white border border-gray-200 rounded-xl text-center">
-            <div className="text-2xl font-bold text-gray-900">v1.2.1</div>
-            <div className="text-xs text-gray-500 mt-1">Current Version</div>
+            <div className="text-2xl font-bold text-gray-900">v{STABLE_VERSION}</div>
+            <div className="text-xs text-gray-500 mt-1">Current Stable</div>
           </div>
         </div>
 

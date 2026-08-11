@@ -417,9 +417,16 @@
   <!-- Blog Pages -->
   <url>
     <loc>https://docs.connectonion.com/blog</loc>
-    <lastmod>2025-01-13</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.connectonion.com/blog/alpha-beta-rc-before-lts</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <url>

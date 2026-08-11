@@ -8,6 +8,9 @@ Build your first AI agent in 60 seconds.
 pip install connectonion
 ```
 
+This installs the current stable release. Pip ignores alpha, beta, and release
+candidates unless you pass `--pre` or pin an exact candidate version.
+
 ## Quick Start with CLI
 
 The fastest way to start is with the ConnectOnion CLI:

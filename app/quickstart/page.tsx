@@ -109,6 +109,9 @@ export default function QuickStartPage() {
         <CommandBlock 
           commands={['pip install connectonion']}
         />
+        <p className="text-sm text-gray-500 mt-3">
+          This installs the current stable release. Preview builds are never installed unless you pass <code>--pre</code> or pin one exactly.
+        </p>
       </section>
 
       {/* Create Agent */}

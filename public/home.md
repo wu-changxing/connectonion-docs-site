@@ -12,6 +12,9 @@
 pip install connectonion
 ```
 
+This installs the current stable release. Preview versions require an explicit
+`--pre` flag or an exact candidate pin.
+
 ```python
 from connectonion import Agent
 
