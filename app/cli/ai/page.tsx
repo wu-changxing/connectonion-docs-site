@@ -144,6 +144,30 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
             </ul>
           </div>
 
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Session modes and authority</h3>
+            <div className="grid md:grid-cols-3 gap-3 mb-4">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                <p className="font-semibold text-gray-900">Safe</p>
+                <p className="text-sm text-gray-600 mt-1">Ask before tools with side effects.</p>
+              </div>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                <p className="font-semibold text-gray-900">Auto</p>
+                <p className="text-sm text-gray-600 mt-1">Apply file edits automatically; ask before other risky tools.</p>
+              </div>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                <p className="font-semibold text-gray-900">ULW</p>
+                <p className="text-sm text-gray-600 mt-1">Skip approvals for a bounded number of autonomous turns.</p>
+              </div>
+            </div>
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <li>Safe and Auto are always available. The ACP client changes them with <code className="bg-gray-100 px-1 rounded">session/set_mode</code>, and the committed mode survives close and resume.</li>
+              <li>ULW is available only when the operator starts the server with <code className="bg-gray-100 px-1 rounded">co ai --acp --yolo</code>. A client or saved session cannot grant itself that authority.</li>
+              <li><code className="bg-gray-100 px-1 rounded">--yolo-turns</code> sets the launch-time ceiling. A resumed ULW session must fit within the new process&apos;s remaining-turn ceiling.</li>
+              <li>Mode changes are accepted only while the session is idle. If a prompt is running, wait for it to finish and retry.</li>
+            </ul>
+          </div>
+
           <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-5 text-amber-900">
             ConnectOnion currently receives complete provider responses, so the final assistant answer is one ACP chunk rather than live token streaming.
           </div>
@@ -324,6 +348,18 @@ EOF`}
                   <td className="px-4 py-3 text-gray-700">Serve ACP JSON-RPC over stdin/stdout</td>
                 </tr>
                 <tr>
+                  <td className="px-4 py-3 font-mono text-gray-600">--yolo</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">—</td>
+                  <td className="px-4 py-3 text-gray-600">off</td>
+                  <td className="px-4 py-3 text-gray-700">Authorize bounded ULW mode and skip tool approvals</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-600">--yolo-turns</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">—</td>
+                  <td className="px-4 py-3 text-gray-600">100</td>
+                  <td className="px-4 py-3 text-gray-700">Autonomous-turn ceiling when --yolo is enabled</td>
+                </tr>
+                <tr>
                   <td className="px-4 py-3 font-mono text-gray-600">--port</td>
                   <td className="px-4 py-3 font-mono text-gray-500">-p</td>
                   <td className="px-4 py-3 text-gray-600">8000</td>
@@ -352,6 +388,9 @@ co ai --port 9000
 
 # Faster model
 co ai --model co/gemini-2.5-pro
+
+# ACP with ULW available for at most 20 autonomous turns
+co ai --acp --yolo --yolo-turns 20
 
 # One-shot with options
 co ai "build a microservice" --model co/gpt-4o --max-iterations 50`}
