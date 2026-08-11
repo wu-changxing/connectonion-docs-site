@@ -1,11 +1,11 @@
 /**
  * @purpose CLI AI command documentation
- * @context Shows how to use `co ai` for coding agent — web server mode and one-shot mode
+ * @context Shows how to use `co ai` in web chat, one-shot, and ACP modes
  */
 
 'use client'
 
-import { HiOutlineCommandLine, HiOutlineSparkles, HiOutlineCodeBracket, HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineFolder } from 'react-icons/hi2'
+import { HiOutlineArrowsRightLeft, HiOutlineCommandLine, HiOutlineSparkles, HiOutlineCodeBracket, HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineFolder } from 'react-icons/hi2'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { PageHeader } from '../../../components/PageHeader'
@@ -25,7 +25,7 @@ export default function CliAiPage() {
             icon={HiOutlineSparkles}
             iconColor="icon-ui"
             title="co ai"
-            description="AI coding agent that works in your project. Start a web chat session or run one-shot prompts — with full access to your files, shell, and tools."
+            description="AI coding agent that works in your project. Start a web chat, run one-shot prompts, or connect an ACP client — with full access to your files, shell, and tools."
             markdownPath="/cli/ai.md"
             markdownFilename="ai.md"
           />
@@ -37,18 +37,23 @@ export default function CliAiPage() {
           </div>
         </section>
 
-        {/* Two Modes */}
+        {/* Three Modes */}
         <section className="mb-20">
           <h2 className="heading-2">
             <HiOutlineBolt className="w-8 h-8 text-gray-700" />
-            Two Modes
+            Three Modes
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-4 mb-8">
+          <div className="grid md:grid-cols-3 gap-4 mb-8">
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
               <h3 className="font-semibold text-gray-900 mb-2">Web Chat (default)</h3>
               <code className="text-sm text-gray-600">co ai</code>
               <p className="text-gray-500 text-sm mt-2">Starts a local agent server, opens <code className="text-gray-600">chat.openonion.ai</code> in your browser. Chat conversationally — best for extended sessions.</p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+              <h3 className="font-semibold text-gray-700 mb-2">ACP stdio</h3>
+              <code className="text-sm text-gray-600">co ai --acp</code>
+              <p className="text-gray-500 text-sm mt-2">Serves Agent Client Protocol JSON-RPC over stdin/stdout for compatible editors and clients.</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
               <h3 className="font-semibold text-gray-700 mb-2">One-Shot</h3>
@@ -97,6 +102,30 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
                 <span>Your identity comes from <code className="bg-gray-100 px-1 rounded">~/.co/</code> — same across all sessions</span>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ACP Mode */}
+        <section className="mb-20">
+          <h2 className="heading-2">
+            <HiOutlineArrowsRightLeft className="w-8 h-8 text-gray-700" />
+            ACP Mode
+          </h2>
+
+          <p className="text-gray-700 mb-6 text-lg">
+            Start a long-lived Agent Client Protocol server for a compatible editor or client:
+          </p>
+
+          <CodeWithResult code={`co ai --acp`} language="bash" />
+
+          <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-3 text-gray-700">
+            <p>Each ACP session owns one persistent coding agent, so later prompts reuse its conversation and tool state.</p>
+            <p>Session updates preserve Agent event order: thinking, tool starts, tool results, and the final assistant answer. JSON-native tool arguments and results remain structured in <code className="bg-gray-100 px-1 rounded">rawInput</code> and <code className="bg-gray-100 px-1 rounded">rawOutput</code>.</p>
+            <p>Turn usage and stop reasons come from the Agent&apos;s structured terminal record. Cancellation is cooperative, and events arriving after a turn is retired are not forwarded into the next prompt.</p>
+          </div>
+
+          <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-5 text-amber-900">
+            ConnectOnion currently receives complete provider responses, so the final assistant answer is one ACP chunk rather than live token streaming. Until ACP permission requests are bridged, Safe mode fails closed when a sensitive tool needs approval.
           </div>
         </section>
 
@@ -268,6 +297,12 @@ EOF`}
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-600">--acp</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">—</td>
+                  <td className="px-4 py-3 text-gray-600">off</td>
+                  <td className="px-4 py-3 text-gray-700">Serve ACP JSON-RPC over stdin/stdout</td>
+                </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-600">--port</td>
                   <td className="px-4 py-3 font-mono text-gray-500">-p</td>
