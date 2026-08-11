@@ -12,8 +12,8 @@ ConnectOnion is an open-source Python framework for building AI agents. Current 
 **Core facts:**
 - Install: `pip install connectonion`
 - Release channel: stable by default; previews require `--pre` or an exact pin
-- Current public preview: `1.7.0a1` (opt-in); current stable remains `1.6.0`
-- Minimum Python version: 3.9
+- Current public preview: `1.7.0a2` (opt-in); current stable remains `1.6.0`
+- Minimum Python version: 3.10
 - Default model: `co/gemini-2.5-pro` (managed keys, zero config)
 - Minimum agent: 2 lines of Python
 - GitHub: https://github.com/openonion/connectonion
@@ -45,8 +45,11 @@ counter. Stable `1.6.x` patches contain backward-compatible maintenance fixes.
 The ACP and coding-agent feature train is tested by opt-in users as
 `1.7.0aN`, then `1.7.0bN`, then `1.7.0rcN` before `1.7.0` becomes stable/LTS.
 
-The first public preview is `1.7.0a1`. It is published on PyPI and marked as a
-GitHub Prerelease; the latest stable GitHub Release remains `1.6.0`.
+The first public preview was `1.7.0a1`. The current preview is `1.7.0a2`; it
+adds the Host side of authenticated ACP permissions, cancellation, session
+modes, public thoughts, and canonical TodoList plans. It is published on PyPI
+and marked as a GitHub Prerelease; the latest stable GitHub Release remains
+`1.6.0`.
 
 Normal pip installs ignore previews. Publishing an alpha, beta, or RC therefore
 does not move existing users off stable. Feature issues and release gates live

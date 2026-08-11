@@ -119,7 +119,8 @@ export default function ReleasesPage() {
           ]} />
           <p className="text-sm text-gray-600 mt-4">
             The <code>--pre</code> flag is the explicit opt-in. An exact pin such as{' '}
-            <code>connectonion==1.7.0a1</code> also opts in and does not need <code>--pre</code>.
+            <code>{PREVIEW_VERSION ? `connectonion==${PREVIEW_VERSION}` : 'connectonion==X.Y.ZaN'}</code>{' '}
+            also opts in and does not need <code>--pre</code>.
             {!PREVIEW_VERSION && ' No 1.7 preview is published yet, so this command currently keeps the latest stable release.'}
           </p>
         </section>

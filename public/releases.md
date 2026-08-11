@@ -4,14 +4,14 @@ ConnectOnion keeps the current stable line separate from the next feature
 train. Preview releases are opt-in and do not replace the version normal users
 receive from pip.
 
-**Current channels:** stable is `1.6.0`; the opt-in preview is `1.7.0a1`.
+**Current channels:** stable is `1.6.0`; the opt-in preview is `1.7.0a2`.
 
 ## Version meanings
 
 | Version | Meaning |
 |---|---|
 | `1.6.1` | Maintenance fix for stable 1.6 |
-| `1.7.0a1` | Incomplete, opt-in 1.7 alpha |
+| `1.7.0a2` | Current incomplete, opt-in 1.7 alpha |
 | `1.7.0b1` | Feature-complete 1.7 beta |
 | `1.7.0rc1` | Candidate that may become stable unchanged |
 | `1.7.0` | Stable/LTS 1.7 release |
@@ -41,15 +41,17 @@ For reproducible testing, install the current exact candidate. Exact pins do
 not need `--pre`:
 
 ```bash
-python -m pip install connectonion==1.7.0a1
+python -m pip install connectonion==1.7.0a2
 ```
 
 ## The 1.7 train
 
-The first preview adds audience-scoped HTTP routes, expanded ACP support,
+The first preview added audience-scoped HTTP routes, expanded ACP support,
 Telegram messaging, safer attachment handling, and tighter account-safety
-boundaries. It remains opt-in while the complete 1.7 experience is exercised
-end to end.
+boundaries. The second adds the Host side of the browser-facing ACP session
+contract: bound permission identity, negotiated cancellation, authoritative
+mode state and transactions, public thoughts, and canonical TodoList plans.
+It remains opt-in while the complete 1.7 experience is exercised end to end.
 
 - Alpha: ACP and coding-agent capabilities arrive in usable slices.
 - Beta: the feature set is complete; integration and compatibility are tested.
