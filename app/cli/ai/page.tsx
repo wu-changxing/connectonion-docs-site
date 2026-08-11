@@ -119,9 +119,19 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
           <CodeWithResult code={`co ai --acp`} language="bash" />
 
           <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-3 text-gray-700">
-            <p>Each ACP session owns one persistent coding agent, so later prompts reuse its conversation and tool state.</p>
+            <p>Each ACP session owns one persistent coding agent and a private snapshot, so later prompts reuse its conversation and supported tool state.</p>
             <p>Session updates preserve Agent event order: thinking, tool starts, tool results, and the final assistant answer. JSON-native tool arguments and results remain structured in <code className="bg-gray-100 px-1 rounded">rawInput</code> and <code className="bg-gray-100 px-1 rounded">rawOutput</code>.</p>
             <p>Turn usage and stop reasons come from the Agent&apos;s structured terminal record. Cancellation is cooperative, and events arriving after a turn is retired are not forwarded into the next prompt.</p>
+          </div>
+
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Resume and ownership</h3>
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <li><code className="bg-gray-100 px-1 rounded">session/resume</code> restores the Agent&apos;s saved conversation and supported tool state from the same project directory.</li>
+              <li>Resume does not replay historical updates; the ACP client keeps the transcript it already rendered.</li>
+              <li>One runtime owns a session at a time. <code className="bg-gray-100 px-1 rounded">session/close</code> or stdio EOF releases it for another process.</li>
+              <li>Only completed prompts enter the non-cancellable commit phase. Failures before commit keep the last good state; if a client disconnects during commit, resume the session before retrying.</li>
+            </ul>
           </div>
 
           <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-5 text-amber-900">
