@@ -10,7 +10,7 @@
  */
 import {
   HiOutlineHome, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
-  HiOutlineArrowsRightLeft, HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineCalculator, HiOutlineCloud, HiOutlineBookOpen,
+  HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineBookOpen,
   HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone, HiOutlineArrowPath, HiOutlineFolderPlus, HiOutlineKey, HiOutlineDocumentDuplicate
 } from 'react-icons/hi2'
 import { VscComment, VscGitMerge, VscFileCode, VscKey, VscServerProcess } from 'react-icons/vsc'
@@ -963,6 +963,28 @@ export const navigation = [
     difficulty: 'Design Decision',
     keywords: ['debug', 'auto-debug', 'ux', 'design', 'iteration', 'unix', 'steve jobs', 'simplicity'],
     prev: { href: '/blog/cli-ux-progressive-disclosure', title: 'Progressive Disclosure CLI' },
+    next: { href: '/blog/alpha-beta-rc-before-lts', title: 'Why Alpha, Beta, and RC Come Before 1.7 LTS' }
+  },
+  {
+    title: 'Why Alpha, Beta, and RC Come Before 1.7 LTS',
+    href: '/blog/alpha-beta-rc-before-lts',
+    icon: HiOutlineArrowPath,
+    section: 'Blog',
+    difficulty: 'Design Decision',
+    keywords: ['alpha', 'beta', 'rc', 'preview', 'prerelease', 'pypi', 'lts', 'versioning', 'acp', 'release train'],
+    prev: { href: '/blog/auto-debug-evolution', title: 'Auto-Debug Design Evolution' },
+    next: { href: '/releases', title: 'Release Channels' }
+  },
+
+  // ─── Releases ──────────────────────────────────────────────────
+  {
+    title: 'Release Channels',
+    href: '/releases',
+    icon: HiOutlineArrowPath,
+    section: 'Releases',
+    difficulty: 'Policy',
+    keywords: ['release', 'version', 'stable', 'alpha', 'beta', 'rc', 'preview', 'lts', 'pypi'],
+    prev: { href: '/blog/alpha-beta-rc-before-lts', title: 'Why Alpha, Beta, and RC Come Before 1.7 LTS' },
     next: { href: '/roadmap', title: 'Coming Soon Features' }
   },
 
@@ -974,7 +996,7 @@ export const navigation = [
     section: 'Roadmap',
     difficulty: 'Preview',
     keywords: ['roadmap', 'future', 'upcoming', 'features', 'soon'],
-    prev: { href: '/blog/auto-debug-evolution', title: 'Auto-Debug Design Evolution' },
+    prev: { href: '/releases', title: 'Release Channels' },
     next: { href: '/links', title: 'All Links' }
   },
 
@@ -1010,4 +1032,3 @@ export function getPageByHref(href: string) {
 export function getPagesBySection(section: string) {
   return navigation.filter(page => page.section === section)
 }
-

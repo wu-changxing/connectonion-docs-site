@@ -1,16 +1,13 @@
 /**
- * The version this site advertises.
+ * The public package channels this site advertises.
  *
- * Not a source of truth — a copy, in a different repo from the one that ships.
- * It said 1.4.0 for the whole 1.5.0 cycle, and 1.5.5 while PyPI served 1.5.11,
- * because calling a copy "the single source of truth" is what stops anyone
- * checking it against the original.
- *
- * connectonion's tests/unit/test_the_version_agrees_with_itself.py reads this
- * file and fails when it disagrees with the package being released.
+ * These are copies in a different repository from the package that ships, so
+ * connectonion's test_the_version_agrees_with_itself.py checks the matching
+ * channel during a release. Preview publication must never replace the stable
+ * version shown on the homepage or in structured metadata.
  */
 export const STABLE_VERSION = '1.6.0'
-export const PREVIEW_VERSION = '1.7.0a1'
+export const PREVIEW_VERSION: string | null = '1.7.0a1'
 
 // Product pages advertise the stable channel. Preview releases remain opt-in.
 export const VERSION = STABLE_VERSION

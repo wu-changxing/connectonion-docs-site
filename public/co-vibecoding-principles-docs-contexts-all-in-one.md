@@ -33,6 +33,8 @@ ConnectOnion is a simple Python framework for creating AI agents that can use to
 pip install connectonion
 ```
 
+This installs stable. Preview builds require `--pre` or an exact version pin.
+
 **Environment Setup:**
 ```bash
 export OPENAI_API_KEY="your-api-key-here"
@@ -1646,7 +1648,8 @@ def debug_tool(input: str) -> str:
 
 - **GitHub**: https://github.com/wu-changxing/connectonion
 - **PyPI**: https://pypi.org/project/connectonion/
-- **Latest Version**: 0.0.4
+- **Latest stable version**: 1.6.0
+- **Preview channel**: opt-in only; use `--pre` or an exact candidate pin
 
 ---
 

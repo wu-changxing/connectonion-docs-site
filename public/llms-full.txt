@@ -7,10 +7,12 @@ Source: https://docs.connectonion.com | GitHub: https://github.com/openonion/con
 
 ## What is ConnectOnion?
 
-ConnectOnion is an open-source Python framework for building AI agents. Version 0.9.0. License: Apache-2.0.
+ConnectOnion is an open-source Python framework for building AI agents. Current stable version: 1.6.0. License: Apache-2.0.
 
 **Core facts:**
 - Install: `pip install connectonion`
+- Release channel: stable by default; previews require `--pre` or an exact pin
+- Current public preview: `1.7.0a1` (opt-in); current stable remains `1.6.0`
 - Minimum Python version: 3.9
 - Default model: `co/gemini-2.5-pro` (managed keys, zero config)
 - Minimum agent: 2 lines of Python
@@ -29,6 +31,32 @@ ConnectOnion is an open-source Python framework for building AI agents. Version 
 pip install connectonion
 co auth    # Authenticate for managed keys ($5 free credits)
 ```
+
+The install command above ignores alpha, beta, and RC releases. To test a
+published preview, use `pip install --pre --upgrade connectonion` or install its
+exact version.
+
+---
+
+## Release Strategy: Stable 1.6 and the 1.7 Preview Train
+
+ConnectOnion treats a version as a compatibility promise, not a progress
+counter. Stable `1.6.x` patches contain backward-compatible maintenance fixes.
+The ACP and coding-agent feature train is tested by opt-in users as
+`1.7.0aN`, then `1.7.0bN`, then `1.7.0rcN` before `1.7.0` becomes stable/LTS.
+
+The first public preview is `1.7.0a1`. It is published on PyPI and marked as a
+GitHub Prerelease; the latest stable GitHub Release remains `1.6.0`.
+
+Normal pip installs ignore previews. Publishing an alpha, beta, or RC therefore
+does not move existing users off stable. Feature issues and release gates live
+in the 1.7 milestone; the exact PR inventory and phase evidence live in issue
+#792.
+
+- Design decision: https://docs.connectonion.com/blog/alpha-beta-rc-before-lts
+- Release channels: https://docs.connectonion.com/releases
+- Milestone: https://github.com/openonion/connectonion/milestone/7
+- Integration checklist: https://github.com/openonion/connectonion/issues/792
 
 ---
 

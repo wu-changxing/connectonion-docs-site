@@ -179,6 +179,12 @@ export const pageSEO: Record<string, PageSEO> = {
     path: '/blog',
     section: 'Blog',
   },
+  '/blog/alpha-beta-rc-before-lts': {
+    title: 'Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS',
+    description: 'Why ConnectOnion keeps 1.6 stable while testing ACP and coding-agent features through 1.7.0 alpha, beta, and RC releases before LTS.',
+    path: '/blog/alpha-beta-rc-before-lts',
+    section: 'Blog',
+  },
   '/vibe-coding': {
     title: 'Vibe Coding Guide - Build Agents with AI Tools | ConnectOnion',
     description: 'Use Cursor, Claude Code, or other AI coding tools to build ConnectOnion agents. Drag and drop docs for instant context. AI-first development workflow.',

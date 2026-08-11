@@ -135,6 +135,46 @@ BAD:  "You can use foo() to process data"
 GOOD: "When users ask for calculations, here's how to handle it:"
 ```
 
+## Release Design Journal
+
+Release notes and design journal posts are different artifacts:
+
+- **Release notes** answer: What changed, and how does a user upgrade?
+- **Design journal posts** answer: Why did we choose this shape, what did we
+  reject, what evidence supports it, and when should we reconsider it?
+
+Create or substantially update a journal post for a feature-train launch, first
+beta, first release candidate, stable release, or material architecture and
+workflow decision. A maintenance-only patch stays in release notes unless it
+contains a reusable lesson.
+
+Use this structure:
+
+```markdown
+# Searchable title that states the decision
+
+One-paragraph outcome.
+
+## The problem
+## Alternatives we considered
+## The decision
+## Tradeoffs and user impact
+## Evidence and current limitations
+## What would make us revisit it
+## Follow the work
+```
+
+Publication checklist:
+
+- [ ] Canonical Markdown source and rendered blog route agree
+- [ ] Unique title, description, canonical URL, Open Graph, and Twitter metadata
+- [ ] `TechArticle` or `BlogPosting` structured data uses the real publication date
+- [ ] Blog index, internal navigation, site search, and relevant docs link the post
+- [ ] Dynamic and static sitemaps include the canonical URL
+- [ ] `llms.txt` and relevant AI-readable indexes include the article
+- [ ] Mobile and desktop layouts have no page-level horizontal overflow
+- [ ] Claims about published packages are verified against PyPI and GitHub
+
 ## 🔄 The Learning Loop
 
 ```

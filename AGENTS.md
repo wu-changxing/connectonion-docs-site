@@ -50,6 +50,41 @@ npm run lint && npm run build
 ## Adding Content
 - New docs page: create a route under `app/<section>/page.tsx` and reuse shared components (e.g., `CommandBlock`, `DocsSidebar`). Keep titles concise and URLs kebab-case.
 
+## Release Documentation
+
+- `app/releases/page.tsx` and `public/releases.md` explain the stable,
+  alpha, beta, RC, and LTS channels. Keep them aligned with the package
+  repository's `docs/releases.md` and `VERSIONING.md`; refresh current-channel
+  wording on every publication.
+- `lib/version.ts` keeps `STABLE_VERSION` and `PREVIEW_VERSION` separate.
+  Homepage and structured-data consumers use stable only. An alpha, beta, or
+  RC updates the preview field without changing stable; a final release updates
+  stable and clears an obsolete preview. Deploy only after the matching PyPI
+  package and GitHub Release are public.
+- Preview versions use canonical Python spelling such as `1.7.0a1`,
+  `1.7.0b1`, and `1.7.0rc1`. Do not describe `1.6.x` patches as progress toward
+  1.7, and do not describe 1.7.1 as a new-feature release before 1.7.0 is stable.
+- Normal `pip install connectonion` examples always mean stable. Preview
+  instructions must require `--pre` or an exact candidate pin and must not
+  imply that an unpublished candidate already exists.
+
+## Design Journal Publications
+
+- A meaningful feature-train launch, first beta, first RC, stable release, or
+  material architecture/workflow decision must create or substantially update
+  a post under `app/blog/<slug>/page.tsx` with a matching Markdown source under
+  `public/tutorials/`.
+- Record the problem, alternatives, decision, tradeoffs, evidence, current
+  limitations, and the condition that would make us revisit the decision.
+  Release notes say what changed; the journal explains why.
+- Every new post must be linked from the blog index, navigation, site search,
+  `app/sitemap.ts`, `public/sitemap.xml`, `public/llms.txt`, and any relevant
+  full AI-readable index. Give the page unique metadata, a canonical URL,
+  social-card metadata, and `TechArticle` or `BlogPosting` structured data.
+- Draft before publication, but do not claim that a package or preview is
+  available until its PyPI artifact and GitHub Release are public. Maintenance
+  patches need only release notes unless they contain a reusable design lesson.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know

@@ -156,6 +156,13 @@ export const pageContentIndex: PageContent[] = [
     content: 'ConnectOnion blog posts. Design decisions, architecture insights, best practices. Learn about our development process. Technical deep dives. Community updates.'
   },
   {
+    title: 'Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS',
+    href: '/blog/alpha-beta-rc-before-lts',
+    section: 'Blog',
+    keywords: ['alpha', 'beta', 'rc', 'preview', 'prerelease', 'pypi', 'lts', 'versioning', 'acp', 'release train'],
+    content: 'Why ConnectOnion keeps 1.6 stable while ACP and coding-agent features move through 1.7.0 alpha, beta, and release candidate previews before 1.7.0 becomes stable and long-term supported. Python package prerelease behavior, pip opt-in, milestone scope, and release engineering decisions.'
+  },
+  {
     title: 'Network Protocol Design',
     href: '/blog/network-protocol-design',
     section: 'Blog',

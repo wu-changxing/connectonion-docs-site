@@ -94,6 +94,7 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/prompts/examples/security-analyst', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/prompts/examples/customer-support', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog', priority: 0.7, changeFrequency: 'weekly' },
+  { path: '/blog/alpha-beta-rc-before-lts', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/agent-address-format', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog/auto-debug-evolution', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog/cli-ux-progressive-disclosure', priority: 0.5, changeFrequency: 'monthly' },

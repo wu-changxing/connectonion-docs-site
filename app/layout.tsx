@@ -4,7 +4,7 @@ import "./globals.css";
 import ClientLayout from "../components/ClientLayout";
 import GitHubStarBanner from "../components/GitHubStarBanner";
 import Script from "next/script";
-import { VERSION } from "../lib/version";
+import { STABLE_VERSION } from "../lib/version";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -109,7 +109,7 @@ const structuredData = {
     "price": "0",
     "priceCurrency": "USD"
   },
-  "softwareVersion": VERSION,
+  "softwareVersion": STABLE_VERSION,
   "softwareHelp": {
     "@type": "WebPage",
     "url": `${BASE_URL}/quickstart`

@@ -1,80 +1,39 @@
 # Roadmap
 
-ConnectOnion's development roadmap. Track progress on [GitHub](https://github.com/openonion/connectonion/milestones).
+ConnectOnion keeps stable maintenance separate from the next feature train.
+The current public stable version is 1.6.0. The opt-in preview is 1.7.0a1, and
+normal pip installs never select it unless the user explicitly opts in.
+See [Release Channels](/releases) for installation and version meanings.
 
-## Current Milestones
+## Stable: 1.6
 
-### Launch the Network (Q4 2025)
+The 1.6 line receives backward-compatible bug, security, documentation,
+packaging, and compatibility fixes. It does not receive planned 1.7 features.
 
-Implement the ConnectOnion peer-to-peer network protocol where agents discover and collaborate using public keys as addresses.
+## In validation: 1.7.0
 
-**Features:**
-- Message-based architecture (ANNOUNCE/FIND/TASK)
-- Relay nodes for NAT traversal
-- Encrypted peer-to-peer communication
-- Contact/stranger management
-- Managed keys API (`co/` prefix) - **Done**
+- Completed coding-agent delegation and structured resume contracts
+- ACP lifecycle, ordered streaming, cancellation, and persistent resume
+- ACP approvals and session mode authority
+- Authorized stdio MCP and official SDK conformance are complete
+- Versioned ACP tool and final-message paths are merged through Host and React
+- Remaining Host-event decisions, docs/security/release gates, and real
+  editor/provider smoke remain
+- Alpha → beta → RC → stable/LTS; ACP is not a 1.7.1 feature release
 
-### Multi-Agent Trust System (Q1 2026)
+See the live [1.7 milestone](https://github.com/openonion/connectonion/milestone/7)
+and [release checklist #792](https://github.com/openonion/connectonion/issues/792).
 
-Build a trust system for secure multi-agent collaboration.
+## Next feature train: 1.8.0
 
-**Features:**
-- Agent-to-agent trust verification
-- Trust levels for remote agents (open/tested/strict)
-- Behavior-based trust scoring
-- Trust policies for agent networks
+- Async, concurrent browser execution
+- Encrypted and revocable browser login-session capture
+- Remote session injection with explicit revocation
+- Verified free/licensed browser-engine selection
+- Authenticated hosted Agent sessions with per-user isolation and Safe mode
 
-### co deploy - Agent Deployment (Q1 2026)
-
-One-command deployment for production agents.
-
-**Features:**
-- `co deploy` CLI command
-- Deploy to cloud providers (AWS, GCP, etc.)
-- Automatic HTTPS and domain setup
-- Environment management (dev/staging/prod)
-- Health monitoring and auto-restart
-
-### AI Auto-Coding (Q2 2026)
-
-Enable AI agents to automatically write, debug, and improve code.
-
-**Features:**
-- `auto_debug_exception` for runtime debugging - **Done**
-- Code generation tools
-- Automated testing
-- AI-powered refactoring
-
-## Open Features
-
-### Debugging & Development
-- [ ] Implement AI Help Mode for interactive debugging assistance
-- [ ] Implement step mode for debugging all tool executions
-- [ ] Implement modify result command for time-travel debugging
-- [ ] Implement inspect command for viewing agent state
-- [ ] Implement retry command for re-executing tools
-- [ ] Implement update prompt command for mid-execution changes
-
-### Documentation
-- [ ] Create tutorial video series
-- [ ] Update docs website with current features
-- [ ] Create comprehensive auto-debug documentation
-- [ ] Create templates/ documentation folder with individual template guides
-- [ ] Document Claude Code plugin templates for AI vibe coding
-
-### Platform
-- [ ] Add Microsoft OAuth integration (`co auth microsoft`)
-- [ ] Add conflict detection for duplicate tool names
-- [ ] Session logging and eval system
-
-## Recently Completed
-
-- Google OAuth integration (`co auth google`)
-- React-mode plugin example
-- Managed keys API (`co/` prefix)
-- Auto-detect base64 image results for vision models
-- Network feature API design (serve/connect)
+A public webpage never launches a local process directly. Hosted web Agents run
+in isolated server-owned environments and stream events back to the browser.
 
 ## Contributing
 
