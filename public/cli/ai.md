@@ -43,7 +43,9 @@ Serves Agent Client Protocol JSON-RPC over stdin/stdout for compatible editors a
 
 Session updates preserve Agent event order: thinking, tool starts, tool results, and the final assistant answer. JSON-native tool arguments and supported results remain structured in ACP `rawInput` and `rawOutput`. Turn usage and stop reasons come from the Agent's structured terminal record.
 
-Cancellation is cooperative, and late events from a retired turn are not forwarded into a later prompt. The final assistant answer is currently one ACP chunk rather than live token streaming. Until ACP permission requests are bridged, Safe mode fails closed when a sensitive tool requires approval.
+Cancellation is cooperative, and late events from a retired turn are not forwarded into a later prompt. The final assistant answer is currently one ACP chunk rather than live token streaming.
+
+Safe mode continues to use ConnectOnion's existing tool policy. When a sensitive call needs human approval, the ACP client receives `session/request_permission` with choices to allow that call, allow for the current session, or reject the turn. Session grants persist only after a successful prompt commit and can be restored with that session. Cancellation, close, stdio EOF, client errors, malformed responses, and late replies all fail closed.
 
 ## Options
 
