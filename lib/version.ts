@@ -9,4 +9,8 @@
  * connectonion's tests/unit/test_the_version_agrees_with_itself.py reads this
  * file and fails when it disagrees with the package being released.
  */
-export const VERSION = '1.6.0'
+export const STABLE_VERSION = '1.6.0'
+export const PREVIEW_VERSION = '1.7.0a1'
+
+// Product pages advertise the stable channel. Preview releases remain opt-in.
+export const VERSION = STABLE_VERSION
