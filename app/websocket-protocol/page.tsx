@@ -439,6 +439,29 @@ export default function WebSocketProtocolPage() {
 
           <h4 className="text-lg font-semibold text-gray-600 mt-6 mb-2">APPROVAL_RESPONSE</h4>
           <JsonBlock>{`{ "type": "APPROVAL_RESPONSE", "approved": true, "scope": "once" }`}</JsonBlock>
+          <p className="text-sm text-gray-500 mt-2">
+            Legacy fallback. Responses are consumed once and bound to the current pending request.
+          </p>
+
+          <h4 className="text-lg font-semibold text-gray-600 mt-6 mb-2">ACP_RESPONSE</h4>
+          <p className="text-gray-700 mb-4">
+            Answers one permission request. The outer carrier binds the result to the Host session; the nested message is the exact ACP JSON-RPC response.
+          </p>
+          <JsonBlock>{`{
+  "type": "ACP_RESPONSE",
+  "acpSchema": "schema-v1.19.0",
+  "sessionId": "550e8400-...",
+  "message": {
+    "jsonrpc": "2.0",
+    "id": "approval-event-uuid",
+    "result": {
+      "outcome": { "outcome": "selected", "optionId": "allow_once" }
+    }
+  }
+}`}</JsonBlock>
+          <p className="text-sm text-gray-500 mt-2">
+            Only an advertised option for the active request and session is accepted. A matching malformed response or <code className="bg-gray-100 px-1 rounded">cancelled</code> fails closed.
+          </p>
 
           {/* Server → Client */}
           <h3 className="text-xl font-semibold text-gray-900 mt-12 mb-4">Server → Client</h3>
@@ -500,6 +523,39 @@ export default function WebSocketProtocolPage() {
           <h4 className="text-lg font-semibold text-gray-600 mt-8 mb-2">PING</h4>
           <p className="text-sm text-gray-500 mb-2">Keep-alive. Sent every 30 seconds.</p>
           <JsonBlock>{`{ "type": "PING" }`}</JsonBlock>
+
+          <h4 className="text-lg font-semibold text-gray-600 mt-8 mb-2">ACP_REQUEST</h4>
+          <p className="text-gray-700 mb-4">
+            Sent immediately before the legacy <code className="bg-gray-100 px-1 rounded">approval_needed</code> event. The Host socket remains a ConnectOnion transport; the nested message is an exact ACP <code className="bg-gray-100 px-1 rounded">session/request_permission</code> request.
+          </p>
+          <JsonBlock>{`{
+  "type": "ACP_REQUEST",
+  "acpSchema": "schema-v1.19.0",
+  "message": {
+    "jsonrpc": "2.0",
+    "id": "approval-event-uuid",
+    "method": "session/request_permission",
+    "params": {
+      "sessionId": "550e8400-...",
+      "toolCall": {
+        "toolCallId": "call-1",
+        "title": "Bash(npm test)",
+        "status": "pending",
+        "rawInput": { "command": "npm test" }
+      },
+      "options": [
+        { "optionId": "allow_once", "name": "Allow this call", "kind": "allow_once" },
+        { "optionId": "allow_session", "name": "Allow for this session", "kind": "allow_always" },
+        { "optionId": "reject_soft", "name": "Reject this call and continue", "kind": "reject_once" },
+        { "optionId": "reject_hard", "name": "Reject and stop this turn", "kind": "reject_once" },
+        { "optionId": "reject_explain", "name": "Reject and explain first", "kind": "reject_once" }
+      ]
+    }
+  }
+}`}</JsonBlock>
+          <p className="text-sm text-gray-500 mt-2">
+            <code className="bg-gray-100 px-1 rounded">@connectonion/react</code> owns browser decoding, de-duplication, and one-shot responses. oo-chat consumes that normalized API and does not parse ACP. The standalone TypeScript SDK is retired from this rollout.
+          </p>
 
           <h4 className="text-lg font-semibold text-gray-600 mt-8 mb-2">Stream Events</h4>
           <div className="overflow-x-auto">

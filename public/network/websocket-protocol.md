@@ -234,6 +234,34 @@ If sent while the session's agent is already running, this message is routed as 
 { "type": "APPROVAL_RESPONSE", "approved": true, "scope": "once" }
 ```
 
+Legacy fallback. Responses are consumed once and bound to the current pending
+request. Updated React clients answer the paired ACP request instead.
+
+#### ACP_RESPONSE
+
+Answer one `ACP_REQUEST`. The outer carrier binds the result to the Host
+session; `message` is the exact ACP JSON-RPC response.
+
+```json
+{
+  "type": "ACP_RESPONSE",
+  "acpSchema": "schema-v1.19.0",
+  "sessionId": "550e8400-...",
+  "message": {
+    "jsonrpc": "2.0",
+    "id": "approval-event-uuid",
+    "result": {
+      "outcome": {"outcome": "selected", "optionId": "allow_once"}
+    }
+  }
+}
+```
+
+Only an advertised option for the active request and session is accepted. A
+matching malformed response or `cancelled` fails closed. Optional rejection
+feedback belongs at `result._meta.connectonion.feedback` and does not grant
+authority.
+
 ### Server → Client
 
 #### CONNECTED
@@ -280,6 +308,44 @@ Keep-alive. Sent every 30 seconds.
 ```json
 { "type": "PING" }
 ```
+
+#### ACP_REQUEST
+
+Sent immediately before the legacy `approval_needed` event. The Host socket
+remains a ConnectOnion transport; `message` is an exact ACP
+`session/request_permission` JSON-RPC request.
+
+```json
+{
+  "type": "ACP_REQUEST",
+  "acpSchema": "schema-v1.19.0",
+  "message": {
+    "jsonrpc": "2.0",
+    "id": "approval-event-uuid",
+    "method": "session/request_permission",
+    "params": {
+      "sessionId": "550e8400-...",
+      "toolCall": {
+        "toolCallId": "call-1",
+        "title": "Bash(npm test)",
+        "status": "pending",
+        "rawInput": {"command": "npm test"}
+      },
+      "options": [
+        {"optionId": "allow_once", "name": "Allow this call", "kind": "allow_once"},
+        {"optionId": "allow_session", "name": "Allow for this session", "kind": "allow_always"},
+        {"optionId": "reject_soft", "name": "Reject this call and continue", "kind": "reject_once"},
+        {"optionId": "reject_hard", "name": "Reject and stop this turn", "kind": "reject_once"},
+        {"optionId": "reject_explain", "name": "Reject and explain first", "kind": "reject_once"}
+      ]
+    }
+  }
+}
+```
+
+`@connectonion/react` owns browser decoding, de-duplication, and one-shot
+responses. oo-chat consumes that normalized API and does not parse ACP. The
+standalone TypeScript SDK is retired from this rollout.
 
 #### Stream Events
 
