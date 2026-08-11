@@ -188,7 +188,7 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
               language="json"
             />
             <p className="text-sm text-gray-600 mt-2 mb-5">
-              In Zed, open Agent Settings, add a custom agent, then replace the generated entry. Before starting a ConnectOnion thread, disable every server under Settings → AI → MCP Servers because ConnectOnion does not yet accept forwarded MCP servers. Use <code className="bg-gray-100 px-1 rounded">dev: open acp logs</code> to inspect protocol traffic.
+              In Zed, open Agent Settings, add a custom agent, then replace the generated entry. This default command does not grant MCP process-launch authority, so disable every server under Settings → AI → MCP Servers. To forward configured servers deliberately, add <code className="bg-gray-100 px-1 rounded">&quot;--acp-mcp&quot;</code> to <code className="bg-gray-100 px-1 rounded">args</code>. Use <code className="bg-gray-100 px-1 rounded">dev: open acp logs</code> to inspect protocol traffic.
             </p>
             <h4 className="font-semibold text-gray-900 mb-2">JetBrains custom agent</h4>
             <CodeWithResult
@@ -208,8 +208,11 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
               language="json"
             />
             <p className="text-sm text-gray-600 mt-2">
-              In AI Chat, choose Add Custom Agent and put this entry in <code className="bg-gray-100 px-1 rounded">acp.json</code>. Keep both MCP forwarding settings false until ConnectOnion supports MCP servers. If a desktop app cannot find your shell PATH, use the absolute path returned by <code className="bg-gray-100 px-1 rounded">which co</code> as the command.
+              In AI Chat, choose Add Custom Agent and put this entry in <code className="bg-gray-100 px-1 rounded">acp.json</code>. The safe default is to keep both MCP forwarding settings false. To enable them deliberately, add <code className="bg-gray-100 px-1 rounded">&quot;--acp-mcp&quot;</code> after <code className="bg-gray-100 px-1 rounded">&quot;--acp&quot;</code> in <code className="bg-gray-100 px-1 rounded">args</code>, then opt in to the required JetBrains MCP settings. If a desktop app cannot find your shell PATH, use the absolute path returned by <code className="bg-gray-100 px-1 rounded">which co</code> as the command.
             </p>
+            <div className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-900">
+              MCP forwarding is disabled by default because an ACP-provided stdio server can launch a local process. With <code className="bg-amber-100 px-1 rounded">--acp-mcp</code>, ConnectOnion accepts at most eight stdio servers whose commands are absolute paths; HTTP, SSE, and ACP-transport servers are rejected. Server tools still pass through the normal approval hook, and client-granted approvals expire when the MCP process pool closes. Resume requires the full server list again and does not restore client-granted approvals.
+            </div>
           </div>
 
           <div className="mt-6 bg-white border border-gray-200 rounded-lg overflow-hidden">
@@ -247,9 +250,14 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
                     <td className="px-4 py-3 text-gray-600">They are not ACP clients that launch ConnectOnion</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 text-gray-700">Extra directories / MCP servers</td>
+                    <td className="px-4 py-3 text-gray-700">Extra directories</td>
                     <td className="px-4 py-3 text-gray-700">Not yet supported</td>
                     <td className="px-4 py-3 text-gray-600">Non-empty requests fail explicitly instead of being ignored</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-gray-700">MCP servers</td>
+                    <td className="px-4 py-3 text-gray-700">Opt-in stdio</td>
+                    <td className="px-4 py-3 text-gray-600">Disabled by default; --acp-mcp accepts bounded, session-scoped stdio servers with absolute commands</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 text-gray-700">Prompt content</td>
@@ -439,6 +447,12 @@ EOF`}
                   <td className="px-4 py-3 font-mono text-gray-500">—</td>
                   <td className="px-4 py-3 text-gray-600">off</td>
                   <td className="px-4 py-3 text-gray-700">Serve ACP JSON-RPC over stdin/stdout</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-600">--acp-mcp</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">—</td>
+                  <td className="px-4 py-3 text-gray-600">off</td>
+                  <td className="px-4 py-3 text-gray-700">With --acp, allow session-scoped stdio MCP launches</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-600">--yolo</td>
