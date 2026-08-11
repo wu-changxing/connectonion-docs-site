@@ -65,11 +65,69 @@ co ai --acp --yolo --yolo-turns 20
 
 The client cannot grant itself ULW. A resumed ULW session must also fit within the new process's remaining-turn ceiling; malformed or over-authorized saved state is rejected instead of silently downgraded.
 
+#### Connect an ACP host
+
+ConnectOnion is the ACP agent. Editors such as Zed and JetBrains are clients that start it as a local subprocess. Make sure `co` is on the editor's PATH and run `co auth login` first when using managed models.
+
+**Zed:** Open Agent Settings, add a custom agent, then replace the generated entry:
+
+```json
+{
+  "agent_servers": {
+    "ConnectOnion": {
+      "type": "custom",
+      "command": "co",
+      "args": ["ai", "--acp"],
+      "env": {}
+    }
+  }
+}
+```
+
+This default command does not grant MCP process-launch authority, so disable every server under Settings → AI → MCP Servers. To forward configured servers deliberately, add `"--acp-mcp"` to `args`. Use `dev: open acp logs` in Zed to inspect protocol traffic. See [Zed External Agents](https://zed.dev/docs/ai/external-agents).
+
+**JetBrains:** In AI Chat, choose Add Custom Agent and put this entry in `acp.json`:
+
+```json
+{
+  "default_mcp_settings": {
+    "use_idea_mcp": false,
+    "use_custom_mcp": false
+  },
+  "agent_servers": {
+    "ConnectOnion": {
+      "command": "co",
+      "args": ["ai", "--acp"],
+      "env": {}
+    }
+  }
+}
+```
+
+The safe default is to keep both MCP forwarding settings false. To enable them deliberately, add `"--acp-mcp"` after `"--acp"` in `args`, then opt in to the required JetBrains MCP settings. See [JetBrains: ACP configuration](https://www.jetbrains.com/help/ai-assistant/acp.html). If a desktop app cannot find your shell PATH, use the absolute path returned by `which co` as `command`.
+
+MCP forwarding is disabled by default because an ACP-provided stdio server can launch a local process. With `--acp-mcp`, ConnectOnion accepts at most eight stdio servers whose commands are absolute paths; HTTP, SSE, and ACP-transport servers are rejected. Server tools still pass through the normal approval hook, and client-granted approvals expire when the MCP process pool closes. Resume requires the full server list again and does not restore client-granted approvals.
+
+#### Compatibility and known limitations
+
+| Boundary | Status | Notes |
+|----------|--------|-------|
+| Protocol and SDK | Tested | ACP `protocolVersion` 1 with Python SDK `>=0.12,<0.13` |
+| Local stdio | Tested in CI | Official typed client plus raw framing, EOF, cancellation, resume, modes, and approvals |
+| Zed / JetBrains | Custom-agent setup | Uses the local stdio command above; editor GUI binaries are not run in CI |
+| Claude Code / Codex | Peer agents | They are not ACP clients that launch ConnectOnion |
+| Additional directories | Not yet supported | Non-empty requests fail explicitly instead of being ignored |
+| MCP servers | Opt-in stdio | Disabled by default; `--acp-mcp` accepts bounded, session-scoped stdio servers with absolute commands |
+| Prompt content | Text and resource links | Links are passed as labeled references, not fetched automatically; image, audio, and embedded resources are not yet accepted |
+
+The test claim is deliberately narrower than “works everywhere”: CI runs the production stdio adapter against the official ACP client SDK, while the Zed and JetBrains steps above are editor smoke paths.
+
 ## Options
 
 | Option | Short | Default | Description |
 |--------|-------|---------|-------------|
 | `--acp` | — | off | Serve ACP JSON-RPC over stdin/stdout |
+| `--acp-mcp` | — | off | With `--acp`, allow session-scoped stdio MCP launches |
 | `--yolo` | — | off | Authorize bounded ULW mode and skip tool approvals |
 | `--yolo-turns` | — | `100` | Autonomous-turn ceiling when `--yolo` is enabled |
 | `--port` | `-p` | `8000` | Port for web server |
