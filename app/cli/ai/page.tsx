@@ -6,6 +6,7 @@
 'use client'
 
 import { HiOutlineArrowsRightLeft, HiOutlineCommandLine, HiOutlineSparkles, HiOutlineCodeBracket, HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineFolder } from 'react-icons/hi2'
+import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import { PageHeader } from '../../../components/PageHeader'
@@ -102,6 +103,23 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
                 <span>Your identity comes from <code className="bg-gray-100 px-1 rounded">~/.co/</code> — same across all sessions</span>
               </div>
             </div>
+          </div>
+
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Delegate to Claude Code</h3>
+            <p className="text-gray-700 mb-3">
+              In the 1.7 preview implementation, <code className="bg-gray-100 px-1 rounded">co ai</code> can call the
+              installed Claude Code CLI as one peer tool and resume its session. O Chat receives Claude&apos;s inner
+              Read, Edit, and Bash activity as live tool cards while the parent agent owns the final review.
+            </p>
+            <p className="text-gray-700 mb-3">
+              The cards provide visibility, not extra authority. Claude still follows the operator-bound mode and
+              local settings; an unmatched interactive Claude permission prompt cannot yet round-trip through O Chat
+              and fails closed.
+            </p>
+            <Link href="/blog/stream-claude-code-tools-to-web" className="font-medium text-green-700 hover:underline">
+              Read the stream-json design decision
+            </Link>
           </div>
         </section>
 

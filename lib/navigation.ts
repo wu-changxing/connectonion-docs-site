@@ -973,6 +973,16 @@ export const navigation = [
     difficulty: 'Design Decision',
     keywords: ['alpha', 'beta', 'rc', 'preview', 'prerelease', 'pypi', 'lts', 'versioning', 'acp', 'release train'],
     prev: { href: '/blog/auto-debug-evolution', title: 'Auto-Debug Design Evolution' },
+    next: { href: '/blog/stream-claude-code-tools-to-web', title: 'Streaming Claude Code Tools to the Web' }
+  },
+  {
+    title: 'Streaming Claude Code Tools to the Web',
+    href: '/blog/stream-claude-code-tools-to-web',
+    icon: HiOutlineCommandLine,
+    section: 'Blog',
+    difficulty: 'Design Decision',
+    keywords: ['claude code', 'stream-json', 'tool calls', 'co ai', 'o chat', 'agent observability', 'permissions'],
+    prev: { href: '/blog/alpha-beta-rc-before-lts', title: 'Why Alpha, Beta, and RC Come Before 1.7 LTS' },
     next: { href: '/releases', title: 'Release Channels' }
   },
 
@@ -984,7 +994,7 @@ export const navigation = [
     section: 'Releases',
     difficulty: 'Policy',
     keywords: ['release', 'version', 'stable', 'alpha', 'beta', 'rc', 'preview', 'lts', 'pypi'],
-    prev: { href: '/blog/alpha-beta-rc-before-lts', title: 'Why Alpha, Beta, and RC Come Before 1.7 LTS' },
+    prev: { href: '/blog/stream-claude-code-tools-to-web', title: 'Streaming Claude Code Tools to the Web' },
     next: { href: '/roadmap', title: 'Coming Soon Features' }
   },
 

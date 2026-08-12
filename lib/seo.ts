@@ -179,6 +179,12 @@ export const pageSEO: Record<string, PageSEO> = {
     path: '/blog',
     section: 'Blog',
   },
+  '/blog/stream-claude-code-tools-to-web': {
+    title: 'How co ai Streams Claude Code Tool Calls to the Web',
+    description: 'Why ConnectOnion uses Claude Code stream-json to show live Read, Edit, and Bash cards in O Chat without confusing observability with permission authority.',
+    path: '/blog/stream-claude-code-tools-to-web',
+    section: 'Blog',
+  },
   '/blog/alpha-beta-rc-before-lts': {
     title: 'Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS',
     description: 'Why ConnectOnion keeps 1.6 stable while testing ACP and coding-agent features through 1.7.0 alpha, beta, and RC releases before LTS.',

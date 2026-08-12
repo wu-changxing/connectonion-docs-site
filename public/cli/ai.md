@@ -23,6 +23,18 @@ co ai
 - You chat with the agent through the web UI
 - Agent runs in your project directory
 
+#### Delegate to Claude Code
+
+In the 1.7 preview implementation, `co ai` can call the installed Claude Code
+CLI as one peer tool and resume its session. O Chat receives Claude's inner
+Read, Edit, and Bash activity as live tool cards while the parent agent owns
+the final review.
+
+The cards provide visibility, not extra authority. Claude still follows the
+operator-bound mode and local settings; an unmatched interactive Claude
+permission prompt cannot yet round-trip through O Chat and fails closed. Read
+the [stream-json design decision](/blog/stream-claude-code-tools-to-web).
+
 ### One-Shot Mode
 
 ```bash
