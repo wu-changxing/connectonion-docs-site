@@ -35,6 +35,7 @@ const MARKDOWN_TO_PAGE_MAP: Record<string, { href: string; section: string; titl
   'threat-model.md': { href: '/threat-model', section: 'Advanced', title: 'Threat Model' },
   'network-protocol.md': { href: '/blog/network-protocol-design', section: 'Blog', title: 'Network Protocol Design' },
   'alpha-beta-rc-before-lts.md': { href: '/blog/alpha-beta-rc-before-lts', section: 'Blog', title: 'Why Alpha, Beta, and RC Come Before 1.7 LTS' },
+  'stream-claude-code-tools-to-web.md': { href: '/blog/stream-claude-code-tools-to-web', section: 'Blog', title: 'How co ai Streams Claude Code Tool Calls to the Web' },
   'website-maintenance.md': { href: '/website-maintenance', section: 'Contributing', title: 'Website Maintenance Guide' }
 }
 
