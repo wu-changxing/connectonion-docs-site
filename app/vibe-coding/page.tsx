@@ -6,7 +6,6 @@ import { FaBullseye, FaRocket, FaEnvelope, FaLightbulb, FaGift } from 'react-ico
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
-import { MacOSDownload } from '../../components/MacOSDownload'
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export default function VibeCodingPage() {
@@ -265,9 +264,6 @@ The same vibe-coding approach works with Cursor, Copilot, or any AI coding assis
 
 
         {/* Note: For Cursor/Copilot users, the same approach applies - drag the co-vibecoding documentation into your IDE */}
-
-        {/* macOS App Download */}
-        <MacOSDownload />
 
         {/* Navigation */}
         <ContentNavigation />
