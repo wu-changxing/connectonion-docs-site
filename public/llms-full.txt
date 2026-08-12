@@ -73,6 +73,11 @@ common credential-shaped fields are redacted, and cancellation terminates the
 provider process group. Visibility does not grant authority: actions run only
 when the operator-bound Claude mode permits them. Unmatched interactive Claude
 permission prompts still fail closed and do not yet round-trip through O Chat.
+Delegated runs use Claude safe mode, inherit only a small process environment
+plus Claude authentication, and bind launch directories to the operator's
+project root. Resume accepts only an exact provider-returned UUID. In the
+browser, @connectonion/react owns protocol decoding and typed state; O Chat
+renders it, and the standalone TypeScript SDK is retired.
 
 The CLI stream was chosen because current `claude-agent-sdk 0.2.136` requires
 MCP 1.x while ConnectOnion 1.7 requires MCP 2.x. The implementation is being

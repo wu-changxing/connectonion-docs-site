@@ -42,6 +42,10 @@ React clients. The Claude adapter only has to translate the provider's event
 shapes into that boundary. It does not need to turn the browser into a Claude
 client or make ACP the internal execution model.
 
+In the browser, `@connectonion/react` owns protocol decoding and typed session
+state; O Chat renders that state. The standalone TypeScript SDK is retired, so
+this feature does not add another frontend protocol implementation.
+
 Each Claude tool-use ID receives a `claude:` namespace so the start and result
 share one stable card. Provider, child-session, and parent-tool metadata are
 preserved. Current clients can render the cards flat; a later UI can group them
@@ -79,11 +83,19 @@ Safe, Accept Edits, and explicit autonomous modes are still selected by operator
 policy before launch, and `co ai` never selects Claude's bypass-permissions
 mode.
 
-Headless Claude can run actions already allowed by that policy and local
-settings. If it encounters an unmatched interactive permission prompt, this
+Delegated runs use Claude's `--safe-mode`. It disables ordinary `CLAUDE.md`,
+skills, plugins, hooks, MCP servers, commands, and custom agents so local
+customizations cannot raise the selected mode's authority. The parent prompt
+carries relevant project instructions. The child receives only a small process
+and locale environment plus Claude authentication variables, and its launch
+directory must resolve inside the operator-bound workspace.
+
+If headless Claude encounters an unmatched interactive permission prompt, this
 first slice cannot send the question to O Chat and wait for the answer. It
 fails closed. A future approval bridge needs a real request-response channel,
-not a label placed on top of a tool event.
+not a label placed on top of a tool event. Resume likewise accepts only the
+exact canonical UUID returned by an earlier invocation, not Claude CLI's fuzzy
+session search.
 
 ## Why we did not weaken MCP
 

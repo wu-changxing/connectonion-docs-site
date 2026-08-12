@@ -113,9 +113,10 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
               Read, Edit, and Bash activity as live tool cards while the parent agent owns the final review.
             </p>
             <p className="text-gray-700 mb-3">
-              The cards provide visibility, not extra authority. Claude still follows the operator-bound mode and
-              local settings; an unmatched interactive Claude permission prompt cannot yet round-trip through O Chat
-              and fails closed.
+              The cards provide visibility, not extra authority. Delegated runs use Claude&apos;s safe mode, which
+              disables ordinary project and user customizations while preserving authentication and admin policy.
+              The launch directory stays inside the operator-bound project root; an unmatched interactive permission
+              prompt cannot yet round-trip through O Chat and fails closed.
             </p>
             <Link href="/blog/stream-claude-code-tools-to-web" className="font-medium text-green-700 hover:underline">
               Read the stream-json design decision

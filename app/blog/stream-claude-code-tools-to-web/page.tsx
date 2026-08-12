@@ -126,6 +126,11 @@ export default function StreamClaudeCodeToolsToWebPage() {
             make ACP the internal execution model.
           </p>
           <p>
+            In the browser, <code>@connectonion/react</code> owns protocol decoding and typed session state; O Chat
+            renders that state. The standalone TypeScript SDK is retired, so this feature does not add another
+            frontend protocol implementation.
+          </p>
+          <p>
             Each Claude tool-use ID receives a <code>claude:</code> namespace so the start and result share one stable
             card. Provider, child-session, and parent-tool metadata are preserved. Current clients can render the
             cards flat; a later UI can group them beneath the delegated call.
@@ -158,10 +163,17 @@ export default function StreamClaudeCodeToolsToWebPage() {
             policy before launch, and <code>co ai</code> never selects Claude&apos;s bypass-permissions mode.
           </p>
           <p>
-            Headless Claude can run actions already allowed by that policy and local settings. If it encounters an
-            unmatched interactive permission prompt, this first slice cannot send the question to O Chat and wait for
-            the answer. It fails closed. A future approval bridge needs a real request-response channel, not a label
-            placed on top of a tool event.
+            Delegated runs use Claude&apos;s <code>--safe-mode</code>. It disables ordinary <code>CLAUDE.md</code>, skills,
+            plugins, hooks, MCP servers, commands, and custom agents so local customizations cannot raise the selected
+            mode&apos;s authority. The parent prompt carries relevant project instructions. The child receives only a
+            small process and locale environment plus Claude authentication variables, and its launch directory must
+            resolve inside the operator-bound workspace.
+          </p>
+          <p>
+            If headless Claude encounters an unmatched interactive permission prompt, this first slice cannot send the
+            question to O Chat and wait for the answer. It fails closed. A future approval bridge needs a real
+            request-response channel, not a label placed on top of a tool event. Resume likewise accepts only the exact
+            canonical UUID returned by an earlier invocation, not Claude CLI&apos;s fuzzy session search.
           </p>
 
           <h2>Why we did not weaken MCP</h2>
