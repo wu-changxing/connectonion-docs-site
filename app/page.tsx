@@ -8,7 +8,6 @@ import { CommandBlock } from '../components/CommandBlock'
 import { CopyMarkdownButton } from '../components/CopyMarkdownButton'
 import { ContentNavigation } from '../components/ContentNavigation'
 import { FrameworkComparison } from '../components/FrameworkComparison'
-import { MacOSDownload } from '../components/MacOSDownload'
 import { AIFirstDevelopment } from '../components/AIFirstDevelopment'
 import { NonObviousAdvantages } from '../components/NonObviousAdvantages'
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -204,9 +203,6 @@ agent.input("What's the weather in NYC?")`}
 
       {/* AI-First Development */}
       <AIFirstDevelopment />
-
-      {/* macOS App Download */}
-      <MacOSDownload />
 
       {/* Free Credits Banner */}
       <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-50 border-y border-gray-100">
