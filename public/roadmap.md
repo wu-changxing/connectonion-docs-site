@@ -1,7 +1,7 @@
 # Roadmap
 
 ConnectOnion keeps stable maintenance separate from the next feature train.
-The current public stable version is 1.6.0. The opt-in preview is 1.7.0a2, and
+The current public stable version is 1.6.4. The opt-in preview is 1.7.0a2, and
 normal pip installs never select it unless the user explicitly opts in.
 See [Release Channels](/releases) for installation and version meanings.
 
@@ -16,10 +16,12 @@ packaging, and compatibility fixes. It does not receive planned 1.7 features.
 - ACP lifecycle, ordered streaming, cancellation, and persistent resume
 - ACP approvals and session mode authority
 - Authorized stdio MCP and official SDK conformance are complete
-- Versioned ACP tool, message, thought, and plan paths are merged through Host
-  and React
-- Remaining Host-event decisions, docs/security/release gates, and real
-  editor/provider smoke remain
+- Native authenticated browser ACP, fail-closed transport discovery, bounded
+  session/attachment storage, and payment onboarding are merged
+- `@connectonion/react@0.4.2-alpha.2` owns the browser protocol state and O Chat
+  pins and exercises that exact artifact
+- Relay encryption, the beta conformance matrix, docs/security release gates,
+  and remaining real editor/provider smoke remain
 - Alpha → beta → RC → stable/LTS; ACP is not a 1.7.1 feature release
 
 See the live [1.7 milestone](https://github.com/openonion/connectonion/milestone/7)

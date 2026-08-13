@@ -7,7 +7,7 @@ Source: https://docs.connectonion.com | GitHub: https://github.com/openonion/con
 
 ## What is ConnectOnion?
 
-ConnectOnion is an open-source Python toolkit for building AI agents. Current stable version: 1.6.0. License: Apache-2.0.
+ConnectOnion is an open-source Python toolkit for building AI agents. Current stable version: 1.6.4. License: Apache-2.0.
 
 You do not start from a blank file. `co create my-agent` scaffolds a project that already
 runs — an `agent.py` with a shell, file reading, editing, search and writing already wired
@@ -17,7 +17,7 @@ generated files from there; any plain Python function you add becomes a tool aut
 **Core facts:**
 - Install: `pip install connectonion`
 - Release channel: stable by default; previews require `--pre` or an exact pin
-- Current public preview: `1.7.0a2` (opt-in); current stable remains `1.6.0`
+- Current public preview: `1.7.0a2` (opt-in); current stable remains `1.6.4`
 - Minimum Python version: 3.10
 - Default model: `co/gemini-2.5-pro` (managed keys, zero config)
 - Starting point: `co create` writes the project; the generated agent runs before you edit anything
@@ -51,10 +51,17 @@ The ACP and coding-agent feature train is tested by opt-in users as
 `1.7.0aN`, then `1.7.0bN`, then `1.7.0rcN` before `1.7.0` becomes stable/LTS.
 
 The first public preview was `1.7.0a1`. The current preview is `1.7.0a2`; it
-adds the Host side of authenticated ACP permissions, cancellation, session
-modes, public thoughts, and canonical TodoList plans. It is published on PyPI
-and marked as a GitHub Prerelease; the latest stable GitHub Release remains
-`1.6.0`.
+delivers the first end-to-end native browser ACP slice. The Host exposes an
+authenticated `/acp` WebSocket through explicit, fail-closed discovery; binds
+each caller to one virtual workspace and private, bounded session and
+attachment storage; verifies payment onboarding; and keeps permissions,
+cancellation, modes, thoughts, plans, tool activity, reconnect, and resume on
+the shared ACP lifecycle. `@connectonion/react@0.4.2-alpha.2` owns browser
+protocol state and O Chat pins that exact reviewed artifact. The retired
+standalone TypeScript SDK is not on the release path. Direct loopback or
+TLS/WSS is preview scope, not a relay end-to-end-encryption claim. It is
+published on PyPI and marked as a GitHub Prerelease; the latest stable GitHub
+Release remains `1.6.4`.
 
 Normal pip installs ignore previews. Publishing an alpha, beta, or RC therefore
 does not move existing users off stable. Feature issues and release gates live
