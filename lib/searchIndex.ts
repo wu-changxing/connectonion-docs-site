@@ -156,6 +156,13 @@ export const pageContentIndex: PageContent[] = [
     content: 'ConnectOnion blog posts. Design decisions, architecture insights, best practices. Learn about our development process. Technical deep dives. Community updates.'
   },
   {
+    title: 'How co ai Streams Claude Code Tool Calls to the Web',
+    href: '/blog/stream-claude-code-tools-to-web',
+    section: 'Blog',
+    keywords: ['claude code', 'stream-json', 'tool calls', 'co ai', 'o chat', 'web', 'agent sdk', 'mcp', 'observability', 'permissions'],
+    content: 'Why ConnectOnion keeps Claude Code as one delegated tool call and translates inner Read, Edit, and Bash activity into live O Chat cards. Covers stream-json, session IDs, bounded redacted events, cancellation, MCP dependency compatibility, and the difference between tool visibility and permission approval.'
+  },
+  {
     title: 'Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS',
     href: '/blog/alpha-beta-rc-before-lts',
     section: 'Blog',

@@ -7,7 +7,12 @@ Source: https://docs.connectonion.com | GitHub: https://github.com/openonion/con
 
 ## What is ConnectOnion?
 
-ConnectOnion is an open-source Python framework for building AI agents. Current stable version: 1.6.0. License: Apache-2.0.
+ConnectOnion is an open-source Python toolkit for building AI agents. Current stable version: 1.6.0. License: Apache-2.0.
+
+You do not start from a blank file. `co create my-agent` scaffolds a project that already
+runs — an `agent.py` with a shell, file reading, editing, search and writing already wired
+as tools, a `prompt.md`, and a `.co/` directory holding logs and docs. You edit the
+generated files from there; any plain Python function you add becomes a tool automatically.
 
 **Core facts:**
 - Install: `pip install connectonion`
@@ -15,7 +20,7 @@ ConnectOnion is an open-source Python framework for building AI agents. Current 
 - Current public preview: `1.7.0a2` (opt-in); current stable remains `1.6.0`
 - Minimum Python version: 3.10
 - Default model: `co/gemini-2.5-pro` (managed keys, zero config)
-- Minimum agent: 2 lines of Python
+- Starting point: `co create` writes the project; the generated agent runs before you edit anything
 - GitHub: https://github.com/openonion/connectonion
 - PyPI: https://pypi.org/project/connectonion/
 - Docs: https://docs.connectonion.com
@@ -60,6 +65,35 @@ in the 1.7 milestone; the exact PR inventory and phase evidence live in issue
 - Release channels: https://docs.connectonion.com/releases
 - Milestone: https://github.com/openonion/connectonion/milestone/7
 - Integration checklist: https://github.com/openonion/connectonion/issues/792
+
+---
+
+## Design Decision: Stream Claude Code Tool Calls to O Chat
+
+`co ai` keeps Claude Code as one ordinary delegated tool call and translates
+Claude's documented `stream-json` tool-use and tool-result events into native
+live cards. Users can see Read, Edit, and Bash activity without opening a
+second interface, while the parent ConnectOnion agent retains ownership of the
+plan, review, and final answer.
+
+Tool IDs are stable and provider-namespaced. Arguments and results are bounded,
+common credential-shaped fields are redacted, and cancellation terminates the
+provider process group. Visibility does not grant authority: actions run only
+when the operator-bound Claude mode permits them. Unmatched interactive Claude
+permission prompts still fail closed and do not yet round-trip through O Chat.
+Delegated runs use Claude safe mode, inherit only a small process environment
+plus Claude authentication, and bind launch directories to the operator's
+project root. Resume accepts only an exact provider-returned UUID. In the
+browser, @connectonion/react owns protocol decoding and typed state; O Chat
+renders it, and the standalone TypeScript SDK is retired.
+
+The CLI stream was chosen because current `claude-agent-sdk 0.2.136` requires
+MCP 1.x while ConnectOnion 1.7 requires MCP 2.x. The implementation is being
+prepared for a 1.7 preview and must not be treated as released until a matching
+package is published.
+
+- Design journal: https://docs.connectonion.com/blog/stream-claude-code-tools-to-web
+- Feature issue: https://github.com/openonion/connectonion/issues/902
 
 ---
 

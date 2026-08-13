@@ -16,7 +16,7 @@ const advantages: Advantage[] = [
   {
     icon: HiOutlineSparkles,
     title: 'Built-in AI Programmer',
-    tagline: 'An AI that knows the framework inside out',
+    tagline: 'An AI that knows the template inside out',
     description: 'Run co ai — an AI coding assistant built with ConnectOnion that writes working agent code. Fully open-source.',
     code: `co ai   # Opens chat with AI that deeply understands ConnectOnion`,
   },
@@ -24,7 +24,7 @@ const advantages: Advantage[] = [
     icon: HiOutlineGlobeAlt,
     title: 'Built-in Frontend & Backend',
     tagline: 'Just write prompt and tools — deploy',
-    description: 'No FastAPI backend. No React frontend. No API wiring. Framework handles it all.',
+    description: 'No FastAPI backend. No React frontend. No API wiring. It is already in the template.',
     code: `# ConnectOnion:
 agent = Agent("support", tools=[search, reply])
 host(agent)  # Done. Frontend + backend included.`,
@@ -104,10 +104,10 @@ export function NonObviousAdvantages() {
             <div className="h-px w-12 bg-gray-300" />
           </div>
           <h2 className="heading-2 mb-4">
-            What Other Frameworks <span className="accent-italic text-[1.05em]">Don&apos;t Have</span>
+            What You Get <span className="accent-italic text-[1.05em]">Without Building It</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            These aren&apos;t about writing less code. They&apos;re capabilities other frameworks haven&apos;t built at all.
+            None of this is about writing less code. It is what already ships in the box.
           </p>
         </div>
 

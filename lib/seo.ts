@@ -12,8 +12,8 @@ export type PageSEO = {
 // SEO metadata for every page. Used by per-route layout.tsx files.
 export const pageSEO: Record<string, PageSEO> = {
   '/': {
-    title: 'ConnectOnion - Python AI Agent Framework | Build Agents with Functions',
-    description: 'ConnectOnion is an open-source Python framework for building AI agents. Create production-ready agents in 2 lines of code using plain Python functions as tools. Supports OpenAI, Anthropic, and Gemini.',
+    title: 'ConnectOnion - Python AI Agents from a Working Template',
+    description: 'ConnectOnion is an open-source Python toolkit for AI agents. co create scaffolds a project that already runs — shell, file editing, search and a model wired in — and you edit it from there. Supports OpenAI, Anthropic, and Gemini.',
     path: '/',
     section: 'Home',
   },
@@ -177,6 +177,12 @@ export const pageSEO: Record<string, PageSEO> = {
     title: 'Blog - Design Decisions & Architecture | ConnectOnion',
     description: 'Read about ConnectOnion design decisions, API naming rationale, network protocol architecture, and framework philosophy.',
     path: '/blog',
+    section: 'Blog',
+  },
+  '/blog/stream-claude-code-tools-to-web': {
+    title: 'How co ai Streams Claude Code Tool Calls to the Web',
+    description: 'Why ConnectOnion uses Claude Code stream-json to show live Read, Edit, and Bash cards in O Chat without confusing observability with permission authority.',
+    path: '/blog/stream-claude-code-tools-to-web',
     section: 'Blog',
   },
   '/blog/alpha-beta-rc-before-lts': {

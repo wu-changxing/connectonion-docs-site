@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { HiOutlineCodeBracket, HiOutlineArrowRight, HiOutlineCheckCircle, HiOutlineViewfinderCircle, HiOutlineClipboardDocumentCheck } from 'react-icons/hi2'
+import { HiOutlineCodeBracket, HiOutlineCheckCircle, HiOutlineViewfinderCircle, HiOutlineClipboardDocumentCheck } from 'react-icons/hi2'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
@@ -37,7 +37,7 @@ export default function EvalPluginPage() {
                 <HiOutlineViewfinderCircle className="w-5 h-5 icon-ui" />
                 <h3 className="font-semibold">Generate Expected (after_user_input)</h3>
               </div>
-              <p className="text-sm text-gray-700">Generates what should happen to complete the task (unless already set by re_act plugin).</p>
+              <p className="text-sm text-gray-700">Generates what should happen once for each user turn, unless another plugin already set it for that turn.</p>
             </div>
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
@@ -79,7 +79,7 @@ Result: 100
         <section className="mb-12">
           <h2 className="heading-2">Combined with re_act</h2>
           <p className="text-gray-700 mb-4">
-            When used with <code className="bg-gray-100 px-2 py-1 rounded">re_act</code>, the eval plugin skips generating expected outcomes (re_act's plan serves as the expected):
+            Use <code className="bg-gray-100 px-2 py-1 rounded">re_act</code> for intent and reflection, then let <code className="bg-gray-100 px-2 py-1 rounded">eval</code> judge the completed turn independently:
           </p>
           <CodeWithResult
             code={`from connectonion import Agent
@@ -88,11 +88,21 @@ from connectonion.useful_plugins import re_act, eval
 agent = Agent("assistant", tools=[search], plugins=[re_act, eval])
 
 agent.input("Search for Python tutorials")
-# re_act: Plans the task (sets 'expected' in session)
-# Tools execute with reflection
-# eval: Evaluates completion (uses re_act's plan as expected)`}
+# re_act: Understands the request and reflects after tools
+# eval: Generates this turn's expected outcome and evaluates completion`}
             language="python"
           />
+        </section>
+
+        {/* Turn boundaries */}
+        <section className="mb-12">
+          <h2 className="heading-2">One evaluation per turn</h2>
+          <p className="text-gray-700 mb-4">
+            A continued session keeps its earlier messages and trace entries as conversation context. Evaluation evidence is narrower: it starts at the current turn&apos;s <code className="bg-gray-100 px-2 py-1 rounded">user_input</code> entry and includes only that turn&apos;s tool results and final response.
+          </p>
+          <p className="text-gray-700">
+            The expected outcome and verdict are also refreshed for every new user input. A tool used in an earlier request therefore cannot create a false pass or failure in the next one.
+          </p>
         </section>
 
         {/* How it works */}
@@ -103,7 +113,8 @@ agent.input("Search for Python tutorials")
           <CodeWithResult
             code={`@after_user_input
 def generate_expected(agent):
-    # Skip if already set by another plugin (e.g., re_act)
+    # Eval first refreshes its transient state for this Agent turn.
+    # Preserve an expected outcome another plugin set for this turn.
     if agent.current_session.get('expected'):
         return
 
@@ -112,7 +123,7 @@ def generate_expected(agent):
 
     expected = llm_do(
         f"User request: {user_prompt}\\nTools: {tool_names}\\nWhat should happen?",
-        model="co/gemini-2.5-flash"
+        model="co/gemini-3.6-flash"
     )
 
     agent.current_session['expected'] = expected`}
@@ -126,17 +137,17 @@ def evaluate_completion(agent):
     user_prompt = agent.current_session.get('user_prompt', '')
     result = agent.current_session.get('result', '')
     expected = agent.current_session.get('expected', '')
-    trace = agent.current_session.get('trace', [])
+    trace = current_turn_trace(agent)
 
     # Summarize actions taken
-    actions = [f"- {t['tool_name']}: {t['result'][:100]}"
-               for t in trace if t['type'] == 'tool_execution']
+    actions = [f"- {t['name']}: {t['result'][:100]}"
+               for t in trace if t['type'] == 'tool_result']
 
     evaluation = llm_do(
         f"Request: {user_prompt}\\nExpected: {expected}\\n"
         f"Actions: {actions}\\nResult: {result}\\n"
         f"Is this complete?",
-        model="co/gemini-2.5-flash"
+        model="co/gemini-3.6-flash"
     )
 
     agent.current_session['evaluation'] = evaluation

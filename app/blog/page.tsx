@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'How co ai Streams Claude Code Tool Calls to the Web',
+    subtitle: 'One delegated task, visible inner work, and an honest permission boundary',
+    date: 'August 2026',
+    readTime: '6 min read',
+    href: '/blog/stream-claude-code-tools-to-web',
+    icon: HiOutlineCommandLine,
+    tags: ['Design Decision', 'Claude Code', 'Agent Observability'],
+    excerpt: 'Why co ai translates Claude Code stream-json events into live O Chat tool cards without treating observability as approval authority.'
+  },
+  {
     title: 'Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS',
     subtitle: 'A version is a compatibility promise, not a progress counter',
     date: 'August 2026',

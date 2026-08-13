@@ -3,7 +3,7 @@ import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Quick Start — ConnectOnion',
-  description: 'Install ConnectOnion and build your first AI agent in 60 seconds. pip install connectonion, then 2 lines of Python. Supports OpenAI, Anthropic, Gemini, and managed keys.',
+  description: 'Install ConnectOnion and have a working AI agent in 60 seconds. pip install connectonion, then co create — the project is scaffolded for you. Supports OpenAI, Anthropic, Gemini, and managed keys.',
   alternates: { canonical: 'https://docs.connectonion.com/quickstart' },
   openGraph: {
     title: 'Quick Start — ConnectOnion',
@@ -16,7 +16,7 @@ const howToData = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "How to Build an AI Agent with ConnectOnion",
-  "description": "Install ConnectOnion and create a working AI agent in under 60 seconds using 2 lines of Python.",
+  "description": "Install ConnectOnion and create a working AI agent in under 60 seconds. The co create command scaffolds the whole project; you edit the generated files.",
   "totalTime": "PT1M",
   "tool": [
     { "@type": "HowToTool", "name": "Python 3.9+" },
