@@ -207,6 +207,12 @@ turns:
               language="yaml"
               id="session-yaml"
             />
+            <p className="text-gray-700 mt-4">
+              In a continued session, each turn&apos;s <code className="bg-gray-100 px-1 rounded">tools_called</code>,
+              tokens, and cost begin at that turn&apos;s matching <code className="bg-gray-100 px-1 rounded">user_input</code> trace
+              boundary. The message history remains cumulative for replay, so earlier work stays as context without being
+              counted or credited again.
+            </p>
           </div>
 
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
