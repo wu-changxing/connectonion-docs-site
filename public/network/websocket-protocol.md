@@ -347,6 +347,15 @@ remains a ConnectOnion transport; `message` is an exact ACP
 responses. oo-chat consumes that normalized API and does not parse ACP. The
 standalone TypeScript SDK is retired from this rollout.
 
+Native ACP may request permission before a separate tool update. React creates
+or reuses one running tool card keyed by `toolCallId`, and tracks every
+permission tool created during the prompt. Selecting an approval grants
+authority to attempt the action; it does not prove success. An official Host
+terminal update remains authoritative. At the prompt boundary, any permission
+tool still marked running becomes an error so restored clients cannot remain
+permanently busy. Product UIs render this normalized lifecycle and may show a
+standalone decision only when optional tool-card context is absent.
+
 #### Stream Events
 
 | Type | Description |
@@ -416,8 +425,8 @@ Acknowledges an INPUT that arrived while the agent was running. The prompt has b
   ║ │ messages │ ║    CONNECT ──►    ║  │   io, thread,       │  ║
   ║ └──────────┘ ║    ◄── CONNECTED  ║  │   status, last_ping │  ║
   ║              ║    INPUT ────►    ║  │ }                   │  ║
-  ║ TS SDK       ║    ◄── events     ║  └─────────┬───────────┘  ║
-  ║ RemoteAgent  ║    ◄── OUTPUT     ║            │              ║
+  ║ React SDK    ║    ◄── events     ║  └─────────┬───────────┘  ║
+  ║ useAgent     ║    ◄── OUTPUT     ║            │              ║
   ║              ║    PING/PONG      ║            ↓              ║
   ╚══════════════╝                    ║  ┌─────────────────────┐  ║
                                       ║  │ SessionStorage      │  ║
