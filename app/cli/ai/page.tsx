@@ -144,6 +144,14 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
           </div>
 
           <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Isolate automation state</h3>
+            <CodeWithResult code={`co ai --acp --state-dir /private/tmp/co-acp-test`} language="bash" />
+            <p className="text-gray-700 mt-4">
+              The explicit directory owns this process&apos;s ACP snapshots, Agent logs, and eval records. It does not copy credentials or create another identity: the Agent name and provider configuration still come from the normal global setup. POSIX directories are private at mode <code className="bg-gray-100 px-1 rounded">0700</code>, symlink roots are rejected, and the default remains <code className="bg-gray-100 px-1 rounded">~/.co</code> when the option is absent.
+            </p>
+          </div>
+
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Resume and ownership</h3>
             <ul className="list-disc list-inside space-y-2 text-gray-700">
               <li><code className="bg-gray-100 px-1 rounded">session/resume</code> restores the Agent&apos;s saved conversation and supported tool state from the same project directory.</li>
@@ -472,6 +480,12 @@ EOF`}
                   <td className="px-4 py-3 font-mono text-gray-500">—</td>
                   <td className="px-4 py-3 text-gray-600">off</td>
                   <td className="px-4 py-3 text-gray-700">With --acp, allow session-scoped stdio MCP launches</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-600">--state-dir</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">—</td>
+                  <td className="px-4 py-3 text-gray-600">~/.co</td>
+                  <td className="px-4 py-3 text-gray-700">With --acp, isolate mutable session, log, and eval state</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-600">--yolo</td>
