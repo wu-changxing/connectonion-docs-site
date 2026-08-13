@@ -556,6 +556,9 @@ export default function WebSocketProtocolPage() {
           <p className="text-sm text-gray-500 mt-2">
             <code className="bg-gray-100 px-1 rounded">@connectonion/react</code> owns browser decoding, de-duplication, and one-shot responses. oo-chat consumes that normalized API and does not parse ACP. The standalone TypeScript SDK is retired from this rollout.
           </p>
+          <p className="text-sm text-gray-500 mt-2">
+            Native ACP may request permission before a separate tool update. React creates or reuses one running tool card keyed by <code className="bg-gray-100 px-1 rounded">toolCallId</code>, and tracks every permission tool created during the prompt. Selecting an approval grants authority to attempt the action; it does not prove success. An official Host terminal update remains authoritative. At the prompt boundary, any permission tool still marked running becomes an error so restored clients cannot remain permanently busy. Product UIs render this normalized lifecycle and may show a standalone decision only when optional tool-card context is absent.
+          </p>
 
           <h4 className="text-lg font-semibold text-gray-600 mt-8 mb-2">Stream Events</h4>
           <div className="overflow-x-auto">
