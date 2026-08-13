@@ -55,6 +55,20 @@ co ai --acp
 
 Serves Agent Client Protocol JSON-RPC over stdin/stdout for compatible editors and clients. Each ACP session owns one persistent coding agent, so later prompts reuse its conversation and tool state.
 
+For automation or concurrent acceptance tests, isolate one process's mutable
+state explicitly:
+
+```bash
+co ai --acp --state-dir /private/tmp/co-acp-test
+```
+
+The selected directory owns that process's ACP snapshots, Agent logs, and eval
+records. It does not copy credentials or create another identity: the Agent
+name and provider configuration still come from the normal global setup. POSIX
+directories are private at mode `0700`, symlink roots are rejected, and the
+default remains `~/.co` when the option is absent. `--state-dir` is ACP-only in
+this first slice.
+
 Session updates preserve Agent event order: thinking, tool starts, tool results, and the final assistant answer. JSON-native tool arguments and supported results remain structured in ACP `rawInput` and `rawOutput`. Turn usage and stop reasons come from the Agent's structured terminal record.
 
 Cancellation is cooperative, and late events from a retired turn are not forwarded into a later prompt. The final assistant answer is currently one ACP chunk rather than live token streaming.
@@ -142,6 +156,7 @@ The test claim is deliberately narrower than “works everywhere”: CI runs the
 |--------|-------|---------|-------------|
 | `--acp` | — | off | Serve ACP JSON-RPC over stdin/stdout |
 | `--acp-mcp` | — | off | With `--acp`, allow session-scoped stdio MCP launches |
+| `--state-dir` | — | `~/.co` | With `--acp`, isolate mutable session, log, and eval state |
 | `--yolo` | — | off | Authorize bounded ULW mode and skip tool approvals |
 | `--yolo-turns` | — | `100` | Autonomous-turn ceiling when `--yolo` is enabled |
 | `--port` | `-p` | `8000` | Port for web server |
@@ -151,6 +166,7 @@ The test claim is deliberately narrower than “works everywhere”: CI runs the
 ```bash
 co ai --port 9000
 co ai --model co/gemini-2.5-pro
+co ai --acp --state-dir /private/tmp/co-acp-test
 co ai --acp --yolo --yolo-turns 20
 co ai "Build an agent" --model co/gpt-4o --max-iterations 50
 ```
