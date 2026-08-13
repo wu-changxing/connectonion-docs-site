@@ -109,6 +109,51 @@ cards—without making that compromise. We will revisit the Agent SDK when it
 supports MCP 2, or isolate it behind a separately versioned process if
 interactive approval justifies that complexity.
 
+## Why one ACP client is not one permission model
+
+The generic `acp_agent` track is still useful: one typed client can drive
+Claude Code, Codex, Gemini CLI, and future ACP agents. It remains a separate
+downward edge rather than replacing the native Claude and Codex routes.
+Exact-version adapters make protocol behavior reviewable, but the shared wire
+format cannot guarantee that two engines interpret a permission label the same
+way.
+
+Provider support is also part of conformance. [Google stopped serving Gemini
+CLI requests](https://github.com/google-gemini/gemini-cli/discussions/28017) for
+individual OAuth accounts on June 18, 2026. We keep the exact Gemini ACP route
+for API-key, Vertex, and enterprise Code Assist authentication, but a legacy
+OAuth file is no longer a readiness signal. We will not substitute Antigravity
+until it exposes a documented ACP entry point and passes the same version,
+permission, environment, and real-provider review.
+
+A controlled test of `codex-acp@1.1.14` proved the difference. ConnectOnion
+selected its read-only mode under outer `deny`, then asked the child to run
+`curl`. The child reached the network and returned HTTP 200 without sending
+`session/request_permission`. The adapter maps read-only to Codex's
+`on-request` policy; the native ConnectOnion Codex tool can select the stricter
+approval-aware policy directly.
+
+We therefore reject named Codex ACP under manual or deny before the adapter
+starts. Only an explicit, operator-selected Full Access grant may choose that
+generic route; ordinary work uses the native Codex tool. The `co ai` wrapper is
+authorized only inside its local session and never enters shared remote EXEC
+rules. Hosted non-admin requesters fail before a local child process is
+constructed.
+
+The same evidence rule applies to data crossing the edge. Stable child tool
+IDs and bounded titles are useful browser activity. A child thought is not a
+ConnectOnion-persisted thought, and a child plan is not the parent's canonical
+TodoList. Raw child tool payloads, thoughts, and plans therefore stay out of
+the ordinary parent event stream. `@connectonion/react` continues to own
+browser decoding; O Chat renders the normalized result instead of implementing
+another protocol parser.
+
+We will revisit Codex manual and deny only when a pinned adapter passes real
+conformance tests for file writes, shell execution, and outbound network
+access. See [issue #900](https://github.com/openonion/connectonion/issues/900)
+and the [ACP Agent contract](/useful-tools/acp-agent) for the current
+preview-candidate boundary.
+
 ## Current status
 
 The implementation is being prepared for a ConnectOnion 1.7 preview. Until the
@@ -121,4 +166,5 @@ implementation and release evidence.
 
 - [Claude Code headless mode](https://code.claude.com/docs/en/headless)
 - [Claude Code streaming output](https://code.claude.com/docs/en/agent-sdk/streaming-output)
+- [ACP Agent contract](https://docs.connectonion.com/useful-tools/acp-agent)
 - [Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS](https://docs.connectonion.com/blog/alpha-beta-rc-before-lts)

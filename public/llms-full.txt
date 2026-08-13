@@ -111,6 +111,37 @@ package is published.
 
 ---
 
+## Generic Downward ACP Child Agents
+
+The `1.7.0a2` candidate includes `acp_agent`, which makes ConnectOnion an ACP
+client for named child coding engines. Claude Code and Codex use exact-version adapters; Gemini uses
+exact `@google/gemini-cli@0.55.1 --acp`. Process commands, approval policy, and
+the workspace root stay operator-owned and are absent from the model schema.
+Claude and Codex resume fail rather than silently starting a new session;
+Gemini is explicitly one-turn at this pin because cross-process resume failed
+real conformance testing.
+
+Google retired Gemini CLI service for individual OAuth accounts on June 18,
+2026. The exact Gemini route remains for API-key, Vertex, and enterprise Code
+Assist authentication; a legacy OAuth file is not treated as readiness, and
+Antigravity is not substituted without documented ACP and real conformance.
+
+Protocol compatibility is not permission compatibility. A real test of pinned
+`codex-acp@1.1.14` showed its read-only mode could execute shell and outbound
+network work without sending an ACP permission request. ConnectOnion therefore
+allows that named route only for explicit operator-selected auto mode and
+directs approval-aware Codex work to the native `codex` tool. Child thoughts,
+plans, and raw tool payloads do not become parent state or ordinary browser
+events; `@connectonion/react` owns browser decoding and O Chat renders it.
+
+The implementation is merged, but it must not be treated as publicly available
+until the matching `1.7.0a2` preview package is published.
+
+- Tool documentation: https://docs.connectonion.com/useful-tools/acp-agent
+- Feature issue: https://github.com/openonion/connectonion/issues/900
+
+---
+
 ## Minimal Agent (2 lines)
 
 ```python

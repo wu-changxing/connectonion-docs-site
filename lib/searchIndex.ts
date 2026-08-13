@@ -55,6 +55,13 @@ export const pageContentIndex: PageContent[] = [
     content: 'Convert Python functions to agent tools. Any function can be a tool. Automatic type inference. Parameter validation. Error handling. No classes needed. Tools from existing code. Function decorators. Tool schemas. OpenAI function calling. Tool results and errors. Async tool support. Tool composition.'
   },
   {
+    title: 'ACP Agent',
+    href: '/useful-tools/acp-agent',
+    section: 'Useful Tools',
+    keywords: ['acp', 'acp_agent', 'claude code', 'codex', 'gemini', 'coding agent', 'delegate', 'resume', 'permission'],
+    content: 'Use one typed ACP client to delegate bounded child tasks to named coding engines. Exact resume, operator-owned command and workspace authority, bounded tool activity, no child thoughts or plans promoted to parent state. Codex ACP is explicit auto only because its pinned read-only mode does not enforce shell and outbound-network approval; use the native Codex tool for approval-aware work.'
+  },
+  {
     title: 'System Prompts',
     href: '/prompts',
     section: 'Core Concepts',

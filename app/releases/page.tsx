@@ -143,6 +143,17 @@ export default function ReleasesPage() {
               </a>.
             </p>
           </div>
+          <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
+            <p>
+              <strong>Alpha.2 candidate:</strong> native browser ACP plus the bounded <code>acp_agent</code>{' '}
+              downward adapter for exact-version Claude Code, Codex, and Gemini children.
+            </p>
+            <p>
+              Claude Code and Codex pass real resume and <code>co ai</code> handoff tests. The pinned Codex ACP
+              route is Full-Access-only; approval-aware work uses the native <code>codex</code> tool. Gemini is
+              one-turn and requires API-key, Vertex, or enterprise authentication because individual OAuth is retired.
+            </p>
+          </div>
         </section>
 
         <section className="mb-14 rounded-lg border border-gray-200 bg-gray-50 p-6">

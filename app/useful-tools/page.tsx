@@ -98,6 +98,7 @@ const toolCategories = [
       { name: 'Diff Writer', href: '/useful-tools/diff-writer', description: 'Write code diffs', status: 'available' },
       { name: 'Slash Command', href: '/useful-tools/slash-command', description: 'Custom CLI commands', status: 'available' },
       { name: 'Codex', href: '/useful-tools/codex', description: 'Drive OpenAI Codex via its native app-server, with resume and per-action approval', status: 'available' },
+      { name: 'ACP Agent', href: '/useful-tools/acp-agent', description: 'Delegate to reviewed ACP coding agents through one bounded client', status: 'available' },
     ]
   },
 ]

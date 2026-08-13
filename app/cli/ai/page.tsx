@@ -134,6 +134,22 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
               Read the stream-json design decision
             </Link>
           </div>
+
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Delegate through a generic ACP child</h3>
+            <p className="text-gray-700 mb-3">
+              The <code className="bg-gray-100 px-1 rounded">1.7.0a2</code> candidate registers <code className="bg-gray-100 px-1 rounded">acp_agent</code> for work that specifically needs the common ACP edge instead of the preferred native Claude Code or Codex tools. Engine name, prompt, working directory, and exact session ID are model-visible; command, approval, and workspace root remain operator-owned. It is not publicly available until the reviewed preview package is published.
+            </p>
+            <p className="text-gray-700 mb-3">
+              Read only and Workspace profiles select inner manual approval. Only a valid bounded Full Access grant selects auto, and hosted non-admin requesters fail before launch. The pinned Codex ACP route is rejected in ordinary profiles because its read-only mode does not reliably ask before shell or outbound network work.
+            </p>
+            <p className="text-gray-700 mb-3">
+              The pinned Gemini route is one-turn and requires a Gemini API key, Vertex AI, or enterprise Code Assist. Google retired individual Gemini CLI OAuth service on June 18, 2026, so an old local OAuth credential file is not a readiness signal.
+            </p>
+            <Link href="/useful-tools/acp-agent" className="font-medium text-green-700 hover:underline">
+              Read the bounded ACP child-agent contract
+            </Link>
+          </div>
         </section>
 
         {/* ACP Mode */}

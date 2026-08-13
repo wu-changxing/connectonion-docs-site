@@ -98,6 +98,20 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://docs.connectonion.com/useful-tools/codex</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.connectonion.com/useful-tools/acp-agent</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Useful Plugins Index -->
   <url>
     <loc>https://docs.connectonion.com/useful-plugins</loc>

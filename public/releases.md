@@ -66,6 +66,17 @@ configuration, skills, credentials, the workspace, or provider tools. Turn
 logs and evaluation evidence now measure the current user-input boundary rather
 than double-counting earlier activity from the cumulative conversation.
 
+The second alpha candidate also includes the bounded downward `acp_agent`
+adapter used by `co ai` to delegate one turn through ACP to exact-version
+Claude Code, Codex, and Gemini children. Process commands, approval policy, and
+workspace roots remain operator-owned; child thoughts and plans do not replace
+the outer session's canonical state. Claude Code and Codex pass real resume and
+exact `co ai` handoff tests. Pinned Codex ACP is Full-Access-only because its
+read-only mode cannot reliably gate shell or outbound network work; the native
+`codex` tool remains the approval-aware route. Pinned Gemini is one-turn and
+requires API-key, Vertex, or enterprise Code Assist authentication because
+individual OAuth service has been retired.
+
 - Alpha: ACP and coding-agent capabilities arrive in usable slices.
 - Beta: the feature set is complete; integration and compatibility are tested.
 - RC: only release blockers change.

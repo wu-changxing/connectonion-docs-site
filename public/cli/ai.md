@@ -46,6 +46,27 @@ the operator-bound project root; an unmatched interactive permission prompt
 cannot yet round-trip through O Chat and fails closed. Read the [stream-json
 design decision](/blog/stream-claude-code-tools-to-web).
 
+#### Delegate through a generic ACP child
+
+The `1.7.0a2` candidate also registers `acp_agent` for work that specifically
+needs the common ACP edge instead of the preferred native
+`claude_code` or `codex` tools. The model can select a named engine, prompt,
+working directory, and exact session to resume; command, approval, and the
+workspace root remain operator-owned.
+
+Read only and Workspace profiles select inner manual approval. Only a valid,
+bounded Full Access grant selects auto, and hosted non-admin requesters fail
+before a local process is launched. Pinned `codex-acp@1.1.14` is rejected in
+ordinary profiles because its read-only mode does not reliably ask before
+shell or outbound network work. Use the native `codex` tool there. This generic
+tool is not publicly available until the reviewed `1.7.0a2` package is
+published.
+
+The pinned Gemini route is one-turn and requires a Gemini API key, Vertex AI,
+or enterprise Code Assist. Google retired individual Gemini CLI OAuth service
+on June 18, 2026, so an old local OAuth credential file is not a readiness
+signal.
+
 ### One-Shot Mode
 
 ```bash

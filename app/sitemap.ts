@@ -34,6 +34,8 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/features/transcribe', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/features/trust', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/useful-tools', priority: 0.8, changeFrequency: 'weekly' },
+  { path: '/useful-tools/codex', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/useful-tools/acp-agent', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/useful-tools/bash', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/useful-tools/shell', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/useful-tools/diff-writer', priority: 0.6, changeFrequency: 'monthly' },
