@@ -640,8 +640,8 @@ export default function WebSocketProtocolPage() {
   ║ │ messages │ ║    CONNECT ──►    ║  │   io, thread,       │  ║
   ║ └──────────┘ ║    ◄── CONNECTED  ║  │   status, last_ping │  ║
   ║              ║    INPUT ────►    ║  │ }                   │  ║
-  ║ TS SDK       ║    ◄── events     ║  └─────────┬───────────┘  ║
-  ║ RemoteAgent  ║    ◄── OUTPUT     ║            │              ║
+  ║ React SDK    ║    ◄── events     ║  └─────────┬───────────┘  ║
+  ║ useAgent     ║    ◄── OUTPUT     ║            │              ║
   ║              ║    PING/PONG      ║            ↓              ║
   ╚══════════════╝                    ║  ┌─────────────────────┐  ║
                                       ║  │ SessionStorage      │  ║

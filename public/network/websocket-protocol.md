@@ -425,8 +425,8 @@ Acknowledges an INPUT that arrived while the agent was running. The prompt has b
   ║ │ messages │ ║    CONNECT ──►    ║  │   io, thread,       │  ║
   ║ └──────────┘ ║    ◄── CONNECTED  ║  │   status, last_ping │  ║
   ║              ║    INPUT ────►    ║  │ }                   │  ║
-  ║ TS SDK       ║    ◄── events     ║  └─────────┬───────────┘  ║
-  ║ RemoteAgent  ║    ◄── OUTPUT     ║            │              ║
+  ║ React SDK    ║    ◄── events     ║  └─────────┬───────────┘  ║
+  ║ useAgent     ║    ◄── OUTPUT     ║            │              ║
   ║              ║    PING/PONG      ║            ↓              ║
   ╚══════════════╝                    ║  ┌─────────────────────┐  ║
                                       ║  │ SessionStorage      │  ║
