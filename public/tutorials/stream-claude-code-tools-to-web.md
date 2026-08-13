@@ -118,6 +118,14 @@ Exact-version adapters make protocol behavior reviewable, but the shared wire
 format cannot guarantee that two engines interpret a permission label the same
 way.
 
+Provider support is also part of conformance. [Google stopped serving Gemini
+CLI requests](https://github.com/google-gemini/gemini-cli/discussions/28017) for
+individual OAuth accounts on June 18, 2026. We keep the exact Gemini ACP route
+for API-key, Vertex, and enterprise Code Assist authentication, but a legacy
+OAuth file is no longer a readiness signal. We will not substitute Antigravity
+until it exposes a documented ACP entry point and passes the same version,
+permission, environment, and real-provider review.
+
 A controlled test of `codex-acp@1.1.14` proved the difference. ConnectOnion
 selected its read-only mode under outer `deny`, then asked the child to run
 `curl`. The child reached the network and returned HTTP 200 without sending

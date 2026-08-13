@@ -45,6 +45,11 @@ intentionally absent from the model-facing function schema.
 | `codex` | `codex-acp@1.1.14` | explicit operator-selected auto only | yes |
 | `gemini` | `@google/gemini-cli@0.55.1 --acp` | manual, auto, deny when advertised | no |
 
+[Google stopped serving Gemini CLI requests](https://github.com/google-gemini/gemini-cli/discussions/28017)
+for free, Pro, and Ultra individual OAuth accounts on June 18, 2026. The named
+Gemini route requires a Gemini API key, Vertex AI, or enterprise Code Assist. A
+legacy `~/.gemini/oauth_creds.json` file is not a readiness signal.
+
 Real testing found that the pinned Codex adapter's read-only mode can run shell
 and outbound network work without an ACP permission request. ConnectOnion
 therefore rejects named Codex ACP under manual or deny before spawning it. Use
@@ -91,8 +96,10 @@ only its selected API key or `CODEX_HOME`; Gemini receives only explicitly
 configured Gemini API-key or Vertex authentication variables and cannot open a
 browser login. Unrelated environment credentials do not cross the child
 boundary. `engine_status()` reports this boundary, including
-`supports_resume`, without presenting a credential-file hint as proof of valid
-authentication.
+`supports_resume` and supported authentication choices, without presenting a
+credential-file hint as proof of valid authentication. Gemini intentionally has
+no generic credential-file hint because individual OAuth credentials can remain
+on disk after that provider path was retired.
 
 ## Workspace boundary, not an OS sandbox
 

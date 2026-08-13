@@ -102,6 +102,11 @@ uses its native experimental ACP mode. Process commands, approval policy, and
 the workspace root stay operator-owned and are absent from the model schema.
 Exact resume fails rather than silently starting a new session.
 
+Google retired Gemini CLI service for individual OAuth accounts on June 18,
+2026. The exact Gemini route remains for API-key, Vertex, and enterprise Code
+Assist authentication; a legacy OAuth file is not treated as readiness, and
+Antigravity is not substituted without documented ACP and real conformance.
+
 Protocol compatibility is not permission compatibility. A real test of pinned
 `codex-acp@1.1.14` showed its read-only mode could execute shell and outbound
 network work without sending an ACP permission request. ConnectOnion therefore

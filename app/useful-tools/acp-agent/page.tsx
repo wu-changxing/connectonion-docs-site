@@ -107,6 +107,9 @@ agent.input("Ask Claude Code over ACP to inspect the failing tests")`}
           <p className="text-gray-700 mt-4">
             Real testing found that the pinned Codex adapter&apos;s read-only mode can run shell and outbound network work without an ACP permission request. ConnectOnion therefore rejects named Codex ACP under manual or deny before spawning it. Use the native <code className="bg-gray-100 px-1 rounded">codex</code> tool for approval-aware Codex work.
           </p>
+          <p className="text-gray-700 mt-4">
+            Google stopped serving Gemini CLI requests for free, Pro, and Ultra individual OAuth accounts on June 18, 2026. The named Gemini route requires a Gemini API key, Vertex AI, or enterprise Code Assist. A legacy <code className="bg-gray-100 px-1 rounded">~/.gemini/oauth_creds.json</code> file is not a readiness signal.
+          </p>
         </section>
 
         <section className="mb-12">
@@ -147,7 +150,7 @@ assert second["resumed"] is True`}
         <section className="mb-12">
           <h2 className="heading-2">Provider environment boundary</h2>
           <p className="text-gray-700">
-            Child processes start with the ACP SDK&apos;s trimmed HOME, PATH, and shell environment instead of inheriting every ambient secret. Claude receives only an explicitly set <code className="bg-gray-100 px-1 rounded">CLAUDE_CONFIG_DIR</code> or <code className="bg-gray-100 px-1 rounded">ANTHROPIC_API_KEY</code>; Codex receives only its selected API key or <code className="bg-gray-100 px-1 rounded">CODEX_HOME</code>; Gemini receives only explicitly configured Gemini API-key or Vertex authentication variables and cannot open a browser login. Unrelated environment credentials do not cross the child boundary. <code className="bg-gray-100 px-1 rounded">engine_status()</code> reports this boundary, including <code className="bg-gray-100 px-1 rounded">supports_resume</code>, without presenting a credential-file hint as proof of valid authentication.
+            Child processes start with the ACP SDK&apos;s trimmed HOME, PATH, and shell environment instead of inheriting every ambient secret. Claude receives only an explicitly set <code className="bg-gray-100 px-1 rounded">CLAUDE_CONFIG_DIR</code> or <code className="bg-gray-100 px-1 rounded">ANTHROPIC_API_KEY</code>; Codex receives only its selected API key or <code className="bg-gray-100 px-1 rounded">CODEX_HOME</code>; Gemini receives only explicitly configured Gemini API-key or Vertex authentication variables and cannot open a browser login. Unrelated environment credentials do not cross the child boundary. <code className="bg-gray-100 px-1 rounded">engine_status()</code> reports this boundary, including supported authentication choices and <code className="bg-gray-100 px-1 rounded">supports_resume</code>, without presenting a credential-file hint as proof of valid authentication. Gemini intentionally has no generic credential-file hint because retired individual OAuth credentials can remain on disk.
           </p>
         </section>
 

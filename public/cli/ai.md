@@ -52,6 +52,11 @@ ordinary profiles because its read-only mode does not reliably ask before
 shell or outbound network work. Use the native `codex` tool there. This generic
 tool is not released until #901 is merged and included in a published preview.
 
+The pinned Gemini route is one-turn and requires a Gemini API key, Vertex AI,
+or enterprise Code Assist. Google retired individual Gemini CLI OAuth service
+on June 18, 2026, so an old local OAuth credential file is not a readiness
+signal.
+
 ### One-Shot Mode
 
 ```bash

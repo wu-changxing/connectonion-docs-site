@@ -131,6 +131,9 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
             <p className="text-gray-700 mb-3">
               Read only and Workspace profiles select inner manual approval. Only a valid bounded Full Access grant selects auto, and hosted non-admin requesters fail before launch. The pinned Codex ACP route is rejected in ordinary profiles because its read-only mode does not reliably ask before shell or outbound network work.
             </p>
+            <p className="text-gray-700 mb-3">
+              The pinned Gemini route is one-turn and requires a Gemini API key, Vertex AI, or enterprise Code Assist. Google retired individual Gemini CLI OAuth service on June 18, 2026, so an old local OAuth credential file is not a readiness signal.
+            </p>
             <Link href="/useful-tools/acp-agent" className="font-medium text-green-700 hover:underline">
               Read the bounded ACP child-agent contract
             </Link>

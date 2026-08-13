@@ -199,6 +199,13 @@ export default function StreamClaudeCodeToolsToWebPage() {
             format cannot guarantee that two engines interpret a permission label the same way.
           </p>
           <p>
+            Provider support is also part of conformance. Google stopped serving Gemini CLI requests for individual
+            OAuth accounts on June 18, 2026. We keep the exact Gemini ACP route for API-key, Vertex, and enterprise
+            Code Assist authentication, but a legacy OAuth file is no longer a readiness signal. We will not
+            substitute Antigravity until it exposes a documented ACP entry point and passes the same version,
+            permission, environment, and real-provider review.
+          </p>
+          <p>
             A controlled test of <code>codex-acp@1.1.14</code> proved the difference. ConnectOnion selected its
             read-only mode under outer <code>deny</code>, then asked the child to run <code>curl</code>. The child reached
             the network and returned HTTP 200 without sending <code>session/request_permission</code>. The adapter maps
