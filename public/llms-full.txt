@@ -97,10 +97,12 @@ package is published.
 ## Generic Downward ACP Child Agents
 
 The planned `acp_agent` tool makes ConnectOnion an ACP client for named child
-coding engines. Claude Code and Codex use exact-version adapters; Gemini CLI
-uses its native experimental ACP mode. Process commands, approval policy, and
+coding engines. Claude Code and Codex use exact-version adapters; Gemini uses
+exact `@google/gemini-cli@0.55.1 --acp`. Process commands, approval policy, and
 the workspace root stay operator-owned and are absent from the model schema.
-Exact resume fails rather than silently starting a new session.
+Claude and Codex resume fail rather than silently starting a new session;
+Gemini is explicitly one-turn at this pin because cross-process resume failed
+real conformance testing.
 
 Google retired Gemini CLI service for individual OAuth accounts on June 18,
 2026. The exact Gemini route remains for API-key, Vertex, and enterprise Code
