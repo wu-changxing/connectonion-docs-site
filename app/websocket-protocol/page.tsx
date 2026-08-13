@@ -51,6 +51,16 @@ export default function WebSocketProtocolPage() {
               Two client message types, two intents: <strong>CONNECT</strong> authenticates and restores your session. <strong>INPUT</strong> sends a prompt. That&apos;s the whole protocol.
             </p>
           </div>
+
+          <div className="mt-4 bg-white border border-gray-200 rounded-lg p-6">
+            <p className="text-gray-700">
+              This page documents the compatibility socket at <code className="bg-gray-100 px-1 rounded">/ws</code>,
+              not ACP. The published React Alpha.2 package and O Chat select authenticated
+              <code className="bg-gray-100 px-1 rounded mx-1">/acp</code> when the Host advertises the exact supported
+              descriptor. <code className="bg-gray-100 px-1 rounded">/ws</code> is used only when that descriptor is absent;
+              failures after native ACP selection do not silently downgrade.
+            </p>
+          </div>
         </section>
 
         {/* Overview */}

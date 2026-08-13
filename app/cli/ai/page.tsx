@@ -106,6 +106,18 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
           </div>
 
           <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Native browser ACP in Alpha.2</h3>
+            <p className="text-gray-700">
+              <code className="bg-gray-100 px-1 rounded">@connectonion/react@0.4.2-alpha.2</code> owns browser
+              transport selection, and O Chat pins it. An exact supported discovery descriptor selects authenticated
+              <code className="bg-gray-100 px-1 rounded ml-1">/acp</code>; a Host that omits it keeps the bounded
+              <code className="bg-gray-100 px-1 rounded mx-1">/ws</code> compatibility path. After native ACP is selected,
+              admission or transport failure fails closed instead of silently downgrading. Direct loopback or TLS/WSS
+              is the preview boundary, not relay end-to-end encryption.
+            </p>
+          </div>
+
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Delegate to Claude Code</h3>
             <p className="text-gray-700 mb-3">
               In the 1.7 preview implementation, <code className="bg-gray-100 px-1 rounded">co ai</code> can call the

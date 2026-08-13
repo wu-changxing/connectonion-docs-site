@@ -22,6 +22,15 @@ co ai
 - Opens `chat.openonion.ai/{your-address}` in your browser
 - You chat with the agent through the web UI
 - Agent runs in your project directory
+- Starts authenticated ACP v1 at `/acp` beside the `/ws` compatibility route
+
+The published `@connectonion/react@0.4.2-alpha.2` package owns browser transport
+selection, and O Chat pins it. An exact supported discovery descriptor selects
+authenticated `/acp`; a Host that omits the descriptor keeps the bounded `/ws`
+compatibility path. After React selects native ACP, admission or transport
+failure fails closed instead of silently downgrading. Direct loopback or
+TLS/WSS is the Alpha.2 transport boundary; this is not relay end-to-end
+encryption.
 
 #### Delegate to Claude Code
 
