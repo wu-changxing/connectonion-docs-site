@@ -139,10 +139,17 @@ assert second["resumed"] is True`}
           </ul>
         </section>
 
+        <section className="mb-12">
+          <h2 className="heading-2">Provider environment boundary</h2>
+          <p className="text-gray-700">
+            Child processes start with the ACP SDK&apos;s trimmed HOME, PATH, and shell environment instead of inheriting every ambient secret. Claude receives only an explicitly set <code className="bg-gray-100 px-1 rounded">CLAUDE_CONFIG_DIR</code> or <code className="bg-gray-100 px-1 rounded">ANTHROPIC_API_KEY</code>; Codex receives only its selected API key or <code className="bg-gray-100 px-1 rounded">CODEX_HOME</code>. Unrelated environment credentials do not cross the child boundary.
+          </p>
+        </section>
+
         <section className="mb-12 rounded-lg border border-gray-200 bg-gray-50 p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-3">Workspace boundary, not an OS sandbox</h2>
           <p className="text-gray-700">
-            The child working directory must resolve inside the operator-bound workspace, including through symlinks. That limits launch-directory selection; hostile child code still requires an operator-provided container or operating-system sandbox.
+            The child working directory must resolve inside the operator-bound workspace, including through symlinks. The convenience tool resolves that root when called instead of retaining the directory from module import. These rules limit launch-directory selection; hostile child code still requires an operator-provided container or operating-system sandbox.
           </p>
         </section>
 

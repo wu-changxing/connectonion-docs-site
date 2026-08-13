@@ -79,9 +79,18 @@ silently start a browser login flow.
 - The React package owns browser protocol decoding; O Chat renders the
   normalized state.
 
+## Provider environment boundary
+
+Child processes start with the ACP SDK's trimmed HOME, PATH, and shell
+environment instead of inheriting every ambient secret. Claude receives only
+an explicitly set `CLAUDE_CONFIG_DIR` or `ANTHROPIC_API_KEY`; Codex receives
+only its selected API key or `CODEX_HOME`. Unrelated environment credentials
+do not cross the child boundary.
+
 ## Workspace boundary, not an OS sandbox
 
 The child working directory must resolve inside the operator-bound workspace,
-including through symlinks. That limits launch-directory selection; hostile
-child code still requires an operator-provided container or operating-system
-sandbox.
+including through symlinks. The convenience tool resolves that root when
+called instead of retaining the directory from module import. These rules
+limit launch-directory selection; hostile child code still requires an
+operator-provided container or operating-system sandbox.
