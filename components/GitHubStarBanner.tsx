@@ -1,8 +1,15 @@
 /**
  * @purpose GitHub star banner promoting repository with live star count and founder chat offer
- * @context Floats at bottom-right, slides in after 3s delay, dismissible with localStorage persistence
+ * @context Floats at bottom-right, appears only after the reader scrolls past the first
+ *          screen, dismissible with localStorage persistence
  * @llm-note Uses GitHub API for live star count, dark theme matching site design (gray-950),
  *           implements slide-in animation, persists dismissal state to avoid showing again
+ *
+ * Two things here were bugs, do not reintroduce them:
+ *   1. It used to appear on a timer, which meant it covered the hero terminal on first
+ *      paint — the one thing the page exists to show. It is scroll-gated now.
+ *   2. The star count fetched github.com/wu-changxing/connectonion, which is not where
+ *      the repo lives. It 404s, so the count silently never rendered.
  */
 'use client'
 
@@ -21,11 +28,15 @@ export default function GitHubStarBanner() {
       return
     }
 
-    const timer = setTimeout(() => {
-      setIsVisible(true)
-    }, 4000)
+    const onScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.9) {
+        setIsVisible(true)
+        window.removeEventListener('scroll', onScroll)
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
 
-    fetch('https://api.github.com/repos/wu-changxing/connectonion')
+    fetch('https://api.github.com/repos/openonion/connectonion')
       .then(res => res.json())
       .then(data => {
         if (data.stargazers_count) {
@@ -36,7 +47,7 @@ export default function GitHubStarBanner() {
         // Fail silently
       })
 
-    return () => clearTimeout(timer)
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   const handleDismiss = () => {
@@ -46,7 +57,7 @@ export default function GitHubStarBanner() {
   }
 
   const handleStarClick = () => {
-    window.open('https://github.com/wu-changxing/connectonion', '_blank')
+    window.open('https://github.com/openonion/connectonion', '_blank')
     handleDismiss()
   }
 
@@ -60,7 +71,7 @@ export default function GitHubStarBanner() {
     >
       <div className="bg-gray-950 border border-gray-800 rounded-2xl shadow-2xl p-5 sm:p-6 max-w-[300px] sm:max-w-[340px] relative overflow-hidden">
         {/* Subtle glow behind star */}
-        <div className="absolute -top-6 -right-6 w-24 h-24 bg-yellow-400/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -top-6 -right-6 w-24 h-24 bg-green-400/10 rounded-full blur-2xl pointer-events-none" />
 
         <button
           onClick={handleDismiss}
@@ -72,9 +83,9 @@ export default function GitHubStarBanner() {
 
         {/* Star icon with pulse ring */}
         <div className="relative inline-flex mb-4">
-          <div className="absolute inset-0 bg-yellow-400/20 rounded-full animate-ping" />
-          <div className="relative w-11 h-11 bg-yellow-400/15 border border-yellow-400/30 rounded-full flex items-center justify-center">
-            <FaStar className="w-5 h-5 text-yellow-400" />
+          <div className="absolute inset-0 bg-green-400/20 rounded-full animate-ping" />
+          <div className="relative w-11 h-11 bg-green-400/15 border border-green-400/30 rounded-full flex items-center justify-center">
+            <FaStar className="w-5 h-5 text-green-400" />
           </div>
         </div>
 
@@ -87,7 +98,7 @@ export default function GitHubStarBanner() {
 
         <button
           onClick={handleStarClick}
-          className="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-950 font-semibold py-2.5 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
+          className="w-full bg-green-500 hover:bg-green-400 text-gray-950 font-semibold py-2.5 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
         >
           <FaStar className="w-3.5 h-3.5" />
           <span>Star on GitHub</span>

@@ -7,7 +7,12 @@ Source: https://docs.connectonion.com | GitHub: https://github.com/openonion/con
 
 ## What is ConnectOnion?
 
-ConnectOnion is an open-source Python framework for building AI agents. Current stable version: 1.6.0. License: Apache-2.0.
+ConnectOnion is an open-source Python toolkit for building AI agents. Current stable version: 1.6.0. License: Apache-2.0.
+
+You do not start from a blank file. `co create my-agent` scaffolds a project that already
+runs — an `agent.py` with a shell, file reading, editing, search and writing already wired
+as tools, a `prompt.md`, and a `.co/` directory holding logs and docs. You edit the
+generated files from there; any plain Python function you add becomes a tool automatically.
 
 **Core facts:**
 - Install: `pip install connectonion`
@@ -15,7 +20,7 @@ ConnectOnion is an open-source Python framework for building AI agents. Current 
 - Current public preview: `1.7.0a1` (opt-in); current stable remains `1.6.0`
 - Minimum Python version: 3.9
 - Default model: `co/gemini-2.5-pro` (managed keys, zero config)
-- Minimum agent: 2 lines of Python
+- Starting point: `co create` writes the project; the generated agent runs before you edit anything
 - GitHub: https://github.com/openonion/connectonion
 - PyPI: https://pypi.org/project/connectonion/
 - Docs: https://docs.connectonion.com
