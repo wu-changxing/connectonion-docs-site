@@ -31,10 +31,10 @@ const BASE_URL = 'https://docs.connectonion.com'
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "ConnectOnion - Python AI Agent Framework | Build Agents with Functions",
+    default: "ConnectOnion - Python AI Agents from a Working Template",
     template: "%s",
   },
-  description: "ConnectOnion is an open-source Python framework for building AI agents. Create production-ready agents in 2 lines of code using plain Python functions as tools. Supports OpenAI, Anthropic, and Gemini.",
+  description: "ConnectOnion is an open-source Python toolkit for AI agents. `co create` scaffolds a project that already runs — shell, file editing, search and a model wired in — and you edit it from there. Supports OpenAI, Anthropic, and Gemini.",
   keywords: "ConnectOnion, Python agent framework, AI agents, LLM tools, OpenAI agents, build AI agents, Python AI framework, agent framework, function calling, tool use",
   authors: [{ name: "ConnectOnion Team" }],
   creator: "ConnectOnion",
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "ConnectOnion - Python AI Agent Framework",
-    description: "Build production-ready AI agents in 2 lines of Python. Functions become tools automatically. Supports OpenAI, Anthropic, and Gemini.",
+    title: "ConnectOnion - Python AI Agents from a Working Template",
+    description: "One command scaffolds an agent that already runs. Plain Python functions become tools automatically. Supports OpenAI, Anthropic, and Gemini.",
     url: BASE_URL,
     siteName: "ConnectOnion Docs",
     type: "website",
@@ -62,14 +62,14 @@ export const metadata: Metadata = {
         url: `${BASE_URL}/onion-logo.png`,
         width: 1200,
         height: 630,
-        alt: "ConnectOnion - Python AI Agent Framework",
+        alt: "ConnectOnion - Python AI Agents from a Working Template",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ConnectOnion - Python AI Agent Framework",
-    description: "Build production-ready AI agents in 2 lines of Python. Functions become tools automatically.",
+    title: "ConnectOnion - Python AI Agents from a Working Template",
+    description: "One command scaffolds an agent that already runs. Plain Python functions become tools automatically.",
     images: [`${BASE_URL}/onion-logo.png`],
     creator: "@connectonion",
   },
@@ -97,7 +97,7 @@ const structuredData = {
   "alternateName": "Connect Onion",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Python 3.9+",
-  "description": "ConnectOnion is an open-source Python framework for building AI agents using plain functions as tools. Create production-ready agents in 2 lines of code.",
+  "description": "ConnectOnion is an open-source Python toolkit for AI agents. The co CLI scaffolds a project that already runs, with shell, file editing, search and a model wired in, and plain Python functions become tools automatically.",
   "url": BASE_URL,
   "author": {
     "@type": "Organization",
@@ -133,7 +133,7 @@ const organizationData = {
     "https://pypi.org/project/connectonion/",
     "https://discord.gg/4xfD9k8AUF"
   ],
-  "description": "ConnectOnion - Open-source Python framework for building AI agents"
+  "description": "ConnectOnion - Open-source Python toolkit for building AI agents from a working template"
 };
 
 // WebSite structured data for sitelinks search
@@ -162,7 +162,7 @@ const faqData = {
       "name": "What is ConnectOnion?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "ConnectOnion is an open-source Python framework for building AI agents. It lets you create production-ready agents using plain Python functions as tools. Install with pip install connectonion and create your first agent in 2 lines of code."
+        "text": "ConnectOnion is an open-source Python toolkit for building AI agents. You do not start from an empty file: run co create my-agent and it scaffolds a project that already runs, with a shell, file editing, search and a model wired in. From there you edit the generated agent.py and prompt.md, and any plain Python function you add becomes a tool automatically."
       }
     },
     {
@@ -170,7 +170,7 @@ const faqData = {
       "name": "How do I create an AI agent with ConnectOnion?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Create an agent in 2 lines: (1) from connectonion import Agent, (2) agent = Agent('You are helpful', tools=[your_function]). Then call agent.input('your task'). ConnectOnion automatically converts your Python functions into tools the AI can call."
+        "text": "Run pip install connectonion, then co create my-agent. That writes a working project, including an agent.py that already imports bash, read_file, edit, glob, grep and write as tools. Run it with cd my-agent && python agent.py. To customise it, edit prompt.md or add your own function to the tools list — ConnectOnion converts Python functions into tools from their type hints and docstrings."
       }
     },
     {
@@ -183,10 +183,10 @@ const faqData = {
     },
     {
       "@type": "Question",
-      "name": "How does ConnectOnion compare to LangChain?",
+      "name": "What makes ConnectOnion different from other Python agent libraries?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "ConnectOnion focuses on simplicity: plain Python functions become tools automatically via type hints. No chains, no complex abstractions. A basic agent is 2 lines of code vs 50+ in LangChain. ConnectOnion includes built-in debugging (@xray), plugin system, and multi-agent networking."
+        "text": "You never start from a blank file. co create writes the whole project — an agent.py with six tools and an approval plugin already wired, a prompt.md, a .co directory with logs and docs — so the thing runs before you have written a line. After that you are editing generated code that lives in your own repository, not composing framework abstractions. Plain Python functions become tools via their type hints, and @xray, the plugin system and agent-to-agent networking are built in."
       }
     },
     {
