@@ -63,6 +63,13 @@ TLS/WSS is preview scope, not a relay end-to-end-encryption claim. It is
 published on PyPI and marked as a GitHub Prerelease; the latest stable GitHub
 Release remains `1.6.4`.
 
+For local stdio ACP acceptance, `co ai --acp --state-dir PATH` isolates mutable
+session snapshots, logs, and evals in one explicit private root. Identity,
+configuration, skills, credentials, the workspace, and provider tools keep
+their normal locations and authority boundaries. Turn logs and evaluation
+evidence measure only the current user-input boundary instead of counting
+earlier cumulative activity again.
+
 Normal pip installs ignore previews. Publishing an alpha, beta, or RC therefore
 does not move existing users off stable. Feature issues and release gates live
 in the 1.7 milestone; the exact PR inventory and phase evidence live in issue

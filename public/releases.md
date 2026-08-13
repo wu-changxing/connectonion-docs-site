@@ -60,6 +60,12 @@ on the release path. Direct loopback or TLS/WSS is preview scope; this release
 does not claim end-to-end encryption through an untrusted relay. It remains
 opt-in while the complete 1.7 experience is exercised end to end.
 
+Local stdio ACP acceptance can use `co ai --acp --state-dir PATH` to isolate
+mutable session snapshots, logs, and evals without moving identity,
+configuration, skills, credentials, the workspace, or provider tools. Turn
+logs and evaluation evidence now measure the current user-input boundary rather
+than double-counting earlier activity from the cumulative conversation.
+
 - Alpha: ACP and coding-agent capabilities arrive in usable slices.
 - Beta: the feature set is complete; integration and compatibility are tested.
 - RC: only release blockers change.
