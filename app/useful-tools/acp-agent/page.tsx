@@ -56,7 +56,7 @@ agent.input("Ask Claude Code over ACP to inspect the failing tests")`}
             code={`acp_agent(
     prompt: str,
     engine: str = "",       # claude-code | codex | gemini
-    session_id: str = "",   # exact ACP session to resume
+    session_id: str = "",   # exact Claude/Codex session to resume
     cwd: str = "",          # operator workspace or a descendant
     timeout: int = 600,
 ) -> str                    # bounded JSON envelope`}
@@ -77,8 +77,9 @@ agent.input("Ask Claude Code over ACP to inspect the failing tests")`}
               <thead className="bg-gray-100 text-gray-700">
                 <tr>
                   <th className="px-4 py-3">Engine</th>
-                  <th className="px-4 py-3">Route</th>
+                  <th className="px-4 py-3">Exact route</th>
                   <th className="px-4 py-3">Supported policy</th>
+                  <th className="px-4 py-3">Cross-process resume</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -86,16 +87,19 @@ agent.input("Ask Claude Code over ACP to inspect the failing tests")`}
                   <td className="px-4 py-3 font-mono">claude-code</td>
                   <td className="px-4 py-3 font-mono text-xs">claude-agent-acp@0.66.0</td>
                   <td className="px-4 py-3">manual, auto, deny</td>
+                  <td className="px-4 py-3">yes</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono">codex</td>
                   <td className="px-4 py-3 font-mono text-xs">codex-acp@1.1.14</td>
                   <td className="px-4 py-3">explicit operator-selected auto only</td>
+                  <td className="px-4 py-3">yes</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono">gemini</td>
-                  <td className="px-4 py-3 font-mono text-xs">gemini --experimental-acp</td>
+                  <td className="px-4 py-3 font-mono text-xs">@google/gemini-cli@0.55.1 --acp</td>
                   <td className="px-4 py-3">manual, auto, deny when advertised</td>
+                  <td className="px-4 py-3">no</td>
                 </tr>
               </tbody>
             </table>
@@ -124,7 +128,7 @@ assert second["resumed"] is True`}
             language="python"
           />
           <p className="text-gray-700 mt-4">
-            A failed <code className="bg-gray-100 px-1 rounded">session/load</code> never falls back to a fresh child session. Authentication failures also return an explicit error; the tool does not silently start a browser login flow.
+            A failed Claude or Codex <code className="bg-gray-100 px-1 rounded">session/load</code> never falls back to a fresh child session. Real conformance testing found that Gemini CLI 0.55.1 does not persist its advertised ACP session across these one-process-per-turn invocations. A named Gemini turn therefore returns an empty <code className="bg-gray-100 px-1 rounded">session_id</code>; supplying one fails before launch instead of pretending to resume. Authentication failures also return an explicit error, and no child may silently start a browser login flow.
           </p>
         </section>
 
@@ -142,7 +146,7 @@ assert second["resumed"] is True`}
         <section className="mb-12">
           <h2 className="heading-2">Provider environment boundary</h2>
           <p className="text-gray-700">
-            Child processes start with the ACP SDK&apos;s trimmed HOME, PATH, and shell environment instead of inheriting every ambient secret. Claude receives only an explicitly set <code className="bg-gray-100 px-1 rounded">CLAUDE_CONFIG_DIR</code> or <code className="bg-gray-100 px-1 rounded">ANTHROPIC_API_KEY</code>; Codex receives only its selected API key or <code className="bg-gray-100 px-1 rounded">CODEX_HOME</code>. Unrelated environment credentials do not cross the child boundary.
+            Child processes start with the ACP SDK&apos;s trimmed HOME, PATH, and shell environment instead of inheriting every ambient secret. Claude receives only an explicitly set <code className="bg-gray-100 px-1 rounded">CLAUDE_CONFIG_DIR</code> or <code className="bg-gray-100 px-1 rounded">ANTHROPIC_API_KEY</code>; Codex receives only its selected API key or <code className="bg-gray-100 px-1 rounded">CODEX_HOME</code>; Gemini receives only explicitly configured Gemini API-key or Vertex authentication variables and cannot open a browser login. Unrelated environment credentials do not cross the child boundary. <code className="bg-gray-100 px-1 rounded">engine_status()</code> reports this boundary, including <code className="bg-gray-100 px-1 rounded">supports_resume</code>, without presenting a credential-file hint as proof of valid authentication.
           </p>
         </section>
 

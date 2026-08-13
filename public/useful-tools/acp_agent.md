@@ -28,7 +28,7 @@ agent.input("Ask Claude Code over ACP to inspect the failing tests")
 acp_agent(
     prompt: str,
     engine: str = "",       # claude-code | codex | gemini
-    session_id: str = "",   # exact ACP session to resume
+    session_id: str = "",   # exact Claude/Codex session to resume
     cwd: str = "",          # operator workspace or a descendant
     timeout: int = 600,
 ) -> str                    # bounded JSON envelope
@@ -39,11 +39,11 @@ intentionally absent from the model-facing function schema.
 
 ## Engine permission contract
 
-| Engine | Route | Supported policy |
-|---|---|---|
-| `claude-code` | `claude-agent-acp@0.66.0` | manual, auto, deny |
-| `codex` | `codex-acp@1.1.14` | explicit operator-selected auto only |
-| `gemini` | `gemini --experimental-acp` | manual, auto, deny when advertised |
+| Engine | Exact route | Supported policy | Cross-process resume |
+|---|---|---|---|
+| `claude-code` | `claude-agent-acp@0.66.0` | manual, auto, deny | yes |
+| `codex` | `codex-acp@1.1.14` | explicit operator-selected auto only | yes |
+| `gemini` | `@google/gemini-cli@0.55.1 --acp` | manual, auto, deny when advertised | no |
 
 Real testing found that the pinned Codex adapter's read-only mode can run shell
 and outbound network work without an ACP permission request. ConnectOnion
@@ -65,9 +65,12 @@ second = json.loads(acp_agent(
 assert second["resumed"] is True
 ```
 
-A failed `session/load` never falls back to a fresh child session.
-Authentication failures also return an explicit error; the tool does not
-silently start a browser login flow.
+A failed Claude or Codex `session/load` never falls back to a fresh child
+session. Real conformance testing found that Gemini CLI 0.55.1 does not persist
+its advertised ACP session across these one-process-per-turn invocations. A
+named Gemini turn therefore returns an empty `session_id`; supplying one fails
+before launch instead of pretending to resume. Authentication failures also
+return an explicit error, and no child may silently start a browser login flow.
 
 ## What reaches the parent and browser
 
@@ -84,8 +87,12 @@ silently start a browser login flow.
 Child processes start with the ACP SDK's trimmed HOME, PATH, and shell
 environment instead of inheriting every ambient secret. Claude receives only
 an explicitly set `CLAUDE_CONFIG_DIR` or `ANTHROPIC_API_KEY`; Codex receives
-only its selected API key or `CODEX_HOME`. Unrelated environment credentials
-do not cross the child boundary.
+only its selected API key or `CODEX_HOME`; Gemini receives only explicitly
+configured Gemini API-key or Vertex authentication variables and cannot open a
+browser login. Unrelated environment credentials do not cross the child
+boundary. `engine_status()` reports this boundary, including
+`supports_resume`, without presenting a credential-file hint as proof of valid
+authentication.
 
 ## Workspace boundary, not an OS sandbox
 
