@@ -149,22 +149,18 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
 
           <CodeWithResult code={`co ai --acp`} language="bash" />
 
-          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">Isolate real acceptance state</h3>
-            <CodeWithResult code={`co ai --acp --state-dir /private/path/to/acceptance-state`} language="bash" />
-            <p className="text-gray-700 mt-4">
-              <code className="bg-gray-100 px-1 rounded">--state-dir</code> puts mutable session snapshots, logs,
-              and eval files in one explicit private root. It does not redirect identity, configuration, skills,
-              credentials, the project workspace, or provider tools; those keep their normal authority boundaries.
-              Logs, usage, cost, and evaluation evidence are measured from the current user-input boundary rather
-              than counted again from the cumulative conversation. This option requires <code className="bg-gray-100 px-1 rounded">--acp</code>.
-            </p>
-          </div>
-
           <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-3 text-gray-700">
             <p>Each ACP session owns one persistent coding agent and a private snapshot, so later prompts reuse its conversation and supported tool state.</p>
             <p>Session updates preserve Agent event order: thinking, tool starts, tool results, and the final assistant answer. JSON-native tool arguments and results remain structured in <code className="bg-gray-100 px-1 rounded">rawInput</code> and <code className="bg-gray-100 px-1 rounded">rawOutput</code>.</p>
             <p>Turn usage and stop reasons come from the Agent&apos;s structured terminal record. Cancellation is cooperative, and events arriving after a turn is retired are not forwarded into the next prompt.</p>
+          </div>
+
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Isolate automation state</h3>
+            <CodeWithResult code={`co ai --acp --state-dir /private/tmp/co-acp-test`} language="bash" />
+            <p className="text-gray-700 mt-4">
+              The explicit directory owns this process&apos;s ACP snapshots, Agent logs, and eval records. It does not copy credentials or create another identity: the Agent name, provider configuration, skills, credentials, project workspace, and provider tools keep their normal locations and authority boundaries. POSIX directories are private at mode <code className="bg-gray-100 px-1 rounded">0700</code>, symlink roots are rejected, and the default remains <code className="bg-gray-100 px-1 rounded">~/.co</code> when the option is absent. Logs, usage, cost, and evaluation evidence begin at the current user-input boundary rather than counting earlier cumulative activity again. <code className="bg-gray-100 px-1 rounded">--state-dir</code> requires <code className="bg-gray-100 px-1 rounded">--acp</code>.
+            </p>
           </div>
 
           <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
@@ -496,6 +492,12 @@ EOF`}
                   <td className="px-4 py-3 font-mono text-gray-500">—</td>
                   <td className="px-4 py-3 text-gray-600">off</td>
                   <td className="px-4 py-3 text-gray-700">With --acp, allow session-scoped stdio MCP launches</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-mono text-gray-600">--state-dir</td>
+                  <td className="px-4 py-3 font-mono text-gray-500">—</td>
+                  <td className="px-4 py-3 text-gray-600">~/.co</td>
+                  <td className="px-4 py-3 text-gray-700">With --acp, isolate mutable session, log, and eval state</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-600">--yolo</td>
