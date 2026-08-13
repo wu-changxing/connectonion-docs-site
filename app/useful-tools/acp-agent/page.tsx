@@ -136,6 +136,7 @@ assert second["resumed"] is True`}
           <h2 className="heading-2">What reaches the parent and browser</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-700">
             <li>The bounded final child message and stable tool lifecycle IDs/titles cross the edge.</li>
+            <li>If the child emits startup notices under an earlier ACP message ID, they stay separate instead of being prepended to the final result.</li>
             <li>Raw child tool inputs and outputs do not become ordinary progress events.</li>
             <li>Child thought chunks do not become persisted ConnectOnion thoughts.</li>
             <li>A child plan does not replace the parent agent&apos;s canonical TodoList.</li>
