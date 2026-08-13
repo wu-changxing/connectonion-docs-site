@@ -41,7 +41,7 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="flex items-center justify-center px-4 md:px-6 py-14 md:py-20 relative border-b border-gray-100 overflow-hidden">
+      <section className="flex items-center justify-center px-4 md:px-6 py-10 md:py-14 relative border-b border-gray-100 overflow-hidden">
         {/* Dot-grid texture — fades to edges */}
         <div className="absolute inset-0 pointer-events-none select-none" style={{
           backgroundImage: 'radial-gradient(circle, #d1d5db 1px, transparent 1px)',
@@ -58,87 +58,34 @@ export default function HomePage() {
           <div className="flex items-center justify-center gap-2 mb-5">
             <span className="text-sm font-medium text-gray-500">ConnectOnion</span>
             <span className="text-gray-400">·</span>
-            <span className="px-2 py-0.5 bg-gray-100 text-green-700 text-xs font-semibold rounded-full">Stable v{STABLE_VERSION}</span>
+            <span className="px-2 py-0.5 bg-green-50 text-green-700 text-xs font-semibold rounded-full">Stable v{STABLE_VERSION}</span>
           </div>
 
           {/* Value proposition headline.
               Do NOT reinstate "Build AI Agents in 2 lines of Python". That claim was
               retired on purpose: nobody writes those two lines — `co create` writes the
-              whole project, and the user edits it. The headline has to say template,
-              not framework, because that is the actual product. */}
+              whole project, and the user edits it.
+              This also went through a draft reading "Not a framework. A template you
+              edit." Two reviewers killed it independently and they were right: it spends
+              the largest type on the page arguing with a competitor, it never says the
+              word "agent", and an engineer looking at an Agent() constructor with a
+              plugin system will simply answer "yes it is". State the fact instead —
+              the file already exists — and let the reader draw the conclusion. */}
           <h1 className="heading-1 mb-4 text-balance">
-            Not a framework.{' '}
-            <span className="accent-italic text-[1.05em]">A template you edit.</span>
+            Your agent is{' '}
+            <span className="accent-italic text-[1.05em]">already written.</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-gray-500 mb-8 leading-relaxed text-balance">
-            <code className="font-mono text-[0.95em] text-gray-700">co create</code> writes an
-            agent that already runs — shell, file editing, search and a model, wired up.
-            Then you change one file.
+          <p className="text-base sm:text-lg text-gray-600 mb-7 leading-relaxed text-balance">
+            One command scaffolds a working project — shell, file editing and a model
+            already wired. You edit it. Nothing to build first.
           </p>
 
-          {/* Install Command */}
-          {/* text-left is load-bearing — the hero is text-center, and without it the
-              shell prompts render centred, which reads as a broken terminal. */}
-          <div className="mb-8 max-w-md mx-auto text-left">
-            <CommandBlock commands={['pip install connectonion', 'co create my-agent']} />
-          </div>
-
-          {/* The template itself. This block is copied verbatim from
-              connectonion/cli/templates/minimal/agent.py — if that file changes, this is
-              wrong. It is here rather than a hand-written snippet because the whole
-              argument is "you did not write this", and a hand-written snippet would be
-              a lie about what lands on disk. */}
-          <div className="mb-4 text-left rounded-xl overflow-hidden border border-gray-700 shadow-xl shadow-black/20">
-            {/* Terminal chrome */}
-            <div className="bg-gray-800 px-4 py-2.5 flex items-center gap-3 border-b border-gray-700">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <div className="w-3 h-3 rounded-full bg-green-500/80" />
-              </div>
-              <span className="text-xs text-gray-400 font-mono flex-1 text-center">my-agent/agent.py</span>
-              <span className="text-[11px] text-gray-500 font-mono whitespace-nowrap">written for you</span>
-            </div>
-            {/* relative + the fade below: at 390px this block is ~2x the viewport and
-                scrolls sideways. It already scrolled; nothing said so, so it just looked
-                cut off. The gradient is the only affordance. */}
-            <div className="bg-gray-900 relative">
-              <SyntaxHighlighter
-                language="python"
-                style={okaidia}
-                customStyle={{
-                  background: 'transparent',
-                  padding: '1rem 1.25rem',
-                  margin: 0,
-                  fontSize: '0.8rem',
-                  lineHeight: '1.7',
-                }}
-              >
-{`from connectonion import Agent, bash, read_file, edit, glob, grep, write
-from connectonion.useful_plugins import image_result_formatter, tool_approval
-
-agent = Agent(
-    name="my-agent",
-    system_prompt="prompt.md",
-    tools=[bash, read_file, edit, glob, grep, write],
-    plugins=[image_result_formatter, tool_approval],
-    model="co/gemini-3.6-flash",
-)
-
-print(agent.input("what is your task?"))`}
-              </SyntaxHighlighter>
-              <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-gray-900 to-transparent pointer-events-none lg:hidden" />
-            </div>
-          </div>
-
-          <p className="text-sm text-gray-500 mb-8 text-balance">
-            Six tools and an approval prompt, already wired. Edit{' '}
-            <code className="font-mono text-gray-700">prompt.md</code> — or drop your own
-            function into <code className="font-mono text-gray-700">tools=[…]</code>.
-          </p>
-
-          {/* CTAs */}
+          {/* CTAs sit ABOVE the proof, not below it. The proof card is ~440px tall, so
+              with the buttons underneath there was nothing clickable in a 900px viewport
+              and the only "there's more" hint was a chevron pinned to the bottom of a
+              1240px section — i.e. itself offscreen. The card now bleeds past the fold on
+              purpose and does that job. */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-sm w-full">
             <a href="/quickstart" className="btn btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto">
               Quick Start →
@@ -154,14 +101,104 @@ print(agent.input("what is your task?"))`}
               </a>
             </div>
           </div>
+
+          {/* Deliberately a text row and not three cards: cards would cost ~180px in the
+              one place the page cannot spare it, and would sit a screen above the
+              Documentation grid as a second competing grid. The card below demonstrates;
+              this line only labels. */}
+          <p className="mt-5 mb-8 text-sm text-gray-500 flex flex-wrap justify-center gap-x-3 gap-y-1">
+            <span>No signup</span>
+            <span className="text-gray-300" aria-hidden="true">·</span>
+            <span>Your code, your repo</span>
+            <span className="text-gray-300" aria-hidden="true">·</span>
+            <span>$5 credits, no API key</span>
+          </p>
+
+          {/* One card, two panes, an arrow between them.
+              These used to be two free-floating dark blocks of different widths, and both
+              reviewers read them as a repeated broken element. Worse, nothing on screen
+              showed that the second was PRODUCED BY the first — which is the entire
+              claim. The card exists to make that causal, not for decoration. */}
+          <div className="mb-4 text-left rounded-2xl border border-gray-200 bg-white p-3 sm:p-4 shadow-sm">
+            {/* Pane 1 — what you type */}
+            <div className="rounded-xl overflow-hidden border border-gray-800">
+              <div className="bg-gray-900 px-4 py-2 flex items-center gap-2.5 border-b border-gray-800">
+                <span className="text-[10px] font-bold text-gray-950 bg-green-500 rounded-full w-4 h-4 flex items-center justify-center shrink-0">1</span>
+                <span className="text-xs text-gray-400 font-mono">you type this</span>
+              </div>
+              <div className="bg-gray-950 px-4 py-3 font-mono text-xs sm:text-sm overflow-x-auto">
+                <div className="whitespace-nowrap"><span className="text-green-500 select-none mr-2 opacity-60">$</span><span className="text-green-400">pip</span><span className="text-gray-100"> install </span><span className="text-blue-400">connectonion</span></div>
+                <div className="whitespace-nowrap"><span className="text-green-500 select-none mr-2 opacity-60">$</span><span className="text-gray-500">co</span><span className="text-gray-100"> create my-agent</span></div>
+                <div className="whitespace-nowrap text-green-400 mt-1.5 pl-4">✅ Created my-agent</div>
+              </div>
+            </div>
+
+            {/* The causal join */}
+            <div className="flex items-center gap-2 py-2.5 pl-1">
+              <svg className="w-4 h-4 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+              <span className="text-xs text-gray-500">and it wrote the whole project, including:</span>
+            </div>
+
+            {/* Pane 2 — the file it wrote. Copied verbatim from
+                connectonion/cli/templates/minimal/agent.py. If that file changes, this is
+                wrong. A hand-written snippet here would be a lie about what lands on disk,
+                and the honesty is the only reason this beats a hello-world. */}
+            <div className="rounded-xl overflow-hidden border border-gray-800">
+              <div className="bg-gray-900 px-4 py-2 flex items-center gap-2.5 border-b border-gray-800">
+                <span className="text-[10px] font-bold text-gray-950 bg-green-500 rounded-full w-4 h-4 flex items-center justify-center shrink-0">2</span>
+                <span className="text-xs text-gray-300 font-mono">my-agent/agent.py</span>
+                <span className="text-[11px] text-gray-500 font-mono ml-auto whitespace-nowrap">you wrote none of it</span>
+              </div>
+              {/* relative + the fade below: at 390px this is wider than the viewport and
+                  scrolls sideways. It always scrolled; nothing said so, so it just looked
+                  cut off. The gradient is the only affordance. */}
+              <div className="bg-gray-950 relative">
+                <SyntaxHighlighter
+                  language="python"
+                  style={okaidia}
+                  customStyle={{
+                    background: 'transparent',
+                    padding: '0.875rem 1.25rem',
+                    margin: 0,
+                    fontSize: '0.875rem',
+                    lineHeight: '1.65',
+                  }}
+                >
+{`from connectonion import Agent, bash, read_file, edit, glob, grep, write
+from connectonion.useful_plugins import image_result_formatter, tool_approval
+
+agent = Agent(
+    name="my-agent",
+    system_prompt="prompt.md",
+    tools=[bash, read_file, edit, glob, grep, write],
+    plugins=[image_result_formatter, tool_approval],
+    model="co/gemini-3.6-flash",
+)
+
+print(agent.input("what is your task?"))`}
+                </SyntaxHighlighter>
+                <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-gray-950 via-gray-950/70 to-transparent pointer-events-none lg:hidden" />
+              </div>
+            </div>
+          </div>
+
+          {/* Answers the question a sceptical engineer asks first. `co/` is a proxy
+              through our servers, which is a fair thing to be suspicious about — so say
+              it plainly and say how to leave, rather than letting them find out later. */}
+          <p className="text-sm text-gray-500 mb-8 text-balance">
+            <code className="font-mono text-gray-700">co/gemini-3.6-flash</code> runs on our
+            managed keys — $5 of credits, no API key to sign up for. Swap in{' '}
+            <code className="font-mono text-gray-700">gpt-4o</code>,{' '}
+            <code className="font-mono text-gray-700">claude-…</code> or your own key any time.
+          </p>
         </div>
 
-        {/* Scroll cue */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce opacity-40">
-          <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
+        {/* The bouncing chevron that used to live here was pinned to the bottom of a
+            ~1240px section, so the "there is more below" hint was itself below the fold.
+            It also animated infinitely with no motion-reduce guard (WCAG 2.2.2). The
+            proof card running past the fold is the scroll cue now. */}
       </section>
 
       {/* Docs Quick Access — jump straight into documentation */}
