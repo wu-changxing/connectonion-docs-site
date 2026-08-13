@@ -94,6 +94,30 @@ package is published.
 
 ---
 
+## Generic Downward ACP Child Agents
+
+The planned `acp_agent` tool makes ConnectOnion an ACP client for named child
+coding engines. Claude Code and Codex use exact-version adapters; Gemini CLI
+uses its native experimental ACP mode. Process commands, approval policy, and
+the workspace root stay operator-owned and are absent from the model schema.
+Exact resume fails rather than silently starting a new session.
+
+Protocol compatibility is not permission compatibility. A real test of pinned
+`codex-acp@1.1.14` showed its read-only mode could execute shell and outbound
+network work without sending an ACP permission request. ConnectOnion therefore
+allows that named route only for explicit operator-selected auto mode and
+directs approval-aware Codex work to the native `codex` tool. Child thoughts,
+plans, and raw tool payloads do not become parent state or ordinary browser
+events; `@connectonion/react` owns browser decoding and O Chat renders it.
+
+This work is in Draft PR #901 and must not be treated as released until a
+matching 1.7 preview is published.
+
+- Tool documentation: https://docs.connectonion.com/useful-tools/acp-agent
+- Feature issue: https://github.com/openonion/connectonion/issues/900
+
+---
+
 ## Minimal Agent (2 lines)
 
 ```python

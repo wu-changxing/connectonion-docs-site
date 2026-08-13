@@ -4,7 +4,7 @@ import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 
 const title = 'How co ai Streams Claude Code Tool Calls to the Web'
-const description = 'Why ConnectOnion uses Claude Code stream-json to show live Read, Edit, and Bash cards in O Chat without confusing observability with permission authority.'
+const description = 'Why ConnectOnion uses Claude Code stream-json for live O Chat cards, while keeping generic ACP children behind an evidence-based permission boundary.'
 const canonicalPath = '/blog/stream-claude-code-tools-to-web'
 
 export const metadata: Metadata = {
@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     'agent observability',
     'Claude Agent SDK',
     'MCP v2',
+    'ACP child agents',
+    'Codex ACP permissions',
   ],
   alternates: { canonical: canonicalPath },
   openGraph: {
@@ -28,9 +30,9 @@ export const metadata: Metadata = {
     siteName: 'ConnectOnion Docs',
     type: 'article',
     publishedTime: '2026-08-12T00:00:00+10:00',
-    modifiedTime: '2026-08-12T00:00:00+10:00',
+    modifiedTime: '2026-08-14T00:00:00+10:00',
     authors: ['ConnectOnion Team'],
-    tags: ['Claude Code', 'co ai', 'agent observability', 'architecture'],
+    tags: ['Claude Code', 'co ai', 'ACP', 'agent observability', 'architecture'],
     images: [{ url: '/onion-logo.png', alt: 'ConnectOnion and Claude Code live tool event design' }],
   },
   twitter: {
@@ -47,7 +49,7 @@ const articleJsonLd = {
   headline: title,
   description,
   datePublished: '2026-08-12',
-  dateModified: '2026-08-12',
+  dateModified: '2026-08-14',
   author: { '@type': 'Organization', name: 'ConnectOnion', url: 'https://docs.connectonion.com' },
   publisher: {
     '@type': 'Organization',
@@ -55,7 +57,7 @@ const articleJsonLd = {
     logo: { '@type': 'ImageObject', url: 'https://docs.connectonion.com/onion-logo.png' },
   },
   mainEntityOfPage: `https://docs.connectonion.com${canonicalPath}`,
-  about: ['Claude Code', 'AI coding agents', 'tool-call streaming', 'agent observability'],
+  about: ['Claude Code', 'ACP child agents', 'AI coding agents', 'tool-call streaming', 'agent permissions'],
 }
 
 export default function StreamClaudeCodeToolsToWebPage() {
@@ -189,6 +191,40 @@ export default function StreamClaudeCodeToolsToWebPage() {
             versioned process if interactive approval justifies that complexity.
           </p>
 
+          <h2>Why one ACP client is not one permission model</h2>
+          <p>
+            The generic <code>acp_agent</code> track is still useful: one typed client can drive Claude Code, Codex,
+            Gemini CLI, and future ACP agents. It remains a separate downward edge rather than replacing the native
+            Claude and Codex routes. Exact-version adapters make protocol behavior reviewable, but the shared wire
+            format cannot guarantee that two engines interpret a permission label the same way.
+          </p>
+          <p>
+            A controlled test of <code>codex-acp@1.1.14</code> proved the difference. ConnectOnion selected its
+            read-only mode under outer <code>deny</code>, then asked the child to run <code>curl</code>. The child reached
+            the network and returned HTTP 200 without sending <code>session/request_permission</code>. The adapter maps
+            read-only to Codex&apos;s <code>on-request</code> policy; the native ConnectOnion Codex tool can select the
+            stricter approval-aware policy directly.
+          </p>
+          <p>
+            We therefore reject named Codex ACP under manual or deny before the adapter starts. Only an explicit,
+            operator-selected Full Access grant may choose that generic route; ordinary work uses the native Codex
+            tool. The <code>co ai</code> wrapper is authorized only inside its local session and never enters shared
+            remote EXEC rules. Hosted non-admin requesters fail before a local child process is constructed.
+          </p>
+          <p>
+            The same evidence rule applies to data crossing the edge. Stable child tool IDs and bounded titles are
+            useful browser activity. A child thought is not a ConnectOnion-persisted thought, and a child plan is not
+            the parent&apos;s canonical TodoList. Raw child tool payloads, thoughts, and plans therefore stay out of the
+            ordinary parent event stream. <code>@connectonion/react</code> continues to own browser decoding; O Chat
+            renders the normalized result instead of implementing another protocol parser.
+          </p>
+          <p>
+            We will revisit Codex manual and deny only when a pinned adapter passes real conformance tests for file
+            writes, shell execution, and outbound network access. See{' '}
+            <a href="https://github.com/openonion/connectonion/issues/900">issue #900</a>{' '}
+            and the <Link href="/useful-tools/acp-agent">ACP Agent contract</Link> for the current Draft boundary.
+          </p>
+
           <h2>Current status</h2>
           <p>
             The implementation is being prepared for a ConnectOnion 1.7 preview. Until the linked feature is merged
@@ -204,6 +240,8 @@ export default function StreamClaudeCodeToolsToWebPage() {
             <a href="https://code.claude.com/docs/en/headless" className="font-medium text-green-700 hover:underline">Claude Code headless mode</a>
             <a href="https://code.claude.com/docs/en/agent-sdk/streaming-output" className="font-medium text-green-700 hover:underline">Streaming output</a>
             <a href="https://github.com/openonion/connectonion/issues/902" className="font-medium text-green-700 hover:underline">Feature issue</a>
+            <a href="https://github.com/openonion/connectonion/issues/900" className="font-medium text-green-700 hover:underline">Generic ACP issue</a>
+            <Link href="/useful-tools/acp-agent" className="font-medium text-green-700 hover:underline">ACP Agent contract</Link>
             <Link href="/blog/alpha-beta-rc-before-lts" className="font-medium text-green-700 hover:underline">1.7 release train</Link>
           </div>
         </aside>
