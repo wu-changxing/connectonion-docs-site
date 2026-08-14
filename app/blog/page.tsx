@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'The Agent That Was Itself, and Billed Someone Else',
+    subtitle: 'What a deployed process should inherit, and what it must not',
+    date: 'August 2026',
+    readTime: '6 min read',
+    href: '/blog/deployed-agent-identity',
+    icon: HiOutlineShieldCheck,
+    tags: ['Design Journal', 'Release', 'Agent Identity'],
+    excerpt: 'ConnectOnion 1.6.5 stops co deploy --to from shipping the operator identity to the server — and why a bug where every signal agreed with itself survived nine days.'
+  },
+  {
     title: 'How co ai Streams Claude Code Tool Calls to the Web',
     subtitle: 'One delegated task, visible inner work, and an honest permission boundary',
     date: 'August 2026',
