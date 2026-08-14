@@ -70,12 +70,17 @@ second = json.loads(acp_agent(
 assert second["resumed"] is True
 ```
 
-A failed Claude or Codex `session/load` never falls back to a fresh child
-session. Real conformance testing found that Gemini CLI 0.55.1 does not persist
-its advertised ACP session across these one-process-per-turn invocations. A
-named Gemini turn therefore returns an empty `session_id`; supplying one fails
-before launch instead of pretending to resume. Authentication failures also
-return an explicit error, and no child may silently start a browser login flow.
+Continuation follows the capabilities returned by `initialize`: the client
+prefers `sessionCapabilities.resume`, otherwise uses `loadSession`, and sends
+exactly one lifecycle request. Explicitly null `agentCapabilities` means no
+optional capability was advertised, so continuation fails before a request.
+Failure never falls back to the other method or a fresh child session.
+
+Real conformance testing found that Gemini CLI 0.55.1 does not persist its
+advertised ACP session across these one-process-per-turn invocations. A named
+Gemini turn therefore returns an empty `session_id`; supplying one fails before
+launch instead of pretending to resume. Authentication failures also return an
+explicit error, and no child may silently start a browser login flow.
 
 ## What reaches the parent and browser
 

@@ -131,7 +131,10 @@ assert second["resumed"] is True`}
             language="python"
           />
           <p className="text-gray-700 mt-4">
-            A failed Claude or Codex <code className="bg-gray-100 px-1 rounded">session/load</code> never falls back to a fresh child session. Real conformance testing found that Gemini CLI 0.55.1 does not persist its advertised ACP session across these one-process-per-turn invocations. A named Gemini turn therefore returns an empty <code className="bg-gray-100 px-1 rounded">session_id</code>; supplying one fails before launch instead of pretending to resume. Authentication failures also return an explicit error, and no child may silently start a browser login flow.
+            Continuation follows the capabilities returned by <code className="bg-gray-100 px-1 rounded">initialize</code>: the client prefers <code className="bg-gray-100 px-1 rounded">sessionCapabilities.resume</code>, otherwise uses <code className="bg-gray-100 px-1 rounded">loadSession</code>, and sends exactly one lifecycle request. Explicitly null <code className="bg-gray-100 px-1 rounded">agentCapabilities</code> means no optional capability was advertised, so continuation fails before a request. Failure never falls back to the other method or a fresh child session.
+          </p>
+          <p className="text-gray-700 mt-4">
+            Real conformance testing found that Gemini CLI 0.55.1 does not persist its advertised ACP session across these one-process-per-turn invocations. A named Gemini turn therefore returns an empty <code className="bg-gray-100 px-1 rounded">session_id</code>; supplying one fails before launch instead of pretending to resume. Authentication failures also return an explicit error, and no child may silently start a browser login flow.
           </p>
         </section>
 
