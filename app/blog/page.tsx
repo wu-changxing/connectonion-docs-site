@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'The Agent That Was Itself, and Billed Someone Else',
+    subtitle: 'What a deployed process should inherit, and what it must not',
+    date: 'August 2026',
+    readTime: '6 min read',
+    href: '/blog/deployed-agent-identity',
+    icon: HiOutlineShieldCheck,
+    tags: ['Design Journal', 'Release', 'Agent Identity'],
+    excerpt: 'ConnectOnion 1.6.5 stops co deploy --to from shipping the operator identity to the server — and why a bug where every signal agreed with itself survived nine days.'
+  },
+  {
     title: 'Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS',
     subtitle: 'A version is a compatibility promise, not a progress counter',
     date: 'August 2026',
