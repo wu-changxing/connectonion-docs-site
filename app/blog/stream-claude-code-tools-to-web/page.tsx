@@ -108,15 +108,16 @@ export default function StreamClaudeCodeToolsToWebPage() {
           <ol>
             <li>The user opens <code>co ai</code> and asks it to have Claude Code implement a bounded task.</li>
             <li>The parent agent calls <code>claude_code</code> once. There is no ACP switch or second chat window.</li>
-            <li>O Chat shows cards such as <code>Claude Code › Read</code>, <code>Claude Code › Edit</code>, and <code>Claude Code › Bash</code> as they start and finish.</li>
+            <li>O Chat shows one expandable Claude Code invocation card, with <code>Read</code>, <code>Edit</code>, and <code>Bash</code> activity nested inside it.</li>
             <li>Claude returns one resumable result. The parent agent inspects the diff and tests, then answers the user.</li>
           </ol>
 
           <pre className="overflow-x-auto"><code>{`User → co ai → claude_code(task)
-                    ├─ Claude Code › Read
-                    ├─ Claude Code › Edit
-                    ├─ Claude Code › Bash
-                    └─ final result + session_id
+                    └─ Claude Code · Running
+                       ├─ Read
+                       ├─ Edit
+                       ├─ Bash
+                       └─ final result + session_id
 
              co ai reviews → User`}</code></pre>
 
@@ -133,9 +134,28 @@ export default function StreamClaudeCodeToolsToWebPage() {
             frontend protocol implementation.
           </p>
           <p>
-            Each Claude tool-use ID receives a <code>claude:</code> namespace so the start and result share one stable
-            card. Provider, child-session, and parent-tool metadata are preserved. Current clients can render the
-            cards flat; a later UI can group them beneath the delegated call.
+            Each outer delegation receives a stable provider invocation ID correlated to the parent ConnectOnion tool
+            call. Claude tool-use IDs retain their <code>claude:</code> namespace and carry that parent correlation, so
+            React can rebuild one card after reconnect without duplicating child steps. Unknown providers and older
+            events still render through the generic tool-card fallback.
+          </p>
+
+          <h2>Why the provider is a plugin now</h2>
+          <p>
+            The original <code>co ai</code> wrapper proved the transport, but it was the wrong public installation
+            boundary: a third-party Agent would have to copy COAI policy to get the same behavior. Alpha.2 therefore
+            makes <code>CodexPlugin</code> and <code>ClaudeCodePlugin</code> the operator-owned boundary. Each plugin
+            registers its model-callable tool while keeping workspace root, provider command, and permission ceiling
+            out of the model schema.
+          </p>
+          <p>
+            The browser receives one provider-neutral object with the parent tool-call ID, provider, bounded task
+            summary, status, elapsed time, child activity, and a terminal result. React owns normalization and O Chat
+            owns only the shared collapsed/expanded presentation. Child thoughts never become a second top-level author.
+          </p>
+          <p>
+            This candidate intentionally stops short of a session browser, persistent tabs, or a general Agent graph.
+            Those become justified only when users need durable concurrent provider work rather than one linear call.
           </p>
 
           <h2>The options we considered</h2>

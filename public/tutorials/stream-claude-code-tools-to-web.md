@@ -19,17 +19,18 @@ Chat already understands.
    task.
 2. The parent agent calls `claude_code` once. There is no ACP switch or second
    chat window.
-3. O Chat shows cards such as `Claude Code › Read`, `Claude Code › Edit`, and
-   `Claude Code › Bash` as they start and finish.
+3. O Chat shows one expandable Claude Code invocation card, with `Read`, `Edit`,
+   and `Bash` activity nested inside it as those steps start and finish.
 4. Claude returns one resumable result. The parent agent inspects the diff and
    tests, then answers the user.
 
 ```text
 User → co ai → claude_code(task)
-                    ├─ Claude Code › Read
-                    ├─ Claude Code › Edit
-                    ├─ Claude Code › Bash
-                    └─ final result + session_id
+                    └─ Claude Code · Running
+                       ├─ Read
+                       ├─ Edit
+                       ├─ Bash
+                       └─ final result + session_id
 
              co ai reviews → User
 ```
@@ -46,10 +47,30 @@ In the browser, `@connectonion/react` owns protocol decoding and typed session
 state; O Chat renders that state. The standalone TypeScript SDK is retired, so
 this feature does not add another frontend protocol implementation.
 
-Each Claude tool-use ID receives a `claude:` namespace so the start and result
-share one stable card. Provider, child-session, and parent-tool metadata are
-preserved. Current clients can render the cards flat; a later UI can group them
-beneath the delegated call.
+Each outer delegation receives a stable provider invocation ID correlated to
+the parent ConnectOnion tool call. Claude tool-use IDs retain their `claude:`
+namespace and carry that parent correlation, so React can rebuild one card
+after reconnect without duplicating child steps. Unknown providers and older
+events still render through the generic tool-card fallback.
+
+## Why the provider is a plugin now
+
+The original `co ai` wrapper proved the transport, but it was the wrong public
+installation boundary: a third-party Agent would have to copy COAI policy to
+get the same behavior. Alpha.2 therefore makes `CodexPlugin` and
+`ClaudeCodePlugin` the operator-owned boundary. Each plugin registers its
+model-callable tool while keeping workspace root, provider command, and
+permission ceiling out of the model schema.
+
+The browser receives one provider-neutral object with the parent tool-call ID,
+provider, bounded task summary, status, elapsed time, child activity, and a
+terminal result. React owns normalization and O Chat owns only the shared
+collapsed/expanded presentation. Child thoughts never become a second
+top-level author.
+
+This candidate intentionally stops short of a session browser, persistent tabs,
+or a general Agent graph. Those become justified only when users need durable
+concurrent provider work rather than one linear delegated call.
 
 ## The options we considered
 
