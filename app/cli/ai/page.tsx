@@ -106,6 +106,18 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
           </div>
 
           <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Native browser ACP in Alpha.2</h3>
+            <p className="text-gray-700">
+              <code className="bg-gray-100 px-1 rounded">@connectonion/react@0.4.2-alpha.2</code> owns browser
+              transport selection, and O Chat pins it. An exact supported discovery descriptor selects authenticated
+              <code className="bg-gray-100 px-1 rounded ml-1">/acp</code>; a Host that omits it keeps the bounded
+              <code className="bg-gray-100 px-1 rounded mx-1">/ws</code> compatibility path. After native ACP is selected,
+              admission or transport failure fails closed instead of silently downgrading. Direct loopback or TLS/WSS
+              is the preview boundary, not relay end-to-end encryption.
+            </p>
+          </div>
+
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Delegate to Claude Code</h3>
             <p className="text-gray-700 mb-3">
               In the 1.7 preview implementation, <code className="bg-gray-100 px-1 rounded">co ai</code> can call the
@@ -120,6 +132,22 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
             </p>
             <Link href="/blog/stream-claude-code-tools-to-web" className="font-medium text-green-700 hover:underline">
               Read the stream-json design decision
+            </Link>
+          </div>
+
+          <div className="mt-6 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Delegate through a generic ACP child</h3>
+            <p className="text-gray-700 mb-3">
+              The <code className="bg-gray-100 px-1 rounded">1.7.0a2</code> candidate registers <code className="bg-gray-100 px-1 rounded">acp_agent</code> for work that specifically needs the common ACP edge instead of the preferred native Claude Code or Codex tools. Engine name, prompt, working directory, and exact session ID are model-visible; command, approval, and workspace root remain operator-owned. It is not publicly available until the reviewed preview package is published.
+            </p>
+            <p className="text-gray-700 mb-3">
+              Read only and Workspace profiles select inner manual approval. Only a valid bounded Full Access grant selects auto, and hosted non-admin requesters fail before launch. The pinned Codex ACP route is rejected in ordinary profiles because its read-only mode does not reliably ask before shell or outbound network work.
+            </p>
+            <p className="text-gray-700 mb-3">
+              The pinned Gemini route is one-turn and requires a Gemini API key, Vertex AI, or enterprise Code Assist. Google retired individual Gemini CLI OAuth service on June 18, 2026, so an old local OAuth credential file is not a readiness signal.
+            </p>
+            <Link href="/useful-tools/acp-agent" className="font-medium text-green-700 hover:underline">
+              Read the bounded ACP child-agent contract
             </Link>
           </div>
         </section>
@@ -138,6 +166,8 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
           <CodeWithResult code={`co ai --acp`} language="bash" />
 
           <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-3 text-gray-700">
+            <p>The first request on each connection must be <code className="bg-gray-100 px-1 rounded">initialize</code>. Pre-initialization session requests are rejected before an Agent or session state is created, and initialization cannot be repeated on the same connection.</p>
+            <p>The stdio and authenticated WebSocket Host boundaries preserve official legacy-string <code className="bg-gray-100 px-1 rounded">protocolVersion</code> compatibility. Raw numeric values must be JSON integers from <code className="bg-gray-100 px-1 rounded">0</code> through <code className="bg-gray-100 px-1 rounded">65535</code>; booleans, floats, and out-of-range integers are rejected before Python coercion. Compatible strings and integers still use normal ACP version negotiation.</p>
             <p>Each ACP session owns one persistent coding agent and a private snapshot, so later prompts reuse its conversation and supported tool state.</p>
             <p>Session updates preserve Agent event order: thinking, tool starts, tool results, and the final assistant answer. JSON-native tool arguments and results remain structured in <code className="bg-gray-100 px-1 rounded">rawInput</code> and <code className="bg-gray-100 px-1 rounded">rawOutput</code>.</p>
             <p>Turn usage and stop reasons come from the Agent&apos;s structured terminal record. Cancellation is cooperative, and events arriving after a turn is retired are not forwarded into the next prompt.</p>
@@ -147,7 +177,7 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Isolate automation state</h3>
             <CodeWithResult code={`co ai --acp --state-dir /private/tmp/co-acp-test`} language="bash" />
             <p className="text-gray-700 mt-4">
-              The explicit directory owns this process&apos;s ACP snapshots, Agent logs, and eval records. It does not copy credentials or create another identity: the Agent name and provider configuration still come from the normal global setup. POSIX directories are private at mode <code className="bg-gray-100 px-1 rounded">0700</code>, symlink roots are rejected, and the default remains <code className="bg-gray-100 px-1 rounded">~/.co</code> when the option is absent.
+              The explicit directory owns this process&apos;s ACP snapshots, Agent logs, and eval records. It does not copy credentials or create another identity: the Agent name, provider configuration, skills, credentials, project workspace, and provider tools keep their normal locations and authority boundaries. POSIX directories are private at mode <code className="bg-gray-100 px-1 rounded">0700</code>, symlink roots are rejected, and the default remains <code className="bg-gray-100 px-1 rounded">~/.co</code> when the option is absent. Logs, usage, cost, and evaluation evidence begin at the current user-input boundary rather than counting earlier cumulative activity again. <code className="bg-gray-100 px-1 rounded">--state-dir</code> requires <code className="bg-gray-100 px-1 rounded">--acp</code>.
             </p>
           </div>
 

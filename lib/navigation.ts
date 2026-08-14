@@ -10,7 +10,7 @@
  */
 import {
   HiOutlineHome, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
-  HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineBookOpen,
+  HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineBookOpen, HiOutlineArrowsRightLeft,
   HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone, HiOutlineArrowPath, HiOutlineFolderPlus, HiOutlineKey, HiOutlineDocumentDuplicate
 } from 'react-icons/hi2'
 import { VscComment, VscGitMerge, VscFileCode, VscKey, VscServerProcess } from 'react-icons/vsc'
@@ -536,6 +536,24 @@ export const navigation = [
     section: 'Useful Tools',
     keywords: ['browser', 'playwright', 'automation', 'click', 'screenshot', 'navigate', 'session', 'persistent'],
     prev: { href: '/useful-tools/read-file', title: 'read_file' },
+    next: { href: '/useful-tools/codex', title: 'Codex' }
+  },
+  {
+    title: 'Codex',
+    href: '/useful-tools/codex',
+    icon: HiOutlineCodeBracket,
+    section: 'Useful Tools',
+    keywords: ['codex', 'openai', 'coding agent', 'app-server', 'resume', 'approval'],
+    prev: { href: '/useful-tools/browser-tools', title: 'BrowserAutomation' },
+    next: { href: '/useful-tools/acp-agent', title: 'ACP Agent' }
+  },
+  {
+    title: 'ACP Agent',
+    href: '/useful-tools/acp-agent',
+    icon: HiOutlineArrowsRightLeft,
+    section: 'Useful Tools',
+    keywords: ['acp', 'coding agent', 'claude code', 'codex', 'gemini', 'resume', 'delegation'],
+    prev: { href: '/useful-tools/codex', title: 'Codex' },
     next: { href: '/google-integration', title: 'Google Integration' }
   },
 
@@ -547,7 +565,7 @@ export const navigation = [
     section: 'Integrations',
     difficulty: 'New',
     keywords: ['google', 'gmail', 'calendar', 'oauth', 'integration', 'schedule', 'meeting'],
-    prev: { href: '/useful-tools/browser-tools', title: 'BrowserAutomation' },
+    prev: { href: '/useful-tools/acp-agent', title: 'ACP Agent' },
     next: { href: '/microsoft-integration', title: 'Microsoft Integration' }
   },
   {

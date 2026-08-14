@@ -32,6 +32,8 @@ const routeToMarkdownMap: Record<string, string> = {
   '/web-fetch': '/web-fetch.md',
   '/memory': '/memory.md',
   '/google-integration': '/google-integration.md',
+  '/useful-tools/codex': '/useful-tools/codex.md',
+  '/useful-tools/acp-agent': '/useful-tools/acp_agent.md',
   
   // Advanced Features
   '/xray/trace': '/tutorials/xray.md', // Uses same xray.md for now

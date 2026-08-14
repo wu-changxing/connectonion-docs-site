@@ -22,6 +22,15 @@ co ai
 - Opens `chat.openonion.ai/{your-address}` in your browser
 - You chat with the agent through the web UI
 - Agent runs in your project directory
+- Starts authenticated ACP v1 at `/acp` beside the `/ws` compatibility route
+
+The published `@connectonion/react@0.4.2-alpha.2` package owns browser transport
+selection, and O Chat pins it. An exact supported discovery descriptor selects
+authenticated `/acp`; a Host that omits the descriptor keeps the bounded `/ws`
+compatibility path. After React selects native ACP, admission or transport
+failure fails closed instead of silently downgrading. Direct loopback or
+TLS/WSS is the Alpha.2 transport boundary; this is not relay end-to-end
+encryption.
 
 #### Delegate to Claude Code
 
@@ -36,6 +45,27 @@ preserving authentication and admin policy. The launch directory stays inside
 the operator-bound project root; an unmatched interactive permission prompt
 cannot yet round-trip through O Chat and fails closed. Read the [stream-json
 design decision](/blog/stream-claude-code-tools-to-web).
+
+#### Delegate through a generic ACP child
+
+The `1.7.0a2` candidate also registers `acp_agent` for work that specifically
+needs the common ACP edge instead of the preferred native
+`claude_code` or `codex` tools. The model can select a named engine, prompt,
+working directory, and exact session to resume; command, approval, and the
+workspace root remain operator-owned.
+
+Read only and Workspace profiles select inner manual approval. Only a valid,
+bounded Full Access grant selects auto, and hosted non-admin requesters fail
+before a local process is launched. Pinned `codex-acp@1.1.14` is rejected in
+ordinary profiles because its read-only mode does not reliably ask before
+shell or outbound network work. Use the native `codex` tool there. This generic
+tool is not publicly available until the reviewed `1.7.0a2` package is
+published.
+
+The pinned Gemini route is one-turn and requires a Gemini API key, Vertex AI,
+or enterprise Code Assist. Google retired individual Gemini CLI OAuth service
+on June 18, 2026, so an old local OAuth credential file is not a readiness
+signal.
 
 ### One-Shot Mode
 
@@ -55,6 +85,14 @@ co ai --acp
 
 Serves Agent Client Protocol JSON-RPC over stdin/stdout for compatible editors and clients. Each ACP session owns one persistent coding agent, so later prompts reuse its conversation and tool state.
 
+The first request on each connection must be `initialize`. The stdio and
+authenticated WebSocket Host boundaries preserve official legacy-string
+`protocolVersion` compatibility. Raw numeric values must be JSON integers from
+`0` through `65535`; booleans, floats, and out-of-range integers are rejected
+before Python coercion. Compatible strings and integers still use normal ACP
+version negotiation. Stdio keeps reading after a malformed initialize request
+so the client can correct it.
+
 For automation or concurrent acceptance tests, isolate one process's mutable
 state explicitly:
 
@@ -64,10 +102,13 @@ co ai --acp --state-dir /private/tmp/co-acp-test
 
 The selected directory owns that process's ACP snapshots, Agent logs, and eval
 records. It does not copy credentials or create another identity: the Agent
-name and provider configuration still come from the normal global setup. POSIX
+name, provider configuration, skills, credentials, project workspace, and
+provider tools keep their normal locations and authority boundaries. POSIX
 directories are private at mode `0700`, symlink roots are rejected, and the
 default remains `~/.co` when the option is absent. `--state-dir` is ACP-only in
-this first slice.
+this first slice. Logs, usage, cost, and evaluation evidence are measured from
+the current user-input boundary rather than counted again from the cumulative
+conversation.
 
 Session updates preserve Agent event order: thinking, tool starts, tool results, and the final assistant answer. JSON-native tool arguments and supported results remain structured in ACP `rawInput` and `rawOutput`. Turn usage and stop reasons come from the Agent's structured terminal record.
 

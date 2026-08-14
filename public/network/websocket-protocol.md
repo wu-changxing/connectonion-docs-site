@@ -2,6 +2,12 @@
 
 > CONNECT to start or resume, INPUT to message. Session stays alive between executions.
 
+> **Compatibility note:** this page documents the ConnectOnion socket at
+> `/ws`; that socket is not ACP. The published React Alpha.2 package and O Chat
+> select authenticated `/acp` when the Host advertises the exact supported
+> descriptor. `/ws` remains the fallback only when that descriptor is absent;
+> failures after native ACP selection do not silently downgrade.
+
 ---
 
 ## Overview

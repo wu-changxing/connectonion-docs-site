@@ -56,6 +56,8 @@
 - [Todo List](https://docs.connectonion.com/useful-tools/todo-list): Task tracking tool
 - [FileTools](https://docs.connectonion.com/useful-tools/file-tools): File read/write/edit with safety tracking
 - [BrowserAutomation](https://docs.connectonion.com/useful-tools/browser-tools): Natural language browser automation via Playwright
+- [Codex](https://docs.connectonion.com/useful-tools/codex): Native Codex app-server delegation with resume and per-action approval
+- [ACP Agent](https://docs.connectonion.com/useful-tools/acp-agent): Bounded generic ACP delegation to named coding agents
 
 ## Integrations
 

@@ -119,7 +119,8 @@ export default function ReleasesPage() {
           ]} />
           <p className="text-sm text-gray-600 mt-4">
             The <code>--pre</code> flag is the explicit opt-in. An exact pin such as{' '}
-            <code>connectonion==1.7.0a1</code> also opts in and does not need <code>--pre</code>.
+            <code>{PREVIEW_VERSION ? `connectonion==${PREVIEW_VERSION}` : 'connectonion==X.Y.ZaN'}</code>{' '}
+            also opts in and does not need <code>--pre</code>.
             {!PREVIEW_VERSION && ' No 1.7 preview is published yet, so this command currently keeps the latest stable release.'}
           </p>
         </section>
@@ -140,6 +141,17 @@ export default function ReleasesPage() {
               <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/issues/792">
                 issue #792
               </a>.
+            </p>
+          </div>
+          <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
+            <p>
+              <strong>Alpha.2 candidate:</strong> native browser ACP plus the bounded <code>acp_agent</code>{' '}
+              downward adapter for exact-version Claude Code, Codex, and Gemini children.
+            </p>
+            <p>
+              Claude Code and Codex pass real resume and <code>co ai</code> handoff tests. The pinned Codex ACP
+              route is Full-Access-only; approval-aware work uses the native <code>codex</code> tool. Gemini is
+              one-turn and requires API-key, Vertex, or enterprise authentication because individual OAuth is retired.
             </p>
           </div>
         </section>
