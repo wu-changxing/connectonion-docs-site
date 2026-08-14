@@ -167,6 +167,7 @@ Opening chat.openonion.ai/0x7a9f3b2c...`}
 
           <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-3 text-gray-700">
             <p>The first request on each connection must be <code className="bg-gray-100 px-1 rounded">initialize</code>. Pre-initialization session requests are rejected before an Agent or session state is created, and initialization cannot be repeated on the same connection.</p>
+            <p>The stdio and authenticated WebSocket Host boundaries require raw <code className="bg-gray-100 px-1 rounded">protocolVersion</code> to be a JSON integer from <code className="bg-gray-100 px-1 rounded">0</code> through <code className="bg-gray-100 px-1 rounded">65535</code>. Strings, booleans, floats, and out-of-range integers are rejected before SDK coercion; valid integers still use normal ACP version negotiation.</p>
             <p>Each ACP session owns one persistent coding agent and a private snapshot, so later prompts reuse its conversation and supported tool state.</p>
             <p>Session updates preserve Agent event order: thinking, tool starts, tool results, and the final assistant answer. JSON-native tool arguments and results remain structured in <code className="bg-gray-100 px-1 rounded">rawInput</code> and <code className="bg-gray-100 px-1 rounded">rawOutput</code>.</p>
             <p>Turn usage and stop reasons come from the Agent&apos;s structured terminal record. Cancellation is cooperative, and events arriving after a turn is retired are not forwarded into the next prompt.</p>

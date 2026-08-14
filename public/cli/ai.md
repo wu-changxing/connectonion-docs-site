@@ -85,6 +85,13 @@ co ai --acp
 
 Serves Agent Client Protocol JSON-RPC over stdin/stdout for compatible editors and clients. Each ACP session owns one persistent coding agent, so later prompts reuse its conversation and tool state.
 
+The first request on each connection must be `initialize`. The stdio and
+authenticated WebSocket Host boundaries require raw `protocolVersion` to be a
+JSON integer from `0` through `65535`. Strings, booleans, floats, and
+out-of-range integers are rejected before SDK coercion; valid integers still
+use normal ACP version negotiation. Stdio keeps reading after a malformed
+initialize request so the client can correct it.
+
 For automation or concurrent acceptance tests, isolate one process's mutable
 state explicitly:
 

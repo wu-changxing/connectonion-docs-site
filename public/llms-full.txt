@@ -68,7 +68,9 @@ session snapshots, logs, and evals in one explicit private root. Identity,
 configuration, skills, credentials, the workspace, and provider tools keep
 their normal locations and authority boundaries. Turn logs and evaluation
 evidence measure only the current user-input boundary instead of counting
-earlier cumulative activity again.
+earlier cumulative activity again. Stdio and authenticated WebSocket Host entry
+points reject coerced or out-of-range raw `protocolVersion` values before SDK
+routing while preserving normal negotiation for valid integers.
 
 Normal pip installs ignore previews. Publishing an alpha, beta, or RC therefore
 does not move existing users off stable. Feature issues and release gates live

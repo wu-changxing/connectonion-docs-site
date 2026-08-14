@@ -64,7 +64,10 @@ Local stdio ACP acceptance can use `co ai --acp --state-dir PATH` to isolate
 mutable session snapshots, logs, and evals without moving identity,
 configuration, skills, credentials, the workspace, or provider tools. Turn
 logs and evaluation evidence now measure the current user-input boundary rather
-than double-counting earlier activity from the cumulative conversation.
+than double-counting earlier activity from the cumulative conversation. Stdio
+and authenticated WebSocket Host entry points also reject coerced or
+out-of-range raw `protocolVersion` values before SDK routing while preserving
+normal negotiation for valid integers.
 
 The second alpha candidate also includes the bounded downward `acp_agent`
 adapter used by `co ai` to delegate one turn through ACP to exact-version
