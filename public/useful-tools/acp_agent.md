@@ -78,7 +78,9 @@ Failure never falls back to the other method or a fresh child session.
 
 Initialization also requires `protocolVersion` to be the JSON integer `1`.
 Strings, booleans, and unsupported major versions stop before any session
-lifecycle request; schema coercion is not protocol agreement.
+lifecycle request. The legacy `loadSession` flag likewise accepts only a JSON
+boolean or null; strings and numbers are not capabilities. Schema coercion is
+not protocol agreement.
 
 Real conformance testing found that Gemini CLI 0.55.1 does not persist its
 advertised ACP session across these one-process-per-turn invocations. A named
