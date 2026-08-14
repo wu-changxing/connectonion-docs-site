@@ -69,8 +69,9 @@ configuration, skills, credentials, the workspace, and provider tools keep
 their normal locations and authority boundaries. Turn logs and evaluation
 evidence measure only the current user-input boundary instead of counting
 earlier cumulative activity again. Stdio and authenticated WebSocket Host entry
-points reject coerced or out-of-range raw `protocolVersion` values before SDK
-routing while preserving normal negotiation for valid integers.
+points preserve official legacy string `protocolVersion` compatibility while
+rejecting Python-only boolean, float, and out-of-range integer coercion before
+SDK routing.
 
 Normal pip installs ignore previews. Publishing an alpha, beta, or RC therefore
 does not move existing users off stable. Feature issues and release gates live
