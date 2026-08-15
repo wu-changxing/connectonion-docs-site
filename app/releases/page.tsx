@@ -129,8 +129,8 @@ export default function ReleasesPage() {
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Current plan</h2>
           <div className="border-l-2 border-gray-300 pl-5 space-y-4 text-gray-700">
             <p><strong>1.6.x:</strong> stable maintenance fixes only.</p>
-            <p><strong>1.7.0 previews:</strong> validate the complete coding-agent and ACP feature train.</p>
-            <p><strong>1.7.0:</strong> stable/LTS. ACP is not deferred to a 1.7.1 feature release.</p>
+            <p><strong>1.7.0 previews:</strong> validate OIP browser sessions and native coding adapters.</p>
+            <p><strong>1.7.0:</strong> stable/LTS after browser, adapter, upgrade, and release gates pass.</p>
             <p><strong>1.8.0 previews:</strong> new remote-browser sessions and hosted execution after the 1.7 gates close.</p>
             <p className="text-sm">
               Track the live scope in the{' '}
@@ -145,13 +145,12 @@ export default function ReleasesPage() {
           </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>Alpha.2 candidate:</strong> native browser ACP plus the bounded <code>acp_agent</code>{' '}
-              downward adapter for exact-version Claude Code, Codex, and Gemini children.
+              <strong>Alpha.5 candidate:</strong> OIP is the only first-party browser protocol, with native
+              Claude Code and Codex tools for delegated coding work.
             </p>
             <p>
-              Claude Code and Codex pass real resume and <code>co ai</code> handoff tests. The pinned Codex ACP
-              route is Full-Access-only; approval-aware work uses the native <code>codex</code> tool. Gemini is
-              one-turn and requires API-key, Vertex, or enterprise authentication because individual OAuth is retired.
+              Claude Code and Codex preserve their provider session IDs, stream normalized tool activity through
+              OIP, and appear as live cards in O Chat through <code>@connectonion/react</code>.
             </p>
           </div>
         </section>
@@ -160,11 +159,11 @@ export default function ReleasesPage() {
           <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Design Journal</p>
           <h2 className="text-xl font-semibold text-gray-900 mb-3">Why the preview train uses alpha, beta, and RC</h2>
           <p className="text-gray-600 mb-4">
-            Release notes explain what changed. The design journal explains why 1.6 stays stable while
-            ACP and coding-agent work is validated through opt-in 1.7 previews.
+            Release notes explain what changed. The design journal explains why OIP owns the browser boundary
+            while Claude Code and Codex remain native backend adapters.
           </p>
           <Link
-            href="/blog/alpha-beta-rc-before-lts"
+            href="/blog/oip-native-coding-adapters"
             className="text-sm font-semibold text-green-700 hover:underline"
           >
             Read the design decision

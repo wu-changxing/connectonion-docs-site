@@ -181,8 +181,8 @@ agent = Agent("assistant", model="co/gemini-3.6-flash")`}</code></pre>
               The Agent That Was Itself, and Billed Someone Else
             </Link>{' '}
             for the 1.6.5 release, and{' '}
-            <Link href="/blog/alpha-beta-rc-before-lts">
-              Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS
+            <Link href="/blog/oip-native-coding-adapters">
+              One Browser Protocol, Native Coding Adapters
             </Link>{' '}
             for why these are 1.6 patches rather than preview-train work.
           </p>

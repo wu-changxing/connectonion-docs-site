@@ -20,11 +20,11 @@ agent = Agent("architect", tools=[codex])
 agent.input("Ask Codex to fix the failing tests in ./myrepo")
 ```
 
-## Why the native route remains preferred
+## Why the native route is the adapter
 
-ConnectOnion drives Codex's built-in app-server directly from Python. It does
-not require the external Node ACP adapter, and it can select the stricter
-approval-aware policy that the generic `codex-acp@1.1.14` modes do not expose.
+ConnectOnion drives Codex's built-in app-server directly from Python. The
+adapter preserves Codex session identity, sandbox selection, approvals, and
+native tool events without introducing another browser or child-agent protocol.
 
 ```python
 codex(

@@ -1,25 +1,29 @@
 # WebSocket Protocol
 
-> CONNECT to start or resume, INPUT to message. Session stays alive between executions.
+> CONNECT to start or resume, INPUT to message, EXEC to run one tool directly. Session stays alive between executions.
 
-> **Compatibility note:** this page documents the ConnectOnion socket at
-> `/ws`; that socket is not ACP. The published React Alpha.2 package and O Chat
-> select authenticated `/acp` when the Host advertises the exact supported
-> descriptor. `/ws` remains the fallback only when that descriptor is absent;
-> failures after native ACP selection do not silently downgrade.
+> This is OIP 0.1, the single ConnectOnion browser protocol. `co ai` serves it
+> over the authenticated `/ws` socket and advertises it in `CONNECTED`.
 
 ---
 
 ## Overview
 
-Two client message types, two intents:
+Three client message types, three intents:
 
 | Message | Intent | When |
 |---------|--------|------|
 | `CONNECT` | "Authenticate me, restore my session" | First message on every WebSocket |
 | `INPUT` | "Run this prompt" or runtime input mid-execution | After CONNECT |
+| `EXEC` | "Run this one tool directly, no LLM" | After CONNECT |
 
 If `INPUT` arrives while the session's agent is already running, the server treats it as **runtime input** (mid-execution user input) instead of starting a second agent. The new prompt is appended to the agent's message history at the next iteration, and the server replies with `RUNTIME_INPUT_ACK` instead of starting a new OUTPUT cycle.
+
+`EXEC` is the direct-execution fast path: it runs one named tool with no LLM, no session, and no history, replying with a single `EXEC_RESULT`. It requires the same CONNECT auth as INPUT, and the tool is gated by the host's `.co/host.yaml` permission whitelist. See [remote-call.md](remote-call.md).
+
+A fourth type, `ONBOARD_SUBMIT`, exists only to answer the trust gate. It is not part of the
+normal path — it appears only when the server interrupts CONNECT with `ONBOARD_REQUIRED`.
+See [Trust Gate](#trust-gate-onboarding).
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
@@ -27,10 +31,13 @@ If `INPUT` arrives while the session's agent is already running, the server trea
 │                                                                │
 │   Every connection:  WS open → CONNECT → CONNECTED → ...      │
 │                                                                │
-│   CONNECT carries:   auth + session (conversation history)     │
-│   INPUT carries:     just the prompt (session already set)     │
+│   CONNECT carries:   auth + session + signed-command capability│
+│   INPUT carries:     signed prompt/attachments (session set)   │
 │                                                                │
 │   Server decides:    new / connected / running                 │
+│                      …or, for a caller the trust policy denies │
+│                      but offers a way in: ONBOARD_REQUIRED,    │
+│                      and CONNECT waits until they pass         │
 │                                                                │
 └────────────────────────────────────────────────────────────────┘
 ```
@@ -167,6 +174,62 @@ Client                                    Server
   │── INPUT ───────────────────────────────►│  fresh session, full history from CONNECT
 ```
 
+### Trust Gate (onboarding)
+
+An agent whose trust policy denies strangers can still let them earn their way in — an
+invite code, or a payment. That negotiation happens **inside CONNECT**, before any message
+is sent.
+
+```
+Client                                    Server
+  │                                         │
+  │── WS open ────────────────────────────►│
+  │── CONNECT ─────────────────────────────►│  verify Ed25519 signature — OK
+  │   { payload, from, signature }          │  trust policy: this caller is denied
+  │                                         │  …but onboard methods are configured
+  │                                         │  stash the CONNECT, do not answer it yet
+  │◄── ONBOARD_REQUIRED ───────────────────│  { methods: ["invite_code"] }
+  │                                         │
+  │   (client shows a code prompt)          │
+  │                                         │
+  │── ONBOARD_SUBMIT ──────────────────────►│  signed again, invite_code in payload
+  │   { payload: { invite_code }, … }       │  verify_invite()
+  │                                         │
+  │◄── ONBOARD_SUCCESS ────────────────────│  { level: "contact" }  ← caller promoted
+  │◄── CONNECTED ──────────────────────────│  the stashed CONNECT, now resumed
+  │                                         │
+  │── INPUT ───────────────────────────────►│  the conversation the caller came for
+```
+
+Three things follow from this shape, and each one is a mistake a client can make:
+
+**The answer arrives before the first message.** A client that opens the socket on a
+landing page — to receive `DASHBOARD_SNAPSHOT`, say — already has the gate's answer in hand
+before the reader types anything. There is no need to send a message and watch it be
+refused, and no need to guess from `/info`: that endpoint is anonymous and tells an admin
+exactly what it tells a stranger, so a client that gates on it puts a code prompt in front
+of people who hold the keys.
+
+**A refused code is an `ERROR`, not another `ONBOARD_REQUIRED`.** The gate does not re-ask.
+The reply is `{"type": "ERROR", "message": "Invalid invite code"}`, and a client that waits
+for a second `ONBOARD_REQUIRED` to detect the refusal will wait forever, leaving the reader
+staring at a form that never responds.
+
+**The stashed CONNECT is resumed by the server, not replayed by the client.** Do not send
+CONNECT again after `ONBOARD_SUCCESS`. Its signature carries a timestamp with a five-minute
+window, and a human reading a card, finding a code and typing it can easily outlast that —
+the resend would be rejected as expired. The server holds the original and completes it
+itself, with the address the onboard verified.
+
+A real capture of a first-time visitor on a gated agent, all on one socket:
+
+```
+ONBOARD_REQUIRED → ONBOARD_SUCCESS → CONNECTED → AGENT_PROFILE
+→ DASHBOARD_SNAPSHOT → (INPUT) → … → OUTPUT → SESSION_STATUS
+```
+
+See [../features/trust.md](../features/trust.md) for configuring `onboard` in `trust.md`.
+
 ---
 
 ## Message Reference
@@ -181,9 +244,13 @@ Authenticate, restore session, and sync conversation. **Always the first message
 {
   "type": "CONNECT",
   "session_id": "550e8400-...",
-  "session": { "messages": [...], "mode": "safe" },
+  "session": { "messages": [...], "mode": "default" },
   "last_msg_id": "ev-9f12...",
-  "payload": { "to": "0x3d4017c3e843...", "timestamp": 1702234567 },
+  "payload": {
+    "to": "0x3d4017c3e843...",
+    "timestamp": 1702234567,
+    "signed_commands": 1
+  },
   "from": "0xClientPublicKey",
   "signature": "0x..."
 }
@@ -198,6 +265,11 @@ Authenticate, restore session, and sync conversation. **Always the first message
 | `from` | Yes | Client's public address |
 | `signature` | Yes | Ed25519 signature of payload |
 
+`payload.signed_commands: 1` is itself signed. It opts the connection into the
+v2 command gate described below. A new server continues accepting a v1 CONNECT
+without it, so an older client is not stranded; it does not receive v2's
+per-command injection/replay protection.
+
 Server response based on state:
 
 | session_id | Server state | Response status | Server action |
@@ -206,6 +278,47 @@ Server response based on state:
 | Provided | In registry, running | `"running"` | Reattach IO, pipe buffered events |
 | Provided | In registry, connected | `"connected"` | Merge sessions, reset idle timer |
 | Provided | Not found | `"new"` | Allocate new session (same id) |
+| Provided | Owned by another caller | `"new"` | Allocate new session, **new id** |
+
+A session belongs to whoever started it. Naming someone else's id gets a fresh
+session with a *different* id, reported in CONNECTED — not theirs, and not an
+error, which would confirm the session exists. Keeping the requested id would
+mean your turn overwrote their history.
+
+**CONNECTED is not the only possible reply.** If the trust policy turns this caller away
+and the agent offers a way in, the server answers `ONBOARD_REQUIRED` instead and holds the
+CONNECT open until the caller passes — see [Trust Gate](#trust-gate-onboarding) below. If
+the policy turns them away and offers nothing, the reply is `ERROR`.
+
+"Offers a way in" means a door that actually opens, not one that is merely
+written down. The shipped policy declares `invite_code: [$CO_INVITE_CODE]` and
+`payment: $CO_PAYMENT`; with neither set, nothing resolves and there is no
+onboarding to offer, so a stranger gets `ERROR` from the policy rather than an
+`ONBOARD_REQUIRED` leading nowhere.
+
+**A signature is single-use.** Replaying a captured CONNECT is refused with
+`ERROR unauthorized: this CONNECT was already used`. A v2 client also signs every
+application command; replaying one is refused with `signed command already used`.
+The one-use ledger is shared across ASGI workers and survives a worker restart;
+it stores only short-lived signature digests in `.co/replay.sqlite3`.
+Each digest remains until its signed timestamp is cryptographically expired;
+an unavailable or locked ledger fails closed.
+CONNECT processing verifies Ed25519 first, atomically claims the digest second,
+and only then evaluates trust or onboarding policy. A replay therefore cannot
+repeat an LLM policy call or a policy side effect.
+
+**A v2 command signs what the server executes.** Its payload contains `type`, all
+command fields, `to`, `timestamp`, and a random `nonce`. The server verifies the
+signer is the caller that opened this connection, verifies the recipient and
+type, then discards the unsigned compatibility copy and dispatches the signed
+payload. INPUT, EXEC, runtime input, approval responses and ask-user responses
+all pass through this gate. PONG is a transport frame. SESSION_STATUS uses the
+verified CONNECT identity on a live socket, or an independently signed v2 frame
+on a temporary socket, and only reveals a session owned by that identity.
+ONBOARD_SUBMIT and ADMIN frames retain their existing independent signatures.
+
+This decision is made **per caller**, after the signature is verified, so an admin, a
+contact, or anyone who onboarded earlier never sees the gate at all.
 
 #### INPUT
 
@@ -216,11 +329,52 @@ Send a prompt. Only valid after CONNECTED. **No session data — just the prompt
   "type": "INPUT",
   "prompt": "Translate hello to Spanish",
   "images": ["data:image/png;base64,..."],
-  "files": [{ "name": "doc.pdf", "data": "data:application/pdf;base64,..." }]
+  "files": [{ "name": "doc.pdf", "data": "data:application/pdf;base64,..." }],
+  "payload": {
+    "type": "INPUT",
+    "input_id": "7c2a...",
+    "prompt": "Translate hello to Spanish",
+    "images": ["data:image/png;base64,..."],
+    "files": [{ "name": "doc.pdf", "data": "data:application/pdf;base64,..." }],
+    "to": "0x3d4017c3e843...",
+    "timestamp": 1702234567,
+    "nonce": "550e8400-..."
+  },
+  "from": "0xClientPublicKey",
+  "signature": "0x..."
 }
 ```
 
+The command fields remain at the top level only so a v2 client can talk to a v1
+host. A v2 host executes the verified `payload`, never those duplicates.
+
 If sent while the session's agent is already running, this message is routed as runtime input: the prompt is appended to the running agent's message history (with framing telling the LLM to treat it as additional context, not a replacement) and the server replies `RUNTIME_INPUT_ACK` instead of starting a new OUTPUT cycle. No new `thinking` chat item is created — the existing one keeps streaming.
+
+#### EXEC
+
+Run one registered tool directly — no LLM, no session, no history. Only valid after CONNECTED. The server replies with a single `EXEC_RESULT`.
+
+```json
+{
+  "type": "EXEC",
+  "exec_id": "7c2a...",
+  "tool": "bash",
+  "args": { "command": "co status" },
+  "payload": {
+    "type": "EXEC",
+    "exec_id": "7c2a...",
+    "tool": "bash",
+    "args": { "command": "co status" },
+    "to": "0x3d4017c3e843...",
+    "timestamp": 1702234567,
+    "nonce": "550e8400-..."
+  },
+  "from": "0xClientPublicKey",
+  "signature": "0x..."
+}
+```
+
+The tool is checked against the host's `.co/host.yaml` permission whitelist (the same list the LLM approval flow uses); a tool that isn't whitelisted comes back as an `EXEC_RESULT` with `status: "error"`. Each `EXEC` runs as its own server-side task, so a slow tool never blocks the connection, and `exec_id` correlates the reply — several `EXEC`s can be pipelined on one socket.
 
 #### PONG
 
@@ -240,33 +394,56 @@ If sent while the session's agent is already running, this message is routed as 
 { "type": "APPROVAL_RESPONSE", "approved": true, "scope": "once" }
 ```
 
-Legacy fallback. Responses are consumed once and bound to the current pending
-request. Updated React clients answer the paired ACP request instead.
+Approval responses are consumed once and are bound to the currently pending
+request.
 
-#### ACP_RESPONSE
+#### mode_change
 
-Answer one `ACP_REQUEST`. The outer carrier binds the result to the Host
-session; `message` is the exact ACP JSON-RPC response.
+An authenticated client selects one Host-advertised permission profile:
 
 ```json
 {
-  "type": "ACP_RESPONSE",
-  "acpSchema": "schema-v1.19.0",
-  "sessionId": "550e8400-...",
-  "message": {
-    "jsonrpc": "2.0",
-    "id": "approval-event-uuid",
-    "result": {
-      "outcome": {"outcome": "selected", "optionId": "allow_once"}
-    }
-  }
+  "type": "mode_change",
+  "mode": ":workspace"
 }
 ```
 
-Only an advertised option for the active request and session is accepted. A
-matching malformed response or `cancelled` fails closed. Optional rejection
-feedback belongs at `result._meta.connectonion.feedback` and does not grant
-authority.
+The request is accepted only while the durable session is idle and owned by
+the authenticated caller. `:read-only` is always available; `:workspace` and
+`:danger-full-access` are identity- and launch-authority-bounded. No client
+field can supply or extend Full access turns. Success is `mode_changed` and
+means the durable commit completed; busy, policy, ownership, and persistence
+failures return `ERROR`.
+`@connectonion/react` owns this browser operation; O Chat consumes it without
+constructing protocol frames. Default and Plan are separate client
+collaboration modes and do not appear in this Host permission list.
+
+#### ONBOARD_SUBMIT
+
+Pass the trust gate. Sent in reply to `ONBOARD_REQUIRED`, on the same socket.
+
+```json
+{
+  "type": "ONBOARD_SUBMIT",
+  "payload": {
+    "invite_code": "B7HSW-6Y6P4-BZC5Z",
+    "to": "0x3d4017c3e843...",
+    "timestamp": 1702234567
+  },
+  "from": "0xClientPublicKey",
+  "signature": "0x..."
+}
+```
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `payload.invite_code` | One of the two | A code the agent's `trust.md` lists under `onboard.invite_code` |
+| `payload.payment` | One of the two | Amount claimed paid, for `onboard.payment`. This is an assertion the host verifies — nothing is charged over this socket |
+| `payload.timestamp` | Yes | Same five-minute window as CONNECT. Signed fresh here, which is the point: the original CONNECT's may have aged out while the reader typed |
+| `from` / `signature` | Yes | Signed exactly like CONNECT |
+
+Sent on the same socket as the CONNECT it answers. A wrong code comes back as `ERROR` and
+the stashed CONNECT is **kept**, so the reader can simply try again — no reconnect needed.
 
 ### Server → Client
 
@@ -279,6 +456,15 @@ Response to CONNECT.
   "type": "CONNECTED",
   "session_id": "550e8400-...",
   "status": "new",
+  "protocol": {"name": "oip", "version": "0.1"},
+  "session_modes": {
+    "currentModeId": ":read-only",
+    "availableModes": [
+      {"id": ":read-only", "name": "Read only", "description": "Read freely; ask before edits, commands, or broader access."},
+      {"id": ":workspace", "name": "Auto", "description": "Edit the workspace automatically; broader actions still ask."},
+      {"id": ":danger-full-access", "name": "Full access", "description": "Run without approval prompts within the Host launch ceiling."}
+    ]
+  },
   "server_newer": true,
   "session": { "messages": [...] },
   "chat_items": [...]
@@ -292,6 +478,8 @@ Response to CONNECT.
 | `"running"` | Agent still running | Wait for events/OUTPUT |
 
 `server_newer`, `session`, and `chat_items` are only included when the server's session data is newer than the client's (e.g., agent completed while client was away).
+`session_modes` is the authoritative current/available state for this
+authenticated identity when Host mode policy is enabled.
 
 #### OUTPUT
 
@@ -307,6 +495,45 @@ Execution completed. **Session stays alive for next INPUT.**
 }
 ```
 
+The session may contain a canonical `plan` array. It is current replacement
+state, not a transcript entry, and is preserved across session sync, reconnect,
+and final output.
+
+#### plan
+
+After a successful TodoList state change, the Host sends one complete plan:
+
+```json
+{
+  "type": "plan",
+  "entries": [
+    {"content": "Run tests", "priority": "high", "status": "in_progress"},
+    {"content": "Update docs", "priority": "medium", "status": "pending"}
+  ]
+}
+```
+
+Every update replaces the complete plan; an empty `entries` list clears it.
+The plan has no message or plan ID. The event is observational and
+cannot answer `plan_review` or grant execution permission.
+
+#### EXEC_RESULT
+
+Reply to an `EXEC`. `exec_id` echoes the request. `result` is the tool's raw output — text, or a base64 data URL for a screenshot tool.
+
+```json
+{
+  "type": "EXEC_RESULT",
+  "exec_id": "7c2a...",
+  "tool": "bash",
+  "status": "success",
+  "result": "...raw output...",
+  "duration_ms": 42
+}
+```
+
+On failure (tool raised, not whitelisted, unknown tool): `status: "error"` with an `error` field instead of `result`.
+
 #### PING
 
 Keep-alive. Sent every 30 seconds.
@@ -314,53 +541,6 @@ Keep-alive. Sent every 30 seconds.
 ```json
 { "type": "PING" }
 ```
-
-#### ACP_REQUEST
-
-Sent immediately before the legacy `approval_needed` event. The Host socket
-remains a ConnectOnion transport; `message` is an exact ACP
-`session/request_permission` JSON-RPC request.
-
-```json
-{
-  "type": "ACP_REQUEST",
-  "acpSchema": "schema-v1.19.0",
-  "message": {
-    "jsonrpc": "2.0",
-    "id": "approval-event-uuid",
-    "method": "session/request_permission",
-    "params": {
-      "sessionId": "550e8400-...",
-      "toolCall": {
-        "toolCallId": "call-1",
-        "title": "Bash(npm test)",
-        "status": "pending",
-        "rawInput": {"command": "npm test"}
-      },
-      "options": [
-        {"optionId": "allow_once", "name": "Allow this call", "kind": "allow_once"},
-        {"optionId": "allow_session", "name": "Allow for this session", "kind": "allow_always"},
-        {"optionId": "reject_soft", "name": "Reject this call and continue", "kind": "reject_once"},
-        {"optionId": "reject_hard", "name": "Reject and stop this turn", "kind": "reject_once"},
-        {"optionId": "reject_explain", "name": "Reject and explain first", "kind": "reject_once"}
-      ]
-    }
-  }
-}
-```
-
-`@connectonion/react` owns browser decoding, de-duplication, and one-shot
-responses. oo-chat consumes that normalized API and does not parse ACP. The
-standalone TypeScript SDK is retired from this rollout.
-
-Native ACP may request permission before a separate tool update. React creates
-or reuses one running tool card keyed by `toolCallId`, and tracks every
-permission tool created during the prompt. Selecting an approval grants
-authority to attempt the action; it does not prove success. An official Host
-terminal update remains authoritative. At the prompt boundary, any permission
-tool still marked running becomes an error so restored clients cannot remain
-permanently busy. Product UIs render this normalized lifecycle and may show a
-standalone decision only when optional tool-card context is absent.
 
 #### Stream Events
 
@@ -371,8 +551,53 @@ standalone decision only when optional tool-card context is absent.
 | `tool_result` | Tool execution completed |
 | `ask_user` | Agent needs human input |
 | `approval_needed` | Tool requires approval |
+| `plan` | Complete observational TodoList replacement |
 | `plan_review` | Plan ready for review |
 | `compact` | Context compaction |
+
+#### AGENT_PROFILE
+
+What the agent is — name, model, tools, **every** skill, and the account balance for
+managed-key agents. Sent once, right after `CONNECTED`.
+
+```json
+{
+  "type": "AGENT_PROFILE",
+  "session_id": "550e8400-...",
+  "name": "my-agent",
+  "address": "0x3d4017c3...",
+  "model": "co/gemini-3.7-flash",
+  "tools": ["search", "shell"],
+  "skills": [
+    {"name": "co-browser", "description": "drive a browser", "location": "project"},
+    {"name": "my-notes", "description": "personal", "location": "user"}
+  ],
+  "balance_usd": 25.34
+}
+```
+
+**This is the authenticated answer, and it is deliberately larger than the public one.**
+`GET /info` and the relay directory are reachable by anyone and publish only skills from
+the project tree (`project`, `claude-project`); the operator's personal skills in
+`~/.co/skills` and `~/.claude/skills` stay private there. This frame arrives past the
+signature check and the trust gate, so it carries all of them.
+
+A client that has not connected — or has not passed onboarding — should show the public
+answer and not treat it as an incomplete version of this one. It is what that viewer is
+entitled to see.
+
+React package: `agent.profile` and `useAgentForHuman().profile`, `null` until the
+frame lands.
+
+**There is a third profile surface, and it is not this one.** `host()` also sends a
+profile to the relay inside its `ANNOUNCE` frame — that is what registers the agent and
+puts it in the public directory, and it is built separately by
+`_build_agent_profile()` in `network/host/server.py`. Same public skill subset as
+`/info`, different code path, different size limits, enforced by the relay rather than
+by the agent. If an agent starts cleanly but reads as offline, that is the surface to
+look at: the relay rejects the whole ANNOUNCE when the profile fails validation, and
+`host()` prints the reason as `Relay error: <reason>` and keeps heartbeating. The
+contract is documented in `oo-api/docs/relay-announce-profile.md`.
 
 #### DASHBOARD_SNAPSHOT
 
@@ -406,11 +631,67 @@ Acknowledges an INPUT that arrived while the agent was running. The prompt has b
 }
 ```
 
+#### ONBOARD_REQUIRED
+
+The trust gate, in reply to CONNECT. The caller's signature checked out, but the policy
+denies them — and the agent offers a way in. The CONNECT is **held open**, not failed.
+
+```json
+{
+  "type": "ONBOARD_REQUIRED",
+  "identity": "0xCallerPublicKey",
+  "methods": ["invite_code", "payment"],
+  "payment_amount": 10,
+  "payment_address": "0xAgentAddress"
+}
+```
+
+| Field | Present | Description |
+|-------|---------|-------------|
+| `identity` | Always | The address that was just authenticated — the caller, echoed back |
+| `methods` | Always | Which of `invite_code` / `payment` this agent accepts. Show only these |
+| `payment_amount` | With `payment` | Amount, from `onboard.payment` in `trust.md` |
+| `payment_address` | With `payment` | Where to send it |
+
+Answer with `ONBOARD_SUBMIT`. Note what is *not* here: no session, no status. Nothing has
+been established yet.
+
+#### ONBOARD_SUCCESS
+
+The submitted proof was accepted and the caller has been promoted. `CONNECTED` follows on
+its own — the server completes the CONNECT it stashed, so **do not send CONNECT again**.
+
+```json
+{
+  "type": "ONBOARD_SUCCESS",
+  "identity": "0xCallerPublicKey",
+  "level": "contact",
+  "message": "Invite code verified. You are now a contact."
+}
+```
+
+`level` is the trust level actually granted, read back from the policy after promotion —
+not a value the client chose. From here the connection proceeds exactly as an ungated one.
+
+#### ADMIN_RESULT
+
+Reply to `ADMIN_PROMOTE` / `ADMIN_DEMOTE` from an admin caller.
+
+```json
+{ "type": "ADMIN_RESULT", "action": "promote", "ok": true, "level": "whitelisted" }
+```
+
+Fields beyond `action` are whatever the trust handler returned for that operation.
+
 #### ERROR
 
 ```json
 { "type": "ERROR", "message": "Something went wrong" }
 ```
+
+Also how a **refused onboard** comes back — `{"type": "ERROR", "message": "Invalid invite
+code"}`. There is no dedicated failure frame, and no repeat of `ONBOARD_REQUIRED`: a client
+waiting for one of those to detect the refusal will wait forever.
 
 ---
 
@@ -431,8 +712,8 @@ Acknowledges an INPUT that arrived while the agent was running. The prompt has b
   ║ │ messages │ ║    CONNECT ──►    ║  │   io, thread,       │  ║
   ║ └──────────┘ ║    ◄── CONNECTED  ║  │   status, last_ping │  ║
   ║              ║    INPUT ────►    ║  │ }                   │  ║
-  ║ React SDK    ║    ◄── events     ║  └─────────┬───────────┘  ║
-  ║ useAgent     ║    ◄── OUTPUT     ║            │              ║
+  ║ TS SDK       ║    ◄── events     ║  └─────────┬───────────┘  ║
+  ║ RemoteAgent  ║    ◄── OUTPUT     ║            │              ║
   ║              ║    PING/PONG      ║            ↓              ║
   ╚══════════════╝                    ║  ┌─────────────────────┐  ║
                                       ║  │ SessionStorage      │  ║

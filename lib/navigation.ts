@@ -10,7 +10,7 @@
  */
 import {
   HiOutlineHome, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
-  HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineBookOpen, HiOutlineArrowsRightLeft,
+  HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineBookOpen,
   HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone, HiOutlineArrowPath, HiOutlineFolderPlus, HiOutlineKey, HiOutlineDocumentDuplicate
 } from 'react-icons/hi2'
 import { VscComment, VscGitMerge, VscFileCode, VscKey, VscServerProcess } from 'react-icons/vsc'
@@ -545,15 +545,6 @@ export const navigation = [
     section: 'Useful Tools',
     keywords: ['codex', 'openai', 'coding agent', 'app-server', 'resume', 'approval'],
     prev: { href: '/useful-tools/browser-tools', title: 'BrowserAutomation' },
-    next: { href: '/useful-tools/acp-agent', title: 'ACP Agent' }
-  },
-  {
-    title: 'ACP Agent',
-    href: '/useful-tools/acp-agent',
-    icon: HiOutlineArrowsRightLeft,
-    section: 'Useful Tools',
-    keywords: ['acp', 'coding agent', 'claude code', 'codex', 'gemini', 'resume', 'delegation'],
-    prev: { href: '/useful-tools/codex', title: 'Codex' },
     next: { href: '/google-integration', title: 'Google Integration' }
   },
 
@@ -565,7 +556,7 @@ export const navigation = [
     section: 'Integrations',
     difficulty: 'New',
     keywords: ['google', 'gmail', 'calendar', 'oauth', 'integration', 'schedule', 'meeting'],
-    prev: { href: '/useful-tools/acp-agent', title: 'ACP Agent' },
+    prev: { href: '/useful-tools/codex', title: 'Codex' },
     next: { href: '/microsoft-integration', title: 'Microsoft Integration' }
   },
   {
@@ -981,26 +972,16 @@ export const navigation = [
     difficulty: 'Design Decision',
     keywords: ['debug', 'auto-debug', 'ux', 'design', 'iteration', 'unix', 'steve jobs', 'simplicity'],
     prev: { href: '/blog/cli-ux-progressive-disclosure', title: 'Progressive Disclosure CLI' },
-    next: { href: '/blog/alpha-beta-rc-before-lts', title: 'Why Alpha, Beta, and RC Come Before 1.7 LTS' }
+    next: { href: '/blog/oip-native-coding-adapters', title: 'One Browser Protocol, Native Coding Adapters' }
   },
   {
-    title: 'Why Alpha, Beta, and RC Come Before 1.7 LTS',
-    href: '/blog/alpha-beta-rc-before-lts',
+    title: 'One Browser Protocol, Native Coding Adapters',
+    href: '/blog/oip-native-coding-adapters',
     icon: HiOutlineArrowPath,
     section: 'Blog',
     difficulty: 'Design Decision',
-    keywords: ['alpha', 'beta', 'rc', 'preview', 'prerelease', 'pypi', 'lts', 'versioning', 'acp', 'release train'],
+    keywords: ['oip', 'browser protocol', 'codex', 'claude code', 'native adapters'],
     prev: { href: '/blog/auto-debug-evolution', title: 'Auto-Debug Design Evolution' },
-    next: { href: '/blog/stream-claude-code-tools-to-web', title: 'Streaming Claude Code Tools to the Web' }
-  },
-  {
-    title: 'Streaming Claude Code Tools to the Web',
-    href: '/blog/stream-claude-code-tools-to-web',
-    icon: HiOutlineCommandLine,
-    section: 'Blog',
-    difficulty: 'Design Decision',
-    keywords: ['claude code', 'stream-json', 'tool calls', 'co ai', 'o chat', 'agent observability', 'permissions'],
-    prev: { href: '/blog/alpha-beta-rc-before-lts', title: 'Why Alpha, Beta, and RC Come Before 1.7 LTS' },
     next: { href: '/releases', title: 'Release Channels' }
   },
 
@@ -1012,7 +993,7 @@ export const navigation = [
     section: 'Releases',
     difficulty: 'Policy',
     keywords: ['release', 'version', 'stable', 'alpha', 'beta', 'rc', 'preview', 'lts', 'pypi'],
-    prev: { href: '/blog/stream-claude-code-tools-to-web', title: 'Streaming Claude Code Tools to the Web' },
+    prev: { href: '/blog/oip-native-coding-adapters', title: 'One Browser Protocol, Native Coding Adapters' },
     next: { href: '/roadmap', title: 'Coming Soon Features' }
   },
 
