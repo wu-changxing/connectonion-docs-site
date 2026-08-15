@@ -4,13 +4,13 @@ ConnectOnion keeps the current stable line separate from the next feature
 train. Preview releases are opt-in and do not replace the version normal users
 receive from pip.
 
-**Current channels:** stable is `1.6.4`; the opt-in preview is `1.7.0a2`.
+**Current channels:** stable is `1.6.8`; the opt-in preview is `1.7.0a2`.
 
 ## Version meanings
 
 | Version | Meaning |
 |---|---|
-| `1.6.4` | Current stable 1.6 maintenance release |
+| `1.6.8` | Current stable 1.6 maintenance release |
 | `1.7.0a2` | Current incomplete, opt-in 1.7 alpha |
 | `1.7.0b1` | Feature-complete 1.7 beta |
 | `1.7.0rc1` | Candidate that may become stable unchanged |
@@ -19,6 +19,16 @@ receive from pip.
 
 Patch numbers are not progress toward the next feature version. New 1.7
 features are tested as `1.7.0aN`, `1.7.0bN`, and `1.7.0rcN`.
+
+### Stable 1.6.8
+
+Long-running agent commands now honor the timeout the caller supplied, even
+beyond ten minutes, and an expired command is reported as a tool error instead
+of success-shaped text. `co ai` runs without eval-model calls by default;
+`co ai --eval` opts into scoring, while session records retain only the newest
+500. Received mail now supports pages of up to 1000 messages and offsets for
+older pages. A fresh `co ai` creates one private owner invite without printing
+it; reveal it intentionally with `co keys --reveal`.
 
 ## Install stable
 

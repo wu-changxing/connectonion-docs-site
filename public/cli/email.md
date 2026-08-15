@@ -35,7 +35,8 @@ co email
 
 ```bash
 co email inbox                 # last 10
-co email inbox --last 25       # last 25  (alias: -n 25)
+co email inbox --last 25       # last 25 (alias: -n 25)
+co email inbox -n 1000 --offset 1000  # next page of older mail
 co email inbox --unread        # only unread  (alias: -u)
 ```
 
@@ -43,11 +44,15 @@ Unread messages are marked with a green `●`. The leftmost `#` is the email's
 id — pass it to `co email read`.
 
 **Options**
-- `--last, -n` — how many to show (default: 10)
+- `--last, -n` — how many to show (default: 10, range: 1-1000)
+- `--offset` — how many newer emails to skip (default: 0)
 - `--unread, -u` — only unread messages
 
 > Note: `--unread` filters the fetched page locally, so `--last 10 --unread`
 > means "unread among your 10 most recent," not "your 10 most recent unread."
+
+A full page prints the exact `co email inbox` command for the next page. Run it
+as shown and continue until the command returns no rows.
 
 ### `co email read <#>` — Read one message
 

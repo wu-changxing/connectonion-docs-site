@@ -667,6 +667,15 @@ Dashboard: https://o.openonion.ai/dashboard`}
             title="Web server mode - browser interface"
             commands={['co ai --port 8000']}
           />
+
+          <CommandBlock
+            title="Debugging - opt into completion scoring"
+            commands={['co ai --eval']}
+          />
+
+          <p className="text-gray-600 text-sm">
+            On first start, <code className="bg-gray-100 px-1 rounded">co ai</code> creates a private owner invite without printing it. Reveal it intentionally with <code className="bg-gray-100 px-1 rounded">co keys --reveal</code> when connecting your client.
+          </p>
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
