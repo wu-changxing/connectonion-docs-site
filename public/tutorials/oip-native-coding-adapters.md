@@ -1,6 +1,7 @@
 # One browser protocol, native coding adapters
 
-ConnectOnion 1.7.0a5 makes OIP 0.1 the only first-party browser protocol. The
+ConnectOnion 1.7.0a5 introduced OIP 0.1 as the only first-party browser protocol,
+and 1.7.0a6 carries the complete 1.6.9 stable line forward. The
 Python Host serves the authenticated `/ws` boundary, `@connectonion/react`
 owns connection and event state, and O Chat renders that state.
 

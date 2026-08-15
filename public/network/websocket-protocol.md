@@ -8,7 +8,7 @@
 
 ## Version and rolling upgrades
 
-The 1.7.0a5 Host advertises one bounded compatibility window:
+The 1.7 preview Host advertises one bounded compatibility window:
 
 ```json
 {
