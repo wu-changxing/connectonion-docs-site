@@ -538,7 +538,7 @@ EOF`}
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-600">--model</td>
                   <td className="px-4 py-3 font-mono text-gray-500">-m</td>
-                  <td className="px-4 py-3 text-gray-600">co/gemini-3-flash-preview</td>
+                  <td className="px-4 py-3 text-gray-600">co/gemini-3.7-flash</td>
                   <td className="px-4 py-3 text-gray-700">LLM model to use</td>
                 </tr>
                 <tr>
@@ -556,8 +556,8 @@ EOF`}
               code={`# Different port
 co ai --port 9000
 
-# Faster model
-co ai --model co/gemini-2.5-pro
+# Different model
+co ai --model co/gemini-3.7-flash
 
 # ACP with ULW available for at most 20 autonomous turns
 co ai --acp --yolo --yolo-turns 20

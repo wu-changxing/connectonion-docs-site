@@ -128,12 +128,20 @@ export default function PricingPage() {
             <tbody className="divide-y divide-gray-200">
               <tr>
                 <td className="px-4 py-3">
+                  <code className="text-sm text-gray-700">gemini-3.7-flash</code>
+                  <span className="ml-2 text-xs bg-gray-100 text-gray-700 px-1.5 py-0.5 rounded">default</span>
+                </td>
+                <td className="px-4 py-3 text-gray-700">$0.75</td>
+                <td className="px-4 py-3 text-gray-700">$3.75</td>
+                <td className="px-4 py-3 text-gray-600">Default model — intro pricing through 2026-12-31, then $1.50 / $7.50</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3">
                   <code className="text-sm text-gray-700">gemini-3.6-flash</code>
-                  <span className="ml-2 text-xs bg-gray-100 text-gray-700 px-1.5 py-0.5 rounded">newest</span>
                 </td>
                 <td className="px-4 py-3 text-gray-700">$1.50</td>
                 <td className="px-4 py-3 text-gray-700">$7.50</td>
-                <td className="px-4 py-3 text-gray-600">Newest fast Gemini ($0.15 cached)</td>
+                <td className="px-4 py-3 text-gray-600">Previous default, fast Gemini ($0.15 cached)</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-3.5-flash</code></td>
@@ -150,11 +158,10 @@ export default function PricingPage() {
               <tr>
                 <td className="px-4 py-3">
                   <code className="text-sm text-gray-700">gemini-2.5-pro</code>
-                  <span className="ml-2 text-xs bg-gray-100 text-gray-700 px-1.5 py-0.5 rounded">default</span>
                 </td>
                 <td className="px-4 py-3 text-gray-700">$1.25</td>
                 <td className="px-4 py-3 text-gray-700">$10.00</td>
-                <td className="px-4 py-3 text-gray-600">Agent default, 2M context</td>
+                <td className="px-4 py-3 text-gray-600">Strong multimodal, 2M context</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm text-gray-700">gemini-2.5-flash</code></td>

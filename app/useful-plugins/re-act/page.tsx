@@ -91,7 +91,7 @@ def acknowledge_request(agent):
 
     ack = llm_do(
         f"Conversation so far:\\n{conversation}\\n\\nCurrent user input: {user_prompt}\\n\\nAcknowledge this request (1-2 sentences):",
-        model="co/gemini-2.5-flash",
+        model="co/gemini-3.7-flash",
         system_prompt=ACKNOWLEDGE_PROMPT
     )
 
@@ -122,7 +122,7 @@ def reflect(agent):
     if trace['status'] == 'success':
         reflection = llm_do(
             f"Action: {tool_name}({tool_args})\\nResult: {str(trace['result'])[:300]}\\nWhat did we learn? What's next?",
-            model="co/gemini-2.5-flash"
+            model="co/gemini-3.7-flash"
         )
         agent.current_session['messages'].append({
             'role': 'assistant',

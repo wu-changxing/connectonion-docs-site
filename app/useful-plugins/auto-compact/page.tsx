@@ -39,7 +39,7 @@ export default function AutoCompactPage() {
             code={`from connectonion import Agent
 from connectonion.useful_plugins import auto_compact
 
-agent = Agent("researcher", plugins=[auto_compact], model="co/gemini-2.5-pro")
+agent = Agent("researcher", plugins=[auto_compact], model="co/gemini-3.7-flash")
 
 # Works even on sessions that would normally hit token limits
 agent.input("Analyze all 50 files in src/ and write a report")`}
@@ -66,7 +66,7 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
               <span className="text-gray-700 font-bold text-lg w-6 flex-shrink-0">2</span>
               <div>
                 <div className="font-semibold mb-1">Summarize old messages</div>
-                <p className="text-gray-600 text-sm">Calls <code className="bg-gray-100 px-1 rounded">co/gemini-2.5-flash</code> to generate a compact summary of earlier turns (max 800 words).</p>
+                <p className="text-gray-600 text-sm">Calls <code className="bg-gray-100 px-1 rounded">co/gemini-3.7-flash</code> to generate a compact summary of earlier turns (max 800 words).</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
@@ -93,7 +93,7 @@ agent.input("Analyze all 50 files in src/ and write a report")`}
                   <td className="px-4 py-3 font-mono text-gray-700">90%</td>
                   <td className="px-4 py-3 text-gray-600">8</td>
                   <td className="px-4 py-3 text-gray-600">system + summary + last 5</td>
-                  <td className="px-4 py-3 font-mono text-gray-600">co/gemini-2.5-flash</td>
+                  <td className="px-4 py-3 font-mono text-gray-600">co/gemini-3.7-flash</td>
                 </tr>
               </tbody>
             </table>

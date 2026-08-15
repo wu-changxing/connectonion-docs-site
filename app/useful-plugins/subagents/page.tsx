@@ -39,7 +39,7 @@ export default function SubagentsPage() {
             code={`from connectonion import Agent
 from connectonion.useful_plugins import subagents
 
-agent = Agent("main", plugins=[subagents], model="co/gemini-2.5-pro")
+agent = Agent("main", plugins=[subagents], model="co/gemini-3.7-flash")
 
 # The agent can now delegate to sub-agents
 agent.input("explore the codebase and explain the architecture")`}
@@ -103,7 +103,7 @@ Return a structured report with findings and line numbers.`}
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">model</td>
                   <td className="px-4 py-3 text-gray-600">no</td>
-                  <td className="px-4 py-3 text-gray-700">Default: co/gemini-2.5-pro</td>
+                  <td className="px-4 py-3 text-gray-700">Default: co/gemini-3.7-flash</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-mono text-gray-700">max_iterations</td>

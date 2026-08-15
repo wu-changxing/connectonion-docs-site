@@ -174,7 +174,7 @@ agent = Agent(
     system_prompt="prompt.md",
     tools=[bash, read_file, edit, glob, grep, write],
     plugins=[image_result_formatter, tool_approval],
-    model="co/gemini-3.6-flash",
+    model="co/gemini-3.7-flash",
 )
 
 print(agent.input("what is your task?"))`}
@@ -188,7 +188,7 @@ print(agent.input("what is your task?"))`}
               through our servers, which is a fair thing to be suspicious about — so say
               it plainly and say how to leave, rather than letting them find out later. */}
           <p className="text-sm text-gray-500 mb-8 text-balance">
-            <code className="font-mono text-gray-700">co/gemini-3.6-flash</code> runs on our
+            <code className="font-mono text-gray-700">co/gemini-3.7-flash</code> runs on our
             managed keys — $5 of credits, no API key to sign up for. Swap in{' '}
             <code className="font-mono text-gray-700">gpt-4o</code>,{' '}
             <code className="font-mono text-gray-700">claude-…</code> or your own key any time.
@@ -285,7 +285,7 @@ print(agent.input("what is your task?"))`}
                 </p>
               </div>
               <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm border border-gray-700">
-                <div><span className="text-green-400">model=</span><span className="text-yellow-300">"co/gemini-2.5-pro"</span></div>
+                <div><span className="text-green-400">model=</span><span className="text-yellow-300">"co/gemini-3.7-flash"</span></div>
                 <div className="text-gray-400 text-xs mt-1">Check balance: co status</div>
               </div>
             </div>

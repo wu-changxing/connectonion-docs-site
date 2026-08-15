@@ -3,7 +3,7 @@ import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Models — ConnectOnion',
-  description: 'ConnectOnion supports OpenAI (GPT-4o), Anthropic (Claude), Google (Gemini), and managed co/ keys. Use co/gemini-2.5-pro with zero API key config. Compare pricing and switch models in one line.',
+  description: 'ConnectOnion supports OpenAI (GPT-4o), Anthropic (Claude), Google (Gemini), and managed co/ keys. Use co/gemini-3.7-flash with zero API key config. Compare pricing and switch models in one line.',
   alternates: { canonical: 'https://docs.connectonion.com/models' },
   openGraph: {
     title: 'Models — ConnectOnion',

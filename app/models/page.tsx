@@ -99,10 +99,11 @@ response = agent.input("Hello!")
 - **o4-mini** - OpenAI's newest reasoning model
 
 ### Google Gemini Models
-- **gemini-3.6-flash** - Newest fast Gemini, 1M context
+- **gemini-3.7-flash** - Default model, newest fast Gemini, 1M context
+- **gemini-3.6-flash** - Previous default, fast Gemini
 - **gemini-3.5-flash** - Previous fast Gemini
 - **gemini-3-pro-preview** - State-of-the-art reasoning, 1M context
-- **gemini-2.5-pro** - Default model, best price-performance for agents
+- **gemini-2.5-pro** - Strong multimodal model for agents
 - **gemini-2.5-flash** - Best price-performance ratio
 - **gemini-2.0-flash** - Previous gen workhorse
 
@@ -119,7 +120,7 @@ response = agent.input("Hello!")
 **Best Overall Performance**
 \`\`\`python
 agent = Agent("assistant", model="gpt-5")           # OpenAI flagship
-agent = Agent("assistant", model="gemini-2.5-pro")  # Google default
+agent = Agent("assistant", model="gemini-2.5-pro")  # Google flagship
 agent = Agent("assistant", model="claude-opus-4-5") # Anthropic flagship
 \`\`\`
 
@@ -253,6 +254,12 @@ response = agent.input("Explain quantum computing")`}
                 <td className="px-4 py-3 text-gray-700">Best for coding & agentic tasks</td>
               </tr>
               <tr>
+                <td className="px-4 py-3"><code className="text-sm">gemini-3.7-flash</code></td>
+                <td className="px-4 py-3">Google</td>
+                <td className="px-4 py-3">1M</td>
+                <td className="px-4 py-3 text-gray-700">Default model, newest fast Gemini</td>
+              </tr>
+              <tr>
                 <td className="px-4 py-3"><code className="text-sm">gemini-3-pro-preview</code></td>
                 <td className="px-4 py-3">Google</td>
                 <td className="px-4 py-3">1M</td>
@@ -298,11 +305,11 @@ response = agent.input("Explain quantum computing")`}
               For <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Agent()</code> class
             </p>
             <CodeWithResult
-              code={`# Default: co/gemini-2.5-pro
-agent = Agent("assistant")  # Uses co/gemini-2.5-pro
+              code={`# Default: co/gemini-3.7-flash
+agent = Agent("assistant")  # Uses co/gemini-3.7-flash
 
 # Same as:
-agent = Agent("assistant", model="co/gemini-2.5-pro")`}
+agent = Agent("assistant", model="co/gemini-3.7-flash")`}
               result=""
             />
             <p className="text-xs text-gray-500 mt-3">
@@ -321,11 +328,11 @@ agent = Agent("assistant", model="co/gemini-2.5-pro")`}
             <CodeWithResult
               code={`from connectonion import llm_do
 
-# Default: co/gemini-2.5-flash
+# Default: co/gemini-3.7-flash
 result = llm_do("Summarize this text...")
 
 # Same as:
-result = llm_do("...", model="co/gemini-2.5-flash")`}
+result = llm_do("...", model="co/gemini-3.7-flash")`}
               result=""
             />
             <p className="text-xs text-gray-500 mt-3">
@@ -436,8 +443,12 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
+                  <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.7-flash</code>
+                  <span className="text-gray-700">Newest fast Gemini, 1M context - <strong className="text-gray-900">Default model</strong></span>
+                </div>
+                <div className="flex items-start">
                   <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.6-flash</code>
-                  <span className="text-gray-700">Newest fast Gemini, 1M context</span>
+                  <span className="text-gray-700">Previous default, fast Gemini</span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.5-flash</code>
@@ -462,11 +473,11 @@ result = llm_do("...", model="co/gemini-2.5-flash")`}
               <div className="space-y-3">
                 <div className="flex items-start">
                   <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.5-pro</code>
-                  <span className="text-gray-700">Enhanced reasoning, supports audio/video/PDF (2M tokens) - <strong className="text-gray-900">Agent default</strong></span>
+                  <span className="text-gray-700">Enhanced reasoning, supports audio/video/PDF (2M tokens)</span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-2.5-flash</code>
-                  <span className="text-gray-700">Fast and cost-effective reasoning (1M tokens) - <strong className="text-gray-900">llm_do default</strong></span>
+                  <span className="text-gray-700">Fast and cost-effective reasoning (1M tokens)</span>
                 </div>
               </div>
             </div>
