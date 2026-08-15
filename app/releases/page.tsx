@@ -163,12 +163,17 @@ export default function ReleasesPage() {
           </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>Alpha.5 candidate:</strong> OIP is the only first-party browser protocol, with native
-              Claude Code and Codex tools for delegated coding work.
+              <strong>Alpha.7 candidate:</strong> OIP is the only first-party browser protocol, with native
+              Claude Code and Codex tools for delegated coding work and a deterministic Codex routing boundary.
             </p>
             <p>
               Claude Code and Codex preserve their provider session IDs, stream normalized tool activity through
               OIP, and appear as live cards in O Chat through <code>@connectonion/react</code>.
+            </p>
+            <p>
+              Explicit run/use/start/open Codex intent calls the native adapter. Raw Codex launches through shell
+              or background wrappers are rejected before process creation, while opening without a task creates a
+              real provider thread and Work Room without submitting an invented model turn.
             </p>
           </div>
         </section>
