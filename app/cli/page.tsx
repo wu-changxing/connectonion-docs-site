@@ -413,7 +413,7 @@ Next steps:
 # Use co/ prefix for managed models
 response = llm_do("Hello", model="co/gpt-4o")
 response = llm_do("Hello", model="co/claude-sonnet-4-5")
-response = llm_do("Hello", model="co/gemini-2.5-pro")`}
+response = llm_do("Hello", model="co/gemini-3.7-flash")`}
           </div>
         </div>
       </section>

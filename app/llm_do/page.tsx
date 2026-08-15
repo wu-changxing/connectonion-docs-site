@@ -77,7 +77,7 @@ answer = llm_do("What's 2+2?")
 print(answer)
 
 # Google Gemini
-answer = llm_do("What's 2+2?", model="gemini-2.5-flash")
+answer = llm_do("What's 2+2?", model="gemini-3.7-flash")
 
 # Anthropic Claude
 answer = llm_do("What's 2+2?", model="claude-haiku-4-5")`}
@@ -212,8 +212,8 @@ llm_do("Hello", model="gpt-5-mini")
 llm_do("Hello", model="gpt-5-nano")
 
 # Google Gemini models
-llm_do("Hello", model="gemini-2.5-pro")
-llm_do("Hello", model="gemini-2.5-flash")
+llm_do("Hello", model="gemini-3.7-flash")
+llm_do("Hello", model="gemini-3-pro-preview")
 
 # Anthropic Claude models
 llm_do("Hello", model="claude-sonnet-4-5")
@@ -222,7 +222,7 @@ llm_do("Hello", model="claude-opus-4-5")`}
                 result={`>>> llm_do("Hello", model="gpt-5")
 'Hello! How can I assist you today?'
 
->>> llm_do("Hello", model="gemini-2.5-flash")
+>>> llm_do("Hello", model="gemini-3.7-flash")
 'Hello there! How can I help you?'
 
 >>> llm_do("Hello", model="claude-haiku-4-5")

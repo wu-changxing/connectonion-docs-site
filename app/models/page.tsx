@@ -120,7 +120,7 @@ response = agent.input("Hello!")
 **Best Overall Performance**
 \`\`\`python
 agent = Agent("assistant", model="gpt-5")           # OpenAI flagship
-agent = Agent("assistant", model="gemini-2.5-pro")  # Google flagship
+agent = Agent("assistant", model="gemini-3.7-flash") # Google newest
 agent = Agent("assistant", model="claude-opus-4-5") # Anthropic flagship
 \`\`\`
 
@@ -133,12 +133,12 @@ agent = Agent("coder", model="claude-sonnet-4-5")   # Alternative
 **Fast Responses**
 \`\`\`python
 agent = Agent("quick", model="gpt-5-nano")          # OpenAI fastest
-agent = Agent("quick", model="gemini-2.5-flash")    # Google fast
+agent = Agent("quick", model="gemini-3.7-flash")    # Google fast
 \`\`\`
 
 **Long Context (>200K tokens)**
 \`\`\`python
-agent = Agent("reader", model="gemini-2.5-pro")     # 2M tokens
+agent = Agent("reader", model="gemini-3.7-flash")   # 1M tokens
 \`\`\`
 
 ## Setting Up API Keys
@@ -610,7 +610,7 @@ result = llm_do("...", model="co/gemini-3.7-flash")`}
             </h3>
             <CodeWithResult
               code={`agent = Agent("quick", model="gpt-5-nano")
-# Alternative: gemini-2.5-flash`}
+# Alternative: gemini-3.7-flash`}
               result=""
             />
           </div>
@@ -622,7 +622,7 @@ result = llm_do("...", model="co/gemini-3.7-flash")`}
             </h3>
             <CodeWithResult
               code={`agent = Agent("budget", model="gpt-5-nano")
-# Alternative: gemini-2.5-flash-lite`}
+# Alternative: gemini-3.7-flash`}
               result=""
             />
           </div>
@@ -633,7 +633,7 @@ result = llm_do("...", model="co/gemini-3.7-flash")`}
               Multimodal
             </h3>
             <CodeWithResult
-              code={`agent = Agent("vision", model="gemini-2.5-pro")
+              code={`agent = Agent("vision", model="gemini-3.7-flash")
 # Supports: audio, video, images, PDF`}
               result=""
             />
@@ -661,7 +661,7 @@ result = llm_do("...", model="co/gemini-3.7-flash")`}
             <CodeWithResult
               code={`# Use any model with co/ prefix
 agent = Agent("assistant", model="co/gpt-5")
-agent = Agent("assistant", model="co/gemini-2.5-pro")
+agent = Agent("assistant", model="co/gemini-3.7-flash")
 agent = Agent("assistant", model="co/claude-opus-4-5")`}
               result=""
             />
@@ -695,7 +695,7 @@ agent = Agent("assistant", model="co/claude-opus-4-5")`}
             <CodeWithResult
               code={`# Use models without co/ prefix
 agent = Agent("assistant", model="gpt-5")
-agent = Agent("assistant", model="gemini-2.5-pro")
+agent = Agent("assistant", model="gemini-3.7-flash")
 agent = Agent("assistant", model="claude-opus-4-5")`}
               result=""
             />
@@ -722,7 +722,7 @@ agent = Agent("assistant", model="claude-opus-4-5")`}
         return {
             "code": "gpt-5-mini",
             "chat": "gpt-5-nano",
-            "analysis": "gemini-2.5-flash"
+            "analysis": "gemini-3.7-flash"
         }.get(task_type, "gpt-5-nano")
     else:
         return {
@@ -751,7 +751,7 @@ agent = Agent("coder", model=model)`}
     model_chain = [
         "gpt-5",           # Best overall
         "claude-opus-4-5", # Strong alternative
-        "gemini-2.5-pro",  # Multimodal option
+        "gemini-3.7-flash", # Fast Gemini option
         "gpt-5-mini"       # Faster fallback
     ]
     

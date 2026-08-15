@@ -197,7 +197,6 @@ response = llm_do("Hello", model="co/gpt-4o")`}
               <ul className="text-sm text-gray-600 space-y-1 font-mono">
                 <li>co/gemini-3.7-flash (default)</li>
                 <li>co/gemini-3-pro-preview</li>
-                <li>co/gemini-2.5-pro</li>
               </ul>
             </div>
           </div>
