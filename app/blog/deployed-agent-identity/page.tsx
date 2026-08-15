@@ -231,7 +231,7 @@ export default function DeployedAgentIdentityPage() {
           </p>
 
           <h2>Upgrading</h2>
-          <pre className="overflow-x-auto"><code>{`pip install --upgrade connectonion   # 1.6.5, stable
+          <pre className="overflow-x-auto"><code>{`pip install --upgrade connectonion   # 1.6.5 or later, stable
 co deploy --to prod`}</code></pre>
           <p>
             Existing deployments keep working. Redeploy to move an agent onto its own account.
