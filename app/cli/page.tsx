@@ -667,6 +667,11 @@ Dashboard: https://o.openonion.ai/dashboard`}
             title="Web server mode - browser interface"
             commands={['co ai --port 8000']}
           />
+
+          <CommandBlock
+            title="Debugging - opt into completion scoring"
+            commands={['co ai --eval']}
+          />
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">

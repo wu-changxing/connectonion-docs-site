@@ -7,7 +7,7 @@ Source: https://docs.connectonion.com | GitHub: https://github.com/openonion/con
 
 ## What is ConnectOnion?
 
-ConnectOnion is an open-source Python toolkit for building AI agents. Current stable version: 1.6.4. License: Apache-2.0.
+ConnectOnion is an open-source Python toolkit for building AI agents. Current stable version: 1.6.7. License: Apache-2.0.
 
 You do not start from a blank file. `co create my-agent` scaffolds a project that already
 runs — an `agent.py` with a shell, file reading, editing, search and writing already wired
@@ -17,7 +17,7 @@ generated files from there; any plain Python function you add becomes a tool aut
 **Core facts:**
 - Install: `pip install connectonion`
 - Release channel: stable by default; previews require `--pre` or an exact pin
-- Current public preview: `1.7.0a2` (opt-in); current stable remains `1.6.4`
+- Current public preview: `1.7.0a2` (opt-in); current stable remains `1.6.7`
 - Minimum Python version: 3.10
 - Default model: `co/gemini-2.5-pro` (managed keys, zero config)
 - Starting point: `co create` writes the project; the generated agent runs before you edit anything
@@ -61,7 +61,7 @@ protocol state and O Chat pins that exact reviewed artifact. The retired
 standalone TypeScript SDK is not on the release path. Direct loopback or
 TLS/WSS is preview scope, not a relay end-to-end-encryption claim. It is
 published on PyPI and marked as a GitHub Prerelease; the latest stable GitHub
-Release remains `1.6.4`.
+Release remains `1.6.7`.
 
 For local stdio ACP acceptance, `co ai --acp --state-dir PATH` isolates mutable
 session snapshots, logs, and evals in one explicit private root. Identity,

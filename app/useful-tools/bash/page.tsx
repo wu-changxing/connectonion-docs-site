@@ -91,7 +91,7 @@ agent.input("check git log for last 5 commits")`}
                   <td className="px-4 py-3 font-mono text-gray-600">timeout</td>
                   <td className="px-4 py-3 text-gray-500">int</td>
                   <td className="px-4 py-3 text-gray-500">120</td>
-                  <td className="px-4 py-3 text-gray-700">Seconds before timeout (max 600)</td>
+                  <td className="px-4 py-3 text-gray-700">Seconds before timeout; caller-provided values are honored</td>
                 </tr>
               </tbody>
             </table>
@@ -113,7 +113,7 @@ bash("npm install", "Install packages", cwd="/path/to/project")
 bash("pytest -v", "Run tests", cwd="./my-module")
 
 # Longer timeout
-bash("npm run build", "Build project", timeout=300)
+bash("co ai 'complete the browser workflow'", "Run sub-agent", timeout=7200)
 
 # Direct call — returns output string
 result = bash("git log --oneline -5", "Recent commits")
@@ -145,6 +145,7 @@ agent.input("read main.py, fix the import error, then run it to verify")`}
               <p>• Output truncated at 10,000 characters to prevent token overflow</p>
               <p>• stdout and stderr are merged in the returned string</p>
               <p>• Non-zero exit codes included in output (<code className="bg-gray-100 px-1 rounded">Exit code: 1</code>)</p>
+              <p>• Timeouts raise <code className="bg-gray-100 px-1 rounded">subprocess.TimeoutExpired</code>, which agent execution records as an error</p>
               <p>• Unix/Mac only — use <a href="/useful-tools/shell" className="text-gray-700 hover:underline">Shell</a> for cross-platform</p>
             </div>
           </div>
