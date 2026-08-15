@@ -76,7 +76,7 @@ co email read 42`}
                 commands={['co email inbox', 'co email inbox --last 1000 --offset 1000', 'co email inbox --unread']}
               />
               <p className="text-gray-600 text-sm mt-3">
-                <code className="bg-gray-100 px-1 rounded">--last</code> accepts 1–1000; use <code className="bg-gray-100 px-1 rounded">--offset</code> to continue through older pages. Unread messages are marked with a green ●. The leftmost <code className="bg-gray-100 px-1 rounded">#</code> is the email&apos;s id — pass it to <code className="bg-gray-100 px-1 rounded">co email read</code>. Note: <code className="bg-gray-100 px-1 rounded">--unread</code> filters the fetched page locally, so <code className="bg-gray-100 px-1 rounded">--last 10 --unread</code> means &quot;unread among your 10 most recent,&quot; not &quot;your 10 most recent unread.&quot;
+                <code className="bg-gray-100 px-1 rounded">--last</code> accepts 1–1000; use <code className="bg-gray-100 px-1 rounded">--offset</code> to continue through older pages. A full page prints the exact next-page command. Unread messages are marked with a green ●. The leftmost <code className="bg-gray-100 px-1 rounded">#</code> is the email&apos;s id — pass it to <code className="bg-gray-100 px-1 rounded">co email read</code>. Note: <code className="bg-gray-100 px-1 rounded">--unread</code> filters the fetched page locally, so <code className="bg-gray-100 px-1 rounded">--last 10 --unread</code> means &quot;unread among your 10 most recent,&quot; not &quot;your 10 most recent unread.&quot;
               </p>
             </div>
 

@@ -51,6 +51,9 @@ id — pass it to `co email read`.
 > Note: `--unread` filters the fetched page locally, so `--last 10 --unread`
 > means "unread among your 10 most recent," not "your 10 most recent unread."
 
+A full page prints the exact `co email inbox` command for the next page. Run it
+as shown and continue until the command returns no rows.
+
 ### `co email read <#>` — Read one message
 
 ```bash
