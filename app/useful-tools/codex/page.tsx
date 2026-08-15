@@ -97,6 +97,8 @@ agent.input("Ask Codex to fix the failing tests in ./myrepo")`}
             session ID with <code className="bg-gray-100 px-1.5 py-0.5 rounded">opened: true</code>, and does not
             call <code className="bg-gray-100 px-1.5 py-0.5 rounded">account/read</code> or
             <code className="bg-gray-100 px-1.5 py-0.5 rounded">turn/start</code>.
+            Because Codex persists a rollout only after the first turn, a new open-only app-server remains alive
+            in a bounded, expiring registry so the first Work Room message uses that exact session ID.
           </p>
         </section>
 

@@ -1,8 +1,9 @@
 # One browser protocol, native coding adapters
 
 ConnectOnion 1.7.0a5 introduced OIP 0.1 as the only first-party browser protocol,
-1.7.0a6 carries the complete 1.6.9 stable line forward, and 1.7.0a7 closes the
-raw-provider escape hatch. The
+1.7.0a6 carries the complete 1.6.9 stable line forward, 1.7.0a7 closes the
+raw-provider escape hatch, and 1.7.0a8 preserves an open-only Codex thread
+through its first real Work Room task. The
 Python Host serves the authenticated `/ws` boundary, `@connectonion/react`
 owns connection and event state, and O Chat renders that state.
 
@@ -55,6 +56,11 @@ An open request with no task creates or resumes the native thread but sends no
 `account/read` or `turn/start`. O Chat can open the interactive Work Room before
 work begins without spending a model turn or inventing a prompt.
 
+Codex writes its durable rollout only after the first turn. For a brand-new
+open-only thread, the Host therefore keeps the initialized app-server alive in
+a bounded, fifteen-minute registry. The first Work Room message claims the
+same thread ID, runs the turn, persists the rollout, and closes the process.
+
 The adapter output contract is deliberately small: a provider invocation owns
 one stable parent tool-call ID, inner work becomes correlated `tool_call` and
 `tool_result` events, provider approvals use the ordinary `approval_needed`
@@ -72,7 +78,8 @@ through an implicit base implementation.
 The release gate covers running, completed, failed, expanded, and mobile Codex
 cards; OIP Host and WebSocket contracts; exact adapter session behavior; and a
 real published-package browser run. Routing and false-positive evaluations plus
-open-without-turn are part of the alpha.7 gate. We would revisit the decision only if a
+open-without-turn and same-thread first-follow-up are part of the alpha.8 gate.
+We would revisit the decision only if a
 provider-neutral interface demonstrates equivalent approval, cancellation,
 resume, and observability behavior across providers without weakening those
 native guarantees.

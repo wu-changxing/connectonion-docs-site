@@ -5,13 +5,13 @@ ConnectOnion has two release channels:
 - **Stable** is the default `pip install connectonion` channel for production.
 - **Preview** contains opt-in alpha, beta, and release-candidate builds.
 
-Current stable is `1.6.9`. The preview target is `1.7.0a7`. Preview releases
+Current stable is `1.6.9`. The preview target is `1.7.0a8`. Preview releases
 never replace the stable recommendation; use `--pre` or an exact pin.
 
 | Version | Meaning |
 |---|---|
 | `1.6.9` | Current stable 1.6 maintenance release |
-| `1.7.0a7` | Current incomplete, opt-in 1.7 alpha |
+| `1.7.0a8` | Current incomplete, opt-in 1.7 alpha |
 | `1.7.0b1` | Feature-complete 1.7 beta |
 | `1.7.0rc1` | Candidate that may become stable unchanged |
 | `1.7.0` | Stable/LTS 1.7 release |
@@ -45,7 +45,7 @@ Design notes:
   onboarding creates a private recovery path without printing its credential.
 - [A Page Should Not Become a Wall](/blog/a-page-should-not-become-a-wall)
 
-## Preview 1.7.0a7
+## Preview 1.7.0a8
 
 OIP 0.1 is the only first-party browser protocol. The Python Host serves the
 authenticated `/ws` connection, `@connectonion/react` owns the browser client,
@@ -65,9 +65,14 @@ deterministic: raw CLI launches through shell/background wrappers are rejected,
 and an open-only request creates a provider thread and Work Room without
 submitting an invented model turn.
 
+Alpha 8 keeps that open-only app-server alive until the first Work Room task.
+Codex does not persist a rollout before its first turn, so a bounded,
+fifteen-minute registry preserves the exact thread ID shown at open time. The
+first task claims that thread, persists it, and closes the process.
+
 ```bash
 python -m pip install --pre --upgrade connectonion
-python -m pip install connectonion==1.7.0a7
+python -m pip install connectonion==1.7.0a8
 ```
 
 The architecture decision is recorded in [One Browser Protocol, Native Coding
