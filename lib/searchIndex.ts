@@ -163,6 +163,20 @@ export const pageContentIndex: PageContent[] = [
     content: 'ConnectOnion blog posts. Design decisions, architecture insights, best practices. Learn about our development process. Technical deep dives. Community updates.'
   },
   {
+    title: 'The Owner Needs a Door',
+    href: '/blog/the-owner-needs-a-door',
+    section: 'Blog',
+    keywords: ['co ai', 'owner invite', 'onboarding', 'recovery', 'secret', 'careful trust', '1.6.8'],
+    content: 'Why a secure co ai default still needs a private owner recovery path. Covers one-time invite creation, cross-process locking, masked key output, deliberate reveal, and avoiding credentials in logs.'
+  },
+  {
+    title: 'A Page Should Not Become a Wall',
+    href: '/blog/a-page-should-not-become-a-wall',
+    section: 'Blog',
+    keywords: ['email', 'mailbox', 'pagination', 'offset', 'limit', 'CLI tip', 'data completeness', '1.6.8'],
+    content: 'Why received-mail page limits must be explicit and traversable. Covers aligned 1000-row pages, offsets, stable ordering, unsupported-backend detection, and exact next-page CLI guidance.'
+  },
+  {
     title: 'How co ai Streams Claude Code Tool Calls to the Web',
     href: '/blog/stream-claude-code-tools-to-web',
     section: 'Blog',

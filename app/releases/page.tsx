@@ -77,6 +77,24 @@ export default function ReleasesPage() {
           </div>
         </section>
 
+        <section className="mb-14 rounded-lg border border-green-200 bg-green-50 p-6">
+          <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">Stable 1.6.8 design notes</p>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Two boundaries that still let the user through</h2>
+          <p className="text-gray-600 mb-4">
+            The release creates a private door for a fresh <code>co ai</code> owner and makes finite
+            mailbox pages traversable instead of silently incomplete.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 text-sm font-semibold">
+            <Link href="/blog/the-owner-needs-a-door" className="text-green-700 hover:underline">
+              The Owner Needs a Door
+            </Link>
+            <span className="hidden sm:inline text-green-400">·</span>
+            <Link href="/blog/a-page-should-not-become-a-wall" className="text-green-700 hover:underline">
+              A Page Should Not Become a Wall
+            </Link>
+          </div>
+        </section>
+
         <section className="mb-14">
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
             <p className="text-gray-900 font-semibold mb-2">A version is a compatibility promise, not a progress counter.</p>
