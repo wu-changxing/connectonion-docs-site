@@ -160,7 +160,7 @@ export const pageContentIndex: PageContent[] = [
     href: '/blog/oip-native-coding-adapters',
     section: 'Blog',
     keywords: ['oip', 'codex', 'claude code', 'tool calls', 'co ai', 'o chat', 'browser protocol', 'native adapters'],
-    content: 'Why OIP owns ConnectOnion browser state while native Codex and Claude Code adapters preserve provider approvals, sessions, sandboxes, and tool events; explicit Codex intent cannot fall back to raw shell, and open-only creates a Work Room without an invented turn.'
+    content: 'Why OIP owns ConnectOnion browser state while native Codex and Claude Code adapters preserve provider approvals, sessions, sandboxes, and tool events; explicit Codex intent cannot fall back to raw shell, and open-only keeps the exact provider thread for the first Work Room task without an invented turn.'
   },
   {
     title: 'The Owner Needs a Door',
