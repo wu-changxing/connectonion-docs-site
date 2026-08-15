@@ -25,6 +25,11 @@ authenticated `/ws` connection, `@connectonion/react` owns the browser client,
 and O Chat consumes the exact React prerelease. Codex and Claude Code are
 native backend adapters that publish normalized activity through OIP.
 
+The coordinated Host and React candidate advertise an OIP 0.1–0.1 rolling
+window while accepting a descriptor-less stable peer as legacy OIP 0.1. An
+advertised incompatible peer fails once as non-retryable; discovery is
+`no-store`, so a stale descriptor cannot cause a reconnect loop.
+
 Alpha 5 removes the abandoned alternate transport, generic coding-agent edge,
 SDK dependency, CLI flags, gateway, exports, tests, fixtures, and product docs.
 It also carries the reviewed stable 1.6.8 fixes.

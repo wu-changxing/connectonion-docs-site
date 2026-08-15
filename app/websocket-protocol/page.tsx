@@ -39,7 +39,13 @@ export default function WebSocketProtocolPage() {
   "type": "CONNECTED",
   "session_id": "550e8400-...",
   "status": "new",
-  "protocol": {"name": "oip", "version": "0.1"},
+  "protocol": {
+    "name": "oip",
+    "version": "0.1",
+    "min_version": "0.1",
+    "max_version": "0.1",
+    "websocket_path": "/ws"
+  },
   "session_modes": {
     "currentModeId": ":read-only",
     "availableModes": [
@@ -48,6 +54,12 @@ export default function WebSocketProtocolPage() {
     ]
   }
 }`}</JsonBlock>
+        </section>
+
+        <section className="mb-14">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">Rolling compatibility</h2>
+          <p className="text-gray-700 mb-3">The Host publishes the same bounded descriptor from public <code className="bg-gray-100 px-1 rounded">/info</code> with <code className="bg-gray-100 px-1 rounded">Cache-Control: no-store</code>, and React sends its descriptor in <code className="bg-gray-100 px-1 rounded">CONNECT</code>. A descriptor-less stable peer is treated as legacy OIP 0.1 during the 1.7 preview train.</p>
+          <p className="text-gray-700">Unknown additive non-authoritative events are ignored. An advertised incompatible version becomes one typed, non-retryable error and the socket closes, so the UI gives a refresh or upgrade action instead of entering a reconnect loop.</p>
         </section>
 
         <section className="mb-14">

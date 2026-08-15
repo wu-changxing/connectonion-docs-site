@@ -39,9 +39,12 @@ continues to take precedence.
 The published `@connectonion/react` package owns the browser OIP client, browser
 identity, onboarding, reconnect, approvals, and session normalization. O Chat
 pins one exact preview version. The Host advertises OIP 0.1 in `CONNECTED`; an
-explicit unsupported descriptor fails clearly instead of selecting another
-transport. Identity, recipient binding, replay protection, and trust policy
-remain ConnectOnion Host responsibilities.
+explicit unsupported descriptor fails once as non-retryable instead of
+selecting another transport or reconnecting forever. `/info` and `CONNECTED`
+advertise the supported 0.1–0.1 range; React sends its descriptor in `CONNECT`.
+A missing descriptor remains the bounded stable-client/stable-Host compatibility
+alias for OIP 0.1 through the 1.7 preview train. Identity, recipient binding,
+replay protection, and trust policy remain ConnectOnion Host responsibilities.
 
 ### One-Shot Mode
 

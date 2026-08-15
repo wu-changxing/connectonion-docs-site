@@ -10,6 +10,14 @@ canonical provider session ID, and translates bounded activity into OIP tool
 events. The browser therefore needs one parser and one lifecycle even when the
 backend provider changes.
 
+The useful lesson from Happy Coder is to bridge a provider's native session
+instead of pretending every coding engine has the same internal protocol.
+ConnectOnion applies that lesson with a different ownership model: `co ai` owns
+the parent loop, Codex uses `codex app-server`, Claude Code uses headless
+`stream-json`, and each edge adapter maps native activity into the small OIP
+event waist. Provider transcripts stay local; raw provider JSON is not the
+browser wire format.
+
 ## The problem
 
 The earlier preview explored two protocol layers for overlapping jobs. That
@@ -35,6 +43,13 @@ and reconnect. `codex` and `claude_code` own provider launch, provider-native
 events, and exact resume. There is no generic fallback: a missing provider is a
 clear configuration error naming the executable and installation action.
 
+The adapter output contract is deliberately small: a provider invocation owns
+one stable parent tool-call ID, inner work becomes correlated `tool_call` and
+`tool_result` events, provider approvals use the ordinary `approval_needed`
+path, and terminal state becomes completed, failed, or cancelled. The existing
+React/O Chat cards consume those OIP events without provider-specific wire
+parsers.
+
 This duplicates a small amount of translation code between adapters, but it
 avoids a second public protocol and keeps provider differences visible where
 they matter. New coding providers must earn a native adapter rather than enter
@@ -48,4 +63,3 @@ real published-package browser run. We would revisit the decision only if a
 provider-neutral interface demonstrates equivalent approval, cancellation,
 resume, and observability behavior across providers without weakening those
 native guarantees.
-

@@ -3,7 +3,36 @@
 > CONNECT to start or resume, INPUT to message, EXEC to run one tool directly. Session stays alive between executions.
 
 > This is OIP 0.1, the single ConnectOnion browser protocol. `co ai` serves it
-> over the authenticated `/ws` socket and advertises it in `CONNECTED`.
+> over the authenticated `/ws` socket and advertises it in public `/info` and
+> authenticated `CONNECTED` responses.
+
+## Version and rolling upgrades
+
+The 1.7.0a5 Host advertises one bounded compatibility window:
+
+```json
+{
+  "protocol": {
+    "name": "oip",
+    "version": "0.1",
+    "min_version": "0.1",
+    "max_version": "0.1",
+    "websocket_path": "/ws"
+  }
+}
+```
+
+The same descriptor appears in `CONNECTED`, and the React client sends its own
+descriptor in `CONNECT`. Reader-before-writer rollout keeps one deliberate
+legacy rule: a missing descriptor means the pre-negotiation OIP 0.1 Host or
+client. Unknown additive, non-authoritative events remain ignorable. An
+advertised incompatible version fails once with a non-retryable compatibility
+error and closes that socket; it must not trigger an automatic reconnect loop.
+
+The descriptor-less reader is retained through the 1.7 preview train and can be
+removed only in a later minor after stable and preview clients both advertise
+their range. `/info` is always returned with `Cache-Control: no-store`, so stale
+discovery cannot hold a browser on an obsolete transport contract.
 
 ---
 
