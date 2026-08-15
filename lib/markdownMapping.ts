@@ -33,7 +33,6 @@ const routeToMarkdownMap: Record<string, string> = {
   '/memory': '/memory.md',
   '/google-integration': '/google-integration.md',
   '/useful-tools/codex': '/useful-tools/codex.md',
-  '/useful-tools/acp-agent': '/useful-tools/acp_agent.md',
   
   // Advanced Features
   '/xray/trace': '/tutorials/xray.md', // Uses same xray.md for now
@@ -53,8 +52,7 @@ const routeToMarkdownMap: Record<string, string> = {
   '/blog/trust-keyword': '/tutorials/choosing-trust-keyword.md',
   '/blog/llm-do': '/tutorials/choosing-llm-function-name.md',
   '/blog/input-method': '/tutorials/choosing-input-method.md',
-  '/blog/alpha-beta-rc-before-lts': '/tutorials/alpha-beta-rc-before-lts.md',
-  '/blog/stream-claude-code-tools-to-web': '/tutorials/stream-claude-code-tools-to-web.md',
+  '/blog/oip-native-coding-adapters': '/tutorials/oip-native-coding-adapters.md',
   '/blog/the-owner-needs-a-door': '/tutorials/the-owner-needs-a-door.md',
   '/blog/a-page-should-not-become-a-wall': '/tutorials/a-page-should-not-become-a-wall.md',
   

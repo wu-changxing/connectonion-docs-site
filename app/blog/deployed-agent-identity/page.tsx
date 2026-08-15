@@ -239,7 +239,7 @@ co deploy --to prod`}</code></pre>
 
           <p className="text-gray-600">
             See also{' '}
-            <Link href="/blog/alpha-beta-rc-before-lts">
+            <Link href="/blog/oip-native-coding-adapters">
               Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS
             </Link>{' '}
             for why this is a 1.6 patch rather than part of the 1.7 preview train.

@@ -240,7 +240,7 @@ const result = await agent.input('translate hello');
 ```
 
 React applications install only `@connectonion/react`. Its low-level connection API is
-available from `@connectonion/react/connect`; the old `connectonion-ts` package name is not
+available from `@connectonion/react/connect`; alternate browser SDK package names are not
 a published client package.
 
 ### From Python

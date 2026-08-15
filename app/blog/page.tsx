@@ -4,7 +4,7 @@ import { HiOutlineArrowPath, HiOutlineArrowRight, HiOutlineUsers, HiOutlineComma
 
 export const metadata: Metadata = {
   title: 'ConnectOnion Design Journal | AI Agent Architecture and Release Decisions',
-  description: 'Read ConnectOnion design decisions, release engineering lessons, ACP architecture, API rationale, and the thinking behind the Python AI agent framework.',
+  description: 'Read ConnectOnion design decisions, release engineering lessons, protocol architecture, API rationale, and the thinking behind the Python AI agent framework.',
   alternates: {
     canonical: '/blog',
   },
@@ -58,24 +58,14 @@ const blogPosts = [
     excerpt: 'ConnectOnion 1.6.5 stops co deploy --to from shipping the operator identity to the server — and why a bug where every signal agreed with itself survived nine days.'
   },
   {
-    title: 'How co ai Streams Claude Code Tool Calls to the Web',
-    subtitle: 'One delegated task, visible inner work, and an honest permission boundary',
+    title: 'One Browser Protocol, Native Coding Adapters',
+    subtitle: 'Why OIP owns the web boundary while Codex and Claude Code stay native',
     date: 'August 2026',
     readTime: '6 min read',
-    href: '/blog/stream-claude-code-tools-to-web',
+    href: '/blog/oip-native-coding-adapters',
     icon: HiOutlineCommandLine,
-    tags: ['Design Decision', 'Claude Code', 'Agent Observability'],
-    excerpt: 'Why co ai translates Claude Code stream-json events into live O Chat tool cards without treating observability as approval authority.'
-  },
-  {
-    title: 'Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS',
-    subtitle: 'A version is a compatibility promise, not a progress counter',
-    date: 'August 2026',
-    readTime: '7 min read',
-    href: '/blog/alpha-beta-rc-before-lts',
-    icon: HiOutlineArrowPath,
-    tags: ['Design Decision', 'Release Engineering', 'ACP'],
-    excerpt: 'Why 1.6 stays stable while ACP and coding-agent features move through an opt-in 1.7 alpha, beta, and RC release train.'
+    tags: ['Design Decision', 'OIP', 'Coding Adapters'],
+    excerpt: 'Why co ai uses one OIP browser connection and translates native Codex and Claude Code events into live O Chat cards.'
   },
   {
     title: 'ConnectOnion 1.6.0',

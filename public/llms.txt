@@ -57,7 +57,6 @@
 - [FileTools](https://docs.connectonion.com/useful-tools/file-tools): File read/write/edit with safety tracking
 - [BrowserAutomation](https://docs.connectonion.com/useful-tools/browser-tools): Natural language browser automation via Playwright
 - [Codex](https://docs.connectonion.com/useful-tools/codex): Native Codex app-server delegation with resume and per-action approval
-- [ACP Agent](https://docs.connectonion.com/useful-tools/acp-agent): Bounded generic ACP delegation to named coding agents
 
 ## Integrations
 
@@ -120,10 +119,9 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 
 ## Blog — Design Decisions
 
+- [One Browser Protocol, Native Coding Adapters](https://docs.connectonion.com/blog/oip-native-coding-adapters): OIP browser ownership and native Codex and Claude Code adapter boundaries
 - [The Owner Needs a Door](https://docs.connectonion.com/blog/the-owner-needs-a-door): Secure first-owner onboarding, one-time invite creation, masked inspection, and deliberate secret reveal
 - [A Page Should Not Become a Wall](https://docs.connectonion.com/blog/a-page-should-not-become-a-wall): Traversable mailbox limits, deterministic pagination, and exact next-page CLI guidance
-- [How co ai Streams Claude Code Tool Calls to the Web](https://docs.connectonion.com/blog/stream-claude-code-tools-to-web): Claude Code stream-json delegation, live O Chat tool cards, MCP compatibility, and permission boundaries
-- [Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS](https://docs.connectonion.com/blog/alpha-beta-rc-before-lts): Release-train design, Python prerelease behavior, ACP scope, and the stable-user promise
 - [Why input() Over run()](https://docs.connectonion.com/blog/input-method): API naming design decision
 - [Why llm_do() Over llm()](https://docs.connectonion.com/blog/llm-do): LLM function naming rationale
 - [Why We Chose "Trust"](https://docs.connectonion.com/blog/trust-keyword): Trust keyword design decision

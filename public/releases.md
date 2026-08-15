@@ -1,24 +1,21 @@
-# Release Channels
+# Release channels
 
-ConnectOnion keeps the current stable line separate from the next feature
-train. Preview releases are opt-in and do not replace the version normal users
-receive from pip.
+ConnectOnion has two release channels:
 
-**Current channels:** stable is `1.6.9`; the opt-in preview is `1.7.0a2`.
+- **Stable** is the default `pip install connectonion` channel for production.
+- **Preview** contains opt-in alpha, beta, and release-candidate builds.
 
-## Version meanings
+Current stable is `1.6.9`. The preview target is `1.7.0a6`. Preview releases
+never replace the stable recommendation; use `--pre` or an exact pin.
 
 | Version | Meaning |
 |---|---|
 | `1.6.9` | Current stable 1.6 maintenance release |
-| `1.7.0a2` | Current incomplete, opt-in 1.7 alpha |
+| `1.7.0a6` | Current incomplete, opt-in 1.7 alpha |
 | `1.7.0b1` | Feature-complete 1.7 beta |
 | `1.7.0rc1` | Candidate that may become stable unchanged |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
-
-Patch numbers are not progress toward the next feature version. New 1.7
-features are tested as `1.7.0aN`, `1.7.0bN`, and `1.7.0rcN`.
 
 ### Stable 1.6.9
 
@@ -47,96 +44,28 @@ Design notes:
 - [The Owner Needs a Door](/blog/the-owner-needs-a-door) explains why secure
   onboarding creates a private recovery path without printing its credential.
 - [A Page Should Not Become a Wall](/blog/a-page-should-not-become-a-wall)
-  explains why a finite mailbox page must remain traversable.
 
-## Install stable
+## Preview 1.7.0a6
 
-```bash
-python -m pip install --upgrade connectonion
-```
+OIP 0.1 is the only first-party browser protocol. The Python Host serves the
+authenticated `/ws` connection, `@connectonion/react` owns the browser client,
+and O Chat consumes the exact React prerelease. Codex and Claude Code are
+native backend adapters that publish normalized activity through OIP.
 
-This remains on stable even after an alpha, beta, or RC is published.
+The coordinated Host and React candidate advertise an OIP 0.1–0.1 rolling
+window while accepting a descriptor-less stable peer as legacy OIP 0.1. An
+advertised incompatible peer fails once as non-retryable; discovery is
+`no-store`, so a stale descriptor cannot cause a reconnect loop.
 
-## Join the preview track
+Alpha 5 removes the abandoned alternate transport, generic coding-agent edge,
+SDK dependency, CLI flags, gateway, exports, tests, fixtures, and product docs.
+Alpha 6 carries the exact reviewed 1.6.9 stable line forward without changing
+the OIP/native-adapter boundary.
 
 ```bash
 python -m pip install --pre --upgrade connectonion
+python -m pip install connectonion==1.7.0a6
 ```
 
-The `--pre` flag is the explicit opt-in. If no preview exists yet, pip simply
-keeps the newest stable release.
-
-For reproducible testing, install the current exact candidate. Exact pins do
-not need `--pre`:
-
-```bash
-python -m pip install connectonion==1.7.0a2
-```
-
-## The 1.7 train
-
-The first preview added audience-scoped HTTP routes, expanded ACP support,
-Telegram messaging, safer attachment handling, and tighter account-safety
-boundaries. The second delivers the first end-to-end native browser ACP slice:
-an authenticated `/acp` WebSocket selected through explicit, fail-closed
-discovery; a caller-bound virtual workspace and private, bounded session and
-attachment storage; verified payment onboarding; and the shared permission,
-cancellation, mode, thought, plan, tool, reconnect, and resume lifecycle.
-
-`@connectonion/react@0.4.2-alpha.2` owns the browser protocol state and O Chat
-pins that exact reviewed artifact. The retired standalone TypeScript SDK is not
-on the release path. Direct loopback or TLS/WSS is preview scope; this release
-does not claim end-to-end encryption through an untrusted relay. It remains
-opt-in while the complete 1.7 experience is exercised end to end.
-
-Local stdio ACP acceptance can use `co ai --acp --state-dir PATH` to isolate
-mutable session snapshots, logs, and evals without moving identity,
-configuration, skills, credentials, the workspace, or provider tools. Turn
-logs and evaluation evidence now measure the current user-input boundary rather
-than double-counting earlier activity from the cumulative conversation. Stdio
-and authenticated WebSocket Host entry points also preserve official legacy
-string `protocolVersion` compatibility while rejecting Python-only boolean,
-float, and out-of-range integer coercion before SDK routing.
-
-The second alpha candidate also includes the bounded downward `acp_agent`
-adapter used by `co ai` to delegate one turn through ACP to exact-version
-Claude Code, Codex, and Gemini children. Process commands, approval policy, and
-workspace roots remain operator-owned; child thoughts and plans do not replace
-the outer session's canonical state. Claude Code and Codex pass real resume and
-exact `co ai` handoff tests. Pinned Codex ACP is Full-Access-only because its
-read-only mode cannot reliably gate shell or outbound network work; the native
-`codex` tool remains the approval-aware route. Pinned Gemini is one-turn and
-requires API-key, Vertex, or enterprise Code Assist authentication because
-individual OAuth service has been retired.
-
-- Alpha: ACP and coding-agent capabilities arrive in usable slices.
-- Beta: the feature set is complete; integration and compatibility are tested.
-- RC: only release blockers change.
-- 1.7.0: stable/LTS release.
-
-ACP is part of 1.7.0, not a separate 1.7.1 feature release. After 1.7.0,
-maintenance uses 1.7.1 and later patches while new remote-browser work advances
-toward 1.8.0 previews.
-
-The live [1.7 milestone](https://github.com/openonion/connectonion/milestone/7)
-tracks feature scope. [Issue #792](https://github.com/openonion/connectonion/issues/792)
-tracks the exact PR inventory and alpha/beta/RC/stable gates.
-
-Preview GitHub Releases are marked Prerelease automatically. Only stable
-releases are marked Latest.
-
-## Why We Publish a Design Journal
-
-Release notes record what changed. A Design Journal post records the problem,
-alternatives, decision, tradeoffs, evidence, and the condition that would make
-us revisit it. Meaningful feature-train launches, the first beta and RC, stable
-releases, and material architecture or workflow decisions receive a new or
-substantially updated post.
-
-Maintenance-only patches stay in release history unless they contain a reusable
-design lesson. Drafts may be prepared with the candidate, but the public post
-must not claim that a version is available until PyPI and its GitHub Release are
-visible.
-
-Read the decision behind the current train:
-[Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS](/blog/alpha-beta-rc-before-lts).
+The architecture decision is recorded in [One Browser Protocol, Native Coding
+Adapters](/blog/oip-native-coding-adapters).

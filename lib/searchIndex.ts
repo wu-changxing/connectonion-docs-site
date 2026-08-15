@@ -55,13 +55,6 @@ export const pageContentIndex: PageContent[] = [
     content: 'Convert Python functions to agent tools. Any function can be a tool. Automatic type inference. Parameter validation. Error handling. No classes needed. Tools from existing code. Function decorators. Tool schemas. OpenAI function calling. Tool results and errors. Async tool support. Tool composition.'
   },
   {
-    title: 'ACP Agent',
-    href: '/useful-tools/acp-agent',
-    section: 'Useful Tools',
-    keywords: ['acp', 'acp_agent', 'claude code', 'codex', 'gemini', 'coding agent', 'delegate', 'resume', 'permission'],
-    content: 'Use one typed ACP client to delegate bounded child tasks to named coding engines. Exact resume, operator-owned command and workspace authority, bounded tool activity, no child thoughts or plans promoted to parent state. Codex ACP is explicit auto only because its pinned read-only mode does not enforce shell and outbound-network approval; use the native Codex tool for approval-aware work.'
-  },
-  {
     title: 'System Prompts',
     href: '/prompts',
     section: 'Core Concepts',
@@ -163,6 +156,13 @@ export const pageContentIndex: PageContent[] = [
     content: 'ConnectOnion blog posts. Design decisions, architecture insights, best practices. Learn about our development process. Technical deep dives. Community updates.'
   },
   {
+    title: 'One Browser Protocol, Native Coding Adapters',
+    href: '/blog/oip-native-coding-adapters',
+    section: 'Blog',
+    keywords: ['oip', 'codex', 'claude code', 'tool calls', 'co ai', 'o chat', 'browser protocol', 'native adapters'],
+    content: 'Why OIP owns ConnectOnion browser state while native Codex and Claude Code adapters preserve provider approvals, sessions, sandboxes, and tool events.'
+  },
+  {
     title: 'The Owner Needs a Door',
     href: '/blog/the-owner-needs-a-door',
     section: 'Blog',
@@ -175,20 +175,6 @@ export const pageContentIndex: PageContent[] = [
     section: 'Blog',
     keywords: ['email', 'mailbox', 'pagination', 'offset', 'limit', 'CLI tip', 'data completeness', '1.6.8'],
     content: 'Why received-mail page limits must be explicit and traversable. Covers aligned 1000-row pages, offsets, stable ordering, unsupported-backend detection, and exact next-page CLI guidance.'
-  },
-  {
-    title: 'How co ai Streams Claude Code Tool Calls to the Web',
-    href: '/blog/stream-claude-code-tools-to-web',
-    section: 'Blog',
-    keywords: ['claude code', 'stream-json', 'tool calls', 'co ai', 'o chat', 'web', 'agent sdk', 'mcp', 'observability', 'permissions'],
-    content: 'Why ConnectOnion keeps Claude Code as one delegated tool call and translates inner Read, Edit, and Bash activity into live O Chat cards. Covers stream-json, session IDs, bounded redacted events, cancellation, MCP dependency compatibility, and the difference between tool visibility and permission approval.'
-  },
-  {
-    title: 'Why Alpha, Beta, and RC Come Before ConnectOnion 1.7 LTS',
-    href: '/blog/alpha-beta-rc-before-lts',
-    section: 'Blog',
-    keywords: ['alpha', 'beta', 'rc', 'preview', 'prerelease', 'pypi', 'lts', 'versioning', 'acp', 'release train'],
-    content: 'Why ConnectOnion keeps 1.6 stable while ACP and coding-agent features move through 1.7.0 alpha, beta, and release candidate previews before 1.7.0 becomes stable and long-term supported. Python package prerelease behavior, pip opt-in, milestone scope, and release engineering decisions.'
   },
   {
     title: 'Network Protocol Design',

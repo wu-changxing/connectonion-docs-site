@@ -1,6 +1,6 @@
 # co ai
 
-AI coding agent that works in your project — in the terminal, via web chat, or through an ACP client.
+AI coding agent that works in your project — in the terminal or via web chat.
 
 ## Quick Start
 
@@ -22,54 +22,29 @@ co ai
 - Opens `chat.openonion.ai/{your-address}` in your browser
 - You chat with the agent through the web UI
 - Agent runs in your project directory
-- Starts authenticated ACP v1 at `/acp` beside the `/ws` compatibility route
+- Serves OIP 0.1 over the authenticated `/ws` connection
 
-On first start, `co ai` creates a private owner invite in `~/.co/keys.env`
-without printing it. Reveal it intentionally with `co keys --reveal` when you
-are ready to connect your client. Restarting keeps the same invite.
+On its first web-server start, `co ai` creates a private owner invite in
+`~/.co/keys.env`. The code is never printed in startup logs. When you are ready
+to connect your own client, reveal it intentionally:
 
-The published `@connectonion/react@0.4.2-alpha.2` package owns browser transport
-selection, and O Chat pins it. An exact supported discovery descriptor selects
-authenticated `/acp`; a Host that omits the descriptor keeps the bounded `/ws`
-compatibility path. After React selects native ACP, admission or transport
-failure fails closed instead of silently downgrading. Direct loopback or
-TLS/WSS is the Alpha.2 transport boundary; this is not relay end-to-end
-encryption.
+```bash
+co keys --reveal
+```
 
-#### Delegate to Claude Code
+Restarting `co ai` keeps the same invite, so clients already given the code are
+not locked out. An explicit `CO_INVITE_CODE` in the current project or process
+continues to take precedence.
 
-In the 1.7 preview implementation, `co ai` can call the installed Claude Code
-CLI as one peer tool and resume its session. O Chat receives Claude's inner
-Read, Edit, and Bash activity as live tool cards while the parent agent owns
-the final review.
-
-The cards provide visibility, not extra authority. Delegated runs use Claude's
-safe mode, which disables ordinary project and user customizations while
-preserving authentication and admin policy. The launch directory stays inside
-the operator-bound project root; an unmatched interactive permission prompt
-cannot yet round-trip through O Chat and fails closed. Read the [stream-json
-design decision](/blog/stream-claude-code-tools-to-web).
-
-#### Delegate through a generic ACP child
-
-The `1.7.0a2` candidate also registers `acp_agent` for work that specifically
-needs the common ACP edge instead of the preferred native
-`claude_code` or `codex` tools. The model can select a named engine, prompt,
-working directory, and exact session to resume; command, approval, and the
-workspace root remain operator-owned.
-
-Read only and Workspace profiles select inner manual approval. Only a valid,
-bounded Full Access grant selects auto, and hosted non-admin requesters fail
-before a local process is launched. Pinned `codex-acp@1.1.14` is rejected in
-ordinary profiles because its read-only mode does not reliably ask before
-shell or outbound network work. Use the native `codex` tool there. This generic
-tool is not publicly available until the reviewed `1.7.0a2` package is
-published.
-
-The pinned Gemini route is one-turn and requires a Gemini API key, Vertex AI,
-or enterprise Code Assist. Google retired individual Gemini CLI OAuth service
-on June 18, 2026, so an old local OAuth credential file is not a readiness
-signal.
+The published `@connectonion/react` package owns the browser OIP client, browser
+identity, onboarding, reconnect, approvals, and session normalization. O Chat
+pins one exact preview version. The Host advertises OIP 0.1 in `CONNECTED`; an
+explicit unsupported descriptor fails once as non-retryable instead of
+selecting another transport or reconnecting forever. `/info` and `CONNECTED`
+advertise the supported 0.1–0.1 range; React sends its descriptor in `CONNECT`.
+A missing descriptor remains the bounded stable-client/stable-Host compatibility
+alias for OIP 0.1 through the 1.7 preview train. Identity, recipient binding,
+replay protection, and trust policy remain ConnectOnion Host responsibilities.
 
 ### One-Shot Mode
 
@@ -81,140 +56,73 @@ co ai "Refactor agent.py to use the new event system"
 
 Runs the prompt, prints the result, and exits. No server started.
 
-### ACP Mode
+For scripts and other coding agents, request one stable JSON object:
 
 ```bash
-co ai --acp
+co ai "Fix the failing tests" --json
+# {"session_id":"...","result":"...","error":null}
+
+co ai "Now update the docs" --resume <session-id> --json
 ```
 
-Serves Agent Client Protocol JSON-RPC over stdin/stdout for compatible editors and clients. Each ACP session owns one persistent coding agent, so later prompts reuse its conversation and tool state.
+Human-oriented progress moves to stderr in JSON mode, so stdout is safe to
+parse. A successful run exits `0`; invalid sessions and execution failures put
+a concise message in `error` and exit non-zero. Resume never silently starts a
+new conversation when the requested session is missing or invalid. Resume must
+run from the same project directory, and concurrent turns for one session fail
+fast instead of overwriting each other.
 
-The first request on each connection must be `initialize`. The stdio and
-authenticated WebSocket Host boundaries preserve official legacy-string
-`protocolVersion` compatibility. Raw numeric values must be JSON integers from
-`0` through `65535`; booleans, floats, and out-of-range integers are rejected
-before Python coercion. Compatible strings and integers still use normal ACP
-version negotiation. Stdio keeps reading after a malformed initialize request
-so the client can correct it.
-
-For automation or concurrent acceptance tests, isolate one process's mutable
-state explicitly:
-
-```bash
-co ai --acp --state-dir /private/tmp/co-acp-test
-```
-
-The selected directory owns that process's ACP snapshots, Agent logs, and eval
-records. It does not copy credentials or create another identity: the Agent
-name, provider configuration, skills, credentials, project workspace, and
-provider tools keep their normal locations and authority boundaries. POSIX
-directories are private at mode `0700`, symlink roots are rejected, and the
-default remains `~/.co` when the option is absent. `--state-dir` is ACP-only in
-this first slice. Logs, usage, cost, and evaluation evidence are measured from
-the current user-input boundary rather than counted again from the cumulative
-conversation.
-
-Session updates preserve Agent event order: thinking, tool starts, tool results, and the final assistant answer. JSON-native tool arguments and supported results remain structured in ACP `rawInput` and `rawOutput`. Turn usage and stop reasons come from the Agent's structured terminal record.
-
-Cancellation is cooperative, and late events from a retired turn are not forwarded into a later prompt. The final assistant answer is currently one ACP chunk rather than live token streaming.
-
-Safe mode continues to use ConnectOnion's existing tool policy. When a sensitive call needs human approval, the ACP client receives `session/request_permission` with choices to allow that call, allow for the current session, or reject the turn. Session grants persist only after a successful prompt commit and can be restored with that session. Cancellation, close, stdio EOF, client errors, malformed responses, and late replies all fail closed.
-
-#### Session modes and authority
-
-| Mode | Behavior |
-|------|----------|
-| Safe | Ask before tools with side effects |
-| Auto | Apply file edits automatically; ask before other risky tools |
-| ULW | Skip approvals for a bounded number of autonomous turns |
-
-Safe and Auto are always available through ACP `session/set_mode`, and the committed mode survives close and resume. Mode changes are idle-only: if a prompt is running, wait for it to finish and retry.
-
-ULW is advertised and accepted only when the operator starts the server with launch-time authority:
-
-```bash
-co ai --acp --yolo --yolo-turns 20
-```
-
-The client cannot grant itself ULW. A resumed ULW session must also fit within the new process's remaining-turn ceiling; malformed or over-authorized saved state is rejected instead of silently downgraded.
-
-#### Connect an ACP host
-
-ConnectOnion is the ACP agent. Editors such as Zed and JetBrains are clients that start it as a local subprocess. Make sure `co` is on the editor's PATH and run `co auth login` first when using managed models.
-
-**Zed:** Open Agent Settings, add a custom agent, then replace the generated entry:
-
-```json
-{
-  "agent_servers": {
-    "ConnectOnion": {
-      "type": "custom",
-      "command": "co",
-      "args": ["ai", "--acp"],
-      "env": {}
-    }
-  }
-}
-```
-
-This default command does not grant MCP process-launch authority, so disable every server under Settings → AI → MCP Servers. To forward configured servers deliberately, add `"--acp-mcp"` to `args`. Use `dev: open acp logs` in Zed to inspect protocol traffic. See [Zed External Agents](https://zed.dev/docs/ai/external-agents).
-
-**JetBrains:** In AI Chat, choose Add Custom Agent and put this entry in `acp.json`:
-
-```json
-{
-  "default_mcp_settings": {
-    "use_idea_mcp": false,
-    "use_custom_mcp": false
-  },
-  "agent_servers": {
-    "ConnectOnion": {
-      "command": "co",
-      "args": ["ai", "--acp"],
-      "env": {}
-    }
-  }
-}
-```
-
-The safe default is to keep both MCP forwarding settings false. To enable them deliberately, add `"--acp-mcp"` after `"--acp"` in `args`, then opt in to the required JetBrains MCP settings. See [JetBrains: ACP configuration](https://www.jetbrains.com/help/ai-assistant/acp.html). If a desktop app cannot find your shell PATH, use the absolute path returned by `which co` as `command`.
-
-MCP forwarding is disabled by default because an ACP-provided stdio server can launch a local process. With `--acp-mcp`, ConnectOnion accepts at most eight stdio servers whose commands are absolute paths; HTTP, SSE, and ACP-transport servers are rejected. Server tools still pass through the normal approval hook, and client-granted approvals expire when the MCP process pool closes. Resume requires the full server list again and does not restore client-granted approvals.
-
-#### Compatibility and known limitations
-
-| Boundary | Status | Notes |
-|----------|--------|-------|
-| Protocol and SDK | Tested | ACP `protocolVersion` 1 with Python SDK `>=0.12,<0.13` |
-| Local stdio | Tested in CI | Official typed client plus raw framing, EOF, cancellation, resume, modes, and approvals |
-| Zed / JetBrains | Custom-agent setup | Uses the local stdio command above; editor GUI binaries are not run in CI |
-| Claude Code / Codex | Peer agents | They are not ACP clients that launch ConnectOnion |
-| Additional directories | Not yet supported | Non-empty requests fail explicitly instead of being ignored |
-| MCP servers | Opt-in stdio | Disabled by default; `--acp-mcp` accepts bounded, session-scoped stdio servers with absolute commands |
-| Prompt content | Text and resource links | Links are passed as labeled references, not fetched automatically; image, audio, and embedded resources are not yet accepted |
-
-The test claim is deliberately narrower than “works everywhere”: CI runs the production stdio adapter against the official ACP client SDK, while the Zed and JetBrains steps above are editor smoke paths.
+JSON mode omits `run_background`, `task_output`, and `kill_task` because their
+process handles only exist inside one CLI process and cannot be resumed safely.
+Use foreground shell commands when the next subprocess must retain their result.
+On Windows, snapshot files rely on the current user's profile-directory ACLs;
+POSIX systems additionally enforce `0700` directories and `0600` files.
 
 ## Options
 
 | Option | Short | Default | Description |
 |--------|-------|---------|-------------|
-| `--acp` | — | off | Serve ACP JSON-RPC over stdin/stdout |
-| `--acp-mcp` | — | off | With `--acp`, allow session-scoped stdio MCP launches |
-| `--state-dir` | — | `~/.co` | With `--acp`, isolate mutable session, log, and eval state |
-| `--yolo` | — | off | Authorize bounded ULW mode and skip tool approvals |
-| `--yolo-turns` | — | `100` | Autonomous-turn ceiling when `--yolo` is enabled |
 | `--port` | `-p` | `8000` | Port for web server |
-| `--model` | `-m` | `co/claude-opus-4-5` | LLM model to use |
+| `--model` | `-m` | `co/gemini-3.7-flash` | LLM model to use |
 | `--max-iterations` | `-i` | `100` | Max tool iterations per turn |
+| `--yolo` | | off | Skip tool approvals and keep working across turns |
+| `--yolo-turns` | | `100` | Autonomous turns before a checkpoint; must be positive |
+| `--eval` | | off | Debug a task with two extra model calls that score completion |
+| `--json` | | off | Emit one JSON envelope to stdout in one-shot mode |
+| `--resume` | | | With `--json`, continue a one-shot session by ID |
 
 ```bash
 co ai --port 9000
-co ai --model co/gemini-2.5-pro
-co ai --acp --state-dir /private/tmp/co-acp-test
-co ai --acp --yolo --yolo-turns 20
+co ai --model co/gemini-3.7-flash
 co ai "Build an agent" --model co/gpt-4o --max-iterations 50
+co ai --yolo "Fix the failing suite" --yolo-turns 20
+co ai --eval "Check whether this agent really completed the task"
 ```
+
+## Full access (`--yolo`)
+
+Use `--yolo` for a trusted task that should run without tool-approval prompts.
+It works in both one-shot and web-server modes:
+
+```bash
+# Run one task autonomously, then exit at the 20-turn bound
+co ai --yolo "Implement issue #123" --yolo-turns 20
+
+# Start web chat with autonomous mode enabled for each session
+co ai --yolo --yolo-turns 20
+```
+
+Slash skills are expanded before the first model call. Project skills can live
+under either `.co/skills/` or `.claude/skills/`, so a project workflow can run
+directly:
+
+```bash
+co ai --yolo "/deploy-oo-chat" --yolo-turns 10
+```
+
+YOLO is the familiar CLI shorthand for Full access. It selects the canonical
+`:danger-full-access` permission profile and uses `full_access_turns` for the
+bounded autonomous checkpoint.
 
 ## What the Agent Can Do
 
@@ -227,10 +135,106 @@ The agent has a full suite of tools for coding tasks:
 - Run bash commands (with approval flow for destructive operations)
 
 **Planning**
-- Enter plan mode, write plans, exit and implement
+- Track complex work with a visible todo list; handle simple work directly
 
 **Task management**
 - Create and track todos, run background tasks, get task output
+
+**Codex delegation**
+- Hand a scoped coding task to the installed Codex CLI
+- Continue the same Codex thread by passing back its `session_id`
+- Stream Codex progress and approve concrete sensitive actions in the same UI
+
+### Delegate to Codex
+
+`co ai` can use Codex as a collaborator while keeping ownership of planning and
+review. Ask it to delegate a bounded task, for example:
+
+```text
+Ask Codex to implement the parser in /path/to/repo, run the focused tests, then
+review the diff yourself. Continue the same Codex session for any fixes.
+```
+
+The Codex CLI must be installed and authenticated. `co ai` passes an explicit
+working directory and returns a structured result containing the resumable
+session ID. Read only starts Codex read-only and asks when it requests more
+permission. Auto permits workspace changes but still asks about untrusted
+commands, while Full access runs without prompts using Codex's
+`danger-full-access` sandbox. The policy is reapplied when a Codex session is
+resumed. In a hosted session, only the operator can approve Codex's
+nested permission requests; shared contacts are always confined to read-only
+Codex runs with permission requests denied.
+
+**Claude Code delegation**
+- Hand a scoped coding task to the installed Claude Code CLI
+- Continue the same Claude Code session by passing back its `session_id`
+- Watch Claude's inner tools start and finish as live O Chat cards
+- Receive one stable JSON result for success, timeout, or provider errors
+
+### Delegate to Claude Code
+
+`co ai` can delegate an implementation or investigation while retaining
+responsibility for the plan and review:
+
+```text
+Ask Claude Code to implement the parser in /path/to/repo and run the focused
+tests. Review its diff, then continue the same session for any fixes.
+```
+
+The Claude Code CLI must be installed and authenticated. `co ai` still makes
+one ordinary `claude_code` tool call, but the web UI now shows inner activity
+such as `Claude Code › Read`, `Claude Code › Edit`, and `Claude Code › Bash` as
+it happens. The enclosing ConnectOnion agent keeps ownership of the final
+answer and reviews Claude's result.
+
+Read only maps to Claude's manual permission mode, Auto maps to
+`acceptEdits`, and Full access maps to Claude Auto mode. The
+integration never selects `bypassPermissions`, and the selected mode is
+supplied again when a session resumes. Separately, every delegated run uses
+Claude's `--safe-mode` isolation switch, which disables
+ordinary user and project customizations—including `CLAUDE.md`, skills,
+plugins, hooks, MCP servers, commands, and custom agents—so they cannot raise
+that mode's authority; admin-managed policy still applies. The directory
+passed by the model must resolve inside the project root where `co ai` started.
+Relevant project instructions are already carried by the parent prompt instead
+of being reloaded as provider-side filesystem configuration.
+
+Claude Code runs in headless `stream-json` mode. Its inner tool activity is
+visible, but it still cannot display an unmatched Claude permission prompt in
+the `co ai` UI: Read only can run actions allowed by its bound provider mode,
+while other protected actions fail closed. Auto automatically
+permits in-scope edits, but shell or network actions that still need a prompt
+also fail closed. A denied action can be described in a successful provider
+result, so always review the diff and test output rather than treating `status`
+alone as proof of completion.
+
+Because delegation starts a local coding subprocess with operator-bound
+authority, hosted Claude Code remains operator-only. Shared contacts receive a
+structured error and the local Claude CLI is not started.
+
+Auto mode is narrower than `bypassPermissions`, but it is not universally
+available. It requires an eligible account and model, an Anthropic API
+connection (not Bedrock, Vertex, or Foundry), and any required organization
+administrator setting. Ineligible Auto mode is returned as a provider error;
+the integration does not fall back to a more permissive mode.
+
+The real-binary smoke test is opt-in because it can use an authenticated model:
+
+```bash
+pytest -m real_api tests/e2e/real_api/test_real_claude_code.py
+```
+
+This is a fail-closed release check: absence of the optional Claude executable
+is a skip, but an installed CLI with stale authentication or a provider error is
+a failure. Both tests must pass before the result counts as live integration evidence.
+The test respects an explicit `CLAUDE_CONFIG_DIR`; without one it selects the
+native macOS Keychain login or the platform's isolated Claude credential directory,
+without copying or printing credential contents.
+
+When a hosted turn is interrupted, both built-in coding adapters cooperatively
+stop their launch process group and discard late session state and UI events.
+This bounds future provider work; filesystem or external effects completed
+before the interrupt are not rolled back.
 
 **Skills**
 - Load and run user-defined skills from `~/.claude/skills/`
@@ -268,8 +272,12 @@ This is loaded every session, so the agent always follows your rules.
 `co ai` uses your global identity from `~/.co/`:
 
 - Logs saved to `~/.co/logs/oo.log`
-- Eval sessions saved to `~/.co/evals/`
+- Session records saved to `~/.co/evals/` (the newest 500 are retained)
+- Resumable one-shot sessions saved privately under `~/.co/ai/sessions/`
 - Same address across all `co ai` sessions
+
+Task scoring is separate from session recording. It is off by default; pass
+`--eval` when debugging to generate an expected outcome and score completion.
 
 ## Examples
 
@@ -284,7 +292,7 @@ co ai "Add rate limiting to the API endpoint in oo-api/routes/llm.py"
 co ai "The test test_agent_loop is failing, investigate and fix it"
 
 # Use a different model
-co ai --model co/gemini-2.5-pro
+co ai --model co/gemini-3.7-flash
 
 # Run on a different port
 co ai --port 9000
