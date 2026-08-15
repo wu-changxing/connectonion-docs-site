@@ -30,6 +30,13 @@ of success-shaped text. `co ai` runs without eval-model calls by default;
 older pages. A fresh `co ai` creates one private owner invite without printing
 it; reveal it intentionally with `co keys --reveal`.
 
+Design notes:
+
+- [The Owner Needs a Door](/blog/the-owner-needs-a-door) explains why secure
+  onboarding creates a private recovery path without printing its credential.
+- [A Page Should Not Become a Wall](/blog/a-page-should-not-become-a-wall)
+  explains why a finite mailbox page must remain traversable.
+
 ## Install stable
 
 ```bash

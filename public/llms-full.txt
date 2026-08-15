@@ -85,6 +85,33 @@ in the 1.7 milestone; the exact PR inventory and phase evidence live in issue
 
 ---
 
+## Design Decision: The Owner Needs a Door
+
+The careful `co ai` default must keep strangers out without locking out the
+person who started it. ConnectOnion 1.6.8 creates one private owner invite when
+the global identity has none, preserves it across restarts, serializes
+simultaneous first starts, and stores it in the owner credential file. Normal
+startup and `co keys` output never reveal the value; `co keys --reveal` is the
+explicit private disclosure path.
+
+- Design journal: https://docs.connectonion.com/blog/the-owner-needs-a-door
+- CLI guide: https://docs.connectonion.com/cli/ai
+
+---
+
+## Design Decision: A Page Should Not Become a Wall
+
+Received and sent mail now share a 1,000-row page ceiling, and received mail
+accepts an offset through the backend, Python tool, skill, and CLI. The client
+does not silently clamp oversized requests, equal timestamps have a stable
+message-ID tie-breaker, and a full CLI page prints the exact next-page command.
+Finite pages protect the service without making older mail unreachable.
+
+- Design journal: https://docs.connectonion.com/blog/a-page-should-not-become-a-wall
+- CLI guide: https://docs.connectonion.com/cli/email
+
+---
+
 ## Design Decision: Stream Claude Code Tool Calls to O Chat
 
 `co ai` keeps Claude Code as one ordinary delegated tool call and translates

@@ -1001,6 +1001,26 @@ export const navigation = [
     difficulty: 'Design Decision',
     keywords: ['claude code', 'stream-json', 'tool calls', 'co ai', 'o chat', 'agent observability', 'permissions'],
     prev: { href: '/blog/alpha-beta-rc-before-lts', title: 'Why Alpha, Beta, and RC Come Before 1.7 LTS' },
+    next: { href: '/blog/the-owner-needs-a-door', title: 'The Owner Needs a Door' }
+  },
+  {
+    title: 'The Owner Needs a Door',
+    href: '/blog/the-owner-needs-a-door',
+    icon: HiOutlineShieldCheck,
+    section: 'Blog',
+    difficulty: 'Design Decision',
+    keywords: ['co ai', 'owner invite', 'onboarding', 'recovery', 'secret', 'careful trust'],
+    prev: { href: '/blog/stream-claude-code-tools-to-web', title: 'Streaming Claude Code Tools to the Web' },
+    next: { href: '/blog/a-page-should-not-become-a-wall', title: 'A Page Should Not Become a Wall' }
+  },
+  {
+    title: 'A Page Should Not Become a Wall',
+    href: '/blog/a-page-should-not-become-a-wall',
+    icon: HiOutlineSquare3Stack3D,
+    section: 'Blog',
+    difficulty: 'Design Decision',
+    keywords: ['email', 'mailbox', 'pagination', 'offset', 'limit', 'data completeness'],
+    prev: { href: '/blog/the-owner-needs-a-door', title: 'The Owner Needs a Door' },
     next: { href: '/releases', title: 'Release Channels' }
   },
 
@@ -1012,7 +1032,7 @@ export const navigation = [
     section: 'Releases',
     difficulty: 'Policy',
     keywords: ['release', 'version', 'stable', 'alpha', 'beta', 'rc', 'preview', 'lts', 'pypi'],
-    prev: { href: '/blog/stream-claude-code-tools-to-web', title: 'Streaming Claude Code Tools to the Web' },
+    prev: { href: '/blog/a-page-should-not-become-a-wall', title: 'A Page Should Not Become a Wall' },
     next: { href: '/roadmap', title: 'Coming Soon Features' }
   },
 

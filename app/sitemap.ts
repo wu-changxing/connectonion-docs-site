@@ -96,6 +96,8 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/prompts/examples/security-analyst', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/prompts/examples/customer-support', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog', priority: 0.7, changeFrequency: 'weekly' },
+  { path: '/blog/the-owner-needs-a-door', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/blog/a-page-should-not-become-a-wall', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/stream-claude-code-tools-to-web', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/alpha-beta-rc-before-lts', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/agent-address-format', priority: 0.5, changeFrequency: 'monthly' },

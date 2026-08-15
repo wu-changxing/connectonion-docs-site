@@ -55,6 +55,8 @@ const routeToMarkdownMap: Record<string, string> = {
   '/blog/input-method': '/tutorials/choosing-input-method.md',
   '/blog/alpha-beta-rc-before-lts': '/tutorials/alpha-beta-rc-before-lts.md',
   '/blog/stream-claude-code-tools-to-web': '/tutorials/stream-claude-code-tools-to-web.md',
+  '/blog/the-owner-needs-a-door': '/tutorials/the-owner-needs-a-door.md',
+  '/blog/a-page-should-not-become-a-wall': '/tutorials/a-page-should-not-become-a-wall.md',
   
   // Contributing
   '/website-maintenance': '/tutorials/website-maintenance.md',
