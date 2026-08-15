@@ -79,7 +79,7 @@ agent.input("Ask Codex to fix the failing tests in ./myrepo")`}
           </h2>
           <CodeWithResult
             code={`codex(
-    prompt: str,                     # Task for Codex, e.g. "fix the failing tests"
+    prompt: str = "",                # Omit to open a thread without submitting a turn
     session_id: str = "",            # Thread id from a previous call, to resume it
     cwd: str = "",                   # Directory Codex works in (default: cwd)
     sandbox: str = "workspace-write",  # "read-only" | "workspace-write" | "danger-full-access"
@@ -91,6 +91,27 @@ agent.input("Ask Codex to fix the failing tests in ./myrepo")`}
           />
           <p className="text-gray-700 mt-4 text-sm">
             With no frontend to ask, <code className="bg-gray-100 px-1.5 py-0.5 rounded">manual</code> approval <strong>denies</strong> each request rather than escalating.
+          </p>
+          <p className="text-gray-700 mt-3 text-sm">
+            With an empty prompt, the adapter initializes and creates or resumes the native thread, returns its
+            session ID with <code className="bg-gray-100 px-1.5 py-0.5 rounded">opened: true</code>, and does not
+            call <code className="bg-gray-100 px-1.5 py-0.5 rounded">account/read</code> or
+            <code className="bg-gray-100 px-1.5 py-0.5 rounded">turn/start</code>.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="heading-2">Native Route and Work Room</h2>
+          <p className="text-gray-700 mb-4">
+            In <code className="bg-gray-100 px-1.5 py-0.5 rounded">co ai</code>, an explicit request to run,
+            use, start, open, or ask Codex always targets this adapter. Executable Codex commands hidden in shell
+            chains, command substitutions, package runners, or background wrappers are rejected before approval
+            and process creation. Searches and prose that only mention Codex are not blocked.
+          </p>
+          <p className="text-gray-700">
+            O Chat renders the parent invocation immediately. Open Work Room shows the provider conversation,
+            correlated activity, and files; approvals, Stop, failure, completion, reconnect, and return-to-parent
+            all use the same authenticated OIP session.
           </p>
         </section>
 
@@ -193,7 +214,7 @@ print(result2["resumed"])  # True`}
         <section className="mb-12">
           <h2 className="heading-2">Frontend Contract</h2>
           <p className="text-gray-700">
-            Codex's inner steps are streamed as the <strong>same events</strong> the connection layer bundled in <code className="bg-gray-100 px-1.5 py-0.5 rounded">@connectonion/react</code> already maps to chat items — <code className="bg-gray-100 px-1.5 py-0.5 rounded">tool_call</code> (stable tool ID) and <code className="bg-gray-100 px-1.5 py-0.5 rounded">tool_result</code> — so no frontend or SDK change is needed to render Codex activity.
+            Codex's inner steps are streamed as the <strong>same OIP events</strong> the connection layer bundled in <code className="bg-gray-100 px-1.5 py-0.5 rounded">@connectonion/react</code> maps to chat items — a parent <code className="bg-gray-100 px-1.5 py-0.5 rounded">provider_invocation</code> plus correlated <code className="bg-gray-100 px-1.5 py-0.5 rounded">tool_call</code> and <code className="bg-gray-100 px-1.5 py-0.5 rounded">tool_result</code> activity. Older clients retain the generic tool-card fallback.
           </p>
         </section>
 

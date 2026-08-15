@@ -142,6 +142,7 @@ The agent has a full suite of tools for coding tasks:
 
 **Codex delegation**
 - Hand a scoped coding task to the installed Codex CLI
+- Open an empty native Codex thread and Work Room without inventing a task
 - Continue the same Codex thread by passing back its `session_id`
 - Stream Codex progress and approve concrete sensitive actions in the same UI
 
@@ -164,6 +165,12 @@ commands, while Full access runs without prompts using Codex's
 resumed. In a hosted session, only the operator can approve Codex's
 nested permission requests; shared contacts are always confined to read-only
 Codex runs with permission requests denied.
+
+Explicit requests such as “run Codex”, “open Codex”, and `/codex …` use the
+native adapter. Raw Codex launches through shell/background wrappers are
+rejected before process creation; commands that only search for or discuss the
+name remain ordinary shell work. An open-only request creates the provider
+thread without submitting a model turn.
 
 **Claude Code delegation**
 - Hand a scoped coding task to the installed Claude Code CLI

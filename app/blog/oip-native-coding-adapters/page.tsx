@@ -11,12 +11,45 @@ export const metadata: Metadata = {
   title: `${title} | ConnectOnion`,
   description,
   alternates: { canonical: canonicalPath },
-  openGraph: { title, description, url: canonicalPath, type: 'article' },
+  openGraph: {
+    title,
+    description,
+    url: canonicalPath,
+    siteName: 'ConnectOnion Docs',
+    type: 'article',
+    publishedTime: '2026-08-15T00:00:00+10:00',
+    modifiedTime: '2026-08-16T00:00:00+10:00',
+    authors: ['ConnectOnion Team'],
+    tags: ['OIP', 'Codex', 'Claude Code', 'coding adapters'],
+    images: [{ url: '/onion-logo.png', alt: title }],
+  },
+  twitter: { card: 'summary_large_image', title, description, images: ['/onion-logo.png'] },
+}
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: '2026-08-15',
+  dateModified: '2026-08-16',
+  author: { '@type': 'Organization', name: 'ConnectOnion', url: 'https://docs.connectonion.com' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'ConnectOnion',
+    logo: { '@type': 'ImageObject', url: 'https://docs.connectonion.com/onion-logo.png' },
+  },
+  mainEntityOfPage: `https://docs.connectonion.com${canonicalPath}`,
+  about: ['OIP', 'Codex app-server', 'Claude Code stream-json', 'provider routing'],
 }
 
 export default function OipNativeCodingAdaptersPage() {
   return (
     <main className="px-5 md:px-10 py-14 md:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd).replace(/</g, '\\u003c') }}
+      />
       <article className="max-w-3xl mx-auto">
         <header className="mb-12 border-b border-gray-100 pb-10">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
@@ -30,7 +63,7 @@ export default function OipNativeCodingAdaptersPage() {
         </header>
 
         <div className="prose prose-gray max-w-none">
-          <p>ConnectOnion 1.7.0a5 makes OIP 0.1 the only first-party browser protocol. The Python Host serves the authenticated <code>/ws</code> boundary, <code>@connectonion/react</code> owns connection and event state, and O Chat renders that state.</p>
+          <p>ConnectOnion 1.7.0a5 made OIP 0.1 the only first-party browser protocol; alpha.7 closes the raw-provider escape hatch. The Python Host serves the authenticated <code>/ws</code> boundary, <code>@connectonion/react</code> owns connection and event state, and O Chat renders that state.</p>
           <p>Codex and Claude Code are backend adapters. Each preserves its provider session identity and translates bounded native activity into OIP tool events, so the browser has one lifecycle even when the coding provider changes.</p>
           <p>The useful lesson from Happy Coder is to bridge each provider&apos;s native session instead of making raw provider transcripts the public wire format. ConnectOnion keeps the parent loop in <code>co ai</code>, drives Codex through <code>app-server</code> and Claude Code through headless <code>stream-json</code>, and translates only bounded activity at the adapter edge. Provider transcripts stay local.</p>
           <h2>The problem</h2>
@@ -39,9 +72,11 @@ export default function OipNativeCodingAdaptersPage() {
           <ul><li>Keep both browser transports and synchronize them.</li><li>Force every coding provider through one generic child-agent implementation.</li><li>Use one browser protocol with provider-native backend adapters.</li></ul>
           <h2>Decision</h2>
           <p>OIP owns browser connection, onboarding, messages, tool cards, cancellation, and reconnect. <code>codex</code> and <code>claude_code</code> own launch, native events, approvals, sandboxing, and exact resume. Missing providers fail with a direct installation/configuration message; there is no generic fallback.</p>
+          <p>Intent is part of that boundary. Explicit run/use/start/open Codex requests call <code>codex()</code>; an interceptor rejects executable Codex commands inside shell chains and background/package wrappers before approval or process creation. Commands that merely search for or discuss Codex remain ordinary shell work.</p>
+          <p>An open request with no task creates or resumes the native Codex thread but sends no <code>turn/start</code>. The Work Room can therefore be real before work begins, without spending a model turn or inventing a prompt.</p>
           <p>The browser contract stays small: one correlated provider invocation, OIP <code>tool_call</code>/<code>tool_result</code> activity, the ordinary <code>approval_needed</code> path, and a completed, failed, or cancelled terminal state. The existing React/O Chat cards render that contract without provider-specific wire parsers.</p>
           <h2>Tradeoffs and evidence</h2>
-          <p>A small amount of adapter translation is provider-specific, but the authority boundary stays explicit. Release acceptance covers Codex cards in running, completed, failed, expanded, and mobile states; OIP Host contracts; session resume; and a real published-package browser run.</p>
+          <p>A small amount of adapter translation is provider-specific, but the authority boundary stays explicit. Release acceptance covers Codex cards in running, completed, failed, expanded, and mobile states; OIP Host contracts; session resume; raw-launch and false-positive routing evaluations; open-without-turn; and a real published-package browser run.</p>
           <h2>What would make us revisit this</h2>
           <p>We would reconsider only if a provider-neutral interface demonstrates equivalent approval, cancellation, resume, and observability guarantees across providers.</p>
           <p>See the <Link href="/cli/ai">co ai guide</Link>, <Link href="/websocket-protocol">OIP WebSocket protocol</Link>, and <Link href="/useful-tools/codex">Codex adapter reference</Link>.</p>

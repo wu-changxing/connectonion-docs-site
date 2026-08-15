@@ -59,7 +59,7 @@ Host and React advertise the bounded OIP 0.1–0.1 window. Descriptor-less stabl
 peers remain the reader-first compatibility alias through the preview train;
 an advertised mismatch fails once as non-retryable rather than reconnecting.
 
-- Design decision: https://docs.connectonion.com/blog/oip-native-coding-adapters
+- Design decision: https://docs.connectonion.com/blog/oip-native-coding-adapters — one OIP browser lifecycle, native coding adapters, deterministic Codex routing, and open-without-turn Work Rooms
 - Release channels: https://docs.connectonion.com/releases
 - Milestone: https://github.com/openonion/connectonion/milestone/7
 - Integration issue: https://github.com/openonion/connectonion/issues/1045

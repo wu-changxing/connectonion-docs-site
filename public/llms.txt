@@ -119,7 +119,7 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 
 ## Blog — Design Decisions
 
-- [One Browser Protocol, Native Coding Adapters](https://docs.connectonion.com/blog/oip-native-coding-adapters): OIP browser ownership and native Codex and Claude Code adapter boundaries
+- [One Browser Protocol, Native Coding Adapters](https://docs.connectonion.com/blog/oip-native-coding-adapters): OIP browser ownership, native Codex and Claude Code adapter boundaries, deterministic Codex routing, and open-without-turn Work Rooms
 - [The Owner Needs a Door](https://docs.connectonion.com/blog/the-owner-needs-a-door): Secure first-owner onboarding, one-time invite creation, masked inspection, and deliberate secret reveal
 - [A Page Should Not Become a Wall](https://docs.connectonion.com/blog/a-page-should-not-become-a-wall): Traversable mailbox limits, deterministic pagination, and exact next-page CLI guidance
 - [Why input() Over run()](https://docs.connectonion.com/blog/input-method): API naming design decision

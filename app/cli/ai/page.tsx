@@ -54,7 +54,10 @@ export default function CliAiPage() {
 
         <section className="mb-14">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">Native coding adapters</h2>
-          <p className="text-gray-700">Codex and Claude Code run as native backend provider adapters. Their installed CLIs keep provider authentication and session semantics while normalized activity streams through the one OIP browser connection.</p>
+          <div className="space-y-3 text-gray-700">
+            <p>Codex and Claude Code run as native backend provider adapters. Their installed CLIs keep provider authentication and session semantics while normalized activity streams through the one OIP browser connection.</p>
+            <p>Explicit run/use/start/open Codex requests call <code className="bg-gray-100 px-1 rounded">codex()</code>. A shell or background command cannot silently replace that route: raw Codex launches are rejected before approval or process creation. If no task was supplied, the adapter opens a provider thread and Work Room without inventing a model turn.</p>
+          </div>
         </section>
 
         <ContentNavigation />
