@@ -4,13 +4,13 @@ ConnectOnion keeps the current stable line separate from the next feature
 train. Preview releases are opt-in and do not replace the version normal users
 receive from pip.
 
-**Current channels:** stable is `1.6.8`; the opt-in preview is `1.7.0a2`.
+**Current channels:** stable is `1.6.9`; the opt-in preview is `1.7.0a2`.
 
 ## Version meanings
 
 | Version | Meaning |
 |---|---|
-| `1.6.8` | Current stable 1.6 maintenance release |
+| `1.6.9` | Current stable 1.6 maintenance release |
 | `1.7.0a2` | Current incomplete, opt-in 1.7 alpha |
 | `1.7.0b1` | Feature-complete 1.7 beta |
 | `1.7.0rc1` | Candidate that may become stable unchanged |
@@ -19,6 +19,18 @@ receive from pip.
 
 Patch numbers are not progress toward the next feature version. New 1.7
 features are tested as `1.7.0aN`, `1.7.0bN`, and `1.7.0rcN`.
+
+### Stable 1.6.9
+
+Invited contacts can approve ordinary work in their own sessions while admin
+authority stays reserved for the control plane. Remote deployments authenticate
+the key the server actually retains, clear stale account metadata, and respect
+the project's ignore contract so live runtime state is not overwritten by a
+laptop copy. Shell append/output redirects work without reopening file-authoring
+bypasses. Mail reads preserve unread state by default across ConnectOnion,
+Gmail, and Outlook; `--mark-read` is the explicit consuming action. Claude Code
+skills that declare only `allowed-tools` now receive a direct compatibility
+warning instead of silently losing their intended approval behavior.
 
 ### Stable 1.6.8
 
