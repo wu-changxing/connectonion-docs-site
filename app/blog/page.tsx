@@ -18,6 +18,26 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'Changing the Default Model Is a Backend Decision First',
+    subtitle: 'Gemini 3.7 Flash by default, and why the client shipped second',
+    date: 'August 2026',
+    readTime: '5 min read',
+    href: '/blog/gemini-37-default',
+    icon: HiOutlineArrowPath,
+    tags: ['Design Journal', 'Release', 'Models'],
+    excerpt: 'ConnectOnion 1.6.6 makes Gemini 3.7 Flash the default. A backend that supports a model nobody requests is invisible; a client that requests a model nobody supports is an outage.'
+  },
+  {
+    title: 'The Agent That Was Itself, and Billed Someone Else',
+    subtitle: 'What a deployed process should inherit, and what it must not',
+    date: 'August 2026',
+    readTime: '6 min read',
+    href: '/blog/deployed-agent-identity',
+    icon: HiOutlineShieldCheck,
+    tags: ['Design Journal', 'Release', 'Agent Identity'],
+    excerpt: 'ConnectOnion 1.6.5 stops co deploy --to from shipping the operator identity to the server — and why a bug where every signal agreed with itself survived nine days.'
+  },
+  {
     title: 'How co ai Streams Claude Code Tool Calls to the Web',
     subtitle: 'One delegated task, visible inner work, and an honest permission boundary',
     date: 'August 2026',
