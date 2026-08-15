@@ -53,7 +53,7 @@ playwright install chromium`}
 from connectonion.useful_tools.browser_tools import BrowserAutomation
 
 browser = BrowserAutomation()
-agent = Agent("web", tools=[browser], model="co/gemini-2.5-pro")
+agent = Agent("web", tools=[browser], model="co/gemini-3.7-flash")
 
 agent.input("go to news.ycombinator.com and get the top 5 story titles")`}
             language="python"
@@ -341,7 +341,7 @@ browser.set_viewport(375, 812)   # iPhone`}
 from connectonion.useful_tools.browser_tools import BrowserAutomation
 
 browser = BrowserAutomation(headless=False)  # Visible for debugging
-agent = Agent("scraper", tools=[browser], model="co/gemini-2.5-pro")
+agent = Agent("scraper", tools=[browser], model="co/gemini-3.7-flash")
 
 agent.input("Go to news.ycombinator.com, get the top 5 story titles")
 agent.input("Navigate to github.com/trending and screenshot the page")

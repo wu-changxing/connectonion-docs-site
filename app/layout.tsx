@@ -178,7 +178,7 @@ const faqData = {
       "name": "What AI models does ConnectOnion support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "ConnectOnion supports OpenAI (GPT-4o, GPT-4), Anthropic (Claude), Google (Gemini), and more. Use managed keys with the co/ prefix (e.g., co/gemini-2.5-pro) for zero-config setup, or bring your own API keys."
+        "text": "ConnectOnion supports OpenAI (GPT-4o, GPT-4), Anthropic (Claude), Google (Gemini), and more. Use managed keys with the co/ prefix (e.g., co/gemini-3.7-flash) for zero-config setup, or bring your own API keys."
       }
     },
     {
@@ -210,7 +210,7 @@ const faqData = {
       "name": "What is co/ prefix in ConnectOnion models?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The co/ prefix routes model calls through OpenOnion managed keys. For example, co/gemini-2.5-pro uses Google Gemini without you needing a Google API key. New accounts get $5 free credits. You can also use your own keys with standard model names like gpt-5 or claude-sonnet-4-5."
+        "text": "The co/ prefix routes model calls through OpenOnion managed keys. For example, co/gemini-3.7-flash uses Google Gemini without you needing a Google API key. New accounts get $5 free credits. You can also use your own keys with standard model names like gpt-5 or claude-sonnet-4-5."
       }
     },
     {

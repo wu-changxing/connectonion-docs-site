@@ -115,7 +115,7 @@ The result is 714.`}
     name="my_bot",                        # Required: agent identifier
     tools=[func1, func2],                 # Optional: functions agent can call
     system_prompt="You are helpful",      # Optional: personality/behavior
-    model="co/gemini-2.5-pro",            # Optional: LLM model (default: co/gemini-2.5-pro)
+    model="co/gemini-3.7-flash",          # Optional: LLM model (default: co/gemini-3.7-flash)
     max_iterations=100,                   # Optional: max tool calls per turn (default: 100)
     api_key="sk-...",                     # Optional: override env var
     llm=custom_llm,                       # Optional: custom LLM instance

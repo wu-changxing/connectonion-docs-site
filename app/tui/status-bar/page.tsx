@@ -34,12 +34,12 @@ from rich.console import Console
 console = Console()
 
 status = StatusBar([
-    ("🤖", "co/gemini-2.5-pro", "magenta"),
+    ("🤖", "co/gemini-3.7-flash", "magenta"),
     ("📊", "50%", "green"),
     ("", "main", "blue"),
 ])
 console.print(status.render())`}
-            result={`🤖 co/gemini-2.5-pro  📊 50%   main`}
+            result={`🤖 co/gemini-3.7-flash  📊 50%   main`}
             language="python"
           />
         </section>
@@ -109,7 +109,7 @@ status = StatusBar([
         <section className="mb-12">
           <h2 className="heading-2">Example Output</h2>
           <pre className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-sm text-gray-700 overflow-x-auto">
-{`🤖 co/gemini-2.5-pro  📊 50%   main`}
+{`🤖 co/gemini-3.7-flash  📊 50%   main`}
           </pre>
         </section>
 

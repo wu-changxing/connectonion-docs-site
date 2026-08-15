@@ -280,7 +280,7 @@ class Answer(BaseModel):
 
 # Works with all providers
 llm_do("What is 2+2?", output=Answer, model="co/gpt-4o-mini")       # ✅
-llm_do("What is 2+2?", output=Answer, model="co/gemini-2.5-flash")  # ✅
+llm_do("What is 2+2?", output=Answer, model="co/gemini-3.7-flash")  # ✅
 llm_do("What is 2+2?", output=Answer, model="co/claude-sonnet-4-5") # ✅
 
 # Legacy Claude models do NOT support structured output
@@ -327,7 +327,7 @@ Answer(result=4)`}
                     <tr className="border-b border-gray-200">
                       <td className="py-3 px-4"><code className="text-gray-500">model</code></td>
                       <td className="py-3 px-4 text-gray-700">str</td>
-                      <td className="py-3 px-4 text-gray-700">"co/gemini-2.5-flash"</td>
+                      <td className="py-3 px-4 text-gray-700">"co/gemini-3.7-flash"</td>
                       <td className="py-3 px-4 text-gray-700">Model to use (supports OpenAI, Gemini, Claude)</td>
                     </tr>
                     <tr className="border-b border-gray-200">

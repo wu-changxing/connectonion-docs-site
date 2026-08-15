@@ -38,7 +38,7 @@ text = transcribe("meeting.mp3")
 print(text)
 
 # With your own Gemini API key
-text = transcribe("meeting.mp3", model="gemini-3.5-flash")`}
+text = transcribe("meeting.mp3", model="gemini-3.7-flash")`}
           result={`>>> text = transcribe("meeting.mp3")
 >>> print(text)
 All right, so here we are in front of the elephants...`}
@@ -196,7 +196,7 @@ The team discussed the Q4 roadmap and agreed to...`}
               <tr className="border-b border-gray-800">
                 <td className="py-3 px-4"><code className="text-gray-500">model</code></td>
                 <td className="py-3 px-4 text-gray-700">str</td>
-                <td className="py-3 px-4 text-gray-700">"co/gemini-3.5-flash"</td>
+                <td className="py-3 px-4 text-gray-700">"co/gemini-3.7-flash"</td>
                 <td className="py-3 px-4 text-gray-700">Model to use</td>
               </tr>
               <tr className="border-b border-gray-800">
@@ -234,13 +234,13 @@ The team discussed the Q4 roadmap and agreed to...`}
 
         <CodeWithResult
           code={`# OpenOnion managed keys (default - no API key needed)
-transcribe("audio.mp3", model="co/gemini-3.5-flash")
+transcribe("audio.mp3", model="co/gemini-3.7-flash")
 transcribe("audio.mp3", model="co/gemini-2.5-flash")
 
 # Your own Gemini API key (set GEMINI_API_KEY)
-transcribe("audio.mp3", model="gemini-3.5-flash")
+transcribe("audio.mp3", model="gemini-3.7-flash")
 transcribe("audio.mp3", model="gemini-2.5-flash")`}
-          result={`>>> transcribe("audio.mp3", model="co/gemini-3.5-flash")
+          result={`>>> transcribe("audio.mp3", model="co/gemini-3.7-flash")
 'This is the transcribed text from your audio file...'
 
 >>> transcribe("audio.mp3", model="gemini-2.5-flash")

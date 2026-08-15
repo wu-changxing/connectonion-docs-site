@@ -123,7 +123,7 @@ def generate_expected(agent):
 
     expected = llm_do(
         f"User request: {user_prompt}\\nTools: {tool_names}\\nWhat should happen?",
-        model="co/gemini-3.6-flash"
+        model="co/gemini-3.7-flash"
     )
 
     agent.current_session['expected'] = expected`}
@@ -147,7 +147,7 @@ def evaluate_completion(agent):
         f"Request: {user_prompt}\\nExpected: {expected}\\n"
         f"Actions: {actions}\\nResult: {result}\\n"
         f"Is this complete?",
-        model="co/gemini-3.6-flash"
+        model="co/gemini-3.7-flash"
     )
 
     agent.current_session['evaluation'] = evaluation

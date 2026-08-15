@@ -33,7 +33,7 @@ export default function CliAuthPage() {
 
           <div className="bg-green-50 border border-green-200 rounded-lg p-6">
             <p className="text-lg font-semibold text-gray-900">
-              <strong>Quick Start:</strong> Run <code className="bg-white px-2 py-1 rounded border border-green-200">co auth</code> once and start using <code className="bg-white px-2 py-1 rounded border border-green-200">co/gpt-5</code>, <code className="bg-white px-2 py-1 rounded border border-green-200">co/claude-sonnet-4-5</code>, or <code className="bg-white px-2 py-1 rounded border border-green-200">co/gemini-3-flash-preview</code> — no API keys to manage.
+              <strong>Quick Start:</strong> Run <code className="bg-white px-2 py-1 rounded border border-green-200">co auth</code> once and start using <code className="bg-white px-2 py-1 rounded border border-green-200">co/gpt-5</code>, <code className="bg-white px-2 py-1 rounded border border-green-200">co/claude-sonnet-4-5</code>, or <code className="bg-white px-2 py-1 rounded border border-green-200">co/gemini-3.7-flash</code> — no API keys to manage.
             </p>
           </div>
         </section>
@@ -195,8 +195,8 @@ response = llm_do("Hello", model="co/gpt-4o")`}
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
               <h3 className="font-semibold text-gray-900 mb-2">Google</h3>
               <ul className="text-sm text-gray-600 space-y-1 font-mono">
+                <li>co/gemini-3.7-flash (default)</li>
                 <li>co/gemini-3-pro-preview</li>
-                <li>co/gemini-3-flash-preview</li>
                 <li>co/gemini-2.5-pro</li>
               </ul>
             </div>
