@@ -1,7 +1,7 @@
 # Roadmap
 
 ConnectOnion keeps stable maintenance separate from the next feature train.
-The current public stable version is 1.6.7. The opt-in preview is 1.7.0a2, and
+The current public stable version is 1.6.8. The opt-in preview is 1.7.0a2, and
 normal pip installs never select it unless the user explicitly opts in.
 See [Release Channels](/releases) for installation and version meanings.
 

@@ -24,6 +24,10 @@ co ai
 - Agent runs in your project directory
 - Starts authenticated ACP v1 at `/acp` beside the `/ws` compatibility route
 
+On first start, `co ai` creates a private owner invite in `~/.co/keys.env`
+without printing it. Reveal it intentionally with `co keys --reveal` when you
+are ready to connect your client. Restarting keeps the same invite.
+
 The published `@connectonion/react@0.4.2-alpha.2` package owns browser transport
 selection, and O Chat pins it. An exact supported discovery descriptor selects
 authenticated `/acp`; a Host that omits the descriptor keeps the bounded `/ws`
