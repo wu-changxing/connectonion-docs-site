@@ -235,15 +235,13 @@ The team discussed the Q4 roadmap and agreed to...`}
         <CodeWithResult
           code={`# OpenOnion managed keys (default - no API key needed)
 transcribe("audio.mp3", model="co/gemini-3.7-flash")
-transcribe("audio.mp3", model="co/gemini-2.5-flash")
 
 # Your own Gemini API key (set GEMINI_API_KEY)
-transcribe("audio.mp3", model="gemini-3.7-flash")
-transcribe("audio.mp3", model="gemini-2.5-flash")`}
+transcribe("audio.mp3", model="gemini-3.7-flash")`}
           result={`>>> transcribe("audio.mp3", model="co/gemini-3.7-flash")
 'This is the transcribed text from your audio file...'
 
->>> transcribe("audio.mp3", model="gemini-2.5-flash")
+>>> transcribe("audio.mp3", model="gemini-3.7-flash")
 'This is the transcribed text using your own API key...'`}
           className="mb-6"
         />
