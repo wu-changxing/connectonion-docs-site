@@ -53,6 +53,8 @@ const routeToMarkdownMap: Record<string, string> = {
   '/blog/llm-do': '/tutorials/choosing-llm-function-name.md',
   '/blog/input-method': '/tutorials/choosing-input-method.md',
   '/blog/oip-native-coding-adapters': '/tutorials/oip-native-coding-adapters.md',
+  '/blog/the-owner-needs-a-door': '/tutorials/the-owner-needs-a-door.md',
+  '/blog/a-page-should-not-become-a-wall': '/tutorials/a-page-should-not-become-a-wall.md',
   
   // Contributing
   '/website-maintenance': '/tutorials/website-maintenance.md',

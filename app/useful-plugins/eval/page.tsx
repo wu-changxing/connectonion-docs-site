@@ -25,6 +25,12 @@ export default function EvalPluginPage() {
           markdownFilename="eval.md"
         />
 
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-12">
+          <p className="text-gray-700">
+            Evaluation is opt-in. Ordinary <code className="bg-gray-100 px-2 py-1 rounded">co ai</code> sessions keep bounded records for recent debugging but make no scoring calls. Use <code className="bg-gray-100 px-2 py-1 rounded">co ai --eval</code> to enable completion scoring.
+          </p>
+        </div>
+
         {/* What it does */}
         <section className="mb-12">
           <h2 className="heading-2">What it does</h2>

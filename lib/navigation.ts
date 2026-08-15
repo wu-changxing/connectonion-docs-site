@@ -982,6 +982,26 @@ export const navigation = [
     difficulty: 'Design Decision',
     keywords: ['oip', 'browser protocol', 'codex', 'claude code', 'native adapters'],
     prev: { href: '/blog/auto-debug-evolution', title: 'Auto-Debug Design Evolution' },
+    next: { href: '/blog/the-owner-needs-a-door', title: 'The Owner Needs a Door' }
+  },
+  {
+    title: 'The Owner Needs a Door',
+    href: '/blog/the-owner-needs-a-door',
+    icon: HiOutlineShieldCheck,
+    section: 'Blog',
+    difficulty: 'Design Decision',
+    keywords: ['co ai', 'owner invite', 'onboarding', 'recovery', 'secret', 'careful trust'],
+    prev: { href: '/blog/oip-native-coding-adapters', title: 'One Browser Protocol, Native Coding Adapters' },
+    next: { href: '/blog/a-page-should-not-become-a-wall', title: 'A Page Should Not Become a Wall' }
+  },
+  {
+    title: 'A Page Should Not Become a Wall',
+    href: '/blog/a-page-should-not-become-a-wall',
+    icon: HiOutlineSquare3Stack3D,
+    section: 'Blog',
+    difficulty: 'Design Decision',
+    keywords: ['email', 'mailbox', 'pagination', 'offset', 'limit', 'data completeness'],
+    prev: { href: '/blog/the-owner-needs-a-door', title: 'The Owner Needs a Door' },
     next: { href: '/releases', title: 'Release Channels' }
   },
 
@@ -993,7 +1013,7 @@ export const navigation = [
     section: 'Releases',
     difficulty: 'Policy',
     keywords: ['release', 'version', 'stable', 'alpha', 'beta', 'rc', 'preview', 'lts', 'pypi'],
-    prev: { href: '/blog/oip-native-coding-adapters', title: 'One Browser Protocol, Native Coding Adapters' },
+    prev: { href: '/blog/a-page-should-not-become-a-wall', title: 'A Page Should Not Become a Wall' },
     next: { href: '/roadmap', title: 'Coming Soon Features' }
   },
 

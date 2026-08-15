@@ -78,6 +78,9 @@ result = shell.run("python --version")
 # Returns: "Python 3.11.0"`}
             language="python"
           />
+          <p className="text-gray-700 mt-4 text-sm">
+            Pass <code className="bg-gray-100 px-1 rounded">timeout=&lt;seconds&gt;</code> for long-running work. The value is honored without a hidden ten-minute cap; expiry raises <code className="bg-gray-100 px-1 rounded">subprocess.TimeoutExpired</code>.
+          </p>
 
           <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-8">run_in_dir(command, directory)</h3>
           <p className="text-gray-700 mb-4">Execute command in a specific directory.</p>

@@ -18,6 +18,26 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'The Owner Needs a Door',
+    subtitle: 'Secure defaults still need a private recovery path',
+    date: 'August 2026',
+    readTime: '5 min read',
+    href: '/blog/the-owner-needs-a-door',
+    icon: HiOutlineShieldCheck,
+    tags: ['Design Journal', 'Release', 'Onboarding'],
+    excerpt: 'Why co ai creates one private owner invite automatically, keeps it out of logs, and reveals it only through an explicit command.'
+  },
+  {
+    title: 'A Page Should Not Become a Wall',
+    subtitle: 'Finite mailbox pages that never hide the rest of the data',
+    date: 'August 2026',
+    readTime: '4 min read',
+    href: '/blog/a-page-should-not-become-a-wall',
+    icon: HiOutlineSquare3Stack3D,
+    tags: ['Design Journal', 'Release', 'Pagination'],
+    excerpt: 'Why 1.6.8 aligned mailbox limits, rejected silent clamping, and made every received-mail page reachable from the SDK and CLI.'
+  },
+  {
     title: 'Changing the Default Model Is a Backend Decision First',
     subtitle: 'Gemini 3.7 Flash by default, and why the client shipped second',
     date: 'August 2026',

@@ -5,39 +5,34 @@ ConnectOnion has two release channels:
 - **Stable** is the default `pip install connectonion` channel for production.
 - **Preview** contains opt-in alpha, beta, and release-candidate builds.
 
-Preview releases never replace the stable recommendation. Install one with
-`--pre` or pin its exact version.
+Current stable is `1.6.8`. The preview target is `1.7.0a5`. Preview releases
+never replace the stable recommendation; use `--pre` or an exact pin.
 
-## Current release work
+## Stable 1.6.8
 
-- Stable patch target: `1.6.8`
-- Preview target: `1.7.0a5`
-- Browser client target: `@connectonion/react@0.4.2-alpha.4`
+Stable 1.6.8 honors caller-supplied command timeouts, keeps evaluation scoring
+opt-in, retains bounded session records, supports traversable received-mail
+pages, and creates one private first-owner invite without printing it. Reveal
+that invite only with `co keys --reveal`.
 
-The preview uses OIP 0.1 as the only first-party browser protocol. The Python
-Host serves the authenticated `/ws` connection; `@connectonion/react` owns the
-browser client; O Chat consumes the exact React prerelease. Codex and Claude
-Code remain native backend provider adapters and publish their normalized
-activity through OIP.
+- [The Owner Needs a Door](/blog/the-owner-needs-a-door)
+- [A Page Should Not Become a Wall](/blog/a-page-should-not-become-a-wall)
+
+## Preview 1.7.0a5
+
+OIP 0.1 is the only first-party browser protocol. The Python Host serves the
+authenticated `/ws` connection, `@connectonion/react` owns the browser client,
+and O Chat consumes the exact React prerelease. Codex and Claude Code are
+native backend adapters that publish normalized activity through OIP.
 
 Alpha 5 removes the abandoned alternate transport, generic coding-agent edge,
 SDK dependency, CLI flags, gateway, exports, tests, fixtures, and product docs.
-It also includes owner onboarding that mints one private invite on a fresh
-installation and reveals it only through an explicit `co keys --reveal` action.
-
-Normal upgrades stay on stable. Preview testers opt in explicitly:
+It also carries the reviewed stable 1.6.8 fixes.
 
 ```bash
 python -m pip install --pre --upgrade connectonion
 python -m pip install connectonion==1.7.0a5
 ```
 
-## Design Journal
-
-Release notes record what changed. A Design Journal post records the problem,
-alternatives, decision, tradeoffs, evidence, and what would make us revisit it.
-Meaningful feature-train launches, phase promotions, stable releases, and
-material architecture decisions receive a new or substantially updated post.
-
-The OIP-only decision is recorded in
-[DD-053](design-decisions/053-oip-only-browser-and-native-coding-adapters.md).
+The architecture decision is recorded in [One Browser Protocol, Native Coding
+Adapters](/blog/oip-native-coding-adapters).

@@ -35,6 +35,8 @@ const MARKDOWN_TO_PAGE_MAP: Record<string, { href: string; section: string; titl
   'threat-model.md': { href: '/threat-model', section: 'Advanced', title: 'Threat Model' },
   'network-protocol.md': { href: '/blog/network-protocol-design', section: 'Blog', title: 'Network Protocol Design' },
   'oip-native-coding-adapters.md': { href: '/blog/oip-native-coding-adapters', section: 'Blog', title: 'One Browser Protocol, Native Coding Adapters' },
+  'the-owner-needs-a-door.md': { href: '/blog/the-owner-needs-a-door', section: 'Blog', title: 'The Owner Needs a Door' },
+  'a-page-should-not-become-a-wall.md': { href: '/blog/a-page-should-not-become-a-wall', section: 'Blog', title: 'A Page Should Not Become a Wall' },
   'website-maintenance.md': { href: '/website-maintenance', section: 'Contributing', title: 'Website Maintenance Guide' }
 }
 

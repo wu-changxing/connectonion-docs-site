@@ -185,6 +185,18 @@ export const pageSEO: Record<string, PageSEO> = {
     path: '/blog/oip-native-coding-adapters',
     section: 'Blog',
   },
+  '/blog/the-owner-needs-a-door': {
+    title: 'The Owner Needs a Door',
+    description: 'Why co ai creates one private owner invite automatically, keeps it out of logs, and reveals it only through an explicit command.',
+    path: '/blog/the-owner-needs-a-door',
+    section: 'Blog',
+  },
+  '/blog/a-page-should-not-become-a-wall': {
+    title: 'A Page Should Not Become a Wall',
+    description: 'Why ConnectOnion 1.6.8 made received-mail limits explicit, traversable, and consistent instead of silently clamping requests.',
+    path: '/blog/a-page-should-not-become-a-wall',
+    section: 'Blog',
+  },
   '/vibe-coding': {
     title: 'Vibe Coding Guide - Build Agents with AI Tools | ConnectOnion',
     description: 'Use Cursor, Claude Code, or other AI coding tools to build ConnectOnion agents. Drag and drop docs for instant context. AI-first development workflow.',

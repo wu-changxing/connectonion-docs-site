@@ -163,6 +163,20 @@ export const pageContentIndex: PageContent[] = [
     content: 'Why OIP owns ConnectOnion browser state while native Codex and Claude Code adapters preserve provider approvals, sessions, sandboxes, and tool events.'
   },
   {
+    title: 'The Owner Needs a Door',
+    href: '/blog/the-owner-needs-a-door',
+    section: 'Blog',
+    keywords: ['co ai', 'owner invite', 'onboarding', 'recovery', 'secret', 'careful trust', '1.6.8'],
+    content: 'Why a secure co ai default still needs a private owner recovery path. Covers one-time invite creation, cross-process locking, masked key output, deliberate reveal, and avoiding credentials in logs.'
+  },
+  {
+    title: 'A Page Should Not Become a Wall',
+    href: '/blog/a-page-should-not-become-a-wall',
+    section: 'Blog',
+    keywords: ['email', 'mailbox', 'pagination', 'offset', 'limit', 'CLI tip', 'data completeness', '1.6.8'],
+    content: 'Why received-mail page limits must be explicit and traversable. Covers aligned 1000-row pages, offsets, stable ordering, unsupported-backend detection, and exact next-page CLI guidance.'
+  },
+  {
     title: 'Network Protocol Design',
     href: '/blog/network-protocol-design',
     section: 'Blog',
