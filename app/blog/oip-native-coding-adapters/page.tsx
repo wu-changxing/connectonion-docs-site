@@ -63,7 +63,7 @@ export default function OipNativeCodingAdaptersPage() {
         </header>
 
         <div className="prose prose-gray max-w-none">
-          <p>ConnectOnion 1.7.0a5 made OIP 0.1 the only first-party browser protocol; alpha.7 closes the raw-provider escape hatch. The Python Host serves the authenticated <code>/ws</code> boundary, <code>@connectonion/react</code> owns connection and event state, and O Chat renders that state.</p>
+          <p>ConnectOnion 1.7.0a5 made OIP 0.1 the only first-party browser protocol; alpha.7 closes the raw-provider escape hatch, and alpha.10 makes authenticated relay reattach reuse the established session authority. The Python Host serves the authenticated <code>/ws</code> boundary, <code>@connectonion/react</code> owns connection and event state, and O Chat renders that state.</p>
           <p>Codex and Claude Code are backend adapters. Each preserves its provider session identity and translates bounded native activity into OIP tool events, so the browser has one lifecycle even when the coding provider changes.</p>
           <p>The useful lesson from Happy Coder is to bridge each provider&apos;s native session instead of making raw provider transcripts the public wire format. ConnectOnion keeps the parent loop in <code>co ai</code>, drives Codex through <code>app-server</code> and Claude Code through headless <code>stream-json</code>, and translates only bounded activity at the adapter edge. Provider transcripts stay local.</p>
           <h2>The problem</h2>
