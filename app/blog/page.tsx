@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'A Tool Transaction Is Not a Work Room',
+    subtitle: 'How long-running native coding work stays observable without turning chat into a terminal dump',
+    date: 'August 2026',
+    readTime: '5 min read',
+    href: '/blog/a-tool-transaction-is-not-a-work-room',
+    icon: HiOutlineCommandLine,
+    tags: ['Design Journal', 'OIP', 'Work Room'],
+    excerpt: 'Why OIP streams correlated native provider activity and approvals live, why raw details stay collapsed, and why a visual snapshot must never pretend to be a provider screenshot.'
+  },
+  {
     title: 'The Owner Needs a Door',
     subtitle: 'Secure defaults still need a private recovery path',
     date: 'August 2026',

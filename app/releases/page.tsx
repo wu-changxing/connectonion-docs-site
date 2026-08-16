@@ -163,7 +163,7 @@ export default function ReleasesPage() {
           </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>Alpha.11 candidate:</strong> OIP is the only first-party browser protocol, with a bounded
+              <strong>Alpha.13 preview:</strong> OIP is the only first-party browser protocol, with a bounded
               reader-before-writer window and native Claude Code and Codex tools for delegated coding work.
             </p>
             <p>
@@ -176,6 +176,10 @@ export default function ReleasesPage() {
               real provider thread and Work Room without submitting an invented model turn.
             </p>
             <p>
+              A running coding task now streams compact, correlated provider activity and its nested approval into
+              one Work Room. Recent semantic steps stay readable; raw commands and outputs are opt-in details.
+            </p>
+            <p>
               Descriptor-less OIP 0.1 peers remain readable through 1.7.x. Unsupported versions fail once without
               reconnecting, and privacy-safe compatibility telemetry contains no prompts, identities, or paths.
             </p>
@@ -186,14 +190,15 @@ export default function ReleasesPage() {
           <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Design Journal</p>
           <h2 className="text-xl font-semibold text-gray-900 mb-3">Why the preview train uses alpha, beta, and RC</h2>
           <p className="text-gray-600 mb-4">
-            Release notes explain what changed. The design journal explains why OIP owns the browser boundary
-            while Claude Code and Codex remain native backend adapters.
+            Release notes explain what changed. The design journal explains why OIP owns the browser boundary,
+            while a Work Room treats one long native coding task as a live, correlated surface rather than a
+            terminal transcript.
           </p>
           <Link
-            href="/blog/oip-native-coding-adapters"
+            href="/blog/a-tool-transaction-is-not-a-work-room"
             className="text-sm font-semibold text-green-700 hover:underline"
           >
-            Read the design decision
+            Read the Work Room decision
           </Link>
         </section>
 
