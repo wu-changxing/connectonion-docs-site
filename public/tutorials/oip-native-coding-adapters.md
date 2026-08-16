@@ -3,9 +3,9 @@
 ConnectOnion 1.7.0a5 introduced OIP 0.1 as the only first-party browser protocol,
 1.7.0a6 carries the complete 1.6.9 stable line forward, 1.7.0a7 closes the
 raw-provider escape hatch, 1.7.0a8 preserves an open-only Codex thread through
-its first real Work Room task, and 1.7.0a10 makes an authenticated relay
+its first real Work Room task, 1.7.0a10 makes an authenticated relay
 reattach republish that same OIP session without a second authorization pass or
-forwarder. The
+forwarder, and 1.7.0a11 gives Host and frontend a bounded rolling window. The
 Python Host serves the authenticated `/ws` boundary, `@connectonion/react`
 owns connection and event state, and O Chat renders that state.
 
@@ -77,11 +77,26 @@ through an implicit base implementation.
 
 ## Evidence and rollback
 
+Host and frontend do not deploy atomically. OIP therefore uses
+reader-before-writer: release R reads both forms, R+1 may write the new form
+after R is publicly pinned, and removal waits for R+2 and 30 days. A
+descriptor-less OIP 0.1 peer remains accepted through 1.7.x and cannot be
+removed before 1.8.0a1, September 15, 2026, and two previews after content-free
+compatibility telemetry stops observing it. Authority-bearing identity,
+session, permission, approval, cancellation, terminal, and version values are
+rejected rather than guessed.
+
+The Host records only Direct/Relay/unknown, legacy/OIP 0.1/unsupported, and
+accepted/rejected. Peer strings, prompts, credentials, addresses, session IDs,
+and private paths never enter that record.
+
 The release gate covers running, completed, failed, expanded, and mobile Codex
-cards; OIP Host and WebSocket contracts; exact adapter session behavior; and a
+cards; old/new and rollback pairs over Direct and Relay; OIP Host and WebSocket
+contracts; exact adapter session behavior; and a
 real published-package browser run. Routing and false-positive evaluations plus
 open-without-turn, same-thread first-follow-up, relay reattach, and cross-bundle
-React ownership are part of the alpha.10 gate.
+React ownership are part of the alpha.10 gate; exact old/new and rollback pairs
+over Direct and Relay join them for alpha.11.
 We would revisit the decision only if a
 provider-neutral interface demonstrates equivalent approval, cancellation,
 resume, and observability behavior across providers without weakening those

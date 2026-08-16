@@ -5,13 +5,13 @@ ConnectOnion has two release channels:
 - **Stable** is the default `pip install connectonion` channel for production.
 - **Preview** contains opt-in alpha, beta, and release-candidate builds.
 
-Current stable is `1.6.10`. The preview target is `1.7.0a10`. Preview releases
+Current stable is `1.6.10`. The preview target is `1.7.0a11`. Preview releases
 never replace the stable recommendation; use `--pre` or an exact pin.
 
 | Version | Meaning |
 |---|---|
 | `1.6.10` | Current stable 1.6 maintenance release |
-| `1.7.0a10` | Current incomplete, opt-in 1.7 alpha |
+| `1.7.0a11` | Current incomplete, opt-in 1.7 alpha |
 | `1.7.0b1` | Feature-complete 1.7 beta |
 | `1.7.0rc1` | Candidate that may become stable unchanged |
 | `1.7.0` | Stable/LTS 1.7 release |
@@ -52,7 +52,7 @@ Design notes:
   onboarding creates a private recovery path without printing its credential.
 - [A Page Should Not Become a Wall](/blog/a-page-should-not-become-a-wall)
 
-## Preview 1.7.0a10
+## Preview 1.7.0a11
 
 OIP 0.1 is the only first-party browser protocol. The Python Host serves the
 authenticated `/ws` connection, `@connectonion/react` owns the browser client,
@@ -82,14 +82,17 @@ re-running invite onboarding. Alpha 10 keeps that reattach path within the
 existing session authority: it verifies the reconnect signature and current
 revocation state, then republishes the established mode, profile, transcript,
 and dashboard state without re-reading trust policy or starting a second
-forwarder. O Chat uses `@connectonion/react@0.4.2-alpha.9`, whose page-owned
+forwarder. Alpha 11 makes the reader-before-writer rule and removal clock
+explicit, adds Direct/Relay compatibility classifications without recording
+content, and carries the 1.6.10 CJK fix forward. O Chat uses
+`@connectonion/react@0.4.2-alpha.10`, whose page-owned
 live-agent registry prevents independently bundled consumers from opening
 competing connections for the same Agent. The registry is anchored to the
 shared Document because Turbopack route runtimes can wrap Window ownership.
 
 ```bash
 python -m pip install --pre --upgrade connectonion
-python -m pip install connectonion==1.7.0a10
+python -m pip install connectonion==1.7.0a11
 ```
 
 The architecture decision is recorded in [One Browser Protocol, Native Coding
