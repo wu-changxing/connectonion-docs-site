@@ -17,7 +17,7 @@ generated files from there; any plain Python function you add becomes a tool aut
 **Core facts:**
 - Install: `pip install connectonion`
 - Release channel: stable by default; previews require `--pre` or an exact pin
-- Current public preview: `1.7.0a6` (opt-in); current stable remains `1.6.9`
+- Current public preview: `1.7.0a10` (opt-in); current stable remains `1.6.9`
 - Minimum Python version: 3.10
 - Default model: `co/gemini-2.5-pro` (managed keys, zero config)
 - Starting point: `co create` writes the project; the generated agent runs before you edit anything
@@ -50,14 +50,19 @@ patches contain maintenance fixes. Opt-in `1.7.0aN`, `bN`, and `rcN` releases
 validate OIP browser sessions and native coding adapters before 1.7 becomes
 stable. Normal pip installs ignore previews.
 
-In 1.7.0a6, OIP 0.1 is the only first-party browser protocol. The Python Host
-serves authenticated `/ws`, `@connectonion/react@0.4.2-alpha.5` owns browser
+In 1.7.0a10, OIP 0.1 is the only first-party browser protocol. The Python Host
+serves authenticated `/ws`, `@connectonion/react@0.4.2-alpha.9` owns browser
 connection and event state, and O Chat renders it. Codex and Claude Code remain
 native backend tools that preserve provider sessions and translate bounded
 activity into OIP tool events. Generic fallback is intentionally absent.
 Host and React advertise the bounded OIP 0.1–0.1 window. Descriptor-less stable
 peers remain the reader-first compatibility alias through the preview train;
 an advertised mismatch fails once as non-retryable rather than reconnecting.
+An authenticated relay reattach verifies the current identity and revocation
+state, then republishes the existing session authority without repeating invite
+onboarding or starting another forwarder. React consumers in separate browser
+bundles share one Document-owned live Agent registry and therefore one
+connection owner, including under Turbopack route-runtime wrappers.
 
 - Design decision: https://docs.connectonion.com/blog/oip-native-coding-adapters — one OIP browser lifecycle, native coding adapters, deterministic Codex routing, and open-without-turn Work Rooms
 - Release channels: https://docs.connectonion.com/releases

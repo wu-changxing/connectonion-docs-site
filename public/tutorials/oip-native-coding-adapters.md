@@ -2,8 +2,10 @@
 
 ConnectOnion 1.7.0a5 introduced OIP 0.1 as the only first-party browser protocol,
 1.7.0a6 carries the complete 1.6.9 stable line forward, 1.7.0a7 closes the
-raw-provider escape hatch, and 1.7.0a8 preserves an open-only Codex thread
-through its first real Work Room task. The
+raw-provider escape hatch, 1.7.0a8 preserves an open-only Codex thread through
+its first real Work Room task, and 1.7.0a10 makes an authenticated relay
+reattach republish that same OIP session without a second authorization pass or
+forwarder. The
 Python Host serves the authenticated `/ws` boundary, `@connectonion/react`
 owns connection and event state, and O Chat renders that state.
 
@@ -78,7 +80,8 @@ through an implicit base implementation.
 The release gate covers running, completed, failed, expanded, and mobile Codex
 cards; OIP Host and WebSocket contracts; exact adapter session behavior; and a
 real published-package browser run. Routing and false-positive evaluations plus
-open-without-turn and same-thread first-follow-up are part of the alpha.8 gate.
+open-without-turn, same-thread first-follow-up, relay reattach, and cross-bundle
+React ownership are part of the alpha.10 gate.
 We would revisit the decision only if a
 provider-neutral interface demonstrates equivalent approval, cancellation,
 resume, and observability behavior across providers without weakening those
