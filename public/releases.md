@@ -5,17 +5,24 @@ ConnectOnion has two release channels:
 - **Stable** is the default `pip install connectonion` channel for production.
 - **Preview** contains opt-in alpha, beta, and release-candidate builds.
 
-Current stable is `1.6.9`. The preview target is `1.7.0a10`. Preview releases
+Current stable is `1.6.10`. The preview target is `1.7.0a10`. Preview releases
 never replace the stable recommendation; use `--pre` or an exact pin.
 
 | Version | Meaning |
 |---|---|
-| `1.6.9` | Current stable 1.6 maintenance release |
+| `1.6.10` | Current stable 1.6 maintenance release |
 | `1.7.0a10` | Current incomplete, opt-in 1.7 alpha |
 | `1.7.0b1` | Feature-complete 1.7 beta |
 | `1.7.0rc1` | Candidate that may become stable unchanged |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
+
+### Stable 1.6.10
+
+Chinese, Japanese, and Korean browser typing again completes as one safe input.
+The humanized paste path measures the focused input or contenteditable before
+and after paste; a clipboard refactor had removed that probe while leaving its
+callers behind, causing a `NameError` after the first CJK character.
 
 ### Stable 1.6.9
 

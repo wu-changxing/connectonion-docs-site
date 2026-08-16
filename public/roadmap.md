@@ -1,7 +1,7 @@
 # Roadmap
 
 ConnectOnion keeps stable maintenance separate from the next feature train.
-Current stable is 1.6.9. The opt-in preview target is 1.7.0a10; normal pip
+Current stable is 1.6.10. The opt-in preview target is 1.7.0a10; normal pip
 installs never select it without explicit opt-in.
 See [Release Channels](/releases) for installation and version meanings.
 
