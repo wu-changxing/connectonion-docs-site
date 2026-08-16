@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'An Approval Is Not Execution Time',
+    subtitle: 'A careful nested approval should not spend a native coding turn’s work budget',
+    date: 'August 2026',
+    readTime: '4 min read',
+    href: '/blog/an-approval-is-not-execution-time',
+    icon: HiOutlineShieldCheck,
+    tags: ['Design Journal', 'Codex', 'Approvals'],
+    excerpt: 'Why the 1.7.0a14 Codex adapter separates operator review from active provider execution, stays bounded, and keeps the manual approval boundary intact.'
+  },
+  {
     title: 'A Tool Transaction Is Not a Work Room',
     subtitle: 'How long-running native coding work stays observable without turning chat into a terminal dump',
     date: 'August 2026',
