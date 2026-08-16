@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'A Work Room Is a Summary, Not a Transcript',
+    subtitle: 'A safe coding surface shows the next useful fact without pretending to be a terminal or a screenshot',
+    date: 'August 2026',
+    readTime: '5 min read',
+    href: '/blog/a-work-room-is-a-summary-not-a-transcript',
+    icon: HiOutlineCommandLine,
+    tags: ['Design Journal', 'OIP', 'Work Room'],
+    excerpt: 'Why the 1.7.0a15 preview gives native Codex and Claude Code a finite OIP envelope, a compact card, and one focused place for approval and activity.'
+  },
+  {
     title: 'An Approval Is Not Execution Time',
     subtitle: 'A careful nested approval should not spend a native coding turn’s work budget',
     date: 'August 2026',
