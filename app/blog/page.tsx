@@ -59,13 +59,13 @@ const blogPosts = [
   },
   {
     title: 'One Browser Protocol, Native Coding Adapters',
-    subtitle: 'Why OIP owns the web boundary while Codex and Claude Code stay native',
+    subtitle: 'One web boundary, native providers, and rolling upgrades',
     date: 'August 2026',
     readTime: '6 min read',
     href: '/blog/oip-native-coding-adapters',
     icon: HiOutlineCommandLine,
     tags: ['Design Decision', 'OIP', 'Coding Adapters'],
-    excerpt: 'Why co ai uses one OIP browser connection and translates native Codex and Claude Code events into live O Chat cards.'
+    excerpt: 'Why co ai uses one OIP browser connection, translates native Codex and Claude Code events, and deploys Host and frontend one side at a time.'
   },
   {
     title: 'ConnectOnion 1.6.0',
