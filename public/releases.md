@@ -1,99 +1,79 @@
 # Release channels
 
-ConnectOnion has two release channels:
+ConnectOnion keeps the current stable line separate from the next feature
+train. Preview releases are opt-in and do not replace the version normal users
+receive from pip.
 
-- **Stable** is the default `pip install connectonion` channel for production.
-- **Preview** contains opt-in alpha, beta, and release-candidate builds.
+**Current channels:** stable is `1.6.11`; the current opt-in preview is
+`1.7.0a18`. The preview line is published only after its exact PyPI artifact
+and GitHub prerelease are visible.
 
-Current stable is `1.6.10`. The preview target is `1.7.0a11`. Preview releases
-never replace the stable recommendation; use `--pre` or an exact pin.
+## Version meanings
 
 | Version | Meaning |
 |---|---|
-| `1.6.10` | Current stable 1.6 maintenance release |
-| `1.7.0a11` | Current incomplete, opt-in 1.7 alpha |
+| `1.6.11` | Current stable 1.6 maintenance release |
+| `1.7.0a18` | Current incomplete, opt-in 1.7 alpha |
 | `1.7.0b1` | Feature-complete 1.7 beta |
 | `1.7.0rc1` | Candidate that may become stable unchanged |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 
-### Stable 1.6.10
+Patch numbers are not progress toward the next feature version. New 1.7
+features are tested as `1.7.0aN`, `1.7.0bN`, and `1.7.0rcN`.
 
-Chinese, Japanese, and Korean browser typing again completes as one safe input.
-The humanized paste path measures the focused input or contenteditable before
-and after paste; a clipboard refactor had removed that probe while leaving its
-callers behind, causing a `NameError` after the first CJK character.
+## Install stable
 
-### Stable 1.6.9
+```bash
+python -m pip install --upgrade connectonion
+```
 
-Invited contacts can approve ordinary work in their own sessions while admin
-authority stays reserved for the control plane. Remote deployments authenticate
-the key the server actually retains, clear stale account metadata, and respect
-the project's ignore contract so live runtime state is not overwritten by a
-laptop copy. Shell append/output redirects work without reopening file-authoring
-bypasses. Mail reads preserve unread state by default across ConnectOnion,
-Gmail, and Outlook; `--mark-read` is the explicit consuming action. Claude Code
-skills that declare only `allowed-tools` now receive a direct compatibility
-warning instead of silently losing their intended approval behavior.
+This remains on stable even after an alpha, beta, or RC is published.
 
-### Stable 1.6.8
-
-Long-running agent commands now honor the timeout the caller supplied, even
-beyond ten minutes, and an expired command is reported as a tool error instead
-of success-shaped text. `co ai` runs without eval-model calls by default;
-`co ai --eval` opts into scoring, while session records retain only the newest
-500. Received mail now supports pages of up to 1000 messages and offsets for
-older pages. A fresh `co ai` creates one private owner invite without printing
-it; reveal it intentionally with `co keys --reveal`.
-
-Design notes:
-
-- [The Owner Needs a Door](/blog/the-owner-needs-a-door) explains why secure
-  onboarding creates a private recovery path without printing its credential.
-- [A Page Should Not Become a Wall](/blog/a-page-should-not-become-a-wall)
-
-## Preview 1.7.0a11
-
-OIP 0.1 is the only first-party browser protocol. The Python Host serves the
-authenticated `/ws` connection, `@connectonion/react` owns the browser client,
-and O Chat consumes the exact React prerelease. Codex and Claude Code are
-native backend adapters that publish normalized activity through OIP.
-
-The coordinated Host and React candidate advertise an OIP 0.1–0.1 rolling
-window while accepting a descriptor-less stable peer as legacy OIP 0.1. An
-advertised incompatible peer fails once as non-retryable; discovery is
-`no-store`, so a stale descriptor cannot cause a reconnect loop.
-
-Alpha 5 removes the abandoned alternate transport, generic coding-agent edge,
-SDK dependency, CLI flags, gateway, exports, tests, fixtures, and product docs.
-Alpha 6 carries the exact reviewed 1.6.9 stable line forward without changing
-the OIP/native-adapter boundary. Alpha 7 makes explicit Codex intent
-deterministic: raw CLI launches through shell/background wrappers are rejected,
-and an open-only request creates a provider thread and Work Room without
-submitting an invented model turn.
-
-Alpha 8 keeps that open-only app-server alive until the first Work Room task.
-Codex does not persist a rollout before its first turn, so a bounded,
-fifteen-minute registry preserves the exact thread ID shown at open time. The
-first task claims that thread, persists it, and closes the process.
-
-Alpha 9 makes relay reconnects resume the authenticated OIP session instead of
-re-running invite onboarding. Alpha 10 keeps that reattach path within the
-existing session authority: it verifies the reconnect signature and current
-revocation state, then republishes the established mode, profile, transcript,
-and dashboard state without re-reading trust policy or starting a second
-forwarder. Alpha 11 makes the reader-before-writer rule and removal clock
-explicit, adds Direct/Relay compatibility classifications without recording
-content, and carries the 1.6.10 CJK fix forward. O Chat uses
-`@connectonion/react@0.4.2-alpha.10`, whose page-owned
-live-agent registry prevents independently bundled consumers from opening
-competing connections for the same Agent. The registry is anchored to the
-shared Document because Turbopack route runtimes can wrap Window ownership.
+## Join the preview track
 
 ```bash
 python -m pip install --pre --upgrade connectonion
-python -m pip install connectonion==1.7.0a11
 ```
 
-The architecture decision is recorded in [One Browser Protocol, Native Coding
-Adapters](/blog/oip-native-coding-adapters).
+The `--pre` flag is the explicit opt-in. For reproducible testing, exact pins
+do not need it:
+
+```bash
+python -m pip install connectonion==1.7.0a18
+```
+
+## Preview 1.7.0a18
+
+The 1.7 preview is an OIP product path. `co ai` exposes only the native Codex
+and Claude Code adapters. It has no ACP switch, ACP browser surface, or second
+TypeScript SDK. `@connectonion/react` is the single browser protocol client,
+and O Chat pins one reviewed React artifact before it deploys.
+
+This alpha validates an honest native coding-agent Work Room: a compact parent
+card, a single scrolling detail surface, a narrow approval decision, and
+correlated Stop acknowledgement. A direct Codex follow-up is acknowledged only
+after native `turn/steer` or resumed `turn/start` accepts it—never simply when
+the Host queues a mailbox frame. The Host assigns a monotonic provider-state
+revision to each native invocation, so stale reconnect state cannot revive an
+older decision.
+
+O Chat shows a thumbnail only when the provider supplies a verified raster for
+that exact revision. It never turns command text, terminal output, paths, or a
+session identifier into a pretend screenshot. Without real evidence, the
+text-first surface is intentional.
+
+The candidate remains opt-in while Core, `@connectonion/react`, and O Chat
+acceptance runs verify multi-step Codex work, direct follow-up, approvals, Stop
+handling, reconnect behavior, and mobile layout together. Native adapter
+command, workspace root, sandbox, and approval ceiling remain operator-owned.
+
+## Design journal policy
+
+Release notes record what changed. A Design Journal post records the problem,
+alternatives, decision, tradeoffs, evidence, and the condition that would make
+us revisit it. Meaningful feature launches, phase promotions, stable releases,
+and material architecture decisions receive a public entry only after the
+claimed PyPI package and GitHub Release are visible.
+
+For this preview, see [The Work Room Is a View, Not a Second Agent](/blog/workroom-is-a-view).
