@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'The Work Room Is a View, Not a Second Agent',
+    subtitle: 'One OIP writer, defensive readers, and one calm native coding surface',
+    date: 'August 2026',
+    readTime: '5 min read',
+    href: '/blog/workroom-is-a-view',
+    icon: HiOutlineCommandLine,
+    tags: ['Design Decision', 'OIP', 'Codex'],
+    excerpt: 'Why the native Codex and Claude Code Work Room shows current state, real evidence and one decision surface without becoming a second agent runtime.'
+  },
+  {
     title: 'A Work Room Is a Summary, Not a Transcript',
     subtitle: 'A safe coding surface shows the next useful fact without pretending to be a terminal or a screenshot',
     date: 'August 2026',
