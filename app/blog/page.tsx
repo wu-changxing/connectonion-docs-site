@@ -18,6 +18,26 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'co ai Now Delegates to Codex and Claude Code, Live',
+    subtitle: 'A resumable Work Room in the browser or the terminal — ConnectOnion 1.7.0 beta',
+    date: 'August 2026',
+    readTime: '4 min read',
+    href: '/blog/connectonion-1-7-0-beta',
+    icon: HiOutlineCommandLine,
+    tags: ['Release', 'co ai', 'Codex', 'Claude Code'],
+    excerpt: 'ConnectOnion 1.7.0 beta: co ai hands real coding work to Codex and Claude Code and shows it happening live. The feature train is frozen — stabilisation only from here to 1.7.0 stable.'
+  },
+  {
+    title: 'A Control Center for Your Hosted Agent',
+    subtitle: 'A real dashboard, and a safe Auto mode that runs reversible work without asking each time',
+    date: 'August 2026',
+    readTime: '3 min read',
+    href: '/blog/connectonion-1-6-11',
+    icon: HiOutlineServerStack,
+    tags: ['Release', 'Control Center', 'Permissions'],
+    excerpt: 'ConnectOnion 1.6.11: every hosted agent gets a real Control Center, and new sessions default to Auto — reversible work just runs, anything external or destructive still asks.'
+  },
+  {
     title: 'The Work Room Is a View, Not a Second Agent',
     subtitle: 'One OIP writer, defensive readers, and one calm native coding surface',
     date: 'August 2026',
