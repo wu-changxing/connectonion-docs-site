@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'Your Servers, Your Regions, Your Shared Mailboxes',
+    subtitle: 'Pick a region, share an address without handing over a key — ConnectOnion 1.6.12',
+    date: 'August 2026',
+    readTime: '4 min read',
+    href: '/blog/connectonion-1-6-12',
+    icon: HiOutlineServerStack,
+    tags: ['Release', 'Servers', 'Email'],
+    excerpt: 'ConnectOnion 1.6.12: co server new --region, co email share/unshare, collision-safe Outlook attachment downloads, and steadier scheduled runs.'
+  },
+  {
     title: 'The Work Room Is a View, Not a Second Agent',
     subtitle: 'One OIP writer, defensive readers, and one calm native coding surface',
     date: 'August 2026',
