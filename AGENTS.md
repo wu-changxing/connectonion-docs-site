@@ -56,7 +56,9 @@ npm run lint && npm run build
   alpha, beta, RC, and LTS channels. Keep them aligned with the package
   repository's `docs/releases.md` and `VERSIONING.md`; refresh current-channel
   wording on every publication.
-- `lib/version.ts` keeps `STABLE_VERSION` and `PREVIEW_VERSION` separate.
+- `lib/version.ts` keeps `STABLE_VERSION` and `PREVIEW_VERSION` separate. When
+  an older feature train is stabilizing beside a newer preview, record its
+  exact pin in `STABILIZING_VERSION`; do not roll `PREVIEW_VERSION` backward.
   Homepage and structured-data consumers use stable only. An alpha, beta, or
   RC updates the preview field without changing stable; a final release updates
   stable and clears an obsolete preview. Deploy only after the matching PyPI

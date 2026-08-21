@@ -15,29 +15,33 @@ import {
 import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
-import { PREVIEW_VERSION, STABLE_VERSION } from '../../lib/version'
+import {
+  PREVIEW_VERSION,
+  STABILIZING_VERSION,
+  STABLE_VERSION,
+} from '../../lib/version'
 
 const channels = [
   {
-    version: '1.7.0aN',
+    version: 'X.Y.ZaN',
     name: 'Alpha',
     description: 'Incomplete, usable slices for opt-in developers. Interfaces may still change.',
     icon: HiOutlineBeaker,
   },
   {
-    version: '1.7.0bN',
+    version: 'X.Y.ZbN',
     name: 'Beta',
     description: 'Feature-complete. Testing shifts to integration, upgrades, compatibility, and real users.',
     icon: HiOutlineArrowPath,
   },
   {
-    version: '1.7.0rcN',
+    version: 'X.Y.ZrcN',
     name: 'Release candidate',
     description: 'Could become stable unchanged. Only release-blocking fixes are accepted.',
     icon: HiOutlineCheckCircle,
   },
   {
-    version: '1.7.0',
+    version: 'X.Y.Z',
     name: 'Stable / LTS',
     description: 'Default for normal installs. New features move to 1.8; 1.7.x receives maintenance fixes.',
     icon: HiOutlineShieldCheck,
@@ -55,30 +59,37 @@ export default function ReleasesPage() {
           ]}
           icon={HiOutlineArrowPath}
           title="Release Channels"
-          description="Stable stays safe while the next feature train moves through alpha, beta, and release candidates."
+          description="Stable, the train being stabilized, and the latest preview stay explicit when releases overlap."
           markdownPath="/releases.md"
           markdownFilename="releases.md"
         />
 
-        <section className="mb-10 grid sm:grid-cols-2 gap-4" aria-label="Current releases">
+        <section className="mb-10 grid md:grid-cols-3 gap-4" aria-label="Current releases">
           <div className="border border-green-200 bg-green-50 rounded-lg p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">Current stable</p>
             <p className="text-2xl font-bold text-gray-900">v{STABLE_VERSION}</p>
             <p className="text-sm text-gray-600 mt-2">Installed by normal pip commands.</p>
           </div>
+          <div className="border border-amber-200 bg-amber-50 rounded-lg p-5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Stabilizing 1.7</p>
+            <p className="text-2xl font-bold text-gray-900">
+              {STABILIZING_VERSION ? `v${STABILIZING_VERSION}` : 'No active candidate'}
+            </p>
+            <p className="text-sm text-gray-600 mt-2">Exact-pin candidate for the 1.7 release gates.</p>
+          </div>
           <div className="border border-gray-200 bg-gray-50 rounded-lg p-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Current preview</p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Latest preview</p>
             <p className="text-2xl font-bold text-gray-900">{PREVIEW_VERSION ? `v${PREVIEW_VERSION}` : 'Not published yet'}</p>
             <p className="text-sm text-gray-600 mt-2">
               {PREVIEW_VERSION
                 ? 'Available only to users who explicitly opt in.'
-                : 'The 1.7 train is in development; the site will show its exact version after publication.'}
+                : 'No newer feature-train preview is currently published.'}
             </p>
           </div>
         </section>
 
         <section className="mb-14 rounded-lg border border-green-200 bg-green-50 p-6">
-          <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">Stable 1.6.8 design notes</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">Stable-line design notes</p>
           <h2 className="text-xl font-semibold text-gray-900 mb-3">Two boundaries that still let the user through</h2>
           <p className="text-gray-600 mb-4">
             The release creates a private door for a fresh <code>co ai</code> owner and makes finite
@@ -130,6 +141,21 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Test the stabilizing 1.7 candidate</h2>
+          <CommandBlock commands={[
+            STABILIZING_VERSION
+              ? `python -m pip install --upgrade connectonion==${STABILIZING_VERSION}`
+              : 'python -m pip install --upgrade connectonion==1.7.0rcN',
+            'co --version',
+          ]} />
+          <p className="text-sm text-gray-600 mt-4">
+            Use the exact pin for 1.7 release testing. A broad <code>--pre</code> upgrade follows the
+            highest published feature train, which is currently {PREVIEW_VERSION ? <code>{PREVIEW_VERSION}</code> : 'not published'},
+            not the stabilizing 1.7 line.
+          </p>
+        </section>
+
+        <section className="mb-14">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Join the preview track</h2>
           <CommandBlock commands={[
             'python -m pip install --pre --upgrade connectonion',
@@ -139,7 +165,7 @@ export default function ReleasesPage() {
             The <code>--pre</code> flag is the explicit opt-in. An exact pin such as{' '}
             <code>{PREVIEW_VERSION ? `connectonion==${PREVIEW_VERSION}` : 'connectonion==X.Y.ZaN'}</code>{' '}
             also opts in and does not need <code>--pre</code>.
-            {!PREVIEW_VERSION && ' No 1.7 preview is published yet, so this command currently keeps the latest stable release.'}
+            {!PREVIEW_VERSION && ' No preview is published, so this command currently keeps the latest stable release.'}
           </p>
         </section>
 
@@ -147,7 +173,7 @@ export default function ReleasesPage() {
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Current plan</h2>
           <div className="border-l-2 border-gray-300 pl-5 space-y-4 text-gray-700">
             <p><strong>1.6.x:</strong> stable maintenance fixes only.</p>
-            <p><strong>1.7.0 previews:</strong> validate OIP browser sessions and native coding adapters.</p>
+            <p><strong>1.7.0 beta:</strong> stabilize the exercised OIP browser sessions, native coding adapters, modes, and release path.</p>
             <p><strong>1.7.0:</strong> stable/LTS after browser, adapter, upgrade, and release gates pass.</p>
             <p><strong>1.8.0 previews:</strong> new remote-browser sessions and hosted execution after the 1.7 gates close.</p>
             <p className="text-sm">
@@ -163,17 +189,16 @@ export default function ReleasesPage() {
           </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>Alpha.13 preview:</strong> OIP is the only first-party browser protocol, with a bounded
-              reader-before-writer window and native Claude Code and Codex tools for delegated coding work.
+              <strong>Beta.4 candidate:</strong> the protected release workflow and exact public artifact have
+              passed the cross-platform Core, React, and O Chat production acceptance path.
             </p>
             <p>
               Claude Code and Codex preserve their provider session IDs, stream normalized tool activity through
               OIP, and appear as live cards in O Chat through <code>@connectonion/react</code>.
             </p>
             <p>
-              Explicit run/use/start/open Codex intent calls the native adapter. Raw Codex launches through shell
-              or background wrappers are rejected before process creation, while opening without a task creates a
-              real provider thread and Work Room without submitting an invented model turn.
+              The public wheel has also passed clean-index installation, shared-browser responsiveness, bounded
+              Full access, Read only and Auto mode changes, and a real Rust project build with independent Cargo tests.
             </p>
             <p>
               A running coding task now streams compact, correlated provider activity and its nested approval into

@@ -102,7 +102,7 @@ co email unshare rental@mail.openonion.ai --with 0x...`}</code></pre>
           <p>Nothing is transferred, no private key changes hands, and every sent mail still records which account actually sent it — a shared address stays one conversation with clear attribution.</p>
 
           <h2>Attachments that land the way you expect</h2>
-          <p><code>co outlook download &lt;email&gt; --to ./invoices</code> saves a mail's real documents. Two attachments with the same name become <code>report.pdf</code> and <code>report-1.pdf</code> — nothing is ever overwritten. And a corporate signature's logo images stay out of your download folder unless you explicitly want them: <code>--include-inline</code>.</p>
+          <p><code>co outlook download &lt;email&gt; --to ./invoices</code> saves a mail&apos;s real documents. Two attachments with the same name become <code>report.pdf</code> and <code>report-1.pdf</code> — nothing is ever overwritten. And a corporate signature&apos;s logo images stay out of your download folder unless you explicitly want them: <code>--include-inline</code>.</p>
 
           <h2>Steadier scheduled runs</h2>
           <p>Every model connection now carries explicit network bounds — connect, read, and retry limits defined in one place, for every provider. An upstream that stops answering ends in a clear, typed error your automation can catch and react to, within a documented time bound. Overnight runs keep their schedule.</p>
