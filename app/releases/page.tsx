@@ -189,16 +189,16 @@ export default function ReleasesPage() {
           </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>Beta.4 candidate:</strong> the protected release workflow and exact public artifact have
-              passed the cross-platform Core, React, and O Chat production acceptance path.
+              <strong>Beta.5 candidate:</strong> the protected release workflow and exact public artifact have
+              passed the cross-platform matrix and the headless permission-boundary acceptance path.
             </p>
             <p>
               Claude Code and Codex preserve their provider session IDs, stream normalized tool activity through
               OIP, and appear as live cards in O Chat through <code>@connectonion/react</code>.
             </p>
             <p>
-              The public wheel has also passed clean-index installation, shared-browser responsiveness, bounded
-              Full access, Read only and Auto mode changes, and a real Rust project build with independent Cargo tests.
+              The public wheel denied an outside-workspace write in headless Auto and left its target absent; explicit
+              bounded Full access then completed the outside canary read and write plus the full Todo lifecycle.
             </p>
             <p>
               A running coding task now streams compact, correlated provider activity and its nested approval into
