@@ -1,26 +1,26 @@
 # Release channels
 
-ConnectOnion keeps the current stable line separate from the next feature
-train. Preview releases are opt-in and do not replace the version normal users
-receive from pip.
+ConnectOnion keeps normal stable installs separate from opt-in release work.
+More than one feature train can be public at once: 1.7 is stabilizing while
+new 1.8 work remains available as the highest preview.
 
-**Current channels:** stable is `1.6.11`; the current opt-in preview is
-`1.7.0a18`. The preview line is published only after its exact PyPI artifact
-and GitHub prerelease are visible.
+**Current channels:** stable is `1.6.12`; the exact candidate being stabilized
+for 1.7 is `1.7.0b4`; the latest opt-in preview is `1.8.0a1`. All three have
+public PyPI artifacts and GitHub releases.
 
 ## Version meanings
 
 | Version | Meaning |
 |---|---|
-| `1.6.11` | Current stable 1.6 maintenance release |
-| `1.7.0a18` | Current incomplete, opt-in 1.7 alpha |
-| `1.7.0b1` | Feature-complete 1.7 beta |
-| `1.7.0rc1` | Candidate that may become stable unchanged |
+| `1.6.12` | Current stable 1.6 maintenance release |
+| `1.7.0b4` | Exact, feature-complete 1.7 candidate under release testing |
+| `1.7.0rcN` | 1.7 candidate that may become stable unchanged |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
+| `1.8.0a1` | Latest incomplete, opt-in feature preview |
 
-Patch numbers are not progress toward the next feature version. New 1.7
-features are tested as `1.7.0aN`, `1.7.0bN`, and `1.7.0rcN`.
+Patch numbers are not progress toward the next feature version. Alpha, beta,
+and RC suffixes describe confidence in one feature train.
 
 ## Install stable
 
@@ -30,43 +30,50 @@ python -m pip install --upgrade connectonion
 
 This remains on stable even after an alpha, beta, or RC is published.
 
-## Join the preview track
+## Test the stabilizing 1.7 candidate
+
+Use the exact pin. This is the reproducible command for the 1.7 release gates:
+
+```bash
+python -m pip install --upgrade connectonion==1.7.0b4
+co --version
+```
+
+Do not replace that command with a broad `--pre` upgrade. Package resolution
+chooses the highest published version, so `--pre` currently follows 1.8 rather
+than the stabilizing 1.7 line.
+
+## Join the latest preview track
 
 ```bash
 python -m pip install --pre --upgrade connectonion
 ```
 
-The `--pre` flag is the explicit opt-in. For reproducible testing, exact pins
-do not need it:
+The `--pre` flag is an explicit opt-in to the latest feature train. For a
+reproducible 1.8 test, use an exact pin:
 
 ```bash
-python -m pip install connectonion==1.7.0a18
+python -m pip install connectonion==1.8.0a1
 ```
 
-## Preview 1.7.0a18
+## Stabilizing 1.7.0b4
 
-The 1.7 preview is an OIP product path. `co ai` exposes only the native Codex
-and Claude Code adapters. It has no ACP switch, ACP browser surface, or second
-TypeScript SDK. `@connectonion/react` is the single browser protocol client,
-and O Chat pins one reviewed React artifact before it deploys.
+The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
+The beta has passed the protected Python 3.10–3.13 matrix, native Windows
+browser transport, Windows and macOS installed-wheel E2E, trusted publishing,
+and independent public-byte verification.
 
-This alpha validates an honest native coding-agent Work Room: a compact parent
-card, a single scrolling detail surface, a narrow approval decision, and
-correlated Stop acknowledgement. A direct Codex follow-up is acknowledged only
-after native `turn/steer` or resumed `turn/start` accepts it—never simply when
-the Host queues a mailbox frame. The Host assigns a monotonic provider-state
-revision to each native invocation, so stale reconnect state cannot revive an
-older decision.
+The exact public wheel also passed normal clean-index installation, shared
+browser-daemon responsiveness during a model-driven task, and the coordinated
+production flow. In that flow, bounded Full access created and tested a Rust
+project without approval prompts; Read only and Auto mode changes then completed
+in the same O Chat session. The release-control inventory and evidence remain in
+[issue #792](https://github.com/openonion/connectonion/issues/792).
 
-O Chat shows a thumbnail only when the provider supplies a verified raster for
-that exact revision. It never turns command text, terminal output, paths, or a
-session identifier into a pretend screenshot. Without real evidence, the
-text-first surface is intentional.
-
-The candidate remains opt-in while Core, `@connectonion/react`, and O Chat
-acceptance runs verify multi-step Codex work, direct follow-up, approvals, Stop
-handling, reconnect behavior, and mobile layout together. Native adapter
-command, workspace root, sandbox, and approval ceiling remain operator-owned.
+This is still a beta. Promotion to RC requires every remaining release blocker
+to close, including documentation alignment and credential-owner confirmation
+for the historical-secret alerts. Stable 1.7.0 follows only after an exercised
+candidate can ship unchanged.
 
 ## Design journal policy
 
@@ -76,4 +83,4 @@ us revisit it. Meaningful feature launches, phase promotions, stable releases,
 and material architecture decisions receive a public entry only after the
 claimed PyPI package and GitHub Release are visible.
 
-For this preview, see [The Work Room Is a View, Not a Second Agent](/blog/workroom-is-a-view).
+For the OIP boundary, see [The Work Room Is a View, Not a Second Agent](/blog/workroom-is-a-view).
