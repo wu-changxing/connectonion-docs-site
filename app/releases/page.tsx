@@ -187,10 +187,24 @@ export default function ReleasesPage() {
               </a>.
             </p>
           </div>
+          <div className="mt-6 rounded-lg border border-gray-200 bg-white p-5 text-sm text-gray-700 space-y-3">
+            <p className="font-semibold text-gray-900">How a candidate earns promotion</p>
+            <p>
+              Each release gate starts from the exact published package, launches its real <code>co ai</code>{' '}
+              Host, and connects the production O Chat build through a real browser. The acceptance flow exercises
+              a non-trivial project, permission modes, cancellation, Host restart, and reconnect without resending
+              the last prompt.
+            </p>
+            <p>
+              The run produces screenshots, sanitized logs, and a hash-addressed manifest. UI text alone cannot
+              mark the gate as passed: process state, workspace output, reconnect state, and the absence of a
+              duplicate input are checked independently. A failed gate stays failed and feeds the next issue and PR.
+            </p>
+          </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>Beta.5 candidate:</strong> the protected release workflow and exact public artifact have
-              passed the cross-platform matrix and the headless permission-boundary acceptance path.
+              <strong>Beta 9 candidate:</strong> the exact public artifact is the active 1.7 candidate. It remains
+              a beta until every release blocker and the complete browser acceptance run are closed.
             </p>
             <p>
               Claude Code and Codex preserve their provider session IDs, stream normalized tool activity through

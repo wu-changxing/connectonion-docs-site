@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: 'ConnectOnion Docs',
     type: 'article',
     publishedTime: '2026-08-15T00:00:00+10:00',
-    modifiedTime: '2026-08-16T00:00:00+10:00',
+    modifiedTime: '2026-08-22T00:00:00+10:00',
     authors: ['ConnectOnion Team'],
     tags: ['OIP', 'Codex', 'Claude Code', 'coding adapters'],
     images: [{ url: '/onion-logo.png', alt: title }],
@@ -32,7 +32,7 @@ const articleJsonLd = {
   headline: title,
   description,
   datePublished: '2026-08-15',
-  dateModified: '2026-08-16',
+  dateModified: '2026-08-22',
   author: { '@type': 'Organization', name: 'ConnectOnion', url: 'https://docs.connectonion.com' },
   publisher: {
     '@type': 'Organization',
@@ -82,6 +82,7 @@ export default function OipNativeCodingAdaptersPage() {
           <p>The Host records only a classified compatibility result: Direct or Relay, legacy or OIP 0.1 or unsupported, accepted or rejected. It does not copy peer strings, prompts, credentials, addresses, session IDs, or private paths into telemetry.</p>
           <h2>Tradeoffs and evidence</h2>
           <p>A small amount of adapter translation is provider-specific, but the authority boundary stays explicit. Release acceptance covers Codex cards in running, completed, failed, expanded, and mobile states; old/new and rollback OIP pairs over Direct and Relay; session resume; raw-launch and false-positive routing evaluations; open-without-turn; and a real published-package browser run.</p>
+          <p>The published-package run is an evidence boundary of its own. It starts the exact candidate&apos;s <code>co ai</code> Host and the production O Chat build, then uses a real browser to exercise a non-trivial project, permission modes, cancellation, Host restart, and reconnect without duplicate input. Screenshots, sanitized logs, and a hash-addressed manifest preserve what ran; UI prose cannot declare the run successful on its own.</p>
           <h2>What would make us revisit this</h2>
           <p>We would reconsider only if a provider-neutral interface demonstrates equivalent approval, cancellation, resume, and observability guarantees across providers.</p>
           <p>See the <Link href="/cli/ai">co ai guide</Link>, <Link href="/websocket-protocol">OIP WebSocket protocol</Link>, and <Link href="/useful-tools/codex">Codex adapter reference</Link>.</p>
