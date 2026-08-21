@@ -97,6 +97,14 @@ real published-package browser run. Routing and false-positive evaluations plus
 open-without-turn, same-thread first-follow-up, relay reattach, and cross-bundle
 React ownership are part of the alpha.10 gate; exact old/new and rollback pairs
 over Direct and Relay join them for alpha.11.
+
+The published-package run is an evidence boundary of its own. It starts the
+exact candidate's `co ai` Host and the production O Chat build, then uses a real
+browser to exercise a non-trivial project, permission modes, cancellation, Host
+restart, and reconnect without duplicate input. Screenshots, sanitized logs,
+and a hash-addressed manifest preserve what ran; UI prose cannot declare the
+run successful on its own.
+
 We would revisit the decision only if a
 provider-neutral interface demonstrates equivalent approval, cancellation,
 resume, and observability behavior across providers without weakening those
