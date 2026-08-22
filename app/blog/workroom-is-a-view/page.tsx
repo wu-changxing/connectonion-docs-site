@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { CopyMarkdownButton } from '../../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../../components/ContentNavigation'
 
-const title = 'The Work Room Is a View, Not a Second Agent'
-const description = 'Why the native Codex and Claude Code Work Room keeps one OIP writer, defensive readers, and one calm decision surface.'
+const title = 'The Work Room Is a Client, Not a Status Panel'
+const description = 'Why the native Codex and Claude Code Work Room keeps conversation, input, live state, and provider controls inside one remote-client shell.'
 const canonicalPath = '/blog/workroom-is-a-view'
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
     siteName: 'ConnectOnion Docs',
     type: 'article',
     publishedTime: '2026-08-17T00:00:00+10:00',
+    modifiedTime: '2026-08-23T00:00:00+10:00',
     authors: ['ConnectOnion Team'],
     tags: ['OIP', 'Codex', 'Claude Code', 'O Chat', 'architecture'],
     images: [{ url: '/onion-logo.png', alt: 'A calm native coding Work Room' }],
@@ -36,6 +38,7 @@ const articleJsonLd = {
   headline: title,
   description,
   datePublished: '2026-08-17',
+  dateModified: '2026-08-23',
   author: { '@type': 'Organization', name: 'ConnectOnion', url: 'https://docs.connectonion.com' },
   publisher: {
     '@type': 'Organization',
@@ -59,12 +62,15 @@ export default function WorkroomIsAViewPage() {
           <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-gray-500">
             Design Decision · August 17, 2026
           </p>
-          <h1 className="mb-5 text-4xl font-bold leading-tight tracking-tight text-gray-900 md:text-5xl">
-            The Work Room Is a View, Not a Second Agent
-          </h1>
-          <p className="text-xl leading-relaxed text-gray-600">
-            A long-running coding task should be legible without making the browser a second runtime.
-          </p>
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h1 className="mb-5 text-4xl font-bold leading-tight tracking-tight text-gray-900 md:text-5xl">{title}</h1>
+              <p className="text-xl leading-relaxed text-gray-600">
+                Remote control needs a real conversation surface without making the browser a second runtime.
+              </p>
+            </div>
+            <CopyMarkdownButton markdownPath="/tutorials/workroom-is-a-view.md" filename="workroom-is-a-view.md" />
+          </div>
         </header>
 
         <div className="prose prose-gray max-w-none prose-headings:scroll-mt-20">
@@ -79,7 +85,8 @@ export default function WorkroomIsAViewPage() {
             <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-green-700">The decision</p>
             <p className="m-0 font-semibold leading-relaxed text-gray-900">
               ConnectOnion Core is the one writer of native coding-provider state. The React package validates and
-              normalizes that bounded OIP state. O Chat renders one compact card and one continuous Work Room.
+              normalizes that bounded OIP state. O Chat renders one compact parent card and one continuous remote
+              client with attributed conversation, live work, provider controls, and a fixed composer.
             </p>
           </div>
 
@@ -96,17 +103,23 @@ export default function WorkroomIsAViewPage() {
             does not implement a second provider adapter. It reads the normalized state and renders it.
           </p>
 
-          <h2>Why the early Work Room felt busy</h2>
+          <h2>Why the first simplification went too far</h2>
           <p>
             The first design put a conversation panel, a status card, a preview panel, an activity list and a composer
             next to one another. Each element was reasonable in isolation, but together they made the reader decide
             where to look before they could understand what Codex was doing.
           </p>
           <p>
-            The current hierarchy has one question at the top: <strong>what is happening now?</strong> It shows a
-            current semantic state, then the native conversation or verified view if there is real evidence. Earlier
-            activity is deliberately folded away. The composer is one field and one send action. When a provider asks
-            for approval, that decision replaces the passive content instead of competing with it.
+            The answer was hierarchy, not deletion. A Work Room is the remote client for a Codex or Claude Code
+            session, so attributed user and provider messages, current lifecycle, meaningful work, and the
+            provider-targeted input must remain recognizable. Earlier technical activity can fold away; the
+            conversation cannot.
+          </p>
+          <p>
+            The current hierarchy asks <strong>what is happening now?</strong> at the top, then keeps the native
+            conversation in one reading flow and the composer fixed at the bottom. Approval becomes the primary
+            action, but it does not erase the conversation or input. If approval, Stop, reconnect, provider-busy, or
+            an older Host prevents sending, the input remains visible and explains why it is disabled.
           </p>
 
           <h2>Evidence is not decoration</h2>
@@ -126,7 +139,8 @@ export default function WorkroomIsAViewPage() {
           <ul>
             <li>One compact parent-card action opens the Work Room.</li>
             <li>A long native run stays readable on desktop and a 375px phone width.</li>
-            <li>Earlier activity stays available without becoming the default transcript.</li>
+            <li>User and provider messages remain attributed while earlier technical activity stays folded.</li>
+            <li>Codex and Claude Code keep a provider-targeted input in every lifecycle state.</li>
             <li>Approval, Stop and native direct input retain their own honest lifecycle boundaries.</li>
             <li>Initial semantic focus announces the task heading without styling that non-interactive text as a control; buttons and the composer keep visible keyboard focus.</li>
             <li>Only native Codex and Claude Code adapters participate in this release path.</li>
@@ -142,7 +156,7 @@ export default function WorkroomIsAViewPage() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gray-500">Related resources</p>
           <div className="flex flex-wrap gap-3 text-sm">
             <a href="https://github.com/openonion/connectonion/issues/1109" className="font-medium text-green-700 hover:underline">Core OIP Work Room issue</a>
-            <a href="https://github.com/openonion/oo-chat/issues/187" className="font-medium text-green-700 hover:underline">O Chat hierarchy issue</a>
+            <a href="https://github.com/openonion/oo-chat/issues/210" className="font-medium text-green-700 hover:underline">O Chat remote-client contract</a>
             <Link href="/releases" className="font-medium text-green-700 hover:underline">Preview release notes</Link>
           </div>
         </aside>

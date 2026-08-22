@@ -113,7 +113,9 @@ agent.input("Ask Codex to fix the failing tests in ./myrepo")`}
           <p className="text-gray-700">
             O Chat renders the parent invocation immediately. Open Work Room shows the provider conversation,
             correlated activity, and files; approvals, Stop, failure, completion, reconnect, and return-to-parent
-            all use the same authenticated OIP session.
+            all use the same authenticated OIP session. The Codex-targeted composer remains visible throughout that
+            lifecycle; when the current state cannot accept input, it is disabled with an explicit reason rather than
+            turning Work Room into a read-only status page.
           </p>
         </section>
 

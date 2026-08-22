@@ -5,7 +5,7 @@ More than one feature train can be public at once: 1.7 is stabilizing while
 new 1.8 work remains available as the highest preview.
 
 **Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0b9`; the latest opt-in preview is `1.8.0a1`. All three have
+for 1.7 is `1.7.0b10`; the latest opt-in preview is `1.8.0a1`. All three have
 public PyPI artifacts and GitHub releases.
 
 ## Version meanings
@@ -13,7 +13,7 @@ public PyPI artifacts and GitHub releases.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0b9` | Exact, feature-complete 1.7 candidate under release testing |
+| `1.7.0b10` | Exact, feature-complete 1.7 candidate under release testing |
 | `1.7.0rcN` | 1.7 candidate that may become stable unchanged |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
@@ -35,7 +35,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin. This is the reproducible command for the 1.7 release gates:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0b9
+python -m pip install --upgrade connectonion==1.7.0b10
 co --version
 ```
 
@@ -93,6 +93,12 @@ desktop/tablet/mobile UI review. The next synchronized candidate and unchanged R
 artifact must repeat the same gate, as recorded in
 [issue #792](https://github.com/openonion/connectonion/issues/792).
 
+Work Room is the remote client for that native provider session, not a status
+panel. Attributed user/provider messages and the provider-targeted composer stay
+visible through running, approval, Stop, reconnect, and terminal states. A state
+that cannot accept input disables the composer and explains why; it does not
+delete the conversation controls.
+
 This is still a beta. Promotion to RC requires every remaining release blocker
 to close, including real Codex and Claude provider smoke tests, upgrade and
 rollback coverage, and the final release-candidate pass. Historical-secret
@@ -107,4 +113,5 @@ us revisit it. Meaningful feature launches, phase promotions, stable releases,
 and material architecture decisions receive a public entry only after the
 claimed PyPI package and GitHub Release are visible.
 
-For the OIP boundary, see [The Work Room Is a View, Not a Second Agent](/blog/workroom-is-a-view).
+For the OIP boundary and remote-client UI contract, see
+[The Work Room Is a Client, Not a Status Panel](/blog/workroom-is-a-view).

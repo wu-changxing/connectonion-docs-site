@@ -119,6 +119,7 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 
 ## Blog — Design Decisions
 
+- [The Work Room Is a Client, Not a Status Panel](https://docs.connectonion.com/blog/workroom-is-a-view): Remote Codex and Claude Code conversation, lifecycle, permissions, and fixed provider input inside one OIP client shell
 - [One Browser Protocol, Native Coding Adapters](https://docs.connectonion.com/blog/oip-native-coding-adapters): OIP browser ownership, native Codex and Claude Code adapter boundaries, deterministic Codex routing, and open-without-turn Work Rooms
 - [The Owner Needs a Door](https://docs.connectonion.com/blog/the-owner-needs-a-door): Secure first-owner onboarding, one-time invite creation, masked inspection, and deliberate secret reveal
 - [A Page Should Not Become a Wall](https://docs.connectonion.com/blog/a-page-should-not-become-a-wall): Traversable mailbox limits, deterministic pagination, and exact next-page CLI guidance

@@ -55,10 +55,18 @@ export default function WorkRoomSummaryPage() {
         </header>
 
         <div className="prose prose-gray max-w-none">
+          <div className="not-prose mb-8 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-950">
+            <strong>Updated August 23, 2026:</strong> this article records the initial alpha simplification. The
+            no-transcript decision was superseded after real client testing: current Work Room keeps attributed
+            conversation and a provider-targeted composer visible. Read the{' '}
+            <Link href="/blog/workroom-is-a-view" className="font-semibold underline underline-offset-2">
+              current remote-client decision
+            </Link>.
+          </div>
           <p>Long-running coding work made the old card look busy without making it useful. A person could see tool-shaped detail, a text snapshot, an approval button, and a history at once, yet still have to search for the answer that mattered: what is happening now, does it need me, and what can I safely do?</p>
 
           <h2>The decision</h2>
-          <p>The parent conversation now contains one compact semantic summary: the provider, a safe task category, the current state, and one entry action. The Work Room is the single detailed surface. Its Overview leads with progress and the latest useful result; Activity is the only secondary section. Verified file names appear inline when Core supplied them. There is no default transcript, no nested scroll region, and no simulated terminal or screenshot.</p>
+          <p>The parent conversation contains one compact semantic summary: the provider, a safe task category, the current state, and one entry action. This alpha initially made the Work Room a summary-only surface with no default transcript. Client testing later showed that removing attributed messages and input crossed the line from progressive disclosure into process deletion. The current contract keeps conversation and composer, while raw commands, nested scroll regions, and simulated terminal screenshots remain absent.</p>
 
           <h2>Truthful evidence has a narrow boundary</h2>
           <p>Codex and Claude Code each keep their private protocol. At the adapter edge, ConnectOnion translates only a finite OIP vocabulary: provider lifecycle, semantic activity, and a verified approval presentation. React accepts that vocabulary and rejects arbitrary provider text. O Chat renders the normalized state; it never parses provider JSON-RPC or treats a filename, command, or model message as browser authority.</p>

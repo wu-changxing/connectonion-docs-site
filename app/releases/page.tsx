@@ -222,7 +222,10 @@ export default function ReleasesPage() {
             </p>
             <p>
               A running coding task now streams compact, correlated provider activity and its nested approval into
-              one Work Room. Recent semantic steps stay readable; raw commands and outputs are opt-in details.
+              one Work Room. That Work Room remains a real remote Codex or Claude Code client: attributed user and
+              provider messages and the provider-targeted composer stay visible through running, approval, Stop,
+              reconnect, and completion. Temporarily unavailable input is disabled with a reason, not removed.
+              Recent semantic steps stay readable; raw commands and outputs are opt-in details.
             </p>
             <p>
               Descriptor-less OIP 0.1 peers remain readable through 1.7.x. Unsupported versions fail once without
