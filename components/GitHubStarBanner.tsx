@@ -10,18 +10,24 @@
  *      paint — the one thing the page exists to show. It is scroll-gated now.
  *   2. The star count fetched github.com/wu-changxing/connectonion, which is not where
  *      the repo lives. It 404s, so the count silently never rendered.
+ *   3. Release status is a decision surface. The banner must not cover candidate
+ *      versions, promotion requirements, or blocker evidence on /releases.
  */
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { FaStar, FaTimes } from 'react-icons/fa'
 
 export default function GitHubStarBanner() {
+  const pathname = usePathname()
   const [isVisible, setIsVisible] = useState(false)
   const [starCount, setStarCount] = useState<number | null>(null)
   const [isDismissed, setIsDismissed] = useState(false)
 
   useEffect(() => {
+    if (pathname === '/releases') return
+
     const dismissed = localStorage.getItem('github-star-banner-dismissed')
     if (dismissed === 'true') {
       setIsDismissed(true)
@@ -48,7 +54,7 @@ export default function GitHubStarBanner() {
       })
 
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [pathname])
 
   const handleDismiss = () => {
     setIsVisible(false)
@@ -61,7 +67,7 @@ export default function GitHubStarBanner() {
     handleDismiss()
   }
 
-  if (isDismissed) return null
+  if (isDismissed || pathname === '/releases') return null
 
   return (
     <div
@@ -75,7 +81,7 @@ export default function GitHubStarBanner() {
 
         <button
           onClick={handleDismiss}
-          className="absolute top-3 right-3 text-gray-600 hover:text-gray-400 transition-colors"
+          className="absolute top-1 right-1 min-h-[48px] min-w-[48px] flex items-center justify-center text-gray-600 hover:text-gray-400 transition-colors"
           aria-label="Close banner"
         >
           <FaTimes className="w-3 h-3" />
@@ -98,7 +104,7 @@ export default function GitHubStarBanner() {
 
         <button
           onClick={handleStarClick}
-          className="w-full bg-green-500 hover:bg-green-400 text-gray-950 font-semibold py-2.5 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
+          className="w-full min-h-[48px] bg-green-500 hover:bg-green-400 text-gray-950 font-semibold py-2.5 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
         >
           <FaStar className="w-3.5 h-3.5" />
           <span>Star on GitHub</span>

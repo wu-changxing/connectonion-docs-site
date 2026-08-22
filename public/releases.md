@@ -68,7 +68,12 @@ UI text alone cannot mark the gate as passed: process state, workspace output,
 reconnect state, and the absence of a duplicate input are checked independently.
 A failed gate stays failed and feeds the next issue and PR.
 
-## Stabilizing 1.7.0b9
+Backend promotion also collects the complete mocked `oo-api` test tree.
+Integration and live-provider cases stay explicit, but a new billing or API
+contract test cannot sit outside CI just because it was added in a separate
+test module.
+
+## Stabilizing 1.7.0b10
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
 The beta has passed the protected Python 3.10–3.13 matrix, native Windows
@@ -80,11 +85,12 @@ without a dialog channel, an outside-workspace write could skip the classifier.
 Beta 5 applied the deterministic boundary in both paths. Its exact public wheel
 passed a denied outside Auto write, left the target absent, and then completed
 the same outside read and write plus Todo lifecycle under explicit bounded Full
-access. Beta 9 remains the latest published 1.7 artifact. The newer coordinated
-release-branch source has passed localhost first-run invite authentication,
-real project work, Full access, Read only, Auto, Stop, Host restart, Reconnect,
-duplicate-input checks, and desktop/mobile screenshot acceptance. The same gate
-must pass against the unchanged RC artifact, as recorded in
+access. Beta 10 is the latest published 1.7 artifact. Its exact Core package and
+the merged O Chat Work Room fix passed localhost first-run invite authentication,
+real browser/C/C++/Rust work, native Codex delegation, Full access, Read only,
+Auto, Stop, Host restart, Reconnect, conversation/composer checks, and independent
+desktop/tablet/mobile UI review. The next synchronized candidate and unchanged RC
+artifact must repeat the same gate, as recorded in
 [issue #792](https://github.com/openonion/connectonion/issues/792).
 
 This is still a beta. Promotion to RC requires every remaining release blocker
