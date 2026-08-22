@@ -60,8 +60,10 @@ python -m pip install connectonion==1.8.0a1
 
 Each release gate starts from the exact published package, launches its real
 `co ai` Host, and connects the production O Chat build through a real browser.
-The acceptance flow exercises a non-trivial project, permission modes,
-cancellation, Host restart, and reconnect without resending the last prompt.
+The acceptance flow exercises a deterministic catalog search and attachment
+download through `co browser`, C, C++, and Rust projects, native Codex
+delegation, permission modes, cancellation, Host restart, and reconnect
+without resending the last prompt.
 
 The run produces screenshots, sanitized logs, and a hash-addressed manifest.
 UI text alone cannot mark the gate as passed: process state, workspace output,
@@ -86,11 +88,14 @@ Beta 5 applied the deterministic boundary in both paths. Its exact public wheel
 passed a denied outside Auto write, left the target absent, and then completed
 the same outside read and write plus Todo lifecycle under explicit bounded Full
 access. Beta 10 is the latest published 1.7 artifact. Its exact Core package and
-the merged O Chat Work Room fix passed localhost first-run invite authentication,
-real browser/C/C++/Rust work, native Codex delegation, Full access, Read only,
-Auto, Stop, Host restart, Reconnect, conversation/composer checks, and independent
-desktop/tablet/mobile UI review. The next synchronized candidate and unchanged RC
-artifact must repeat the same gate, as recorded in
+O Chat build at `3eb9bbb` passed localhost first-run invite authentication, real
+browser/C/C++/Rust work, native Codex delegation, Full access, Read only, Auto,
+Stop, Host restart, Reconnect, conversation/composer checks, and independent
+desktop/tablet/mobile UI review. The Work Room client/composer correction merged
+afterward, so it is not Beta 10 artifact evidence. The next synchronized candidate
+is `v1.7.0rc1`; it must include that correction and repeat the expanded gate,
+including real browser catalog search and attachment download, before stable
+promotion, as recorded in
 [issue #792](https://github.com/openonion/connectonion/issues/792).
 
 Work Room is the remote client for that native provider session, not a status
@@ -99,11 +104,12 @@ visible through running, approval, Stop, reconnect, and terminal states. A state
 that cannot accept input disables the composer and explains why; it does not
 delete the conversation controls.
 
-This is still a beta. Promotion to RC requires every remaining release blocker
-to close, including real Codex and Claude provider smoke tests, upgrade and
-rollback coverage, and the final release-candidate pass. Historical-secret
-alerts have been cleared. Stable 1.7.0 follows only after an exercised candidate
-can ship unchanged.
+Beta 10 is still a beta. RC1 is the next synchronization and testing candidate;
+it is not stable approval. Real Codex and Claude provider smokes, upgrade and
+rollback coverage, backend reconciliation, release protection, and the full
+release-candidate acceptance window must all close before stable promotion.
+Historical-secret alerts have been cleared. Stable 1.7.0 follows only after an
+exercised RC can ship unchanged.
 
 ## Design journal policy
 
