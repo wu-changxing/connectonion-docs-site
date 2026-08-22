@@ -28,14 +28,14 @@ const blogPosts = [
     excerpt: 'ConnectOnion 1.6.12: co server new --region, co email share/unshare, collision-safe Outlook attachment downloads, and steadier scheduled runs.'
   },
   {
-    title: 'The Work Room Is a View, Not a Second Agent',
-    subtitle: 'One OIP writer, defensive readers, and one calm native coding surface',
+    title: 'The Work Room Is a Client, Not a Status Panel',
+    subtitle: 'Conversation, live work, permissions, and input inside one remote-client shell',
     date: 'August 2026',
     readTime: '5 min read',
     href: '/blog/workroom-is-a-view',
     icon: HiOutlineCommandLine,
     tags: ['Design Decision', 'OIP', 'Codex'],
-    excerpt: 'Why the native Codex and Claude Code Work Room shows current state, real evidence and one decision surface without becoming a second agent runtime.'
+    excerpt: 'Why the native Codex and Claude Code Work Room keeps attributed messages, lifecycle, provider controls, and a fixed composer without becoming a second runtime.'
   },
   {
     title: 'A Work Room Is a Summary, Not a Transcript',
