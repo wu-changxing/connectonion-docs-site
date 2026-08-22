@@ -235,7 +235,7 @@ export default function PricingPage() {
         <div className="space-y-4">
           <div className="bg-gray-50 border border-gray-200 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">Is there a markup over official API pricing?</h3>
-            <p className="text-gray-600 text-sm">No markup. Prices above are provider list prices. Note that ConnectOnion's own built-in cost tracking (<code className="bg-gray-100 px-1 rounded">agent.total_cost</code>) has exact rates only for the models registered in its pricing table — models outside that table fall back to a default estimate of $1.00/M input and $3.00/M output.</p>
+            <p className="text-gray-600 text-sm">No markup. Prices above are provider list prices. For managed <code className="bg-gray-100 px-1 rounded">co/</code> models, <code className="bg-gray-100 px-1 rounded">agent.total_cost</code> uses the backend&apos;s normalized usage and the pricing snapshot that settled the charge; an unknown managed model is rejected rather than billed from a default price. Direct-provider calls retain the local compatibility estimate when their model is outside the client table.</p>
           </div>
           <div className="bg-gray-50 border border-gray-200 p-5 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">Do credits expire?</h3>
