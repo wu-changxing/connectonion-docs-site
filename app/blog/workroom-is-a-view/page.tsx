@@ -128,6 +128,7 @@ export default function WorkroomIsAViewPage() {
             <li>A long native run stays readable on desktop and a 375px phone width.</li>
             <li>Earlier activity stays available without becoming the default transcript.</li>
             <li>Approval, Stop and native direct input retain their own honest lifecycle boundaries.</li>
+            <li>Initial semantic focus announces the task heading without styling that non-interactive text as a control; buttons and the composer keep visible keyboard focus.</li>
             <li>Only native Codex and Claude Code adapters participate in this release path.</li>
           </ul>
           <p>
