@@ -1,6 +1,6 @@
 /**
  * @purpose Dashboard docs - giving a hosted agent a Home page via dashboard.html
- * @context Explains the single-file model, the starter written at host startup, editing rules
+ * @context Explains the single-file model, the starter rendered at host startup, editing rules
  *   (no scripting, no external URLs, 2MB cap), the data-ochat-skill button contract, and when
  *   snapshots are pushed over the WebSocket
  * @llm-note The button contract's project-skills-only rule is the non-obvious part: clients
@@ -46,7 +46,7 @@ export default function DashboardPage() {
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <p className="text-lg font-semibold text-gray-900">
-              <strong>Key insight:</strong> Your agent&apos;s Home page is a file it owns — <code className="bg-white px-2 py-1 rounded">dashboard.html</code> in the project root. The host reads it and pushes it over the WebSocket the chat already uses, so there is nothing to serve, fetch, or rebuild.
+              <strong>Key insight:</strong> Your agent can own a custom Home page at <code className="bg-white px-2 py-1 rounded">.co/dashboard.html</code>. The Host reads it and pushes it over the authenticated WebSocket the chat already uses, so there is nothing to serve, fetch, or rebuild.
             </p>
           </div>
         </section>
@@ -59,7 +59,7 @@ export default function DashboardPage() {
           </h2>
 
           <p className="text-gray-700 mb-4 text-lg">
-            The first time you run <code className="bg-gray-100 px-2 py-1 rounded">host()</code>, if there is no <code className="bg-gray-100 px-2 py-1 rounded">dashboard.html</code>, ConnectOnion writes a starter one — your agent&apos;s name, and up to four of its skills as one-click buttons.
+            When there is no <code className="bg-gray-100 px-2 py-1 rounded">.co/dashboard.html</code>, ConnectOnion renders the bundled starter fresh — identity, quick actions, recent activity, searchable capabilities, and diagnostics. It writes no file, so upgrades and newly published skills appear automatically.
           </p>
 
           <CodeWithResult
@@ -67,19 +67,27 @@ export default function DashboardPage() {
 from connectonion.network import host
 
 host(lambda: Agent("lisa", tools=[...]))`}
-            result={`Created dashboard.html — your agent's Home page.`}
+            result={`The client receives Lisa's current Control Center.`}
           />
 
           <p className="text-gray-700 mt-6 mb-4 text-lg">
-            After that the file is yours. ConnectOnion never overwrites it.
+            If you create <code className="bg-gray-100 px-2 py-1 rounded">.co/dashboard.html</code>, the file is yours and ConnectOnion never overwrites it.
           </p>
 
           <Diagram label="Your project">
 {`my-agent/
 ├── agent.py
-├── dashboard.html      ← the Home page
-└── .co/`}
+└── .co/
+    ├── dashboard.html  ← optional custom Home page
+    └── skills/`}
           </Diagram>
+
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-5 mt-6">
+            <p className="font-semibold text-amber-950 mb-1">Live task state belongs to the client</p>
+            <p className="text-amber-900">
+              A dashboard snapshot does not receive thinking, approval, input-wait, Stop, failure, or completion frames. O Chat renders that authoritative state outside the sandboxed page. Do not hard-code runtime claims such as “Ready” or “Working” in a custom dashboard.
+            </p>
+          </div>
         </section>
 
         {/* Editing */}
