@@ -183,7 +183,14 @@ agent.current_session     # dict | None: Runtime state
 # Token & cost tracking (after agent.input())
 agent.context_percent     # float: Context window used (0-100)
 agent.total_cost          # float: Total USD cost this session
-agent.last_usage          # dict: Last call token usage`}
+agent.last_usage          # TokenUsage | None: Last call accounting
+
+# Managed co/ models preserve the exact server-settled breakdown
+agent.last_usage.input_tokens_uncached
+agent.last_usage.cache_read_input_tokens
+agent.last_usage.cache_write_input_tokens
+agent.last_usage.cache_metadata_status
+agent.last_usage.cost     # Final server cost, not a browser estimate`}
               result=""
               language="python"
             />
