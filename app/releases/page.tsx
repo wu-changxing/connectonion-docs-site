@@ -64,22 +64,22 @@ export default function ReleasesPage() {
           markdownFilename="releases.md"
         />
 
-        <section className="mb-10 grid md:grid-cols-3 gap-4" aria-label="Current releases">
+        <section className="mb-10 grid md:grid-cols-2 xl:grid-cols-3 gap-4" aria-label="Current releases">
           <div className="border border-green-200 bg-green-50 rounded-lg p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">Current stable</p>
-            <p className="text-2xl font-bold text-gray-900">v{STABLE_VERSION}</p>
+            <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">v{STABLE_VERSION}</p>
             <p className="text-sm text-gray-600 mt-2">Installed by normal pip commands.</p>
           </div>
           <div className="border border-amber-200 bg-amber-50 rounded-lg p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Stabilizing 1.7</p>
-            <p className="text-2xl font-bold text-gray-900">
+            <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">
               {STABILIZING_VERSION ? `v${STABILIZING_VERSION}` : 'No active candidate'}
             </p>
             <p className="text-sm text-gray-600 mt-2">Exact-pin candidate for the 1.7 release gates.</p>
           </div>
           <div className="border border-gray-200 bg-gray-50 rounded-lg p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Latest preview</p>
-            <p className="text-2xl font-bold text-gray-900">{PREVIEW_VERSION ? `v${PREVIEW_VERSION}` : 'Not published yet'}</p>
+            <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">{PREVIEW_VERSION ? `v${PREVIEW_VERSION}` : 'Not published yet'}</p>
             <p className="text-sm text-gray-600 mt-2">
               {PREVIEW_VERSION
                 ? 'Available only to users who explicitly opt in.'
@@ -200,11 +200,17 @@ export default function ReleasesPage() {
               mark the gate as passed: process state, workspace output, reconnect state, and the absence of a
               duplicate input are checked independently. A failed gate stays failed and feeds the next issue and PR.
             </p>
+            <p>
+              Backend promotion also collects the complete mocked <code>oo-api</code> test tree. Integration and
+              live-provider cases stay explicit, but a new billing or API contract test cannot sit outside CI just
+              because it was added in a separate test module.
+            </p>
           </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>Beta 9 candidate:</strong> it remains the latest published 1.7 artifact. The newer coordinated
-              release-branch source passed the complete localhost browser gate; the unchanged RC artifact must repeat it.
+              <strong>Beta 10 candidate:</strong> the exact published Core package and merged O Chat Work Room fix
+              passed the complete localhost browser gate and independent UI review. The next synchronized candidate
+              must repeat the same gate after the remaining backend blockers close.
             </p>
             <p>
               Claude Code and Codex preserve their provider session IDs, stream normalized tool activity through
