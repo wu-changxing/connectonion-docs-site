@@ -203,8 +203,8 @@ export default function ReleasesPage() {
           </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>Beta 9 candidate:</strong> the exact public artifact is the active 1.7 candidate. It remains
-              a beta until every release blocker and the complete browser acceptance run are closed.
+              <strong>Beta 9 candidate:</strong> it remains the latest published 1.7 artifact. The newer coordinated
+              release-branch source passed the complete localhost browser gate; the unchanged RC artifact must repeat it.
             </p>
             <p>
               Claude Code and Codex preserve their provider session IDs, stream normalized tool activity through

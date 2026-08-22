@@ -80,14 +80,18 @@ without a dialog channel, an outside-workspace write could skip the classifier.
 Beta 5 applied the deterministic boundary in both paths. Its exact public wheel
 passed a denied outside Auto write, left the target absent, and then completed
 the same outside read and write plus Todo lifecycle under explicit bounded Full
-access. Beta 9 is now the exact public artifact under test. The coordinated
-browser production flow remains part of the release gate in
+access. Beta 9 remains the latest published 1.7 artifact. The newer coordinated
+release-branch source has passed localhost first-run invite authentication,
+real project work, Full access, Read only, Auto, Stop, Host restart, Reconnect,
+duplicate-input checks, and desktop/mobile screenshot acceptance. The same gate
+must pass against the unchanged RC artifact, as recorded in
 [issue #792](https://github.com/openonion/connectonion/issues/792).
 
 This is still a beta. Promotion to RC requires every remaining release blocker
-to close, including documentation alignment and credential-owner confirmation
-for the historical-secret alerts. Stable 1.7.0 follows only after an exercised
-candidate can ship unchanged.
+to close, including real Codex and Claude provider smoke tests, upgrade and
+rollback coverage, and the final release-candidate pass. Historical-secret
+alerts have been cleared. Stable 1.7.0 follows only after an exercised candidate
+can ship unchanged.
 
 ## Design journal policy
 

@@ -85,31 +85,33 @@ POSIX systems additionally enforce `0700` directories and `0600` files.
 | `--port` | `-p` | `8000` | Port for web server |
 | `--model` | `-m` | `co/gemini-3.7-flash` | LLM model to use |
 | `--max-iterations` | `-i` | `100` | Max tool iterations per turn |
-| `--yolo` | | off | Skip tool approvals and keep working across turns |
-| `--yolo-turns` | | `100` | Autonomous turns before a checkpoint; must be positive |
+| `--full-access` | | off | Allow tools without approval prompts for this bounded turn |
+| `--full-access-turns` | | `100` | Maximum tool iterations while Full access is active; must be positive |
 | `--eval` | | off | Debug a task with two extra model calls that score completion |
 | `--json` | | off | Emit one JSON envelope to stdout in one-shot mode |
 | `--resume` | | | With `--json`, continue a one-shot session by ID |
+| `--invite-code` | | | Use one invite code directly for this authentication run |
+| `--invite-code-file` | | | Read the invite code from a local file instead of exposing it in shell history |
 
 ```bash
 co ai --port 9000
 co ai --model co/gemini-3.7-flash
 co ai "Build an agent" --model co/gpt-4o --max-iterations 50
-co ai --yolo "Fix the failing suite" --yolo-turns 20
+co ai --full-access "Fix the failing suite" --full-access-turns 20
 co ai --eval "Check whether this agent really completed the task"
 ```
 
-## Full access (`--yolo`)
+## Full access
 
-Use `--yolo` for a trusted task that should run without tool-approval prompts.
-It works in both one-shot and web-server modes:
+Use `--full-access` for a trusted task that should run without tool-approval
+prompts during the bounded turn. It works in both one-shot and web-server modes:
 
 ```bash
-# Run one task autonomously, then exit at the 20-turn bound
-co ai --yolo "Implement issue #123" --yolo-turns 20
+# Run one task with Full access, then stop naturally or at the 20-iteration bound
+co ai --full-access "Implement issue #123" --full-access-turns 20
 
-# Start web chat with autonomous mode enabled for each session
-co ai --yolo --yolo-turns 20
+# Start web chat with bounded Full access available to each session
+co ai --full-access --full-access-turns 20
 ```
 
 Slash skills are expanded before the first model call. Project skills can live
@@ -117,12 +119,24 @@ under either `.co/skills/` or `.claude/skills/`, so a project workflow can run
 directly:
 
 ```bash
-co ai --yolo "/deploy-oo-chat" --yolo-turns 10
+co ai --full-access "/deploy-oo-chat" --full-access-turns 10
 ```
 
-YOLO is the familiar CLI shorthand for Full access. It selects the canonical
-`:danger-full-access` permission profile and uses `full_access_turns` for the
-bounded autonomous checkpoint.
+Full access selects the canonical `:danger-full-access` permission profile. It
+does not invent follow-up work or continue after the task naturally finishes.
+When the bound expires, the session returns to Auto and asks before protected
+actions. A browser client may narrow this mode but cannot widen Host authority.
+
+For scripted first-run authentication, prefer a mode-`0600` file so the secret
+does not appear in shell history or process listings:
+
+```bash
+chmod 600 /tmp/co-invite
+co ai --invite-code-file /tmp/co-invite
+```
+
+`--invite-code` is also available for short-lived controlled environments, but
+the direct value can be retained by shell history and process inspection.
 
 ## What the Agent Can Do
 

@@ -1,11 +1,12 @@
 # Roadmap
 
 ConnectOnion keeps stable maintenance separate from the next feature train.
-Current stable is 1.6.10. The opt-in preview target is 1.7.0a11; normal pip
-installs never select it without explicit opt-in.
+Current stable is 1.6.12. The exact 1.7 candidate being stabilized is 1.7.0b9,
+while the latest opt-in feature preview is 1.8.0a1. Normal pip installs never
+select either prerelease without explicit opt-in.
 See [Release Channels](/releases) for installation and version meanings.
 
-## 1.7 preview gates
+## 1.7 stable gates
 
 1. One authenticated OIP browser connection and one React state owner.
 2. Native Codex and Claude Code adapters with exact provider resume.
@@ -13,6 +14,10 @@ See [Release Channels](/releases) for installation and version meanings.
 4. Published-wheel installation and real `co ai` browser acceptance.
 5. Alpha, beta, release-candidate, then stable promotion based on evidence.
 6. Reader-before-writer old/new and rollback checks over Direct and Relay.
+
+The 1.7 candidate is promoted unchanged from RC to stable only after every gate
+passes. Afterward, 1.7.x carries maintenance fixes; new remote-browser and
+hosted-execution feature work continues in 1.8 previews.
 
 ## Longer-term work
 
