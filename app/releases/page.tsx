@@ -192,8 +192,9 @@ export default function ReleasesPage() {
             <p>
               Each release gate starts from the exact published package, launches its real <code>co ai</code>{' '}
               Host, and connects the production O Chat build through a real browser. The acceptance flow exercises
-              a non-trivial project, permission modes, cancellation, Host restart, and reconnect without resending
-              the last prompt.
+              a deterministic catalog search and attachment download through <code>co browser</code>, C, C++, and
+              Rust projects, native Codex delegation, permission modes, cancellation, Host restart, and reconnect
+              without resending the last prompt.
             </p>
             <p>
               The run produces screenshots, sanitized logs, and a hash-addressed manifest. UI text alone cannot
@@ -208,9 +209,11 @@ export default function ReleasesPage() {
           </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>Beta 10 candidate:</strong> the exact published Core package and merged O Chat Work Room fix
-              passed the complete localhost browser gate and independent UI review. The next synchronized candidate
-              must repeat the same gate after the remaining backend blockers close.
+              <strong>Beta 10 candidate:</strong> the exact published Core package and O Chat build at{' '}
+              <code>3eb9bbb</code> passed the complete localhost browser gate and independent UI review. The Work
+              Room client/composer correction merged afterward, so it is not Beta 10 artifact evidence. The next
+              synchronized candidate is <code>v1.7.0rc1</code>; it must include that correction and repeat the
+              expanded gate before stable promotion.
             </p>
             <p>
               Claude Code and Codex preserve their provider session IDs, stream normalized tool activity through
