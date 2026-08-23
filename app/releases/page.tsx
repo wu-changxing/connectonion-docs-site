@@ -173,7 +173,7 @@ export default function ReleasesPage() {
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Current plan</h2>
           <div className="border-l-2 border-gray-300 pl-5 space-y-4 text-gray-700">
             <p><strong>1.6.x:</strong> stable maintenance fixes only.</p>
-            <p><strong>1.7.0 beta:</strong> stabilize the exercised OIP browser sessions, native coding adapters, modes, and release path.</p>
+            <p><strong>1.7.0 RC:</strong> exercise the synchronized Core, React, O Chat, provider, browser, and release path without adding features.</p>
             <p><strong>1.7.0:</strong> stable/LTS after browser, adapter, upgrade, and release gates pass.</p>
             <p><strong>1.8.0 previews:</strong> new remote-browser sessions and hosted execution after the 1.7 gates close.</p>
             <p className="text-sm">
@@ -209,11 +209,10 @@ export default function ReleasesPage() {
           </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>Beta 10 candidate:</strong> the exact published Core package and O Chat build at{' '}
-              <code>3eb9bbb</code> passed the complete localhost browser gate and independent UI review. The Work
-              Room client/composer correction merged afterward, so it is not Beta 10 artifact evidence. The next
-              synchronized candidate is <code>v1.7.0rc1</code>; it must include that correction and repeat the
-              expanded gate before stable promotion.
+              <strong>RC1 candidate:</strong> Beta 10 and O Chat <code>3eb9bbb</code> established the previous exact
+              artifact baseline. RC1 synchronizes the later Work Room client/composer correction, normalized
+              managed-usage reader, and expanded deterministic browser gate. Publishing the candidate does not
+              accept those changes: the exact installed RC must repeat the complete gate before stable promotion.
             </p>
             <p>
               Claude Code and Codex preserve their provider session IDs, stream normalized tool activity through
