@@ -5,7 +5,7 @@ More than one feature train can be public at once: 1.7 is stabilizing while
 new 1.8 work remains available as the highest preview.
 
 **Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0rc1`; the latest opt-in preview is `1.8.0a1`. All three have
+for 1.7 is `1.7.0rc2`; the latest opt-in preview is `1.8.0a1`. All three have
 public PyPI artifacts and GitHub releases.
 
 ## Version meanings
@@ -13,7 +13,7 @@ public PyPI artifacts and GitHub releases.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0rc1` | Exact 1.7 candidate that may become stable unchanged after acceptance |
+| `1.7.0rc2` | Exact 1.7 candidate that may become stable unchanged after acceptance |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -34,7 +34,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin. This is the reproducible command for the 1.7 release gates:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0rc1
+python -m pip install --upgrade connectonion==1.7.0rc2
 co --version
 ```
 
@@ -74,7 +74,7 @@ Integration and live-provider cases stay explicit, but a new billing or API
 contract test cannot sit outside CI just because it was added in a separate
 test module.
 
-## Stabilizing 1.7.0rc1
+## Stabilizing 1.7.0rc2
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
 The beta has passed the protected Python 3.10–3.13 matrix, native Windows
@@ -104,13 +104,15 @@ that cannot accept input disables the composer and explains why; it does not
 delete the conversation controls.
 
 Installed RC1 review also found that outer COAI permission was visible while
-the opened Work Room lacked its provider-native selector. RC1 cannot promote
-unchanged. The coordinated RC2 fix must retain the outer mode as the Host
-ceiling, expose revision-bound Codex and Claude Code native choices inside Work
-Room, wait for Host acknowledgement, separately confirm elevated profiles, and
-pass desktop/tablet/390px visual review before another installed-artifact gate.
+the opened Work Room lacked its provider-native selector, so RC1 cannot promote
+unchanged. RC2 retains the outer mode as the Host ceiling, exposes
+revision-bound Codex and Claude Code native choices inside Work Room, waits for
+Host acknowledgement, and separately confirms elevated profiles. Its paired
+React reader is `0.4.3-rc.0`; O Chat `88ba1a362ce299942268275785b628dfe2cd96e9`
+passed final-head desktop, tablet, mobile, and continuous invite/mode/Control
+Center evidence before deployment.
 
-RC1 is a synchronization and testing candidate, not stable approval. Real Codex
+RC2 is a synchronization and testing candidate, not stable approval. Real Codex
 and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full
 release-candidate acceptance window must all close before stable promotion.
