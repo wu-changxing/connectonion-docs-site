@@ -5,7 +5,7 @@ More than one feature train can be public at once: 1.7 is stabilizing while
 new 1.8 work remains available as the highest preview.
 
 **Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0rc3`; the latest opt-in preview is `1.8.0a1`. All three have
+for 1.7 is `1.7.0rc4`; the latest opt-in preview is `1.8.0a1`. All three have
 public PyPI artifacts and GitHub releases.
 
 ## Version meanings
@@ -13,7 +13,7 @@ public PyPI artifacts and GitHub releases.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0rc3` | Exact 1.7 candidate that may become stable unchanged after acceptance |
+| `1.7.0rc4` | Exact 1.7 candidate that may become stable unchanged after acceptance |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -34,7 +34,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin. This is the reproducible command for the 1.7 release gates:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0rc3
+python -m pip install --upgrade connectonion==1.7.0rc4
 co --version
 ```
 
@@ -74,7 +74,7 @@ Integration and live-provider cases stay explicit, but a new billing or API
 contract test cannot sit outside CI just because it was added in a separate
 test module.
 
-## Stabilizing 1.7.0rc3
+## Stabilizing 1.7.0rc4
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
 The beta has passed the protected Python 3.10–3.13 matrix, native Windows
@@ -119,6 +119,17 @@ candidate, not stable approval: the exact RC3 gate exposed
 already-open Codex Work Room did not receive the provider downgrade revision
 after the outer mode changed from Full access to Auto. That authority defect
 must be fixed and the exact installed-artifact gate repeated before promotion.
+
+RC4 contains that provider downgrade correction together with the bounded
+follow-up fixes found by the repeated gate: native Auto mapping for Claude Code,
+optional hosted working directories, and coalesced transactional session
+snapshots so long provider runs cannot hide the next approval or terminal
+composer behind superseded state. The accepted pre-publication candidate passed
+fresh invite onboarding, real browser work, strict C11/C++20/Rust, native Codex
+and Claude Code, provider follow-up, Stop, reconnect, and manual review of 22
+hashed desktop, tablet, and mobile screenshots. Publication and the final
+unchanged-candidate window remain controlled by
+[issue #792](https://github.com/openonion/connectonion/issues/792).
 
 Real Codex and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full
