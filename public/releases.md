@@ -5,7 +5,7 @@ More than one feature train can be public at once: 1.7 is stabilizing while
 new 1.8 work remains available as the highest preview.
 
 **Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0rc2`; the latest opt-in preview is `1.8.0a1`. All three have
+for 1.7 is `1.7.0rc3`; the latest opt-in preview is `1.8.0a1`. All three have
 public PyPI artifacts and GitHub releases.
 
 ## Version meanings
@@ -13,7 +13,7 @@ public PyPI artifacts and GitHub releases.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0rc2` | Exact 1.7 candidate that may become stable unchanged after acceptance |
+| `1.7.0rc3` | Exact 1.7 candidate that may become stable unchanged after acceptance |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -34,7 +34,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin. This is the reproducible command for the 1.7 release gates:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0rc2
+python -m pip install --upgrade connectonion==1.7.0rc3
 co --version
 ```
 
@@ -74,7 +74,7 @@ Integration and live-provider cases stay explicit, but a new billing or API
 contract test cannot sit outside CI just because it was added in a separate
 test module.
 
-## Stabilizing 1.7.0rc2
+## Stabilizing 1.7.0rc3
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
 The beta has passed the protected Python 3.10–3.13 matrix, native Windows
@@ -112,8 +112,15 @@ React reader is `0.4.3-rc.0`; O Chat `88ba1a362ce299942268275785b628dfe2cd96e9`
 passed final-head desktop, tablet, mobile, and continuous invite/mode/Control
 Center evidence before deployment.
 
-RC2 is a synchronization and testing candidate, not stable approval. Real Codex
-and Claude provider smokes, upgrade and
+RC3 lets an authenticated invited owner change its own Work Room provider
+profile within the outer Host ceiling. It remains a synchronization and testing
+candidate, not stable approval: the exact RC3 gate exposed
+[issue #1222](https://github.com/openonion/connectonion/issues/1222), where an
+already-open Codex Work Room did not receive the provider downgrade revision
+after the outer mode changed from Full access to Auto. That authority defect
+must be fixed and the exact installed-artifact gate repeated before promotion.
+
+Real Codex and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full
 release-candidate acceptance window must all close before stable promotion.
 Historical-secret alerts have been cleared. Stable 1.7.0 follows only after an

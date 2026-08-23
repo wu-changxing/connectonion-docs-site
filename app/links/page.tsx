@@ -15,8 +15,8 @@ import {
   HiOutlineLink as LinkIcon,
   HiOutlineArrowRight
 } from 'react-icons/hi2'
-import { SiGithub, SiDiscord, SiX, SiYoutube, SiLinkedin, SiInstagram, SiTiktok, SiPypi } from 'react-icons/si'
-import { FaUsers } from 'react-icons/fa6'
+import { SiGithub, SiDiscord, SiX, SiYoutube, SiInstagram, SiTiktok, SiPypi } from 'react-icons/si'
+import { FaLinkedin, FaUsers } from 'react-icons/fa6'
 import Link from 'next/link'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
@@ -65,7 +65,7 @@ const sections: LinkSection[] = [
     rows: [
       { title: 'X / Twitter', url: 'https://x.com/ConnectOnionAI', icon: SiX, action: 'FOLLOW', external: true, available: true },
       { title: 'YouTube', url: 'https://www.youtube.com/@openonionai', icon: SiYoutube, action: 'SUBSCRIBE', external: true, available: true },
-      { title: 'LinkedIn', url: 'https://www.linkedin.com/company/openonion/', icon: SiLinkedin, action: 'CONNECT', external: true, available: true },
+      { title: 'LinkedIn', url: 'https://www.linkedin.com/company/openonion/', icon: FaLinkedin, action: 'CONNECT', external: true, available: true },
       { title: 'Instagram', url: 'https://www.instagram.com/openonionai/', icon: SiInstagram, action: 'FOLLOW', external: true, available: true },
       { title: 'TikTok', url: 'https://www.tiktok.com/@closeonion', icon: SiTiktok, action: 'FOLLOW', external: true, available: true }
     ]
