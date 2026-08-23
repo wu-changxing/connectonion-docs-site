@@ -291,6 +291,13 @@
   </url>
 
   <url>
+    <loc>https://docs.connectonion.com/releases</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://docs.connectonion.com/roadmap</loc>
     <lastmod>2025-01-13</lastmod>
     <changefreq>weekly</changefreq>
