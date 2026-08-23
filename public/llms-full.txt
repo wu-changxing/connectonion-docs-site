@@ -80,12 +80,20 @@ Work Room remotely controls one native Codex or Claude Code session on the
 user-owned Host. It keeps attributed user/provider conversation, authoritative
 lifecycle, current work, provider controls, and a fixed provider-targeted
 composer inside one shared shell. Approval, Stop, reconnect, provider-busy,
-terminal, and older-client states can disable input with an explicit reason;
+terminal, and older-client states can disable input with an explicit summary;
 they do not remove the conversation or composer.
 
 Core remains the only writer of provider authority, React validates the typed
 OIP projection, and O Chat renders the client. Provider-specific controls stay
 separate when a generic permission enum would lose native meaning.
+
+Outer COAI permission is the Host ceiling, not the Codex or Claude Code
+profile. The Work Room renders a finite provider-native catalog bound to one
+authoritative revision. Codex Ask for approval and Approve for me keep their
+different reviewers even though both use `:workspace`; Claude Code retains its
+own native profile IDs. A selection becomes visible only after Host verifies
+owner, Operator role, revision, ceiling, and any separate elevated-risk
+confirmation.
 
 - Design journal: https://docs.connectonion.com/blog/workroom-is-a-view
 - Markdown source: https://docs.connectonion.com/tutorials/workroom-is-a-view.md
