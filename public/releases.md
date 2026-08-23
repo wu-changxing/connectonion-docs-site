@@ -103,6 +103,13 @@ visible through running, approval, Stop, reconnect, and terminal states. A state
 that cannot accept input disables the composer and explains why; it does not
 delete the conversation controls.
 
+Installed RC1 review also found that outer COAI permission was visible while
+the opened Work Room lacked its provider-native selector. RC1 cannot promote
+unchanged. The coordinated RC2 fix must retain the outer mode as the Host
+ceiling, expose revision-bound Codex and Claude Code native choices inside Work
+Room, wait for Host acknowledgement, separately confirm elevated profiles, and
+pass desktop/tablet/390px visual review before another installed-artifact gate.
+
 RC1 is a synchronization and testing candidate, not stable approval. Real Codex
 and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full

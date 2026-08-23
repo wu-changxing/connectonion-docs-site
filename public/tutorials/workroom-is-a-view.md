@@ -29,7 +29,7 @@ Use one shared remote-client shell:
 
 Approval, Stop, reconnect, provider-busy, terminal, and older-client states can
 change whether the composer accepts input. They do not remove it. A disabled
-composer explains the authoritative reason and becomes usable again only after
+composer explains the authoritative disabled-state summary and becomes usable again only after
 the Host or provider acknowledges the relevant state change.
 
 ## Ownership
@@ -44,6 +44,26 @@ would lose meaning.
 The browser never invents messages, phases, plan items, or permission. It also
 never calls a message delivered merely because it was queued: the draft clears
 only after the matching Host/provider acknowledgement.
+
+## Permission is not one generic dropdown
+
+RC1 review exposed a mismatch: the outer COAI permission control was visible,
+but the opened Codex Work Room had no Codex-native selector. These are separate
+state machines. COAI sets the Host ceiling, the Work Room selects provider
+behavior inside that ceiling for subsequent work, and an individual approval
+settles one requested action.
+
+Codex **Ask for approval** and **Approve for me** both use the native
+`:workspace` sandbox but retain different reviewers. Claude Code keeps its own
+Plan, Default, Accept edits, Auto, and Bypass permissions identities. Core sends
+a finite provider catalog bound to the exact invocation revision. Host verifies
+owner, Operator role, revision, outer ceiling, and separate elevated-risk
+confirmation before acknowledging a newer state; the browser never updates
+authority optimistically.
+
+On phones the provider selector uses its own 48-pixel header row and the menu is
+clamped to the viewport. Desktop keeps the compact header control. This retains
+provider control without returning to the crowded, panel-heavy Work Room.
 
 ## Evidence
 

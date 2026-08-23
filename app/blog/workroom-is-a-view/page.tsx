@@ -135,6 +135,28 @@ export default function WorkroomIsAViewPage() {
             rather than a request that might happen later.
           </p>
 
+          <h2>Permission is not one generic dropdown</h2>
+          <p>
+            The first release-candidate review found a concrete mismatch: the outer COAI permission control was
+            visible, but the opened Codex Work Room had no Codex-native profile selector. Those controls answer
+            different questions. COAI sets the Host ceiling; the Work Room chooses provider behavior inside that
+            ceiling; an individual approval decides one requested action.
+          </p>
+          <p>
+            Codex also proves why a single cross-provider enum is lossy. <strong>Ask for approval</strong> and
+            <strong> Approve for me</strong> share the native <code>:workspace</code> sandbox but use different
+            reviewers. Claude Code has its own Plan, Default, Accept edits, Auto, and Bypass permissions profiles.
+            The shared shell therefore renders a finite provider-authored catalog while retaining native identity,
+            reviewer policy, disabled choices, and the exact revision that made the choice effective.
+          </p>
+          <p>
+            A browser click is only a request. Host verifies the session owner, Operator role, current revision,
+            outer ceiling, and a separate elevated-risk confirmation before acknowledging a newer state. The UI
+            keeps the old label until that acknowledgement arrives. On phones the 48-pixel selector occupies its
+            own header row and the menu is clamped to the viewport, so preserving authority does not recreate the
+            crowded Work Room that the earlier simplification was trying to fix.
+          </p>
+
           <h2>Why RC1 is allowed before stable</h2>
           <p>
             A release candidate is useful because it gives every layer one immutable version to test. It is not a
@@ -157,6 +179,8 @@ export default function WorkroomIsAViewPage() {
             <li>A long native run stays readable on desktop and a 375px phone width.</li>
             <li>User and provider messages remain attributed while earlier technical activity stays folded.</li>
             <li>Codex and Claude Code keep a provider-targeted input in every lifecycle state.</li>
+            <li>Provider-native permission choices remain separate from outer COAI mode and individual approvals.</li>
+            <li>Desktop, tablet, and phone layouts keep the permission menu fully inside the viewport.</li>
             <li>Approval, Stop and native direct input retain their own honest lifecycle boundaries.</li>
             <li>Initial semantic focus announces the task heading without styling that non-interactive text as a control; buttons and the composer keep visible keyboard focus.</li>
             <li>Only native Codex and Claude Code adapters participate in this release path.</li>
