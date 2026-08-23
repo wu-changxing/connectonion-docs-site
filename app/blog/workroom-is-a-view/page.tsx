@@ -135,7 +135,23 @@ export default function WorkroomIsAViewPage() {
             rather than a request that might happen later.
           </p>
 
-          <h2>What this alpha proves</h2>
+          <h2>Why RC1 is allowed before stable</h2>
+          <p>
+            A release candidate is useful because it gives every layer one immutable version to test. It is not a
+            declaration that the product is already stable. RC1 synchronizes Core, the React reader, and O Chat so
+            the same installed bytes can be used for provider, browser, upgrade, rollback, security, and UI review.
+            A failure creates another issue and candidate; it does not get explained away as a passing release.
+          </p>
+          <p>
+            Promotion therefore requires evidence outside the interface. A real <code>co ai</code> run must drive
+            <code>co browser</code> through search and an actual download, build and run C, C++, and Rust work,
+            delegate a native Codex project, exercise modes, Stop, Host restart, and reconnect, and leave sanitized
+            logs plus hash-addressed screenshots. A separate reviewer must inspect every frame for new-user clarity,
+            remote-client familiarity, conversation/composer continuity, live work, tool activity, and responsive
+            layout. Stable 1.7 can use the RC bytes only if that unchanged candidate passes the complete window.
+          </p>
+
+          <h2>What the candidate must prove</h2>
           <ul>
             <li>One compact parent-card action opens the Work Room.</li>
             <li>A long native run stays readable on desktop and a 375px phone width.</li>

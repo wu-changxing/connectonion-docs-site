@@ -8,7 +8,7 @@
  */
 export const STABLE_VERSION = '1.6.12'
 export const PREVIEW_VERSION: string | null = '1.8.0a1'
-export const STABILIZING_VERSION: string | null = '1.7.0b10'
+export const STABILIZING_VERSION: string | null = '1.7.0rc1'
 
 // Product pages advertise the stable channel. Preview releases remain opt-in.
 export const VERSION = STABLE_VERSION

@@ -5,7 +5,7 @@ More than one feature train can be public at once: 1.7 is stabilizing while
 new 1.8 work remains available as the highest preview.
 
 **Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0b10`; the latest opt-in preview is `1.8.0a1`. All three have
+for 1.7 is `1.7.0rc1`; the latest opt-in preview is `1.8.0a1`. All three have
 public PyPI artifacts and GitHub releases.
 
 ## Version meanings
@@ -13,8 +13,7 @@ public PyPI artifacts and GitHub releases.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0b10` | Exact, feature-complete 1.7 candidate under release testing |
-| `1.7.0rcN` | 1.7 candidate that may become stable unchanged |
+| `1.7.0rc1` | Exact 1.7 candidate that may become stable unchanged after acceptance |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -35,7 +34,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin. This is the reproducible command for the 1.7 release gates:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0b10
+python -m pip install --upgrade connectonion==1.7.0rc1
 co --version
 ```
 
@@ -75,7 +74,7 @@ Integration and live-provider cases stay explicit, but a new billing or API
 contract test cannot sit outside CI just because it was added in a separate
 test module.
 
-## Stabilizing 1.7.0b10
+## Stabilizing 1.7.0rc1
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
 The beta has passed the protected Python 3.10–3.13 matrix, native Windows
@@ -87,15 +86,15 @@ without a dialog channel, an outside-workspace write could skip the classifier.
 Beta 5 applied the deterministic boundary in both paths. Its exact public wheel
 passed a denied outside Auto write, left the target absent, and then completed
 the same outside read and write plus Todo lifecycle under explicit bounded Full
-access. Beta 10 is the latest published 1.7 artifact. Its exact Core package and
+access. Beta 10 was the final published beta. Its exact Core package and
 O Chat build at `3eb9bbb` passed localhost first-run invite authentication, real
 browser/C/C++/Rust work, native Codex delegation, Full access, Read only, Auto,
 Stop, Host restart, Reconnect, conversation/composer checks, and independent
-desktop/tablet/mobile UI review. The Work Room client/composer correction merged
-afterward, so it is not Beta 10 artifact evidence. The next synchronized candidate
-is `v1.7.0rc1`; it must include that correction and repeat the expanded gate,
-including real browser catalog search and attachment download, before stable
-promotion, as recorded in
+desktop/tablet/mobile UI review. RC1 synchronizes the Work Room client/composer
+correction, the normalized managed-usage reader, and the expanded deterministic
+browser gate. None of those changes count as accepted merely because RC1 exists:
+the exact installed RC must repeat real browser catalog search and attachment
+download plus the complete acceptance window before stable promotion, as recorded in
 [issue #792](https://github.com/openonion/connectonion/issues/792).
 
 Work Room is the remote client for that native provider session, not a status
@@ -104,8 +103,8 @@ visible through running, approval, Stop, reconnect, and terminal states. A state
 that cannot accept input disables the composer and explains why; it does not
 delete the conversation controls.
 
-Beta 10 is still a beta. RC1 is the next synchronization and testing candidate;
-it is not stable approval. Real Codex and Claude provider smokes, upgrade and
+RC1 is a synchronization and testing candidate, not stable approval. Real Codex
+and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full
 release-candidate acceptance window must all close before stable promotion.
 Historical-secret alerts have been cleared. Stable 1.7.0 follows only after an

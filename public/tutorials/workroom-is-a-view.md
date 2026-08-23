@@ -52,6 +52,23 @@ follow-up, running and completed states, approval, Stop, reconnect, desktop,
 tablet, 390px, 375px, and 320px layouts. The release candidate must repeat the
 same checks against exact installed Core, React, and O Chat artifacts.
 
+## Why RC1 is allowed before stable
+
+A release candidate gives every layer one immutable version to test; it does
+not declare that the product is already stable. RC1 synchronizes Core, the
+React reader, and O Chat so the same installed bytes can be used for provider,
+browser, upgrade, rollback, security, and UI review. A failure creates another
+issue and candidate rather than being explained away as a passing release.
+
+Promotion requires evidence outside the interface. A real `co ai` run must
+drive `co browser` through search and an actual download, build and run C, C++,
+and Rust work, delegate a native Codex project, exercise modes, Stop, Host
+restart, and reconnect, and leave sanitized logs plus hash-addressed
+screenshots. A separate reviewer inspects every frame for new-user clarity,
+remote-client familiarity, conversation/composer continuity, live work, tool
+activity, and responsive layout. Stable 1.7 can use the RC bytes only if that
+unchanged candidate passes the complete window.
+
 We would revisit the shared shell only if a provider requires a fundamentally
 different interaction model. In that case the provider receives its own control
 component inside Work Room; it does not lose conversation or input to fit a
