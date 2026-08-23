@@ -108,6 +108,7 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/blog/network-protocol-design', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog/trust-keyword', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/links', priority: 0.4, changeFrequency: 'monthly' },
+  { path: '/releases', priority: 0.7, changeFrequency: 'weekly' },
   { path: '/roadmap', priority: 0.6, changeFrequency: 'weekly' },
   { path: '/website-maintenance', priority: 0.3, changeFrequency: 'monthly' },
 ]

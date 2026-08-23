@@ -137,4 +137,5 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 - [GitHub](https://github.com/openonion/connectonion): Source code and issues
 - [PyPI](https://pypi.org/project/connectonion/): Python package
 - [Discord](https://discord.gg/4xfD9k8AUF): Community chat
+- [Release Channels](https://docs.connectonion.com/releases): Stable, stabilizing, and opt-in preview versions with exact installation commands
 - [Roadmap](https://docs.connectonion.com/roadmap): Upcoming features
