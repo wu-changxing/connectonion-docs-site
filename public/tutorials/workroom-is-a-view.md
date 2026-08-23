@@ -25,12 +25,20 @@ Use one shared remote-client shell:
 - current work and bounded semantic activity remain visible without exposing
   private commands, paths, raw provider frames, or hidden reasoning;
 - provider-native permission and approval controls retain their real meaning;
-- one provider-targeted composer stays fixed at the bottom.
+- one provider-targeted composer stays fixed at the bottom, including voice
+  recording and transcription for both Codex and Claude Code.
 
 Approval, Stop, reconnect, provider-busy, terminal, and older-client states can
 change whether the composer accepts input. They do not remove it. A disabled
 composer explains the authoritative disabled-state summary and becomes usable again only after
 the Host or provider acknowledges the relevant state change.
+
+Voice follows that same destination boundary. A transcript is added only to the
+provider draft currently on screen; it is never rerouted into the outer Agent
+conversation and is never sent automatically. The user reviews it and presses
+Send. Microphone denial, a missing device, transcription failure, approval,
+Stop, or reconnect uncertainty keeps the draft recoverable and shows an
+actionable state instead of silently changing the recipient.
 
 ## Ownership
 

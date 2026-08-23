@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: 'ConnectOnion Docs',
     type: 'article',
     publishedTime: '2026-08-17T00:00:00+10:00',
-    modifiedTime: '2026-08-23T00:00:00+10:00',
+    modifiedTime: '2026-08-24T00:00:00+10:00',
     authors: ['ConnectOnion Team'],
     tags: ['OIP', 'Codex', 'Claude Code', 'O Chat', 'architecture'],
     images: [{ url: '/onion-logo.png', alt: 'A calm native coding Work Room' }],
@@ -38,7 +38,7 @@ const articleJsonLd = {
   headline: title,
   description,
   datePublished: '2026-08-17',
-  dateModified: '2026-08-23',
+  dateModified: '2026-08-24',
   author: { '@type': 'Organization', name: 'ConnectOnion', url: 'https://docs.connectonion.com' },
   publisher: {
     '@type': 'Organization',
@@ -134,6 +134,12 @@ export default function WorkroomIsAViewPage() {
             accepts a new <code>turn/start</code>. The acknowledgement therefore describes an event that happened,
             rather than a request that might happen later.
           </p>
+          <p>
+            Voice input keeps that destination boundary. Codex and Claude Code use the same recording,
+            transcription, and actionable microphone errors as the outer composer, but the transcript enters only
+            the provider draft on screen. It is never rerouted or sent automatically. The user reviews it and presses
+            Send; failures, approval, Stop, and reconnect uncertainty keep the draft recoverable.
+          </p>
 
           <h2>Permission is not one generic dropdown</h2>
           <p>
@@ -178,7 +184,7 @@ export default function WorkroomIsAViewPage() {
             <li>One compact parent-card action opens the Work Room.</li>
             <li>A long native run stays readable on desktop and a 375px phone width.</li>
             <li>User and provider messages remain attributed while earlier technical activity stays folded.</li>
-            <li>Codex and Claude Code keep a provider-targeted input in every lifecycle state.</li>
+            <li>Codex and Claude Code keep a provider-targeted text and voice input in every lifecycle state.</li>
             <li>Provider-native permission choices remain separate from outer COAI mode and individual approvals.</li>
             <li>Desktop, tablet, and phone layouts keep the permission menu fully inside the viewport.</li>
             <li>Approval, Stop and native direct input retain their own honest lifecycle boundaries.</li>
