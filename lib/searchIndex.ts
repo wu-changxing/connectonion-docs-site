@@ -177,6 +177,13 @@ export const pageContentIndex: PageContent[] = [
     content: 'Why received-mail page limits must be explicit and traversable. Covers aligned 1000-row pages, offsets, stable ordering, unsupported-backend detection, and exact next-page CLI guidance.'
   },
   {
+    title: 'Your Servers, Your Regions, Your Shared Mailboxes',
+    href: '/blog/connectonion-1-6-12',
+    section: 'Blog',
+    keywords: ['1.6.12', 'server region', 'email share', 'outlook attachments', 'network timeout', 'forward port', 'release line'],
+    content: 'ConnectOnion 1.6.12 adds server region selection, scoped mailbox sharing, safe Outlook attachment downloads, explicit provider network bounds, permanent release evidence, and a rule that applicable stable fixes move into every supported newer line without copying old version metadata.'
+  },
+  {
     title: 'Network Protocol Design',
     href: '/blog/network-protocol-design',
     section: 'Blog',
