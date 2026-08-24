@@ -11,7 +11,7 @@
 import {
   HiOutlineHome, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
   HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineBookOpen,
-  HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone, HiOutlineArrowPath, HiOutlineFolderPlus, HiOutlineKey, HiOutlineDocumentDuplicate
+  HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone, HiOutlineArrowPath, HiOutlineFolderPlus, HiOutlineKey, HiOutlineDocumentDuplicate, HiOutlineServerStack
 } from 'react-icons/hi2'
 import { VscComment, VscGitMerge, VscFileCode, VscKey, VscServerProcess } from 'react-icons/vsc'
 import { FaChrome } from 'react-icons/fa'
@@ -1002,6 +1002,16 @@ export const navigation = [
     difficulty: 'Design Decision',
     keywords: ['email', 'mailbox', 'pagination', 'offset', 'limit', 'data completeness'],
     prev: { href: '/blog/the-owner-needs-a-door', title: 'The Owner Needs a Door' },
+    next: { href: '/blog/connectonion-1-6-12', title: 'Your Servers, Your Regions, Your Shared Mailboxes' }
+  },
+  {
+    title: 'Your Servers, Your Regions, Your Shared Mailboxes',
+    href: '/blog/connectonion-1-6-12',
+    icon: HiOutlineServerStack,
+    section: 'Blog',
+    difficulty: 'Release Decision',
+    keywords: ['1.6.12', 'server region', 'email share', 'outlook attachments', 'forward port', 'release line'],
+    prev: { href: '/blog/a-page-should-not-become-a-wall', title: 'A Page Should Not Become a Wall' },
     next: { href: '/releases', title: 'Release Channels' }
   },
 
@@ -1013,7 +1023,7 @@ export const navigation = [
     section: 'Releases',
     difficulty: 'Policy',
     keywords: ['release', 'version', 'stable', 'alpha', 'beta', 'rc', 'preview', 'lts', 'pypi'],
-    prev: { href: '/blog/a-page-should-not-become-a-wall', title: 'A Page Should Not Become a Wall' },
+    prev: { href: '/blog/connectonion-1-6-12', title: 'Your Servers, Your Regions, Your Shared Mailboxes' },
     next: { href: '/roadmap', title: 'Coming Soon Features' }
   },
 

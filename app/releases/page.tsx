@@ -208,7 +208,7 @@ export default function ReleasesPage() {
           </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>Stable outcome:</strong> the unchanged RC10 product source completed the exact installed-artifact
+              <strong>Stable outcome:</strong> the unchanged RC11 product source completed the exact installed-artifact
               gate and became 1.7.0. The coordinated browser reader is <code>@connectonion/react@0.4.3</code>;
               O Chat owns presentation rather than parsing provider-private streams.
             </p>

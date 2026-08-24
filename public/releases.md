@@ -12,7 +12,7 @@ candidate; the latest opt-in preview is `1.8.0a1`.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Previous stable 1.6 maintenance release |
-| `1.7.0rc10` | Accepted final 1.7 release candidate |
+| `1.7.0rc11` | Accepted final 1.7 release candidate |
 | `1.7.0` | Current Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -74,7 +74,7 @@ test module.
 ## Stable 1.7.0
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
-The unchanged RC10 source earned Stable after the protected Python 3.10–3.13 matrix, native Windows
+The unchanged RC11 source earned Stable after the protected Python 3.10–3.13 matrix, native Windows
 browser transport, Windows and macOS installed-wheel E2E, trusted publishing,
 independent public-byte verification, native Codex and Claude Code Work Room
 journeys, provider permissions and Stop, Host restart/reconnect, compiled-language
@@ -203,6 +203,15 @@ responsive layout, and review of 28 hashed screenshots with O Chat
 `aa435040be6166dd946afff9cee63b59cfb68057`. RC9 cannot promote unchanged; the
 exact public RC10 bytes must repeat this complete journey before Stable is
 considered.
+
+The release-line audit before that promotion found a different class of gap:
+RC10 did not contain every applicable fix already published in 1.6.12. RC11
+forwards server-region selection, scoped mailbox sharing, explicit provider
+network bounds, Outlook inline-signature filtering, the AI implementation
+contract, template-first delivery guidance, and durable release evidence while
+leaving 1.6 version metadata behind. Main/1.8 receives the missing subset too.
+RC11 is therefore a new candidate, not an unchanged RC10 promotion. Its exact
+public bytes must repeat the complete installed-artifact gate before Stable.
 
 Real Codex and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full

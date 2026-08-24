@@ -99,6 +99,7 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/blog/oip-native-coding-adapters', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/the-owner-needs-a-door', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/a-page-should-not-become-a-wall', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/blog/connectonion-1-6-12', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/agent-address-format', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog/auto-debug-evolution', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog/cli-ux-progressive-disclosure', priority: 0.5, changeFrequency: 'monthly' },
