@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: 'ConnectOnion Docs',
     type: 'article',
     publishedTime: '2026-08-15T00:00:00+10:00',
-    modifiedTime: '2026-08-22T00:00:00+10:00',
+    modifiedTime: '2026-08-24T23:30:00+10:00',
     authors: ['ConnectOnion Team'],
     tags: ['OIP', 'Codex', 'Claude Code', 'coding adapters'],
     images: [{ url: '/onion-logo.png', alt: title }],
@@ -32,7 +32,7 @@ const articleJsonLd = {
   headline: title,
   description,
   datePublished: '2026-08-15',
-  dateModified: '2026-08-22',
+  dateModified: '2026-08-24',
   author: { '@type': 'Organization', name: 'ConnectOnion', url: 'https://docs.connectonion.com' },
   publisher: {
     '@type': 'Organization',
@@ -65,6 +65,10 @@ export default function OipNativeCodingAdaptersPage() {
         <div className="prose prose-gray max-w-none">
           <p>ConnectOnion 1.7.0a5 made OIP 0.1 the only first-party browser protocol; alpha.7 closes the raw-provider escape hatch, alpha.10 makes authenticated relay reattach reuse the established session authority, and alpha.11 lets the Host and frontend roll independently inside a bounded compatibility window. The Python Host serves the authenticated <code>/ws</code> boundary, <code>@connectonion/react</code> owns connection and event state, and O Chat renders that state.</p>
           <p>Codex and Claude Code are backend adapters. Each preserves its provider session identity and translates bounded native activity into OIP tool events, so the browser has one lifecycle even when the coding provider changes.</p>
+          <h2>What shipped as Stable 1.7</h2>
+          <p>ConnectOnion 1.7.0 promotes the unchanged RC10 source after the complete installed-artifact gate passed. A Work Room is now a remote client rather than a status panel: it keeps attributed user and provider messages, a persistent composer, current Thinking/Working/approval/Stop/reconnect/terminal state, action summaries with technical details collapsed, and the provider&apos;s own permission choices inside the outer Host ceiling.</p>
+          <p>The gate launched the public package&apos;s real <code>co ai</code> Host, used an invocation-scoped invite, drove real browser search and download, built strict C11, C++20, and Rust projects, ran native Codex and Claude Code work and provider-scoped Stop, changed permission ceilings, restarted Host, and reconnected without duplicating the last input. Desktop and 390 px layouts were reviewed from hashed evidence. The coordinated reader is <code>@connectonion/react@0.4.3</code>; O Chat remains the presentation layer.</p>
+          <p>The tradeoff is deliberate: 1.7.0 freezes this compatibility waist. Provider-specific improvements continue in 1.7.1 only when they preserve the public OIP and authority contract; broader remote execution work stays on the 1.8 preview train.</p>
           <p>The useful lesson from Happy Coder is to bridge each provider&apos;s native session instead of making raw provider transcripts the public wire format. ConnectOnion keeps the parent loop in <code>co ai</code>, drives Codex through <code>app-server</code> and Claude Code through headless <code>stream-json</code>, and translates only bounded activity at the adapter edge. Provider transcripts stay local.</p>
           <h2>The problem</h2>
           <p>The earlier preview explored overlapping protocol layers. That duplicated discovery, session, approval, resume, error, and frontend state, and allowed fallback behavior to hide missing executables behind an unhelpful file-not-found error.</p>

@@ -71,11 +71,11 @@ export default function ReleasesPage() {
             <p className="text-sm text-gray-600 mt-2">Installed by normal pip commands.</p>
           </div>
           <div className="border border-amber-200 bg-amber-50 rounded-lg p-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Stabilizing 1.7</p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Release candidate</p>
             <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">
               {STABILIZING_VERSION ? `v${STABILIZING_VERSION}` : 'No active candidate'}
             </p>
-            <p className="text-sm text-gray-600 mt-2">Exact-pin candidate for the 1.7 release gates.</p>
+            <p className="text-sm text-gray-600 mt-2">{STABILIZING_VERSION ? 'Exact-pin candidate under release gates.' : 'Stable 1.7 has completed its candidate window.'}</p>
           </div>
           <div className="border border-gray-200 bg-gray-50 rounded-lg p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Latest preview</p>
@@ -141,17 +141,17 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Test the stabilizing 1.7 candidate</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Install exact stable 1.7</h2>
           <CommandBlock commands={[
             STABILIZING_VERSION
               ? `python -m pip install --upgrade connectonion==${STABILIZING_VERSION}`
-              : 'python -m pip install --upgrade connectonion==1.7.0rcN',
+              : `python -m pip install --upgrade connectonion==${STABLE_VERSION}`,
             'co --version',
           ]} />
           <p className="text-sm text-gray-600 mt-4">
-            Use the exact pin for 1.7 release testing. A broad <code>--pre</code> upgrade follows the
+            Use the exact pin for a reproducible 1.7 installation. A broad <code>--pre</code> upgrade follows the
             highest published feature train, which is currently {PREVIEW_VERSION ? <code>{PREVIEW_VERSION}</code> : 'not published'},
-            not the stabilizing 1.7 line.
+            not Stable 1.7.
           </p>
         </section>
 
@@ -172,9 +172,8 @@ export default function ReleasesPage() {
         <section className="mb-14">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Current plan</h2>
           <div className="border-l-2 border-gray-300 pl-5 space-y-4 text-gray-700">
-            <p><strong>1.6.x:</strong> stable maintenance fixes only.</p>
-            <p><strong>1.7.0 RC:</strong> exercise the synchronized Core, React, O Chat, provider, browser, and release path without adding features.</p>
-            <p><strong>1.7.0:</strong> stable/LTS after browser, adapter, upgrade, and release gates pass.</p>
+            <p><strong>1.6.x:</strong> previous stable maintenance line.</p>
+            <p><strong>1.7.x:</strong> current stable/LTS maintenance line.</p>
             <p><strong>1.8.0 previews:</strong> new remote-browser sessions and hosted execution after the 1.7 gates close.</p>
             <p className="text-sm">
               Track the live scope in the{' '}

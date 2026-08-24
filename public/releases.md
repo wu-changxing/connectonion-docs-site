@@ -1,20 +1,19 @@
 # Release channels
 
 ConnectOnion keeps normal stable installs separate from opt-in release work.
-More than one feature train can be public at once: 1.7 is stabilizing while
-new 1.8 work remains available as the highest preview.
+More than one feature train can be public at once: 1.7 is stable while new 1.8
+work remains available as the highest preview.
 
-**Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0rc10`; the latest opt-in preview is `1.8.0a1`. RC10 becomes
-installable only after its reviewed tag publishes; stable and 1.8 remain public.
+**Current channels:** stable is `1.7.0`; there is no active stabilizing
+candidate; the latest opt-in preview is `1.8.0a1`.
 
 ## Version meanings
 
 | Version | Meaning |
 |---|---|
-| `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0rc10` | Exact 1.7 candidate that may become stable unchanged after acceptance |
-| `1.7.0` | Stable/LTS 1.7 release |
+| `1.6.12` | Previous stable 1.6 maintenance release |
+| `1.7.0rc10` | Accepted final 1.7 release candidate |
+| `1.7.0` | Current Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
 
@@ -29,18 +28,16 @@ python -m pip install --upgrade connectonion
 
 This remains on stable even after an alpha, beta, or RC is published.
 
-## Test the stabilizing 1.7 candidate
+## Install exact stable 1.7
 
-Use the exact pin. This is the reproducible command for the 1.7 release gates:
+Use the exact pin for a reproducible 1.7 installation:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0rc10
+python -m pip install --upgrade connectonion==1.7.0
 co --version
 ```
 
-Do not replace that command with a broad `--pre` upgrade. Package resolution
-chooses the highest published version, so `--pre` currently follows 1.8 rather
-than the stabilizing 1.7 line.
+A broad `--pre` upgrade follows the 1.8 preview train instead of Stable 1.7.
 
 ## Join the latest preview track
 
@@ -74,12 +71,14 @@ Integration and live-provider cases stay explicit, but a new billing or API
 contract test cannot sit outside CI just because it was added in a separate
 test module.
 
-## Stabilizing 1.7.0rc10
+## Stable 1.7.0
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
-The beta has passed the protected Python 3.10–3.13 matrix, native Windows
+The unchanged RC10 source earned Stable after the protected Python 3.10–3.13 matrix, native Windows
 browser transport, Windows and macOS installed-wheel E2E, trusted publishing,
-and independent public-byte verification.
+independent public-byte verification, native Codex and Claude Code Work Room
+journeys, provider permissions and Stop, Host restart/reconnect, compiled-language
+projects, Outlook attachment checks, and responsive UI review all passed.
 
 The public 1.7.0b4 gate exposed one difference between hosted and headless Auto:
 without a dialog channel, an outside-workspace write could skip the classifier.
