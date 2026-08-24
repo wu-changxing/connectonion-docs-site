@@ -5,7 +5,7 @@ More than one feature train can be public at once: 1.7 is stabilizing while
 new 1.8 work remains available as the highest preview.
 
 **Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0rc7`; the latest opt-in preview is `1.8.0a1`. RC7 becomes
+for 1.7 is `1.7.0rc8`; the latest opt-in preview is `1.8.0a1`. RC8 becomes
 installable only after its reviewed tag publishes; stable and 1.8 remain public.
 
 ## Version meanings
@@ -13,7 +13,7 @@ installable only after its reviewed tag publishes; stable and 1.8 remain public.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0rc7` | Exact 1.7 candidate that may become stable unchanged after acceptance |
+| `1.7.0rc8` | Exact 1.7 candidate that may become stable unchanged after acceptance |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -34,7 +34,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin. This is the reproducible command for the 1.7 release gates:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0rc7
+python -m pip install --upgrade connectonion==1.7.0rc8
 co --version
 ```
 
@@ -74,7 +74,7 @@ Integration and live-provider cases stay explicit, but a new billing or API
 contract test cannot sit outside CI just because it was added in a separate
 test module.
 
-## Stabilizing 1.7.0rc7
+## Stabilizing 1.7.0rc8
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
 The beta has passed the protected Python 3.10–3.13 matrix, native Windows
@@ -164,6 +164,20 @@ grounded in recorded tool results. A second empty response fails explicitly
 instead of fabricating success or emitting an unusable empty outcome. RC6
 cannot promote unchanged; RC7 must repeat the complete parent and Work Room
 journey from the exact public artifact.
+
+The RC7 journey then exposed a measurement error at the browser boundary.
+Repeated state queries and cleanup looked as though they were queued behind a
+stuck daemon, but an absent-daemon `co browser status` still took 40.82 seconds:
+the client was importing Agent, Playwright, the terminal UI, and provider
+integrations before it ever reached the socket. RC8 keeps direct browser RPCs
+on a lightweight transport path and loads the full schema only for help,
+natural-language `do`, and the long-lived daemon. The same cold status check
+takes 2.91 seconds; an isolated real-browser smoke completes warm page-state
+queries and per-tab cleanup in 4.50 and 4.44 seconds. RC7 cannot promote
+unchanged; the exact public RC8 bytes must repeat the complete browser, native
+provider, compiled-language, reconnect, permission, and responsive UI gate.
+Whole-browser graceful teardown latency is separately bounded by the owned-PID
+cleanup and tracked for the 1.7.1 reliability patch.
 
 Real Codex and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full
