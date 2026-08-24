@@ -5,7 +5,7 @@ More than one feature train can be public at once: 1.7 is stabilizing while
 new 1.8 work remains available as the highest preview.
 
 **Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0rc9`; the latest opt-in preview is `1.8.0a1`. RC9 becomes
+for 1.7 is `1.7.0rc10`; the latest opt-in preview is `1.8.0a1`. RC10 becomes
 installable only after its reviewed tag publishes; stable and 1.8 remain public.
 
 ## Version meanings
@@ -13,7 +13,7 @@ installable only after its reviewed tag publishes; stable and 1.8 remain public.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0rc9` | Exact 1.7 candidate that may become stable unchanged after acceptance |
+| `1.7.0rc10` | Exact 1.7 candidate that may become stable unchanged after acceptance |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -34,7 +34,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin. This is the reproducible command for the 1.7 release gates:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0rc9
+python -m pip install --upgrade connectonion==1.7.0rc10
 co --version
 ```
 
@@ -74,7 +74,7 @@ Integration and live-provider cases stay explicit, but a new billing or API
 contract test cannot sit outside CI just because it was added in a separate
 test module.
 
-## Stabilizing 1.7.0rc9
+## Stabilizing 1.7.0rc10
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
 The beta has passed the protected Python 3.10–3.13 matrix, native Windows
@@ -188,6 +188,22 @@ abandons late results, and makes one concise retry grounded only in the recorded
 provider result. If that retry also times out, the turn now fails explicitly.
 RC8 cannot promote unchanged; the exact public RC9 bytes must repeat the full
 end-to-end gate before stable promotion.
+
+The RC9 installed-wheel gate refined that failure after Claude Code completed
+its real C11 project: the parent received the provider result, then opened a
+new outer tool chain and stranded the Workroom composer beyond the release
+timeout. RC10 makes native-provider completion a terminal settlement boundary.
+The parent may return only a concise final response grounded in the recorded
+provider result; one attempted non-provider tool batch is discarded and
+retried once, while a repeated attempt fails explicitly so Host can publish a
+terminal outcome. The exact pre-publication candidate restored the composer
+and passed fresh invite onboarding, real Co-browser search/download, strict
+C11/C++20/Rust, native Codex and Claude Code projects, both provider-scoped Stop
+controls, Codex permission ceilings, voice recovery, outer Stop, reconnect,
+responsive layout, and review of 28 hashed screenshots with O Chat
+`aa435040be6166dd946afff9cee63b59cfb68057`. RC9 cannot promote unchanged; the
+exact public RC10 bytes must repeat this complete journey before Stable is
+considered.
 
 Real Codex and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full
