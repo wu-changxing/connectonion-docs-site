@@ -5,7 +5,7 @@ More than one feature train can be public at once: 1.7 is stabilizing while
 new 1.8 work remains available as the highest preview.
 
 **Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0rc10`; the latest opt-in preview is `1.8.0a1`. RC10 becomes
+for 1.7 is `1.7.0rc11`; the latest opt-in preview is `1.8.0a1`. RC11 becomes
 installable only after its reviewed tag publishes; stable and 1.8 remain public.
 
 ## Version meanings
@@ -13,7 +13,7 @@ installable only after its reviewed tag publishes; stable and 1.8 remain public.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0rc10` | Exact 1.7 candidate that may become stable unchanged after acceptance |
+| `1.7.0rc11` | Exact 1.7 candidate that may become stable unchanged after acceptance |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -34,7 +34,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin. This is the reproducible command for the 1.7 release gates:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0rc10
+python -m pip install --upgrade connectonion==1.7.0rc11
 co --version
 ```
 
@@ -74,7 +74,7 @@ Integration and live-provider cases stay explicit, but a new billing or API
 contract test cannot sit outside CI just because it was added in a separate
 test module.
 
-## Stabilizing 1.7.0rc10
+## Stabilizing 1.7.0rc11
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
 The beta has passed the protected Python 3.10–3.13 matrix, native Windows
@@ -204,6 +204,15 @@ responsive layout, and review of 28 hashed screenshots with O Chat
 `aa435040be6166dd946afff9cee63b59cfb68057`. RC9 cannot promote unchanged; the
 exact public RC10 bytes must repeat this complete journey before Stable is
 considered.
+
+The release-line audit before that promotion found a different class of gap:
+RC10 did not contain every applicable fix already published in 1.6.12. RC11
+forwards server-region selection, scoped mailbox sharing, explicit provider
+network bounds, Outlook inline-signature filtering, the AI implementation
+contract, template-first delivery guidance, and durable release evidence while
+leaving 1.6 version metadata behind. Main/1.8 receives the missing subset too.
+RC11 is therefore a new candidate, not an unchanged RC10 promotion. Its exact
+public bytes must repeat the complete installed-artifact gate before Stable.
 
 Real Codex and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full
