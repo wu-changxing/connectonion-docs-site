@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'A Patch Must Move Forward',
+    subtitle: 'A stable fix cannot disappear from the next preview',
+    date: 'August 2026',
+    readTime: '4 min read',
+    href: '/blog/a-patch-must-move-forward',
+    icon: HiOutlineArrowPath,
+    tags: ['Design Decision', 'Release', 'CI'],
+    excerpt: 'Why stable patches now require a tracked forward-port into every active higher line, and why the release workflow blocks a newer preview while that work remains open.'
+  },
+  {
     title: 'Your Servers, Your Regions, Your Shared Mailboxes',
     subtitle: 'Pick a region, share an address without handing over a key — ConnectOnion 1.6.12',
     date: 'August 2026',
