@@ -59,7 +59,7 @@ export default function ReleasesPage() {
           ]}
           icon={HiOutlineArrowPath}
           title="Release Channels"
-          description="Stable, the train being stabilized, and the latest preview stay explicit when releases overlap."
+          description="Stable 1.7, completed candidate status, and the independent 1.8 preview stay explicit."
           markdownPath="/releases.md"
           markdownFilename="releases.md"
         />
@@ -89,19 +89,19 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14 rounded-lg border border-green-200 bg-green-50 p-6">
-          <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">Stable-line design notes</p>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Two boundaries that still let the user through</h2>
+          <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">Stable 1.7 design</p>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">A Work Room is a client, not a status panel</h2>
           <p className="text-gray-600 mb-4">
-            The release creates a private door for a fresh <code>co ai</code> owner and makes finite
-            mailbox pages traversable instead of silently incomplete.
+            OIP gives the browser one session boundary while native Codex and Claude Code keep their
+            own conversation, lifecycle, permissions, and follow-up semantics.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 text-sm font-semibold">
-            <Link href="/blog/the-owner-needs-a-door" className="text-green-700 hover:underline">
-              The Owner Needs a Door
+            <Link href="/blog/workroom-is-a-view" className="text-green-700 hover:underline">
+              The Work Room Is a Client
             </Link>
             <span className="hidden sm:inline text-green-400">·</span>
-            <Link href="/blog/a-page-should-not-become-a-wall" className="text-green-700 hover:underline">
-              A Page Should Not Become a Wall
+            <Link href="/blog/oip-native-coding-adapters" className="text-green-700 hover:underline">
+              One Browser Protocol, Native Adapters
             </Link>
           </div>
         </section>
@@ -208,10 +208,9 @@ export default function ReleasesPage() {
           </div>
           <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
             <p>
-              <strong>RC1 candidate:</strong> Beta 10 and O Chat <code>3eb9bbb</code> established the previous exact
-              artifact baseline. RC1 synchronizes the later Work Room client/composer correction, normalized
-              managed-usage reader, and expanded deterministic browser gate. Publishing the candidate does not
-              accept those changes: the exact installed RC must repeat the complete gate before stable promotion.
+              <strong>Stable outcome:</strong> the unchanged RC10 product source completed the exact installed-artifact
+              gate and became 1.7.0. The coordinated browser reader is <code>@connectonion/react@0.4.3</code>;
+              O Chat owns presentation rather than parsing provider-private streams.
             </p>
             <p>
               Claude Code and Codex preserve their provider session IDs, stream normalized tool activity through
