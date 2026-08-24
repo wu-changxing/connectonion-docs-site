@@ -1012,6 +1012,16 @@ export const navigation = [
     difficulty: 'Release Decision',
     keywords: ['1.6.12', 'server region', 'email share', 'outlook attachments', 'forward port', 'release line'],
     prev: { href: '/blog/a-page-should-not-become-a-wall', title: 'A Page Should Not Become a Wall' },
+    next: { href: '/blog/a-patch-must-move-forward', title: 'A Patch Must Move Forward' }
+  },
+  {
+    title: 'A Patch Must Move Forward',
+    href: '/blog/a-patch-must-move-forward',
+    icon: HiOutlineArrowPath,
+    section: 'Blog',
+    difficulty: 'Release Policy',
+    keywords: ['patch', 'forward port', 'preview', 'release gate', 'release engineering'],
+    prev: { href: '/blog/connectonion-1-6-12', title: 'Your Servers, Your Regions, Your Shared Mailboxes' },
     next: { href: '/releases', title: 'Release Channels' }
   },
 
@@ -1023,7 +1033,7 @@ export const navigation = [
     section: 'Releases',
     difficulty: 'Policy',
     keywords: ['release', 'version', 'stable', 'alpha', 'beta', 'rc', 'preview', 'lts', 'pypi'],
-    prev: { href: '/blog/connectonion-1-6-12', title: 'Your Servers, Your Regions, Your Shared Mailboxes' },
+    prev: { href: '/blog/a-patch-must-move-forward', title: 'A Patch Must Move Forward' },
     next: { href: '/roadmap', title: 'Coming Soon Features' }
   },
 

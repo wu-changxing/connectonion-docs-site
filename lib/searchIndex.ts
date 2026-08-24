@@ -184,6 +184,13 @@ export const pageContentIndex: PageContent[] = [
     content: 'ConnectOnion 1.6.12 adds server region selection, scoped mailbox sharing, safe Outlook attachment downloads, explicit provider network bounds, permanent release evidence, and a rule that applicable stable fixes move into every supported newer line without copying old version metadata.'
   },
   {
+    title: 'A Patch Must Move Forward',
+    href: '/blog/a-patch-must-move-forward',
+    section: 'Blog',
+    keywords: ['patch', 'forward port', 'preview', 'release gate', 'CI', 'release engineering'],
+    content: 'Every stable patch links an open forward-port-required tracker covering every active higher line. New previews, release candidates, and next-minor stable releases are blocked until applicable fixes, tests, migrations, docs, and operational contracts are merged forward.'
+  },
+  {
     title: 'Network Protocol Design',
     href: '/blog/network-protocol-design',
     section: 'Blog',

@@ -117,6 +117,16 @@ explicit private disclosure path.
 
 ## Release Decision: One Fix, Every Newer Line
 
+Every stable patch now links a separate open issue labelled
+`forward-port-required`. The tracker names every active higher line and stays
+open until each applicable focused PR merges and passes CI. While any tracker
+remains open, the protected workflow refuses to publish a newer preview, RC, or
+next-minor Stable. Product fixes, tests, migrations, documentation, and
+operational contracts move forward; stable version/channel metadata does not.
+
+- Policy journal: https://docs.connectonion.com/blog/a-patch-must-move-forward
+- Markdown source: https://docs.connectonion.com/tutorials/a-patch-must-move-forward.md
+
 ConnectOnion 1.6.12 adds explicit server-region selection, scoped mailbox
 sharing, collision-safe Outlook downloads that skip inline signature images,
 and explicit network bounds for every provider client. Applicable fixes are
