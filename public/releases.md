@@ -5,7 +5,7 @@ More than one feature train can be public at once: 1.7 is stabilizing while
 new 1.8 work remains available as the highest preview.
 
 **Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0rc8`; the latest opt-in preview is `1.8.0a1`. RC8 becomes
+for 1.7 is `1.7.0rc9`; the latest opt-in preview is `1.8.0a1`. RC9 becomes
 installable only after its reviewed tag publishes; stable and 1.8 remain public.
 
 ## Version meanings
@@ -13,7 +13,7 @@ installable only after its reviewed tag publishes; stable and 1.8 remain public.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0rc8` | Exact 1.7 candidate that may become stable unchanged after acceptance |
+| `1.7.0rc9` | Exact 1.7 candidate that may become stable unchanged after acceptance |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -34,7 +34,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin. This is the reproducible command for the 1.7 release gates:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0rc8
+python -m pip install --upgrade connectonion==1.7.0rc9
 co --version
 ```
 
@@ -74,7 +74,7 @@ Integration and live-provider cases stay explicit, but a new billing or API
 contract test cannot sit outside CI just because it was added in a separate
 test module.
 
-## Stabilizing 1.7.0rc8
+## Stabilizing 1.7.0rc9
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
 The beta has passed the protected Python 3.10–3.13 matrix, native Windows
@@ -178,6 +178,16 @@ unchanged; the exact public RC8 bytes must repeat the complete browser, native
 provider, compiled-language, reconnect, permission, and responsive UI gate.
 Whole-browser graceful teardown latency is separately bounded by the owned-PID
 cleanup and tracked for the 1.7.1 reliability patch.
+
+RC8's exact public journey completed browser search and download, strict
+C/C++/Rust work, Codex permission and Stop flows, and a real Claude Code
+project. Claude returned successfully, but the following parent-model
+settlement call never returned, so the Work Room remained stopped without a
+composer. RC9 bounds post-Codex and post-Claude settlement calls to 90 seconds,
+abandons late results, and makes one concise retry grounded only in the recorded
+provider result. If that retry also times out, the turn now fails explicitly.
+RC8 cannot promote unchanged; the exact public RC9 bytes must repeat the full
+end-to-end gate before stable promotion.
 
 Real Codex and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full
