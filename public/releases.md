@@ -5,7 +5,7 @@ More than one feature train can be public at once: 1.7 is stabilizing while
 new 1.8 work remains available as the highest preview.
 
 **Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0rc6`; the latest opt-in preview is `1.8.0a1`. RC6 becomes
+for 1.7 is `1.7.0rc7`; the latest opt-in preview is `1.8.0a1`. RC7 becomes
 installable only after its reviewed tag publishes; stable and 1.8 remain public.
 
 ## Version meanings
@@ -13,7 +13,7 @@ installable only after its reviewed tag publishes; stable and 1.8 remain public.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0rc6` | Exact 1.7 candidate that may become stable unchanged after acceptance |
+| `1.7.0rc7` | Exact 1.7 candidate that may become stable unchanged after acceptance |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -34,7 +34,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin. This is the reproducible command for the 1.7 release gates:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0rc6
+python -m pip install --upgrade connectonion==1.7.0rc7
 co --version
 ```
 
@@ -74,7 +74,7 @@ Integration and live-provider cases stay explicit, but a new billing or API
 contract test cannot sit outside CI just because it was added in a separate
 test module.
 
-## Stabilizing 1.7.0rc6
+## Stabilizing 1.7.0rc7
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
 The beta has passed the protected Python 3.10–3.13 matrix, native Windows
@@ -153,6 +153,17 @@ does not renew or consume the outer grant, and malformed Full Access still
 fails closed. RC5 cannot promote unchanged; the complete exact public RC6 gate
 must prove that Stop preserves the real outer state until an acknowledged Auto
 transaction immediately narrows provider authority.
+
+The exact RC6 gate passed browser search/download, strict C/C++/Rust work,
+native Codex, provider Stop, permission changes, and responsive layouts. Native
+Claude Code then completed its scoped project and returned success, but the
+parent model supplied no user-facing final text. The provider work was real;
+the outer conversation still lacked a valid terminal answer and never restored
+its composer. RC7 makes one bounded recovery call asking only for a conclusion
+grounded in recorded tool results. A second empty response fails explicitly
+instead of fabricating success or emitting an unusable empty outcome. RC6
+cannot promote unchanged; RC7 must repeat the complete parent and Work Room
+journey from the exact public artifact.
 
 Real Codex and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full
