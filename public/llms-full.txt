@@ -115,6 +115,22 @@ explicit private disclosure path.
 
 ---
 
+## Release Decision: One Fix, Every Newer Line
+
+ConnectOnion 1.6.12 adds explicit server-region selection, scoped mailbox
+sharing, collision-safe Outlook downloads that skip inline signature images,
+and explicit network bounds for every provider client. Applicable fixes are
+forward-ported into the stabilising 1.7 line and `main`/1.8 with focused tests.
+Release-only version metadata is never copied forward. After 1.7 Stable is
+verified, its release branch is merged back into `main` so a supported newer
+line cannot silently lose a Stable fix.
+
+- Release journal: https://docs.connectonion.com/blog/connectonion-1-6-12
+- Markdown source: https://docs.connectonion.com/tutorials/connectonion-1-6-12.md
+- Propagation issue: https://github.com/openonion/connectonion/issues/1265
+
+---
+
 ## Design Decision: A Page Should Not Become a Wall
 
 Received and sent mail now share a 1,000-row page ceiling, and received mail

@@ -20,6 +20,14 @@ ${description}
 - Scheduled runs are steadier: every model connection now carries explicit network bounds, so a stalled upstream ends in a clear, typed error your automation can react to.
 - A new README that shows the whole delivery path in the first screen, and release notes that now ship with permanent visual evidence.
 
+## One fix, every newer line
+
+A stable patch and a feature train do not inherit each other automatically.
+Applicable fixes from 1.6.12 are forward-ported into both the stabilising 1.7
+line and main/1.8, with their focused tests. Release-only version metadata is
+never copied forward. After 1.7 Stable is verified, that release branch is
+merged back into main so future work cannot silently lose a stable fix.
+
 ## Upgrade
 
 \`\`\`bash
@@ -46,7 +54,7 @@ export const metadata: Metadata = {
     siteName: 'ConnectOnion Docs',
     type: 'article',
     publishedTime: '2026-08-19T00:00:00+10:00',
-    modifiedTime: '2026-08-19T00:00:00+10:00',
+    modifiedTime: '2026-08-25T00:00:00+10:00',
     authors: ['ConnectOnion Team'],
     tags: ['release', 'servers', 'email', 'Outlook'],
     images: [{ url: '/onion-logo.png', alt: title }],
@@ -60,7 +68,7 @@ const articleJsonLd = {
   headline: title,
   description,
   datePublished: '2026-08-19',
-  dateModified: '2026-08-19',
+  dateModified: '2026-08-25',
   author: { '@type': 'Organization', name: 'ConnectOnion', url: 'https://docs.connectonion.com' },
   publisher: {
     '@type': 'Organization',
@@ -106,6 +114,9 @@ co email unshare rental@mail.openonion.ai --with 0x...`}</code></pre>
 
           <h2>Steadier scheduled runs</h2>
           <p>Every model connection now carries explicit network bounds — connect, read, and retry limits defined in one place, for every provider. An upstream that stops answering ends in a clear, typed error your automation can catch and react to, within a documented time bound. Overnight runs keep their schedule.</p>
+
+          <h2>One fix, every newer line</h2>
+          <p>A stable patch and a feature train do not inherit each other automatically. Applicable 1.6.12 fixes are forward-ported into the stabilising 1.7 line and <code>main</code>/1.8 with focused tests; the 1.6.12 version bump and release-only metadata are not. After 1.7 Stable is verified, its release branch is merged back into <code>main</code>. This keeps every supported newer line at least as fixed as Stable without letting an old version number overwrite a new feature train.</p>
 
           <h2>Upgrade</h2>
           <pre><code>{installCommand}</code></pre>
