@@ -5,15 +5,15 @@ More than one feature train can be public at once: 1.7 is stabilizing while
 new 1.8 work remains available as the highest preview.
 
 **Current channels:** stable is `1.6.12`; the exact candidate being stabilized
-for 1.7 is `1.7.0rc5`; the latest opt-in preview is `1.8.0a1`. All three have
-public PyPI artifacts and GitHub releases.
+for 1.7 is `1.7.0rc6`; the latest opt-in preview is `1.8.0a1`. RC6 becomes
+installable only after its reviewed tag publishes; stable and 1.8 remain public.
 
 ## Version meanings
 
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Current stable 1.6 maintenance release |
-| `1.7.0rc5` | Exact 1.7 candidate that may become stable unchanged after acceptance |
+| `1.7.0rc6` | Exact 1.7 candidate that may become stable unchanged after acceptance |
 | `1.7.0` | Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -34,7 +34,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin. This is the reproducible command for the 1.7 release gates:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0rc5
+python -m pip install --upgrade connectonion==1.7.0rc6
 co --version
 ```
 
@@ -74,7 +74,7 @@ Integration and live-provider cases stay explicit, but a new billing or API
 contract test cannot sit outside CI just because it was added in a separate
 test module.
 
-## Stabilizing 1.7.0rc5
+## Stabilizing 1.7.0rc6
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
 The beta has passed the protected Python 3.10–3.13 matrix, native Windows
@@ -141,7 +141,18 @@ O Chat client keeps the latest Host-verified selector and composer visible in
 terminal Work Rooms, but replaces that fallback immediately when the Host sends
 a newer narrowed snapshot. RC4 cannot promote unchanged; the complete public
 RC5 native-provider, browser, compiled-language, reconnect, responsive UI, and
-manual design-review gate must pass first.
+manual design-review gate had to pass first.
+
+That exact RC5 run reached real Codex Stop and found a different state-boundary
+bug. The isolated provider-only continuation copied the outer `full-access`
+name without the positive `turns_left` value that makes the bounded grant
+valid. Canonical validation safely showed Auto in the browser, while the
+durable Host and provider ceiling still retained Full Access. RC6 copies the
+complete Host-validated mode tuple into direct Codex and Claude Code turns. It
+does not renew or consume the outer grant, and malformed Full Access still
+fails closed. RC5 cannot promote unchanged; the complete exact public RC6 gate
+must prove that Stop preserves the real outer state until an acknowledged Auto
+transaction immediately narrows provider authority.
 
 Real Codex and Claude provider smokes, upgrade and
 rollback coverage, backend reconciliation, release protection, and the full
