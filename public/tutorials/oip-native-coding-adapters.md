@@ -15,6 +15,28 @@ canonical provider session ID, and translates bounded activity into OIP tool
 events. The browser therefore needs one parser and one lifecycle even when the
 backend provider changes.
 
+## What shipped as Stable 1.7
+
+ConnectOnion 1.7.0 promotes the accepted RC12 product source after the complete
+installed-artifact gate passed. A Work Room is a remote client rather than a
+status panel: it keeps attributed user and provider messages, a persistent
+composer, current Thinking/Working/approval/Stop/reconnect/terminal state,
+action summaries with technical details collapsed, and the provider's own
+permission choices inside the outer Host ceiling.
+
+The gate launched the public package's real `co ai` Host, used an
+invocation-scoped invite, drove real browser search and download, built strict
+C11, C++20, and Rust projects, ran native Codex and Claude Code work and
+provider-scoped Stop, changed permission ceilings, restarted Host, and
+reconnected without duplicating the last input. Desktop and 390 px layouts
+were reviewed from hashed evidence. The coordinated reader is
+`@connectonion/react@0.4.3`; O Chat remains the presentation layer.
+
+The tradeoff is deliberate: 1.7.0 freezes this compatibility waist.
+Provider-specific improvements continue in 1.7.1 only when they preserve the
+public OIP and authority contract; broader remote execution work stays on the
+1.8 preview train.
+
 The useful lesson from Happy Coder is to bridge a provider's native session
 instead of pretending every coding engine has the same internal protocol.
 ConnectOnion applies that lesson with a different ownership model: `co ai` owns
