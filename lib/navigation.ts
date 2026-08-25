@@ -1012,6 +1012,34 @@ export const navigation = [
     difficulty: 'Release Decision',
     keywords: ['1.6.12', 'server region', 'email share', 'outlook attachments', 'forward port', 'release line'],
     prev: { href: '/blog/a-page-should-not-become-a-wall', title: 'A Page Should Not Become a Wall' },
+    next: { href: '/blog/a-patch-must-move-forward', title: 'A Patch Must Move Forward' }
+  },
+  {
+    title: 'A Patch Must Move Forward',
+    href: '/blog/a-patch-must-move-forward',
+    icon: HiOutlineArrowPath,
+    section: 'Blog',
+    difficulty: 'Release Policy',
+    keywords: ['patch', 'forward port', 'preview', 'release gate', 'release engineering'],
+    prev: { href: '/blog/connectonion-1-6-12', title: 'Your Servers, Your Regions, Your Shared Mailboxes' },
+    next: { href: '/blog/an-image-prefix-is-not-an-image', title: 'An Image Prefix Is Not an Image' }
+  },
+  {
+    title: 'An Image Prefix Is Not an Image',
+    href: '/blog/an-image-prefix-is-not-an-image',
+    icon: HiOutlineBugAnt,
+    section: 'Blog', difficulty: 'Design Decision',
+    keywords: ['image', 'base64', 'data url', 'truncated', 'plugin', 'reliability'],
+    prev: { href: '/blog/a-patch-must-move-forward', title: 'A Patch Must Move Forward' },
+    next: { href: '/blog/headless-does-not-mean-unconfigured', title: 'Headless Does Not Mean Unconfigured' }
+  },
+  {
+    title: 'Headless Does Not Mean Unconfigured',
+    href: '/blog/headless-does-not-mean-unconfigured',
+    icon: HiOutlineShieldCheck,
+    section: 'Blog', difficulty: 'Design Decision',
+    keywords: ['headless', 'unattended', 'cron', 'permissions', 'auto', 'browser'],
+    prev: { href: '/blog/an-image-prefix-is-not-an-image', title: 'An Image Prefix Is Not an Image' },
     next: { href: '/releases', title: 'Release Channels' }
   },
 
@@ -1023,7 +1051,7 @@ export const navigation = [
     section: 'Releases',
     difficulty: 'Policy',
     keywords: ['release', 'version', 'stable', 'alpha', 'beta', 'rc', 'preview', 'lts', 'pypi'],
-    prev: { href: '/blog/connectonion-1-6-12', title: 'Your Servers, Your Regions, Your Shared Mailboxes' },
+    prev: { href: '/blog/headless-does-not-mean-unconfigured', title: 'Headless Does Not Mean Unconfigured' },
     next: { href: '/roadmap', title: 'Coming Soon Features' }
   },
 

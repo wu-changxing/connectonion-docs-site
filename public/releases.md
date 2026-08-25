@@ -12,7 +12,7 @@ candidate; the latest opt-in preview is `1.8.0a1`.
 | Version | Meaning |
 |---|---|
 | `1.6.12` | Previous stable 1.6 maintenance release |
-| `1.7.0rc11` | Accepted final 1.7 release candidate |
+| `1.7.0rc12` | Accepted final 1.7 release candidate |
 | `1.7.0` | Current Stable/LTS 1.7 release |
 | `1.7.1` | Maintenance fix after stable 1.7 |
 | `1.8.0a1` | Latest incomplete, opt-in feature preview |
@@ -74,7 +74,7 @@ test module.
 ## Stable 1.7.0
 
 The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
-The unchanged RC11 source earned Stable after the protected Python 3.10–3.13 matrix, native Windows
+The accepted RC12 product source earned Stable after the protected Python 3.10–3.13 matrix, native Windows
 browser transport, Windows and macOS installed-wheel E2E, trusted publishing,
 independent public-byte verification, native Codex and Claude Code Work Room
 journeys, provider permissions and Stop, Host restart/reconnect, compiled-language
@@ -213,11 +213,19 @@ leaving 1.6 version metadata behind. Main/1.8 receives the missing subset too.
 RC11 is therefore a new candidate, not an unchanged RC10 promotion. Its exact
 public bytes must repeat the complete installed-artifact gate before Stable.
 
-Real Codex and Claude provider smokes, upgrade and
-rollback coverage, backend reconciliation, release protection, and the full
-release-candidate acceptance window must all close before stable promotion.
-Historical-secret alerts have been cleared. Stable 1.7.0 follows only after an
-exercised RC can ship unchanged.
+Stable preparation then exposed two narrower blockers in RC11. A truncated
+image-looking data URL could terminate the agent after successful tool work,
+and unattended Auto ignored an operator's configured `co browser status`
+grant when no live approval dialog existed. RC12 requires complete supported
+image structure before upload and restores deliberate ordinary-command grants
+without letting the historical broad `co *` rule authorize publishing,
+deployment, credentials, deletion, or unknown effects. Both fixes also move to
+main/1.8. RC12 repeated these affected public-byte checks and became the Stable
+source.
+
+Real Codex and Claude provider smokes, upgrade and rollback coverage, backend
+reconciliation, release protection, and the full release-candidate acceptance
+window all closed before promotion. Historical-secret alerts have been cleared.
 
 ## Design journal policy
 

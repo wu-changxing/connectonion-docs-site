@@ -116,6 +116,35 @@ explicit private disclosure path.
 
 ## Release Decision: One Fix, Every Newer Line
 
+Every stable patch now links a separate open issue labelled
+`forward-port-required`. The tracker names every active higher line and stays
+open until each applicable focused PR merges and passes CI. While any tracker
+remains open, the protected workflow refuses to publish a newer preview, RC, or
+next-minor Stable. Product fixes, tests, migrations, documentation, and
+operational contracts move forward; stable version/channel metadata does not.
+
+- Policy journal: https://docs.connectonion.com/blog/a-patch-must-move-forward
+- Markdown source: https://docs.connectonion.com/tutorials/a-patch-must-move-forward.md
+
+## Reliability Decision: Text Must Prove It Is an Image
+
+The formatter strictly decodes candidate base64 and verifies a complete PNG,
+JPEG, GIF, or WebP before uploading. Truncated data URLs and decodable non-image
+text remain ordinary tool output, while genuine upload failures stay loud.
+
+- Design journal: https://docs.connectonion.com/blog/an-image-prefix-is-not-an-image
+- Markdown source: https://docs.connectonion.com/tutorials/an-image-prefix-is-not-an-image.md
+
+## Permission Decision: Headless Still Has an Operator
+
+Unattended Auto honors deliberate operator command rules for ordinary commands.
+The shipped broad `Bash(co *)` compatibility rule restores `co status` and
+`co browser ...`, but does not silently authorize deployment, publication,
+email, credentials, or unknown effects.
+
+- Design journal: https://docs.connectonion.com/blog/headless-does-not-mean-unconfigured
+- Markdown source: https://docs.connectonion.com/tutorials/headless-does-not-mean-unconfigured.md
+
 ConnectOnion 1.6.12 adds explicit server-region selection, scoped mailbox
 sharing, collision-safe Outlook downloads that skip inline signature images,
 and explicit network bounds for every provider client. Applicable fixes are

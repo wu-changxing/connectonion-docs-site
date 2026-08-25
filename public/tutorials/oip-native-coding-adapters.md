@@ -17,7 +17,7 @@ backend provider changes.
 
 ## What shipped as Stable 1.7
 
-ConnectOnion 1.7.0 promotes the unchanged RC11 source after the complete
+ConnectOnion 1.7.0 promotes the accepted RC12 product source after the complete
 installed-artifact gate passed. A Work Room is a remote client rather than a
 status panel: it keeps attributed user and provider messages, a persistent
 composer, current Thinking/Working/approval/Stop/reconnect/terminal state,

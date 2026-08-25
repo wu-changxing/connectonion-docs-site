@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { HiOutlineArrowPath, HiOutlineArrowRight, HiOutlineUsers, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineServerStack, HiOutlineShieldCheck, HiOutlineChatBubbleLeftRight, HiOutlineSquare3Stack3D } from 'react-icons/hi2'
+import { HiOutlineArrowPath, HiOutlineArrowRight, HiOutlineUsers, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineServerStack, HiOutlineShieldCheck, HiOutlineChatBubbleLeftRight, HiOutlineSquare3Stack3D, HiOutlineBugAnt } from 'react-icons/hi2'
 
 export const metadata: Metadata = {
   title: 'ConnectOnion Design Journal | AI Agent Architecture and Release Decisions',
@@ -17,6 +17,32 @@ export const metadata: Metadata = {
 }
 
 const blogPosts = [
+  {
+    title: 'Headless Does Not Mean Unconfigured',
+    subtitle: 'Standing permission still matters when nobody can answer a dialog',
+    date: 'August 2026', readTime: '4 min read',
+    href: '/blog/headless-does-not-mean-unconfigured', icon: HiOutlineShieldCheck,
+    tags: ['Design Decision', 'Permissions', 'Automation'],
+    excerpt: 'How unattended Auto restores deliberate co browser and status grants while deployment, publication, email, and unknown effects remain fail-closed.'
+  },
+  {
+    title: 'An Image Prefix Is Not an Image',
+    subtitle: 'Malformed tool text should not become a fatal upload',
+    date: 'August 2026', readTime: '4 min read',
+    href: '/blog/an-image-prefix-is-not-an-image', icon: HiOutlineBugAnt,
+    tags: ['Design Decision', 'Images', 'Reliability'],
+    excerpt: 'Why the image formatter now proves a complete PNG, JPEG, GIF, or WebP before uploading, while malformed data URLs remain ordinary tool text.'
+  },
+  {
+    title: 'A Patch Must Move Forward',
+    subtitle: 'A stable fix cannot disappear from the next preview',
+    date: 'August 2026',
+    readTime: '4 min read',
+    href: '/blog/a-patch-must-move-forward',
+    icon: HiOutlineArrowPath,
+    tags: ['Design Decision', 'Release', 'CI'],
+    excerpt: 'Why stable patches now require a tracked forward-port into every active higher line, and why the release workflow blocks a newer preview while that work remains open.'
+  },
   {
     title: 'Your Servers, Your Regions, Your Shared Mailboxes',
     subtitle: 'Pick a region, share an address without handing over a key — ConnectOnion 1.6.12',

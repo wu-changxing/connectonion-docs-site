@@ -184,6 +184,25 @@ export const pageContentIndex: PageContent[] = [
     content: 'ConnectOnion 1.6.12 adds server region selection, scoped mailbox sharing, safe Outlook attachment downloads, explicit provider network bounds, permanent release evidence, and a rule that applicable stable fixes move into every supported newer line without copying old version metadata.'
   },
   {
+    title: 'A Patch Must Move Forward',
+    href: '/blog/a-patch-must-move-forward',
+    section: 'Blog',
+    keywords: ['patch', 'forward port', 'preview', 'release gate', 'CI', 'release engineering'],
+    content: 'Every stable patch links an open forward-port-required tracker covering every active higher line. New previews, release candidates, and next-minor stable releases are blocked until applicable fixes, tests, migrations, docs, and operational contracts are merged forward.'
+  },
+  {
+    title: 'An Image Prefix Is Not an Image',
+    href: '/blog/an-image-prefix-is-not-an-image', section: 'Blog',
+    keywords: ['image', 'base64', 'data url', 'truncated', 'after_tools', 'reliability'],
+    content: 'The image formatter strictly decodes and verifies complete PNG, JPEG, GIF, or WebP candidates. Truncated data URLs and decodable non-image text remain ordinary tool output instead of crashing the agent loop.'
+  },
+  {
+    title: 'Headless Does Not Mean Unconfigured',
+    href: '/blog/headless-does-not-mean-unconfigured', section: 'Blog',
+    keywords: ['headless', 'unattended', 'cron', 'permissions', 'auto', 'co browser'],
+    content: 'Headless Auto honors deliberate operator command grants for ordinary commands. The historical broad co wildcard restores status and browser compatibility without silently authorizing deployment, publication, email, credentials, or unknown effects.'
+  },
+  {
     title: 'Network Protocol Design',
     href: '/blog/network-protocol-design',
     section: 'Blog',

@@ -14,7 +14,7 @@ See [Release Channels](/releases) for installation and version meanings.
 5. Alpha, beta, release-candidate, then stable promotion based on evidence.
 6. Reader-before-writer old/new and rollback checks over Direct and Relay.
 
-The 1.7 candidate was promoted unchanged from RC11 after every gate passed.
+The 1.7 candidate was promoted from accepted RC12 product source after every gate passed.
 The 1.7.x line now carries maintenance fixes; new remote-browser and
 hosted-execution feature work continues in 1.8 previews.
 
