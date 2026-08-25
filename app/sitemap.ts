@@ -101,6 +101,8 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/blog/a-page-should-not-become-a-wall', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/connectonion-1-6-12', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/a-patch-must-move-forward', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/blog/an-image-prefix-is-not-an-image', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/blog/headless-does-not-mean-unconfigured', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/agent-address-format', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog/auto-debug-evolution', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog/cli-ux-progressive-disclosure', priority: 0.5, changeFrequency: 'monthly' },

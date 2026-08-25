@@ -119,6 +119,8 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 
 ## Blog — Design Decisions
 
+- [Headless Does Not Mean Unconfigured](https://docs.connectonion.com/blog/headless-does-not-mean-unconfigured): Unattended Auto honors deliberate browser/status grants without turning the historical broad co wildcard into unlimited authority
+- [An Image Prefix Is Not an Image](https://docs.connectonion.com/blog/an-image-prefix-is-not-an-image): Strict completeness checks keep truncated data URLs and base64-looking text out of the image upload path
 - [A Patch Must Move Forward](https://docs.connectonion.com/blog/a-patch-must-move-forward): Stable patches require a tracked forward-port into every active higher line, and open obligations block newer preview, RC, and next-minor releases
 - [Your Servers, Your Regions, Your Shared Mailboxes](https://docs.connectonion.com/blog/connectonion-1-6-12): ConnectOnion 1.6.12 behavior and the rule that applicable stable fixes move into every supported newer release line without copying old version metadata
 - [The Work Room Is a Client, Not a Status Panel](https://docs.connectonion.com/blog/workroom-is-a-view): Remote Codex and Claude Code conversation, lifecycle, permissions, and fixed provider input inside one OIP client shell
