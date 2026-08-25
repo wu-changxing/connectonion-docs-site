@@ -191,6 +191,18 @@ export const pageContentIndex: PageContent[] = [
     content: 'Every stable patch links an open forward-port-required tracker covering every active higher line. New previews, release candidates, and next-minor stable releases are blocked until applicable fixes, tests, migrations, docs, and operational contracts are merged forward.'
   },
   {
+    title: 'An Image Prefix Is Not an Image',
+    href: '/blog/an-image-prefix-is-not-an-image', section: 'Blog',
+    keywords: ['image', 'base64', 'data url', 'truncated', 'after_tools', 'reliability'],
+    content: 'The image formatter strictly decodes and verifies complete PNG, JPEG, GIF, or WebP candidates. Truncated data URLs and decodable non-image text remain ordinary tool output instead of crashing the agent loop.'
+  },
+  {
+    title: 'Headless Does Not Mean Unconfigured',
+    href: '/blog/headless-does-not-mean-unconfigured', section: 'Blog',
+    keywords: ['headless', 'unattended', 'cron', 'permissions', 'auto', 'co browser'],
+    content: 'Headless Auto honors deliberate operator command grants for ordinary commands. The historical broad co wildcard restores status and browser compatibility without silently authorizing deployment, publication, email, credentials, or unknown effects.'
+  },
+  {
     title: 'Network Protocol Design',
     href: '/blog/network-protocol-design',
     section: 'Blog',
