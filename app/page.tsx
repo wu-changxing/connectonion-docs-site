@@ -30,6 +30,9 @@ export default function HomePage() {
             <Link href="/agent" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors hidden sm:block">
               Docs
             </Link>
+            <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors">
+              Blog
+            </Link>
             <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
               <FaGithub className="w-4 h-4" />
             </a>
@@ -215,6 +218,7 @@ print(agent.input("what is your task?"))`}
               { href: '/tui', icon: HiOutlineCommandLine, label: 'TUI Components', sub: 'pick, chat, fuzzy...' },
               { href: '/auto-debug', icon: HiOutlineBugAnt, label: 'Auto Debug', sub: 'Interactive breakpoints' },
               { href: '/logging', icon: HiOutlineDocumentText, label: 'Logging', sub: 'Logs, sessions, YAML' },
+              { href: '/blog', icon: HiOutlineDocumentText, label: 'Design Journal', sub: 'Why we built it this way' },
             ].map(({ href, icon: Icon, label, sub }) => (
               <Link
                 key={href}

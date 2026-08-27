@@ -7,7 +7,7 @@ const description = 'Why a manual Codex approval pauses the active-work budget i
 const canonicalPath = '/blog/an-approval-is-not-execution-time'
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`,
+  title: 'AI Agent Tool Permissions: Why Approval Time Is Not Execution Time | ConnectOnion',
   description,
   alternates: { canonical: canonicalPath },
   openGraph: {
