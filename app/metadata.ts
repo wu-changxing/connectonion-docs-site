@@ -24,13 +24,13 @@ export function makeMetadata(
       siteName: "ConnectOnion Docs",
       type: "website",
       locale: "en_US",
-      images: [{ url: `${BASE_URL}/onion-logo.png`, width: 1200, height: 630, alt: title }],
+      images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [`${BASE_URL}/onion-logo.png`],
+      images: [`${BASE_URL}/og-image.png`],
       creator: "@connectonion",
     },
   }

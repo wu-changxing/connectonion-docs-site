@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: `${BASE_URL}/onion-logo.png`,
+        url: `${BASE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "ConnectOnion - Python AI Agents from a Working Template",
@@ -70,11 +70,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ConnectOnion - Python AI Agents from a Working Template",
     description: "One command scaffolds an agent that already runs. Plain Python functions become tools automatically.",
-    images: [`${BASE_URL}/onion-logo.png`],
+    images: [`${BASE_URL}/og-image.png`],
     creator: "@connectonion",
-  },
-  alternates: {
-    canonical: BASE_URL,
   },
   icons: {
     icon: '/onion-logo.png',

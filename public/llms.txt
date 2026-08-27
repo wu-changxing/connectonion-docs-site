@@ -131,6 +131,13 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 - [Why llm_do() Over llm()](https://docs.connectonion.com/blog/llm-do): LLM function naming rationale
 - [Why We Chose "Trust"](https://docs.connectonion.com/blog/trust-keyword): Trust keyword design decision
 - [Network Protocol Design](https://docs.connectonion.com/blog/network-protocol-design): Architecture decisions
+- [co ai Delegates to Codex and Claude Code](https://docs.connectonion.com/blog/connectonion-1-7): ConnectOnion 1.7.0 stable — live resumable Work Room, read-only/auto/full-access permission modes, intent-led tool activity
+- [What Makes an Agent 10x](https://docs.connectonion.com/blog/what-makes-an-agent-10x): Vision essay — verifiable work, life in time, sedimenting experience, bounded delegation, real-world reach
+- [ConnectOnion 1.6.0 Release](https://docs.connectonion.com/blog/connectonion-1-6): Safer remote agents and a cleaner credential boundary
+- [Changing the Default Model Is a Backend Decision First](https://docs.connectonion.com/blog/gemini-37-default): ConnectOnion 1.6.6 — Gemini 3.7 Flash default and release ordering
+- [The Agent That Was Itself, and Billed Someone Else](https://docs.connectonion.com/blog/deployed-agent-identity): Deployed agent identity and billing attribution (1.6.5)
+- [An Approval Is Not Execution Time](https://docs.connectonion.com/blog/an-approval-is-not-execution-time): Tool-approval lifetime vs execution — permission scoping for native coding turns
+- [A Work Room Is a Summary, Not a Transcript](https://docs.connectonion.com/blog/a-work-room-is-a-summary-not-a-transcript): The finite OIP envelope for native coding activity
 - [Agent Address Format](https://docs.connectonion.com/blog/agent-address-format): Ed25519 public key addressing
 - [Why "Address" Over "Identity"](https://docs.connectonion.com/blog/naming-is-hard): Terminology choice
 - [Progressive Disclosure CLI](https://docs.connectonion.com/blog/cli-ux-progressive-disclosure): CLI UX design
