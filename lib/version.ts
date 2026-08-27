@@ -7,7 +7,7 @@
  * version shown on the homepage or in structured metadata.
  */
 export const STABLE_VERSION = '1.7.0'
-export const PREVIEW_VERSION: string | null = '1.8.0a1'
+export const PREVIEW_VERSION: string | null = '1.8.0a2'
 export const STABILIZING_VERSION: string | null = null
 
 // Product pages advertise the stable channel. Preview releases remain opt-in.
