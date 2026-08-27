@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'What Makes an Agent 10x',
+    subtitle: 'Not a smarter model — an agent you can safely stop watching',
+    date: 'August 2026',
+    readTime: '6 min read',
+    href: '/blog/what-makes-an-agent-10x',
+    icon: HiOutlineShieldCheck,
+    tags: ['Vision', 'Reliability', 'Roadmap'],
+    excerpt: 'Five capabilities that compound — verifiable work, life in time, sedimenting experience, bounded delegation, real-world reach — drawn from an agent\'s own failure log.'
+  },
+  {
     title: 'Headless Does Not Mean Unconfigured',
     subtitle: 'Standing permission still matters when nobody can answer a dialog',
     date: 'August 2026', readTime: '4 min read',
