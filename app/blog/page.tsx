@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: 'co ai Delegates to Codex and Claude Code — and You Watch It Work',
+    subtitle: 'ConnectOnion 1.7.0 is stable: live resumable Work Room, three plain permission modes',
+    date: 'August 2026',
+    readTime: '5 min read',
+    href: '/blog/connectonion-1-7',
+    icon: HiOutlineCommandLine,
+    tags: ['Release', 'Stable', 'co ai'],
+    excerpt: 'Real coding delegation with a live, resumable Work Room; permissions collapse to read-only / auto / full-access; tool activity reads as intent, not implementation.'
+  },
+  {
     title: 'What Makes an Agent 10x',
     subtitle: 'Not a smarter model — an agent you can safely stop watching',
     date: 'August 2026',
