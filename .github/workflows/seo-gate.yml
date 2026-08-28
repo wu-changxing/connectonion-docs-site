@@ -1,0 +1,75 @@
+name: seo-gate
+
+# Every PR that touches a page must leave that page findable.
+#
+# Two doors, mirroring connectonion's blog-gate:
+#   1. Deterministic — the BUILT html of every changed route must carry its
+#      own title, meta description, and a self-canonical. (63 pages once
+#      shipped with canonical=homepage through an inherited root layout —
+#      a source-level check would have missed it; the built page is what
+#      Google reads.) New blog posts must be registered in the sitemap,
+#      llms.txt, and the blog index.
+#   2. Model judgment — the title must carry a query a developer would
+#      type, and the description must answer it. Skipped when no model
+#      credential is available (fork PRs), like blog-gate.
+#
+# Only routes changed in the PR are checked, so the 40-odd legacy pages
+# not yet wired to pageSEO don't block unrelated work — they get fixed
+# the next time someone touches them.
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  seo-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install exact dependencies
+        run: npm ci
+
+      - name: Build production site
+        run: npm run build -- --webpack
+
+      - name: Changed pages carry title, description, self-canonical
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh api "repos/$REPO/pulls/$PR/files" --paginate --jq '.[].filename' \
+            | grep -E '^app/.*(page|layout)\.tsx$' > /tmp/changed-pages.txt || true
+          if [ ! -s /tmp/changed-pages.txt ]; then
+            echo "no app routes in this diff — gate passes."
+            exit 0
+          fi
+          xargs node scripts/check-seo.mjs < /tmp/changed-pages.txt
+
+      - name: The title must earn the click
+        env:
+          OPENONION_API_KEY: ${{ secrets.OPENONION_API_KEY }}
+        run: |
+          if [ ! -s .next/seo-gate-pages.txt ]; then
+            echo "no built pages to judge — skipped."
+            exit 0
+          fi
+          if [ -z "$OPENONION_API_KEY" ]; then
+            # Fork PRs get no secrets; the deterministic gate above still applied.
+            echo "no model credential in this context — quality check skipped."
+            exit 0
+          fi
+          pip -q install connectonion
+          xargs python3 scripts/check_page_seo.py < .next/seo-gate-pages.txt
