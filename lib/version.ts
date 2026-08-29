@@ -8,6 +8,8 @@
  */
 export const STABLE_VERSION = '1.7.0'
 export const PREVIEW_VERSION: string | null = '1.8.0a2'
+// 1.7.0 finished stabilizing and became the stable channel; nothing is
+// currently between a preview and stable.
 export const STABILIZING_VERSION: string | null = null
 
 // Product pages advertise the stable channel. Preview releases remain opt-in.
