@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { HiOutlineArrowPath, HiOutlineArrowRight, HiOutlineUsers, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineServerStack, HiOutlineShieldCheck, HiOutlineChatBubbleLeftRight, HiOutlineSquare3Stack3D, HiOutlineBugAnt, HiOutlineGlobeAlt } from 'react-icons/hi2'
 
 export const metadata: Metadata = {
-  title: 'ConnectOnion Design Journal | AI Agent Architecture and Release Decisions',
-  description: 'Read ConnectOnion design decisions, release engineering lessons, protocol architecture, API rationale, and the thinking behind the Python AI agent framework.',
+  title: 'AI Agent Architecture | ConnectOnion Design Journal',
+  description: 'How ConnectOnion isolates preview releases, designs signed agent identity, places browser egress boundaries, and evolves protocols without unsafe fallbacks.',
   alternates: {
     canonical: '/blog',
   },
