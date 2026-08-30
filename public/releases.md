@@ -4,8 +4,8 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once: 1.7 is stable while new 1.8
 work remains available as the highest preview.
 
-**Current channels:** stable is `1.7.0`; there is no active stabilizing
-candidate; the latest opt-in preview is `1.8.0a1`.
+**Current channels:** stable is `1.7.1`; there is no active stabilizing
+candidate; the latest opt-in preview is `1.8.0a3`.
 
 ## Version meanings
 
@@ -13,9 +13,9 @@ candidate; the latest opt-in preview is `1.8.0a1`.
 |---|---|
 | `1.6.12` | Previous stable 1.6 maintenance release |
 | `1.7.0rc12` | Accepted final 1.7 release candidate |
-| `1.7.0` | Current Stable/LTS 1.7 release |
-| `1.7.1` | Maintenance fix after stable 1.7 |
-| `1.8.0a1` | Latest incomplete, opt-in feature preview |
+| `1.7.0` | Initial Stable/LTS 1.7 release |
+| `1.7.1` | Current Stable/LTS 1.7 maintenance release |
+| `1.8.0a3` | Latest incomplete, opt-in feature preview |
 
 Patch numbers are not progress toward the next feature version. Alpha, beta,
 and RC suffixes describe confidence in one feature train.
@@ -33,7 +33,7 @@ This remains on stable even after an alpha, beta, or RC is published.
 Use the exact pin for a reproducible 1.7 installation:
 
 ```bash
-python -m pip install --upgrade connectonion==1.7.0
+python -m pip install --upgrade connectonion==1.7.1
 co --version
 ```
 
@@ -49,8 +49,19 @@ The `--pre` flag is an explicit opt-in to the latest feature train. For a
 reproducible 1.8 test, use an exact pin:
 
 ```bash
-python -m pip install connectonion==1.8.0a1
+python -m pip install connectonion==1.8.0a3
 ```
+
+## Stable 1.7.1
+
+ConnectOnion 1.7.1 is a maintenance release for the stable 1.7 line. It
+detects OpenRouter credentials before the OpenAI fallback, reuses a valid
+Outlook access token until refresh is actually needed, reports file-tool
+refusals as failures, and marks max-iteration runs as incomplete. It does not
+change the browser runtime or the independent 1.8 preview channel.
+
+See the [v1.7.1 GitHub Release](https://github.com/openonion/connectonion/releases/tag/v1.7.1)
+for the merged pull requests and full `v1.7.0...v1.7.1` changelog.
 
 ## How a candidate earns promotion
 
