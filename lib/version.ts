@@ -8,6 +8,10 @@
  */
 export const STABLE_VERSION = '1.7.1'
 export const PREVIEW_VERSION: string | null = '1.8.0a3'
+// Prepared docs may name the next preview before its package and GitHub
+// prerelease are public. Keep it separate from PREVIEW_VERSION so a preview
+// deployment cannot advertise an unpublished package as installable.
+export const PENDING_PREVIEW_VERSION: string | null = '1.8.0a4'
 // 1.7.0 finished stabilizing and became the stable channel; nothing is
 // currently between a preview and stable.
 export const STABILIZING_VERSION: string | null = null

@@ -203,6 +203,13 @@ export const pageContentIndex: PageContent[] = [
     content: 'Headless Auto honors deliberate operator command grants for ordinary commands. The historical broad co wildcard restores status and browser compatibility without silently authorizing deployment, publication, email, credentials, or unknown effects.'
   },
   {
+    title: 'Preview Is Not a Production Alias',
+    href: '/blog/preview-is-not-a-production-alias',
+    section: 'Blog',
+    keywords: ['browser preview', 'production', 'channel isolation', 'onionwright', 'signed manifest', 'billing', '1.8.0a4'],
+    content: 'The pending ConnectOnion 1.8.0a4 browser candidate keeps its dedicated preview API, signed manifest channel, exact Onionwright wheel, catalogue, and runtime channel aligned before download, execution, or charging. The free system engine remains the default; explicit auto may select paid Onion and explicit onion requires it at $0.025 per 15 minutes. Linux x86_64 is the first public artifact target and macOS remains internal.'
+  },
+  {
     title: 'Network Protocol Design',
     href: '/blog/network-protocol-design',
     section: 'Blog',

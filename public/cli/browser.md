@@ -13,11 +13,69 @@ co browser close                         # done
 
 The browser stays open **between commands**. Each `co browser ...` call drives the *same* window — your navigation, cookies, and logged-in session persist until you `close`.
 
+## Pending 1.8.0a4 engine choice
+
+ConnectOnion 1.8.0a4 is a candidate, not a published package. After it passes
+its release gates, the browser daemon will resolve its engine once at startup:
+
+```bash
+co browser go_to example.com                  # default: free system browser
+co browser --engine system go_to example.com  # explicit free system browser
+co browser --engine auto go_to example.com    # opt in; may select paid Onion
+co browser --engine onion go_to example.com   # require paid Onion Browser
+```
+
+Omitting `--engine` is exactly `system`: the browser path does not invoke the
+paid-token loader, parse, transmit, or use a paid token, import Onionwright,
+call the preview API, download an artifact, or create a paid session. The shared
+CLI bootstrap may already have loaded project or home environment files before
+command dispatch. Explicit `auto` authorizes non-billing preflight and may
+select Onion when it is ready. Explicit `onion` requires the paid path and never
+silently falls back to system.
+
+| mode | candidate behavior |
+|---|---|
+| omitted / `system` | Free default. Uses the system browser and does not enter the paid preview path. Browser runtime cost: `$0`. |
+| explicit `auto` | Checks paid compatibility and artifacts without charging. Uses verified Onion when ready; otherwise returns to system with a typed reason. |
+| explicit `onion` | Requires the verified paid artifact and enough balance. Preflight failure is an error, not a system fallback. |
+
+Artifact checking and installation cost `$0`. A paid session starts only after
+the complete artifact is locally ready, then prepays `$0.025 / 15 min`.
+`co browser status` names the requested and resolved engines, typed reason,
+exact artifact, price, and live paid-session ID without printing credentials or
+private cache paths.
+
+The candidate's paid path is isolated from production: it accepts only the
+dedicated preview API origin, an Ed25519-signed manifest whose channel is
+`preview`, the exact Onionwright preview wheel, and a matching runtime channel.
+The general `OO_API_URL` override is ignored. A local integration override is
+accepted only for loopback origins.
+
+The first public Onion artifact target is Chromium 151 on Linux x86_64. macOS
+signing and notarization remain internal, so a4 does not claim public paid Onion
+support on macOS. Normal system-browser behavior remains cross-platform.
+
+The paid runtime's loopback-authenticated egress gateway is the security
+boundary. Blocking Service Workers improves request visibility but is
+best-effort and is not presented as a sandbox or network security boundary.
+
+The daemon stays pinned to the engine that started it. Close before changing
+mode; bare whole-browser close is allowed even when an older daemon used
+`auto` or `onion`:
+
+```bash
+co browser close
+co browser --engine system go_to example.com
+```
+
+System and Onion engines keep separate persistent profiles. Cookies and
+fingerprint state are not copied between them.
+
 ## Why Use This
 
 Two ways to use a browser from the CLI, and you pick per command:
 
-- **Direct function call** — `co browser go_to x.com`. Deterministic, instant, free (no LLM). Great for scripting and exact steps you already know.
+- **Direct function call** — `co browser go_to x.com`. Deterministic and instant, with no LLM charge; browser runtime cost follows the selected engine. Great for scripting and exact steps you already know.
 - **Natural language** — `co browser do "find the cheapest flight"`. The AI agent figures out the steps. Great when you don't want to spell them out.
 
 Both drive the **same live browser**, so you can mix them: script the boring parts, let the agent handle the hard part.

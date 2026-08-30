@@ -16,6 +16,7 @@ import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
 import {
+  PENDING_PREVIEW_VERSION,
   PREVIEW_VERSION,
   STABILIZING_VERSION,
   STABLE_VERSION,
@@ -59,12 +60,12 @@ export default function ReleasesPage() {
           ]}
           icon={HiOutlineArrowPath}
           title="Release Channels"
-          description="Stable 1.7, completed candidate status, and the independent 1.8 preview stay explicit."
+          description="Stable 1.7, the published 1.8 preview, and the next browser candidate stay explicit."
           markdownPath="/releases.md"
           markdownFilename="releases.md"
         />
 
-        <section className="mb-10 grid md:grid-cols-2 xl:grid-cols-3 gap-4" aria-label="Current releases">
+        <section className="mb-10 grid md:grid-cols-2 xl:grid-cols-4 gap-4" aria-label="Current releases">
           <div className="border border-green-200 bg-green-50 rounded-lg p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">Current stable</p>
             <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">v{STABLE_VERSION}</p>
@@ -78,12 +79,21 @@ export default function ReleasesPage() {
             <p className="text-sm text-gray-600 mt-2">{STABILIZING_VERSION ? 'Exact-pin candidate under release gates.' : 'Stable 1.7 has completed its candidate window.'}</p>
           </div>
           <div className="border border-gray-200 bg-gray-50 rounded-lg p-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Latest preview</p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Latest published preview</p>
             <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">{PREVIEW_VERSION ? `v${PREVIEW_VERSION}` : 'Not published yet'}</p>
             <p className="text-sm text-gray-600 mt-2">
               {PREVIEW_VERSION
                 ? 'Available only to users who explicitly opt in.'
                 : 'No newer feature-train preview is currently published.'}
+            </p>
+          </div>
+          <div className="border border-blue-200 bg-blue-50 rounded-lg p-5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-blue-700 mb-2">Pending browser preview</p>
+            <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">
+              {PENDING_PREVIEW_VERSION ? `v${PENDING_PREVIEW_VERSION}` : 'No pending preview'}
+            </p>
+            <p className="text-sm text-gray-600 mt-2">
+              Candidate under release gates; not published or installable yet.
             </p>
           </div>
         </section>
@@ -169,12 +179,42 @@ export default function ReleasesPage() {
           </p>
         </section>
 
+        <section className="mb-14 rounded-lg border border-blue-200 bg-blue-50 p-6">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-700 mb-2">Prepared candidate · not published</p>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">1.8.0a4 makes paid browser use explicit</h2>
+          <div className="space-y-3 text-gray-700">
+            <p>
+              A bare <code>co browser</code> or <code>BrowserAutomation()</code> uses the free system engine.
+              Explicit <code>auto</code> may select paid Onion after preflight; explicit <code>onion</code> requires
+              it and never silently falls back. A paid session is <code>$0.025 / 15 min</code>, while artifact
+              checking and installation cost $0.
+            </p>
+            <p>
+              The candidate keeps the preview API, signed manifest channel, exact Onionwright wheel, browser
+              catalogue, and runtime channel separate from production. Its first public artifact target is
+              Chromium 151 on Linux x86_64. macOS signing and notarization remain internal work.
+            </p>
+            <p>
+              The exact PyPI package and GitHub prerelease do not exist yet. Until both are public and the
+              installed-artifact gate passes, <code>--pre</code> continues to install{' '}
+              <code>{PREVIEW_VERSION}</code>, not <code>{PENDING_PREVIEW_VERSION}</code>.
+            </p>
+          </div>
+          <Link
+            href="/blog/preview-is-not-a-production-alias"
+            className="mt-4 inline-block text-sm font-semibold text-blue-700 hover:underline"
+          >
+            Read the preview trust-boundary decision
+          </Link>
+        </section>
+
         <section className="mb-14">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Current plan</h2>
           <div className="border-l-2 border-gray-300 pl-5 space-y-4 text-gray-700">
             <p><strong>1.6.x:</strong> previous stable maintenance line.</p>
             <p><strong>1.7.x:</strong> current stable/LTS maintenance line.</p>
-            <p><strong>1.8.0 previews:</strong> new remote-browser sessions and hosted execution after the 1.7 gates close.</p>
+            <p><strong>1.8.0a3:</strong> latest published opt-in feature preview.</p>
+            <p><strong>1.8.0a4:</strong> pending Linux browser-preview candidate; not published.</p>
             <p className="text-sm">
               Track the live scope in the{' '}
               <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/milestone/7">

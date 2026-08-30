@@ -56,6 +56,52 @@ co browser close                                 # shut the browser down`}
           </p>
         </section>
 
+        {/* Pending 1.8 browser engines */}
+        <section className="mb-20 rounded-lg border border-blue-200 bg-blue-50 p-6">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-700 mb-2">1.8.0a4 candidate · not published</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-gray-900 mb-4">Free by default; paid Onion is explicit</h2>
+          <CodeWithResult
+            code={`co browser go_to example.com                  # default: free system browser
+co browser --engine system go_to example.com  # explicit free system browser
+co browser --engine auto go_to example.com    # opt in; may select paid Onion
+co browser --engine onion go_to example.com   # require paid Onion Browser`}
+            language="bash"
+          />
+          <div className="mt-5 space-y-3 text-gray-700">
+            <p>
+              Omitting <code>--engine</code> is exactly <code>system</code>: the browser path does not invoke the
+              paid-token loader, parse, transmit, or use a paid token, call the preview API, download an artifact,
+              or create a paid session. The shared CLI bootstrap may already have loaded project or home environment
+              files before command dispatch. Explicit <code>auto</code> may select Onion after a free preflight;
+              explicit <code>onion</code> requires it and never silently falls back.
+            </p>
+            <p>
+              Artifact checking and installation cost $0. A paid session begins only after the complete verified
+              artifact is locally ready and costs <code>$0.025 / 15 min</code>. <code>status</code> reports the
+              requested/resolved engine, typed reason, artifact, price, and live session without exposing secrets.
+            </p>
+            <p>
+              The candidate accepts only the dedicated preview API, a signed <code>preview</code> manifest, the
+              exact Onionwright preview wheel, and a matching runtime channel. The general <code>OO_API_URL</code>
+              override is ignored. The first public Onion artifact target is Chromium 151 on Linux x86_64;
+              macOS signing and notarization remain internal.
+            </p>
+            <p>
+              The loopback-authenticated egress gateway is the security boundary. Service Worker blocking improves
+              request visibility but is best-effort, not a sandbox or network boundary.
+            </p>
+          </div>
+          <CodeWithResult
+            code={`co browser close
+co browser --engine system go_to example.com`}
+            language="bash"
+          />
+          <p className="text-sm text-gray-600 mt-4">
+            Close before changing engines. System and Onion use separate persistent profiles. The exact a4 package
+            command will appear here only after PyPI and the GitHub prerelease are publicly verified.
+          </p>
+        </section>
+
         {/* Two ways */}
         <section className="mb-20">
           <h2 className="heading-2">
@@ -67,7 +113,7 @@ co browser close                                 # shut the browser down`}
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-2">Direct functions</h3>
               <code className="text-sm bg-gray-100 px-2 py-1 rounded">co browser go_to x.com</code>
-              <p className="text-gray-600 text-sm mt-3">Deterministic, instant, free (no LLM): <code className="bg-gray-100 px-1 rounded">go_to</code>, <code className="bg-gray-100 px-1 rounded">get_text</code>, <code className="bg-gray-100 px-1 rounded">click_element_by_selector</code>, <code className="bg-gray-100 px-1 rounded">take_screenshot</code>, … Run <code className="bg-gray-100 px-1 rounded">co browser help</code> for the full list.</p>
+              <p className="text-gray-600 text-sm mt-3">Deterministic and instant, with no LLM charge; browser runtime cost follows the selected engine. Common functions include <code className="bg-gray-100 px-1 rounded">go_to</code>, <code className="bg-gray-100 px-1 rounded">get_text</code>, <code className="bg-gray-100 px-1 rounded">click_element_by_selector</code>, and <code className="bg-gray-100 px-1 rounded">take_screenshot</code>. Run <code className="bg-gray-100 px-1 rounded">co browser help</code> for the full list.</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-2">Natural language</h3>

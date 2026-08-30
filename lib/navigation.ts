@@ -112,7 +112,7 @@ export const navigation = [
     icon: HiOutlineCamera,
     section: 'CLI',
     parent: '/cli',
-    keywords: ['browser', 'automation', 'session', 'daemon', 'function', 'do', 'agent', 'patchright', 'playwright', 'screenshot', 'scripting', 'headless', 'tab', 'multi-agent', 'CO_WHO', 'exit codes', 'stealth'],
+    keywords: ['browser', 'automation', 'session', 'daemon', 'function', 'do', 'agent', 'patchright', 'playwright', 'screenshot', 'scripting', 'headless', 'tab', 'multi-agent', 'CO_WHO', 'exit codes', 'stealth', 'engine', 'onion', 'paid', 'preview', '$0.025'],
     prev: { href: '/cli/ai', title: 'co ai' },
     next: { href: '/cli/email', title: 'co email' }
   },
@@ -534,7 +534,7 @@ export const navigation = [
     href: '/useful-tools/browser-tools',
     icon: FaChrome,
     section: 'Useful Tools',
-    keywords: ['browser', 'playwright', 'automation', 'click', 'screenshot', 'navigate', 'session', 'persistent'],
+    keywords: ['browser', 'playwright', 'automation', 'click', 'screenshot', 'navigate', 'session', 'persistent', 'engine mode', 'onion', 'paid', 'preview', 'async runtime'],
     prev: { href: '/useful-tools/read-file', title: 'read_file' },
     next: { href: '/useful-tools/codex', title: 'Codex' }
   },
@@ -1040,6 +1040,15 @@ export const navigation = [
     section: 'Blog', difficulty: 'Design Decision',
     keywords: ['headless', 'unattended', 'cron', 'permissions', 'auto', 'browser'],
     prev: { href: '/blog/an-image-prefix-is-not-an-image', title: 'An Image Prefix Is Not an Image' },
+    next: { href: '/blog/preview-is-not-a-production-alias', title: 'Preview Is Not a Production Alias' }
+  },
+  {
+    title: 'Preview Is Not a Production Alias',
+    href: '/blog/preview-is-not-a-production-alias',
+    icon: HiOutlineGlobeAlt,
+    section: 'Blog', difficulty: 'Design Decision',
+    keywords: ['browser', 'preview', 'production', 'channel', 'onionwright', 'manifest', 'billing', '1.8.0a4'],
+    prev: { href: '/blog/headless-does-not-mean-unconfigured', title: 'Headless Does Not Mean Unconfigured' },
     next: { href: '/releases', title: 'Release Channels' }
   },
 
@@ -1051,7 +1060,7 @@ export const navigation = [
     section: 'Releases',
     difficulty: 'Policy',
     keywords: ['release', 'version', 'stable', 'alpha', 'beta', 'rc', 'preview', 'lts', 'pypi'],
-    prev: { href: '/blog/headless-does-not-mean-unconfigured', title: 'Headless Does Not Mean Unconfigured' },
+    prev: { href: '/blog/preview-is-not-a-production-alias', title: 'Preview Is Not a Production Alias' },
     next: { href: '/roadmap', title: 'Coming Soon Features' }
   },
 

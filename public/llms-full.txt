@@ -7,7 +7,7 @@ Source: https://docs.connectonion.com | GitHub: https://github.com/openonion/con
 
 ## What is ConnectOnion?
 
-ConnectOnion is an open-source Python toolkit for building AI agents. Current stable version: 1.7.0. License: Apache-2.0.
+ConnectOnion is an open-source Python toolkit for building AI agents. Current stable version: 1.7.1. License: Apache-2.0.
 
 You do not start from a blank file. `co create my-agent` scaffolds a project that already
 runs — an `agent.py` with a shell, file reading, editing, search and writing already wired
@@ -17,7 +17,8 @@ generated files from there; any plain Python function you add becomes a tool aut
 **Core facts:**
 - Install: `pip install connectonion`
 - Release channel: stable by default; previews require `--pre` or an exact pin
-- Current channels: stable `1.7.0`; no active stabilizing candidate; latest opt-in preview `1.8.0a1`
+- Current channels: stable `1.7.1`; no active stabilizing candidate; latest published opt-in preview `1.8.0a3`
+- Pending candidate: `1.8.0a4` browser preview; not published or installable yet
 - Minimum Python version: 3.10
 - Default model: `co/gemini-2.5-pro` (managed keys, zero config)
 - Starting point: `co create` writes the project; the generated agent runs before you edit anything
@@ -48,6 +49,25 @@ exact version.
 ConnectOnion treats a version as a compatibility promise. Stable `1.7.x`
 patches contain maintenance fixes. Opt-in `1.8.0aN` releases carry the next
 feature train. Normal pip installs ignore previews.
+
+The prepared `1.8.0a4` browser candidate does not replace the published
+`1.8.0a3` preview until exact PyPI and GitHub prerelease artifacts and the
+installed-artifact gate are public and verified. A bare `co browser` or
+`BrowserAutomation()` uses the free system engine. Explicit `auto` may select
+paid Onion after non-billing preflight; explicit `onion` requires it and never
+silently falls back. Artifact checks cost `$0`; a paid session costs
+`$0.025 / 15 min`.
+
+The candidate binds preview authority across the dedicated API origin, signed
+manifest channel, exact Onionwright preview wheel, browser catalogue, and
+runtime channel before download, execution, or charging. The first public Onion
+artifact target is Chromium 151 on Linux x86_64. macOS signing and notarization
+remain internal work. Service Worker blocking improves visibility but is not a
+security boundary; the loopback-authenticated egress gateway is.
+
+- Candidate design journal: https://docs.connectonion.com/blog/preview-is-not-a-production-alias
+- CLI browser guide: https://docs.connectonion.com/cli/browser-command
+- Python browser guide: https://docs.connectonion.com/useful-tools/browser-tools
 
 In 1.7.0b10, OIP 0.1 is the only first-party browser protocol. The Python Host
 serves authenticated `/ws`, `@connectonion/react@0.4.2-beta.2` owns browser

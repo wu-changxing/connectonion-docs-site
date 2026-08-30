@@ -119,6 +119,7 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 
 ## Blog — Design Decisions
 
+- [Preview Is Not a Production Alias](https://docs.connectonion.com/blog/preview-is-not-a-production-alias): Pending 1.8.0a4 browser candidate keeps preview API, manifest, wheel, catalogue, and runtime authority separate before download, execution, or charging
 - [Headless Does Not Mean Unconfigured](https://docs.connectonion.com/blog/headless-does-not-mean-unconfigured): Unattended Auto honors deliberate browser/status grants without turning the historical broad co wildcard into unlimited authority
 - [An Image Prefix Is Not an Image](https://docs.connectonion.com/blog/an-image-prefix-is-not-an-image): Strict completeness checks keep truncated data URLs and base64-looking text out of the image upload path
 - [A Patch Must Move Forward](https://docs.connectonion.com/blog/a-patch-must-move-forward): Stable patches require a tracked forward-port into every active higher line, and open obligations block newer preview, RC, and next-minor releases
