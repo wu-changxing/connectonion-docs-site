@@ -174,8 +174,8 @@ export const pageSEO: Record<string, PageSEO> = {
     section: 'Examples',
   },
   '/blog': {
-    title: 'Blog - Design Decisions & Architecture | ConnectOnion',
-    description: 'Read about ConnectOnion design decisions, API naming rationale, network protocol architecture, and framework philosophy.',
+    title: 'AI Agent Architecture & Design Decisions | ConnectOnion Blog',
+    description: 'Engineering stories about signed agent identity, preview release isolation, browser egress boundaries, and protocol patterns that fail closed.',
     path: '/blog',
     section: 'Blog',
   },
