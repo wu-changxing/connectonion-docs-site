@@ -21,6 +21,34 @@ agent = Agent("web", tools=[browser])
 agent.input("go to github.com and take a screenshot")
 ```
 
+## Pending 1.8.0a4 engine choice
+
+ConnectOnion 1.8.0a4 is still a candidate. Its supported Python API remains
+synchronous, but engine selection becomes explicit:
+
+```python
+BrowserAutomation()                     # default: free system browser
+BrowserAutomation(engine_mode="system") # explicit free system browser
+BrowserAutomation(engine_mode="auto")   # opt in; may select paid Onion
+BrowserAutomation(engine_mode="onion")  # require paid Onion Browser
+```
+
+The omitted/default mode is `system`; the browser resolver does not invoke the
+paid-token loader, parse, transmit, or use a paid token, load Onionwright, call
+the preview API, or start billing. ConnectOnion's shared package bootstrap may
+already have loaded project or home environment files. `auto` is an explicit
+strategy that may select Onion after non-billing preflight. `onion` requires the
+paid engine and never silently falls back.
+
+Artifact checking and installation cost `$0`. A paid session starts only after
+the complete artifact is locally ready and costs `$0.025 / 15 min`. The first
+public Onion artifact target is Chromium 151 on Linux x86_64. macOS signing and
+notarization remain internal and are not part of a4's public paid-runtime claim.
+
+The same signed preview-channel, API-origin, exact-wheel, egress-gateway, and
+separate-profile boundaries described in the [CLI browser guide](../cli/browser.md)
+apply to `BrowserAutomation` and the internal async core.
+
 ## Quick Start (no agent)
 
 ```python
@@ -33,6 +61,20 @@ with BrowserAutomation() as browser:
     browser.take_screenshot()
     browser.close()
 ```
+
+### Synchronous API, async runtime
+
+`BrowserAutomation` remains synchronous in 1.8: existing methods, context
+managers, signatures, and return values do not require `await`. Internally it
+owns one async browser core on a private event-loop thread. This preserves the
+public Python and Agent API while allowing independent tabs to make progress
+without exposing a second public browser abstraction.
+
+Calling the facade from a thread that already runs an asyncio loop is supported;
+the call blocks that caller until its browser operation finishes. Calling it
+from the browser's own private runtime thread raises a clear `RuntimeError`
+instead of deadlocking. The async core remains internal and is not a supported
+application import.
 
 ## Persistent Profile
 

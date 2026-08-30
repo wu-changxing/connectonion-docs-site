@@ -5,7 +5,12 @@ More than one feature train can be public at once: 1.7 is stable while new 1.8
 work remains available as the highest preview.
 
 **Current channels:** stable is `1.7.1`; there is no active stabilizing
-candidate; the latest opt-in preview is `1.8.0a3`.
+candidate; the latest **published** opt-in preview is `1.8.0a3`.
+
+**Prepared, not published:** `1.8.0a4` is the next browser-preview candidate.
+It remains unavailable until its exact PyPI package, GitHub prerelease, isolated
+preview API catalogue, and installed-artifact acceptance gates all pass. Do not
+use this page as evidence that `1.8.0a4` can be installed yet.
 
 ## Version meanings
 
@@ -15,7 +20,8 @@ candidate; the latest opt-in preview is `1.8.0a3`.
 | `1.7.0rc12` | Accepted final 1.7 release candidate |
 | `1.7.0` | Initial Stable/LTS 1.7 release |
 | `1.7.1` | Current Stable/LTS 1.7 maintenance release |
-| `1.8.0a3` | Latest incomplete, opt-in feature preview |
+| `1.8.0a3` | Latest published incomplete, opt-in feature preview |
+| `1.8.0a4` | Pending browser-preview candidate; not published |
 
 Patch numbers are not progress toward the next feature version. Alpha, beta,
 and RC suffixes describe confidence in one feature train.
@@ -51,6 +57,29 @@ reproducible 1.8 test, use an exact pin:
 ```bash
 python -m pip install connectonion==1.8.0a3
 ```
+
+After `1.8.0a4` is publicly verified, this page will move the exact pin to
+`connectonion==1.8.0a4`. Until then, `--pre` and the command above continue to
+select the published `1.8.0a3` package.
+
+## Pending browser preview: 1.8.0a4
+
+The candidate makes a bare `co browser` or `BrowserAutomation()` choose the
+free system engine. Paid Onion Browser is opt-in: explicit `auto` may select it
+after preflight, while explicit `onion` requires it and never silently falls
+back. A paid session is `$0.025 / 15 min`; artifact checking and installation
+cost `$0`.
+
+The candidate keeps preview authority separate across the API origin, signed
+manifest channel, exact Onionwright preview wheel, browser artifact catalogue,
+and runtime channel. The general production `OO_API_URL` override cannot point
+preview credentials at another remote host. System and Onion engines also keep
+separate persistent profiles.
+
+The first public target is Chromium 151 on Linux x86_64. macOS signing and
+notarization remain internal work and are not part of this candidate's public
+availability claim. See [Preview Is Not a Production Alias](/blog/preview-is-not-a-production-alias)
+for the trust-boundary decision and remaining gate.
 
 ## Stable 1.7.1
 

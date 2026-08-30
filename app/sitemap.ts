@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 const BASE_URL = 'https://docs.connectonion.com'
 
-const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }[] = [
+const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; lastModified?: string }[] = [
   { path: '/', priority: 1.0, changeFrequency: 'daily' },
   { path: '/quickstart', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/vibe-coding', priority: 0.7, changeFrequency: 'monthly' },
@@ -122,6 +122,7 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/blog/a-patch-must-move-forward', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/an-image-prefix-is-not-an-image', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/headless-does-not-mean-unconfigured', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/blog/preview-is-not-a-production-alias', priority: 0.7, changeFrequency: 'monthly', lastModified: '2026-08-30' },
   { path: '/blog/agent-address-format', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog/auto-debug-evolution', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog/cli-ux-progressive-disclosure', priority: 0.5, changeFrequency: 'monthly' },
@@ -137,9 +138,9 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return pages.map(({ path, priority, changeFrequency }) => ({
+  return pages.map(({ path, priority, changeFrequency, lastModified }) => ({
     url: `${BASE_URL}${path}`,
-    lastModified: '2026-08-28',
+    lastModified: lastModified ?? '2026-08-28',
     changeFrequency,
     priority,
   }))

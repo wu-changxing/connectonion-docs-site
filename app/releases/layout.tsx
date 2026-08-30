@@ -6,7 +6,7 @@ import type { ReactNode } from 'react'
 import { makeMetadata } from '../metadata'
 
 export const metadata = makeMetadata(
-  'Release Channels',
+  'ConnectOnion Release Channels & Versions',
   'Stable, stabilizing, and preview ConnectOnion releases with exact installation commands.',
   '/releases',
 )

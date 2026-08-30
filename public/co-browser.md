@@ -15,9 +15,47 @@ The browser stays open between commands — one shared session — so cookies an
 logins persist from one command to the next until you `close`. The first run
 opens a window you can log into once; every later run reuses that session.
 
+## Pending 1.8.0a4 engine choice
+
+ConnectOnion 1.8.0a4 is a candidate, not a published package. After its release
+gates pass, the daemon will resolve one engine at startup:
+
+```bash
+co browser go_to example.com                  # default: free system browser
+co browser --engine system go_to example.com  # explicit free system browser
+co browser --engine auto go_to example.com    # opt in; may select paid Onion
+co browser --engine onion go_to example.com   # require paid Onion Browser
+```
+
+Omitting `--engine` is exactly `system`: the browser path does not invoke the
+paid-token loader, parse, transmit, or use a paid token, call the preview API,
+download an artifact, or create a paid session. The shared CLI bootstrap may
+already have loaded project or home environment files before command dispatch.
+Explicit `auto` may select Onion after non-billing preflight. Explicit `onion`
+requires the paid path and never silently falls back.
+
+Artifact checking and installation cost `$0`. A paid session begins only after
+the complete verified artifact is locally ready and costs `$0.025 / 15 min`.
+`co browser status` reports the requested and resolved engines, typed reason,
+artifact, price, and live paid-session ID without exposing secrets.
+
+The candidate accepts only the dedicated preview API, an Ed25519-signed
+`preview` manifest, the exact Onionwright preview wheel, and a matching runtime
+channel. The first public Onion artifact target is Chromium 151 on Linux x86_64;
+macOS signing and notarization remain internal. The loopback-authenticated
+egress gateway is the security boundary; blocking Service Workers is
+best-effort visibility, not a sandbox.
+
+Close before changing engine. System and Onion use separate profiles:
+
+```bash
+co browser close
+co browser --engine system go_to example.com
+```
+
 Two ways to drive it:
 
-- **Direct functions** (deterministic): `go_to`, `get_text`, `click_element_by_selector`,
+- **Direct functions** (deterministic, no LLM charge; runtime cost follows the engine): `go_to`, `get_text`, `click_element_by_selector`,
   `take_screenshot`, `type_text_by_selector`, … — run `co browser help` for the full list.
 - **`do "<instruction>"`** (natural language): an AI agent operates the same live
   browser and figures out the steps itself.

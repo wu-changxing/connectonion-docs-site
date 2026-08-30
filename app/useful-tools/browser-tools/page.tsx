@@ -73,6 +73,38 @@ with BrowserAutomation() as browser:
           />
         </section>
 
+        {/* Pending 1.8 browser engine */}
+        <section className="mb-20 rounded-lg border border-blue-200 bg-blue-50 p-6">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-700 mb-2">1.8.0a4 candidate · not published</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-gray-900 mb-4">One synchronous API, explicit engine cost</h2>
+          <CodeWithResult
+            code={`BrowserAutomation()                     # default: free system browser
+BrowserAutomation(engine_mode="system") # explicit free system browser
+BrowserAutomation(engine_mode="auto")   # opt in; may select paid Onion
+BrowserAutomation(engine_mode="onion")  # require paid Onion Browser`}
+            language="python"
+          />
+          <div className="mt-5 space-y-3 text-gray-700">
+            <p>
+              The omitted mode is <code>system</code>: the browser resolver does not invoke the paid-token loader,
+              parse, transmit, or use a paid token, load Onionwright, call the preview API, or start billing.
+              ConnectOnion&apos;s shared package bootstrap may already have loaded project or home environment files.
+              Explicit <code>auto</code> may select paid Onion after a free preflight; explicit <code>onion</code>
+              requires it and never silently falls back.
+            </p>
+            <p>
+              Artifact checking and installation cost $0. A paid session begins only after the verified artifact
+              is locally ready and costs <code>$0.025 / 15 min</code>. The first public Onion artifact target is
+              Chromium 151 on Linux x86_64; macOS signing and notarization remain internal.
+            </p>
+            <p>
+              The public API stays synchronous. Internally one async browser core runs on a private event-loop
+              thread, so existing methods and context managers need no <code>await</code> while independent tabs
+              can make progress. That async core remains internal, not a supported application import.
+            </p>
+          </div>
+        </section>
+
         {/* API Reference */}
         <section className="mb-20">
           <h2 className="heading-2">

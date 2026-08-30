@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { HiOutlineArrowPath, HiOutlineArrowRight, HiOutlineUsers, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineServerStack, HiOutlineShieldCheck, HiOutlineChatBubbleLeftRight, HiOutlineSquare3Stack3D, HiOutlineBugAnt } from 'react-icons/hi2'
+import { HiOutlineArrowPath, HiOutlineArrowRight, HiOutlineUsers, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineServerStack, HiOutlineShieldCheck, HiOutlineChatBubbleLeftRight, HiOutlineSquare3Stack3D, HiOutlineBugAnt, HiOutlineGlobeAlt } from 'react-icons/hi2'
 
 export const metadata: Metadata = {
-  title: 'ConnectOnion Design Journal | AI Agent Architecture and Release Decisions',
-  description: 'Read ConnectOnion design decisions, release engineering lessons, protocol architecture, API rationale, and the thinking behind the Python AI agent framework.',
+  title: 'AI Agent Architecture | ConnectOnion Design Journal',
+  description: 'How ConnectOnion isolates preview releases, designs signed agent identity, places browser egress boundaries, and evolves protocols without unsafe fallbacks.',
   alternates: {
     canonical: '/blog',
   },
@@ -17,6 +17,16 @@ export const metadata: Metadata = {
 }
 
 const blogPosts = [
+  {
+    title: 'Preview Is Not a Production Alias',
+    subtitle: 'A version label cannot isolate executable bytes, authority, and billing',
+    date: 'August 2026',
+    readTime: '5 min read',
+    href: '/blog/preview-is-not-a-production-alias',
+    icon: HiOutlineGlobeAlt,
+    tags: ['Design Decision', 'Browser', 'Candidate'],
+    excerpt: 'The pending 1.8.0a4 browser candidate pins its preview API, signed manifest, exact Onionwright wheel, catalogue, and runtime channel before download, execution, or charging.'
+  },
   {
     title: 'co ai Delegates to Codex and Claude Code — and You Watch It Work',
     subtitle: 'ConnectOnion 1.7.0 is stable: live resumable Work Room, three plain permission modes',
