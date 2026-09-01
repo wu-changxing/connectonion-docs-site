@@ -278,7 +278,9 @@ Authenticate, restore session, and sync conversation. **Always the first message
   "payload": {
     "to": "0x3d4017c3e843...",
     "timestamp": 1702234567,
-    "signed_commands": 1
+    "nonce": "36d78b9c-...",
+    "signed_commands": 1,
+    "extensions": {"session-sync": ["0.1"]}
   },
   "from": "0xClientPublicKey",
   "signature": "0x..."
@@ -298,6 +300,22 @@ Authenticate, restore session, and sync conversation. **Always the first message
 v2 command gate described below. A new server continues accepting a v1 CONNECT
 without it, so an older client is not stranded; it does not receive v2's
 per-command injection/replay protection.
+
+Clients should sign a fresh, unpredictable `payload.nonce` into every CONNECT.
+The timestamp has one-second resolution, so it cannot distinguish two pages
+opened by the same identity at the same instant; the nonce keeps their
+deterministic Ed25519 signatures distinct without weakening replay protection.
+
+`payload.extensions` is also signed. If Host selects Session Sync, CONNECTED
+advertises `"extensions": {"session-sync": "0.1"}` in its protocol descriptor.
+A client must not send extension frames when that selection is absent.
+
+A client that needs only the Recent Chat index may include
+`payload.session_sync_only: 1` and omit `session_id` and `session`. Host answers
+with `status: "index"` and creates no blank conversation. When the public relay
+adds a top-level socket routing `session_id`, Host ignores that transport-owned
+value only on this relay index connection; direct clients still cannot attach
+chat state to an index-only socket.
 
 Server response based on state:
 
@@ -446,6 +464,49 @@ failures return `ERROR`.
 `@connectonion/react` owns this browser operation; O Chat consumes it without
 constructing protocol frames. Default and Plan are separate client
 collaboration modes and do not appear in this Host permission list.
+
+#### Session Sync extension
+
+Session Sync makes Host-retained history authoritative for Recent Chat while
+the browser keeps a local cache, drafts, and unsent outbox work. Results are
+scoped to the Ed25519 identity that authenticated CONNECT; knowing another
+session ID never reveals its title, existence, or content.
+
+`SESSION_SYNC` discovers summaries. Preserve the returned opaque cursor for
+incremental calls and drain pagination before replacing it:
+
+```json
+{"type":"SESSION_SYNC","request_id":"sync-1","cursor":"opaque","limit":50,"include_archived":false}
+```
+
+```json
+{
+  "type":"SESSION_SYNC_RESULT",
+  "request_id":"sync-1",
+  "sessions":[{
+    "session_id":"550e8400-...",
+    "revision":7,
+    "title":"Translate the report",
+    "activity":"idle",
+    "updated_at":"2026-09-01T08:03:12Z",
+    "preview":"The translated report is ready"
+  }],
+  "removed_session_ids":[],
+  "cursor":"opaque"
+}
+```
+
+`SESSION_GET` retrieves a revision-consistent ordered snapshot;
+`SESSION_WATCH` emits lightweight changes after an issued cursor; and
+`SESSION_UPDATE` applies rename or archive metadata only at the expected Host
+revision. Every command is individually signed with a unique `request_id`.
+`cursor_expired` requires one full sync without a cursor, and
+`revision_conflict` requires refetching before retrying a mutation.
+
+The browser merges summaries by `session_id`, keeps the greatest Host revision,
+removes IDs explicitly returned by Host, and never uploads local drafts as if
+they were committed history. Watch delivery is not durable, so clients also
+resync after reconnect, focus, and visibility changes.
 
 #### ONBOARD_SUBMIT
 
