@@ -4,6 +4,14 @@ Every hosted agent can have a **Home page**: a single file, `dashboard.html`, in
 project root. A chat client renders it beside the conversation, so opening your agent
 shows something useful before you type anything.
 
+> **Preview architecture — not in the current stable package:** Full Web Control
+> Center keeps HTML as the authoring surface but expands it into a complete,
+> multi-file Web app. An independently reviewed, content-addressed build is served
+> over HTTPS in a cross-origin iframe, so ordinary JavaScript, modules, frameworks,
+> assets, storage, Workers, Canvas/WebGL/WASM, and network APIs work normally.
+> `.co/dashboard.html` remains the backwards-compatible locked-down path described
+> on this page.
+
 ```
 my-agent/
 ├── agent.py
@@ -92,6 +100,20 @@ a button, check the skill's location first.
 
 The client validates every button name against the skills your agent published, so a
 button can only ever start a skill you actually have.
+
+### Full Web Control Center buttons
+
+The preview app runtime replaces HTML data attributes with a typed `MessageChannel`
+SDK. `sendMessage` and `runSkill` still become visible, attributable user turns rather
+than invisible side effects. They target the current Agent conversation by default:
+an invoice button and the user's follow-up therefore share context. On the Agent
+landing page, the first action creates that conversation. A product opens another
+chat only when it explicitly requests `conversation: "new"`.
+
+The iframe never opens a second Agent connection. O Chat owns the authenticated React
+SDK session, checks that a requested skill is published, and returns a correlated
+acknowledgement with the resulting session ID. Host trust, approval, and permission
+rules continue to govern the turn.
 
 ## When it updates
 
