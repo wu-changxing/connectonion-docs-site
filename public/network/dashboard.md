@@ -117,9 +117,11 @@ SDK session, checks that a requested skill is published, and returns a correlate
 acknowledgement with the resulting session ID. Host trust, approval, and permission
 rules continue to govern the turn.
 
-The default full-Web template receives the authenticated skill list and creates its
-buttons dynamically. Its message form requests `send_message`; each skill button
-requests `run_skill`. This means invoice and other project skills work without being
+The default full-Web template is the interactive version of CO AI's canonical starter.
+It receives the authenticated Agent name, full address, conversation, revision, and
+skill list. Its Diagnostics disclosure shows those identity facts without truncating
+the address; its message form requests `send_message`, and each dynamically-created
+skill button requests `run_skill`. No invoice or other project-specific Agent is
 hard-coded into the template.
 
 The iframe `src` is exactly `CONTROL_CENTER_APP.app.url`. The test fixture

@@ -677,8 +677,9 @@ connection; `sendMessage` and `runSkill` become visible turns in the current ses
 unless the app explicitly requests a new conversation. See the preview notes in
 [dashboard.md](dashboard.md).
 
-The initial context also carries the authenticated skill list, so a default template
-can render real `runSkill` buttons without hard-coding one Agent's capabilities.
+The initial context carries the authenticated Agent name and full address, current
+session, app revision, and skill list. A default template can render honest identity
+Diagnostics and real `runSkill` buttons without hard-coding one Agent's capabilities.
 `co create` and `co init` scaffold that editable source in `.co/control-center/`.
 The test-only URL `https://control-center.e2e.test/invoices/` is not a deployable
 iframe link; production activation requires immutable upload and independent approval.
