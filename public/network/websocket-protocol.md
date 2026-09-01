@@ -662,7 +662,7 @@ using `DASHBOARD_SNAPSHOT`.
   "app": {
     "schema": "connectonion.control-app/1",
     "revision": "sha256:...",
-    "url": "https://apps.openonion.ai/agent/revision/index.html",
+    "url": "https://apps.openonion.ai/0x3d4017c3/9f86d081884c7d65/index.html",
     "sdk_version": "1",
     "review": { "status": "approved", "review_id": "..." },
     "capabilities": ["clipboard-write", "fullscreen"]
@@ -676,6 +676,12 @@ transfers a private `MessagePort`. App requests use the parent's existing Agent
 connection; `sendMessage` and `runSkill` become visible turns in the current session
 unless the app explicitly requests a new conversation. See the preview notes in
 [dashboard.md](dashboard.md).
+
+The initial context also carries the authenticated skill list, so a default template
+can render real `runSkill` buttons without hard-coding one Agent's capabilities.
+`co create` and `co init` scaffold that editable source in `.co/control-center/`.
+The test-only URL `https://control-center.e2e.test/invoices/` is not a deployable
+iframe link; production activation requires immutable upload and independent approval.
 
 #### RUNTIME_INPUT_ACK
 

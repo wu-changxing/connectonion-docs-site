@@ -13,6 +13,7 @@ Initializes ConnectOnion in the current directory with:
 - Global address/email from `~/.co/`
 - API keys appended to existing `.env` (or created if missing)
 - Template files added to your project
+- A full Web Control Center template added once in `.co/control-center/`
 - Docs always updated to latest version
 
 ## Command Comparison
@@ -94,6 +95,10 @@ your-project/
 ├── .env                 # APPENDED with API keys (created if missing)
 ├── .co/
 │   ├── host.yaml       # Project config (uses global identity)
+│   ├── control-center/ # Full Web app source (added once, then yours)
+│   │   ├── index.html
+│   │   ├── control-center.js
+│   │   └── CONTROL_CENTER.md
 │   └── docs/           # ALWAYS UPDATED to latest version
 │       ├── co-vibe-coding-all-in-one.md  # Overwritten
 │       └── connectonion.md                # Overwritten
@@ -106,6 +111,7 @@ your-project/
 |----------------|-----------|----------|
 | `agent.py` | Skip | Won't overwrite user code |
 | `.env` | **Append** | Adds API keys if missing |
+| `.co/control-center/` | Skip | Adds the default website once; never overwrites your app |
 | `.co/docs/` | **Overwrite** | Always latest documentation |
 | `.co/host.yaml` | Update | Preserves custom settings |
 | `.gitignore` | Append | Adds ConnectOnion entries |
