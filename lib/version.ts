@@ -7,7 +7,7 @@
  * version shown on the homepage or in structured metadata.
  */
 export const STABLE_VERSION = '1.7.1'
-export const PREVIEW_VERSION: string | null = '1.8.0a3'
+export const PREVIEW_VERSION: string | null = '1.8.0a8'
 // 1.7.0 finished stabilizing and became the stable channel; nothing is
 // currently between a preview and stable.
 export const STABILIZING_VERSION: string | null = null
