@@ -170,6 +170,36 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Preview 1.8.0a8: retained chat synchronization</h2>
+          <div className="space-y-4 text-gray-700">
+            <p>
+              The experimental OIP <code>session-sync/0.1</code> extension exposes owner-scoped,
+              revision-based chat history from the Agent machine. Clients can discover changes,
+              read snapshots, and rename or archive chats without taking over another device&apos;s
+              live connection. Drafts remain local, and an empty CONNECT does not appear as a chat.
+            </p>
+            <p>
+              Pair <code>connectonion==1.8.0a8</code> with <code>@connectonion/react@0.4.4-rc.1</code>.
+              Fresh signed CONNECT nonces prevent same-second replay collisions; Host relay metadata
+              stays separate from resume state. Remote-only transcripts use <code>SESSION_GET</code>/{' '}
+              <code>SESSION_SNAPSHOT</code>. The{' '}
+              <a className="text-green-700 hover:underline" href="https://github.com/openonion/oo-chat/pull/244">
+                paired O Chat PR
+              </a>{' '}
+              tracks the frontend rollout separately.
+            </p>
+            <p className="text-sm text-gray-600">
+              The a6 and a7 tags were stopped before PyPI publication and remain immutable audit
+              records. A8 includes the release-workflow repair and the empty-session correction found
+              by live two-device E2E.{' '}
+              <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/releases/tag/v1.8.0a8">
+                Read the a8 release notes.
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-14">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Current plan</h2>
           <div className="border-l-2 border-gray-300 pl-5 space-y-4 text-gray-700">
             <p><strong>1.6.x:</strong> previous stable maintenance line.</p>
