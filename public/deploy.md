@@ -120,6 +120,35 @@ DATABASE_URL=postgres://...
 
 ---
 
+## Choose a dedicated server region
+
+`co server new` creates a separate machine; `co deploy --to` installs your agent
+onto it. Sydney remains the default. To create one browser-agent server in Melbourne:
+
+```bash
+co server new prod --machine e2-medium --region australia-southeast2
+co deploy --to prod
+```
+
+Available region IDs:
+
+| Location | Region |
+|---|---|
+| Sydney (default) | `australia-southeast1` |
+| Melbourne | `australia-southeast2` |
+| Singapore | `asia-southeast1` |
+| Iowa | `us-central1` |
+| Oregon | `us-west1` |
+
+The CLI reads available regions from `GET /api/v1/servers/pricing`. Selecting a
+region does not migrate existing servers. Quota and capacity are still required;
+the API tries zones only within the region you chose, not a different country.
+
+All listed regions use the same 12-month prepaid price: US$360 for `e2-small`,
+US$660 for `e2-medium`. Review the live quote before confirming. Failed
+provisioning reports whether the full refund succeeded. Check the status of an
+uncertain purchase before retrying to avoid creating a duplicate.
+
 ## co-ai agent (skills + browser)
 
 `co init --template co-ai` scaffolds a hosted coding agent — the same agent as
