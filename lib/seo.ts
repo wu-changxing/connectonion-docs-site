@@ -97,7 +97,7 @@ export const pageSEO: Record<string, PageSEO> = {
   },
   '/deploy': {
     title: 'Deploy Agents to Production - Docker, AWS, GCP | ConnectOnion',
-    description: 'Deploy ConnectOnion agents to production. Guides for Docker, AWS, GCP, and other platforms. From laptop deployment to cloud-scale infrastructure.',
+    description: 'Run co deploy, create a dedicated server with co server new --region, or self-host using the Dockerfile, Cloud Run and AWS ECS examples.',
     path: '/deploy',
     section: 'Network',
   },
