@@ -10,6 +10,7 @@ Usage: python3 scripts/check_page_seo.py <built-html-path>...
 
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from connectonion import llm_do
@@ -29,30 +30,39 @@ RUBRIC = (
 )
 
 
+def review_page(name: str) -> tuple[str, str]:
+    path = Path(name)
+    head = path.read_text(errors="replace").split("</head>")[0]
+    title = re.search(r"<title[^>]*>([^<]*)</title>", head)
+    desc = re.search(r'<meta name="description" content="([^"]*)"', head)
+    if not title or not desc:
+        return name, "SEO_FIX: Missing title or description"
+    verdict = llm_do(
+        f"{RUBRIC}\n---\nPage: {name}\nTitle: {title.group(1)}\n"
+        f"Description: {desc.group(1)}",
+        model="co/gemini-3.7-flash",
+    ).strip()
+    return name, verdict
+
+
 def main() -> int:
     failed = False
-    for name in sys.argv[1:]:
-        path = Path(name)
-        if not path.is_file():
-            continue
-        head = path.read_text(errors="replace").split("</head>")[0]
-        title = re.search(r"<title[^>]*>([^<]*)</title>", head)
-        desc = re.search(r'<meta name="description" content="([^"]*)"', head)
-        if not title or not desc:
-            continue  # the deterministic gate already failed this page
-        verdict = llm_do(
-            f"{RUBRIC}\n---\nPage: {name}\nTitle: {title.group(1)}\n"
-            f"Description: {desc.group(1)}",
-            model="co/gemini-3.7-flash",
-        ).strip()
-        print(f"{name}: {verdict}")
-        if not verdict.startswith("SEO_OK"):
-            fix = verdict.split(":", 1)[-1].strip()
-            print(
-                "::error::The page's title/description would not earn a "
-                f"click from search. Model's one fix: {fix}"
-            )
-            failed = True
+    # Each page is independent; bound concurrency to avoid serial full-site runs.
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {
+            executor.submit(review_page, name): name
+            for name in dict.fromkeys(sys.argv[1:])
+        }
+        for future in as_completed(futures):
+            name = futures[future]
+            try:
+                _, verdict = future.result()
+            except Exception as exc:
+                verdict = f"SEO_FIX: Review failed ({type(exc).__name__})"
+            print(f"{name}: {verdict}", flush=True)
+            if not verdict.startswith("SEO_OK"):
+                print(f"::error::{name}: {verdict}", flush=True)
+                failed = True
     return 1 if failed else 0
 
 

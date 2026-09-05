@@ -339,8 +339,6 @@ ConnectOnion is proudly open source:
 - **Stars**: ⭐ Star us on [GitHub](https://github.com/wu-changxing/connectonion)
 - **Fork**: Build your own features and share with the community
 
-## 📜 License
-
 ## Search and AI discovery
 
 Every documentation page must export its own metadata, including a self-canonical.
@@ -350,6 +348,8 @@ The sitemap discovers all static page routes and generated blog articles at buil
 AI readers can use `/llms.txt`, `/docs-index.txt`, and `/blog/llms.txt`.
 Run `node scripts/check-seo.mjs --all` after the production build; CI checks all
 emitted pages so parent metadata inheritance cannot silently return.
+
+## 📜 License
 
 Apache License 2.0 - See [LICENSE](../LICENSE) for details
 
