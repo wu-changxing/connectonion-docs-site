@@ -4,6 +4,8 @@
 
 ## Getting Started
 
+- [Complete documentation catalog](https://docs.connectonion.com/docs-index.txt): Every documentation route, description, and available Markdown source; generated with the site.
+
 - [Introduction](https://docs.connectonion.com/): Overview of ConnectOnion framework
 - [Quick Start](https://docs.connectonion.com/quickstart): Install and build your first agent in 60 seconds
 - [Vibe Coding Guide](https://docs.connectonion.com/vibe-coding): Use AI tools like Cursor to build agents

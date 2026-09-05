@@ -341,6 +341,16 @@ ConnectOnion is proudly open source:
 
 ## 📜 License
 
+## Search and AI discovery
+
+Every documentation page must export its own metadata, including a self-canonical.
+Client pages use a sibling server layout and `buildMetadata` from `lib/seo.ts`.
+The additional route descriptions live in `lib/docs-catalog.json`.
+The sitemap discovers all static page routes and generated blog articles at build time.
+AI readers can use `/llms.txt`, `/docs-index.txt`, and `/blog/llms.txt`.
+Run `node scripts/check-seo.mjs --all` after the production build; CI checks all
+emitted pages so parent metadata inheritance cannot silently return.
+
 Apache License 2.0 - See [LICENSE](../LICENSE) for details
 
 ---

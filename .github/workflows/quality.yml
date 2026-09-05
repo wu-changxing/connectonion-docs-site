@@ -41,3 +41,6 @@ jobs:
 
       - name: Verify built blog metadata and discovery
         run: npm run test:blog:build
+
+      - name: Verify every page's SEO and discovery
+        run: node scripts/check-seo.mjs --all

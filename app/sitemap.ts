@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getAllBlogPosts } from '../lib/blog-content.mjs'
+import { readdirSync } from 'node:fs'
 
 const BASE_URL = 'https://docs.connectonion.com'
 
@@ -139,6 +140,12 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries = new Map<string, MetadataRoute.Sitemap[number]>()
+  // Discover routes at build time so new documentation cannot miss the sitemap.
+  for (const file of readdirSync('app', { recursive: true }) as string[]) {
+    if (!file.endsWith('page.tsx') || file.includes('[')) continue
+    const path = '/' + file.replace(/\/?page\.tsx$/, '')
+    entries.set(path, { url: `${BASE_URL}${path}`, changeFrequency: 'monthly', priority: 0.6 })
+  }
   for (const { path, priority, changeFrequency } of pages) {
     entries.set(path, {
       url: `${BASE_URL}${path}`,
