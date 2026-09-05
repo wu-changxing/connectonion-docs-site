@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { getAllBlogPosts } from '../lib/blog-content.mjs'
 
 const BASE_URL = 'https://docs.connectonion.com'
 
@@ -137,10 +138,28 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return pages.map(({ path, priority, changeFrequency }) => ({
-    url: `${BASE_URL}${path}`,
-    lastModified: '2026-08-28',
-    changeFrequency,
-    priority,
-  }))
+  const entries = new Map<string, MetadataRoute.Sitemap[number]>()
+  for (const { path, priority, changeFrequency } of pages) {
+    entries.set(path, {
+      url: `${BASE_URL}${path}`,
+      lastModified: '2026-09-03',
+      changeFrequency,
+      priority,
+    })
+  }
+  for (const post of getAllBlogPosts()) {
+    entries.set(post.href, {
+      url: `${BASE_URL}${post.href}`,
+      lastModified: post.date,
+      changeFrequency: 'monthly',
+      priority: post.date >= '2026-08-01' ? 0.7 : 0.5,
+    })
+  }
+  entries.set('/blog', {
+    url: `${BASE_URL}/blog`,
+    lastModified: getAllBlogPosts()[0]?.date || '2026-09-03',
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  })
+  return [...entries.values()]
 }

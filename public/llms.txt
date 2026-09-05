@@ -119,6 +119,9 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 
 ## Blog — Design Decisions
 
+- [Complete engineering blog index](https://docs.connectonion.com/blog/llms.txt): AI-readable catalog of every published field note, with canonical URLs, summaries, and topics
+- [Engineering blog RSS](https://docs.connectonion.com/blog/feed.xml): Chronological feed of new ConnectOnion design decisions and implementation lessons
+
 - [Headless Does Not Mean Unconfigured](https://docs.connectonion.com/blog/headless-does-not-mean-unconfigured): Unattended Auto honors deliberate browser/status grants without turning the historical broad co wildcard into unlimited authority
 - [An Image Prefix Is Not an Image](https://docs.connectonion.com/blog/an-image-prefix-is-not-an-image): Strict completeness checks keep truncated data URLs and base64-looking text out of the image upload path
 - [A Patch Must Move Forward](https://docs.connectonion.com/blog/a-patch-must-move-forward): Stable patches require a tracked forward-port into every active higher line, and open obligations block newer preview, RC, and next-minor releases

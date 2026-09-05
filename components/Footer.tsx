@@ -54,7 +54,7 @@ export default function Footer() {
                 href="https://github.com/openonion/connectonion"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-700 transition-colors"
+                className="flex min-h-11 min-w-11 items-center justify-center text-gray-500 hover:text-gray-800 transition-colors"
                 aria-label="GitHub"
               >
                 <FaGithub className="w-5 h-5" />
@@ -63,7 +63,7 @@ export default function Footer() {
                 href="https://discord.gg/4xfD9k8AUF"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-700 transition-colors"
+                className="flex min-h-11 min-w-11 items-center justify-center text-gray-500 hover:text-gray-800 transition-colors"
                 aria-label="Discord"
               >
                 <FaDiscord className="w-5 h-5" />
