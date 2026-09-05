@@ -4,7 +4,7 @@ import { BLOG_BASE_URL, getAllBlogPosts } from '../../lib/blog-content.mjs'
 
 export const metadata: Metadata = {
   title: 'ConnectOnion Engineering Blog | AI Agent Design Decisions',
-  description: 'Practical engineering notes about AI agents, browser security, release systems, permissions, testing, and the design decisions behind ConnectOnion.',
+  description: 'Learn how ConnectOnion isolates Chromium egress, bounds agent permissions, tests real provider sessions, and promotes verified Python release candidates.',
   alternates: {
     canonical: '/blog',
     types: {

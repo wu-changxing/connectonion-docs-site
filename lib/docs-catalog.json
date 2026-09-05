@@ -191,7 +191,7 @@
   },
   "/features/trust": {
     "title": "Configure Agent-to-Agent Trust | ConnectOnion",
-    "description": "Configure bidirectional trust for incoming and outgoing agent interactions using explicit trust policies in ConnectOnion.",
+    "description": "Use host(create_agent, trust=\"strict\") for verified callers, or configure open, careful, and custom TrustAgent policies for incoming requests.",
     "path": "/features/trust"
   },
   "/models/pricing": {
@@ -210,8 +210,8 @@
     "path": "/prompts/formats"
   },
   "/tools/browser": {
-    "title": "Capture Browser Screenshots for Web Debugging | ConnectOnion",
-    "description": "Use the browser screenshot tool to capture pages and inspect visual failures while debugging a web application.",
+    "title": "Capture Browser Screenshots with co browser | ConnectOnion",
+    "description": "Run co browser take_screenshot /tmp/full.png --full-page to save a full-page capture, or set the viewport for mobile debugging.",
     "path": "/tools/browser"
   },
   "/tui/chat": {
@@ -230,8 +230,8 @@
     "path": "/tui/dropdown"
   },
   "/tui/footer": {
-    "title": "Footer — Python Terminal UI | ConnectOnion",
-    "description": "Simple footer with tips/hints display. Learn how to use Footer in ConnectOnion with Python examples and configuration guidance.",
+    "title": "Python Terminal Footer and Keyboard Hints | ConnectOnion",
+    "description": "Display configurable tips and keyboard shortcuts beneath terminal content with the Footer component from connectonion.tui.",
     "path": "/tui/footer"
   },
   "/tui/fuzzy": {
@@ -350,8 +350,8 @@
     "path": "/useful-tools/codex"
   },
   "/useful-tools/diff-writer": {
-    "title": "DiffWriter | ConnectOnion",
-    "description": "Human-in-the-loop file writing with diff display and approval. Learn how to use DiffWriter in ConnectOnion with Python examples and configuration guidance.",
+    "title": "DiffWriter: File Diffs and Human Approval | ConnectOnion",
+    "description": "Use DiffWriter to show proposed file changes and request approval before writing them, with a local copy available through co copy diff_writer.",
     "path": "/useful-tools/diff-writer"
   },
   "/useful-tools/file-tools": {
@@ -370,8 +370,8 @@
     "path": "/useful-tools/shell"
   },
   "/useful-tools/slash-command": {
-    "title": "SlashCommand | ConnectOnion",
-    "description": "Load and execute custom commands from markdown files. Learn how to use SlashCommand in ConnectOnion with Python examples and configuration guidance.",
+    "title": "Run Markdown Slash Commands in Python Agents | ConnectOnion",
+    "description": "Load custom commands from Markdown files with SlashCommand and expose reusable workflows to your Python agent.",
     "path": "/useful-tools/slash-command"
   },
   "/useful-tools/terminal": {
