@@ -1,11 +1,31 @@
 # Release channels
 
 ConnectOnion keeps normal stable installs separate from opt-in release work.
-More than one feature train can be public at once: 1.7 is stable while new 1.8
-work remains available as the highest preview.
+More than one feature train can be public at once. Preview builds never replace
+the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.7.1`; there is no active stabilizing
-candidate; the latest opt-in preview is `1.8.0a8`.
+**Current channels:** stable is `1.8.1`; there is no active stabilizing candidate
+or newer preview.
+
+## Stable 1.8.1
+
+System Chrome remains the free default. Paid Onion is selected explicitly with
+`co browser --engine onion`; close that session before returning to the default.
+The Linux CLI lifecycle was exercised with a dedicated test account. There is
+no paid UI panel and no automatic per-read/write engine switching.
+
+Browser status now correctly detects downloaded Chromium. Proxy-authentication
+rejection and Chrome network-error pages produce typed, nonzero navigation
+failures instead of false success. Normal empty or HTTP 404 pages remain readable.
+macOS uses system Chrome; the paid macOS production artifact is not part of this
+release. See the [1.8.1 release](https://github.com/openonion/connectonion/releases/tag/v1.8.1).
+
+```bash
+python -m pip install --upgrade connectonion==1.8.1
+```
+
+The sections below retain historical channel and preview notes, not current
+version recommendations.
 
 ## Version meanings
 
