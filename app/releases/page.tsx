@@ -43,7 +43,7 @@ const channels = [
   {
     version: 'X.Y.Z',
     name: 'Stable / LTS',
-    description: 'Default for normal installs. New features move to 1.8; 1.7.x receives maintenance fixes.',
+    description: 'Default for normal installs. Preview builds require an explicit opt-in.',
     icon: HiOutlineShieldCheck,
   },
 ]
@@ -59,7 +59,7 @@ export default function ReleasesPage() {
           ]}
           icon={HiOutlineArrowPath}
           title="Release Channels"
-          description="Stable 1.7, completed candidate status, and the independent 1.8 preview stay explicit."
+          description="Stable releases, exact-pin candidates, and opt-in previews stay explicit."
           markdownPath="/releases.md"
           markdownFilename="releases.md"
         />
@@ -75,7 +75,7 @@ export default function ReleasesPage() {
             <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">
               {STABILIZING_VERSION ? `v${STABILIZING_VERSION}` : 'No active candidate'}
             </p>
-            <p className="text-sm text-gray-600 mt-2">{STABILIZING_VERSION ? 'Exact-pin candidate under release gates.' : 'Stable 1.7 has completed its candidate window.'}</p>
+            <p className="text-sm text-gray-600 mt-2">{STABILIZING_VERSION ? 'Exact-pin candidate under release gates.' : 'No active release candidate.'}</p>
           </div>
           <div className="border border-gray-200 bg-gray-50 rounded-lg p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Latest preview</p>
@@ -86,6 +86,25 @@ export default function ReleasesPage() {
                 : 'No newer feature-train preview is currently published.'}
             </p>
           </div>
+        </section>
+
+        <section className="mb-14">
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.1</h2>
+          <p className="text-gray-600 mb-4">
+            System Chrome is free by default; paid Onion requires an explicit
+            {' '}<code>--engine onion</code> choice for the session. Browser status now
+            correctly reports installed Chromium, and rejected proxy credentials or
+            Chrome network-error pages return a typed failure instead of success.
+            Paid macOS production artifacts are not included; use system Chrome there.
+          </p>
+          <p className="text-gray-600 mb-4">
+            Relayed sessions can also be sealed end to end, and a single-worker host
+            keeps its replay ledger in memory so deleting a deployment file cannot
+            break request verification.
+          </p>
+          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.1" className="text-green-700 font-semibold hover:underline">
+            Read the 1.8.1 release
+          </Link>
         </section>
 
         <section className="mb-14 rounded-lg border border-green-200 bg-green-50 p-6">

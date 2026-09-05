@@ -56,6 +56,30 @@ co browser close                                 # shut the browser down`}
           </p>
         </section>
 
+        <section className="mb-20">
+          <h2 className="heading-2">Free by default; Onion by explicit choice</h2>
+          <p className="text-gray-600 mb-4">
+            System Chrome is the free default. Engine selection applies to the whole
+            session, not each read or write. Close the current engine before changing
+            it, and keep the explicit engine flag on its commands, including close.
+            There is no separate paid panel.
+          </p>
+          <CodeWithResult
+            code={`co browser close
+co browser --engine onion go_to example.com
+co browser --engine onion get_text
+co browser --engine onion close
+co browser go_to example.com  # free default again`}
+            language="bash"
+          />
+          <p className="text-gray-600 mt-4">
+            Onion prepays $0.025 per 15-minute interval. In 1.8.1, rejected proxy
+            authentication and Chrome network-error pages return BrowserNavigationError
+            with a nonzero CLI exit. An ordinary empty or HTTP 404 page remains readable.
+            Paid macOS production artifacts are not included; use system Chrome there.
+          </p>
+        </section>
+
         {/* Two ways */}
         <section className="mb-20">
           <h2 className="heading-2">
