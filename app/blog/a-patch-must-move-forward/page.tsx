@@ -27,8 +27,8 @@ Forward-port product fixes, regression tests, migrations, documentation, and ope
 `
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`,
-  description,
+  title: "Track Forward-Ports for Stable Release Fixes | ConnectOnion",
+  description: "Require a forward-port issue for each stable fix and resolve its applicability to every active newer release before publication.",
   alternates: { canonical: canonicalPath },
   openGraph: {
     title,

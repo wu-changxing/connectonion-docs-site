@@ -8,8 +8,8 @@ const description = 'Why co ai creates one private owner invite automatically, k
 const canonicalPath = '/blog/the-owner-needs-a-door'
 
 export const metadata: Metadata = {
-  title: 'Secure First-Owner Onboarding for AI Agents: One-Time Invite Codes | ConnectOnion',
-  description,
+  title: "Secure First-Owner Onboarding for Remote Agents | ConnectOnion",
+  description: "Provide a private owner recovery path that permits initial agent access without leaking invite credentials into logs.",
   keywords: ['ConnectOnion 1.6.8', 'co ai', 'owner invite', 'secure onboarding', 'CLI security'],
   alternates: { canonical: canonicalPath },
   openGraph: {

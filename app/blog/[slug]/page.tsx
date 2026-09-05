@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const canonicalPath = `/blog/${post.slug}`
   const socialImage = `/blog/og/${post.slug}`
   return {
-    title: `${post.title} | ConnectOnion Engineering Blog`,
+    title: `${post.seoTitle} | ConnectOnion`,
     description: post.description,
     authors: [{ name: post.author, url: BLOG_BASE_URL }],
     keywords: [...post.tags, 'ConnectOnion', 'Python AI agents'],

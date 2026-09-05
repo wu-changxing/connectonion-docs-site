@@ -1,0 +1,450 @@
+{
+  "a-server-browser-that-uses-your-address": {
+    "title": "Remote Browser Proxy Sharing with co proxy",
+    "description": "Use co proxy share to authorize one remote agent to browse through your computer's internet connection; review latency and network limits."
+  },
+  "a-reason-that-nothing-read": {
+    "title": "Enforce Paid Browser Session Expiry",
+    "description": "Check terminal_reason before browser operations so expired, revoked, or unpaid sessions cannot keep serving pages."
+  },
+  "bind-first-then-prepare": {
+    "title": "Prevent Browser Daemon Startup Race Corruption",
+    "description": "Acquire the daemon socket lock before preparing shared credentials so a losing startup cannot delete the winner's files."
+  },
+  "the-suffix-list-and-the-table-that-checked-itself": {
+    "title": "Test Browser Egress Hostname Deny Lists",
+    "description": "Audit special-use hostname suffixes and test destination policies against independent fixtures and deliberate mutations."
+  },
+  "the-wall-was-the-hard-part-not-the-pipe": {
+    "title": "Secure Residential Proxy Sharing for Browsers",
+    "description": "Route a server browser through a home connection while refusing private-network destinations such as 192.168.0.1."
+  },
+  "every-test-was-green-and-it-had-never-worked": {
+    "title": "Test Chromium Proxy Isolation with Real Probes",
+    "description": "Run native egress preflight through the real browser driver and verify that forbidden destinations actually reach the denying gateway."
+  },
+  "the-check-and-the-browser-read-different-names": {
+    "title": "Fix URL Parser Discrepancies in SSRF Checks",
+    "description": "Align URL policy checks with browser parsing and test generator-based deny ranges inside IPv4-mapped IPv6 addresses."
+  },
+  "the-gateway-held-but-the-answer-leaked": {
+    "title": "Audit HTTP Proxy Response Smuggling Risks",
+    "description": "Inspect client-facing proxy responses as well as outbound destination checks to expose response-smuggling gaps in egress tests."
+  },
+  "one-daemon-many-conversations": {
+    "title": "Concurrent Requests in a Python Browser Daemon",
+    "description": "Remove daemon-wide request serialization so a long browser task does not block independent sessions; preserve ordering within each session."
+  },
+  "127-0-0-1-did-not-look-like-an-ip-address": {
+    "title": "Block Alternate IP Encodings in Browser SSRF",
+    "description": "Normalize numeric hostnames such as 2130706433 before applying private-address policy so the browser and validator agree."
+  },
+  "a-private-tab-is-not-a-private-browser": {
+    "title": "Isolate Browser Processes for Private Egress",
+    "description": "Give remote browsing exclusive process, profile, proxy, and socket ownership; owner-bound tabs alone cannot isolate network authority."
+  },
+  "a-session-id-is-not-browser-authority": {
+    "title": "Authorize Remote Browser Sessions Across Reconnects",
+    "description": "Bind browser operations to the authenticated owner and lifecycle so a session identifier alone cannot grant access after reconnect."
+  },
+  "a-thread-is-not-an-async-runtime": {
+    "title": "Migrate Browser Automation to an Async Runtime",
+    "description": "Replace a shared blocking worker with owned async execution so separate browser sessions can make progress concurrently."
+  },
+  "focus-before-delete": {
+    "title": "Verify Browser Input Focus Before Replacing Text",
+    "description": "Check that focus reached the intended editor before select-all and delete, preventing successful commands from clearing the wrong content."
+  },
+  "input-was-the-uncancellable-part": {
+    "title": "Cancel Async Browser Manual Login Prompts",
+    "description": "Move cancellation to the terminal-input boundary so stopping wait_for_manual_login does not leave a worker waiting for input."
+  },
+  "sleep-was-the-global-lock": {
+    "title": "Prevent time.sleep from Blocking Browser Tabs",
+    "description": "Make humanized typing and pointer timing awaitable so one tab's simulated input does not freeze another tab."
+  },
+  "the-browser-opened-before-we-knew-it-was-safe": {
+    "title": "Verify Chromium Egress Isolation Before Navigation",
+    "description": "Require a browser preflight after launch to prove proxy refusal and network isolation before declaring a private browser ready."
+  },
+  "sync-on-the-outside-async-on-the-inside": {
+    "title": "Call Sync Browser APIs from Python Async Code",
+    "description": "Keep a synchronous public browser API over an owned async runtime, with explicit event-loop ownership and shutdown behavior."
+  },
+  "one-browser-api-three-engine-promises": {
+    "title": "Validate Browser Engine Selection in Daemon Reuse",
+    "description": "Check the running daemon's engine before sending commands so a paid Onion browser request cannot silently use another engine."
+  },
+  "the-matcher-left-the-loop": {
+    "title": "Keep Browser DOM Matching from Blocking asyncio",
+    "description": "Move synchronous model-backed element matching off the browser event loop so unrelated tabs respond while a model is pending."
+  },
+  "the-paid-launcher-was-on-the-wrong-loop": {
+    "title": "Integrate Paid Browser Launchers with asyncio",
+    "description": "Align the paid launcher with the daemon's async execution model and test the real launch boundary instead of compatible-looking mocks."
+  },
+  "the-proxy-replied-but-the-429-disappeared": {
+    "title": "Preserve HTTP 429 Responses Before TCP Close",
+    "description": "Test overload rejection from the proxy client's side; unread peer bytes can turn a written 429 response into a TCP reset on macOS."
+  },
+  "the-second-tab-was-not-concurrent": {
+    "title": "Measure Concurrency Across Browser Tabs",
+    "description": "Time simultaneous operations to distinguish tab isolation from concurrency, then move daemon and driver work onto one async runtime."
+  },
+  "the-upload-button-was-in-another-document": {
+    "title": "Handle iframe Uploads in Async Browser Automation",
+    "description": "Preserve frame routing and listener timing during async migration so file inputs in another document remain reachable."
+  },
+  "the-url-passed-but-the-socket-was-still-unknown": {
+    "title": "Enforce Browser SSRF Policy at the Egress Socket",
+    "description": "Resolve, validate, and dial approved numeric addresses in the gateway; a URL check before page.goto cannot control later connections."
+  },
+  "a-stable-candidate-cannot-ignore-late-evidence": {
+    "title": "Retest Release Candidates After Late Bug Reports",
+    "description": "Stop stable promotion when unattended browser acceptance reveals a new failure; publish new immutable candidate bytes and repeat the gate."
+  },
+  "one-fix-every-newer-line": {
+    "title": "Forward-Port Stable Fixes to Active Release Lines",
+    "description": "Track whether each higher release line contains maintenance fixes or records why they do not apply before promoting a candidate."
+  },
+  "a-durable-downgrade-must-also-be-live": {
+    "title": "Broadcast Live Codex Permission Downgrades",
+    "description": "Publish the narrowed provider lifecycle revision when Host permissions change so open Work Rooms immediately reflect stored authority."
+  },
+  "a-new-candidate-needs-a-new-name": {
+    "title": "Version Immutable Python Release Candidates",
+    "description": "Use a new candidate version whenever published code changes so install commands, evidence, checksums, and rollback identify the same bytes."
+  },
+  "a-permission-change-has-one-public-truth": {
+    "title": "Publish Atomic Agent Permission Changes",
+    "description": "Emit the final permission state after a downgrade so stopping and reopening native provider work cannot expose an intermediate authority."
+  },
+  "a-permission-is-a-complete-state": {
+    "title": "Reconcile Host and Provider Permission State",
+    "description": "Test acknowledged outer-mode downgrades after real provider Stop and parent follow-up, including remaining Full Access turn budgets."
+  },
+  "a-tool-result-is-not-a-final-answer": {
+    "title": "Recover Agent Turns After Empty Model Responses",
+    "description": "Distinguish a successful Claude Code tool result from parent-turn completion so an empty model answer cannot strand the chat composer."
+  },
+  "arm-the-deadline-before-the-tool-returns": {
+    "title": "Set Parent Agent Deadlines Before Tool Return",
+    "description": "Arm the parent recovery deadline before a successful coding result crosses mutable hosted state, keeping completion bounded."
+  },
+  "auto-must-mean-the-same-promise": {
+    "title": "Map Auto Permissions Across Codex and Claude Code",
+    "description": "Translate Host Auto intent into each native provider's workspace controls while preserving the separately confirmed Full Access ceiling."
+  },
+  "one-approval-boundary-is-enough": {
+    "title": "Avoid Duplicate Approvals in Native Agent Delegation",
+    "description": "Define one explicit handoff from Host policy to native provider approval so a managed delegation does not stall behind nested dialogs."
+  },
+  "the-daemon-was-not-the-slow-part": {
+    "title": "Reduce Browser CLI Startup Import Latency",
+    "description": "Measure the command path before blaming the daemon queue; avoid importing the entire persistent service for every state query."
+  },
+  "the-first-correct-snapshot-was-still-wrong": {
+    "title": "Prevent Stale Full Access in Work Room Snapshots",
+    "description": "Publish one provider snapshot at the final authority ceiling after Stop and downgrade, then verify reopened native sessions."
+  },
+  "the-last-change-is-the-name": {
+    "title": "Promote Verified Release Candidates to Stable",
+    "description": "Promote the same tested behavior after real provider, browser, build, Stop, permission, and reconnect acceptance."
+  },
+  "the-snapshot-that-arrived-thirty-nine-times": {
+    "title": "Deduplicate Work Room Snapshot Events",
+    "description": "Separate replacement snapshots from append-only events so repeated provider state cannot flood the chat and hide an approval."
+  },
+  "the-tool-finished-but-the-turn-did-not": {
+    "title": "Bound Parent LLM Requests After Tool Completion",
+    "description": "Give the parent agent a bounded outcome after a long-running child finishes so a stalled model request cannot lock the composer."
+  },
+  "the-workspace-default-was-already-known": {
+    "title": "Default Native Agent Workspaces Safely",
+    "description": "Use the Host-owned workspace when a native coding call omits a directory, while rejecting requests outside the authorized boundary."
+  },
+  "a-release-candidate-is-a-testable-artifact": {
+    "title": "Verify Python Release Candidate Artifacts",
+    "description": "Test a clean public wheel through real browser and provider journeys, and keep its bytes unchanged during release acceptance."
+  },
+  "the-work-room-needed-its-own-permissions": {
+    "title": "Expose Native Provider Permissions in Work Rooms",
+    "description": "Keep Host authority, provider-session modes, and individual approvals distinct and visible in the native coding client."
+  },
+  "a-snapshot-is-not-live-state": {
+    "title": "Drive Agent Dashboards from Lifecycle Events",
+    "description": "Update Control Center readiness from live running and approval events so a stored snapshot cannot label a busy agent available."
+  },
+  "a-transcript-is-not-a-client": {
+    "title": "Add Follow-Up Input to Claude Code Work Rooms",
+    "description": "Send new messages into the same native provider conversation so users can continue work from the remote client."
+  },
+  "a-workspace-boundary-is-not-a-path": {
+    "title": "Redact Host Paths from Agent Boundary Errors",
+    "description": "Reject out-of-workspace provider requests without exposing private roots, missing paths, file names, or symlink targets in public errors."
+  },
+  "an-action-is-not-a-reason": {
+    "title": "Write Accurate Agent Tool Activity Labels",
+    "description": "Describe the operation being performed above a tool call and leave supporting evidence available without inventing model rationale."
+  },
+  "an-invite-is-not-an-environment": {
+    "title": "Scope Agent Owner Invites to One Invocation",
+    "description": "Keep temporary onboarding credentials scoped to the workflow that needs them instead of treating every invite as durable environment configuration."
+  },
+  "the-approval-belonged-to-the-wrong-room": {
+    "title": "Route Codex Follow-Up Approvals to the Provider",
+    "description": "Place native session decisions in the Work Room that can answer them so Host-level approval does not silently stall provider follow-ups."
+  },
+  "the-beta-caught-the-wrong-question": {
+    "title": "Use Action Labels for AI Tool Call Visibility",
+    "description": "Change tool summaries from inferred reasons to observable actions so type-correct UI contracts do not encourage invented explanations."
+  },
+  "the-bill-and-the-counter-disagreed": {
+    "title": "Reconcile Cached LLM Tokens with Billing",
+    "description": "Use one source of truth for new, cached, and output-token accounting so the chat can explain the charge on a managed request."
+  },
+  "the-timeout-that-blocked-recovery": {
+    "title": "Recover Browser Commands After Navigation Timeouts",
+    "description": "Allow recovery actions after DOMContentLoaded times out instead of repeating the same blocked readiness check before every command."
+  },
+  "the-workroom-lost-the-conversation": {
+    "title": "Render Claude Code Conversations in Work Rooms",
+    "description": "Carry provider requests and answers through the shared protocol so live status and tool summaries do not replace the conversation."
+  },
+  "a-mode-is-not-a-compatibility-shim": {
+    "title": "Reject Ambiguous Legacy Agent Permission Modes",
+    "description": "Remove authority-guessing aliases and automatic continuation behavior so Auto, Read only, and Full Access retain explicit meanings."
+  },
+  "a-url-is-one-piece-of-data": {
+    "title": "Keep OAuth Login URLs Copyable in Terminals",
+    "description": "Render long co auth google URLs without inserted line breaks so headless users can copy the exact credential handoff value."
+  },
+  "no-dialog-is-not-approval": {
+    "title": "Enforce Agent Permissions in Headless Auto Mode",
+    "description": "Apply the same outside-workspace and unknown-tool policy when no approval UI exists; missing dialogs must not grant authority."
+  },
+  "the-log-sent-us-to-the-wrong-file": {
+    "title": "Report Credential Provenance in Deployment Logs",
+    "description": "Pass configuration provenance through deployment layers so invite diagnostics identify the actual source without exposing secrets."
+  },
+  "an-iteration-limit-is-not-success": {
+    "title": "Return Failure When Agent Iterations Run Out",
+    "description": "Use a nonzero command outcome for unfinished agent work so shell pipelines cannot treat an exhausted iteration budget as success."
+  },
+  "three-labels-were-one-decision": {
+    "title": "Unify Agent Permission Mode Names Across Clients",
+    "description": "Map Default, workspace, and provider approval settings to explicit user-visible authority so one choice cannot acquire three meanings."
+  },
+  "a-server-quota-is-not-a-ceiling": {
+    "title": "Select Server Regions with co server new",
+    "description": "Expose server region choice from the backend catalog so regional GCE address quotas do not become a global provisioning ceiling."
+  },
+  "authorise-in-advance-so-nobody-signs-at-3am": {
+    "title": "Authorize Reverse Proxy Egress Before Agent Runs",
+    "description": "Separate connection-sharing authorization from tunnel transport and reject attempts by the proxy to authorize its own egress."
+  },
+  "new-feature-work-needs-a-new-number": {
+    "title": "Separate Feature Releases from Stabilization",
+    "description": "Move new remote-browser and server-region work to the next feature line while a frozen release accepts stabilization fixes only."
+  },
+  "sharing-a-mailbox-is-not-the-same-as-giving-it-away": {
+    "title": "Share Agent Mailbox Access Without Transferring It",
+    "description": "Authorize another agent against an existing mailbox identity so outreach and CRM history stay attached to the original address."
+  },
+  "the-browser-gate-was-only-windows": {
+    "title": "Test Installed Browser CLI on macOS and Windows",
+    "description": "Run clean-wheel browser acceptance on each supported platform so Windows-only coverage cannot hide macOS daemon failures."
+  },
+  "the-model-was-holding-the-browser": {
+    "title": "Prevent Slow LLM Calls from Blocking Browser Sessions",
+    "description": "Separate model waiting from the browser execution lane so spending-cap retries cannot freeze unrelated browser sessions."
+  },
+  "a-message-is-not-accepted-until-codex-accepts-it": {
+    "title": "Acknowledge Codex Messages After Native Acceptance",
+    "description": "Keep a follow-up draft until successful steering or native turn start; placing text in a Host queue is not delivery."
+  },
+  "a-stop-request-is-not-a-stop": {
+    "title": "Confirm Native Codex Stop with Lifecycle Events",
+    "description": "Distinguish Stop intent, delivery, and terminal outcome so the client reports cancellation only for the targeted provider invocation."
+  },
+  "a-thumbnail-is-evidence-not-a-placeholder": {
+    "title": "Validate Work Room Image Artifact Thumbnails",
+    "description": "Render verified workspace or inline PNG evidence and reject outside paths, malformed bytes, and stale revisions."
+  },
+  "a-workroom-has-one-writer": {
+    "title": "Use One Authoritative Writer for Work Room State",
+    "description": "Let the provider-owning layer emit lifecycle revisions and retain artifacts while browser consumers reject stale or malformed state."
+  },
+  "auto-is-a-boundary-not-a-bypass": {
+    "title": "Define Workspace-Bounded Auto Mode for Agents",
+    "description": "Allow narrow local workspace work without repeated approval while leaving ambiguous, destructive, and broader actions under review."
+  },
+  "a-name-is-not-an-adapter": {
+    "title": "Verify Native Codex Adapter Invocation",
+    "description": "Require protocol evidence of a real provider session so shell checks and a model's claim cannot stand in for opening Codex."
+  },
+  "a-session-id-is-not-a-work-room": {
+    "title": "Expose Claude Code Session Lifecycle to Clients",
+    "description": "Emit provider-owned identity, status, authority, continuation, and replay so a UUID inside a tool result becomes a usable Work Room."
+  },
+  "a-user-message-is-not-always-a-string": {
+    "title": "Handle Multimodal Messages in Skills Plugins",
+    "description": "Extract text from structured user content without discarding image parts or calling string methods on a list."
+  },
+  "stop-is-a-process-tree-operation": {
+    "title": "Terminate Shell Process Trees on Agent Stop",
+    "description": "Test that Stop terminates bash and its child processes as well as suppressing late tool results and UI events."
+  },
+  "the-long-tail-of-a-default": {
+    "title": "Update Model Defaults Across Code and Documentation",
+    "description": "Centralize DEFAULT_MODEL and audit examples, templates, and docs so an old model string does not survive as misleading guidance."
+  },
+  "the-screenshot-was-not-the-test": {
+    "title": "Verify Agent UI State Against Protocol and Resources",
+    "description": "Test screenshots alongside provider state, reconnect behavior, and operating-system resources to prove Stop and resume actually work."
+  },
+  "the-second-connection-was-still-the-first": {
+    "title": "Make WebSocket Agent Reconnect Authentication Idempotent",
+    "description": "Preserve relay and session continuity across browser reloads while checking that identity and authority have not changed."
+  },
+  "labels-need-a-release-home": {
+    "title": "Triage GitHub Issues with Labels and Release Targets",
+    "description": "Classify contributions and require real release metadata so unlabeled work and placeholder milestones cannot disappear into the merge queue."
+  },
+  "one-browser-boundary": {
+    "title": "Route Codex Requests Through Native OIP Adapters",
+    "description": "Enforce requested provider identity across the browser protocol and validate the installed wheel so base-model fallback cannot fake a handoff."
+  },
+  "evaluation-is-a-choice": {
+    "title": "Make Agent Evaluation and Log Retention Explicit",
+    "description": "Separate optional task judgment from observability and bound retained evaluation records while preserving authored test suites."
+  },
+  "every-pr-tells-its-story": {
+    "title": "Require Feature Documentation in Pull Requests",
+    "description": "Use a publication gate to connect implemented capabilities with CLI help, user documentation, and engineering lessons."
+  },
+  "one-default-five-answers": {
+    "title": "Centralize the Default LLM Model Configuration",
+    "description": "Replace repeated model strings with one DEFAULT_MODEL while preserving explicit user configuration and a documented rollback."
+  },
+  "ten-minutes-was-not-a-timeout-policy": {
+    "title": "Honor Requested Shell Timeouts in Agent Tools",
+    "description": "Stop silently capping caller timeouts at ten minutes and propagate real timeout errors through direct APIs and Agent traces."
+  },
+  "the-cache-was-invisible": {
+    "title": "Expose LLM Prompt Cache Usage and Costs",
+    "description": "Surface provider cached-token counts in local accounting and terminal output so repeated requests show their actual charge."
+  },
+  "the-cli-is-the-product": {
+    "title": "Expose Credit Transfers Through the co CLI",
+    "description": "Connect working transfer APIs to commands, help, actionable errors, and tested next-step tips so users can discover the feature."
+  },
+  "the-third-argument-was-already-taken": {
+    "title": "Add Outlook Reply Attachments Without Breaking Calls",
+    "description": "Preserve the reply method's existing positional arguments while adding attachment validation and regression tests for legacy callers."
+  },
+  "outlook-attachment-collisions": {
+    "title": "Prevent Outlook Attachment Filename Overwrites",
+    "description": "Allocate unique download paths for duplicate attachment names and existing local files, then return the paths actually written."
+  },
+  "when-logging-looked-like-authoring": {
+    "title": "Allow Shell Log Appends Under Agent Write Policy",
+    "description": "Distinguish source authoring from command-output logging so append redirects and tee can write audit records without retry loops."
+  },
+  "connectonion-1-7": {
+    "title": "Delegate Coding to Codex and Claude Code in 1.7",
+    "description": "ConnectOnion 1.7 adds resumable native coding Work Rooms, explicit permission modes, and live tool activity through co ai."
+  },
+  "what-makes-an-agent-10x": {
+    "title": "Five Capabilities for Reliable Autonomous AI Agents",
+    "description": "Design agents around verifiable work, durable time, learned experience, bounded delegation, and access to real tools."
+  },
+  "headless-does-not-mean-unconfigured": {
+    "title": "Configure Headless Agent Command Permissions",
+    "description": "Honor explicit command grants in unattended Auto while rejecting broad legacy wildcards that would authorize unlimited actions."
+  },
+  "an-image-prefix-is-not-an-image": {
+    "title": "Reject Truncated Base64 Image Uploads",
+    "description": "Validate complete data URLs and image payloads before upload so base64-looking text cannot enter the image path."
+  },
+  "a-patch-must-move-forward": {
+    "title": "Track Forward-Ports for Stable Release Fixes",
+    "description": "Require a forward-port issue for each stable fix and resolve its applicability to every active newer release before publication."
+  },
+  "connectonion-1-6-12": {
+    "title": "ConnectOnion 1.6.12: Regions and Shared Mailboxes",
+    "description": "Release notes for server-region choice, shared mailboxes, collision-safe Outlook downloads, and bounded provider requests."
+  },
+  "workroom-is-a-view": {
+    "title": "Remote Clients for Native Codex and Claude Code",
+    "description": "Keep provider conversation, follow-up input, lifecycle, and controls in one Work Room while the native adapter owns execution."
+  },
+  "a-work-room-is-a-summary-not-a-transcript": {
+    "title": "Summarize Long-Running Native Coding Sessions",
+    "description": "Use a finite OIP Work Room summary with verified decisions and evidence instead of replaying raw terminal transcripts by default."
+  },
+  "an-approval-is-not-execution-time": {
+    "title": "Pause Codex Timeouts During Manual Approval",
+    "description": "Exclude time spent waiting for an operator's approval from the active provider execution budget."
+  },
+  "a-tool-transaction-is-not-a-work-room": {
+    "title": "Stream Native Coding Activity and Approvals",
+    "description": "Send live provider activity and approval events through OIP while keeping raw terminal detail out of the default chat surface."
+  },
+  "the-owner-needs-a-door": {
+    "title": "Secure First-Owner Onboarding for Remote Agents",
+    "description": "Provide a private owner recovery path that permits initial agent access without leaking invite credentials into logs."
+  },
+  "a-page-should-not-become-a-wall": {
+    "title": "Make Every Agent Mailbox Page Reachable",
+    "description": "Keep mailbox pagination finite while exposing a way to retrieve every remaining page instead of silently hiding older messages."
+  },
+  "gemini-37-default": {
+    "title": "Roll Out a New Default Gemini Model Safely",
+    "description": "Verify backend support before clients request the new default, and preserve explicit user model choices."
+  },
+  "deployed-agent-identity": {
+    "title": "Separate Agent Identity from Operator Billing",
+    "description": "Control which credentials a deployed process inherits so operator configuration cannot silently replace agent identity or billing authority."
+  },
+  "oip-native-coding-adapters": {
+    "title": "Integrate Codex and Claude Code Through OIP",
+    "description": "Use one browser-facing protocol while native backend adapters retain provider sessions, approval behavior, and execution ownership."
+  },
+  "connectonion-1-6": {
+    "title": "ConnectOnion 1.6.0 Remote Agent Security Release",
+    "description": "Review the release's remote-agent controls and the separation of deployed agent credentials from operator identity."
+  },
+  "auto-debug-evolution": {
+    "title": "Design Interactive Debugging for Python AI Agents",
+    "description": "Compare five debugging designs that reduced mode complexity and focused the workflow on inspecting live agent execution."
+  },
+  "network-protocol-design": {
+    "title": "AI Agent Network Protocol Architecture",
+    "description": "Compare agent addressing, messages, and direct connections with the earlier identity and session machinery."
+  },
+  "trust-keyword": {
+    "title": "Design Bidirectional Agent Authorization with Trust",
+    "description": "Use trust as the public API concept for both accepting incoming agents and deciding which remote agents may be called."
+  },
+  "llm-do": {
+    "title": "Name One-Shot Python LLM Calls with llm_do",
+    "description": "Use llm_do() for a single LLM task without creating an Agent; the function name states an action rather than naming a model object."
+  },
+  "input-method": {
+    "title": "Why Agent.input() Replaced run() in the Python API",
+    "description": "Send a task through Agent.input() so the primary method names the caller's input rather than exposing a generic execution verb."
+  },
+  "agent-address-format": {
+    "title": "Use Ed25519 Public Keys as Agent Addresses",
+    "description": "Represent the full Ed25519 public key in hexadecimal with a 0x prefix so an address directly carries the agent's public verification key."
+  },
+  "naming-is-hard": {
+    "title": "Agent Address vs Identity in Network APIs",
+    "description": "Use address for network routing and keep reputation, authorization, and broader identity concepts separate in the public API."
+  },
+  "cli-ux-progressive-disclosure": {
+    "title": "Progressive Disclosure in Python Agent CLI Design",
+    "description": "Scaffold a working agent project first, then reveal configuration choices when users need them instead of requiring a setup questionnaire."
+  }
+}

@@ -7,8 +7,8 @@ const description = 'Why long native coding work needs a finite OIP summary, ver
 const canonicalPath = '/blog/a-work-room-is-a-summary-not-a-transcript'
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`,
-  description,
+  title: "Summarize Long-Running Native Coding Sessions | ConnectOnion",
+  description: "Use a finite OIP Work Room summary with verified decisions and evidence instead of replaying raw terminal transcripts by default.",
   alternates: { canonical: canonicalPath },
   openGraph: {
     title,

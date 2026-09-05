@@ -7,8 +7,8 @@ const description = 'Why OIP streams native coding activity and nested approvals
 const canonicalPath = '/blog/a-tool-transaction-is-not-a-work-room'
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`,
-  description,
+  title: "Stream Native Coding Activity and Approvals | ConnectOnion",
+  description: "Send live provider activity and approval events through OIP while keeping raw terminal detail out of the default chat surface.",
   alternates: { canonical: canonicalPath },
   openGraph: {
     title,

@@ -8,8 +8,8 @@ const description = 'Why ConnectOnion uses OIP for the browser boundary while Co
 const canonicalPath = '/blog/oip-native-coding-adapters'
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`,
-  description,
+  title: "Integrate Codex and Claude Code Through OIP | ConnectOnion",
+  description: "Use one browser-facing protocol while native backend adapters retain provider sessions, approval behavior, and execution ownership.",
   alternates: { canonical: canonicalPath },
   openGraph: {
     title,

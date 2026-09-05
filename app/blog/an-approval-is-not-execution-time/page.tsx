@@ -7,8 +7,8 @@ const description = 'Why a manual Codex approval pauses the active-work budget i
 const canonicalPath = '/blog/an-approval-is-not-execution-time'
 
 export const metadata: Metadata = {
-  title: 'AI Agent Tool Permissions: Why Approval Time Is Not Execution Time | ConnectOnion',
-  description,
+  title: "Pause Codex Timeouts During Manual Approval | ConnectOnion",
+  description: "Exclude time spent waiting for an operator's approval from the active provider execution budget.",
   alternates: { canonical: canonicalPath },
   openGraph: {
     title,
