@@ -88,6 +88,25 @@ export default function ReleasesPage() {
           </div>
         </section>
 
+        <section className="mb-14">
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.1</h2>
+          <p className="text-gray-600 mb-4">
+            System Chrome is free by default; paid Onion requires an explicit
+            {' '}<code>--engine onion</code> choice for the session. Browser status now
+            correctly reports installed Chromium, and rejected proxy credentials or
+            Chrome network-error pages return a typed failure instead of success.
+            Paid macOS production artifacts are not included; use system Chrome there.
+          </p>
+          <p className="text-gray-600 mb-4">
+            Relayed sessions can also be sealed end to end, and a single-worker host
+            keeps its replay ledger in memory so deleting a deployment file cannot
+            break request verification.
+          </p>
+          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.1" className="text-green-700 font-semibold hover:underline">
+            Read the 1.8.1 release
+          </Link>
+        </section>
+
         <section className="mb-14 rounded-lg border border-green-200 bg-green-50 p-6">
           <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">Stable 1.7 design</p>
           <h2 className="text-xl font-semibold text-gray-900 mb-3">A Work Room is a client, not a status panel</h2>
