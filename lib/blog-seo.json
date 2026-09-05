@@ -105,7 +105,7 @@
   },
   "one-fix-every-newer-line": {
     "title": "Verify Stable Fixes Across Active Release Branches",
-    "description": "Audit Git ancestry and track each forward-port obligation before promoting a higher release line that lacks a stable maintenance fix."
+    "description": "The release contract checks Git ancestry and applicable behavioral fixes across supported branches, excluding old version metadata from forward-ports."
   },
   "a-durable-downgrade-must-also-be-live": {
     "title": "Live AI Agent Permission Downgrades",
@@ -121,7 +121,7 @@
   },
   "a-permission-is-a-complete-state": {
     "title": "Reconcile Host and Provider Permission State",
-    "description": "Test acknowledged outer-mode downgrades after real provider Stop and parent follow-up, including remaining Full Access turn budgets."
+    "description": "Copy both the validated mode and positive turns_left budget into native continuations; missing budgets degrade to Auto without renewing authority."
   },
   "a-tool-result-is-not-a-final-answer": {
     "title": "Recover Agent Turns After Empty Model Responses",
@@ -168,7 +168,7 @@
     "description": "Test a clean public wheel through real browser and provider journeys, and keep its bytes unchanged during release acceptance."
   },
   "the-work-room-needed-its-own-permissions": {
-    "title": "Expose Native Provider Permissions in Work Rooms",
+    "title": "Configure AI Agent Provider Session Permissions",
     "description": "Keep Host authority, provider-session modes, and individual approvals distinct and visible in the native coding client."
   },
   "a-snapshot-is-not-live-state": {
@@ -260,7 +260,7 @@
     "description": "Separate model waiting from the browser execution lane so spending-cap retries cannot freeze unrelated browser sessions."
   },
   "a-message-is-not-accepted-until-codex-accepts-it": {
-    "title": "Acknowledge Codex Messages After Native Acceptance",
+    "title": "Codex Message Delivery and Acceptance Guarantees",
     "description": "Keep a follow-up draft until successful steering or native turn start; placing text in a Host queue is not delivery."
   },
   "a-stop-request-is-not-a-stop": {
@@ -312,7 +312,7 @@
     "description": "Classify contributions and require real release metadata so unlabeled work and placeholder milestones cannot disappear into the merge queue."
   },
   "one-browser-boundary": {
-    "title": "Route Codex Requests Through Native OIP Adapters",
+    "title": "Integrate Native Codex Sessions with a Browser Client",
     "description": "Enforce requested provider identity across the browser protocol and validate the installed wheel so base-model fallback cannot fake a handoff."
   },
   "evaluation-is-a-choice": {
@@ -320,8 +320,8 @@
     "description": "Enable optional judging with co ai --eval; retain the newest 500 generated session records while keeping authored evaluation suites."
   },
   "every-pr-tells-its-story": {
-    "title": "Require Feature Documentation in Pull Requests",
-    "description": "Use a publication gate to connect implemented capabilities with CLI help, user documentation, and engineering lessons."
+    "title": "Enforce Feature Documentation with a CI Blog Gate",
+    "description": "Require a docs/blog post through the blog-gate CI check so implemented capabilities ship with CLI help, user documentation, and engineering lessons."
   },
   "one-default-five-answers": {
     "title": "Centralize the Default LLM Model Configuration",
@@ -400,8 +400,8 @@
     "description": "Retrieve later mailbox pages with get_emails(last=1000, offset=2000) or co email inbox --last 1000 --offset 2000."
   },
   "gemini-37-default": {
-    "title": "Roll Out a New Default Gemini Model Safely",
-    "description": "Verify backend support before clients request the new default, and preserve explicit user model choices."
+    "title": "Roll Out Gemini 3.7 as the Default Model",
+    "description": "Verify backend support before clients request Gemini 3.7, and preserve explicit user model choices."
   },
   "deployed-agent-identity": {
     "title": "Separate Agent Identity from Operator Billing",

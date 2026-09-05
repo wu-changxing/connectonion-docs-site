@@ -115,7 +115,7 @@
     "path": "/agent-emails/send"
   },
   "/cli/ai": {
-    "title": "co ai | ConnectOnion",
+    "title": "co ai: CLI Coding Agent and One-Shot Commands | ConnectOnion",
     "description": "Run the ConnectOnion coding agent in O Chat or as a one-shot command. Learn how to use co ai in ConnectOnion with Python examples and configuration guidance.",
     "path": "/cli/ai"
   },
@@ -325,7 +325,7 @@
     "path": "/useful-plugins/tool-approval"
   },
   "/useful-plugins/ui-stream": {
-    "title": "ui_stream Plugin | ConnectOnion",
+    "title": "Stream Agent Results to WebSocket UIs | ConnectOnion",
     "description": "Stream agent completion summaries to WebSocket UI clients. Used with host() for real-time updates in web chat interfaces.",
     "path": "/useful-plugins/ui-stream"
   },
