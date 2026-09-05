@@ -1,5 +1,17 @@
 # `co browser`
 
+## 1.8.1 engine selection and failures
+
+System Chrome is free by default. To use paid Onion, close the current session,
+then use `co browser --engine onion go_to example.com`. Keep `--engine onion`
+on subsequent commands, including `close`; a fresh bare `co browser go_to`
+returns to the free default. This is CLI/session selection, not a paid panel
+or automatic per-read/write switching. Onion prepays $0.025 per 15 minutes.
+
+Rejected proxy authentication and Chrome network-error documents return
+`BrowserNavigationError` and exit 1; normal empty/404 pages remain readable.
+Paid macOS production artifacts are not part of 1.8.1; use system Chrome.
+
 Drive **one persistent, logged-in browser from the shell** — and let several AI agents share it without stepping on each other's pages.
 
 ## Quick Start (60 seconds)
