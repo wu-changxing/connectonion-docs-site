@@ -17,8 +17,9 @@ no paid UI panel and no automatic per-read/write engine switching.
 Browser status now correctly detects downloaded Chromium. Proxy-authentication
 rejection and Chrome network-error pages produce typed, nonzero navigation
 failures instead of false success. Normal empty or HTTP 404 pages remain readable.
-macOS uses system Chrome; the paid macOS production artifact is not part of this
-release. See the [1.8.1 release](https://github.com/openonion/connectonion/releases/tag/v1.8.1).
+The production catalogue now includes the paid Apple Silicon macOS artifact;
+Intel Macs continue to use system Chrome until their native artifact is promoted.
+See the [1.8.1 release](https://github.com/openonion/connectonion/releases/tag/v1.8.1).
 
 ```bash
 python -m pip install --upgrade connectonion==1.8.1
