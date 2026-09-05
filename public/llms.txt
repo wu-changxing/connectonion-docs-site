@@ -4,6 +4,8 @@
 
 ## Getting Started
 
+- [Complete documentation catalog](https://docs.connectonion.com/docs-index.txt): Every documentation route, description, and available Markdown source; generated with the site.
+
 - [Introduction](https://docs.connectonion.com/): Overview of ConnectOnion framework
 - [Quick Start](https://docs.connectonion.com/quickstart): Install and build your first agent in 60 seconds
 - [Vibe Coding Guide](https://docs.connectonion.com/vibe-coding): Use AI tools like Cursor to build agents
@@ -118,6 +120,9 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 - [Browser Automation](https://docs.connectonion.com/examples/browser): Web automation agent
 
 ## Blog — Design Decisions
+
+- [Complete engineering blog index](https://docs.connectonion.com/blog/llms.txt): AI-readable catalog of every published field note, with canonical URLs, summaries, and topics
+- [Engineering blog RSS](https://docs.connectonion.com/blog/feed.xml): Chronological feed of new ConnectOnion design decisions and implementation lessons
 
 - [Headless Does Not Mean Unconfigured](https://docs.connectonion.com/blog/headless-does-not-mean-unconfigured): Unattended Auto honors deliberate browser/status grants without turning the historical broad co wildcard into unlimited authority
 - [An Image Prefix Is Not an Image](https://docs.connectonion.com/blog/an-image-prefix-is-not-an-image): Strict completeness checks keep truncated data URLs and base64-looking text out of the image upload path

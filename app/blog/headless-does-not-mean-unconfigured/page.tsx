@@ -9,7 +9,7 @@ const canonicalPath = '/blog/headless-does-not-mean-unconfigured'
 const articleMarkdown = `# ${title}\n\n${description}\n\nA 1.6 cron job upgraded to 1.7 RC11 and stopped at co browser status because no approval dialog existed.\n\n## The decision\n\nHeadless Auto honors narrow operator Bash permissions. The historical Bash(co *) rule restores only co status and co browser compatibility; stronger effects remain denied.\n`
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`, description,
+  title: "Configure Headless Agent Command Permissions | ConnectOnion",
   alternates: { canonical: canonicalPath },
   openGraph: { title, description, url: canonicalPath, siteName: 'ConnectOnion Docs', type: 'article', publishedTime: '2026-08-25T00:00:00+10:00', authors: ['ConnectOnion Team'], tags: ['permissions', 'automation', 'security'], images: [{ url: '/onion-logo.png', alt: title }] },
   twitter: { card: 'summary_large_image', title, description, images: ['/onion-logo.png'] },

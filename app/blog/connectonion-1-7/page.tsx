@@ -28,8 +28,8 @@ ${installCommand}
 `
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`,
-  description,
+  title: "Delegate Coding to Codex and Claude Code in 1.7 | ConnectOnion",
+  description: "ConnectOnion 1.7 adds resumable native coding Work Rooms, explicit permission modes, and live tool activity through co ai.",
   keywords: [
     'ConnectOnion 1.7.0',
     'co ai',

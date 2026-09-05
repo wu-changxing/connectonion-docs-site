@@ -1,3 +1,5 @@
+import docsCatalog from './docs-catalog.json'
+
 const BASE_URL = 'https://docs.connectonion.com'
 const SITE_NAME = 'ConnectOnion Docs'
 const OG_IMAGE = `${BASE_URL}/onion-logo.png`
@@ -314,7 +316,7 @@ export const pageSEO: Record<string, PageSEO> = {
 }
 
 export function getPageMetadata(path: string) {
-  const page = pageSEO[path]
+  const page = (docsCatalog as Record<string, PageSEO>)[path] || pageSEO[path]
   if (!page) {
     // Fallback for pages without specific SEO config
     const cleanPath = path.replace(/^\//, '').replace(/\//g, ' > ')

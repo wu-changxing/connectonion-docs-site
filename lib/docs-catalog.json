@@ -1,0 +1,432 @@
+{
+  "/agent-emails": {
+    "title": "Send and Receive Email with Python Agents | ConnectOnion",
+    "description": "Use send_email() and get_emails() to send messages and read an agent mailbox directly from Python.",
+    "path": "/agent-emails"
+  },
+  "/auto-debug": {
+    "title": "Interactive Debugging | ConnectOnion",
+    "description": "Debug your AI agents like code. Pause at breakpoints, inspect state, modify variables, and explore 'what if' scenarios.",
+    "path": "/auto-debug"
+  },
+  "/auto-debug-exception": {
+    "title": "Auto-Debug Uncaught Python Exceptions | ConnectOnion",
+    "description": "Enable auto_debug_exception() to inspect runtime variables and analyze uncaught crashes, raised exceptions, and failed assertions.",
+    "path": "/auto-debug-exception"
+  },
+  "/connect": {
+    "title": "Connect to Agents | ConnectOnion",
+    "description": "Use any agent, anywhere, as if local. Create a proxy to a remote agent with the same interface.",
+    "path": "/connect"
+  },
+  "/dashboard": {
+    "title": "Python AI Agent Web Dashboard | ConnectOnion",
+    "description": "Add .co/dashboard.html to give an agent a Home page; the Host sends the HTML over its authenticated WebSocket without a separate server.",
+    "path": "/dashboard"
+  },
+  "/examples": {
+    "title": "Python AI Agent Examples | ConnectOnion",
+    "description": "Clone working browser automation agents or build a calculator with input validation, tool execution, and error handling.",
+    "path": "/examples"
+  },
+  "/gmail": {
+    "title": "Gmail Integration for Python AI Agents | ConnectOnion",
+    "description": "Read, search, organize, and analyze Gmail messages through an agent tool, or copy the implementation into your project for customization.",
+    "path": "/gmail"
+  },
+  "/google-integration": {
+    "title": "Google Integration | ConnectOnion",
+    "description": "Send emails via Gmail and read calendar events from your AI agents. 30-second setup. Learn how to use Google Integration in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/google-integration"
+  },
+  "/host": {
+    "title": "Host Python AI Agents over HTTP and WebSocket | ConnectOnion",
+    "description": "Call host() to expose a local agent over HTTP, WebSocket, and P2P relay without building a separate network service.",
+    "path": "/host"
+  },
+  "/links": {
+    "title": "ConnectOnion Official Links and Source Code | ConnectOnion",
+    "description": "Find the official GitHub repository, PyPI package, documentation, Discord community, and ConnectOnion social accounts.",
+    "path": "/links"
+  },
+  "/logging": {
+    "title": "Python Agent Logging and Session Records | ConnectOnion",
+    "description": "Configure Agent log and quiet options; inspect plain-text activity in .co/logs and per-run session records in .co/evals.",
+    "path": "/logging"
+  },
+  "/microsoft-integration": {
+    "title": "Microsoft Integration | ConnectOnion",
+    "description": "Send emails via Outlook and read calendar events from your AI agents. 30-second setup. Learn how to use Microsoft Integration in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/microsoft-integration"
+  },
+  "/outlook": {
+    "title": "Outlook Integration for Python AI Agents | ConnectOnion",
+    "description": "Use Microsoft Graph-backed Outlook tools to read, search, send, and manage messages from a Python agent.",
+    "path": "/outlook"
+  },
+  "/prompts": {
+    "title": "System Prompts | ConnectOnion",
+    "description": "Define your agent's personality, behavior, and approach to tasks. Learn how to use System Prompts in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/prompts"
+  },
+  "/roadmap": {
+    "title": "Roadmap | ConnectOnion",
+    "description": "Track ConnectOnion development priorities: agent networking, native coding adapters, browser workflows, production deployment, and release verification.",
+    "path": "/roadmap"
+  },
+  "/session-reconnect": {
+    "title": "Session Reconnect | ConnectOnion",
+    "description": "WebSocket connections drop. Agents keep running. Here's how reconnection works. Learn how to use Session Reconnect in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/session-reconnect"
+  },
+  "/threat-model": {
+    "title": "Security Threat Model for Networked AI Agents | ConnectOnion",
+    "description": "Review prompt poisoning, data harvesting, capability fraud, identity theft, and supply-chain risks with severity-ranked mitigations.",
+    "path": "/threat-model"
+  },
+  "/vibe-coding": {
+    "title": "Build Agents with the Claude Code Plugin | ConnectOnion",
+    "description": "Use the ConnectOnion Claude Code plugin for documentation-grounded agent creation and code review based on the framework's APIs.",
+    "path": "/vibe-coding"
+  },
+  "/web-fetch": {
+    "title": "Web Scraping and Fetching for Python AI Agents | ConnectOnion",
+    "description": "Pass WebFetch() as an Agent tool to fetch, parse, and analyze web pages, or copy web_fetch into your project for customization.",
+    "path": "/web-fetch"
+  },
+  "/website-maintenance": {
+    "title": "Maintain the ConnectOnion Documentation Site | ConnectOnion",
+    "description": "Add Markdown tutorials, create Next.js pages under app, and register navigation and search entries when updating the docs site.",
+    "path": "/website-maintenance"
+  },
+  "/websocket-protocol": {
+    "title": "OIP WebSocket Protocol | ConnectOnion",
+    "description": "One authenticated browser connection for onboarding, sessions, prompts, approvals, modes, plans, and provider activity.",
+    "path": "/websocket-protocol"
+  },
+  "/agent-emails/receive": {
+    "title": "Receive Agent Emails with Python | ConnectOnion",
+    "description": "Call get_emails(unread=True) to fetch unread messages and process sender, subject, and message content in your agent.",
+    "path": "/agent-emails/receive"
+  },
+  "/agent-emails/send": {
+    "title": "Send Email | ConnectOnion",
+    "description": "Send from your agent mailbox with traceable failures and safe retries. Learn how to use Send Email in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/agent-emails/send"
+  },
+  "/cli/ai": {
+    "title": "co ai: CLI Coding Agent and One-Shot Commands | ConnectOnion",
+    "description": "Run the ConnectOnion coding agent in O Chat or as a one-shot command. Learn how to use co ai in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/cli/ai"
+  },
+  "/cli/auth": {
+    "title": "co auth | ConnectOnion",
+    "description": "One-time setup for managed models — no provider keys needed. Authenticates your agent with OpenOnion and unlocks the co/ model prefix across providers.",
+    "path": "/cli/auth"
+  },
+  "/cli/call": {
+    "title": "co call | ConnectOnion",
+    "description": "Run one command on a remote agent from the shell, print the result. No LLM, no session — like a remote command line.",
+    "path": "/cli/call"
+  },
+  "/cli/copy": {
+    "title": "co copy | ConnectOnion",
+    "description": "Copy built-in tools, plugins, and prompt templates into your project so you can customize them, learn from them, or debug their behavior.",
+    "path": "/cli/copy"
+  },
+  "/cli/create": {
+    "title": "co create | ConnectOnion",
+    "description": "Scaffold a new ConnectOnion agent project with intelligent defaults — identity, API keys, and a runnable agent in one command.",
+    "path": "/cli/create"
+  },
+  "/cli/email": {
+    "title": "co email | ConnectOnion",
+    "description": "Every agent gets its own email address. Send and read from it right in the terminal — no separate mail client, no Gmail OAuth.",
+    "path": "/cli/email"
+  },
+  "/cli/gdrive": {
+    "title": "co gdrive | ConnectOnion",
+    "description": "List, search, download, and upload Google Drive files from the terminal — the same Drive access your agents get from the GDrive tool, as a command.",
+    "path": "/cli/gdrive"
+  },
+  "/cli/gmail": {
+    "title": "co gmail | ConnectOnion",
+    "description": "Read, reply, send, and search your own Gmail account right in the terminal — the same Gmail API your agents use, as a command.",
+    "path": "/cli/gmail"
+  },
+  "/cli/init": {
+    "title": "co init | ConnectOnion",
+    "description": "Add ConnectOnion to an existing folder safely. Preserves your code and .env, appends only what's missing, refreshes docs to the latest version.",
+    "path": "/cli/init"
+  },
+  "/cli/setup": {
+    "title": "co setup | ConnectOnion",
+    "description": "One command to set up everything in ~/.co/ that you need to publish an agent: identity keypair, agent.json profile, and a populated skill library scanned from every coding agent on your machine.",
+    "path": "/cli/setup"
+  },
+  "/cli/skills": {
+    "title": "co skills | ConnectOnion",
+    "description": "Scan skill files across your AI coding agents (Claude Code, Codex, Cursor, Kiro) and import the ones you want into ~/.co/skills/ so ConnectOnion can use them.",
+    "path": "/cli/skills"
+  },
+  "/cli/sub": {
+    "title": "co sub | ConnectOnion",
+    "description": "Follow another agent's address, mirror their published skills to your machine, and make them available to every coding agent on your system (Claude Code, Codex, OpenClaw, Cursor, Kiro).",
+    "path": "/cli/sub"
+  },
+  "/examples/browser": {
+    "title": "Browser Automation | ConnectOnion",
+    "description": "Control web browsers with natural language commands using Playwright. Learn how to use Browser Automation in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/examples/browser"
+  },
+  "/examples/calculator": {
+    "title": "Calculator Agent | ConnectOnion",
+    "description": "Learn input validation, error handling, and security best practices by building a safe math calculator.",
+    "path": "/examples/calculator"
+  },
+  "/features/transcribe": {
+    "title": "Audio Transcription | ConnectOnion",
+    "description": "Convert audio files to text using Gemini's multimodal capabilities. Simple one-function interface for transcription.",
+    "path": "/features/transcribe"
+  },
+  "/features/trust": {
+    "title": "Configure Agent-to-Agent Trust | ConnectOnion",
+    "description": "Use host(create_agent, trust=\"strict\") for verified callers, or configure open, careful, and custom TrustAgent policies for incoming requests.",
+    "path": "/features/trust"
+  },
+  "/models/pricing": {
+    "title": "Managed Keys Pricing | ConnectOnion",
+    "description": "Same pricing as official APIs. No markup, no hidden fees. Pay only for what you use. Learn how to use Managed Keys Pricing in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/models/pricing"
+  },
+  "/prompts/examples": {
+    "title": "System Prompt Examples for Python AI Agents | ConnectOnion",
+    "description": "Copy eight system prompt templates for assistants, tutoring, support, code review, data analysis, security, strategy, and technical writing.",
+    "path": "/prompts/examples"
+  },
+  "/prompts/formats": {
+    "title": "Prompt File Formats | ConnectOnion",
+    "description": "Use any text file format. ConnectOnion just reads the content. Learn how to use Prompt File Formats in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/prompts/formats"
+  },
+  "/tools/browser": {
+    "title": "Capture Browser Screenshots with co browser | ConnectOnion",
+    "description": "Run co browser take_screenshot /tmp/full.png --full-page to save a full-page capture, or set the viewport for mobile debugging.",
+    "path": "/tools/browser"
+  },
+  "/tui/chat": {
+    "title": "Python Terminal Chat Interface for AI Agents | ConnectOnion",
+    "description": "Create Chat(agent=agent) and call chat.run() for a terminal conversation with slash commands and a live model status display.",
+    "path": "/tui/chat"
+  },
+  "/tui/divider": {
+    "title": "Python Terminal Divider with Rich Text | ConnectOnion",
+    "description": "Render a horizontal separator with Divider(width=20).render() and combine its Rich Text output with terminal status components.",
+    "path": "/tui/divider"
+  },
+  "/tui/dropdown": {
+    "title": "Dropdown — Python Terminal UI | ConnectOnion",
+    "description": "Selection list component for autocomplete menus. Learn how to use Dropdown in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/tui/dropdown"
+  },
+  "/tui/footer": {
+    "title": "Python Terminal Footer and Keyboard Hints | ConnectOnion",
+    "description": "Display configurable tips and keyboard shortcuts beneath terminal content with the Footer component from connectonion.tui.",
+    "path": "/tui/footer"
+  },
+  "/tui/fuzzy": {
+    "title": "Python Fuzzy Matching for Terminal Autocomplete | ConnectOnion",
+    "description": "Use fuzzy_match(query, text) to return match scores and character positions, then highlight_match to render matching text.",
+    "path": "/tui/fuzzy"
+  },
+  "/tui/input": {
+    "title": "Input — Python Terminal UI | ConnectOnion",
+    "description": "Smart text input with trigger-based autocomplete. Learn how to use Input in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/tui/input"
+  },
+  "/tui/keys": {
+    "title": "Read Raw Keyboard Input in Python Terminals | ConnectOnion",
+    "description": "Import getch and read_key from connectonion.tui to read terminal keypresses and build keyboard-driven interactions.",
+    "path": "/tui/keys"
+  },
+  "/tui/pick": {
+    "title": "pick — Python Terminal UI | ConnectOnion",
+    "description": "Single-select menu with keyboard navigation. Learn how to use pick in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/tui/pick"
+  },
+  "/tui/providers": {
+    "title": "Autocomplete Providers — Python Terminal UI | ConnectOnion",
+    "description": "Data providers for autocomplete in Input and CommandPalette. Learn how to use Autocomplete Providers in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/tui/providers"
+  },
+  "/tui/status-bar": {
+    "title": "StatusBar — Python Terminal UI | ConnectOnion",
+    "description": "Powerline-style status bar with colored segments. Learn how to use StatusBar in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/tui/status-bar"
+  },
+  "/useful-plugins/auto-compact": {
+    "title": "auto_compact Plugin | ConnectOnion",
+    "description": "Automatically compress context when the conversation gets too long, preventing token overflow without interrupting the agent.",
+    "path": "/useful-plugins/auto-compact"
+  },
+  "/useful-plugins/calendar-plugin": {
+    "title": "Calendar Approval Plugin for Python Agents | ConnectOnion",
+    "description": "Require user approval before calendar modifications by adding calendar_plugin to the agent's plugin list.",
+    "path": "/useful-plugins/calendar-plugin"
+  },
+  "/useful-plugins/eval": {
+    "title": "Evaluate and Debug AI Agent Prompts | ConnectOnion",
+    "description": "Add the eval plugin to evaluate task results and inspect prompt and tool behavior during agent development.",
+    "path": "/useful-plugins/eval"
+  },
+  "/useful-plugins/gmail-plugin": {
+    "title": "Gmail Approval and CRM Plugin for Agents | ConnectOnion",
+    "description": "Add gmail_plugin to require approval for Gmail operations and synchronize email activity with CRM workflows.",
+    "path": "/useful-plugins/gmail-plugin"
+  },
+  "/useful-plugins/image-result-formatter": {
+    "title": "image_result_formatter Plugin | ConnectOnion",
+    "description": "Enable vision models to see images from tool results. Learn how to use image_result_formatter in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/useful-plugins/image-result-formatter"
+  },
+  "/useful-plugins/prefer-write-tool": {
+    "title": "prefer_write_tool Plugin | ConnectOnion",
+    "description": "Block bash file creation, soft-remind for file reading. Learn how to use prefer_write_tool in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/useful-plugins/prefer-write-tool"
+  },
+  "/useful-plugins/re-act": {
+    "title": "ReAct Reasoning Plugin for Python Agents | ConnectOnion",
+    "description": "Add re_act to Agent plugins to structure model reasoning and tool execution around a Reason + Act loop.",
+    "path": "/useful-plugins/re-act"
+  },
+  "/useful-plugins/shell-approval": {
+    "title": "shell_approval Plugin | ConnectOnion",
+    "description": "Require user approval before executing shell commands. Learn how to use shell_approval in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/useful-plugins/shell-approval"
+  },
+  "/useful-plugins/skills": {
+    "title": "Skills Plugin: Workflows and Permissions | ConnectOnion",
+    "description": "Invoke reusable slash-command workflows and snapshot, grant, then restore their temporary tool permissions with the skills plugin.",
+    "path": "/useful-plugins/skills"
+  },
+  "/useful-plugins/subagents": {
+    "title": "subagents Plugin | ConnectOnion",
+    "description": "Spawn specialized sub-agents to handle specific tasks. Delegate work to focused agents with their own tools, model, and system prompt.",
+    "path": "/useful-plugins/subagents"
+  },
+  "/useful-plugins/system-reminder": {
+    "title": "system_reminder Plugin | ConnectOnion",
+    "description": "Inject contextual guidance into tool results. Learn how to use system_reminder in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/useful-plugins/system-reminder"
+  },
+  "/useful-plugins/tool-approval": {
+    "title": "tool_approval Plugin | ConnectOnion",
+    "description": "Web-based approval for dangerous tools via WebSocket. Learn how to use tool_approval in ConnectOnion with Python examples and configuration guidance.",
+    "path": "/useful-plugins/tool-approval"
+  },
+  "/useful-plugins/ui-stream": {
+    "title": "Stream Agent Results to WebSocket UIs | ConnectOnion",
+    "description": "Stream agent completion summaries to WebSocket UI clients. Used with host() for real-time updates in web chat interfaces.",
+    "path": "/useful-plugins/ui-stream"
+  },
+  "/useful-plugins/ulw": {
+    "title": "Autonomous Agent Loops with the ulw Plugin | ConnectOnion",
+    "description": "Run consecutive agent turns until a checkpoint or turn limit using ulw, with explicit autonomous execution behavior.",
+    "path": "/useful-plugins/ulw"
+  },
+  "/useful-tools/bash": {
+    "title": "Run Bash Commands from Python Agents | ConnectOnion",
+    "description": "Pass bash as an Agent tool to execute Unix or macOS commands and return stdout plus stderr as a string.",
+    "path": "/useful-tools/bash"
+  },
+  "/useful-tools/browser-tools": {
+    "title": "BrowserAutomation | ConnectOnion",
+    "description": "Natural language browser automation via Playwright. Navigate, click, type, screenshot — describe what you want, no CSS selectors needed.",
+    "path": "/useful-tools/browser-tools"
+  },
+  "/useful-tools/codex": {
+    "title": "OpenAI Codex CLI Integration for Python Agents | ConnectOnion",
+    "description": "Drive Codex through its native app-server protocol with session resume, live step streaming, and per-action approval.",
+    "path": "/useful-tools/codex"
+  },
+  "/useful-tools/diff-writer": {
+    "title": "DiffWriter: File Diffs and Human Approval | ConnectOnion",
+    "description": "Use DiffWriter to show proposed file changes and request approval before writing them, with a local copy available through co copy diff_writer.",
+    "path": "/useful-tools/diff-writer"
+  },
+  "/useful-tools/file-tools": {
+    "title": "Python AI Agent File Operations with FileTools | ConnectOnion",
+    "description": "Read and edit project files with read-before-edit tracking, snapshots, and permission controls; use FileTools(permission=\"read\") for read-only access.",
+    "path": "/useful-tools/file-tools"
+  },
+  "/useful-tools/read-file": {
+    "title": "read_file | ConnectOnion",
+    "description": "One copyable tool that reads any file — text, images, PDF, PowerPoint, Word, audio, video — and hands the extracted content to the agent.",
+    "path": "/useful-tools/read-file"
+  },
+  "/useful-tools/shell": {
+    "title": "Execute Shell Commands with Python Agents | ConnectOnion",
+    "description": "Use Shell to run commands with a working directory and caller-selected timeout; expiration raises subprocess.TimeoutExpired.",
+    "path": "/useful-tools/shell"
+  },
+  "/useful-tools/slash-command": {
+    "title": "Run Markdown Slash Commands in Python Agents | ConnectOnion",
+    "description": "Load custom commands from Markdown files with SlashCommand and expose reusable workflows to your Python agent.",
+    "path": "/useful-tools/slash-command"
+  },
+  "/useful-tools/terminal": {
+    "title": "Python Interactive Terminal Prompts and Menus | ConnectOnion",
+    "description": "Build selection menus, yes/no prompts, and inline autocomplete with the Terminal utilities available to agents.",
+    "path": "/useful-tools/terminal"
+  },
+  "/useful-tools/todo-list": {
+    "title": "TodoList: Task Tracking for Python AI Agents | ConnectOnion",
+    "description": "Add TodoList as an agent tool to track and update the steps of a complex task, or customize a local copy with co copy todo_list.",
+    "path": "/useful-tools/todo-list"
+  },
+  "/xray/trace": {
+    "title": "xray.trace() | ConnectOnion",
+    "description": "Visual execution tracing for ConnectOnion agents — timing, inputs, outputs, and errors at a glance.",
+    "path": "/xray/trace"
+  },
+  "/prompts/examples/business-strategist": {
+    "title": "Business Strategist System Prompt | ConnectOnion",
+    "description": "Copy the Business Strategist prompt into Agent(system_prompt=...) and customize its role instructions, response structure, and interaction rules.",
+    "path": "/prompts/examples/business-strategist"
+  },
+  "/prompts/examples/code-reviewer": {
+    "title": "Senior Code Reviewer System Prompt | ConnectOnion",
+    "description": "Copy the Senior Code Reviewer prompt into Agent(system_prompt=...) and customize its role instructions, response structure, and interaction rules.",
+    "path": "/prompts/examples/code-reviewer"
+  },
+  "/prompts/examples/customer-support": {
+    "title": "Customer Support Agent System Prompt | ConnectOnion",
+    "description": "Copy the Customer Support Agent prompt into Agent(system_prompt=...) and customize its role instructions, response structure, and interaction rules.",
+    "path": "/prompts/examples/customer-support"
+  },
+  "/prompts/examples/data-analyst": {
+    "title": "Data Analysis Expert System Prompt | ConnectOnion",
+    "description": "Copy the Data Analysis Expert prompt into Agent(system_prompt=...) and customize its role instructions, response structure, and interaction rules.",
+    "path": "/prompts/examples/data-analyst"
+  },
+  "/prompts/examples/friendly-assistant": {
+    "title": "Friendly Assistant System Prompt | ConnectOnion",
+    "description": "Copy the Friendly Assistant prompt into Agent(system_prompt=...) and customize its role instructions, response structure, and interaction rules.",
+    "path": "/prompts/examples/friendly-assistant"
+  },
+  "/prompts/examples/math-tutor": {
+    "title": "Math Tutor System Prompt | ConnectOnion",
+    "description": "Copy the Math Tutor prompt into Agent(system_prompt=...) and customize its role instructions, response structure, and interaction rules.",
+    "path": "/prompts/examples/math-tutor"
+  },
+  "/prompts/examples/security-analyst": {
+    "title": "Security Analyst System Prompt | ConnectOnion",
+    "description": "Copy the Security Analyst prompt into Agent(system_prompt=...) and customize its role instructions, response structure, and interaction rules.",
+    "path": "/prompts/examples/security-analyst"
+  },
+  "/prompts/examples/technical-writer": {
+    "title": "Technical Documentation Specialist System Prompt | ConnectOnion",
+    "description": "Copy the Technical Documentation Specialist prompt into Agent(system_prompt=...) and customize its role instructions, response structure, and interaction rules.",
+    "path": "/prompts/examples/technical-writer"
+  }
+}

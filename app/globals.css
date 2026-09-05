@@ -226,6 +226,71 @@ h3 .heading-anchor:focus {
   margin-top: 1rem;
 }
 
+/* Generated Design Journal articles — readable without a client bundle. */
+.blog-prose {
+  color: #374151;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+}
+.blog-prose > * + * { margin-top: 1.5rem; }
+.blog-prose h2,
+.blog-prose h3,
+.blog-prose h4 {
+  color: #111827;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  scroll-margin-top: 5rem;
+  text-wrap: balance;
+}
+.blog-prose h2 { margin-top: 3.75rem; font-size: 1.875rem; }
+.blog-prose h3 { margin-top: 2.75rem; font-size: 1.35rem; }
+.blog-prose h4 { margin-top: 2.25rem; font-size: 1.125rem; }
+.blog-prose a {
+  color: #15803d;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #bbf7d0;
+  text-underline-offset: 0.2em;
+}
+.blog-prose a:hover { text-decoration-color: #15803d; }
+.blog-prose strong { color: #111827; font-weight: 700; }
+.blog-prose ul,
+.blog-prose ol { padding-left: 1.5rem; }
+.blog-prose ul { list-style: disc; }
+.blog-prose ol { list-style: decimal; }
+.blog-prose li + li { margin-top: 0.55rem; }
+.blog-prose blockquote {
+  border-left: 3px solid #22c55e;
+  color: #4b5563;
+  font-style: italic;
+  padding-left: 1.25rem;
+}
+.blog-prose pre {
+  background: #0b1210;
+  border: 1px solid #1f2937;
+  border-radius: 0.875rem;
+  color: #e5e7eb;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  margin: 2rem 0;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1.25rem;
+}
+.blog-prose pre code { background: transparent; color: inherit; padding: 0; }
+.blog-prose table {
+  border-collapse: collapse;
+  display: block;
+  font-size: 0.9375rem;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.blog-prose th,
+.blog-prose td { border: 1px solid #e5e7eb; padding: 0.7rem 0.85rem; text-align: left; }
+.blog-prose th { background: #f9fafb; color: #111827; }
+.blog-prose hr { border: 0; border-top: 1px solid #e5e7eb; margin: 3rem 0; }
+
 
 /* ── Editorial accent — Instrument Serif italic in accent color ── */
 

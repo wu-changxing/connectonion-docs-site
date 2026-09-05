@@ -8,8 +8,8 @@ const description = 'ConnectOnion 1.6.6 makes Gemini 3.7 Flash the default. Why 
 const canonicalPath = '/blog/gemini-37-default'
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`,
-  description,
+  title: "Roll Out Gemini 3.7 as the Default Model | ConnectOnion",
+  description: "Verify backend support before clients request Gemini 3.7, and preserve explicit user model choices.",
   keywords: [
     'ConnectOnion 1.6.6',
     'Gemini 3.7 Flash',

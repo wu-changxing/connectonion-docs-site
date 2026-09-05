@@ -230,6 +230,30 @@ npm run start
 4. **Test locally** with `npm run dev`
 5. **Build test** with `npm run build`
 
+### Publishing Design Journal Posts
+
+The engineering blog is content-driven. Add dated Markdown to
+`public/blog/YYYY-MM-DD-your-slug.md`; the blog index, `/blog/<slug>` route,
+sitemap, RSS feed, AI-readable catalog, metadata, and social card are generated
+from that file at build time. Front matter is optional:
+
+```md
+---
+title: "A precise, useful title"
+date: 2026-09-05
+description: "A concrete answer to the question the article explores."
+author: ConnectOnion Team
+tags: [testing, reliability]
+---
+```
+
+Without front matter, the date comes from the filename, the first H1 becomes
+the title, and the first substantial paragraph becomes the description.
+Existing handcrafted routes under `app/blog/<slug>/page.tsx` take precedence,
+so old public URLs remain stable. Run `npm run test:blog`, then the normal lint
+and production build; `npm run test:blog:build` verifies the emitted metadata,
+structured data, feed, and sitemap.
+
 ### Navigation System
 
 The site uses a centralized navigation structure in `/lib/navigation.ts`:
@@ -314,6 +338,16 @@ ConnectOnion is proudly open source:
 - **Contributors**: Welcome! See [Contributing Guide](/website-maintenance)
 - **Stars**: ⭐ Star us on [GitHub](https://github.com/wu-changxing/connectonion)
 - **Fork**: Build your own features and share with the community
+
+## Search and AI discovery
+
+Every documentation page must export its own metadata, including a self-canonical.
+Client pages use a sibling server layout and `buildMetadata` from `lib/seo.ts`.
+The additional route descriptions live in `lib/docs-catalog.json`.
+The sitemap discovers all static page routes and generated blog articles at build time.
+AI readers can use `/llms.txt`, `/docs-index.txt`, and `/blog/llms.txt`.
+Run `node scripts/check-seo.mjs --all` after the production build; CI checks all
+emitted pages so parent metadata inheritance cannot silently return.
 
 ## 📜 License
 
