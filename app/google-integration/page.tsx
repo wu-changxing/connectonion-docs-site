@@ -1,320 +1,59 @@
 'use client'
 
 import Link from 'next/link'
-import { HiOutlineEnvelope, HiOutlineCalendar, HiOutlineArrowRight, HiOutlineShieldCheck, HiOutlineBolt, HiOutlineLockClosed } from 'react-icons/hi2'
-import { FaGoogle, FaStar } from 'react-icons/fa'
 import { CommandBlock } from '../../components/CommandBlock'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../components/ContentNavigation'
-import CodeWithResult from '../../components/CodeWithResult'
+
+const services = [
+  ['co gmail', 'Gmail', 'gmail.readonly, gmail.send, gmail.modify', '/cli/gmail'],
+  ['co gdrive', 'GDrive', 'drive', '/cli/gdrive'],
+  ['co gcalendar', 'GoogleCalendar', 'calendar', '/cli/gcalendar.md'],
+  ['co youtube', 'YouTube', 'youtube', '/cli/youtube.md'],
+]
 
 export default function GoogleIntegrationPage() {
   return (
-    <div className="bg-white text-gray-900">
-      <div className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-          <Link href="/" className="hover:text-gray-500 transition-colors">
-            Docs
-          </Link>
-          <HiOutlineArrowRight className="w-4 h-4" />
-          <span className="text-gray-900">Google Integration</span>
+    <main className="max-w-4xl mx-auto px-6 py-16 space-y-10 text-gray-900">
+      <header className="space-y-4">
+        <Link href="/">Docs</Link>
+        <h1 className="heading-1">One local Google login</h1>
+        <p>Gmail, Drive, Calendar and YouTube share one consent flow and one locally saved login.</p>
+        <p className="rounded-lg border p-4">1.8.3 candidate documentation. The package is being prepared, not announced as published.</p>
+        <CopyMarkdownButton markdownPath="/integrations/google.md" filename="google.md" />
+      </header>
+      <section className="space-y-4">
+        <h2 className="heading-2">Connect and choose a tool</h2>
+        <CommandBlock commands={['co auth', 'co auth google', 'co gmail inbox', 'co gdrive list', 'co gcalendar list', 'co youtube channel']} />
+        <div className="overflow-x-auto">
+          <table className="w-full text-left">
+            <thead><tr><th className="p-3">CLI</th><th className="p-3">Python</th><th className="p-3">Default scopes</th></tr></thead>
+            <tbody>{services.map(([cli, python, scopes, href]) => (
+              <tr key={cli} className="border-t"><td className="p-3"><Link href={href} className="underline">{cli}</Link></td><td className="p-3">{python}</td><td className="p-3">{scopes}</td></tr>
+            ))}</tbody>
+          </table>
         </div>
-
-        {/* Header */}
-        <div className="mb-12">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gray-100 rounded-xl border border-gray-200">
-                <FaGoogle className="w-8 h-8 text-gray-700" />
-              </div>
-              <div>
-                <h1 className="heading-1">Google Integration</h1>
-                <p className="text-lg text-gray-700">
-                  Send emails via Gmail and read calendar events from your AI agents. 30-second setup.
-                </p>
-              </div>
-            </div>
-            <CopyMarkdownButton markdownPath="/integrations/google.md" filename="google.md" className="flex-shrink-0" />
-          </div>
-        </div>
-
-        {/* Quick Start */}
-        <section className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <HiOutlineBolt className="w-6 h-6 text-gray-500" />
-            <h2 className="heading-2">Quick Start</h2>
-          </div>
-
-          <div className="bg-gradient-to-r from-red-500/10 to-blue-500/10 rounded-xl p-8 border border-gray-200 mb-8">
-            <CommandBlock commands={['co auth google']} />
-            
-            <div className="mt-8 space-y-4">
-              <h3 className="text-lg font-semibold text-gray-900">What happens:</h3>
-              <ol className="list-decimal list-inside space-y-2 text-gray-700 ml-2">
-                <li>Opens browser to Google OAuth consent screen</li>
-                <li>You authorize Gmail Send + Calendar Read permissions</li>
-                <li>Credentials saved to <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> (both local and global <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code>)</li>
-                <li>Ready to use Gmail and Calendar tools immediately</li>
-              </ol>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <p className="text-gray-600 font-semibold text-xl flex items-center justify-center gap-2">
-              <FaStar className="text-gray-500" />
-              That's it. Your agents can now send emails and read your calendar.
-            </p>
-          </div>
-        </section>
-
-        {/* Prerequisites */}
-        <section className="mb-16">
-          <h2 className="heading-2">Prerequisites</h2>
-          <p className="text-gray-700 mb-6">
-            Before running <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth google</code>, you must authenticate with OpenOnion:
-          </p>
-          <CommandBlock commands={['co auth']} />
-          <p className="text-gray-700 mt-4">
-            This creates your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code> which is required for Google OAuth to work.
-          </p>
-        </section>
-
-        {/* What Gets Saved */}
-        <section className="mb-16">
-          <h2 className="heading-2">What Gets Saved</h2>
-          <p className="text-gray-700 mb-6">
-            After successful authentication, your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> file contains:
-          </p>
-
-          <CodeWithResult 
-            code={`# Google OAuth Credentials
-GOOGLE_ACCESS_TOKEN=ya29.a0A...
-GOOGLE_REFRESH_TOKEN=1//0g...
-GOOGLE_TOKEN_EXPIRES_AT=2025-12-31T23:59:59
-GOOGLE_SCOPES=gmail.send,calendar
-GOOGLE_EMAIL=your.email@gmail.com`}
-            language="bash"
-            fileName=".env"
-          />
-
-          <div className="mt-8 bg-gray-50 border border-gray-200 rounded-xl p-6">
-            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <HiOutlineLockClosed className="w-5 h-5 text-gray-500" />
-              Security notes
-            </h3>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex items-start gap-2">
-                <span className="text-gray-500">•</span>
-                <span>Credentials are saved to both local <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">.env</code> and <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">~/.co/keys.env</code></span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-gray-500">•</span>
-                <span>File permissions set to <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">0600</code> (read/write for owner only) on Unix systems</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-gray-500">•</span>
-                <span>Access tokens expire, but refresh tokens allow automatic renewal</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-gray-500">•</span>
-                <span>You can revoke access anytime via Google Account settings or the dashboard</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        {/* Permissions Requested */}
-        <section className="mb-16">
-          <h2 className="heading-2">Permissions Requested</h2>
-          <p className="text-gray-700 mb-6">
-            When you run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth google</code>, we request these Google scopes:
-          </p>
-
-          <div className="overflow-x-auto mb-8">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="py-3 px-4 font-semibold text-gray-900">Scope</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">Purpose</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">What agents can do</th>
-                </tr>
-              </thead>
-              <tbody className="text-gray-700">
-                <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-gray-500">gmail.send</td>
-                  <td className="py-3 px-4">Send emails on your behalf</td>
-                  <td className="py-3 px-4">Use <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">send_email()</code> tool to send emails</td>
-                </tr>
-                <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-gray-500">calendar</td>
-                  <td className="py-3 px-4">Read and manage calendar events</td>
-                  <td className="py-3 px-4">Check availability, and create, update, or delete events via <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">GoogleCalendar</code></td>
-                </tr>
-                <tr className="border-b border-gray-800">
-                  <td className="py-3 px-4 font-mono text-sm text-gray-500">userinfo.email</td>
-                  <td className="py-3 px-4">Get your email address</td>
-                  <td className="py-3 px-4">Identify which Google account is connected</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-gray-500">
-              <HiOutlineShieldCheck className="w-5 h-5" />
-              Privacy First
-            </h3>
-            <p className="text-gray-700 mb-4">We only request the minimum permissions needed. We cannot:</p>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex items-start gap-2">
-                <span className="text-red-400">✕</span>
-                <span>Read your inbox (use built-in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">get_emails()</code> for that)</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-red-400">✕</span>
-                <span>Access your Google Drive or other services</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        {/* Using Google OAuth in Agents */}
-        <section className="mb-16">
-          <h2 className="heading-2">Using Google OAuth in Agents</h2>
-          <p className="text-gray-700 mb-8">Once authenticated, your agents can use Google-powered tools:</p>
-
-          <div className="space-y-12">
-            <div>
-              <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineEnvelope className="w-5 h-5 text-gray-500" />
-                Send Email via Gmail
-              </h3>
-              <CodeWithResult 
-                code={`from connectonion import Agent, send_email
-
-def send_gmail(to: str, subject: str, body: str) -> str:
-    """Send email via your Gmail account."""
-    result = send_email(to, subject, body)
-    return f"Email sent to {to}: {result}"
-
-agent = Agent(
-    "Gmail Assistant",
-    tools=[send_gmail]
-)
-
-agent.input("Send an email to alice@example.com saying hello")`}
-                language="python"
-                fileName="gmail_agent.py"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <HiOutlineCalendar className="w-5 h-5 text-gray-500" />
-                Read Calendar Events
-              </h3>
-              <CodeWithResult
-                code={`from connectonion import Agent, GoogleCalendar
-
-calendar = GoogleCalendar()
-
-agent = Agent(
-    "Calendar Assistant",
-    tools=[calendar]
-)
-
-agent.input("What's on my calendar this week?")`}
-                language="python"
-                fileName="calendar_agent.py"
-              />
-              <p className="text-gray-700 mt-4 text-sm">
-                The <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">GoogleCalendar</code> tool also exposes <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">get_today_events()</code>, <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">create_event()</code>, <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">create_meet()</code>, <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">update_event()</code>, <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">delete_event()</code>, and <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">find_free_slots()</code> — the agent picks whichever methods it needs.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Complete Example */}
-        <section className="mb-16">
-          <h2 className="heading-2">Complete Example: Scheduling Agent</h2>
-          <p className="text-gray-700 mb-6">
-            Here's a full agent that can check your calendar and send meeting invites:
-          </p>
-
-          <CodeWithResult
-            code={`from connectonion import Agent, GoogleCalendar
-
-calendar = GoogleCalendar()
-
-agent = Agent(
-    "Scheduling Agent",
-    tools=[calendar],
-    system_prompt="""You are a scheduling assistant.
-
-You can:
-1. Check calendar availability (list_events, find_free_slots)
-2. Create events and invite attendees (create_event, create_meet)
-
-When asked to schedule a meeting:
-1. First check if the proposed time is free
-2. If available, create the event with the attendee's email so they get invited
-3. Report back to the user
-"""
-)
-
-# Use it
-agent.input("""
-Schedule a 1-hour meeting with bob@example.com
-for tomorrow at 2pm. Title: Q4 Planning Discussion
-""")`}
-            language="python"
-            fileName="scheduling_agent.py"
-          />
-          <p className="text-gray-700 mt-4 text-sm">
-            Since <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">create_event()</code> accepts an <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">attendees</code> argument, Google Calendar sends the invite itself — no separate email step needed.
-          </p>
-        </section>
-
-        {/* Troubleshooting */}
-        <section className="mb-16">
-          <h2 className="heading-2">Troubleshooting</h2>
-
-          <div className="space-y-8">
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">"Not authenticated with OpenOnion"</h3>
-              <p className="text-gray-700 mb-4">You need to run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co auth</code> first to get your <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">OPENONION_API_KEY</code>:</p>
-              <CommandBlock commands={['co auth', 'co auth google']} />
-            </div>
-
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-gray-500">Authorization Timeout</h3>
-              <p className="text-gray-700 mb-4">If the browser window doesn't complete authorization within 5 minutes:</p>
-              <CommandBlock commands={['co auth google']} />
-              <p className="text-sm text-gray-600 mt-2">The command polls the backend every 5 seconds waiting for your authorization.</p>
-            </div>
-
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-gray-500">Credentials Not Working</h3>
-              <p className="text-gray-700 mb-4">Check if credentials are properly saved:</p>
-              <CodeWithResult 
-                code={`# Check local .env
-cat .env | grep GOOGLE_
-
-# Check global keys
-cat ~/.co/keys.env | grep GOOGLE_`}
-                language="bash"
-                fileName="terminal"
-              />
-              <p className="text-gray-700 mt-4 mb-2">If credentials exist but don't work, re-authenticate:</p>
-              <CommandBlock commands={['co auth google']} />
-            </div>
-          </div>
-        </section>
-
-        {/* Navigation */}
-        <ContentNavigation />
-      </div>
-    </div>
+        <p>Identity also requests userinfo.email and userinfo.profile. These are broad permissions for supported services, not every Google API. Actual granted scopes are saved; declined permissions are never assumed.</p>
+        <CommandBlock commands={['co auth google --scopes youtube.readonly']} />
+      </section>
+      <section className="space-y-4">
+        <h2 className="heading-2">Credentials stay on this computer</h2>
+        <p>The CLI creates an ephemeral key and a loopback callback. The broker exchanges the Google code, seals the credential bundle for that key, and sends it directly to the CLI. No Google credential row or scope column is written.</p>
+        <p>Access token, refresh token, expiry, scopes and account email are saved in ~/.co/keys.env, or AGENT_CONFIG_PATH/keys.env, with owner-only permissions. An existing project .env is updated too. Cancellation preserves the prior login.</p>
+        <p>Refresh sends the local refresh token over TLS to the stateless broker. The Google application secret stays server-side; user tokens exist there transiently during exchange, not as durable credentials. Content requests go directly from the computer to Google.</p>
+      </section>
+      <section className="space-y-4">
+        <h2 className="heading-2">Review before writing</h2>
+        <p>Calendar mutations preview locally until --yes. YouTube uploads and metadata edits require the exact preview digest with --confirm. Gmail draft send asks for confirmation. Direct Gmail send/reply and Drive writes execute immediately, so invoke them only for an approved action.</p>
+        <p>Calendar uses the primary calendar; free slots cover 09:00–17:00 UTC, not other attendees. YouTube reads metadata, not video bytes. Consent does not prove upload approval, processing or quota. TikTok is not included.</p>
+      </section>
+      <section className="space-y-4">
+        <h2 className="heading-2">Upgrade and recover</h2>
+        <p>The broker needs the matching local-token CLI. Older polling and bodyless-refresh clients must upgrade. Existing database rows are untouched, not migrated or reset; existing local refresh tokens remain usable.</p>
+        <CommandBlock commands={['co status', 'co auth google']} />
+        <p>Keep the browser and CLI on the same computer. Consent waits up to five minutes. Never print token files. To revoke, use Google Account permissions and remove local GOOGLE_* entries; a dashboard cannot erase credentials from this computer.</p>
+      </section>
+      <ContentNavigation />
+    </main>
   )
 }

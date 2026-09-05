@@ -1,91 +1,97 @@
-# GoogleCalendar
+# One local Google login
 
-Google Calendar integration for managing events and meetings.
-
-## Quick Start
-
-```python
-from connectonion import Agent, GoogleCalendar
-
-calendar = GoogleCalendar()
-agent = Agent("assistant", tools=[calendar])
-
-agent.input("What meetings do I have today?")
-```
-
-## Setup
-
-Requires Google OAuth authorization:
+The 1.8.3 candidate connects Gmail, Drive, Calendar and YouTube with one consent
+flow. This describes the candidate, not an already-published package.
 
 ```bash
+co auth
 co auth google
+co gmail inbox
+co gdrive list
+co gcalendar list
+co youtube channel
 ```
 
-## Methods
+## Names and permissions
 
-### Reading Events
+| CLI | Python tool | Default scopes |
+|---|---|---|
+| `co gmail` | `Gmail` | `gmail.readonly`, `gmail.send`, `gmail.modify` |
+| `co gdrive` | `GDrive` | `drive` |
+| `co gcalendar` | `GoogleCalendar` | `calendar` |
+| `co youtube` | `YouTube` | `youtube` |
+
+Identity also requests `userinfo.email` and `userinfo.profile`. These are broad
+permissions on supported services, not all Google APIs. Google controls consent;
+we save the actual grant, never assume every requested capability succeeded.
+
+Limit a login explicitly:
+
+```bash
+co auth google --scopes youtube.readonly
+co auth google --scopes gmail.readonly,gmail.send,drive.readonly,calendar.readonly
+```
+
+The allowed short names are the default scopes plus `drive.readonly`,
+`calendar.readonly`, `youtube.readonly` and `youtube.upload`.
+Restricted requests do not ask Google to combine earlier grants. They do not
+revoke earlier grants elsewhere; use Google Account permissions to revoke.
+
+## Where credentials live
+
+The CLI creates an ephemeral encryption key and a loopback callback. oo-api keeps
+only existing expiring OAuth state/PKCE data. After consent it exchanges the code,
+seals the token bundle for that CLI and redirects it to `127.0.0.1`.
+No Google credential row or scope column is created or updated. No Google
+schema/data migration is required.
+
+The CLI saves `GOOGLE_ACCESS_TOKEN`, `GOOGLE_REFRESH_TOKEN`,
+`GOOGLE_TOKEN_EXPIRES_AT`, `GOOGLE_SCOPES` and `GOOGLE_EMAIL` in
+`~/.co/keys.env` (or `AGENT_CONFIG_PATH/keys.env`) with owner-only permissions.
+An existing project `.env` is updated too; no new project credential file is
+created. Cancellation preserves the old login. Inspect with `co status`, never
+by printing credential files.
+
+Refresh sends the locally held refresh token over TLS to the stateless oo-api
+broker. Its Google application secret stays on the server. User tokens exist
+there transiently during exchange, not in durable storage. Returned rotation and
+scopes are saved locally. Google content requests go directly from this computer
+to Google.
+
+## Python API
 
 ```python
-# List upcoming events
-calendar.list_events(days_ahead=7, max_results=10)
+from connectonion import Gmail, GDrive, GoogleCalendar, YouTube
 
-# Get today's events
-calendar.get_today_events()
-
-# Get specific event
-calendar.get_event(event_id="abc123")
-
-# Get upcoming meetings
-calendar.get_upcoming_meetings(days_ahead=7)
-
-# Find free slots
-calendar.find_free_slots(date="2024-01-15", duration_minutes=30)
+print(Gmail().read_inbox(last=5))
+print(GDrive().list_recent(last=5))
+print(GoogleCalendar().list_events(days_ahead=7))
+print(YouTube().channel())
 ```
 
-### Creating Events
+See [Gmail](../cli/gmail.md), [Drive](../cli/gdrive.md),
+[Calendar](../cli/gcalendar.md), and [YouTube](../cli/youtube.md) for command and
+confirmation rules. Direct Python methods can write: invoke them only for
+user-approved actions. Meet links use Calendar conference data, not a separate
+Meet API. No separate Docs, Sheets, Photos, Contacts or Analytics command groups
+ship in this release.
 
-```python
-# Create event
-calendar.create_event(
-    title="Team Meeting",
-    start_time="2024-01-15 14:00",
-    end_time="2024-01-15 15:00",
-    description="Weekly sync",
-    attendees="alice@example.com,bob@example.com",
-    location="Conference Room A"
-)
+## Upgrade and recovery
 
-# Create Google Meet meeting
-calendar.create_meet(
-    title="Video Call",
-    start_time="2024-01-15 14:00",
-    end_time="2024-01-15 15:00",
-    attendees="alice@example.com",
-    description="Quick sync"
-)
-```
+Deploy with the matching local-token CLI. Older clients that expect server-side
+polling or bodyless refresh must upgrade. Legacy database rows are untouched, not
+migrated or reset; the new flow never reads them. Existing local refresh tokens
+remain usable.
 
-### Managing Events
+For missing, denied or expired authorization, run `co auth google`. Keep the CLI
+running on the same computer as the browser; consent waits up to five minutes.
+Account switches replace the old login only after successful handoff. Revoke in
+[Google Account permissions](https://myaccount.google.com/permissions), then remove
+local GOOGLE_* entries without printing or committing them. A remote dashboard
+cannot erase local credentials.
 
-```python
-# Update event
-calendar.update_event(
-    event_id="abc123",
-    title="Updated Title",
-    start_time="2024-01-15 15:00",
-    end_time="2024-01-15 16:00"
-)
+Operators must enable the APIs and satisfy Google's verification requirements.
+YouTube consent is not proof of upload approval, processing or available quota.
 
-# Delete event
-calendar.delete_event(event_id="abc123")
-```
-
-## Use with calendar_plugin
-
-For calendar approval before creating/modifying events:
-
-```python
-from connectonion.useful_plugins import calendar_plugin
-
-agent = Agent("assistant", tools=[calendar], plugins=[calendar_plugin])
-```
+References: [Google OAuth](https://developers.google.com/identity/protocols/oauth2/web-server),
+[YouTube uploads](https://developers.google.com/youtube/v3/docs/videos/insert).
