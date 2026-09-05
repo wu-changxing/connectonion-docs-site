@@ -76,7 +76,8 @@ co browser go_to example.com  # free default again`}
             Onion prepays $0.025 per 15-minute interval. In 1.8.1, rejected proxy
             authentication and Chrome network-error pages return BrowserNavigationError
             with a nonzero CLI exit. An ordinary empty or HTTP 404 page remains readable.
-            Paid macOS production artifacts are not included; use system Chrome there.
+            Apple Silicon Macs can download the paid production artifact; Intel Macs
+            continue to use system Chrome until their native artifact is promoted.
           </p>
         </section>
 
