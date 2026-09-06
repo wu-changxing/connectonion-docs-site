@@ -6,7 +6,7 @@
  * channel during a release. Preview publication must never replace the stable
  * version shown on the homepage or in structured metadata.
  */
-export const STABLE_VERSION = '1.8.1'
+export const STABLE_VERSION = '1.8.3'
 export const PREVIEW_VERSION: string | null = null
 // 1.7.0 finished stabilizing and became the stable channel; nothing is
 // currently between a preview and stable.

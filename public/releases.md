@@ -4,10 +4,28 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.1`; there is no active stabilizing candidate
+**Current channels:** stable is `1.8.3`; there is no active stabilizing candidate
 or newer preview.
 
-## Stable 1.8.1
+## Stable 1.8.3
+
+Gmail, Drive, Calendar and YouTube share one locally saved Google login.
+The release adds Gmail draft attachments, primary-calendar commands and
+YouTube metadata, uploads and title/description updates. YouTube writes show
+an exact preview and its complete confirmation command before execution.
+
+Read-only production acceptance passed for all four services on 2026-09-07
+using an existing local grant. Existing polling/bodyless-refresh clients should
+upgrade; no Google credential database migration is needed. TikTok is excluded.
+
+```bash
+python -m pip install --upgrade connectonion==1.8.3
+```
+
+[Release artifacts](https://github.com/openonion/connectonion/releases/tag/v1.8.3)
+· [Google commands and recovery](/google-integration)
+
+## Earlier stable 1.8.1
 
 System Chrome remains the free default. Paid Onion is selected explicitly with
 `co browser --engine onion`; close that session before returning to the default.
