@@ -95,7 +95,8 @@ export default function ReleasesPage() {
             {' '}<code>--engine onion</code> choice for the session. Browser status now
             correctly reports installed Chromium, and rejected proxy credentials or
             Chrome network-error pages return a typed failure instead of success.
-            Paid macOS production artifacts are not included; use system Chrome there.
+            The paid production catalogue now includes Apple Silicon macOS; Intel Macs
+            continue to use system Chrome until their native artifact is promoted.
           </p>
           <p className="text-gray-600 mb-4">
             Relayed sessions can also be sealed end to end, and a single-worker host

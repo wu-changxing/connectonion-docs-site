@@ -10,7 +10,8 @@ or automatic per-read/write switching. Onion prepays $0.025 per 15 minutes.
 
 Rejected proxy authentication and Chrome network-error documents return
 `BrowserNavigationError` and exit 1; normal empty/404 pages remain readable.
-Paid macOS production artifacts are not part of 1.8.1; use system Chrome.
+The production catalogue includes the paid Apple Silicon macOS artifact. Intel
+Macs continue to use system Chrome until their native artifact is promoted.
 
 Drive **one persistent, logged-in browser from the shell** — and let several AI agents share it without stepping on each other's pages.
 
