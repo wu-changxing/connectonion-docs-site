@@ -1,7 +1,7 @@
 # One local Google login
 
-The 1.8.3 candidate connects Gmail, Drive, Calendar and YouTube with one consent
-flow. This describes the candidate, not an already-published package.
+ConnectOnion 1.8.3 connects Gmail, Drive, Calendar and YouTube with one consent
+flow and one locally saved login. Upgrade with `python -m pip install -U connectonion`.
 
 ```bash
 co auth

@@ -89,22 +89,20 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.1</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.3</h2>
           <p className="text-gray-600 mb-4">
-            System Chrome is free by default; paid Onion requires an explicit
-            {' '}<code>--engine onion</code> choice for the session. Browser status now
-            correctly reports installed Chromium, and rejected proxy credentials or
-            Chrome network-error pages return a typed failure instead of success.
-            The paid production catalogue now includes Apple Silicon macOS; Intel Macs
-            continue to use system Chrome until their native artifact is promoted.
+            Gmail, Drive, Calendar and YouTube share one local Google login.
+            Add attachments to Gmail drafts, manage primary-calendar events, and
+            inspect or upload YouTube videos from the CLI. Video writes preview
+            the exact change and print its complete confirmation command.
           </p>
           <p className="text-gray-600 mb-4">
-            Relayed sessions can also be sealed end to end, and a single-worker host
-            keeps its replay ledger in memory so deleting a deployment file cannot
-            break request verification.
+            Fresh processes passed read-only checks across all four services using
+            an existing grant. Tokens stay on your computer; the broker refreshes
+            the local token without storing a second copy. TikTok is not included.
           </p>
-          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.1" className="text-green-700 font-semibold hover:underline">
-            Read the 1.8.1 release
+          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.3" className="text-green-700 font-semibold hover:underline">
+            Read the 1.8.3 release
           </Link>
         </section>
 

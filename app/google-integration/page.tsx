@@ -19,7 +19,7 @@ export default function GoogleIntegrationPage() {
         <Link href="/">Docs</Link>
         <h1 className="heading-1">One local Google login</h1>
         <p>Gmail, Drive, Calendar and YouTube share one consent flow and one locally saved login.</p>
-        <p className="rounded-lg border p-4">1.8.3 candidate documentation. The package is being prepared, not announced as published.</p>
+        <p className="rounded-lg border p-4">Available in ConnectOnion 1.8.3. Upgrade once, then reuse your local Google login.</p>
         <CopyMarkdownButton markdownPath="/integrations/google.md" filename="google.md" />
       </header>
       <section className="space-y-4">

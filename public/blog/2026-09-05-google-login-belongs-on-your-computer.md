@@ -37,3 +37,13 @@ that next action separate: the user consents in Google, then a fresh CLI process
 reads through the four services using the local grant. An authorization screen
 is not an authorization result, just as a local refresh token was never proof
 that the server was using it.
+
+On 2026-09-07, four fresh CLI processes read Gmail, Drive, Calendar and YouTube
+using an existing local grant. The new broker refreshed the token the caller
+supplied. No new consent prompt was needed; no production write was used as
+release evidence. The local credential file retained owner-only permissions.
+
+This ships in [ConnectOnion 1.8.3](https://pypi.org/project/connectonion/1.8.3/),
+with artifacts and the release evidence in the
+[GitHub Release](https://github.com/openonion/connectonion/releases/tag/v1.8.3).
+See the [Google integration guide](/google-integration) for commands and recovery.
