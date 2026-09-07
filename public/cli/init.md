@@ -1,5 +1,8 @@
 # ConnectOnion Init Command
 
+> This page describes the released CLI. The [unreleased 1.8.4 guide](../candidates/1.8.4/cli/init.md)
+> changes plain `co init` to global setup and requires an explicit project path.
+
 The `co init` command initializes ConnectOnion in an existing directory, perfect for adding agent capabilities to existing projects.
 
 ## Overview
@@ -13,7 +16,6 @@ Initializes ConnectOnion in the current directory with:
 - Global address/email from `~/.co/`
 - API keys appended to existing `.env` (or created if missing)
 - Template files added to your project
-- A full Web Control Center template added once in `.co/control-center/`
 - Docs always updated to latest version
 
 ## Command Comparison

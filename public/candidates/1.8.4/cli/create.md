@@ -1,0 +1,276 @@
+# ConnectOnion Create Command
+
+> **Unreleased 1.8.4 candidate.** These instructions describe the implementation
+> under review. No 1.8.4 package, SDK, or hosting service has been published by this work.
+
+The `co create` command creates new ConnectOnion projects with intelligent defaults and automatic setup.
+
+## Overview
+
+```bash
+co create [name] [options]
+```
+
+Creates a new agent project with:
+- AI features enabled by default (agents need LLMs)
+- API keys copied from global config (if available)
+- Global address and email used for all projects
+- Complete agent implementation ready to run
+
+## Command Flow
+
+### First-Time User
+
+When `~/.co/` doesn't exist, `co create` automatically sets up global configuration:
+
+```bash
+$ co create my-first-agent
+
+🚀 Welcome to ConnectOnion!
+✨ Setting up global configuration...
+  ✓ Creating ~/.co/ directory
+  ✓ Generating master keypair
+  ✓ Your address: 0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a
+  ✓ Your email: 0x7a9f3b2c@mail.openonion.ai
+  ✓ Creating ~/.co/keys.env (ready for your API keys)
+
+🧅 ConnectOnion Project Creator
+========================================
+
+✔ Choose a template:
+  ❯ Minimal - Simple starting point
+    Browser - Browser automation
+    Hosted Browser - Hosted browser sessions
+    Coder - Coding agent
+    Co-AI - AI assistant with web UI
+    Web Research - Data scraping & analysis
+    Custom - AI generates based on needs
+
+✔ Paste your API key (or Enter to skip): › sk-proj-xxx
+  ✓ Detected OpenAI API key
+  ✓ Saved to ~/.co/keys.env for future projects
+
+✔ Project name: › my-first-agent
+
+✅ Project created successfully!
+
+📁 Created: my-first-agent
+📦 Template: Minimal
+✨ AI Features: Enabled
+📧 Agent email: 0x7a9f3b2c@mail.openonion.ai (global)
+🔑 Agent address: 0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a (global)
+
+🚀 Next steps:
+────────────────────────────────────────
+1️⃣  cd my-first-agent
+2️⃣  pip install python-dotenv
+3️⃣  python agent.py
+```
+
+### Returning User
+
+When `~/.co/` already exists:
+
+```bash
+$ co create another-agent
+
+🧅 ConnectOnion Project Creator
+========================================
+✓ Using global identity: 0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a
+✓ Using global email: 0x7a9f3b2c@mail.openonion.ai
+
+✔ Choose a template: › Web Research
+
+✓ Found API keys in ~/.co/keys.env
+  ✓ OpenAI key will be copied to project
+
+✔ Project name: › research-bot
+
+✅ Project created successfully!
+
+📁 Created: research-bot
+📦 Template: Web Research
+✨ AI Features: Enabled
+📧 Agent email: 0x7a9f3b2c@mail.openonion.ai (global)
+🔑 Agent address: 0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a (global)
+🔑 API keys: Copied from global config
+
+💡 Using global email/address. Run 'co status' to view.
+
+🚀 Next steps:
+────────────────────────────────────────
+1️⃣  cd research-bot
+2️⃣  pip install -r requirements.txt
+3️⃣  python agent.py
+```
+
+## What Gets Created
+
+### Global Configuration (First Time Only)
+
+```
+~/.co/
+├── keys.env             # Shared API keys and identity
+├── keys/                # Master identity
+│   ├── agent.key        # Private key (for signing)
+│   └── recovery.txt     # Recovery phrase
+└── logs/
+    └── cli.log          # Command history
+```
+
+### Project Structure
+
+```
+my-agent/
+├── agent.py             # Main agent implementation
+├── .env                 # API keys (from ~/.co/keys.env)
+├── .co/
+│   ├── host.yaml       # Project config (uses global address/email)
+│   ├── control-center/ # Full Web app source
+│   │   ├── index.html
+│   │   ├── control-center.js
+│   │   └── CONTROL_CENTER.md
+│   └── docs/           # Framework documentation
+│       ├── co-vibe-coding-all-in-one.md
+│       └── connectonion.md
+├── README.md           # Project documentation
+└── .gitignore          # Excludes .env and sensitive files
+```
+
+Note: Projects use global address/email by default.
+
+## Address and Email Management
+
+All projects use the global identity (address + email) from `~/.co`. Run `co status` to view your address and email.
+
+## Templates
+
+### Available Templates
+
+1. **co-ai** (default) - the same agent as `co ai`, hosted. Files, shell,
+   browser, todos, sub-agents. Specialise it with skills in
+   `.co/skills/` rather than by picking a different starting point.
+2. **custom** - an LLM writes `agent.py` from your `--description`.
+
+`minimal`, `coder`, `browser`, `hosted-browser`, and `web-research` were
+retired; passing one exits 1 and says so.
+5. **custom** - AI-generated based on your description
+
+### Template Selection
+
+```bash
+# Interactive selection
+$ co create
+✔ Choose a template: ›
+
+# Direct specification
+$ co create my-bot --template co-ai
+
+# Custom with description
+$ co create assistant --template custom --description "Slack integration bot"
+```
+
+## Command Options
+
+```bash
+co create [name] [options]
+
+Options:
+  [name]                    Project name (optional, will prompt)
+  --template, -t            Template to use (co-ai/custom)
+  --description             Description for custom template
+  --key                     API key to use (overrides global)
+  --yes, -y                 Accept all defaults
+```
+
+## API Key Management
+
+### Priority Order
+
+1. **Command line** (`--key` flag)
+2. **Global config** (`~/.co/keys.env`)
+3. **Interactive prompt** (if not found)
+4. **Skip** (user adds to .env later)
+
+### Auto-Detection
+
+The CLI automatically detects API key providers:
+- `sk-proj-...` → OpenAI
+- `sk-ant-...` → Anthropic
+- `AIza...` → Google
+- `gsk_...` → Groq
+
+## Special Features
+
+### Global Identity Reuse
+
+By default, all projects share:
+- Same address (from global config)
+- Same email (from global config)
+- Same API keys (from global config)
+
+This keeps things simple - one identity for all your agents.
+
+## Examples
+
+### Quick Start
+
+```bash
+# Simplest form - uses global identity
+$ co create
+
+# With name - uses global identity
+$ co create my-bot
+
+# With template - uses global identity
+$ co create my-bot --template co-ai
+
+# Accept all defaults
+$ co create quickbot -y
+```
+
+### Custom Template
+
+```bash
+# Interactive
+$ co create --template custom
+
+# With description
+$ co create slack-bot -t custom -d "Slack bot for answering questions"
+```
+
+## Identity Flow Summary
+
+1. **First `co create`**: Generates global address/email
+2. **All projects**: Use same global address/email
+3. **API keys**: Copied from global `keys.env`
+
+This keeps things simple - one identity for all your agents (like using same email for all repos).
+
+## Troubleshooting
+
+### Check Your Address
+
+```bash
+$ co status
+```
+
+### Permission Errors
+
+```bash
+# Fix global permissions
+$ chmod 700 ~/.co
+$ chmod 600 ~/.co/keys.env
+
+# Fix project permissions
+$ chmod 700 my-agent/.co
+```
+
+## Workflow Summary
+
+1. **First time**: Creates global address/email
+2. **Every project**: Uses same global address/email
+3. **API keys**: Copied from global to each project
+4. **Ready to run**: Complete agent with identity
+
+Simple and consistent - one identity for all your agents.

@@ -4,15 +4,13 @@ Every hosted agent can have a **Home page**: a single file, `dashboard.html`, in
 project root. A chat client renders it beside the conversation, so opening your agent
 shows something useful before you type anything.
 
-> **Preview architecture:** Full Web Control Center keeps HTML as the authoring
-> surface but expands it into a complete,
-> multi-file Web app. An independently reviewed, content-addressed build is served
-> over HTTPS in a cross-origin iframe, so ordinary JavaScript, modules, frameworks,
-> assets, storage, Workers, Canvas/WebGL/WASM, and network APIs work normally.
-> `co create` and `co init` now scaffold its editable source in
-> `.co/control-center/`; upload, immutable hosting, independent review, and Host
-> activation are still preview work. `.co/dashboard.html` remains the
-> backwards-compatible locked-down path described on this page.
+> **Unreleased 1.8.4 candidate:** Full Web Control Center adds complete static
+> apps, independently reviewed immutable revisions, parent-owned chat actions,
+> Code/history/rollback and scheduled/internal-event updates. Local implementation
+> and coordinated browser validation are complete; publication and hosted acceptance
+> remain separate. Plain `co init` creates global configuration only.
+> See the [candidate guide](../candidates/1.8.4/network/control-center.md).
+> The remainder of this page describes the released legacy HTML dashboard.
 
 ```
 my-agent/
@@ -105,36 +103,10 @@ button can only ever start a skill you actually have.
 
 ### Full Web Control Center buttons
 
-The preview app runtime replaces HTML data attributes with a typed `MessageChannel`
-SDK. `sendMessage` and `runSkill` still become visible, attributable user turns rather
-than invisible side effects. They target the current Agent conversation by default:
-an invoice button and the user's follow-up therefore share context. On the Agent
-landing page, the first action creates that conversation. A product opens another
-chat only when it explicitly requests `conversation: "new"`.
-
-The iframe never opens a second Agent connection. O Chat owns the authenticated React
-SDK session, checks that a requested skill is published, and returns a correlated
-acknowledgement with the resulting session ID. Host trust, approval, and permission
-rules continue to govern the turn.
-
-The default full-Web template is the interactive version of CO AI's canonical starter.
-It receives the authenticated Agent name, full address, conversation, revision, and
-skill list. Its Diagnostics disclosure shows those identity facts without truncating
-the address; its message form requests `send_message`, and each dynamically-created
-skill button requests `run_skill`. No invoice or other project-specific Agent is
-hard-coded into the template.
-
-The iframe `src` is exactly `CONTROL_CENTER_APP.app.url`. The test fixture
-`https://control-center.e2e.test/invoices/` is deliberately not a live website. The
-intended production shape is:
-
-```text
-https://apps.openonion.ai/<agent-address>/<sha256-revision>/index.html
-```
-
-The upload service must create that immutable URL and an independent reviewer must
-approve the same revision. Until those services land, do not hand-author an
-`"approved"` descriptor; released clients continue to use the legacy snapshot.
+The candidate uses the typed browser SDK and a private MessagePort. `sendMessage`
+and `runSkill` use the parent's authenticated conversation and create attributed
+turns. New conversations require an explicit request. Data snapshots do not
+regenerate app code. See the [candidate bridge and activation contract](../candidates/1.8.4/network/control-center.md).
 
 ## When it updates
 

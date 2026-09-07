@@ -723,7 +723,7 @@ using `DASHBOARD_SNAPSHOT`.
   "app": {
     "schema": "connectonion.control-app/1",
     "revision": "sha256:...",
-    "url": "https://apps.openonion.ai/0x3d4017c3/9f86d081884c7d65/index.html",
+    "url": "https://r-<immutable-origin-hash>.control-apps.example.net/index.html",
     "sdk_version": "1",
     "review": { "status": "approved", "review_id": "..." },
     "capabilities": ["clipboard-write", "fullscreen"]
@@ -741,7 +741,9 @@ unless the app explicitly requests a new conversation. See the preview notes in
 The initial context carries the authenticated Agent name and full address, current
 session, app revision, and skill list. A default template can render honest identity
 Diagnostics and real `runSkill` buttons without hard-coding one Agent's capabilities.
-`co create` and `co init` scaffold that editable source in `.co/control-center/`.
+`co create` scaffolds that editable source in `.co/control-center/`. Plain `co init`
+only initializes global configuration. The sample domain is a placeholder.
+See the [1.8.4 candidate contracts](../candidates/1.8.4/network/control-center.md).
 The test-only URL `https://control-center.e2e.test/invoices/` is not a deployable
 iframe link; production activation requires immutable upload and independent approval.
 
