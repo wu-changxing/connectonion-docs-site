@@ -1,3 +1,5 @@
+import docsCatalog from './docs-catalog.json'
+
 const BASE_URL = 'https://docs.connectonion.com'
 const SITE_NAME = 'ConnectOnion Docs'
 const OG_IMAGE = `${BASE_URL}/onion-logo.png`
@@ -97,7 +99,7 @@ export const pageSEO: Record<string, PageSEO> = {
   },
   '/deploy': {
     title: 'Deploy Agents to Production - Docker, AWS, GCP | ConnectOnion',
-    description: 'Deploy ConnectOnion agents to production. Guides for Docker, AWS, GCP, and other platforms. From laptop deployment to cloud-scale infrastructure.',
+    description: 'Run co deploy, create a dedicated server with co server new --region, or self-host using the Dockerfile, Cloud Run and AWS ECS examples.',
     path: '/deploy',
     section: 'Network',
   },
@@ -314,7 +316,7 @@ export const pageSEO: Record<string, PageSEO> = {
 }
 
 export function getPageMetadata(path: string) {
-  const page = pageSEO[path]
+  const page = (docsCatalog as Record<string, PageSEO>)[path] || pageSEO[path]
   if (!page) {
     // Fallback for pages without specific SEO config
     const cleanPath = path.replace(/^\//, '').replace(/\//g, ' > ')

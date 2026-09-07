@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: ['/api/'],
       },
       {
         userAgent: 'GPTBot',
@@ -42,5 +42,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: 'https://docs.connectonion.com/sitemap.xml',
+    host: 'https://docs.connectonion.com',
   }
 }

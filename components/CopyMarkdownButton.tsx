@@ -126,7 +126,7 @@ export function CopyMarkdownButton({
           onClick={handleCopy}
           disabled={loading || !content}
           className={`
-            relative flex items-center gap-2 px-3 py-1.5
+            relative flex min-h-11 items-center gap-2 px-3 py-1.5
             ${copied
               ? 'bg-green-50 border-green-300 text-green-700'
               : 'bg-white border-gray-200 text-gray-600 hover:border-gray-400 hover:text-gray-900'
@@ -164,7 +164,7 @@ export function CopyMarkdownButton({
               href={markdownPath}
               download={markdownPath.split('/').pop() || filename}
               className="
-                flex items-center gap-2 px-3 py-1.5
+                flex min-h-11 items-center gap-2 px-3 py-1.5
                 bg-white border border-gray-200 text-gray-600
                 hover:border-gray-400 hover:text-gray-900
                 rounded-lg
@@ -182,7 +182,7 @@ export function CopyMarkdownButton({
               onClick={handleDownload}
               disabled={loading || !content}
               className={`
-                flex items-center gap-2 px-3 py-1.5
+                flex min-h-11 items-center gap-2 px-3 py-1.5
                 bg-white border border-gray-200 text-gray-600
                 hover:border-gray-400 hover:text-gray-900
                 rounded-lg

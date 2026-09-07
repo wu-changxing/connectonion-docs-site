@@ -27,6 +27,9 @@ jobs:
       - name: Audit dependencies
         run: npm audit --audit-level=moderate
 
+      - name: Verify blog content and discovery
+        run: npm run test:blog
+
       - name: Lint
         run: npm run lint
 
@@ -35,3 +38,9 @@ jobs:
 
       - name: Build production site
         run: npm run build -- --webpack
+
+      - name: Verify built blog metadata and discovery
+        run: npm run test:blog:build
+
+      - name: Verify every page's SEO and discovery
+        run: node scripts/check-seo.mjs --all

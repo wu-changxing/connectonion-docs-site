@@ -37,6 +37,16 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '2mb',
     },
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/blog/one-mailbox-two-limits',
+        destination: '/blog/a-page-should-not-become-a-wall',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;

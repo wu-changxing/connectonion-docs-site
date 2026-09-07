@@ -36,8 +36,8 @@ ${installCommand}
 `
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`,
-  description,
+  title: "ConnectOnion 1.6.12: Regions and Shared Mailboxes | ConnectOnion",
+  description: "Release notes for server-region choice, shared mailboxes, collision-safe Outlook downloads, and bounded provider requests.",
   keywords: [
     'ConnectOnion 1.6.12',
     'server region',

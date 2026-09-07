@@ -43,7 +43,7 @@ const channels = [
   {
     version: 'X.Y.Z',
     name: 'Stable / LTS',
-    description: 'Default for normal installs. New features move to 1.8; 1.7.x receives maintenance fixes.',
+    description: 'Default for normal installs. Preview builds require an explicit opt-in.',
     icon: HiOutlineShieldCheck,
   },
 ]
@@ -59,7 +59,7 @@ export default function ReleasesPage() {
           ]}
           icon={HiOutlineArrowPath}
           title="Release Channels"
-          description="Stable 1.7, completed candidate status, and the independent 1.8 preview stay explicit."
+          description="Stable releases, exact-pin candidates, and opt-in previews stay explicit."
           markdownPath="/releases.md"
           markdownFilename="releases.md"
         />
@@ -75,7 +75,7 @@ export default function ReleasesPage() {
             <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">
               {STABILIZING_VERSION ? `v${STABILIZING_VERSION}` : 'No active candidate'}
             </p>
-            <p className="text-sm text-gray-600 mt-2">{STABILIZING_VERSION ? 'Exact-pin candidate under release gates.' : 'Stable 1.7 has completed its candidate window.'}</p>
+            <p className="text-sm text-gray-600 mt-2">{STABILIZING_VERSION ? 'Exact-pin candidate under release gates.' : 'No active release candidate.'}</p>
           </div>
           <div className="border border-gray-200 bg-gray-50 rounded-lg p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Latest preview</p>
@@ -86,6 +86,24 @@ export default function ReleasesPage() {
                 : 'No newer feature-train preview is currently published.'}
             </p>
           </div>
+        </section>
+
+        <section className="mb-14">
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.3</h2>
+          <p className="text-gray-600 mb-4">
+            Gmail, Drive, Calendar and YouTube share one local Google login.
+            Add attachments to Gmail drafts, manage primary-calendar events, and
+            inspect or upload YouTube videos from the CLI. Video writes preview
+            the exact change and print its complete confirmation command.
+          </p>
+          <p className="text-gray-600 mb-4">
+            Fresh processes passed read-only checks across all four services using
+            an existing grant. Tokens stay on your computer; the broker refreshes
+            the local token without storing a second copy. TikTok is not included.
+          </p>
+          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.3" className="text-green-700 font-semibold hover:underline">
+            Read the 1.8.3 release
+          </Link>
         </section>
 
         <section className="mb-14 rounded-lg border border-green-200 bg-green-50 p-6">
@@ -167,6 +185,36 @@ export default function ReleasesPage() {
             also opts in and does not need <code>--pre</code>.
             {!PREVIEW_VERSION && ' No preview is published, so this command currently keeps the latest stable release.'}
           </p>
+        </section>
+
+        <section className="mb-14">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Preview 1.8.0a8: retained chat synchronization</h2>
+          <div className="space-y-4 text-gray-700">
+            <p>
+              The experimental OIP <code>session-sync/0.1</code> extension exposes owner-scoped,
+              revision-based chat history from the Agent machine. Clients can discover changes,
+              read snapshots, and rename or archive chats without taking over another device&apos;s
+              live connection. Drafts remain local, and an empty CONNECT does not appear as a chat.
+            </p>
+            <p>
+              Pair <code>connectonion==1.8.0a8</code> with <code>@connectonion/react@0.4.4-rc.1</code>.
+              Fresh signed CONNECT nonces prevent same-second replay collisions; Host relay metadata
+              stays separate from resume state. Remote-only transcripts use <code>SESSION_GET</code>/{' '}
+              <code>SESSION_SNAPSHOT</code>. The{' '}
+              <a className="text-green-700 hover:underline" href="https://github.com/openonion/oo-chat/pull/244">
+                paired O Chat PR
+              </a>{' '}
+              tracks the frontend rollout separately.
+            </p>
+            <p className="text-sm text-gray-600">
+              The a6 and a7 tags were stopped before PyPI publication and remain immutable audit
+              records. A8 includes the release-workflow repair and the empty-session correction found
+              by live two-device E2E.{' '}
+              <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/releases/tag/v1.8.0a8">
+                Read the a8 release notes.
+              </a>
+            </p>
+          </div>
         </section>
 
         <section className="mb-14">

@@ -1,5 +1,14 @@
 # CLI Browser
 
+In 1.8.1, system Chrome is free by default; paid Onion requires explicit
+`--engine onion`. Close the selected engine before switching, keeping its flag
+on the close command. A fresh command without an engine starts the free path.
+There is no paid panel or per-read/write engine switching. Proxy rejection and
+Chrome network-error pages now fail with `BrowserNavigationError` and exit 1;
+ordinary empty/404 pages remain readable. Apple Silicon Macs can download the
+paid production artifact; Intel Macs continue to use system Chrome until their
+native artifact is promoted.
+
 Drive one real browser from the shell — call browser functions directly, or hand a task to the AI agent.
 
 ## Quick Start (60 seconds)

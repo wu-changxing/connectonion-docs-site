@@ -8,8 +8,8 @@ const description = 'Why ConnectOnion 1.6.8 made received-mail limits explicit, 
 const canonicalPath = '/blog/a-page-should-not-become-a-wall'
 
 export const metadata: Metadata = {
-  title: 'Paginating an AI Agent Mailbox: Deterministic CLI Paging | ConnectOnion',
-  description,
+  title: "Paginate Agent Mailbox History with limit and offset | ConnectOnion",
+  description: "Retrieve later mailbox pages with get_emails(last=1000, offset=2000) or co email inbox --last 1000 --offset 2000.",
   keywords: ['ConnectOnion 1.6.8', 'email pagination', 'CLI pagination', 'API design', 'data completeness'],
   alternates: { canonical: canonicalPath },
   openGraph: {

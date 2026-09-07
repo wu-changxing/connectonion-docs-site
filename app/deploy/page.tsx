@@ -232,6 +232,37 @@ Agent URL: https://linkedin-agent-0x7a9f3b2c.agents.openonion.ai`}
           </div>
         </section>
 
+        <section className="mb-20" id="dedicated-server-regions">
+          <h2 className="heading-2">Choose a Dedicated Server Region</h2>
+          <p className="text-gray-700 mb-6">
+            Use <code>co server new</code> for a separate machine, then deploy your agent onto it.
+            Sydney remains the default. Melbourne offers another Australian location;
+            Singapore, Iowa, and Oregon are also available when explicitly selected.
+          </p>
+          <CodeWithResult
+            code={`# Create one dedicated browser-agent server in Melbourne
+co server new prod --machine e2-medium --region australia-southeast2
+
+# Deploy your initialized agent project onto it
+co deploy --to prod`}
+            language="bash"
+            fileName="Terminal"
+          />
+          <p className="text-gray-700 mt-6">
+            Region IDs: <code>australia-southeast1</code> (Sydney),{' '}
+            <code>australia-southeast2</code> (Melbourne), <code>asia-southeast1</code> (Singapore),{' '}
+            <code>us-central1</code> (Iowa), and <code>us-west1</code> (Oregon).
+            The CLI reads available regions from the pricing API. Region selection does not
+            migrate an existing server, and quota or capacity can still prevent creation.
+          </p>
+          <p className="text-gray-700 mt-4">
+            Server credit is charged for 12 months up front: US$360 for <code>e2-small</code>
+            {' '}or US$660 for <code>e2-medium</code>, with the same price in every listed region.
+            Review the live quote before confirming. Failed provisioning reports whether the
+            full refund succeeded; do not retry an uncertain purchase until its status is checked.
+          </p>
+        </section>
+
         {/* Self-Host paths guide */}
         <section className="mb-12">
           <div className="flex items-center gap-4 mb-6">

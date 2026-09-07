@@ -1,7 +1,11 @@
 # ConnectOnion — Full Content Index for AI Systems
 
+Complete generated catalogs: https://docs.connectonion.com/docs-index.txt and https://docs.connectonion.com/blog/llms.txt.
+
 This file contains comprehensive, citation-ready documentation for ConnectOnion.
 Source: https://docs.connectonion.com | GitHub: https://github.com/openonion/connectonion | PyPI: https://pypi.org/project/connectonion/
+
+Engineering journal catalog: https://docs.connectonion.com/blog/llms.txt | RSS: https://docs.connectonion.com/blog/feed.xml
 
 ---
 

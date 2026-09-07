@@ -8,8 +8,8 @@ const description = 'ConnectOnion 1.6.5 stops co deploy --to from shipping the o
 const canonicalPath = '/blog/deployed-agent-identity'
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`,
-  description,
+  title: "Separate Agent Identity from Operator Billing | ConnectOnion",
+  description: "Control which credentials a deployed process inherits so operator configuration cannot silently replace agent identity or billing authority.",
   keywords: [
     'ConnectOnion 1.6.5',
     'agent identity',

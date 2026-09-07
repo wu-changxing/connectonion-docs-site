@@ -8,8 +8,8 @@ const description = 'Why the native Codex and Claude Code Work Room keeps conver
 const canonicalPath = '/blog/workroom-is-a-view'
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`,
-  description,
+  title: "Remote Clients for Native Codex and Claude Code | ConnectOnion",
+  description: "Keep provider conversation, follow-up input, lifecycle, and controls in one Work Room while the native adapter owns execution.",
   keywords: ['Codex', 'Claude Code', 'OIP', 'O Chat', 'agent observability', 'native coding agent'],
   alternates: { canonical: canonicalPath },
   openGraph: {

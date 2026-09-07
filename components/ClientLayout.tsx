@@ -53,27 +53,27 @@ export default function ClientLayout({
     return (
       <div className="min-h-screen bg-white flex flex-col">
         {/* Blog top bar */}
-        <header className="sticky top-0 z-50 h-10 flex items-center justify-between px-6 bg-white border-b border-gray-100">
-          <Link href="/" className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors" aria-label="ConnectOnion — back to home">
+        <header className="sticky top-0 z-50 min-h-12 flex items-center justify-between px-3 sm:px-6 bg-white border-b border-gray-100">
+          <Link href="/" className="flex min-h-11 items-center gap-2 px-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors" aria-label="ConnectOnion — back to home">
             <img src="/onion-logo.png" alt="" className="w-5 h-5 rounded" />
             ConnectOnion
           </Link>
           {isBlogPost ? (
-            <Link href="/blog" className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-700 transition-colors">
+            <Link href="/blog" className="flex min-h-11 items-center gap-1.5 px-2 text-xs text-gray-500 hover:text-gray-800 transition-colors">
               <HiOutlineArrowLeft className="w-3.5 h-3.5" />
               All Posts
             </Link>
           ) : (
-            <Link href="/" className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-700 transition-colors">
+            <Link href="/" className="flex min-h-11 items-center gap-1.5 px-2 text-xs text-gray-500 hover:text-gray-800 transition-colors">
               <HiOutlineArrowLeft className="w-3.5 h-3.5" />
               Back to Docs
             </Link>
           )}
           <div className="flex items-center gap-1">
-            <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener noreferrer" className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors" aria-label="GitHub">
+            <a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener noreferrer" className="flex min-h-11 min-w-11 items-center justify-center text-gray-500 hover:text-gray-800 hover:bg-gray-100 rounded transition-colors" aria-label="GitHub">
               <FaGithub className="w-3.5 h-3.5" />
             </a>
-            <a href="https://discord.gg/4xfD9k8AUF" target="_blank" rel="noopener noreferrer" className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors" aria-label="Discord">
+            <a href="https://discord.gg/4xfD9k8AUF" target="_blank" rel="noopener noreferrer" className="flex min-h-11 min-w-11 items-center justify-center text-gray-500 hover:text-gray-800 hover:bg-gray-100 rounded transition-colors" aria-label="Discord">
               <FaDiscord className="w-3.5 h-3.5" />
             </a>
           </div>

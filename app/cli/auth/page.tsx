@@ -131,7 +131,7 @@ IS_EMAIL_ACTIVE=true`}
             <div className="space-y-2 text-gray-700">
               <div className="flex items-start gap-2">
                 <span className="text-gray-700">•</span>
-                <span>Connects your Google account for <strong>Gmail Send</strong> and <strong>Calendar Read</strong></span>
+                <span>The 1.8.3 candidate requests <strong>Gmail, Drive, Calendar and YouTube</strong>; use --scopes to restrict consent</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-700">•</span>
@@ -139,7 +139,7 @@ IS_EMAIL_ACTIVE=true`}
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-700">•</span>
-                <span>Saves credentials to <code className="bg-gray-100 px-1 rounded">.env</code> for your agents to use</span>
+                <span>Saves credentials only locally in <code className="bg-gray-100 px-1 rounded">~/.co/keys.env</code> and an existing project .env</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-700">•</span>
@@ -147,7 +147,7 @@ IS_EMAIL_ACTIVE=true`}
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-700">•</span>
-                <span>See <a href="/integrations/google" className="text-gray-900 underline">Google Integration</a> for details</span>
+                <span>See <a href="/google-integration" className="text-gray-900 underline">Google Integration</a> for details</span>
               </div>
             </div>
           </div>

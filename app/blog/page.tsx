@@ -1,353 +1,73 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { HiOutlineArrowPath, HiOutlineArrowRight, HiOutlineUsers, HiOutlineCommandLine, HiOutlineCodeBracket, HiOutlineServerStack, HiOutlineShieldCheck, HiOutlineChatBubbleLeftRight, HiOutlineSquare3Stack3D, HiOutlineBugAnt } from 'react-icons/hi2'
+import BlogIndex, { type BlogIndexPost } from '../../components/BlogIndex'
+import { BLOG_BASE_URL, getAllBlogPosts } from '../../lib/blog-content.mjs'
 
 export const metadata: Metadata = {
-  title: 'ConnectOnion Design Journal | AI Agent Architecture and Release Decisions',
-  description: 'Read ConnectOnion design decisions, release engineering lessons, protocol architecture, API rationale, and the thinking behind the Python AI agent framework.',
+  title: 'ConnectOnion Engineering Blog | AI Agent Design Decisions',
+  description: 'Learn how ConnectOnion isolates Chromium egress, bounds agent permissions, tests real provider sessions, and promotes verified Python release candidates.',
   alternates: {
     canonical: '/blog',
+    types: {
+      'application/rss+xml': `${BLOG_BASE_URL}/blog/feed.xml`,
+      'text/plain': `${BLOG_BASE_URL}/blog/llms.txt`,
+    },
   },
   openGraph: {
-    title: 'Building ConnectOnion — Design Journal',
-    description: 'Design decisions, release engineering lessons, and architecture notes from the ConnectOnion AI agent framework.',
+    title: 'ConnectOnion Engineering Blog',
+    description: 'Field notes and design decisions from building dependable Python AI agents.',
     url: '/blog',
+    siteName: 'ConnectOnion Docs',
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'ConnectOnion engineering blog' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ConnectOnion Engineering Blog',
+    description: 'Field notes and design decisions from building dependable Python AI agents.',
+    images: ['/og-image.png'],
   },
 }
 
-const blogPosts = [
-  {
-    title: 'co ai Delegates to Codex and Claude Code — and You Watch It Work',
-    subtitle: 'ConnectOnion 1.7.0 is stable: live resumable Work Room, three plain permission modes',
-    date: 'August 2026',
-    readTime: '5 min read',
-    href: '/blog/connectonion-1-7',
-    icon: HiOutlineCommandLine,
-    tags: ['Release', 'Stable', 'co ai'],
-    excerpt: 'Real coding delegation with a live, resumable Work Room; permissions collapse to read-only / auto / full-access; tool activity reads as intent, not implementation.'
-  },
-  {
-    title: 'What Makes an Agent 10x',
-    subtitle: 'Not a smarter model — an agent you can safely stop watching',
-    date: 'August 2026',
-    readTime: '6 min read',
-    href: '/blog/what-makes-an-agent-10x',
-    icon: HiOutlineShieldCheck,
-    tags: ['Vision', 'Reliability', 'Roadmap'],
-    excerpt: 'Five capabilities that compound — verifiable work, life in time, sedimenting experience, bounded delegation, real-world reach — drawn from an agent\'s own failure log.'
-  },
-  {
-    title: 'Headless Does Not Mean Unconfigured',
-    subtitle: 'Standing permission still matters when nobody can answer a dialog',
-    date: 'August 2026', readTime: '4 min read',
-    href: '/blog/headless-does-not-mean-unconfigured', icon: HiOutlineShieldCheck,
-    tags: ['Design Decision', 'Permissions', 'Automation'],
-    excerpt: 'How unattended Auto restores deliberate co browser and status grants while deployment, publication, email, and unknown effects remain fail-closed.'
-  },
-  {
-    title: 'An Image Prefix Is Not an Image',
-    subtitle: 'Malformed tool text should not become a fatal upload',
-    date: 'August 2026', readTime: '4 min read',
-    href: '/blog/an-image-prefix-is-not-an-image', icon: HiOutlineBugAnt,
-    tags: ['Design Decision', 'Images', 'Reliability'],
-    excerpt: 'Why the image formatter now proves a complete PNG, JPEG, GIF, or WebP before uploading, while malformed data URLs remain ordinary tool text.'
-  },
-  {
-    title: 'A Patch Must Move Forward',
-    subtitle: 'A stable fix cannot disappear from the next preview',
-    date: 'August 2026',
-    readTime: '4 min read',
-    href: '/blog/a-patch-must-move-forward',
-    icon: HiOutlineArrowPath,
-    tags: ['Design Decision', 'Release', 'CI'],
-    excerpt: 'Why stable patches now require a tracked forward-port into every active higher line, and why the release workflow blocks a newer preview while that work remains open.'
-  },
-  {
-    title: 'Your Servers, Your Regions, Your Shared Mailboxes',
-    subtitle: 'Pick a region, share an address without handing over a key — ConnectOnion 1.6.12',
-    date: 'August 2026',
-    readTime: '4 min read',
-    href: '/blog/connectonion-1-6-12',
-    icon: HiOutlineServerStack,
-    tags: ['Release', 'Servers', 'Email'],
-    excerpt: 'ConnectOnion 1.6.12: co server new --region, co email share/unshare, collision-safe Outlook attachment downloads, and steadier scheduled runs.'
-  },
-  {
-    title: 'The Work Room Is a Client, Not a Status Panel',
-    subtitle: 'Conversation, live work, permissions, and input inside one remote-client shell',
-    date: 'August 2026',
-    readTime: '5 min read',
-    href: '/blog/workroom-is-a-view',
-    icon: HiOutlineCommandLine,
-    tags: ['Design Decision', 'OIP', 'Codex'],
-    excerpt: 'Why the native Codex and Claude Code Work Room keeps attributed messages, lifecycle, provider controls, and a fixed composer without becoming a second runtime.'
-  },
-  {
-    title: 'A Work Room Is a Summary, Not a Transcript',
-    subtitle: 'A safe coding surface shows the next useful fact without pretending to be a terminal or a screenshot',
-    date: 'August 2026',
-    readTime: '5 min read',
-    href: '/blog/a-work-room-is-a-summary-not-a-transcript',
-    icon: HiOutlineCommandLine,
-    tags: ['Design Journal', 'OIP', 'Work Room'],
-    excerpt: 'Why the 1.7.0a15 preview gives native Codex and Claude Code a finite OIP envelope, a compact card, and one focused place for approval and activity.'
-  },
-  {
-    title: 'An Approval Is Not Execution Time',
-    subtitle: 'A careful nested approval should not spend a native coding turn’s work budget',
-    date: 'August 2026',
-    readTime: '4 min read',
-    href: '/blog/an-approval-is-not-execution-time',
-    icon: HiOutlineShieldCheck,
-    tags: ['Design Journal', 'Codex', 'Approvals'],
-    excerpt: 'Why the 1.7.0a14 Codex adapter separates operator review from active provider execution, stays bounded, and keeps the manual approval boundary intact.'
-  },
-  {
-    title: 'A Tool Transaction Is Not a Work Room',
-    subtitle: 'How long-running native coding work stays observable without turning chat into a terminal dump',
-    date: 'August 2026',
-    readTime: '5 min read',
-    href: '/blog/a-tool-transaction-is-not-a-work-room',
-    icon: HiOutlineCommandLine,
-    tags: ['Design Journal', 'OIP', 'Work Room'],
-    excerpt: 'Why OIP streams correlated native provider activity and approvals live, why raw details stay collapsed, and why a visual snapshot must never pretend to be a provider screenshot.'
-  },
-  {
-    title: 'The Owner Needs a Door',
-    subtitle: 'Secure defaults still need a private recovery path',
-    date: 'August 2026',
-    readTime: '5 min read',
-    href: '/blog/the-owner-needs-a-door',
-    icon: HiOutlineShieldCheck,
-    tags: ['Design Journal', 'Release', 'Onboarding'],
-    excerpt: 'Why co ai creates one private owner invite automatically, keeps it out of logs, and reveals it only through an explicit command.'
-  },
-  {
-    title: 'A Page Should Not Become a Wall',
-    subtitle: 'Finite mailbox pages that never hide the rest of the data',
-    date: 'August 2026',
-    readTime: '4 min read',
-    href: '/blog/a-page-should-not-become-a-wall',
-    icon: HiOutlineSquare3Stack3D,
-    tags: ['Design Journal', 'Release', 'Pagination'],
-    excerpt: 'Why 1.6.8 aligned mailbox limits, rejected silent clamping, and made every received-mail page reachable from the SDK and CLI.'
-  },
-  {
-    title: 'Changing the Default Model Is a Backend Decision First',
-    subtitle: 'Gemini 3.7 Flash by default, and why the client shipped second',
-    date: 'August 2026',
-    readTime: '5 min read',
-    href: '/blog/gemini-37-default',
-    icon: HiOutlineArrowPath,
-    tags: ['Design Journal', 'Release', 'Models'],
-    excerpt: 'ConnectOnion 1.6.6 makes Gemini 3.7 Flash the default. A backend that supports a model nobody requests is invisible; a client that requests a model nobody supports is an outage.'
-  },
-  {
-    title: 'The Agent That Was Itself, and Billed Someone Else',
-    subtitle: 'What a deployed process should inherit, and what it must not',
-    date: 'August 2026',
-    readTime: '6 min read',
-    href: '/blog/deployed-agent-identity',
-    icon: HiOutlineShieldCheck,
-    tags: ['Design Journal', 'Release', 'Agent Identity'],
-    excerpt: 'ConnectOnion 1.6.5 stops co deploy --to from shipping the operator identity to the server — and why a bug where every signal agreed with itself survived nine days.'
-  },
-  {
-    title: 'One Browser Protocol, Native Coding Adapters',
-    subtitle: 'One web boundary, native providers, and rolling upgrades',
-    date: 'August 2026',
-    readTime: '6 min read',
-    href: '/blog/oip-native-coding-adapters',
-    icon: HiOutlineCommandLine,
-    tags: ['Design Decision', 'OIP', 'Coding Adapters'],
-    excerpt: 'Why co ai uses one OIP browser connection, translates native Codex and Claude Code events, and deploys Host and frontend one side at a time.'
-  },
-  {
-    title: 'ConnectOnion 1.6.0',
-    subtitle: 'Safer remote agents and a cleaner credential boundary',
-    date: 'August 2026',
-    readTime: '4 min read',
-    href: '/blog/connectonion-1-6',
-    icon: HiOutlineShieldCheck,
-    tags: ['Release', 'Security', 'Email'],
-    excerpt: 'Signed remote-agent control, CLI-local Microsoft credentials, safer email retries, private invite credentials, and verified release artifacts.'
-  },
-  {
-    title: 'Designing the Network Protocol',
-    subtitle: 'From Complexity to Clarity',
-    date: 'December 2024',
-    readTime: '12 min read',
-    href: '/blog/network-protocol-design',
-    icon: HiOutlineServerStack,
-    tags: ['Design Decision', 'Network', 'Protocol'],
-    excerpt: 'How we evolved from complex architectures to a simple, powerful protocol. Learn why we chose messages over sessions, public keys as addresses, and simplicity over sophistication.'
-  },
-  {
-    title: 'Why We Chose "Trust"',
-    subtitle: 'The Story Behind ConnectOnion\'s Authentication Keyword',
-    date: 'December 2024',
-    readTime: '5 min read',
-    href: '/blog/trust-keyword',
-    icon: HiOutlineUsers,
-    tags: ['Design Decision', 'Authentication', 'Trust'],
-    excerpt: 'After evaluating 15+ options, we settled on "trust" as our authentication keyword. Learn why this bidirectional term perfectly captures our behavioral verification approach.'
-  },
-  {
-    title: 'Why We Chose `llm_do()` Over `llm()`',
-    subtitle: 'Functions Need Verbs',
-    date: 'December 2024',
-    readTime: '7 min read',
-    href: '/blog/llm-do',
-    icon: HiOutlineCodeBracket,
-    tags: ['Design Decision', 'API Design', 'Naming'],
-    excerpt: 'Functions should be verbs, not nouns. Discover why we added three characters to transform the entire developer experience with one-shot LLM calls.'
-  },
-  {
-    title: 'Why We Chose `input()` Over `run()`',
-    subtitle: 'The Power of User Mental Models',
-    date: 'December 2024',
-    readTime: '8 min read',
-    href: '/blog/input-method',
-    icon: HiOutlineCommandLine,
-    tags: ['Design Decision', 'API Design', 'UX'],
-    excerpt: '40% of users naturally tried `input()` first. Learn how aligning with user mental models increased our first-time success rate from 67% to 89%.'
-  },
-  {
-    title: 'Agent Address Format',
-    subtitle: 'Why Hex-Encoded Public Keys',
-    date: 'December 2024',
-    readTime: '10 min read',
-    href: '/blog/agent-address-format',
-    icon: HiOutlineShieldCheck,
-    tags: ['Design Decision', 'Security', 'Identity'],
-    excerpt: 'How we designed agent addresses using Ed25519 public keys, why we chose hex encoding over Base58, and how this enables secure, decentralized agent communication.'
-  },
-  {
-    title: 'Why "Address" Over "Identity"',
-    subtitle: 'The Power of Precise Naming',
-    date: 'December 2024',
-    readTime: '6 min read',
-    href: '/blog/naming-is-hard',
-    icon: HiOutlineChatBubbleLeftRight,
-    tags: ['Design Decision', 'Naming', 'UX'],
-    excerpt: 'Words shape thinking. Learn why we chose "address" over "identity" for agent public keys, and how this single word change simplified our entire mental model.'
-  },
-  {
-    title: 'Progressive Disclosure in CLI Design',
-    subtitle: 'Simplicity First, Power When Needed',
-    date: 'December 2024',
-    readTime: '7 min read',
-    href: '/blog/cli-ux-progressive-disclosure',
-    icon: HiOutlineSquare3Stack3D,
-    tags: ['Design Decision', 'CLI', 'UX'],
-    excerpt: 'How we designed the ConnectOnion CLI to be approachable for beginners while maintaining power for experts through progressive disclosure and smart defaults.'
-  }
-]
-
 export default function BlogPage() {
+  const posts: BlogIndexPost[] = getAllBlogPosts().map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    description: post.description,
+    date: post.date,
+    tags: post.tags,
+    readMinutes: post.readMinutes,
+    href: post.href,
+  }))
+
+  const blogJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${BLOG_BASE_URL}/blog#blog`,
+    url: `${BLOG_BASE_URL}/blog`,
+    name: 'ConnectOnion Engineering Blog',
+    description: metadata.description,
+    inLanguage: 'en-AU',
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${BLOG_BASE_URL}/#organization`,
+      name: 'ConnectOnion',
+      url: BLOG_BASE_URL,
+    },
+    blogPost: posts.slice(0, 20).map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      datePublished: post.date,
+      url: `${BLOG_BASE_URL}${post.href}`,
+    })),
+  }
+
   return (
-    <div className="px-6 md:px-12 py-14 md:py-20">
-      <div className="max-w-2xl mx-auto">
-        {/* Header */}
-        <div className="mb-12">
-          <p className="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">Design Journal</p>
-          <h1 className="text-3xl font-bold text-gray-900 mb-3">Building ConnectOnion</h1>
-          <p className="text-gray-500 text-base">
-            Design decisions, lessons learned, and the thinking behind the framework.
-          </p>
-        </div>
-
-        {/* Blog Posts */}
-        <div className="divide-y divide-gray-100 border border-gray-200 rounded-xl overflow-hidden">
-          {blogPosts.map((post, idx) => {
-            const Icon = post.icon
-            const num = String(idx + 1).padStart(2, '0')
-            return (
-              <Link
-                key={post.href}
-                href={post.href}
-                className="block group"
-              >
-                <article className="px-5 py-4 bg-white hover:bg-gray-50 transition-colors duration-150">
-                  <div className="flex items-start gap-4">
-                    {/* Ordinal + Icon stacked */}
-                    <div className="flex-shrink-0 flex flex-col items-center gap-1 pt-0.5">
-                      <span className="text-[10px] font-bold text-gray-500 tracking-widest font-mono">{num}</span>
-                      <div className="w-9 h-9 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center group-hover:border-gray-400 group-hover:bg-white transition-all">
-                        <Icon className="w-4.5 h-4.5 text-gray-500 group-hover:text-gray-700 transition-colors" style={{width: '1.125rem', height: '1.125rem'}} />
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      {/* Meta */}
-                      <div className="flex flex-wrap items-center gap-3 mb-1 text-xs text-gray-500">
-                        <span>{post.date}</span>
-                        <span>·</span>
-                        <span>{post.readTime}</span>
-                      </div>
-
-                      {/* Title — dominant */}
-                      <h2 className="text-base font-semibold text-gray-900 mb-0.5 group-hover:text-gray-700 transition-colors leading-snug">
-                        {post.title}
-                      </h2>
-
-                      {/* Subtitle */}
-                      <p className="text-sm text-gray-500">
-                        {post.subtitle}
-                      </p>
-                    </div>
-
-                    {/* Read More arrow */}
-                    <div className="flex-shrink-0 self-center">
-                      <HiOutlineArrowRight className="w-4 h-4 text-gray-300 group-hover:text-gray-600 group-hover:translate-x-0.5 transition-all" />
-                    </div>
-                  </div>
-                </article>
-              </Link>
-            )
-          })}
-        </div>
-
-        {/* Writing in public — topics we're covering next */}
-        <div className="mt-10 border border-gray-200 rounded-xl overflow-hidden">
-          <div className="px-5 py-3 bg-gray-50 border-b border-gray-200">
-            <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest font-mono">Writing in public</p>
-          </div>
-          <div className="px-5 py-4 space-y-3">
-            {[
-              'How we built the eval system — session replay without adding a line of user code',
-              'The trust model — why agent-to-agent auth is harder than you think',
-              'Plugin architecture internals — hooks, lifecycle, and the 9 event types',
-            ].map((topic) => (
-              <div key={topic} className="flex items-start gap-3">
-                <span className="mt-1.5 w-1 h-1 rounded-full bg-gray-300 flex-shrink-0" />
-                <p className="text-sm text-gray-600">{topic}</p>
-              </div>
-            ))}
-          </div>
-          <div className="px-5 py-4 border-t border-gray-100 flex flex-col sm:flex-row items-center gap-3">
-            <a
-              href="https://discord.gg/4xfD9k8AUF"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white text-sm font-medium rounded-lg transition-colors"
-            >
-              Get notified on Discord
-            </a>
-            <a
-              href="https://github.com/openonion/connectonion"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-lg border border-gray-200 transition-colors"
-            >
-              Star on GitHub
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd).replace(/</g, '\\u003c') }}
+      />
+      <BlogIndex posts={posts} />
+    </>
   )
 }

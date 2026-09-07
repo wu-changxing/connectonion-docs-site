@@ -73,16 +73,18 @@ npm run lint && npm run build
 ## Design Journal Publications
 
 - A meaningful feature-train launch, first beta, first RC, stable release, or
-  material architecture/workflow decision must create or substantially update
-  a post under `app/blog/<slug>/page.tsx` with a matching Markdown source under
-  `public/tutorials/`.
+  material architecture/workflow decision must add or substantially update a
+  dated Markdown post under `public/blog/`. The content pipeline generates its
+  route, index entry, sitemap record, RSS item, AI catalog entry, metadata, and
+  social card. Keep existing handcrafted routes when editing an established
+  public URL; they take precedence over generated pages.
 - Record the problem, alternatives, decision, tradeoffs, evidence, current
   limitations, and the condition that would make us revisit the decision.
   Release notes say what changed; the journal explains why.
-- Every new post must be linked from the blog index, navigation, site search,
-  `app/sitemap.ts`, `public/sitemap.xml`, `public/llms.txt`, and any relevant
-  full AI-readable index. Give the page unique metadata, a canonical URL,
-  social-card metadata, and `TechArticle` or `BlogPosting` structured data.
+- Run `npm run test:blog`, the normal production build, and
+  `npm run test:blog:build`. These checks reject duplicate/unsafe slugs and
+  verify unique metadata, canonical URLs, BlogPosting structured data, social
+  cards, the sitemap, RSS, and AI-readable discovery output.
 - Draft before publication, but do not claim that a package or preview is
   available until its PyPI artifact and GitHub Release are public. Maintenance
   patches need only release notes unless they contain a reusable design lesson.

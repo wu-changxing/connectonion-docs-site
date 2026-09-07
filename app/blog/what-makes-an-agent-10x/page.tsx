@@ -8,8 +8,8 @@ const description = 'Model intelligence is not the lever. The agent you can safe
 const canonicalPath = '/blog/what-makes-an-agent-10x'
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`,
-  description,
+  title: "Five Capabilities for Reliable Autonomous AI Agents | ConnectOnion",
+  description: "Design agents around verifiable work, durable time, learned experience, bounded delegation, and access to real tools.",
   keywords: [
     'AI agents',
     'agent reliability',

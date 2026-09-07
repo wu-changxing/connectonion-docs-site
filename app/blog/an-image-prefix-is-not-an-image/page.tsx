@@ -9,7 +9,7 @@ const canonicalPath = '/blog/an-image-prefix-is-not-an-image'
 const articleMarkdown = `# ${title}\n\n${description}\n\nA DOM scan shortened an image source for readability. A text regex mistook the prefix for a complete screenshot, and decoding inside after_tools ended the whole agent run.\n\n## The boundary\n\nCandidates now require strict base64 decoding, the declared image signature, and a complete PNG, JPEG, GIF, or WebP terminal structure. Invalid candidates stay as tool text; genuine upload failures remain loud.\n`
 
 export const metadata: Metadata = {
-  title: `${title} | ConnectOnion`, description,
+  title: "Reject Truncated Base64 Image Uploads | ConnectOnion",
   alternates: { canonical: canonicalPath },
   openGraph: { title, description, url: canonicalPath, siteName: 'ConnectOnion Docs', type: 'article', publishedTime: '2026-08-25T00:00:00+10:00', authors: ['ConnectOnion Team'], tags: ['images', 'plugins', 'reliability'], images: [{ url: '/onion-logo.png', alt: title }] },
   twitter: { card: 'summary_large_image', title, description, images: ['/onion-logo.png'] },

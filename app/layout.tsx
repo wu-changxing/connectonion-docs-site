@@ -3,7 +3,6 @@ import { Inter, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "../components/ClientLayout";
 import GitHubStarBanner from "../components/GitHubStarBanner";
-import Script from "next/script";
 import { STABLE_VERSION } from "../lib/version";
 
 const inter = Inter({ 
@@ -30,6 +29,7 @@ const BASE_URL = 'https://docs.connectonion.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
+  alternates: { canonical: BASE_URL },
   title: {
     default: "ConnectOnion - Python AI Agents from a Working Template",
     template: "%s",
@@ -121,6 +121,7 @@ const structuredData = {
 const organizationData = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${BASE_URL}/#organization`,
   "name": "ConnectOnion",
   "alternateName": ["Connect Onion", "ConnectOnion Framework"],
   "url": BASE_URL,
@@ -133,116 +134,15 @@ const organizationData = {
   "description": "ConnectOnion - Open-source Python toolkit for building AI agents from a working template"
 };
 
-// WebSite structured data for sitelinks search
+// Describe the documentation collection without advertising a nonexistent search endpoint.
 const websiteData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${BASE_URL}/#website`,
   "name": "ConnectOnion Documentation",
   "url": BASE_URL,
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": `${BASE_URL}/?q={search_term_string}`
-    },
-    "query-input": "required name=search_term_string"
-  }
-};
-
-// FAQ structured data
-const faqData = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is ConnectOnion?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ConnectOnion is an open-source Python toolkit for building AI agents. You do not start from an empty file: run co create my-agent and it scaffolds a project that already runs, with a shell, file editing, search and a model wired in. From there you edit the generated agent.py and prompt.md, and any plain Python function you add becomes a tool automatically."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I create an AI agent with ConnectOnion?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Run pip install connectonion, then co create my-agent. That writes a working project, including an agent.py that already imports bash, read_file, edit, glob, grep and write as tools. Run it with cd my-agent && python agent.py. To customise it, edit prompt.md or add your own function to the tools list — ConnectOnion converts Python functions into tools from their type hints and docstrings."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What AI models does ConnectOnion support?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ConnectOnion supports OpenAI (GPT-4o, GPT-4), Anthropic (Claude), Google (Gemini), and more. Use managed keys with the co/ prefix (e.g., co/gemini-3.7-flash) for zero-config setup, or bring your own API keys."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What makes ConnectOnion different from other Python agent libraries?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You never start from a blank file. co create writes the whole project — an agent.py with six tools and an approval plugin already wired, a prompt.md, a .co directory with logs and docs — so the thing runs before you have written a line. After that you are editing generated code that lives in your own repository, not composing framework abstractions. Plain Python functions become tools via their type hints, and @xray, the plugin system and agent-to-agent networking are built in."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is ConnectOnion free to use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, ConnectOnion is open-source under the Apache-2.0 license. You get $5 free credits for managed model access (no API key needed). You can also use your own API keys at no cost from ConnectOnion."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I install ConnectOnion?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Install ConnectOnion with pip: pip install connectonion. Then run co auth to authenticate and get free managed API credits. No API key required to get started."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is co/ prefix in ConnectOnion models?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The co/ prefix routes model calls through OpenOnion managed keys. For example, co/gemini-3.7-flash uses Google Gemini without you needing a Google API key. New accounts get $5 free credits. You can also use your own keys with standard model names like gpt-5 or claude-sonnet-4-5."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are ConnectOnion Skills?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Skills are reusable markdown workflows you invoke with /skill-name. Each skill defines instructions and auto-approved tool permissions for that task. Built-in skills include /commit and /review-pr. You can copy additional skills like /ship-feature using: co copy ship-feature."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does ConnectOnion work with Claude Code?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. ConnectOnion skills use the same SKILL.md format as Claude Code. You can symlink useful_skills/ into ~/.claude/skills/ so skills work in both ConnectOnion agents and Claude Code. Run the included link-to-claude.sh script to set this up."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I add tools to a ConnectOnion agent?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Pass any Python function as a tool: agent = Agent('assistant', tools=[my_function]). ConnectOnion reads the function's type hints and docstring to generate the tool schema automatically. No decorators or wrappers needed. You can also copy built-in tools with: co copy gmail, co copy shell, co copy memory."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do ConnectOnion plugins work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Plugins are lists of event handlers that extend agent behavior. Add them with: agent = Agent('name', plugins=[skills, tool_approval]). Available plugins include: skills (slash command workflows), tool_approval (approval UI), re_act (ReAct reasoning), eval (task evaluation), and more. Copy any plugin with co copy <name>."
-      }
-    }
-  ]
+  "publisher": { "@id": `${BASE_URL}/#organization` },
+  "inLanguage": "en"
 };
 
 export default function RootLayout({
@@ -254,25 +154,20 @@ export default function RootLayout({
     <html lang="en" className={`scroll-smooth ${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable}`}>
       <head>
         {/* Structured Data */}
-        <Script
+        <script
           id="structured-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <Script
+        <script
           id="organization-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
         />
-        <Script
+        <script
           id="website-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
-        />
-        <Script
-          id="faq-data"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
         />
         {/* AI crawler hints */}
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly content index" />
