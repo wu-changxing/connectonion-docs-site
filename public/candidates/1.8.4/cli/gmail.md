@@ -1,7 +1,8 @@
 # Gmail CLI (`co gmail`)
 
 > **Unreleased 1.8.4 candidate.** These instructions describe the implementation
-> under review. No 1.8.4 package, SDK, or hosting service has been published by this work.
+> under review. Core 1.8.4 and the hosting service are not yet released.
+> The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
 
 Send and read email from your Gmail account right in the terminal — the same
 Gmail API access your agents get from the [Gmail tool](https://github.com/openonion/connectonion/issues/1445),

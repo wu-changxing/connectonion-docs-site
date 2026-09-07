@@ -1,7 +1,8 @@
 # Synology CLI (co syno)
 
 > **Unreleased 1.8.4 candidate.** These instructions describe the implementation
-> under review. No 1.8.4 package, SDK, or hosting service has been published by this work.
+> under review. Core 1.8.4 and the hosting service are not yet released.
+> The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
 
 The 1.8.4 candidate provides twenty everyday NAS commands: connection profiles,
 read-only inspections, ordinary files and sharing links. It has synthetic

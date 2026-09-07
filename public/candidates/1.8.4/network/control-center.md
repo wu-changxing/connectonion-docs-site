@@ -1,7 +1,8 @@
 # Full Web Control Center
 
 > **Unreleased 1.8.4 candidate.** These instructions describe the implementation
-> under review. No 1.8.4 package, SDK, or hosting service has been published by this work.
+> under review. Core 1.8.4 and the hosting service are not yet released.
+> The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
 
 A Control Center is a complete static app beside Chat. HTML, CSS, JavaScript,
 framework chunks and assets travel as one immutable revision. The 1.8.4 candidate
@@ -120,3 +121,11 @@ success, error, next run and revision. This does not schedule mail or provider m
 See [candidate acceptance](https://github.com/openonion/connectonion/issues/1445),
 [DD071](https://github.com/openonion/connectonion/issues/1445), and
 [the legacy dashboard](https://github.com/openonion/connectonion/issues/1445).
+
+## Published SDK candidate
+
+Install the exact `@connectonion/react@0.4.4-rc.2` dependency through the normal
+package manager. Its protected CI artifact and npm registry tarball have the same
+SHA-256: `f608a913528beeda6c3ac32072b281ad38cb4d5eadd615824fb1270e2b0d07b2`.
+The SDK is a prerelease for coordinated 1.8.4 acceptance; it does not mean the Core
+release or production hosting is available.
