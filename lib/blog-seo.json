@@ -450,5 +450,9 @@
   "gmail-kept-the-body-and-changed-the-id": {
     "title": "Recover Gmail Send Receipts When Message-ID Changes",
     "description": "A live Gmail test exposed rewritten Message-ID headers. A preserved attempt marker recovers send receipts without risking a duplicate email."
+  },
+  "the-command-that-blamed-the-wrong-password": {
+    "title": "Outlook CLI Errors That Name the Right Credential",
+    "description": "Four Outlook complaints from one day: a wrong re-auth hint, a scheduled send with no cancel path, and a CC that broke a thread. The fix was the last line of output."
   }
 }

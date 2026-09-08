@@ -188,7 +188,41 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Preview 1.8.4a2: global settings and reviewed operations</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Preview 1.8.4b1: Outlook fixes and co outlook calendar</h2>
+          <div className="space-y-4 text-gray-700">
+            <p>
+              The first 1.8.4 beta closes the open Outlook issues from one working day: a valid
+              Microsoft token is used until it is about to expire, each credential failure names
+              the command that fixes it (<code>co auth</code> for a missing or dead OpenOnion key,{' '}
+              <code>co auth microsoft</code> for a revoked or incomplete Microsoft record), a
+              scheduled send or reply ends by naming <code>co outlook cancel</code>, and{' '}
+              <code>co outlook reply --cc/--bcc</code> copies a third person without leaving the
+              thread. New <code>co outlook calendar</code> mirrors <code>co gcalendar</code> leaf for
+              leaf over the existing Microsoft Calendar tool, with writes that preview by default.
+            </p>
+            <CommandBlock commands={[
+              "python -m pip install --upgrade --pre 'connectonion==1.8.4b1'",
+              'co outlook --help',
+            ]} />
+            <p>
+              Beta means the 1.8.4 command surface is frozen for exercise. No live Microsoft
+              account was used for this release; the Graph request shapes are covered by mocked
+              tests, and the first real-mailbox exercise of <code>reply --cc</code> and{' '}
+              <code>calendar teams</code> is what the beta is for. Physical NAS acceptance is
+              still pending; final 1.8.4 remains separate. Stable stays at <code>{STABLE_VERSION}</code>.
+            </p>
+            <p>
+              <a className="text-green-700 hover:underline" href="/candidates/1.8.4/cli/outlook.md">Read the Outlook preview guide</a>
+              {' · '}
+              <Link className="text-green-700 hover:underline" href="/blog/the-command-that-blamed-the-wrong-password">Design Journal</Link>
+              {' · '}
+              <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/releases/tag/v1.8.4b1">Preview release notes</a>
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-14">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Earlier preview 1.8.4a2: global settings and reviewed operations</h2>
           <div className="space-y-4 text-gray-700">
             <p>
               This opt-in preview adds explicit global/project environment selection,
@@ -250,7 +284,7 @@ export default function ReleasesPage() {
           <div className="border-l-2 border-gray-300 pl-5 space-y-4 text-gray-700">
             <p><strong>1.6.x:</strong> previous stable maintenance line.</p>
             <p><strong>1.7.x:</strong> earlier maintenance line.</p>
-            <p><strong>1.8.x:</strong> current stable line; 1.8.4a2 is the opt-in preview for the next patch.</p>
+            <p><strong>1.8.x:</strong> current stable line; 1.8.4b1 is the opt-in preview (first beta) for the next patch.</p>
             <p className="text-sm">
               Track the live scope in the{' '}
               <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/issues/1445">

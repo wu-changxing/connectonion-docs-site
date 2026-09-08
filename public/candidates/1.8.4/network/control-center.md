@@ -1,6 +1,6 @@
 # Full Web Control Center
 
-> **Opt-in 1.8.4a2 preview.** Install `connectonion==1.8.4a2` explicitly.
+> **Opt-in 1.8.4b1 preview.** Install `connectonion==1.8.4b1` explicitly.
 > Stable remains 1.8.3. Final 1.8.4 and production hosting acceptance are pending.
 > The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
 

@@ -12,6 +12,12 @@ export default function OutlookPage() {
   return (
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
+        <aside className="mb-8 rounded-lg border border-amber-200 bg-amber-50 p-5 text-gray-800">
+          <strong>1.8.4b1 preview:</strong> The instructions below describe the released CLI.
+          The opt-in beta adds <code>co outlook calendar</code>, <code>reply --cc/--bcc</code>,
+          credential errors that name the right <code>co auth</code>, and a cancel path after every scheduled send.
+          <a className="ml-1 text-blue-700 underline" href="/candidates/1.8.4/cli/outlook.md">Read the preview guide</a>.
+        </aside>
         <PageHeader
           breadcrumbs={[
             { label: 'Docs', href: '/' },
