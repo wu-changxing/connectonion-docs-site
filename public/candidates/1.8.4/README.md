@@ -1,7 +1,7 @@
-# 1.8.4a2 preview guide
+# 1.8.4b1 preview guide
 
-This is the opt-in 1.8.4a2 preview. Stable remains 1.8.3. Install with
-`python -m pip install --upgrade --pre connectonion==1.8.4a2`.
+This is the opt-in 1.8.4b1 preview. Stable remains 1.8.3. Install with
+`python -m pip install --upgrade --pre connectonion==1.8.4b1`.
 Live Gmail/Drive acceptance passed, including lost-receipt recovery. Physical NAS
 acceptance remains pending.
 Hosting examples remain placeholders; local emulator acceptance does not provision
@@ -14,6 +14,9 @@ a production hosting service.
 - [Gmail](cli/gmail.md): frozen listing IDs, mailbox actions, bounded downloads,
   exact-content draft review and uncertain-send recovery.
 - [Drive](cli/gdrive.md): account-bound listings and managed draft links.
+- [Outlook](cli/outlook.md) (new in 1.8.4b1): stored-token reuse, credential
+  errors that name the right `co auth`, a cancel path after every scheduled
+  send, `reply --cc/--bcc`, and the `co outlook calendar` group.
 - [Synology](cli/synology.md): 20 command leaves, profiles/TLS, inspection sources,
   safe transfers and durable operation IDs. Real NAS acceptance is still required.
 - [Control Center](network/control-center.md): immutable apps, runtime review,

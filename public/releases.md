@@ -4,10 +4,30 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.3`; the opt-in preview is `1.8.4a2`.
+**Current channels:** stable is `1.8.3`; the opt-in preview is `1.8.4b1`.
 There is no active stabilizing candidate.
 
-## Preview 1.8.4a2
+## Preview 1.8.4b1
+
+The first 1.8.4 beta closes the open Outlook issues — a valid Microsoft token is
+used until it is about to expire, credential errors name the right `co auth`,
+scheduled sends say how to cancel, `reply --cc/--bcc` keeps the thread — and adds
+`co outlook calendar` over the existing Microsoft Calendar tool. The command
+surface is now frozen for exercise.
+
+```bash
+python -m pip install --upgrade 'connectonion==1.8.4b1'
+```
+
+No live Microsoft account was used; the Graph request shapes are covered by
+mocked tests. Authenticated NAS acceptance remains pending, so final 1.8.4 is
+still separate.
+
+[Outlook preview guide](/candidates/1.8.4/cli/outlook.md) ·
+[Design Journal](/blog/the-command-that-blamed-the-wrong-password) ·
+[Release artifacts](https://github.com/openonion/connectonion/releases/tag/v1.8.4b1)
+
+## Earlier preview 1.8.4a2
 
 This preview adds global configuration, reviewed Gmail operations, Synology profiles
 and Control Center support. The a2 update repairs Gmail lost-receipt recovery,
