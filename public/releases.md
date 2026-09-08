@@ -4,26 +4,31 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.3`; the opt-in preview is `1.8.4a2`.
-There is no active stabilizing candidate.
+**Current channels:** stable is `1.8.4`; no newer preview or stabilizing candidate is active.
 
-## Preview 1.8.4a2
+## Stable 1.8.4
 
-This preview adds global configuration, reviewed Gmail operations, Synology profiles
-and Control Center support. The a2 update repairs Gmail lost-receipt recovery,
-QuickConnect regional relay discovery and the first CLI help screen.
+Explicit global configuration and `co env`, reviewed Gmail operations, verified
+Synology sharing, and Outlook calendar commands are now in the stable package.
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.8.4a2'
+python -m pip install --upgrade connectonion==1.8.4
+co --version
+co env
 ```
 
-Live Gmail acceptance and credential-free NAS discovery passed. Authenticated NAS
-file acceptance remains pending, so final 1.8.4 is still separate.
+The merged code passed 8,666 offline tests, with 21 skipped and 79.79% coverage,
+and 11 installed-wheel checks. Gmail/Drive and one physical NAS were exercised.
+NAS browser checks covered password rejection, successful unlock, already expired
+links and revocation after access. Microsoft request contracts have mocked tests;
+no live Microsoft tenant was used. Companion Control Center hosting remains local
+acceptance, with production deployment separate from this Python release.
 
-[Preview guides](/candidates/1.8.4/README.md) ·
-[Release artifacts](https://github.com/openonion/connectonion/releases/tag/v1.8.4a2)
+[Release notes](/releases/1.8.4.md) ·
+[Release artifacts](https://github.com/openonion/connectonion/releases/tag/v1.8.4) ·
+[Configuration](/cli/env) · [Synology](/cli/synology) · [Outlook](/cli/outlook)
 
-## Stable 1.8.3
+## Earlier stable 1.8.3
 
 Gmail, Drive, Calendar and YouTube share one locally saved Google login.
 The release adds Gmail draft attachments, primary-calendar commands and

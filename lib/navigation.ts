@@ -147,6 +147,30 @@ export const navigation = [
     next: { href: '/cli/setup', title: 'co setup' }
   },
   {
+    title: 'co env',
+    href: '/cli/env',
+    icon: HiOutlineCog,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['environment', 'keys', 'configuration', 'secrets']
+  },
+  {
+    title: 'co syno',
+    href: '/cli/synology',
+    icon: HiOutlineFolderOpen,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['NAS', 'Synology', 'share', 'password', 'expiry', 'revoke']
+  },
+  {
+    title: 'co outlook',
+    href: '/cli/outlook',
+    icon: HiOutlineEnvelope,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['Microsoft', 'calendar', 'Teams', 'reply']
+  },
+  {
     title: 'co setup',
     href: '/cli/setup',
     icon: HiOutlineCog,

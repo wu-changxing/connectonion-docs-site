@@ -79,7 +79,7 @@ export default function ReleasesPage() {
           </div>
           <div className="border border-gray-200 bg-gray-50 rounded-lg p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Latest preview</p>
-            <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">{PREVIEW_VERSION ? `v${PREVIEW_VERSION}` : 'Not published yet'}</p>
+            <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">{PREVIEW_VERSION ? `v${PREVIEW_VERSION}` : 'No newer preview'}</p>
             <p className="text-sm text-gray-600 mt-2">
               {PREVIEW_VERSION
                 ? 'Available only to users who explicitly opt in.'
@@ -89,21 +89,22 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.3</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.4</h2>
           <p className="text-gray-600 mb-4">
-            Gmail, Drive, Calendar and YouTube share one local Google login.
-            Add attachments to Gmail drafts, manage primary-calendar events, and
-            inspect or upload YouTube videos from the CLI. Video writes preview
-            the exact change and print its complete confirmation command.
+            Explicit configuration with co env, reviewed Gmail operations, verified
+            Synology sharing and Outlook calendar commands are available on the stable channel.
           </p>
-          <p className="text-gray-600 mb-4">
-            Fresh processes passed read-only checks across all four services using
-            an existing grant. Tokens stay on your computer; the broker refreshes
-            the local token without storing a second copy. TikTok is not included.
+          <CommandBlock commands={['python -m pip install --upgrade connectonion==1.8.4', 'co --version', 'co env']} />
+          <p className="text-gray-600 my-4">
+            The combined suite passed 8,666 tests and 11 installed-wheel checks.
+            Real Gmail/Drive and one NAS were exercised. Microsoft contracts have
+            mocked coverage; no live Microsoft tenant was tested. Companion hosting
+            remains a separate deployment.
           </p>
-          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.3" className="text-green-700 font-semibold hover:underline">
-            Read the 1.8.3 release
-          </Link>
+          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.4" className="text-green-700 font-semibold hover:underline">Read the 1.8.4 release</Link>
+          {' · '}<Link href="/cli/env" className="text-green-700 underline">co env</Link>
+          {' · '}<Link href="/cli/synology" className="text-green-700 underline">Synology</Link>
+          {' · '}<Link href="/cli/outlook" className="text-green-700 underline">Outlook</Link>
         </section>
 
         <section className="mb-14 rounded-lg border border-green-200 bg-green-50 p-6">
@@ -188,34 +189,6 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Preview 1.8.4a2: global settings and reviewed operations</h2>
-          <div className="space-y-4 text-gray-700">
-            <p>
-              This opt-in preview adds explicit global/project environment selection,
-              account-bound Gmail listings and content-bound draft review, the Synology
-              command core, and full Control Center apps with review, history and rollback.
-              It pairs with <code>@connectonion/react@0.4.4-rc.2</code>.
-              This update also repairs Gmail receipt recovery and QuickConnect relay
-              discovery, and clarifies the first CLI help screen.
-            </p>
-            <CommandBlock commands={[
-              "python -m pip install --upgrade --pre 'connectonion==1.8.4a2'",
-              'co --version',
-            ]} />
-            <p>
-              Local runtime, browser and hosting-emulator checks pass. Live Gmail send,
-              receipt recovery and provider reads pass. Physical NAS acceptance is pending; final
-              1.8.4 remains separate. Stable stays at <code>{STABLE_VERSION}</code>.
-            </p>
-            <p>
-              <a className="text-green-700 hover:underline" href="/candidates/1.8.4/README.md">Read the preview guides</a>
-              {' · '}
-              <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/releases/tag/v1.8.4a2">Preview release notes</a>
-            </p>
-          </div>
-        </section>
-
-        <section className="mb-14">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Earlier preview 1.8.0a8: retained chat synchronization</h2>
           <div className="space-y-4 text-gray-700">
             <p>
@@ -250,7 +223,7 @@ export default function ReleasesPage() {
           <div className="border-l-2 border-gray-300 pl-5 space-y-4 text-gray-700">
             <p><strong>1.6.x:</strong> previous stable maintenance line.</p>
             <p><strong>1.7.x:</strong> earlier maintenance line.</p>
-            <p><strong>1.8.x:</strong> current stable line; 1.8.4a2 is the opt-in preview for the next patch.</p>
+            <p><strong>1.8.x:</strong> current stable line; 1.8.4 is the latest stable release.</p>
             <p className="text-sm">
               Track the live scope in the{' '}
               <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/issues/1445">

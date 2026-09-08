@@ -1,11 +1,7 @@
 # Google Drive CLI (co gdrive)
 
-> **Opt-in 1.8.4a2 preview.** Install `connectonion==1.8.4a2` explicitly.
-> Stable remains 1.8.3. Final 1.8.4 and production hosting acceptance are pending.
-> The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
-
 List, search, download, and upload Drive files from the terminal — the same
-Drive access your agents get from the [GDrive tool](https://github.com/openonion/connectonion/issues/1445),
+Drive access your agents get from the [GDrive tool](../useful_tools/gdrive.md),
 as a command.
 
 The 1.8.4 implementation uses global settings by default. Select a project with
@@ -209,4 +205,4 @@ avoid duplicates. The printed recovery command remains visible through pipes.
 ## See also
 
 - [`co gmail`](gmail.md) — the same shape for your Gmail mailbox
-- [Google Integration](https://github.com/openonion/connectonion/issues/1445) — the OAuth scopes requested
+- [Google Integration](../integrations/google.md) — the OAuth scopes requested

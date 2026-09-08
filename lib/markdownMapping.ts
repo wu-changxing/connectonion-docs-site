@@ -15,6 +15,11 @@ const routeToMarkdownMap: Record<string, string> = {
   '/vibe-coding': '/tutorials/vibe-coding.md',
   '/cli': '/tutorials/cli.md',
   
+  '/cli/env': '/cli/env.md',
+  '/cli/environment': '/cli/environment.md',
+  '/cli/synology': '/cli/synology.md',
+  '/cli/outlook': '/cli/outlook.md',
+
   // Core Concepts
   '/prompts': '/tutorials/prompts.md',
   '/tools': '/tutorials/tools.md',

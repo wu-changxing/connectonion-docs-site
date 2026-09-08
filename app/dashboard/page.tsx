@@ -30,15 +30,15 @@ export default function DashboardPage() {
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
         <aside className="mb-8 rounded-lg border border-amber-200 bg-amber-50 p-5 text-gray-800">
-          <h2 className="mb-2 text-xl font-semibold">Full Web Control Center: opt-in 1.8.4a2 preview</h2>
-          <p className="mb-3">The preview adds complete HTML/CSS/JS apps, immutable hosting,
+          <h2 className="mb-2 text-xl font-semibold">Full Web Control Center: 1.8.4 runtime support</h2>
+          <p className="mb-3">Core 1.8.4 adds complete HTML/CSS/JS apps, immutable hosting,
             a fresh reviewer process, Code and revision history, rollback, and scheduled or
             internal-event updates. The iframe shares the parent&apos;s current conversation.</p>
           <p className="mb-3">Plain <code>co init</code> sets up global credentials.
             Explicit project creation supplies the starter app. Hosting needs a separate
             service and wildcard TLS domain; the sample domain is a placeholder.</p>
-          <a className="text-blue-700 underline" href="/candidates/1.8.4/network/control-center.md">Read the preview contracts and setup</a>
-          <p className="mt-3">The page below documents the released legacy HTML dashboard.</p>
+          <a className="text-blue-700 underline" href="/candidates/1.8.4/network/control-center.md">Read the contracts and setup</a>
+          <p className="mt-3">Companion hosting and O Chat deployment are separate. The page below documents the legacy HTML dashboard.</p>
         </aside>
         {/* Hero */}
         <section className="mb-16">
