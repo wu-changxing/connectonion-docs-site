@@ -4,6 +4,14 @@ Every hosted agent can have a **Home page**: a single file, `dashboard.html`, in
 project root. A chat client renders it beside the conversation, so opening your agent
 shows something useful before you type anything.
 
+> **Unreleased 1.8.4 candidate:** Full Web Control Center adds complete static
+> apps, independently reviewed immutable revisions, parent-owned chat actions,
+> Code/history/rollback and scheduled/internal-event updates. Local implementation
+> and coordinated browser validation are complete; publication and hosted acceptance
+> remain separate. Plain `co init` creates global configuration only.
+> See the [candidate guide](../candidates/1.8.4/network/control-center.md).
+> The remainder of this page describes the released legacy HTML dashboard.
+
 ```
 my-agent/
 ├── agent.py
@@ -92,6 +100,13 @@ a button, check the skill's location first.
 
 The client validates every button name against the skills your agent published, so a
 button can only ever start a skill you actually have.
+
+### Full Web Control Center buttons
+
+The candidate uses the typed browser SDK and a private MessagePort. `sendMessage`
+and `runSkill` use the parent's authenticated conversation and create attributed
+turns. New conversations require an explicit request. Data snapshots do not
+regenerate app code. See the [candidate bridge and activation contract](../candidates/1.8.4/network/control-center.md).
 
 ## When it updates
 

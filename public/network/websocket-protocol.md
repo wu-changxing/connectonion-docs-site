@@ -709,6 +709,44 @@ The HTML is agent-authored and untrusted: clients render it in a sandboxed ifram
 scripting and network access blocked. Files over 2MB are not sent. See
 [dashboard.md](dashboard.md).
 
+#### CONTROL_CENTER_APP (preview)
+
+An additive authenticated descriptor for a reviewed, immutable full-Web Control
+Center. This frame is part of the in-development Control Center architecture and is
+not yet available in the current stable package. Older clients ignore it and continue
+using `DASHBOARD_SNAPSHOT`.
+
+```json
+{
+  "type": "CONTROL_CENTER_APP",
+  "session_id": "550e8400-...",
+  "app": {
+    "schema": "connectonion.control-app/1",
+    "revision": "sha256:...",
+    "url": "https://r-<immutable-origin-hash>.control-apps.example.net/index.html",
+    "sdk_version": "1",
+    "review": { "status": "approved", "review_id": "..." },
+    "capabilities": ["clipboard-write", "fullscreen"]
+  }
+}
+```
+
+Clients execute only approved HTTPS revisions on an origin separate from O Chat.
+After checking the iframe window, origin, protocol version, and revision, the parent
+transfers a private `MessagePort`. App requests use the parent's existing Agent
+connection; `sendMessage` and `runSkill` become visible turns in the current session
+unless the app explicitly requests a new conversation. See the preview notes in
+[dashboard.md](dashboard.md).
+
+The initial context carries the authenticated Agent name and full address, current
+session, app revision, and skill list. A default template can render honest identity
+Diagnostics and real `runSkill` buttons without hard-coding one Agent's capabilities.
+`co create` scaffolds that editable source in `.co/control-center/`. Plain `co init`
+only initializes global configuration. The sample domain is a placeholder.
+See the [1.8.4 candidate contracts](../candidates/1.8.4/network/control-center.md).
+The test-only URL `https://control-center.e2e.test/invoices/` is not a deployable
+iframe link; production activation requires immutable upload and independent approval.
+
 #### RUNTIME_INPUT_ACK
 
 Acknowledges an INPUT that arrived while the agent was running. The prompt has been queued and will be picked up at the agent's next iteration.

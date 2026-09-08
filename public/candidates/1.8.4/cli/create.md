@@ -1,5 +1,9 @@
 # ConnectOnion Create Command
 
+> **Opt-in 1.8.4a1 preview.** Install `connectonion==1.8.4a1` explicitly.
+> Stable remains 1.8.3. Final 1.8.4 and production hosting acceptance are pending.
+> The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
+
 The `co create` command creates new ConnectOnion projects with intelligent defaults and automatic setup.
 
 ## Overview
@@ -35,8 +39,13 @@ $ co create my-first-agent
 ========================================
 
 ✔ Choose a template:
-  ❯ 🚀 Agent - The co ai agent, hosted — specialise it with skills
-    ✨ Custom - AI generates based on needs
+  ❯ Minimal - Simple starting point
+    Browser - Browser automation
+    Hosted Browser - Hosted browser sessions
+    Coder - Coding agent
+    Co-AI - AI assistant with web UI
+    Web Research - Data scraping & analysis
+    Custom - AI generates based on needs
 
 ✔ Paste your API key (or Enter to skip): › sk-proj-xxx
   ✓ Detected OpenAI API key
@@ -71,7 +80,7 @@ $ co create another-agent
 ✓ Using global identity: 0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a
 ✓ Using global email: 0x7a9f3b2c@mail.openonion.ai
 
-✔ Choose a template: › 🚀 Agent
+✔ Choose a template: › Web Research
 
 ✓ Found API keys in ~/.co/keys.env
   ✓ OpenAI key will be copied to project
@@ -139,10 +148,13 @@ All projects use the global identity (address + email) from `~/.co`. Run `co sta
 
 ### Available Templates
 
-1. **minimal** - Basic agent with simple tools
-2. **coder** - Filesystem + shell access for coding tasks
-3. **browser** - Browser automation with Playwright
-4. **web-research** - Web scraping and research capabilities
+1. **co-ai** (default) - the same agent as `co ai`, hosted. Files, shell,
+   browser, todos, sub-agents. Specialise it with skills in
+   `.co/skills/` rather than by picking a different starting point.
+2. **custom** - an LLM writes `agent.py` from your `--description`.
+
+`minimal`, `coder`, `browser`, `hosted-browser`, and `web-research` were
+retired; passing one exits 1 and says so.
 5. **custom** - AI-generated based on your description
 
 ### Template Selection
@@ -167,8 +179,7 @@ co create [name] [options]
 Options:
   [name]                    Project name (optional, will prompt)
   --template, -t            Template to use (co-ai/custom)
-  --description, -d         Description for custom template
-  --no-ai                   Disable AI features (not recommended)
+  --description             Description for custom template
   --key                     API key to use (overrides global)
   --yes, -y                 Accept all defaults
 ```
@@ -191,12 +202,6 @@ The CLI automatically detects API key providers:
 - `gsk_...` → Groq
 
 ## Special Features
-
-### AI Enabled by Default
-
-AI features are always enabled because agents need LLMs. To disable (not recommended):
-1. Edit `.co/host.yaml` after creation
-2. Use `--no-ai` flag (limits functionality)
 
 ### Global Identity Reuse
 

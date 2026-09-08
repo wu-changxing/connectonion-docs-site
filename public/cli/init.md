@@ -1,5 +1,8 @@
 # ConnectOnion Init Command
 
+> This page describes the released CLI. The [unreleased 1.8.4 guide](../candidates/1.8.4/cli/init.md)
+> changes plain `co init` to global setup and requires an explicit project path.
+
 The `co init` command initializes ConnectOnion in an existing directory, perfect for adding agent capabilities to existing projects.
 
 ## Overview
@@ -94,6 +97,10 @@ your-project/
 ├── .env                 # APPENDED with API keys (created if missing)
 ├── .co/
 │   ├── host.yaml       # Project config (uses global identity)
+│   ├── control-center/ # Full Web app source (added once, then yours)
+│   │   ├── index.html
+│   │   ├── control-center.js
+│   │   └── CONTROL_CENTER.md
 │   └── docs/           # ALWAYS UPDATED to latest version
 │       ├── co-vibe-coding-all-in-one.md  # Overwritten
 │       └── connectonion.md                # Overwritten
@@ -106,6 +113,7 @@ your-project/
 |----------------|-----------|----------|
 | `agent.py` | Skip | Won't overwrite user code |
 | `.env` | **Append** | Adds API keys if missing |
+| `.co/control-center/` | Skip | Adds the default website once; never overwrites your app |
 | `.co/docs/` | **Overwrite** | Always latest documentation |
 | `.co/host.yaml` | Update | Preserves custom settings |
 | `.gitignore` | Append | Adds ConnectOnion entries |

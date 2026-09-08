@@ -155,3 +155,6 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 - [Discord](https://discord.gg/4xfD9k8AUF): Community chat
 - [Release Channels](https://docs.connectonion.com/releases): Stable, stabilizing, and opt-in preview versions with exact installation commands
 - [Roadmap](https://docs.connectonion.com/roadmap): Upcoming features
+
+## Unreleased candidate
+- [1.8.4 candidate guide](https://docs.connectonion.com/candidates/1.8.4/README.md): implementation under review, migration and contracts; no published package pin.
