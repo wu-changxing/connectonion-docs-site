@@ -1,13 +1,9 @@
 # Synology CLI (co syno)
 
-> **Opt-in 1.8.4a2 preview.** Install `connectonion==1.8.4a2` explicitly.
-> Stable remains 1.8.3. Final 1.8.4 and production hosting acceptance are pending.
-> The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
-
 The 1.8.4 candidate provides twenty everyday NAS commands: connection profiles,
 read-only inspections, ordinary files and sharing links. It has synthetic
 regression coverage; real NAS/model acceptance is still pending. See the
-[acceptance record](https://github.com/openonion/connectonion/issues/1445).
+[acceptance record](../acceptance/1.8.4-synology.md).
 
 ```bash
 co syno login --name home --url https://nas.example:5001 --username alice
@@ -20,6 +16,15 @@ co syno download /home/docs/invoice.pdf --to ./Downloads/
 The destination directory in this example must already exist. Paths are NAS
 shared-folder paths such as `/home/docs`, never an implicit remote working
 directory. `/` lists accessible shares, not DSM's system root.
+
+## QuickConnect connection
+
+`co syno login` accepts a QuickConnect ID or an HTTPS URL at its first prompt.
+For an explicit invocation, use `co syno login --quickconnect YOUR_ID --username YOUR_USER`.
+If direct addresses cannot answer, discovery requests Synology's temporary HTTPS
+relay and verifies the regional DSM endpoint within the command timeout. The
+public QuickConnect webpage alone is not a DSM API endpoint. Certificates are
+always verified; discovery never sends your NAS password.
 
 ## Connection and monitoring
 
@@ -92,7 +97,7 @@ performs the same live work. No NAS model or DSM version has passed this task's
 live acceptance yet. File Station APIs negotiate required versions; the
 implementation targets documented DSM 6.0+ File Station behavior, with DSM 7.1+
 needed for the additional disk-health OID. See the
-[source/onboarding decision](https://github.com/openonion/connectonion/issues/1445).
+[source/onboarding decision](../design-decisions/070-synology-inspections-and-durable-operations.md).
 
 ## Command inventory
 

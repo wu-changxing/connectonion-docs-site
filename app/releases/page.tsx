@@ -195,6 +195,8 @@ export default function ReleasesPage() {
               account-bound Gmail listings and content-bound draft review, the Synology
               command core, and full Control Center apps with review, history and rollback.
               It pairs with <code>@connectonion/react@0.4.4-rc.2</code>.
+              This update also repairs Gmail receipt recovery and QuickConnect relay
+              discovery, and clarifies the first CLI help screen.
             </p>
             <CommandBlock commands={[
               "python -m pip install --upgrade --pre 'connectonion==1.8.4a2'",
