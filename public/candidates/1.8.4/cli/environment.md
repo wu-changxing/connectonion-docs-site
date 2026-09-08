@@ -1,14 +1,13 @@
 # Environment selection (1.8.4 implementation)
 
-> **Opt-in 1.8.4a1 preview.** Install `connectonion==1.8.4a1` explicitly.
-> Stable remains 1.8.3. Final 1.8.4 and production hosting acceptance are pending.
-> The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
-
 All ConnectOnion-managed dotenv settings default to `~/.co/keys.env`, regardless
 of the working directory. An inherited `AGENT_CONFIG_PATH` selects a different
 global directory and its `keys.env`. A dotenv file cannot redirect that path.
 `co init` initializes the global configuration and identity. It rejects
 `--env-file` with exit 2; omit that selector for global initialization.
+
+Run `co` for a short command guide and configuration examples, or `co --help`
+for the complete command list. `co init ./` initializes a project explicitly.
 
 Use a project file explicitly, with the option **before** the command:
 
