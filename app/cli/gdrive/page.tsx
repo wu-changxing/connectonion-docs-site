@@ -16,9 +16,9 @@ export default function CliGdrivePage() {
     <div className="px-4 md:px-8 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
         <aside className="mb-8 rounded-lg border border-amber-200 bg-amber-50 p-5 text-gray-800">
-          <strong>1.8.4 candidate:</strong> The instructions below describe the released CLI.
+          <strong>1.8.4a1 preview:</strong> The instructions below describe the released CLI.
           The unreleased candidate changes global env selection and related workflows.
-          <a className="ml-1 text-blue-700 underline" href="/candidates/1.8.4/cli/gdrive.md">Read the candidate guide</a>.
+          <a className="ml-1 text-blue-700 underline" href="/candidates/1.8.4/cli/gdrive.md">Read the preview guide</a>.
         </aside>
         {/* Hero Section */}
         <section className="mb-16">

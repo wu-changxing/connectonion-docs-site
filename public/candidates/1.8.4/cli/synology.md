@@ -1,7 +1,7 @@
 # Synology CLI (co syno)
 
-> **Unreleased 1.8.4 candidate.** These instructions describe the implementation
-> under review. Core 1.8.4 and the hosting service are not yet released.
+> **Opt-in 1.8.4a1 preview.** Install `connectonion==1.8.4a1` explicitly.
+> Stable remains 1.8.3. Final 1.8.4 and production hosting acceptance are pending.
 > The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
 
 The 1.8.4 candidate provides twenty everyday NAS commands: connection profiles,

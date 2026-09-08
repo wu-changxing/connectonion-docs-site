@@ -1,7 +1,7 @@
 # Full Web Control Center
 
-> **Unreleased 1.8.4 candidate.** These instructions describe the implementation
-> under review. Core 1.8.4 and the hosting service are not yet released.
+> **Opt-in 1.8.4a1 preview.** Install `connectonion==1.8.4a1` explicitly.
+> Stable remains 1.8.3. Final 1.8.4 and production hosting acceptance are pending.
 > The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
 
 A Control Center is a complete static app beside Chat. HTML, CSS, JavaScript,

@@ -1,7 +1,10 @@
-# 1.8.4 candidate guide
+# 1.8.4a1 preview guide
 
-This is an unreleased implementation candidate. Stable remains 1.8.3. These guides
-do not provide an install pin for an unpublished package or a working hosting URL.
+This is the opt-in 1.8.4a1 preview. Stable remains 1.8.3. Install with
+`python -m pip install --upgrade --pre connectonion==1.8.4a1`.
+Live Gmail/Drive and physical NAS acceptance continue after preview publication.
+Hosting examples remain placeholders; local emulator acceptance does not provision
+a production hosting service.
 
 - [Global env selection and migration](cli/environment.md): cwd never selects `.env`;
   inherited process settings remain explicit, and provider records stay together.
