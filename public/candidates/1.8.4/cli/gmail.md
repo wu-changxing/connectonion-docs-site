@@ -1,11 +1,7 @@
 # Gmail CLI (`co gmail`)
 
-> **Opt-in 1.8.4a1 preview.** Install `connectonion==1.8.4a1` explicitly.
-> Stable remains 1.8.3. Final 1.8.4 and production hosting acceptance are pending.
-> The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
-
 Send and read email from your Gmail account right in the terminal — the same
-Gmail API access your agents get from the [Gmail tool](https://github.com/openonion/connectonion/issues/1445),
+Gmail API access your agents get from the [Gmail tool](../useful_tools/gmail.md),
 as a command.
 
 ## Quick Start
@@ -46,7 +42,7 @@ to select another file explicitly. Tokens auto-refresh — the access token is r
 start of every command, so you authorize once. Draft creation and editing need
 the `gmail.modify` scope; reconnect if an older token does not have it.
 
-See [Google Integration](https://github.com/openonion/connectonion/issues/1445) for the requested scopes.
+See [Google Integration](../integrations/google.md) for the requested scopes.
 
 ## Commands
 
@@ -161,12 +157,23 @@ completed; inspect the draft before retrying.
 A private account/draft-scoped send marker is persisted under the global
 `gmail-send-attempts/` directory before submission. It stores hashes and receipt
 IDs, never message content. On an ambiguous response, another send command
-checks a deterministic Message-ID in sent mail and returns the single matching
-receipt or stays uncertain; it does not resend. Do not remove that record to
+checks the deterministic Message-ID first. Gmail may rewrite that header, so
+new attempts also carry `X-ConnectOnion-Send-Attempt` in the reviewed MIME. If
+the Message-ID is missing, recovery inspects at most 100 sent-message metadata
+records since five minutes before submission and requires exactly one matching
+attempt header. A further result page, duplicate marker or missing match leaves
+the result uncertain; it does not resend. Older attempt records without this
+header remain guarded but cannot use the fallback. Do not remove that record to
 force a retry. A confirmed receipt can be returned even after Gmail has removed
 the draft. Explicit HTTP rejections allow a later deliberate attempt. This is a
 local retry guard, not a Gmail exactly-once guarantee across other clients or
 machines. Existing one-shot send/reply behavior remains separate.
+
+The provider-preserved marker fallback is included in the `1.8.4a2` preview,
+tracked in #1460. Preview `1.8.4a1` itself still uses only
+Message-ID lookup. The live acceptance script checks provider-stored content
+and reports whether the inbox label was observed separately; mailbox routing
+does not change the send receipt, and this is not independent SMTP delivery proof.
 
 ### `co gmail send <to> <subject> <message>` — Send immediately
 
@@ -271,7 +278,7 @@ retain completed files and include each path, hash or error; inspect before retr
 
 Actions need `gmail.modify` or the full-mail grant. Read/list/download operations
 need Gmail read access. No label creation, automatic reply, Drive sharing or
-scheduled sending is added. [DD-068](https://github.com/openonion/connectonion/issues/1445)
+scheduled sending is added. [DD-068](../design-decisions/068-gmail-mailbox-pages-and-downloads.md)
 records the transport and pagination decisions.
 
 ### Human output
@@ -345,6 +352,6 @@ was lost after delivery: inspect sent mail before repeating the send or reply.
 
 ## See also
 
-- [`co outlook`](https://github.com/openonion/connectonion/issues/1445) — same surface for an Outlook mailbox
-- [`co email`](https://github.com/openonion/connectonion/issues/1445) — your agent's own address, no OAuth needed
-- [Gmail tool](https://github.com/openonion/connectonion/issues/1445) — the full method list for agents
+- [`co outlook`](outlook.md) — same surface for an Outlook mailbox
+- [`co email`](email.md) — your agent's own address, no OAuth needed
+- [Gmail tool](../useful_tools/gmail.md) — the full method list for agents

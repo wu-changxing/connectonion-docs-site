@@ -188,27 +188,29 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Preview 1.8.4a1: global settings and reviewed operations</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Preview 1.8.4a2: global settings and reviewed operations</h2>
           <div className="space-y-4 text-gray-700">
             <p>
               This opt-in preview adds explicit global/project environment selection,
               account-bound Gmail listings and content-bound draft review, the Synology
               command core, and full Control Center apps with review, history and rollback.
               It pairs with <code>@connectonion/react@0.4.4-rc.2</code>.
+              This update also repairs Gmail receipt recovery and QuickConnect relay
+              discovery, and clarifies the first CLI help screen.
             </p>
             <CommandBlock commands={[
-              "python -m pip install --upgrade --pre 'connectonion==1.8.4a1'",
+              "python -m pip install --upgrade --pre 'connectonion==1.8.4a2'",
               'co --version',
             ]} />
             <p>
-              Local runtime, browser and hosting-emulator checks pass. Live Gmail/Drive
-              and physical NAS acceptance continue after preview publication; final
+              Local runtime, browser and hosting-emulator checks pass. Live Gmail send,
+              receipt recovery and provider reads pass. Physical NAS acceptance is pending; final
               1.8.4 remains separate. Stable stays at <code>{STABLE_VERSION}</code>.
             </p>
             <p>
               <a className="text-green-700 hover:underline" href="/candidates/1.8.4/README.md">Read the preview guides</a>
               {' · '}
-              <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/releases/tag/v1.8.4a1">Preview release notes</a>
+              <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/releases/tag/v1.8.4a2">Preview release notes</a>
             </p>
           </div>
         </section>
@@ -248,7 +250,7 @@ export default function ReleasesPage() {
           <div className="border-l-2 border-gray-300 pl-5 space-y-4 text-gray-700">
             <p><strong>1.6.x:</strong> previous stable maintenance line.</p>
             <p><strong>1.7.x:</strong> earlier maintenance line.</p>
-            <p><strong>1.8.x:</strong> current stable line; 1.8.4a1 is the opt-in preview for the next patch.</p>
+            <p><strong>1.8.x:</strong> current stable line; 1.8.4a2 is the opt-in preview for the next patch.</p>
             <p className="text-sm">
               Track the live scope in the{' '}
               <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/issues/1445">

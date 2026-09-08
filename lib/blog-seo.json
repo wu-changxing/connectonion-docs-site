@@ -446,5 +446,9 @@
   "cli-ux-progressive-disclosure": {
     "title": "Progressive Disclosure in Python Agent CLI Design",
     "description": "Scaffold a working agent project first, then reveal configuration choices when users need them instead of requiring a setup questionnaire."
+  },
+  "gmail-kept-the-body-and-changed-the-id": {
+    "title": "Recover Gmail Send Receipts When Message-ID Changes",
+    "description": "A live Gmail test exposed rewritten Message-ID headers. A preserved attempt marker recovers send receipts without risking a duplicate email."
   }
 }

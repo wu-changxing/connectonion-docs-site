@@ -4,8 +4,24 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.3`; there is no active stabilizing candidate
-or newer preview.
+**Current channels:** stable is `1.8.3`; the opt-in preview is `1.8.4a2`.
+There is no active stabilizing candidate.
+
+## Preview 1.8.4a2
+
+This preview adds global configuration, reviewed Gmail operations, Synology profiles
+and Control Center support. The a2 update repairs Gmail lost-receipt recovery,
+QuickConnect regional relay discovery and the first CLI help screen.
+
+```bash
+python -m pip install --upgrade 'connectonion==1.8.4a2'
+```
+
+Live Gmail acceptance and credential-free NAS discovery passed. Authenticated NAS
+file acceptance remains pending, so final 1.8.4 is still separate.
+
+[Preview guides](/candidates/1.8.4/README.md) ·
+[Release artifacts](https://github.com/openonion/connectonion/releases/tag/v1.8.4a2)
 
 ## Stable 1.8.3
 

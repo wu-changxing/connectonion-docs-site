@@ -1,8 +1,9 @@
-# 1.8.4a1 preview guide
+# 1.8.4a2 preview guide
 
-This is the opt-in 1.8.4a1 preview. Stable remains 1.8.3. Install with
-`python -m pip install --upgrade --pre connectonion==1.8.4a1`.
-Live Gmail/Drive and physical NAS acceptance continue after preview publication.
+This is the opt-in 1.8.4a2 preview. Stable remains 1.8.3. Install with
+`python -m pip install --upgrade --pre connectonion==1.8.4a2`.
+Live Gmail/Drive acceptance passed, including lost-receipt recovery. Physical NAS
+acceptance remains pending.
 Hosting examples remain placeholders; local emulator acceptance does not provision
 a production hosting service.
 
