@@ -1,29 +1,17 @@
-# 1.8.4a2 preview guide
+# 1.8.4 guides
 
-This is the opt-in 1.8.4a2 preview. Stable remains 1.8.3. Install with
-`python -m pip install --upgrade --pre connectonion==1.8.4a2`.
-Live Gmail/Drive acceptance passed, including lost-receipt recovery. Physical NAS
-acceptance remains pending.
-Hosting examples remain placeholders; local emulator acceptance does not provision
-a production hosting service.
+The preview has been promoted to stable 1.8.4. These paths remain available for
+existing links; the current guides are at /cli/.
 
-- [Global env selection and migration](cli/environment.md): cwd never selects `.env`;
-  inherited process settings remain explicit, and provider records stay together.
-- [Initialization](cli/init.md): plain `co init` initializes global configuration.
-- [Project creation](cli/create.md): project scaffolding remains an explicit action.
-- [Gmail](cli/gmail.md): frozen listing IDs, mailbox actions, bounded downloads,
-  exact-content draft review and uncertain-send recovery.
-- [Drive](cli/gdrive.md): account-bound listings and managed draft links.
-- [Synology](cli/synology.md): 20 command leaves, profiles/TLS, inspection sources,
-  safe transfers and durable operation IDs. Real NAS acceptance is still required.
-- [Control Center](network/control-center.md): immutable apps, runtime review,
-  parent-owned conversation actions, history/rollback and internal update schedules.
+- [Environment selection](/cli/environment)
+- [Inspect and edit configuration](/cli/env)
+- [Initialization](/cli/init)
+- [Project creation](/cli/create)
+- [Gmail](/cli/gmail)
+- [Drive](/cli/gdrive)
+- [Synology](/cli/synology)
+- [Outlook and calendar](/cli/outlook)
+- [Release notes and acceptance limits](/releases/1.8.4.md)
 
-Local validation includes coordinated Core/React/O Chat/API tests, an installed
-Core wheel and nine production-build browser scenarios. A tiny synthetic app also
-passed the real reviewer subprocess. Live Gmail writes, real NAS operations, and
-deployed static hosting remain separate acceptance steps.
-
-Mail scheduling, Personal Wiki, Sync Knowledge, TikTok and new messaging adapters
-are outside the confirmed implementation scope. See the
-[release tracker](https://github.com/openonion/connectonion/issues/1445).
+Control Center production hosting is a separate deployment. No cloud resources
+were provisioned for local acceptance.

@@ -1,9 +1,5 @@
 # ConnectOnion Init Command
 
-> **Opt-in 1.8.4a2 preview.** Install `connectonion==1.8.4a2` explicitly.
-> Stable remains 1.8.3. Final 1.8.4 and production hosting acceptance are pending.
-> The paired React SDK is published as `@connectonion/react@0.4.4-rc.2`.
-
 `co init` sets up global credentials. Project initialization requires an
 explicit directory, such as `co init ./`.
 
@@ -98,6 +94,8 @@ co init ./ --yes --template co-ai
 ```
 
 Global setup scripts can keep `co init --yes`. `co create` is unchanged.
-At runtime, explicit process variables take precedence over the selected
-project's `.env`, which takes precedence over global `~/.co/keys.env`.
-See [CLI reference](https://github.com/openonion/connectonion/issues/1445) for authentication and credential diagnostics.
+At runtime, explicit process variables take precedence over the selected env
+file, which is global `~/.co/keys.env` unless `co --env-file PATH` names a
+project file; there is no per-key fallback between files. `co env` shows what
+the selected file holds and `co env set` edits it.
+See [CLI reference](README.md) for authentication and credential diagnostics.
