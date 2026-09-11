@@ -4,7 +4,32 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.4`; no newer preview or stabilizing candidate is active.
+**Current channels:** stable is `1.8.4`; the opt-in preview is `1.8.5a1`; no stabilizing candidate is active.
+
+## Preview 1.8.5a1
+
+An unattended agent could not run `head`. In Auto only eleven test and build
+commands were auto-approved, so a scheduled run died on
+`co browser … get_text | head -40` — the granted browser command, refused
+because of the filter on its output. Read-only commands now run, alone or as
+segments beside a granted command. `sed` and `awk` deliberately still ask,
+because they take a program and a program is code.
+
+An explicit grant is also honoured as the approval it is: a permission written
+in `.co/host.yaml`, or declared in a skill's `tools:` frontmatter, allows the
+call for any effect class instead of asking every time. A wildcard is honoured
+only for the effect its own text names, so `Bash(git *)` does not carry
+`git push`.
+
+```bash
+python -m pip install --pre connectonion==1.8.5a1
+co --version
+```
+
+This is a preview because it widens a security default, and a widened default
+earns a round of real use before everyone receives it on upgrade. Stable stays
+`1.8.4`; plain `pip install connectonion` is unaffected, and this build is
+neither Latest on PyPI nor a GitHub latest release. Exercise it and report.
 
 ## Stable 1.8.4
 

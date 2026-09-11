@@ -7,9 +7,10 @@
  * version shown on the homepage or in structured metadata.
  */
 export const STABLE_VERSION = '1.8.4'
-export const PREVIEW_VERSION: string | null = null
-// 1.7.0 finished stabilizing and became the stable channel; nothing is
-// currently between a preview and stable.
+// 1.8.5a1 is an opt-in preview of a permission-policy change: an unattended
+// agent could not run `head`, and an explicit grant was being ignored. Stable
+// stays 1.8.4 and nothing is currently between a preview and stable.
+export const PREVIEW_VERSION: string | null = '1.8.5a1'
 export const STABILIZING_VERSION: string | null = null
 
 // Product pages advertise the stable channel. Preview releases remain opt-in.

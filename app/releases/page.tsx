@@ -89,6 +89,23 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Preview 1.8.5a1</h2>
+          <p className="text-gray-600 mb-4">
+            An unattended agent could not run <code>head</code>. In Auto only eleven test and
+            build commands were auto-approved, so a scheduled run died on a granted browser
+            command piped into a filter. Read-only commands now run, and an explicit grant —
+            written in <code>.co/host.yaml</code> or declared in a skill&apos;s <code>tools:</code>{' '}
+            frontmatter — is honoured as the approval it is rather than asked about every time.
+          </p>
+          <CommandBlock commands={['python -m pip install --pre connectonion==1.8.5a1', 'co --version']} />
+          <p className="text-gray-600 my-4">
+            This is a preview because it widens a security default, which earns a round of real
+            use before everyone receives it on upgrade. Stable stays 1.8.4; plain{' '}
+            <code>pip install connectonion</code> is unaffected.
+          </p>
+        </section>
+
+        <section className="mb-14">
           <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.4</h2>
           <p className="text-gray-600 mb-4">
             Explicit configuration with co env, reviewed Gmail operations, verified
