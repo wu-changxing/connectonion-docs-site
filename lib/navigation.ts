@@ -171,6 +171,14 @@ export const navigation = [
     keywords: ['Microsoft', 'calendar', 'Teams', 'reply']
   },
   {
+    title: 'co whatsapp',
+    href: '/cli/whatsapp',
+    icon: HiOutlineEnvelope,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['WhatsApp', 'inbox', 'group', 'mention', 'linked device', 'edit', 'delete', 'bot']
+  },
+  {
     title: 'co setup',
     href: '/cli/setup',
     icon: HiOutlineCog,

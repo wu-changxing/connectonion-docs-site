@@ -89,21 +89,25 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.4</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.6</h2>
           <p className="text-gray-600 mb-4">
-            Explicit configuration with co env, reviewed Gmail operations, verified
-            Synology sharing and Outlook calendar commands are available on the stable channel.
+            WhatsApp is an inbox on a number you already use. A linked device sees the
+            groups that number is in, answers only where it was addressed — an @, or a
+            reply quoting something it said — and can take back what it said with
+            edit and delete. Local models through Ollama, date windows on the mail
+            CLIs, and calendar invitations that actually notify their attendees.
           </p>
-          <CommandBlock commands={['python -m pip install --upgrade connectonion==1.8.4', 'co --version', 'co env']} />
+          <CommandBlock commands={['python -m pip install --upgrade connectonion==1.8.6', 'co --version', 'co whatsapp check']} />
           <p className="text-gray-600 my-4">
-            The combined suite passed 8,666 tests and 11 installed-wheel checks.
-            Real Gmail/Drive and one NAS were exercised. Microsoft contracts have
-            mocked coverage; no live Microsoft tenant was tested. Companion hosting
-            remains a separate deployment.
+            The offline suite passed 10,431 tests and 12 installed-wheel checks, and
+            WhatsApp was accepted against a real linked account — group traffic,
+            mention gating checked case by case, two unattended reconnects — rather
+            than a mock. Of the twelve defects fixed across this line, eleven were
+            found by using the software; the suite reported none of them.
           </p>
-          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.4" className="text-green-700 font-semibold hover:underline">Read the 1.8.4 release</Link>
+          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.6" className="text-green-700 font-semibold hover:underline">Read the 1.8.6 release</Link>
+          {' · '}<Link href="/cli/whatsapp" className="text-green-700 underline">co whatsapp</Link>
           {' · '}<Link href="/cli/env" className="text-green-700 underline">co env</Link>
-          {' · '}<Link href="/cli/synology" className="text-green-700 underline">Synology</Link>
           {' · '}<Link href="/cli/outlook" className="text-green-700 underline">Outlook</Link>
         </section>
 
@@ -223,11 +227,11 @@ export default function ReleasesPage() {
           <div className="border-l-2 border-gray-300 pl-5 space-y-4 text-gray-700">
             <p><strong>1.6.x:</strong> previous stable maintenance line.</p>
             <p><strong>1.7.x:</strong> earlier maintenance line.</p>
-            <p><strong>1.8.x:</strong> current stable line; 1.8.4 is the latest stable release.</p>
+            <p><strong>1.8.x:</strong> current stable line; {STABLE_VERSION} is the latest stable release.</p>
             <p className="text-sm">
               Track the live scope in the{' '}
-              <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/issues/1445">
-                1.8.4 release tracker
+              <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/issues/1555">
+                1.8.6 release tracker
               </a>{' '}
               and the exact PR inventory and phase gates in{' '}
               <a className="text-green-700 hover:underline" href="https://github.com/openonion/browser/issues/134">
