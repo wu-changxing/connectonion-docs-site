@@ -96,3 +96,7 @@ Normal sync still requires recorded source consent. Captured material and reflec
 are drained only after a successful run; failed runs preserve the queue. This preview
 does not implement cross-machine locking, external sharing permissions or automatic
 factual adjudication. The underlying Markdown pages remain local.
+
+## Initialization in 1.8.7b3
+
+`co wiki init` runs without questions. Connected mailboxes are mapped automatically; disconnected sources get `co auth google` or `co auth microsoft` tips after local maps are built. Authenticate and rerun init to add People. Use `--mail gmail` or `--mail outlook` to restrict sources. No background schedule is enabled.
