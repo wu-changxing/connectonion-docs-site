@@ -4,7 +4,15 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.4`; no newer preview or stabilizing candidate is active.
+**Current channels:** stable is `1.8.6`; the opt-in Wiki beta preview is `1.8.7b1`.
+
+## Wiki beta 1.8.7b1
+
+Initialize with `co wiki init --mail outlook` (or Gmail), then open the snapshot with `co wiki open`. The beta fixes partial-source reporting, repeated initialization metadata, and skill catalog/search grouping. See [preview notes](/releases/1.8.7b1.md).
+
+Install explicitly: `python -m pip install --upgrade --pre connectonion==1.8.7b1`.
+
+The earlier release history follows.
 
 ## Stable 1.8.4
 
