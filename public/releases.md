@@ -4,7 +4,7 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.6`; the opt-in Wiki beta preview is `1.8.7b1`.
+**Current channels:** stable is `1.8.6`; the opt-in Wiki beta preview is `1.8.7b2`.
 
 ## Wiki beta 1.8.7b1
 
@@ -338,3 +338,7 @@ claimed PyPI package and GitHub Release are visible.
 
 For the OIP boundary and remote-client UI contract, see
 [The Work Room Is a Client, Not a Status Panel](/blog/workroom-is-a-view).
+
+## 1.8.7b2 — Wiki memory workflows (preview)
+
+Attributed reflections, reviewable questions and connections, explicit investigation stages and durable local capture. See [preview notes](/releases/1.8.7b2.md) and [commands](/cli/wiki-memory.md). Stable remains 1.8.6.
