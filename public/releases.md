@@ -4,7 +4,11 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.6`; the opt-in Wiki beta preview is `1.8.7b2`.
+**Current channels:** stable is `1.8.6`; the opt-in Wiki beta preview is `1.8.7b3`.
+
+## Wiki beta 1.8.7b3
+
+`co wiki init` now runs without questions, uses connected mailboxes, and prints auth tips afterward for disconnected sources. See [preview notes](/releases/1.8.7b3.md).
 
 ## Wiki beta 1.8.7b1
 
