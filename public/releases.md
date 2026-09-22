@@ -4,7 +4,13 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.6`; the opt-in Wiki beta preview is `1.8.7b3`.
+**Current channels:** stable is `1.8.7`; the opt-in Wiki beta preview is `1.8.8b1`.
+
+## Wiki beta 1.8.8b1
+
+Wiki moves to 1.8.8; 1.8.7 is reserved for the dashboard patch. This preview retains b4 features and fixes `sync --all --dry-run` entering execution. Historical 1.8.7b previews remain unchanged. [Release notes](/releases/1.8.8b1.md).
+
+Install: `python -m pip install --upgrade --pre connectonion==1.8.8b1`.
 
 ## Wiki beta 1.8.7b3
 
