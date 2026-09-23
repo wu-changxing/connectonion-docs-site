@@ -5,10 +5,16 @@ More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
 **Current channels:** stable is `1.8.7`; the opt-in Wiki beta preview is `1.8.8b1`.
+The Personal Wiki feature now targets **1.9.0**. This planning change does not
+rename the published preview or make it a stable release.
 
 ## Wiki beta 1.8.8b1
 
-Wiki moves to 1.8.8; 1.8.7 is reserved for the dashboard patch. This preview retains b4 features and fixes `sync --all --dry-run` entering execution. Historical 1.8.7b previews remain unchanged. [Release notes](/releases/1.8.8b1.md).
+At publication, this preview moved Wiki to the 1.8.8 preview line; the stable
+feature target was later moved to 1.9.0. Stable 1.8.7 contains the dashboard
+patch. This preview retains b4 features and fixes `sync --all --dry-run`
+entering execution. Historical 1.8.7b previews remain unchanged.
+[Release notes](/releases/1.8.8b1.md).
 
 Install: `python -m pip install --upgrade --pre connectonion==1.8.8b1`.
 
