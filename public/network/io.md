@@ -78,6 +78,9 @@ class IO:
     def receive(self) -> dict:
         """Receive response from client."""
 
+    def receive_all(self, msg_type: str = None) -> list[dict]:
+        """Take pending matching messages without blocking."""
+
     # ═══════════════════════════════════════════════════════
     # HIGH-LEVEL API (Patterns)
     # ═══════════════════════════════════════════════════════
@@ -163,29 +166,12 @@ host(agent)
 ### Tool Approval
 
 ```python
-from connectonion import Agent, host, before_each_tool
+from connectonion import Agent, host
+from connectonion.useful_plugins import tool_approval
 
-class ToolRejected(Exception):
-    pass
-
-DANGEROUS_TOOLS = ["delete_file", "send_email", "run_shell"]
-
-@before_each_tool
-def check_approval(agent):
-    if not agent.io:
-        return
-
-    tool = agent.current_session['pending_tool']
-
-    # Notify tool is starting
-    agent.io.log("tool_call", name=tool['name'], arguments=tool['arguments'])
-
-    # Request approval for dangerous tools
-    if tool['name'] in DANGEROUS_TOOLS:
-        if not agent.io.request_approval(tool['name'], tool['arguments']):
-            raise ToolRejected(f"User rejected {tool['name']}")
-
-agent = Agent("helper", tools=[delete_file], on_events=[check_approval])
+# Explicit permissions are loaded from the host template and .co/host.yaml.
+# Every remaining live-IO tool asks, including names added by plugins later.
+agent = Agent("helper", tools=[delete_file], plugins=[tool_approval])
 host(agent)
 ```
 
@@ -390,11 +376,7 @@ from connectonion import (
     Agent, host,
     after_llm, before_each_tool, after_each_tool, on_complete, on_error
 )
-
-class ToolRejected(Exception):
-    pass
-
-DANGEROUS_TOOLS = ["delete_file", "send_email"]
+from connectonion.useful_plugins import tool_approval
 
 @after_llm
 def on_thinking(agent):
@@ -408,10 +390,6 @@ def on_tool_start(agent):
 
     tool = agent.current_session['pending_tool']
     agent.io.log("tool_call", name=tool['name'], arguments=tool['arguments'])
-
-    if tool['name'] in DANGEROUS_TOOLS:
-        if not agent.io.request_approval(tool['name'], tool['arguments']):
-            raise ToolRejected(tool['name'])
 
 @after_each_tool
 def on_tool_end(agent):
@@ -438,6 +416,7 @@ def on_fail(agent):
 agent = Agent(
     "helper",
     tools=[search, delete_file],
+    plugins=[tool_approval],
     on_events=[on_thinking, on_tool_start, on_tool_end, on_done, on_fail]
 )
 
@@ -478,14 +457,65 @@ The hosted IO implementation (`WebSocketIO`) bridges sync agent code to async We
 Agent Thread (sync)              Async forwarder / router
   io.send(event)   ──►  _msgs_from_agent (append-only log) ──► forward_task ──► ws.send()
   io.receive()     ◄──  _msgs_from_client (mailbox)        ◄── send_to_agent (router)
-  io.pop_runtime_inputs() ◄── _runtime_inputs (drain queue) ◄── push_runtime_input (router)
+  pop/finish_runtime_inputs() ◄── _runtime_inputs (drain queue) ◄── push_runtime_input (router)
 ```
 
 | Channel | Direction | Storage | Reader / Writer |
 |---|---|---|---|
 | `_msgs_from_agent` | agent → client | append-only list, cursor-indexed for replay on reconnect | written by `io.send`, read by `forward_task` via `read_msgs_from_agent` |
 | `_msgs_from_client` | client → agent | mailbox, consumed on read (e.g. `ASK_USER_RESPONSE`) | written by `send_to_agent`, read by blocking `io.receive` |
-| `_runtime_inputs` | client → agent | drain-all queue, separate from receive() so ask_user pops don't eat them | written by `push_runtime_input`, drained by `apply_runtime_input` plugin at iteration boundary |
+| `_runtime_inputs` | client → agent | drain-all queue, separate from `receive()`, with an atomic acceptance boundary | written by `push_runtime_input`; drained by the `runtime_input` plugin at iteration start and immediately before a final no-tool response completes |
+
+The runtime-input window is opt-in. The plugin opens it for a turn, and the
+router acknowledges an input only if `push_runtime_input()` accepts it. At a
+final no-tool response, `finish_runtime_inputs()` either drains pending input
+and keeps the turn alive for another LLM call, or seals the empty queue so a
+late sender receives retryable `RUNTIME_INPUT_REJECTED` rather than a false ACK.
+
+### Interrupt behavior
+
+An `INTERRUPT` in the client mailbox is different from ordinary input. During
+hosted execution, ConnectOnion checks for it while an LLM completion or tool is
+blocked and returns control to the agent loop within one polling interval
+(200ms by default). Blocking approval, `ask_user`, and DiffWriter waits also
+recognize the frame instead of treating it as an answer.
+
+The sub-second guarantee applies to ConnectOnion's hosted `WebSocketIO` and
+framework lifecycle hooks. A custom IO adapter that injects itself into tools
+must provide the cancellable receive/interrupt protocol; otherwise
+agent-injected tools fall back to the safe iteration-boundary stop rather than
+risking consumption of a future turn's reply. User event handlers are ordinary
+Python callbacks and should not start unbounded blocking work during stop
+cleanup.
+
+The optional cancellation protocol has three operations:
+
+- `receive_interruptibly(cancel_event)` blocks for one message, but returns an
+  `{"type": "INTERRUPT"}` sentinel without consuming a message once cancelled.
+- `receive_all_interruptibly(cancel_event, msg_type=None)` performs the cancel
+  check and selective mailbox drain atomically; it returns `None` when cancelled.
+- `take_interrupt(on_interrupt=None)` selectively removes one `INTERRUPT` and
+  invokes `on_interrupt` before releasing the same mailbox lock. It returns
+  whether a signal was removed.
+
+These operations must share the mailbox synchronization boundary. A separate
+cancel check followed by an ordinary drain leaves a window where an abandoned
+worker can consume the next turn's response.
+
+This is **abandonment, not thread termination**. Python cannot safely kill
+arbitrary tool code: an interrupted tool may continue running in a daemon
+thread and its side effects may still finish. ConnectOnion discards the
+per-invocation session and tool-registry membership snapshots along with the
+late return value, and does not append it to messages or trace. Registered
+stateful tool instances remain shared so their bound methods stay valid; their
+mutations are not rolled back. Tool authors should therefore make destructive
+or stateful actions idempotent and add their own cooperative cancellation when
+they need stronger guarantees.
+
+The existing `stop_signal` lifecycle remains authoritative. A stopped LLM call
+adds no assistant message. A stopped multi-tool batch receives a result for the
+interrupted call and rejection results for all remaining call IDs, keeping the
+history valid for the next turn.
 
 ### Cursor-based replay
 

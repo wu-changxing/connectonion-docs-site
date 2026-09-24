@@ -89,6 +89,26 @@ Skills are discovered from three locations (priority order):
 
 Skills are loaded once at agent creation, descriptions injected into system prompt.
 
+### Which of them survive a deploy
+
+Only what is inside the project tree, plus what ships with ConnectOnion itself:
+
+| Location | Deploys? | Why |
+|---|---|---|
+| `.co/skills/` | ✓ | in the project — packaged and rsynced |
+| `.claude/skills/` | ✓ | same |
+| `builtin/` | ✓ | installed with the `connectonion` package |
+| `~/.co/skills/` | ✗ | your machine, not the agent's |
+| `~/.claude/skills/` | ✗ | same |
+
+A user-level skill is usually a symlink into a separate repo, so it can look
+installed, work perfectly for months, and simply not exist on the server — the
+agent then behaves differently for a reason nothing in its output explains.
+
+`co skills list` marks each one, `co doctor` counts them per tier, and both deploy
+paths name the ones being left behind. **To make a skill travel, move it into the
+project's `.co/skills/`** (or pass it with `co deploy --skills PATH`).
+
 ### 2. Invocation
 
 **Two ways to invoke:**
@@ -173,9 +193,9 @@ The `tool_approval` plugin checks permissions in this order:
 
 ```
 1. Check skill's allowed_tools → Auto-approve if match
-2. Check SAFE_TOOLS (read, glob, grep) → Auto-approve
-3. Check session memory (previous approvals) → Auto-approve
-4. Check DANGEROUS_TOOLS → Ask user
+2. Check template/config permissions → Auto-approve if match
+3. Check session memory and explicit mode permissions → Auto-approve if match
+4. Ask for every remaining live-IO tool
 ```
 
 **Pattern matching** for flexible permissions:
@@ -215,6 +235,10 @@ Markdown content after frontmatter - instructions for the agent.
 
 ## Creating Skills
 
+Skills that rely on Python packages, executables, credentials, OAuth, or
+platform features can declare a versioned, required/optional runtime contract.
+See [Skill Runtime Requirements](skill-requirements.md) for the complete schema.
+
 ### 1. Project-Level Skill (Specific to one project)
 
 ```bash
@@ -222,10 +246,12 @@ mkdir -p .co/skills/deploy
 cat > .co/skills/deploy/SKILL.md <<'EOF'
 ---
 name: deploy
-description: Deploy package to PyPI
+description: Prepare a reviewed, tag-driven PyPI release
 tools:
   - Bash(python -m build)
-  - Bash(python -m twine *)
+  - Bash(python -m twine check *)
+  - Bash(gh pr *)
+  - Bash(gh run *)
   - Bash(git tag *)
   - Bash(git push *)
   - read_file
@@ -234,16 +260,19 @@ tools:
 
 # Deploy Skill
 
-Deploy the package to PyPI.
+Prepare and verify the package release. PyPI publication belongs to the
+repository's exact-tag Trusted Publishing workflow.
 
 ## Steps
 
 1. Run tests: `pytest`
-2. Update version in setup.py
+2. Update the version in the project's canonical package metadata
 3. Build package: `python -m build`
-4. Upload to PyPI: `python -m twine upload dist/*`
-5. Create git tag: `git tag v0.4.2`
-6. Push tag: `git push origin v0.4.2`
+4. Validate only the exact versioned artifacts with `python -m twine check`
+5. Open a release PR and wait for review and merge
+6. Tag the reviewed merge commit: `git tag -a v0.4.2 <reviewed-merge-commit> -m "Release v0.4.2"`
+7. Push the tag: `git push origin v0.4.2`
+8. Wait for `.github/workflows/release.yml` and verify the public package and GitHub Release
 EOF
 ```
 
@@ -282,9 +311,24 @@ EOF
 
 ### 3. Built-in Skill (Shipped with ConnectOnion)
 
-Built-in skills are in `connectonion/cli/co_ai/skills/builtin/`.
+The default set is deliberately customer-facing: `install-connectonion`, `co-browser`,
+`co-mail-and-drive`, `topup`, and `dashboard` (the compatibility skill name for editing
+the agent's [Control Center](../network/dashboard.md)). The first three keep their one canonical body in
+`connectonion/useful_skills/`; an explicit allowlist loads them as defaults. `topup` and
+`dashboard` live in `connectonion/cli/co_ai/skills/builtin/`.
+
+Contributor workflows (`commit`, `review-pr`, `ship-feature`) remain copyable from
+`useful_skills/` but are not put in every customer's prompt. Their skill frontmatter does
+not auto-approve git, shell, build, or publishing commands; those actions still use the
+normal approval policy.
 
 Users can override by creating same-named skill in project or user level.
+
+Built-in skills are **not published** to chat clients — only project-tree skills
+(`.co/skills/`, `.claude/skills/`) appear in an agent's public profile. This matters
+for Control Center action buttons, which a client validates against that profile: a button
+naming a built-in or user-level skill renders but never runs. The allowlist is
+`PUBLISHED_SKILL_LOCATIONS` in `connectonion/useful_plugins/skills.py`.
 
 ### 4. Copyable Skill (from useful_skills/)
 
@@ -421,16 +465,6 @@ def check_approval(agent):
     # Check unified permissions dict
     permissions = agent.current_session.get('permissions', {})
 
-    # Ensure safe tools are in permissions
-    if tool_name in SAFE_TOOLS:
-        if tool_name not in permissions:
-            permissions[tool_name] = {
-                'allowed': True,
-                'source': 'safe',
-                'reason': 'read-only operation',
-                'expires': {'type': 'never'}
-            }
-
     # Check each permission with pattern matching
     if permissions:
         for pattern, perm in permissions.items():
@@ -442,10 +476,9 @@ def check_approval(agent):
                 log(f"⚡ {tool_name} ({reason})")
                 return  # Auto-approve
 
-    # Ask user for dangerous tools
-    if tool_name in DANGEROUS_TOOLS:
-        response = agent.io.send({'type': 'approval_needed', ...})
-        # If approved for session, add to permissions dict
+    # Fail closed for every remaining tool when live IO is present
+    response = agent.io.send({'type': 'approval_needed', ...})
+    # If approved for session, add to permissions dict
 ```
 
 ### Pattern Matching
@@ -551,21 +584,25 @@ User types: `/commit`
 ```yaml
 ---
 name: release
-description: Run tests and publish to PyPI
+description: Prepare a reviewed, tag-driven PyPI release
 tools:
   - Bash(pytest *)
   - Bash(python -m build)
-  - Bash(python -m twine *)
+  - Bash(python -m twine check *)
+  - Bash(gh pr *)
+  - Bash(gh run *)
   - Bash(git tag *)
   - Bash(git push *)
   - read_file
   - edit
 ---
-Run tests, build package, and publish to PyPI.
+Run tests, validate the exact package, merge the release PR, tag
+`<reviewed-merge-commit>`, and wait for `.github/workflows/release.yml` to
+publish through PyPI Trusted Publishing.
 ```
 
 User types: `/release`
-→ Testing and publishing commands auto-approved
+→ Candidate validation and exact-tag workflow commands auto-approved
 → Other dangerous commands still require approval
 
 ### 3. Code Review
@@ -660,7 +697,7 @@ Permission scope auto-clears at turn end. If it persists:
 
 - [Built-in Skills](../useful_skills/) - Copyable skills (ship-feature, etc.)
 - [Permissions](permissions.md) - Complete permission system overview
-- [Plugins](plugins.md) - Plugin system overview
-- [Events](events.md) - Available event hooks
+- [Plugins](../concepts/plugins.md) - Plugin system overview
+- [Events](../concepts/events.md) - Available event hooks
 - [Tool Approval](../useful_plugins/tool_approval.md) - Web-based approval plugin
-- [Tools](tools.md) - Tool system overview
+- [Tools](../concepts/tools.md) - Tool system overview

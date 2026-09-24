@@ -62,14 +62,20 @@ mkdir -p .co/skills/deploy
 cat > .co/skills/deploy/SKILL.md <<'EOF'
 ---
 name: deploy
-description: Deploy to PyPI
+description: Prepare a reviewed, tag-driven PyPI release
 tools:
   - Bash(pytest *)
   - Bash(python -m build)
-  - Bash(python -m twine *)
+  - Bash(python -m twine check *)
+  - Bash(gh pr *)
+  - Bash(gh run *)
+  - Bash(git tag *)
+  - Bash(git push *)
 ---
 
-Deploy package to PyPI after running tests.
+Run tests, validate the exact package, merge the release PR, tag
+`<reviewed-merge-commit>`, and wait for `.github/workflows/release.yml` to
+publish through PyPI Trusted Publishing.
 EOF
 ```
 
@@ -129,9 +135,9 @@ The `tool_approval` plugin checks `permission_scope` first:
 
 ```
 1. Skill's allowed_tools → Auto-approve if match
-2. SAFE_TOOLS → Auto-approve
-3. Session memory → Auto-approve if previously approved
-4. DANGEROUS_TOOLS → Ask user
+2. Template/config permissions → Auto-approve if match
+3. Session memory and explicit mode permissions → Auto-approve if match
+4. Ask for every remaining live-IO tool
 ```
 
 ## Security Model
@@ -154,7 +160,7 @@ This prevents accidental permission escalation across turns.
 
 ## Full Documentation
 
-See [Skills](../concepts/skills.md) for complete documentation:
+See [Skills](skills.md) for complete documentation:
 - SKILL.md format specification
 - Pattern matching details
 - Session state structure
@@ -164,7 +170,7 @@ See [Skills](../concepts/skills.md) for complete documentation:
 
 ## Related
 
-- [Permissions](../concepts/permissions.md) - Complete permission system overview
+- [Permissions](../features/permissions.md) - Complete permission system overview
 - [Tool Approval](tool_approval.md) - Web-based approval plugin that skills integrate with
 - [Plugins](../concepts/plugins.md) - Plugin system overview
 - [Events](../concepts/events.md) - Event hooks used by skills

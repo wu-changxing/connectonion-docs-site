@@ -1,161 +1,181 @@
-# co whatsapp
+# WhatsApp CLI (`co whatsapp`)
 
-WhatsApp as an inbox, on a number a person already uses. A linked device sees
-the groups that number is in, writes every message to a directory of files, and
-answers only where it was addressed.
+Turn a WhatsApp number into a directory of files. Every message the number
+receives — including in groups a person created and added it to — becomes one
+line in a log and one file in a queue; anything that can read a file can answer
+it. The same nine verbs as `co feishu`, against a different platform.
 
 ```bash
 pip install 'connectonion[whatsapp]'
-co whatsapp listen          # a QR code appears; scan it from the phone
+brew install libmagic                  # a system library pip cannot supply; see Setup
+co whatsapp listen                     # scan the QR once; every message → ~/.co/inbox/whatsapp/
+co whatsapp receive                    # next message as one JSON line
+echo "on it" | co whatsapp reply 3EB0A1
+co whatsapp consume -- claude -p       # one command per message, stdout is the reply
 ```
 
-Scan from **Settings → Linked devices**. Use a number dedicated to this, never
-a personal one or an employee's main one — a linked device can read every chat
-that number is in.
+## Read this before you link a number
 
-## The twelve verbs
+This links a **companion device**, the same mechanism as WhatsApp Web: the
+phone stays the account, and this becomes one of the four devices it allows
+alongside itself. That has two consequences worth knowing before you scan
+anything.
+
+**Use a number you have dedicated to this.** Never a personal number, never an
+employee's main number. A linked device sees every chat the number is in, so
+pointing it at a personal number puts that person's private conversations
+through your queue and, if you wire an agent to it, through a model. Buy a SIM
+or use a spare handset.
+
+**WhatsApp's terms do not cover this.** Automated use of the consumer client is
+against the Business Messaging Policy, and Meta bans numbers for it. Nobody can
+promise you a number will survive. That is the price of the one thing the
+official API cannot do, and it is why this is an extra you opt into rather than
+something installed by default.
+
+## Why not the official API
+
+The WhatsApp Cloud API is the supported route and it is genuinely better —
+until you need groups. It cannot join a group a human created; there is no join
+endpoint at all. It can only create groups itself, they cap at 8 participants,
+and creating them at all requires an Official Business Account, which is
+granted on merit and filed through a solutions provider. If your use is "a bot
+sits in the customer group we already made and answers when we @ it", the Cloud
+API has no path to it. This does.
+
+Use the Cloud API instead whenever you can: one-to-one customer messaging,
+notifications, anything you would ship to your own users.
+
+## Setup
 
 ```bash
-co whatsapp listen                  # hold the connection, write the directory; Ctrl-C stops
-co whatsapp receive                 # take the next message, print it as one JSON line
-co whatsapp receive -t 300          # give up after 5 minutes (exit 124, like timeout(1))
-co whatsapp send <chat> "text"      # prints the new message id
-co whatsapp reply <id> "text"       # back to the chat that message came from
-co whatsapp edit <id> "new text"    # replace the text of a message this account sent
-co whatsapp delete <id>             # remove a message for everyone
-co whatsapp done <id>               # took it, chose not to answer; don't bring it back
-co whatsapp check                   # credentials, listener, connection; exit 3 on a problem
-co whatsapp ls                      # unread: id, chat, sender, text
-co whatsapp chats                   # conversations seen: chat id, kind, counts, last activity
-co whatsapp log -f                  # every message ever received, one JSON line each
-co whatsapp consume -- ./answer.sh  # the loop: receive, run the command, reply with its stdout
+pip install 'connectonion[whatsapp]'
+
+# …and libmagic, which the extra cannot install for you:
+brew install libmagic        # macOS
+apt install libmagic1        # Debian/Ubuntu
+dnf install file-libs        # Fedora/RHEL
+pip install python-magic-bin # Windows (this one does bundle the library)
+
+co whatsapp listen
 ```
 
-`co feishu` and `co lark` are the same verbs against those platforms, minus
-`edit` and `delete` — see [Not everywhere yet](#not-everywhere-yet).
+The extra installs neonize, which imports `python-magic` — a *binding* to the
+system library `libmagic`. pip installs the binding; the library it binds to
+comes from the OS. So `pip install 'connectonion[whatsapp]'` succeeds and the
+first `co whatsapp listen` still stops, with libmagic named and the command for
+your platform. Install it once and it does not come back.
 
-## Taking back what the bot said
-
-An agent answering in a group gets things wrong in public. Without an undo the
-only repair is a second message, which leaves the wrong one above it forever,
-where the next person to scroll finds it first.
+A QR code appears in the terminal. On the phone, **Settings → Linked devices →
+Link a device**, and scan it. The pairing is stored at
+`~/.co/inbox/whatsapp/session.db` (or wherever `WHATSAPP_SESSION` points) and
+that file *is* the linked device: copy it and you have copied the device,
+delete it and the device is unlinked. It is created mode 0700 with the rest of
+the inbox.
 
 ```bash
-ID=$(co whatsapp send "$CHAT" "deploy finished at **14:02**")
-co whatsapp edit "$ID" "deploy finished at **14:20**"    # same bubble, new text
-co whatsapp delete "$ID"                                  # gone for everyone
+co whatsapp check                # says what is missing, if anything
 ```
 
-Both take the id `send` and `reply` print, and find the chat themselves — the id
-is the only string you keep.
+`check` exits 3 and names the missing item: the extra, an unlinked device, or a
+bundled protocol implementation old enough to start failing.
 
-- **`edit` is your own messages only.** WhatsApp stamps an edit as coming from
-  you and the server checks it. Asking to edit a message you *received* says
-  "no record of sending" rather than "no such message": the id is usually right
-  and the assumption is what is wrong.
-- **`delete` reaches further.** Your own message always; another member's when
-  this account is an admin of that group. WhatsApp decides that, and gives its
-  own reason when it refuses.
-
-## Addressed, not merely present
-
-A bot in a group sees everything and should answer almost none of it. A message
-is for us when it `@`s us — **or when it quotes something we said**. A reply to
-the bot is addressed to the bot, and that case contains no `@` anywhere.
-
-Every received message carries `mentioned`, so a consumer never has to guess:
-
-```json
-{"id":"3EB0…","chat":"1203…@g.us","sender":"1261…@lid","sender_name":"aaronplus1996",
- "text":"@1327… look at the deploy","kind":"text","quoted":null,"mentioned":true,
- "at":"2026-09-19T01:04:43Z"}
-```
-
-`kind` says what arrived — `text`, `image`, `audio`, `document`, `sticker`,
-`location`, `reaction` — so an empty `text` is distinguishable from someone
-sending nothing. `quoted` carries the message being replied to, including its
-text, so context does not have to be looked up.
-
-## Your text is read as Markdown
-
-The thing writing these messages is usually a model, and a model writes
-Markdown. WhatsApp does not read Markdown: `**ready**` sent untranslated arrives
-with the asterisks still attached.
-
-| you write | it arrives as |
-|---|---|
-| `**ready**` | **ready** in bold |
-| `*maybe*` | *maybe* in italic |
-| `~~dropped~~` | dropped, struck through |
-| `# Deploy failed` | **Deploy failed** in bold |
-| `- one` | • one |
-| `[the run](https://ci/42)` | the run: https://ci/42 |
-
-Nothing inside a fenced block or `` `backticks` `` is touched — a code block is
-literal, which is the point of one. `--plain` sends the characters exactly as
-typed.
-
-## Is it actually connected?
-
-`check` answers two separate questions, because they are two claims:
-
-```bash
-$ co whatsapp check
-✓ whatsapp configured · listener pid 83467 · 0 unread · ~/.co/inbox/whatsapp
-✓ connected as 61410724095 since 2026-09-19T04:00:47Z
-```
-
-*Configured* is about this machine. *Connected* comes from the listener's own
-record of its socket, with an account and a time, so it can be disagreed with.
-A `connected` record left behind by a process that has since exited does not
-become a green tick — it is read only while the pid that wrote it is the pid
-holding the lock. Otherwise:
-
-```
-not connected: no listener is running, so nothing is arriving.
-listener 13813 is running; it has not said whether its socket is up.
-```
-
-That second sentence is the one worth having: *I cannot tell* is a different
-answer from *it is broken*, and `check` can now say it.
-
-Exit codes are the same on every verb: `0` done, `1` the platform refused (its
-own sentence is on stderr), `2` usage, `3` not configured or not connected,
-`124` `receive -t N` saw nothing in N seconds.
-
-## One connection per linked device
-
-WhatsApp allows a single socket per linked device. A second process opening the
-same session would take the connection away from the listener, so `send` hands
-its text to the running listener and waits for the answer — and says so plainly
-when no listener is running, rather than opening a second one and dropping the
-first.
-
-## Not everywhere yet
-
-- **`edit` and `delete` are WhatsApp-only.** `co feishu edit` and `co lark edit`
-  name the endpoints that exist for it (`PUT` and `DELETE` on
-  `/im/v1/messages/<id>`) and say nobody has wired them up, so a missing feature
-  never reads as a bad message id.
-- **No sender allowlist yet** (planned for 1.9): a bot in a group answers anyone
-  in that group who addresses it.
-- **`chat_name` is not populated**: a group's subject needs an API call per
-  group and is not kept in the local session.
-- Media is recorded with its `kind` and caption; downloading attachments is not
-  part of this command yet.
-
-## Where it lives
+## The directory
 
 ```
 ~/.co/inbox/whatsapp/
-├── session.db          # the linked device's key material — deleting it unlinks
-├── new/                # queued messages, one file each
-├── cur/                # taken, not yet answered
-├── received.jsonl      # every message ever received
-├── sent.jsonl          # what was sent, as it was sent
-├── connection.json     # what the listener last said about its socket
-└── log                 # the tool's own log
+├── received.jsonl      every message ever received
+├── sent.jsonl          every reply
+├── own.jsonl           what the account owner typed on their phone (a record, never queued)
+├── new/                unread, one file each
+├── cur/                taken by a consumer
+├── outbox/             replies waiting for the listener (see below)
+├── media/              photos, documents and voice notes, as they arrived
+├── session.db          the linked device
+└── log
 ```
 
-`sent.jsonl` records the text **as the platform received it**, not as it was
-typed, so the log and the chat never disagree.
+Identical to every other provider — [DD-063](../design-decisions/063-one-directory-three-verbs.md)
+has the interface, and [feishu.md](feishu.md) documents the verbs in full,
+because they behave the same here.
+
+`chat` is the group JID (`1203630000000@g.us`) for a group message and the
+peer's JID (`447700900123@s.whatsapp.net`) for a direct one, so `reply` lands
+where the question was asked either way.
+
+## Photos, documents and voice notes
+
+A media message arrives with `kind` set to what it is — `image`, `video`,
+`audio`, `document`, `sticker` — and the bytes are fetched as it arrives, into
+`media/`. The record names the file:
+
+```json
+{"id":"3EB0…","chat":"447700900123@s.whatsapp.net","kind":"image","text":"",
+ "media":{"path":"/Users/you/.co/inbox/whatsapp/media/3EB0….jpg",
+          "mime":"image/jpeg","size":184320}}
+```
+
+So a consumer that receives this can open the file, and one that cannot read
+images can at least say which file it is declining to read.
+
+**Why at arrival and not on demand.** The media keys live in the protobuf
+envelope, and the queue record does not keep it, so a later `download <id>`
+would have nothing to download from. WhatsApp also drops media from its own
+servers after a while. The moment the message arrives is the only moment the
+file is reliably reachable.
+
+**When it fails, it says so.** An expired or unreachable file leaves
+`{"media":{"error":"…"}}` on the record and a line in `log`, and writes no
+file — a zero-byte document is worse than an error, because a consumer reads
+it as an empty document. Anything over 64 MB is refused the same way rather
+than filling the disk the inbox lives on.
+
+## Groups: when the bot answers
+
+In a group, `mentioned` is true when the message @-mentions the linked number,
+replies to something it said, or writes its number in the text. In a direct
+message it is always true. Set `mention_only` on the channel and the agent
+answers only those; leave it off and it answers everything in the group.
+
+Until the connection is up the number is not yet known, so nothing in a group
+counts as addressed. A `mention_only` channel stays quiet for that moment
+rather than answering everyone in it.
+
+## Sending needs the listener running
+
+WhatsApp allows one connection per linked device. There is no REST endpoint to
+post to — every byte rides the socket `co whatsapp listen` is holding, and a
+second process opening the same session would present the same device identity
+and take the connection away from the listener.
+
+So `co whatsapp send` and `co whatsapp reply` do not connect. They write the
+text to `outbox/`, the listener picks it up and sends it, and the answer comes
+back the same way. With no listener running, `send` waits 30 seconds and then
+says so:
+
+```
+No listener answered in 30s. WhatsApp allows one connection per linked
+device, so sending goes through the listener rather than opening a second
+one. Next: co whatsapp listen
+```
+
+This also means `send` and `reply` work without the extra installed. Only
+`listen` needs it.
+
+## The protocol snapshot
+
+The extra pins `neonize` exactly rather than with `>=`. The wheel carries a
+compiled snapshot of whatsmeow's WhatsApp protocol implementation, so a version
+bump is a protocol change and deserves to be a deliberate one.
+
+The flip side is that the snapshot goes stale, and WhatsApp changing something
+under an old one fails in ways that do not name themselves. `check` reads the
+snapshot's date out of the shared library and says so once it is more than six
+months old.
+
+## Environment
+
+| Variable | Default | What it does |
+|---|---|---|
+| `WHATSAPP_SESSION` | `~/.co/inbox/whatsapp/session.db` | Where the linked device is stored |
+| `CO_INBOX_HOME` | `~/.co/inbox` | Moves the whole inbox root, every provider with it |

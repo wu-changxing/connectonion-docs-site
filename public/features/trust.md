@@ -591,16 +591,22 @@ abuser-123
 spam-bot-*
 ```
 
-## Environment-Based Defaults
+## One place decides: `.co/host.yaml`
 
-```python
-# No trust specified - auto-detected from environment
-host(agent)
-
-# CONNECTONION_ENV=development → trust="open"
-# CONNECTONION_ENV=staging     → trust="careful"
-# CONNECTONION_ENV=production  → trust="strict"
+```yaml
+# .co/host.yaml
+trust: careful      # open | careful | strict
 ```
+
+There is no environment variable for this, on purpose. `CONNECTONION_ENV` used
+to be documented as setting trust automatically, with `development` meaning
+`open`. It never actually did anything — and wiring it up would have meant a
+variable sitting in someone's shell profile could open their host to everyone,
+at the moment they were least likely to be reading this page.
+
+How open a host is, is written down in a file its operator owns and can read
+back. Different machines get different files; `co deploy` copies the one you
+mean to the machine you mean.
 
 ## Architecture
 
@@ -664,7 +670,9 @@ Host provides these routes:
 
 ### Admin Routes (Requires Admin)
 
-Admin routes use **signed requests** (same as `/input`). The signer's address must be in the admins list.
+Admin routes use **route-bound signed requests**. The signed payload includes
+the actual HTTP `method` and `path`, so a signature made for one admin action
+cannot authorise another. The signer's address must be in the admins list.
 
 **Admins list = self address (default) + ~/.co/admins.txt**
 
@@ -688,10 +696,16 @@ Only the agent's own address (super admin) can manage the admins list.
 | `/superadmin/remove` | POST | Remove an admin |
 
 **Example admin request:**
+
+Build this body with `connectonion.network.host.auth.sign_request_body` so the
+canonical JSON and signature format stay consistent with the server.
+
 ```json
 {
     "payload": {
         "client_id": "0xclient123...",
+        "method": "POST",
+        "path": "/admin/trust/promote",
         "timestamp": 1699999999
     },
     "from": "0xAdminPublicKey",
@@ -704,6 +718,8 @@ Only the agent's own address (super admin) can manage the admins list.
 {
     "payload": {
         "admin_id": "0xnewadmin...",
+        "method": "POST",
+        "path": "/superadmin/add",
         "timestamp": 1699999999
     },
     "from": "0xSelfAddress",
@@ -746,6 +762,52 @@ Evaluate strangers for access...
 2. Check `allow` list (whitelist/contacts → allow)
 3. Try onboarding (invite code or payment → promote to contact)
 4. Apply `default` action
+
+
+### Which door your agent opens
+
+The shipped `careful` policy — what every agent gets unless you say otherwise —
+opens **neither** door. Both are switched on from the environment, and an unset
+variable is a closed door, never a default:
+
+```yaml
+onboard:
+  invite_code: [$CO_INVITE_CODE]
+  payment: $CO_PAYMENT
+```
+
+| | unset | set |
+|---|---|---|
+| `CO_INVITE_CODE` | no invite door; nothing is advertised | strangers who type that code become contacts |
+| `CO_PAYMENT` | no payment door | strangers who transfer at least that much to the agent's address become contacts |
+
+On an agent deployed with `co deploy --to`, these live in the root-owned
+`/etc/connectonion/<agent>.env` file (`0600`), the same channel as every other
+secret — not in the project, not in the server user's `~/.co/keys.env`, and not
+in this repository. A literal in a shipped policy would be one password for
+every deployment (#561), and a shipped price would charge for every agent whose
+operator never asked to (#672).
+
+The default **local** `co ai` host is the exception that makes first-owner setup
+usable without weakening that rule: on its first web-server start it mints one
+unique `CO_INVITE_CODE` in the owner-only `~/.co/keys.env`. Startup names the
+command to retrieve it but never prints the secret. Use `co keys` to confirm
+that an owner invite exists, then `co keys --reveal` only in a private terminal
+when you are ready to enter it in your client. Existing project, process, or
+global values are preserved.
+
+Writing the number in your own policy still works, and is the right thing when
+the price is part of what you are publishing:
+
+```yaml
+onboard:
+  payment: 25      # what this agent charges, decided when it is published
+```
+
+**The price is yours, not the caller's.** What a client sends in its onboard
+frame is a claim about what it paid; the transfer is verified against the
+amount *you* configured. `payment: 0` is not a price — an agent that admits
+anyone who sends nothing is `open`, and should say so.
 
 
 ## TrustAgent Class

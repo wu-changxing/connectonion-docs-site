@@ -2,6 +2,37 @@
 
 ConnectOnion provides multiple permission mechanisms to balance safety and automation. This guide explains how they work together.
 
+## Permission modes
+
+Every new session starts in **Auto**. Auto runs a deterministic policy before
+the human approval hook:
+
+- workspace reads and reversible workspace edits are allowed;
+- focused test, lint, type-check, and build commands are allowed;
+- read-only shell commands (`head`, `tail`, `grep`, `wc`, `ls`, `cut`, `jq`, ...)
+  on workspace paths are allowed, alone or as pipe segments beside a granted
+  command; nothing that takes a program text is read-only, so `sed` and `awk`
+  still ask (#1481);
+- an explicit grant — the operator's `host.yaml`, a skill's `tools:`, or a
+  human's session approval — runs the call for any effect class, and stops
+  asking every time; a wildcard is honoured only for the effect its own text
+  names, and the shipped template defaults are not an operator's grant (#1481);
+- deletions and credential access are denied, including reads of key material
+  by path or name (`.ssh/`, `.co/keys/`, `id_rsa`, `*.pem`, ...) wherever it sits;
+- deployment, publishing, external communication, payments, outside-workspace
+  reads, and unknown tools ask a person.
+
+Every policy result contains `allow`, `ask`, or `deny` plus a policy ID,
+version, reason, effect class, and scope. An `ask` uses the existing
+`approval_needed` protocol and the existing `session['permissions']` store; the
+policy does not maintain a second approval cache.
+
+**Read only** asks for every effectful call that is not already explicitly
+permitted. **Full access** skips routine approval for a positive `turns_left`
+budget and expires to Auto. The only accepted IDs are `read-only`, `auto`, and
+`full-access`; unknown stored values are discarded to Auto, never translated.
+Todo List remains progress data and grants no authority. Plan is not a mode.
+
 ## Unified Permission System
 
 **Core Concept**: All permissions use a single, consistent data structure at runtime. Whether from config files, skills, or user approvals, every permission is stored the same way in `session['permissions']`.
@@ -25,7 +56,7 @@ session['permissions'] = {
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│ 1. SAFE_TOOLS - Always auto-approved                       │
+│ 1. Template Permissions - Explicit built-in allowlist      │
 │    read_file, glob, grep (read-only operations)            │
 │    Stored as: source='safe', expires='never'               │
 └─────────────────────────────────────────────────────────────┘
@@ -52,9 +83,9 @@ session['permissions'] = {
 └─────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────┐
-│ 5. Tool Approval - Ask user for dangerous operations       │
-│    bash, edit, write → require explicit user approval      │
-│    If no permission in unified dict → ask user             │
+│ 5. Auto policy + Tool Approval                             │
+│    auto deterministically allows/asks/denies               │
+│    an ask reuses the authenticated human approval path     │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -114,9 +145,9 @@ def create_agent():
 
 host(create_agent)  # Loads permissions from .co/host.yaml
 
-# Safe tools - always auto-approved
+# Template-permitted tools - auto-approved
 agent.input("Read the README")
-# → read_file auto-approved (SAFE_TOOLS) ✓
+# → read_file auto-approved (template permission) ✓
 
 # Config permissions - auto-approved from host.yaml
 agent.input("Check git status")
@@ -132,14 +163,12 @@ agent.input("Update the docs")
 # → Turn ends, permissions cleared ✓
 
 # Session memory - remember decisions
-agent.input("Run tests")
-# → bash("pytest") approval needed (first time, not in config)
-# → User approves for "session"
-# → Future pytest calls auto-approved for this session ✓
+agent.input("Run focused tests")
+# → in auto, bash("pytest tests/unit/test_api.py") is auto-approved ✓
 
-# Dangerous operations - always ask
+# Unpermitted operations - authenticated human approval or fail closed
 agent.input("Delete all files")
-# → User approval required (destructive operation)
+# → deletion denied by the built-in policy
 ```
 
 ## Unified Permission Format
@@ -224,22 +253,21 @@ permissions = snapshot  # Restore - user's 'write' preserved, skill's 'bash' cle
 
 **Result**: Skills grant temporary permissions without losing user approvals.
 
-## 1. SAFE_TOOLS - Always Auto-Approved
+## 1. Template Permissions - Explicit Built-In Allowlist
 
-Read-only operations that can't harm the system.
+The standard host template explicitly permits its built-in read-only tools. The permission entries use `source: safe`; safety does not come from a tool being absent from a denylist.
 
-```python
-SAFE_TOOLS = [
-    'FileTools.read_file',
-    'FileTools.glob',
-    'FileTools.grep',
-    'ls',
-    'list_directory',
-    'tree'
-]
+```yaml
+permissions:
+  "read_file":
+    allowed: true
+    source: safe
+    reason: read-only operation
+    expires:
+      type: never
 ```
 
-**No approval needed** - these tools are always safe to execute.
+These named tools need no approval. A custom or dynamically registered tool is not implicitly safe just because its name is new.
 
 ### Example
 
@@ -685,71 +713,7 @@ Create a well-formatted git commit.
 
 See [Skills](skills.md) for complete documentation.
 
-## 4. Plan Mode - Auto-Edit During Planning
-
-When `agent.is_planning = True`, the `edit` tool is auto-approved.
-
-### Why This Exists
-
-Planning involves iterative code exploration and documentation:
-
-```python
-agent.is_planning = True
-agent.input("Plan how to add user authentication")
-
-# Agent explores codebase
-# → read_file("auth.py") - auto-approved ✓
-# → edit("PLAN.md", ...) - auto-approved ✓  (add auth flow diagram)
-# → read_file("models.py") - auto-approved ✓
-# → edit("PLAN.md", ...) - auto-approved ✓  (add database schema)
-# → read_file("routes.py") - auto-approved ✓
-# → edit("PLAN.md", ...) - auto-approved ✓  (add route changes)
-```
-
-Without auto-edit, user would need to approve every plan update - disruptive to planning flow.
-
-### Implementation
-
-```python
-@before_each_tool
-def check_approval(agent):
-    tool_name = agent.current_session['pending_tool_call']['name']
-
-    # Auto-approve edit during planning
-    if tool_name == 'edit' and agent.is_planning:
-        return  # Auto-approve
-
-    # ... rest of approval logic
-```
-
-### Safety
-
-- **Only during planning** - `is_planning` must be explicitly set
-- **Only edit tool** - Other dangerous tools (bash, write) still require approval
-- **User controls planning mode** - Agent can't set `is_planning = True` itself
-
-### Example
-
-```python
-from connectonion import Agent
-from connectonion.useful_plugins import tool_approval
-
-agent = Agent("planner", tools=[read_file, edit, bash], plugins=[tool_approval])
-
-# Planning phase - auto-edit
-agent.is_planning = True
-agent.input("Create implementation plan for feature X")
-# → edit("PLAN.md", ...) auto-approved ✓
-# → bash still requires approval ✗
-
-# Implementation phase - require approval
-agent.is_planning = False
-agent.input("Implement the plan")
-# → edit requires approval ✗
-# → bash requires approval ✗
-```
-
-## 5. Session Memory - Remember User Decisions
+## 4. Session Memory - Remember User Decisions
 
 When user approves a tool, remember the decision for the session.
 
@@ -823,11 +787,11 @@ def check_approval(agent):
     # ... ask user for approval
 ```
 
-## 6. Tool Approval - Ask User for Dangerous Operations
+## 5. Tool Approval - Ask User for Unpermitted Operations
 
-Web-based approval UI for dangerous tools.
+With live IO, the web approval UI handles every tool call that did not match an explicit template, config, skill, user, or mode permission. Known effectful tools remain documented for discoverability, but that list is not the security boundary.
 
-### Dangerous Tools
+### Known Effectful Tools
 
 ```python
 DANGEROUS_TOOLS = [
@@ -846,7 +810,7 @@ DANGEROUS_TOOLS = [
    ↓
 2. Tool approval plugin intercepts
    ↓
-3. Send approval request to web UI
+3. Local/admin operator receives an approval request
    ┌──────────────────────────────────┐
    │ ⚠️ Approval needed: bash         │
    │                                  │
@@ -856,7 +820,7 @@ DANGEROUS_TOOLS = [
    │ [Approve for session]            │
    │ [Deny]                           │
    └──────────────────────────────────┘
-4. User decides
+4. Operator decides (a hosted non-admin is rejected before this step)
    ↓
 5. Tool executes (or blocked)
 ```
@@ -868,8 +832,10 @@ DANGEROUS_TOOLS = [
 def check_approval(agent):
     """Check if tool needs approval before execution."""
 
-    tool_name = agent.current_session['pending_tool_call']['name']
-    tool_args = agent.current_session['pending_tool_call']['arguments']
+    pending = agent.current_session['pending_tool']
+    tool_name = pending['name']
+    tool_args = pending['arguments']
+    requester = agent.current_session.get('requester')
 
     # 1. Check skill permission scope (highest priority)
     scope = agent.current_session.get('permission_scope')
@@ -877,41 +843,38 @@ def check_approval(agent):
         if _matches_pattern(tool_name, tool_args, scope['allowed_tools']):
             return  # Auto-approve
 
-    # 2. Check SAFE_TOOLS
-    if tool_name in SAFE_TOOLS:
+    # 2. Check explicit template/config/skill permissions
+    permissions = agent.current_session.get('permissions', {})
+    if matches_permission(tool_name, tool_args, permissions):
         return  # Auto-approve
 
-    # 3. Check plan mode auto-edit
-    if tool_name == 'edit' and agent.is_planning:
-        return  # Auto-approve
-
-    # 4. Check session memory
+    # 3. Check session memory
     approved_tools = agent.current_session.get('approval', {}).get('approved_tools', {})
     if tool_name in approved_tools and approved_tools[tool_name] == 'session':
         return  # Auto-approve
 
-    # 5. Check if denied
+    # 4. Check if denied
     if tool_name in approved_tools and approved_tools[tool_name] == 'deny':
         raise ToolDenied(f"{tool_name} was denied")
 
-    # 6. Ask user for dangerous tools
-    if tool_name in DANGEROUS_TOOLS:
-        response = agent.io.send({
-            'type': 'approval_needed',
-            'tool_name': tool_name,
-            'tool_args': tool_args
-        })
+    # 5. Fail closed: only the local/admin operator may approve
+    if requester and requester.get('level') != 'admin':
+        raise ToolDenied(f"{tool_name} requires operator approval")
 
-        scope = response['scope']  # 'once', 'session', 'deny'
+    agent.io.send({
+        'type': 'approval_needed',
+        'tool': tool_name,
+        'arguments': tool_args,
+    })
+    response = agent.io.receive()
 
-        if scope == 'deny':
-            agent.current_session.setdefault('approval', {})['approved_tools'][tool_name] = 'deny'
-            raise ToolDenied(f"User denied {tool_name}")
+    if not response.get('approved', False):
+        raise ToolDenied(f"User denied {tool_name}")
 
-        if scope == 'session':
-            agent.current_session.setdefault('approval', {})['approved_tools'][tool_name] = 'session'
+    if response.get('scope', 'once') == 'session':
+        agent.current_session.setdefault('approval', {})['approved_tools'][tool_name] = 'session'
 
-        # scope == 'once' → just execute this time
+    # scope == 'once' → just execute this time
 
 tool_approval = [before_each_tool(check_approval)]
 ```
@@ -930,7 +893,8 @@ The approval system uses unified permissions - all permissions stored in `sessio
        └─ Log: "⚡ tool_name (reason from permission)"
 
 2. If no match in permissions
-   └─ ASK USER (web approval UI)
+   ├─ Hosted non-admin requester → REJECT without a dialog
+   └─ Local/admin operator → ASK USER (web approval UI)
        └─ If approved for "session" → Add to permissions dict
 ```
 
@@ -973,11 +937,11 @@ agent = Agent(
 )
 
 # ────────────────────────────────────────────────────────
-# Scenario 1: Safe tools (always auto-approved)
+# Scenario 1: Template-permitted tools
 # ────────────────────────────────────────────────────────
 agent.input("Find all tests")
-# → glob("**/test_*.py") - SAFE_TOOLS ✓
-# → read_file("test_agent.py") - SAFE_TOOLS ✓
+# → glob("**/test_*.py") - template permission ✓
+# → read_file("test_agent.py") - template permission ✓
 
 # ────────────────────────────────────────────────────────
 # Scenario 2: Skills (scoped permissions for one turn)
@@ -993,18 +957,7 @@ agent.input("Find all tests")
 # → git commands need approval again
 
 # ────────────────────────────────────────────────────────
-# Scenario 3: Plan mode (auto-edit during planning)
-# ────────────────────────────────────────────────────────
-agent.is_planning = True
-agent.input("Plan feature implementation")
-# → read_file - SAFE_TOOLS ✓
-# → edit("PLAN.md", ...) - plan mode ✓
-# → bash - REQUIRES APPROVAL ✗
-
-agent.is_planning = False
-
-# ────────────────────────────────────────────────────────
-# Scenario 4: Session memory (remember user decisions)
+# Scenario 3: Session memory (remember user decisions)
 # ────────────────────────────────────────────────────────
 agent.input("Run tests")
 # → bash("pytest") - REQUIRES APPROVAL
@@ -1018,12 +971,13 @@ agent.input("Deploy")
 # → bash("./deploy.sh") - session memory ✓
 
 # ────────────────────────────────────────────────────────
-# Scenario 5: Dangerous operations (always ask)
+# Scenario 5: Unpermitted operations (operator approval or fail closed)
 # ────────────────────────────────────────────────────────
 agent.input("Create new config file")
 # → write("config.json", ...) - REQUIRES APPROVAL
 # → User approves "once"
 # → Executes this time only
+# → A hosted non-admin requester is rejected without a dialog instead
 
 agent.input("Create another file")
 # → write("data.json", ...) - REQUIRES APPROVAL again
@@ -1032,50 +986,32 @@ agent.input("Create another file")
 ## Flow Diagram
 
 ```
-┌─────────────────────────┐
-│ Agent wants to use tool │
-└────────────┬────────────┘
-             │
-             ▼
-┌────────────────────────────────┐
-│ 1. Skills permission scope?    │
-│    (turn-specific)              │
-└─────┬──────────────────────┬───┘
-  YES │                      │ NO
-      ▼                      ▼
-   ┌──────┐     ┌────────────────────────┐
-   │ ✓ OK │     │ 2. SAFE_TOOLS?         │
-   └──────┘     └─────┬──────────────┬───┘
-                  YES │              │ NO
-                      ▼              ▼
-                   ┌──────┐     ┌────────────────────────┐
-                   │ ✓ OK │     │ 3. Plan mode + edit?   │
-                   └──────┘     └─────┬──────────────┬───┘
-                                  YES │              │ NO
-                                      ▼              ▼
-                                   ┌──────┐     ┌────────────────────────┐
-                                   │ ✓ OK │     │ 4. Session memory?     │
-                                   └──────┘     └─────┬──────────────┬───┘
-                                                  YES │              │ NO
-                                                      ▼              ▼
-                                               ┌────────────┐   ┌──────────────┐
-                                               │ ✓ approved │   │ 5. Ask user  │
-                                               │ ✗ denied   │   └──────┬───────┘
-                                               └────────────┘          │
-                                                                       ▼
-                                                            ┌─────────────────────┐
-                                                            │ once / session /    │
-                                                            │ deny                │
-                                                            └──────┬──────────────┘
-                                                                   │
-                                                        ┌──────────┼──────────┐
-                                                        │          │          │
-                                                        ▼          ▼          ▼
-                                                     ┌────┐   ┌────────┐  ┌──────┐
-                                                     │ ✓  │   │ ✓ save │  │ ✗    │
-                                                     │once│   │ to     │  │deny  │
-                                                     └────┘   │session │  └──────┘
-                                                              └────────┘
+Agent wants to use a tool
+          │
+          ▼
+Explicit template, config, skill,
+user, or session permission?
+    ├─ yes → execute
+    └─ no
+          │
+          ▼
+No live IO?
+    ├─ yes → execute
+    └─ no
+          │
+          ▼
+Operator-owned mode bypass?
+(`full_access`, or `auto_approve` for named edit tools)
+    ├─ yes → execute
+    └─ no
+          │
+          ▼
+Hosted non-admin requester?
+    ├─ yes → reject without a dialog
+    └─ no  → ask the local/admin operator
+                 ├─ once → execute once
+                 ├─ session → save permission and execute
+                 └─ deny → reject
 ```
 
 ## Best Practices
@@ -1094,22 +1030,7 @@ agent.input("Create a commit")
 # → All git commands auto-approved for this turn
 ```
 
-### 2. Enable Plan Mode for Planning
-
-```python
-# ❌ BAD: Manual approval for every plan update
-agent.input("Plan the implementation")
-# → edit("PLAN.md", "# Step 1") - approval needed
-# → edit("PLAN.md", "# Step 2") - approval needed
-# → edit("PLAN.md", "# Step 3") - approval needed
-
-# ✅ GOOD: Enable plan mode
-agent.is_planning = True
-agent.input("Plan the implementation")
-# → All edit calls auto-approved
-```
-
-### 3. Approve for Session in Development
+### 2. Approve for Session in Development
 
 ```python
 # ❌ BAD: Approve "once" for development workflow
@@ -1133,7 +1054,7 @@ agent.input("Run formatter")
 # → Auto-approved ✓
 ```
 
-### 4. Use Specific Patterns in Skills
+### 3. Use Specific Patterns in Skills
 
 ```yaml
 # ❌ BAD: Too permissive
@@ -1147,7 +1068,7 @@ tools:
   - Bash(git commit *)
 ```
 
-### 5. Deny Dangerous Operations
+### 4. Deny Dangerous Operations
 
 ```python
 # Destructive operation
@@ -1173,15 +1094,6 @@ agent.input("Delete all migration files")
 
 This prevents accidental permission escalation.
 
-### Plan Mode Is Explicit
-
-```python
-# Agent CANNOT set is_planning itself
-agent.is_planning = True  # Must be set by user/framework
-```
-
-Only the calling code can enable plan mode - agent can't escalate permissions.
-
 ### Session Memory Is Scoped
 
 ```python
@@ -1193,11 +1105,11 @@ User decisions don't persist across sessions.
 
 ### Tool Approval Is Final Layer
 
-Even with all auto-approval mechanisms, dangerous tools not covered by other layers still require explicit user approval.
+Even with all auto-approval mechanisms, every remaining live-IO tool requires an operator decision. A local/admin operator receives the approval dialog; a hosted non-admin requester is rejected without one. Unknown plugin and protocol-provided tools fail closed too.
 
 ## Related Documentation
 
 - [Skills](skills.md) - Pre-packaged workflows with scoped permissions
 - [Tool Approval](../useful_plugins/tool_approval.md) - Web-based approval plugin
-- [Plugins](plugins.md) - Plugin system overview
-- [Events](events.md) - Event hooks for custom permission logic
+- [Plugins](../concepts/plugins.md) - Plugin system overview
+- [Events](../concepts/events.md) - Event hooks for custom permission logic

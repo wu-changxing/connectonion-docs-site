@@ -40,13 +40,13 @@ agent.input("Send an email to alice@example.com saying hello")
 co auth microsoft
 ```
 
-Your agent can now read and manage Outlook emails.
+Your agent can now read and manage Outlook emails and contacts.
 
 **Switch accounts?** Run `co auth microsoft` again to connect a different Microsoft account.
 
 **Prefer the terminal?** The same functions are available as
 [`co outlook`](../cli/outlook.md) commands (`inbox`, `read`, `send`, `reply`,
-`sent`, `search`, `scheduled`).
+`sent`, `search`, `scheduled`, and `contact add/list/search`).
 
 ## Agent Methods
 
@@ -74,6 +74,28 @@ Your agent can now read and manage Outlook emails.
 - Search using Microsoft Graph search
 - Examples: `"quarterly report"`, `"meeting notes"`, `"invoice"`
 
+### Contacts
+
+**`add_contact(name, email)`**
+- Create a contact in the root Outlook Contacts folder
+- Returns a dict with `id`, `name`, and `email`
+- Requires the delegated `Contacts.ReadWrite` scope
+
+**`list_contacts(max_results=25)`**
+- List saved contacts as `id` / `name` / `email` dicts
+
+**`search_contacts(query, max_results=25)`**
+- Find contacts by a case-insensitive display-name or email substring
+
+```python
+outlook.add_contact("Zhou Yifei", "zhou@example.com")
+outlook.list_contacts()
+outlook.search_contacts("yifei")
+```
+
+If Microsoft was connected before contacts were enabled, run
+`co auth microsoft` again to consent to `Contacts.ReadWrite`.
+
 ### Sending
 
 **`send(to, subject, body, cc=None, bcc=None, attachments=None, send_at=None)`**
@@ -84,7 +106,9 @@ Your agent can now read and manage Outlook emails.
 - `cc`: Optional CC recipients
 - `bcc`: Optional BCC recipients
 - `attachments`: Optional list of local file paths (images, screenshots,
-  PDFs, etc. — Graph sendMail limit is ~3MB total)
+  PDFs, etc.). Agent-facing `Outlook()` instances can attach only resolved
+  files inside the current project. The ~3MB total limit is enforced before
+  file contents are read.
 - `send_at`: Optional UTC ISO time (e.g. `"2026-07-06T15:30:00Z"`) —
   Exchange holds delivery until then (deferred send, works with just the
   `Mail.Send` scope)
@@ -97,12 +121,29 @@ outlook.send(
 )
 ```
 
-**`reply(email_id, body, send_at=None)`**
+**`reply(email_id, body, send_at=None, *, attachments=None, cc=None, bcc=None)`**
 - Reply to an existing email (threaded), now or scheduled
 - `body` is plain text — paragraphs (blank-line separated) convert to HTML
   `<p>` blocks and single newlines to `<br>`, with HTML characters escaped,
   so replies keep their formatting in Outlook
-- `send_at`: Optional UTC ISO time — Exchange holds delivery until then
+- `send_at`: Optional UTC ISO time — Exchange holds delivery until then. It
+  keeps the third-positional slot it has always had, so
+  `reply(email_id, body, "2026-07-06T15:30:00Z")` still schedules
+- `attachments`: Keyword-only list of local file paths, validated and limited
+  exactly like `send()`. They travel on Graph's reply action, so the message
+  stays in the original conversation
+- `cc`, `bcc`: Keyword-only comma-separated addresses. They are set on the
+  reply action's message (or PATCHed onto the deferred reply draft when
+  `send_at` is given), so copying a third person keeps the reply in its
+  thread instead of starting a new "RE:" conversation (#1247)
+
+```python
+outlook.reply(
+    email_id, "Signed copy attached.",
+    attachments=["signed.pdf"],
+    cc="sam@example.com",
+)
+```
 
 ### Scheduled sends
 
@@ -148,6 +189,7 @@ agent = Agent(
     system_prompt="You help manage Outlook emails and remember important info."
 )
 
+agent.input("Save Zhou Yifei <zhou@example.com> as a contact")
 agent.input("Check unread emails and save important deadlines to memory")
 agent.input("Send an email to alice@example.com about the project update")
 agent.input("Find all emails about the quarterly report")
@@ -172,6 +214,17 @@ from tools.outlook import Outlook    # After - customize freely!
 
 **Missing Microsoft Mail scopes**: Run `co auth microsoft`
 
+**Missing Microsoft Contacts.ReadWrite scope**: Run `co auth microsoft` again
+to grant the new contact permission.
+
 **Credentials not found**: Run `co auth microsoft`
 
-**Token expired**: Tokens auto-refresh. If issues persist, run `co auth microsoft` again.
+**OpenOnion authentication failed while refreshing Microsoft access**: Run
+`co auth`. Your Microsoft access token is reused while it remains valid, but a
+refresh still needs a valid OpenOnion session.
+
+**Microsoft authorization expired or permission denied**: Run
+`co auth microsoft` again. Tokens auto-refresh when possible; reauthorization
+is required after Microsoft revokes a refresh token or when a scope is missing.
+
+If Teams creation returns an event without a usable meeting link, the command exits 1 and retains the event ID. Follow `co outlook calendar read EVENT_ID` to inspect that event; do not repeat creation. A missing event ID requires listing the calendar before another write.

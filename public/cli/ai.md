@@ -36,15 +36,27 @@ Restarting `co ai` keeps the same invite, so clients already given the code are
 not locked out. An explicit `CO_INVITE_CODE` in the current project or process
 continues to take precedence.
 
+For a clean test run, provide an invite that exists only for that Host process:
+
+```bash
+co ai --invite-code-file /path/to/private-invite
+```
+
+`--invite-code-file` is recommended for automation because the value does not
+appear in shell history or the process argument list. The file should be
+readable only by its owner. `--invite-code <code>` is also available for an
+interactive local run. Both forms override `CO_INVITE_CODE` in memory without
+changing `.env`, `~/.co/keys.env`, `host.yaml`, or the process environment.
+They are web-server options only and cannot be combined with a one-shot prompt.
+Successful onboarding still creates the normal durable contact; only the
+temporary way into that Host disappears when `co ai` exits.
+
 The published `@connectonion/react` package owns the browser OIP client, browser
 identity, onboarding, reconnect, approvals, and session normalization. O Chat
 pins one exact preview version. The Host advertises OIP 0.1 in `CONNECTED`; an
-explicit unsupported descriptor fails once as non-retryable instead of
-selecting another transport or reconnecting forever. `/info` and `CONNECTED`
-advertise the supported 0.1–0.1 range; React sends its descriptor in `CONNECT`.
-A missing descriptor remains the bounded stable-client/stable-Host compatibility
-alias for OIP 0.1 through the 1.7 preview train. Identity, recipient binding,
-replay protection, and trust policy remain ConnectOnion Host responsibilities.
+explicit unsupported descriptor fails clearly instead of selecting another
+transport. Identity, recipient binding, replay protection, and trust policy
+remain ConnectOnion Host responsibilities.
 
 ### One-Shot Mode
 
@@ -60,14 +72,16 @@ For scripts and other coding agents, request one stable JSON object:
 
 ```bash
 co ai "Fix the failing tests" --json
-# {"session_id":"...","result":"...","error":null}
+# {"session_id":"...","result":"...","outcome":"natural","error":null}
 
 co ai "Now update the docs" --resume <session-id> --json
 ```
 
 Human-oriented progress moves to stderr in JSON mode, so stdout is safe to
-parse. A successful run exits `0`; invalid sessions and execution failures put
-a concise message in `error` and exit non-zero. Resume never silently starts a
+parse. `outcome` is `natural`, `max_iterations`, or `error`. A naturally
+completed run exits `0`; hitting the iteration cap preserves the result with
+`outcome: "max_iterations"` and exits non-zero. Invalid sessions and execution
+failures put a concise message in `error` and exit non-zero. Resume never silently starts a
 new conversation when the requested session is missing or invalid. Resume must
 run from the same project directory, and concurrent turns for one session fail
 fast instead of overwriting each other.
@@ -83,34 +97,35 @@ POSIX systems additionally enforce `0700` directories and `0600` files.
 | Option | Short | Default | Description |
 |--------|-------|---------|-------------|
 | `--port` | `-p` | `8000` | Port for web server |
-| `--model` | `-m` | `co/gemini-3.7-flash` | LLM model to use |
+| `--model` | `-m` | `co/gemini-3.8-flash` | LLM model to use |
 | `--max-iterations` | `-i` | `100` | Max tool iterations per turn |
-| `--full-access` | | off | Allow tools without approval prompts for this bounded turn |
-| `--full-access-turns` | | `100` | Maximum tool iterations while Full access is active; must be positive |
+| `--full-access` | | off | Skip routine tool approvals for a bounded user-driven turn budget |
+| `--full-access-turns` | | `100` | User-driven turns before Full access expires to Auto; must be positive |
 | `--eval` | | off | Debug a task with two extra model calls that score completion |
 | `--json` | | off | Emit one JSON envelope to stdout in one-shot mode |
 | `--resume` | | | With `--json`, continue a one-shot session by ID |
-| `--invite-code` | | | Use one invite code directly for this authentication run |
-| `--invite-code-file` | | | Read the invite code from a local file instead of exposing it in shell history |
+| `--invite-code` | | | Use an in-memory invite for this web-server run |
+| `--invite-code-file` | | | Read this run's invite from a private file (recommended for automation) |
 
 ```bash
 co ai --port 9000
-co ai --model co/gemini-3.7-flash
+co ai --model co/gemini-3.8-flash
 co ai "Build an agent" --model co/gpt-4o --max-iterations 50
 co ai --full-access "Fix the failing suite" --full-access-turns 20
 co ai --eval "Check whether this agent really completed the task"
+co ai --invite-code-file /path/to/private-invite
 ```
 
-## Full access
+## Full access (`--full-access`)
 
-Use `--full-access` for a trusted task that should run without tool-approval
-prompts during the bounded turn. It works in both one-shot and web-server modes:
+Use `--full-access` for a trusted task that should run without routine tool-approval prompts.
+It works in both one-shot and web-server modes:
 
 ```bash
-# Run one task with Full access, then stop naturally or at the 20-iteration bound
+# Run one user-driven turn with a bounded approval bypass
 co ai --full-access "Implement issue #123" --full-access-turns 20
 
-# Start web chat with bounded Full access available to each session
+# Start web chat with Full access available under a 20-turn Host ceiling
 co ai --full-access --full-access-turns 20
 ```
 
@@ -122,21 +137,53 @@ directly:
 co ai --full-access "/deploy-oo-chat" --full-access-turns 10
 ```
 
-Full access selects the canonical `:danger-full-access` permission profile. It
-does not invent follow-up work or continue after the task naturally finishes.
-When the bound expires, the session returns to Auto and asks before protected
-actions. A browser client may narrow this mode but cannot widen Host authority.
+The public mode is exactly `full-access`; its canonical `turns_left` budget
+decrements only after completed user-driven turns. It does not synthesize a
+follow-up prompt or continue the Agent on its own.
 
-For scripted first-run authentication, prefer a mode-`0600` file so the secret
-does not appear in shell history or process listings:
+## Unattended one-shot permissions
+
+One-shot commands launched by cron or CI have no approval dialog. Auto still
+fails closed for unknown, destructive, credential, publication, deployment,
+and external-effect calls, but it honors operator-authored `Bash(...)` command
+permissions from the active `.co/host.yaml` for ordinary commands.
+
+The shipped compatibility grant allows unattended `co status` and
+`co browser ...` commands, including browser workflows that already ran under
+1.6.x:
 
 ```bash
-chmod 600 /tmp/co-invite
-co ai --invite-code-file /tmp/co-invite
+co ai -m co/gemini-3.8-flash "/linkedin-notifications ..." < /dev/null
 ```
 
-`--invite-code` is also available for short-lived controlled environments, but
-the direct value can be retained by shell history and process inspection.
+The broad historical `Bash(co *)` entry does not silently authorize other
+framework effects such as `co deploy`, `co publish`, or `co email send` in
+headless Auto. Add a narrower project permission when an operator deliberately
+wants a particular ordinary command. Use bounded `--full-access` only when the
+whole unattended task is trusted to perform effects that still require a human
+under Auto.
+
+## Unattended one-shot permissions
+
+One-shot commands launched by cron or CI have no approval dialog. Auto still
+fails closed for unknown, destructive, credential, publication, deployment,
+and external-effect calls, but it honors operator-authored `Bash(...)` command
+permissions from the active `.co/host.yaml` for ordinary commands.
+
+The shipped compatibility grant allows unattended `co status` and
+`co browser ...` commands, including browser workflows that already ran under
+1.6.x:
+
+```bash
+co ai -m co/gemini-3.8-flash "/linkedin-notifications ..." < /dev/null
+```
+
+The broad historical `Bash(co *)` entry does not silently authorize other
+framework effects such as `co deploy`, `co publish`, or `co email send` in
+headless Auto. Add a narrower project permission when an operator deliberately
+wants a particular ordinary command. Use bounded `--full-access` only when the
+whole unattended task is trusted to perform effects that still require a human
+under Auto.
 
 ## What the Agent Can Do
 
@@ -176,21 +223,49 @@ session ID. Read only starts Codex read-only and asks when it requests more
 permission. Auto permits workspace changes but still asks about untrusted
 commands, while Full access runs without prompts using Codex's
 `danger-full-access` sandbox. The policy is reapplied when a Codex session is
-resumed. In a hosted session, only the operator can approve Codex's
-nested permission requests; shared contacts are always confined to read-only
-Codex runs with permission requests denied.
+resumed. Every authenticated participant receives the same selected session
+mode. Control-plane administrator authority remains separate from provider
+policy.
 
-Explicit requests such as “run Codex”, “open Codex”, and `/codex …` use the
-native adapter. Raw Codex launches through shell/background wrappers are
-rejected before process creation; commands that only search for or discuss the
-name remain ordinary shell work. An open-only request creates the provider
-thread without submitting a model turn.
+An explicit request such as “run Codex”, “open Codex”, or `/codex …` always
+uses the native `codex()` adapter. Raw launches through `bash`, `shell`,
+`run_background`, `codex exec`, or package-runner equivalents are rejected
+before approval and before a process starts. Commands that only inspect or
+mention the name, such as `which codex` or `rg codex docs/`, remain ordinary
+shell commands.
+
+When the request is only “open Codex”, the adapter starts a provider thread but
+does not send `turn/start`, spend a model turn, or manufacture a greeting. O Chat
+still receives the provider invocation and opens the same interactive Work Room.
 
 **Claude Code delegation**
 - Hand a scoped coding task to the installed Claude Code CLI
 - Continue the same Claude Code session by passing back its `session_id`
 - Watch Claude's inner tools start and finish as live O Chat cards
 - Receive one stable JSON result for success, timeout, or provider errors
+
+### Share a native Claude Code terminal
+
+Run `co claude --cwd /path/to/project` to launch Claude's normal interactive
+terminal with an OIP Work Room. The command prints a private Work Room URL and a
+pairing code. Open the URL in O Chat, pass the invite gate, then enter that code
+to watch the same Claude session. The browser can take control, send a direct
+Claude Code message, and return control to the terminal.
+`co claude --resume <session-id>` resumes an existing Claude session; `--model haiku` selects a
+smaller model for a trial. `--no-share` starts the terminal without a Work Room.
+
+The terminal process must remain running while the Work Room is available.
+Only one side writes the Claude session at a time. Pairing claims the private
+OIP session for that browser identity; later control and message commands are
+signed. The station's scoped Hooks expose session identity and live activity,
+while its transcript reader forwards visible conversation text. Hook tool input
+is not stored in the OIP trace. A browser message resumes the native Claude
+session directly, without wrapping it in another agent prompt.
+
+Browser-initiated file edits inside the selected workspace require a visible
+owner approval. Unknown actions, commands, and paths outside that workspace are
+denied. Native Claude's own terminal permission controls still govern turns
+made in the terminal.
 
 ### Delegate to Claude Code
 
@@ -313,7 +388,7 @@ co ai "Add rate limiting to the API endpoint in oo-api/routes/llm.py"
 co ai "The test test_agent_loop is failing, investigate and fix it"
 
 # Use a different model
-co ai --model co/gemini-3.7-flash
+co ai --model co/gemini-3.8-flash
 
 # Run on a different port
 co ai --port 9000

@@ -17,6 +17,7 @@ co email send alice@example.com "Hello" "Thanks for trying ConnectOnion!"
 
 # Read message #42 from the inbox list
 co email read 42
+co email read 42 --mark-read      # opt in to changing mailbox state
 ```
 
 That's the whole surface. Everything below is detail.
@@ -35,7 +36,8 @@ co email
 
 ```bash
 co email inbox                 # last 10
-co email inbox --last 25       # last 25 (alias: -n 25)
+co email inbox --last 25       # last 25  (alias: -n 25)
+co email inbox --last 1000     # largest received-mail page
 co email inbox -n 1000 --offset 1000  # next page of older mail
 co email inbox --unread        # only unread  (alias: -u)
 ```
@@ -44,25 +46,29 @@ Unread messages are marked with a green `●`. The leftmost `#` is the email's
 id — pass it to `co email read`.
 
 **Options**
-- `--last, -n` — how many to show (default: 10, range: 1-1000)
+- `--last, -n` — how many to show (default: 10, range: 1–1000)
 - `--offset` — how many newer emails to skip (default: 0)
 - `--unread, -u` — only unread messages
 
 > Note: `--unread` filters the fetched page locally, so `--last 10 --unread`
 > means "unread among your 10 most recent," not "your 10 most recent unread."
 
-A full page prints the exact `co email inbox` command for the next page. Run it
-as shown and continue until the command returns no rows.
+Each received-mail page can contain up to 1000 messages. Continue through a
+larger inbox with offsets 0, 1000, 2000, and so on until a page is empty. Page
+sizes outside 1–1000 and negative offsets fail locally instead of becoming a
+generic backend validation error.
 
 ### `co email read <#>` — Read one message
 
 ```bash
 co email read 42
+co email read 42 --mark-read
 ```
 
-Prints the sender, subject, date, and body, then marks the message read.
+Prints the sender, subject, date, and body without changing unread state. Add
+`--mark-read` only after you intend to consume the message.
 
-> Reads from your 100 most recent messages. An email older than that won't be
+> Reads from your 1000 most recent messages. An email older than that won't be
 > found by id yet (see [Limitations](#limitations)).
 
 ### `co email send <to> <subject> <message>` — Send
@@ -71,16 +77,53 @@ Prints the sender, subject, date, and body, then marks the message read.
 co email send bob@example.com "Subject line" "Body text"
 ```
 
-All three arguments are positional and required. HTML is auto-detected: if the
-body contains tags (`<...>`), it's sent as HTML, otherwise as plain text.
+Every send carries a request ID and an idempotency key. If the result is
+uncertain (for example, a timeout after the provider accepted the message),
+the failure prints the key. Reuse it to retry without sending a duplicate:
+
+```bash
+co email send bob@example.com "Subject line" "Body text" \
+  --idempotency-key 4f07d5b4-9d8e-4e58-a889-11bb14cc70ab
+```
+
+The same key must only be reused with the same recipient, subject, and body.
+
+All three arguments are positional and required. The message body is sent as
+provided; HTML markup is supported, and ordinary text can be passed directly.
 
 ```bash
 # Plain text
 co email send bob@example.com "Hi" "Just checking in."
 
-# HTML (auto-detected)
+# HTML
 co email send bob@example.com "Receipt" "<h1>Paid</h1><p>Thanks!</p>"
 ```
+
+### `co email sent` — List sent email
+
+```bash
+co email sent                        # last 10
+co email sent --last 25              # last 25  (alias: -n 25)
+co email sent --to alice@example.com # only mail sent to alice
+```
+
+What your agent has sent, newest first, with each message's last known status.
+The leftmost `#` is the email's id — pass it to `co email sent read`. Useful
+after a failed batch: if a send is listed here, the server accepted it, and
+retrying would produce a duplicate.
+
+Options:
+- `--last, -n` — how many to show (default 10)
+- `--to` — only messages sent to this address
+
+### `co email sent read <#>` — Read one sent message
+
+```bash
+co email sent read 7
+```
+
+Prints the recipient, sender address, status, provider message id, date, and
+the body that was actually sent.
 
 ## Customizing your address (paid)
 
@@ -117,19 +160,23 @@ $ co email name aaron --buy
 
 ### `co email upgrade <tier>` — Raise your sending quota
 
-The paid tiers (`plus`, `pro`) send from **your own domain** and lift the
-monthly quota, billed from your credits. A sending domain is **required**:
+The paid tiers (`plus`, `pro`) lift the monthly quota and are billed from your
+credits. An existing `@mail.openonion.ai` mailbox can keep its exact address;
+otherwise select the domain and alias offered by the tier:
 
 ```bash
-co email upgrade plus --domain mail.acme.com                  # plus, on your domain
+co email upgrade plus --keep-address                          # keep the current hosted address
+co email upgrade plus --domain steadmail.com --alias support  # plus, new hosted address
 co email upgrade pro  --domain mail.acme.com --alias support  # pro + a mailbox alias
 ```
 
 **Options**
-- `--domain, -d` — sending domain (**required** for plus/pro)
+- `--keep-address` — preserve the current `@mail.openonion.ai` address (plus only)
+- `--domain, -d` — sending domain (required unless `--keep-address` is used)
 - `--alias, -a` — mailbox alias, e.g. `support` → `support@mail.acme.com`
 
-Leave out the domain and the upgrade is rejected before anything is charged:
+Leave out both the domain and `--keep-address` and the upgrade is rejected
+before anything is charged:
 
 ```bash
 $ co email upgrade plus

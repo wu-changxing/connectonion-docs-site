@@ -3,36 +3,38 @@
 > CONNECT to start or resume, INPUT to message, EXEC to run one tool directly. Session stays alive between executions.
 
 > This is OIP 0.1, the single ConnectOnion browser protocol. `co ai` serves it
-> over the authenticated `/ws` socket and advertises it in public `/info` and
-> authenticated `CONNECTED` responses.
+> over the authenticated `/ws` socket and advertises it in `CONNECTED`.
 
-## Version and rolling upgrades
+---
 
-The 1.7 preview Host advertises one bounded compatibility window:
+## Rolling compatibility window
 
-```json
-{
-  "protocol": {
-    "name": "oip",
-    "version": "0.1",
-    "min_version": "0.1",
-    "max_version": "0.1",
-    "websocket_path": "/ws"
-  }
-}
-```
+Frontend and Host deployments are not atomic. OIP 0.1 therefore follows
+reader-before-writer deployment:
 
-The same descriptor appears in `CONNECTED`, and the React client sends its own
-descriptor in `CONNECT`. Reader-before-writer rollout keeps one deliberate
-legacy rule: a missing descriptor means the pre-negotiation OIP 0.1 Host or
-client. Unknown additive, non-authoritative events remain ignorable. An
-advertised incompatible version fails once with a non-retryable compatibility
-error and closes that socket; it must not trigger an automatic reconnect loop.
+| Pair | Required behaviour |
+|---|---|
+| descriptor-less 0.1 reader ↔ current Host | accepted |
+| current React ↔ descriptor-less 0.1 Host | accepted |
+| current React ↔ current Host | advertised `oip/0.1` accepted |
+| unsupported protocol/version | one non-retryable error; socket closes; no reconnect loop |
 
-The descriptor-less reader is retained through the 1.7 preview train and can be
-removed only in a later minor after stable and preview clients both advertise
-their range. `/info` is always returned with `Cache-Control: no-store`, so stale
-discovery cannot hold a browser on an obsolete transport contract.
+Within 0.1, new non-authoritative fields and events are additive. Readers ignore
+what they do not understand and retain generic provider/tool rendering. Identity,
+session ownership, modes, approvals, cancellation, terminal state,
+and protocol/version are authoritative: malformed or unknown values are rejected
+instead of guessed.
+
+For a rename, release R reads both names; R+1 may write the new name after R is
+publicly pinned; the old reader remains until at least R+2 and 30 days after R.
+The descriptor-less reader remains through 1.7.x and may be removed no earlier
+than 1.8.0a1, 2026-09-15, and two previews after compatibility telemetry no
+longer observes it, whichever is later.
+
+Host emits one content-free `OIP_COMPAT` record for CONNECT/reattach. It contains
+only `transport=direct|relay|unknown`, `peer=legacy|oip/0.1|unsupported`, and
+`outcome=accepted|rejected`; it never copies peer strings, prompts, credentials,
+addresses, session IDs, or paths.
 
 ---
 
@@ -50,9 +52,75 @@ If `INPUT` arrives while the session's agent is already running, the server trea
 
 `EXEC` is the direct-execution fast path: it runs one named tool with no LLM, no session, and no history, replying with a single `EXEC_RESULT`. It requires the same CONNECT auth as INPUT, and the tool is gated by the host's `.co/host.yaml` permission whitelist. See [remote-call.md](remote-call.md).
 
+On any socket — direct or through the relay — the very first frame may be
+`SEAL` instead: the client offers a one-time key, the host answers `SEALED_OK`
+with its own, and every frame after that — CONNECT included — travels inside
+`SEALED`. See [Sealed channel](#sealed-direct-channel).
+
 A fourth type, `ONBOARD_SUBMIT`, exists only to answer the trust gate. It is not part of the
 normal path — it appears only when the server interrupts CONNECT with `ONBOARD_REQUIRED`.
 See [Trust Gate](#trust-gate-onboarding).
+
+The optional `session-sync/0.1` extension adds discovery, snapshot, watch, and
+metadata-update messages for retained conversations. These messages do not
+change the core OIP 0.1 lifecycle unless both peers negotiate the extension.
+
+### Scoped native-provider stop
+
+`PROVIDER_INTERRUPT` stops one live Codex or Claude Code invocation without
+cancelling its enclosing agent turn. Current clients include a bounded
+`requestId`; the Host replies exactly once with:
+
+```json
+{
+  "type": "PROVIDER_INTERRUPT_ACK",
+  "requestId": "…",
+  "invocationId": "codex:…",
+  "accepted": true
+}
+```
+
+`accepted: true` means the Host owns and forwarded the exact live invocation;
+it is not the terminal outcome. The matching `provider_invocation` event with
+`status: "cancelled"` remains authoritative. A stale or invalid target returns
+`accepted: false` with the stable reason `not_active` or `invalid_request`, so
+the client can restore a retry action. Legacy requests without `requestId`
+retain the older no-ack behaviour during the rolling compatibility window.
+
+### Provider-native permission change
+
+`PROVIDER_PERMISSION_CHANGE` selects one Host-advertised Codex or Claude Code
+profile for subsequent work in the exact Work Room on screen:
+
+```json
+{
+  "type": "PROVIDER_PERMISSION_CHANGE",
+  "requestId": "permission-1",
+  "invocationId": "codex:call-7",
+  "stateRevision": 4,
+  "optionId": "codex:workspace-auto",
+  "confirmRisk": false
+}
+```
+
+The authenticated requester must own the session and be its Operator. The
+option must exist in the latest durable invocation catalog and fit inside the
+outer Host mode ceiling. An elevated Full Access option additionally requires
+`confirmRisk: true`. Browser state is never authority.
+
+An accepted request returns `PROVIDER_PERMISSION_ACK` with the matching request
+and invocation IDs, a strictly newer revision, and the complete authoritative
+`providerPermission` state. Host then streams that same revision as a canonical
+`provider_invocation` for replay and other readers. A rejection has
+`accepted: false` and one safe reason code such as `stale_revision`,
+`ceiling_denied`, `operator_required`, or `confirmation_required`; it never
+changes durable state.
+
+When an outer `mode_change` also narrows one or more Work Rooms, the Host sends
+`mode_changed` followed by one canonical `provider_invocation` per affected
+Work Room. Each provider frame reflects only the transaction's final ceiling;
+the Host never streams an intermediate repair under the previous mode, even if
+the latest completed, failed, or cancelled continuation omitted its catalog.
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
@@ -77,8 +145,10 @@ See [Trust Gate](#trust-gate-onboarding).
 
 ```
 ════════════════════════════════════════════════════════════════════
-  SESSION = connection.  EXECUTION = one INPUT → OUTPUT cycle.
-  Session outlives executions. Multiple INPUTs per session.
+  SESSION = the Host's conversation.  CONNECTION = one viewer of it.
+  EXECUTION = one INPUT → OUTPUT cycle.
+  Session outlives executions and connections. Multiple INPUTs per
+  session; any number of connections by its owner (see Multiple devices).
 ════════════════════════════════════════════════════════════════════
 
     ╭──────────╮
@@ -307,15 +377,20 @@ opened by the same identity at the same instant; the nonce keeps their
 deterministic Ed25519 signatures distinct without weakening replay protection.
 
 `payload.extensions` is also signed. If Host selects Session Sync, CONNECTED
-advertises `"extensions": {"session-sync": "0.1"}` in its protocol descriptor.
-A client must not send extension frames when that selection is absent.
+advertises `"extensions": {"session-sync": "0.1"}` inside its protocol
+descriptor. A client must not send extension frames when that selection is
+absent. During the rolling compatibility window a browser may leave legacy
+application frames on the connection-authenticated path, but every Session
+Sync frame is still independently signed using the v2 command envelope.
 
 A client that needs only the Recent Chat index may include
-`payload.session_sync_only: 1` and omit `session_id` and `session`. Host answers
-with `status: "index"` and creates no blank conversation. When the public relay
-adds a top-level socket routing `session_id`, Host ignores that transport-owned
-value only on this relay index connection; direct clients still cannot attach
-chat state to an index-only socket.
+`payload.session_sync_only: 1` with that extension request and omit `session_id`
+and `session`. Host answers CONNECTED with `status: "index"` and creates no
+registry entry, mode record, dashboard subscription, or blank conversation.
+Only signed Session Sync frames are valid on that capability socket.
+When the public relay adds a top-level socket routing `session_id`, Host ignores
+that transport-owned value only on this relay index connection; a direct client
+still cannot attach chat state to an index-only capability socket.
 
 Server response based on state:
 
@@ -446,34 +521,37 @@ request.
 
 #### mode_change
 
-An authenticated client selects one Host-advertised permission profile:
+An authenticated client selects one Host-advertised permission mode:
 
 ```json
 {
   "type": "mode_change",
-  "mode": ":workspace"
+  "mode": "auto"
 }
 ```
 
 The request is accepted only while the durable session is idle and owned by
-the authenticated caller. `:read-only` is always available; `:workspace` and
-`:danger-full-access` are identity- and launch-authority-bounded. No client
-field can supply or extend Full access turns. Success is `mode_changed` and
+the authenticated caller. `read-only` and `auto` are always available;
+`full-access` is offered only under a positive Host launch ceiling. Every
+authenticated participant receives the same available modes. No client field
+can supply or extend Full access turns. Success is `mode_changed` and
 means the durable commit completed; busy, policy, ownership, and persistence
 failures return `ERROR`.
 `@connectonion/react` owns this browser operation; O Chat consumes it without
-constructing protocol frames. Default and Plan are separate client
-collaboration modes and do not appear in this Host permission list.
+constructing protocol frames. Plan is not a mode; Todo List progress carries
+no authority.
 
 #### Session Sync extension
 
-Session Sync makes Host-retained history authoritative for Recent Chat while
-the browser keeps a local cache, drafts, and unsent outbox work. Results are
-scoped to the Ed25519 identity that authenticated CONNECT; knowing another
-session ID never reveals its title, existence, or content.
+Session Sync makes Host-retained history the remote authority for Recent Chat
+while allowing a browser to keep a local cache, draft, and outbox. It is scoped
+to the Ed25519 address that authenticated CONNECT: knowing another session ID
+never reveals its title, existence, or records. All four client frames use the
+signed command envelope and a unique `request_id`.
 
-`SESSION_SYNC` discovers summaries. Preserve the returned opaque cursor for
-incremental calls and drain pagination before replacing it:
+`SESSION_SYNC` discovers summaries. Omit `cursor` for a full snapshot; preserve
+the returned opaque cursor for incremental calls. Pagination must be drained
+before replacing the cursor:
 
 ```json
 {"type":"SESSION_SYNC","request_id":"sync-1","cursor":"opaque","limit":50,"include_archived":false}
@@ -488,7 +566,9 @@ incremental calls and drain pagination before replacing it:
     "revision":7,
     "title":"Translate the report",
     "activity":"idle",
+    "created_at":"2026-09-01T08:00:00Z",
     "updated_at":"2026-09-01T08:03:12Z",
+    "last_sequence":12,
     "preview":"The translated report is ready"
   }],
   "removed_session_ids":[],
@@ -496,17 +576,42 @@ incremental calls and drain pagination before replacing it:
 }
 ```
 
-`SESSION_GET` retrieves a revision-consistent ordered snapshot;
-`SESSION_WATCH` emits lightweight changes after an issued cursor; and
-`SESSION_UPDATE` applies rename or archive metadata only at the expected Host
-revision. Every command is individually signed with a unique `request_id`.
-`cursor_expired` requires one full sync without a cursor, and
-`revision_conflict` requires refetching before retrying a mutation.
+When another page archives or expiry removes a conversation, its ID appears in
+`removed_session_ids`. `next_page_token` replaces `cursor` on non-final pages;
+send it back unchanged with the same archive selection until a final page
+returns the new cursor. Tokens are integrity-protected and owner-, query-, and
+storage-generation-bound.
+Compaction can return `cursor_expired`; the client then performs one full sync.
 
-The browser merges summaries by `session_id`, keeps the greatest Host revision,
-removes IDs explicitly returned by Host, and never uploads local drafts as if
-they were committed history. Watch delivery is not durable, so clients also
-resync after reconnect, focus, and visibility changes.
+`SESSION_GET` retrieves a revision-consistent ordered record snapshot. Send
+`if_revision` to receive `SESSION_NOT_MODIFIED`; otherwise Host answers
+`SESSION_SNAPSHOT` with `summary`, `snapshot_revision`, `records`, and an
+optional `next_page_token`. Every record has a strictly increasing `sequence`,
+stable `record_id`, `kind`, `occurred_at`, and typed ChatItem-compatible `data`.
+
+```json
+{"type":"SESSION_GET","request_id":"get-1","session_id":"550e8400-...","if_revision":6,"limit":100}
+```
+
+`SESSION_WATCH` starts one lightweight watch on the connection from an already
+issued sync cursor. Host acknowledges with `SESSION_WATCHED` and emits
+`SESSION_CHANGED` only when summaries or removals exist. A later watch replaces
+the earlier one; socket close cancels it. Clients still re-sync on reconnect,
+focus, and visibility changes because watch delivery is not durable.
+
+`SESSION_UPDATE` applies only remote metadata and is optimistic-concurrency
+checked. The 0.1 patch supports `title` and `archived`; a stale `if_revision`
+returns `revision_conflict` plus the current safe summary.
+
+```json
+{"type":"SESSION_UPDATE","request_id":"update-1","session_id":"550e8400-...","if_revision":7,"patch":{"archived":true}}
+```
+
+Stable extension error codes are `invalid_request`, `not_found`,
+`revision_conflict`, `cursor_expired`, `rate_limited`,
+`temporarily_unavailable`, `unauthorized`, and `unsupported_extension`.
+Retention and archive are separate: archive hides a retained chat from the
+default index; retention determines whether Host can still return it at all.
 
 #### ONBOARD_SUBMIT
 
@@ -535,6 +640,129 @@ Pass the trust gate. Sent in reply to `ONBOARD_REQUIRED`, on the same socket.
 Sent on the same socket as the CONNECT it answers. A wrong code comes back as `ERROR` and
 the stashed CONNECT is **kept**, so the reader can simply try again — no reconnect needed.
 
+#### SEAL / SEALED_OK / SEALED {#sealed-direct-channel}
+
+End-to-end encryption for a socket, direct or relayed. A host may announce
+plain `ws://IP:port` and needs no domain, certificate or TLS front, and a
+session through the relay is opaque to the relay. Before this a signed CONNECT
+captured on a plaintext link could be replayed inside its five-minute window
+(#649), direct connections were therefore limited to TLS or loopback, and the
+relay — which terminates TLS — read every frame it forwarded.
+
+Handshake, first two frames on the socket:
+
+```json
+{"type": "SEAL", "to": "0xHOST", "from": "0xCLIENT",
+ "ephemeral": "<hex X25519 public key, one-time>", "timestamp": 1756800000,
+ "signature": "<Ed25519 over the canonical JSON of the other five fields, by 0xCLIENT>"}
+
+{"type": "SEALED_OK", "to": "0xCLIENT", "from": "0xHOST",
+ "ephemeral": "<hex X25519 public key, one-time>", "client_ephemeral": "<the SEAL's key>",
+ "signature": "<Ed25519 over the canonical JSON of the other five fields, by 0xHOST>"}
+```
+
+Both sides derive one NaCl `Box` from the two one-time keys. The address *is*
+the Ed25519 public key, so each side verifies the other's signature with
+nothing but the address it already had; no directory, and the relay is not
+involved. A `SEAL` older than the CONNECT freshness window, addressed to
+another host, or signed by someone other than `from` is answered with
+`ERROR seal refused: …` and the socket is closed (code 4003) — no plaintext
+second try.
+
+Through the relay the frames are the same. The relay proxy reads `to` from the
+first frame to pick the agent and forwards every frame after it verbatim,
+adding only `session_id`; `SEAL` carries `to`, so nothing on the relay changes.
+The relay's own frames to the client — its 30s `PING` and an `ERROR` such as
+`Agent not connected` — arrive in the clear and are passed up as-is; they hold
+no key and carry nothing a peer said. Everything else on a sealed socket must
+open.
+
+Every later frame in either direction:
+
+```json
+{"type": "SEALED", "n": 7, "c": "<base64 ciphertext>"}
+```
+
+`n` is a per-direction counter starting at 1; the nonce is the direction tag
+plus `n`, so a captured frame replayed or reordered fails to open and ends the
+session. Inside `c` is the ordinary frame (CONNECT, INPUT, EXEC, PING/PONG,
+PROXY_STREAM…), and the router never sees the difference. Signed CONNECT and
+v2 command signatures are still required inside the seal: the seal makes the
+link private, the signatures still say who is speaking.
+
+Inside a seal the `CONNECT` (and an `ONBOARD_SUBMIT`) must be signed by the
+identity that signed the `SEAL`; a frame from anyone else is refused as
+`unauthorized: … not signed by the sealed peer`. That binding is what makes
+the host's one-use signature ledger unnecessary on a sealed socket: nobody
+but the sealed peer can put a frame on it, so a captured signature cannot be
+presented there by anyone else, and the ledger is not consulted. A bare
+socket — an older client — is still held to the ledger. A `co host` process
+runs one worker and keeps that ledger in memory; only `create_app()` served
+with several uvicorn workers keeps it in `.co/replay.sqlite3`, and that file
+now heals if it is removed under a running host (#1403).
+
+Client rule (`_open_best_connection`): every socket, direct or relayed, is
+offered a `SEAL` when the client has keys. A direct host that does not answer
+`SEALED_OK` is used bare only if the link is already private — TLS or
+loopback; otherwise the socket is closed and the client moves on to the relay.
+A relay host that does not answer (a 1.8.0 host) has already consumed that
+socket's first frame, so the client closes it and opens a fresh bare relay
+socket — TLS to the relay, every client's footing before 1.8.1. `PROXY_ATTACH`
+still requires a direct socket; a sealed plaintext one qualifies.
+
+#### PROXY_ATTACH
+
+Lend this computer's internet connection to the host (`co proxy share`). Sent
+once per socket after a signed CONNECT, on a **direct** connection only — the
+relay never carries page bytes. Signed like every other command.
+
+```json
+{
+  "type": "PROXY_ATTACH",
+  "payload": {
+    "grant": {
+      "type": "proxy_grant", "grant_id": "pxg_...",
+      "grantor": "0xLaptop", "holder": "0xHost", "scope": "public_internet",
+      "expires_at": "2026-09-03T10:00:00Z", "max_bytes": null,
+      "signature": "..."
+    },
+    "to": "0xHost", "timestamp": 1702234567, "nonce": "..."
+  },
+  "from": "0xLaptop",
+  "signature": "0x..."
+}
+```
+
+The host verifies the grant (it must name this host as holder, be unexpired,
+and be signed by the identity on this socket), requires contact-or-better
+trust, and answers `PROXY_ATTACHED` or `ERROR`. A later attach from the same
+identity replaces the earlier one; the attachment ends when the socket closes.
+
+#### PROXY_STREAM
+
+One multiplexed stream operation, in either direction, while a share is
+attached. The host opens streams; the laptop answers them.
+
+```json
+{"type": "PROXY_STREAM", "payload": {"id": 7, "op": "connect", "address": "93.184.216.34", "port": 443}}
+```
+
+| `op` | Direction | Fields | Meaning |
+|------|-----------|--------|---------|
+| `resolve` | host → laptop | `host`, `port` | resolve this name with the laptop's DNS and policy |
+| `resolve` | laptop → host | `addresses` | the complete answer set |
+| `connect` | host → laptop | `address`, `port` | open a socket to this numeric address, re-classified on the laptop |
+| `connect` | laptop → host | — | the socket is open |
+| `data` | both | `data` (base64, ≤ 32 KiB) | bytes on the stream |
+| `eof` | both | — | half-close: no more bytes this way |
+| `close` | both | — | the stream is finished; forget it |
+| `error` | both | `code` | the request failed (`EGRESS_*` / `DESTINATION_*` codes) |
+
+Laptop → host frames are signed like every command. Host → laptop frames carry
+no signature: they travel inside the TLS session the laptop opened to an
+endpoint whose identity it already verified. At most 64 streams per share; the
+grant's `expires_at` and `max_bytes` are enforced by the host.
+
 ### Server → Client
 
 #### CONNECTED
@@ -548,11 +776,12 @@ Response to CONNECT.
   "status": "new",
   "protocol": {"name": "oip", "version": "0.1"},
   "session_modes": {
-    "currentModeId": ":read-only",
+    "currentModeId": "auto",
+    "turnsLeft": null,
     "availableModes": [
-      {"id": ":read-only", "name": "Read only", "description": "Read freely; ask before edits, commands, or broader access."},
-      {"id": ":workspace", "name": "Auto", "description": "Edit the workspace automatically; broader actions still ask."},
-      {"id": ":danger-full-access", "name": "Full access", "description": "Run without approval prompts within the Host launch ceiling."}
+      {"id": "read-only", "name": "Read only"},
+      {"id": "auto", "name": "Auto"},
+      {"id": "full-access", "name": "Full access"}
     ]
   },
   "server_newer": true,
@@ -604,8 +833,8 @@ After a successful TodoList state change, the Host sends one complete plan:
 ```
 
 Every update replaces the complete plan; an empty `entries` list clears it.
-The plan has no message or plan ID. The event is observational and
-cannot answer `plan_review` or grant execution permission.
+The plan has no message or plan ID. The event is observational and cannot
+grant execution permission or change the session mode.
 
 #### EXEC_RESULT
 
@@ -642,8 +871,36 @@ Keep-alive. Sent every 30 seconds.
 | `ask_user` | Agent needs human input |
 | `approval_needed` | Tool requires approval |
 | `plan` | Complete observational TodoList replacement |
-| `plan_review` | Plan ready for review |
 | `compact` | Context compaction |
+| `user_message` | `{content, session_id}` — the prompt of a turn started on **another** connection; sent only to viewers that did not type it, before that turn's stream |
+
+## Multiple devices
+
+One conversation can be open on several connections at once — a laptop and a
+phone, or two tabs. The Host keeps every authenticated connection to a session
+as a viewer of it. When any of them starts a turn, every other viewer signed
+in as the session's owner receives `user_message`, then the same stream and
+the same `OUTPUT`, read from its own position in the turn's log. Any viewer can
+answer an approval or `INTERRUPT` the turn, whichever device started it.
+
+The owner is the Ed25519 address, so "the same person on two devices" means
+the same identity on both (import the recovery phrase on the second device). A
+different identity naming the session id is given a new session and sees
+nothing, as before (#696).
+
+`user_input` is not the same thing: it is the agent's own trace event and goes
+to every connection, including the one that typed the prompt, which already
+shows it. `user_message` exists so a client can render another device's prompt
+without duplicating its own.
+
+Through the relay, the agent's ANNOUNCE declares `relay_features: ["conn_id"]`
+inside its signature. The relay then gives each client socket a `conn_id`, tags
+that socket's frames with it, and routes the agent's replies by it; the agent
+runs one protocol handler per `conn_id`. A relay or agent without it keeps one
+socket per conversation. Changing devices is also safe on its own: a
+reconnecting client's session only replaces the Host's when it is further
+ahead by `(turn, iteration, updated)` — `iteration` restarts every turn, and
+comparing it alone let a stale device erase a newer turn.
 
 #### AGENT_PROFILE
 
@@ -656,7 +913,7 @@ managed-key agents. Sent once, right after `CONNECTED`.
   "session_id": "550e8400-...",
   "name": "my-agent",
   "address": "0x3d4017c3...",
-  "model": "co/gemini-3.7-flash",
+  "model": "co/gemini-3.8-flash",
   "tools": ["search", "shell"],
   "skills": [
     {"name": "co-browser", "description": "drive a browser", "location": "project"},
@@ -691,8 +948,9 @@ contract is documented in `oo-api/docs/relay-announce-profile.md`.
 
 #### DASHBOARD_SNAPSHOT
 
-The agent's `dashboard.html` — its Home page — for the client to render beside the
-chat. Sent right after `CONNECTED` so Home paints before any input, and again after
+The agent's Control Center HTML (customized through the compatible
+`dashboard.html` filename) for the client to render beside chat. Sent right after
+`CONNECTED` so the Control Center paints before any input, and again after
 `OUTPUT` when the run changed the file. Agents without a `dashboard.html` never send
 it, and the frame is skipped when the file hasn't changed since this connection last
 saw it.
@@ -709,43 +967,51 @@ The HTML is agent-authored and untrusted: clients render it in a sandboxed ifram
 scripting and network access blocked. Files over 2MB are not sent. See
 [dashboard.md](dashboard.md).
 
+#### WIKI_READ / WIKI_RESULT
+
+An authenticated owner may request the current private Wiki reader on the same
+signed OIP session used by Chat. The Host renders the existing read-only HTML
+template from its configured Wiki root and returns it to that request only. A
+non-owner receives an error without notebook content. `co ai` configures the
+default `~/.co/wiki` root; other Hosts have no Wiki unless configured with
+`wiki_root`. The HTML is capped at 16 MiB. This frame is never an Agent profile
+or public static artifact.
+
+```json
+{"type":"WIKI_READ","request_id":"read-1"}
+{"type":"WIKI_RESULT","request_id":"read-1","ok":true,"html":"<!doctype html>…"}
+```
+
 #### CONTROL_CENTER_APP (preview)
 
-An additive authenticated descriptor for a reviewed, immutable full-Web Control
-Center. This frame is part of the in-development Control Center architecture and is
-not yet available in the current stable package. Older clients ignore it and continue
-using `DASHBOARD_SNAPSHOT`.
+The full Web Control Center is a reviewed website rather than an HTML snapshot. After
+publishing, the authenticated Host will send an immutable descriptor whose `app.url`
+is used verbatim as the iframe `src`:
 
 ```json
 {
   "type": "CONTROL_CENTER_APP",
-  "session_id": "550e8400-...",
   "app": {
-    "schema": "connectonion.control-app/1",
-    "revision": "sha256:...",
-    "url": "https://r-<immutable-origin-hash>.control-apps.example.net/index.html",
-    "sdk_version": "1",
-    "review": { "status": "approved", "review_id": "..." },
-    "capabilities": ["clipboard-write", "fullscreen"]
+    "url": "https://apps.openonion.ai/0x3d4017c3/9f86d081884c7d65/index.html",
+    "revision": "sha256:9f86d081884c7d65...",
+    "review": {"status": "approved"}
   }
 }
 ```
 
-Clients execute only approved HTTPS revisions on an origin separate from O Chat.
-After checking the iframe window, origin, protocol version, and revision, the parent
-transfers a private `MessagePort`. App requests use the parent's existing Agent
-connection; `sendMessage` and `runSkill` become visible turns in the current session
-unless the app explicitly requests a new conversation. See the preview notes in
-[dashboard.md](dashboard.md).
+The website receives a transferred `MessagePort` and may request `send_message` or
+`run_skill`. Both actions default to the current Agent and current Chat; `run_skill`
+becomes the visible user message `/skill-name arguments`. An explicit
+`conversation: "new"` is reserved for actions that need isolated context.
 
 The initial context carries the authenticated Agent name and full address, current
-session, app revision, and skill list. A default template can render honest identity
-Diagnostics and real `runSkill` buttons without hard-coding one Agent's capabilities.
-`co create` scaffolds that editable source in `.co/control-center/`. Plain `co init`
-only initializes global configuration. The sample domain is a placeholder.
-See the [1.8.4 candidate contracts](../candidates/1.8.4/network/control-center.md).
-The test-only URL `https://control-center.e2e.test/invoices/` is not a deployable
-iframe link; production activation requires immutable upload and independent approval.
+session, immutable app revision, and skill list. The default app can therefore render
+honest identity Diagnostics and real skill buttons without hard-coding one Agent.
+
+`co create` and `co init` now scaffold the editable source in
+`.co/control-center/`. Uploading it, producing the immutable URL, independent review,
+and Host emission of this frame remain preview work; a project must not hand-author an
+"approved" descriptor. See [control-center.md](control-center.md).
 
 #### RUNTIME_INPUT_ACK
 
@@ -821,6 +1087,19 @@ Also how a **refused onboard** comes back — `{"type": "ERROR", "message": "Inv
 code"}`. There is no dedicated failure frame, and no repeat of `ONBOARD_REQUIRED`: a client
 waiting for one of those to detect the refusal will wait forever.
 
+#### PROXY_ATTACHED
+
+The share offered by `PROXY_ATTACH` is accepted and registered under the
+sender's address. A refused attach is an `ERROR` whose message starts with
+`proxy attach refused:`.
+
+```json
+{ "type": "PROXY_ATTACHED", "expires_at": "2026-09-03T10:00:00Z", "max_bytes": null }
+```
+
+From here the host sends `PROXY_STREAM` frames (unsigned, see above) down this
+socket until it closes.
+
 ---
 
 ## Architecture Diagram
@@ -852,10 +1131,10 @@ waiting for one of those to detect the refusal will wait forever.
 
   Data Ownership:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Client owns: conversation history (localStorage)              │
-  │ Server owns: execution state (registry), results (storage)    │
-  │ CONNECT syncs: client → server (session), server → client     │
-  │                (if server_newer)                               │
+  │ Host owns: committed retained history and revisions           │
+  │ Client owns: cache, drafts, and unsent outbox                  │
+  │ CONNECT resumes one chat; Session Sync discovers all owned    │
+  │ retained chats and merges newer Host revisions into cache     │
   └────────────────────────────────────────────────────────────────┘
 
 ════════════════════════════════════════════════════════════════════
@@ -870,11 +1149,11 @@ waiting for one of those to detect the refusal will wait forever.
 │   Connection    │  │  Conversation   │  │   Execution     │
 │                 │  │                 │  │                 │
 │ WebSocket + auth│  │ Message history │  │ One INPUT→OUTPUT│
-│ PING/PONG       │  │ Owned by client │  │ Agent thread    │
-│ Persistent      │  │ Sent via CONNECT│  │ Temporary       │
+│ PING/PONG       │  │ Host retained   │  │ Agent thread    │
+│ Persistent      │  │ Client cached   │  │ Temporary       │
 │                 │  │ Merged on server│  │                 │
 │ Dies: WS close  │  │ Dies: never     │  │ Dies: OUTPUT    │
-│ + 10min grace   │  │ (localStorage)  │  │                 │
+│ + 10min grace   │  │ until retention │  │                 │
 └─────────────────┘  └─────────────────┘  └─────────────────┘
 ```
 
@@ -882,22 +1161,23 @@ waiting for one of those to detect the refusal will wait forever.
 
 ## Authentication
 
-Authentication happens once, on CONNECT.
+Identity is established on CONNECT. Current v2 commands, and every negotiated
+Session Sync command even on a compatibility socket, carry their own signature.
 
 ```
-CONNECT (signed)          INPUT (not signed)
+CONNECT (signed)          INPUT / SESSION_SYNC (signed)
   │                          │
   ▼                          ▼
-Server verifies            Server trusts
-signature → OK             (same WS, already authenticated)
+Server verifies            Server verifies owner, recipient,
+signature → OK             type, nonce, freshness, and replay
 ```
 
 Trust levels:
 
 | Trust Level | CONNECT Behavior |
 |-------------|-----------------|
-| `open` | Accept without signature |
-| `careful` | Accept unsigned, recommend signature |
+| `open` | Valid signature required; trust policy allows the signer |
+| `careful` | Valid signature required; policy may ask before allowing |
 | `strict` | Require valid signature |
 
 ---
