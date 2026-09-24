@@ -4,9 +4,19 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.7`; the opt-in Wiki beta preview is `1.8.8b3`.
+**Current channels:** stable is `1.8.7`; the opt-in Claude Code and Wiki beta preview is `1.8.8b4`.
 The Personal Wiki feature now targets **1.9.0**. This planning change does not
 rename the published preview or make it a stable release.
+
+## Claude Code and Wiki beta 1.8.8b4
+
+`co claude` starts the native Claude Code terminal and an OIP Work Room. A paired
+browser can watch the same session, take control, send a direct Claude Code
+message, and return control to the terminal. The terminal process must remain
+running. This opt-in beta carries the Wiki preview work from b3; full Wiki
+acceptance remains targeted at 1.9.0. [Release notes](/releases/1.8.8b4.md).
+
+Install: `python -m pip install --upgrade --pre 'connectonion==1.8.8b4'`.
 
 ## Wiki beta 1.8.8b3
 
