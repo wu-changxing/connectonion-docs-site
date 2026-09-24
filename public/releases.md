@@ -4,9 +4,21 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.7`; the opt-in Claude Code and Wiki beta preview is `1.8.8b4`.
+**Current channels:** stable is `1.8.7`; the opt-in beta preview is `1.8.8b5`.
 The Personal Wiki feature now targets **1.9.0**. This planning change does not
 rename the published preview or make it a stable release.
+
+## Two devices and a CLI sweep, beta 1.8.8b5
+
+One conversation can now be open on a laptop and a phone at the same time — the
+same identity on both — through the relay too; a turn started on one streams to
+the other, and switching devices no longer erases a turn. `co browser close`
+ends every process it owned and says so, refused `co ai` commands are logged in
+full, `co proxy diagnose` names each endpoint it tried, and `co whatsapp` gains
+`react` and `group create`/`add`. Carries everything in b4.
+[Release notes](/releases/1.8.8b5.md).
+
+Install: `python -m pip install --upgrade --pre 'connectonion==1.8.8b5'`.
 
 ## Claude Code and Wiki beta 1.8.8b4
 
