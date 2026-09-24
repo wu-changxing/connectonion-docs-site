@@ -4,9 +4,23 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.7`; the opt-in beta preview is `1.8.8b5`.
+**Current channels:** stable is `1.8.7`; the opt-in beta preview is `1.8.8b7`.
 The Personal Wiki feature now targets **1.9.0**. This planning change does not
 rename the published preview or make it a stable release.
+
+## Benchmarks, page network, and finished work brought home, beta 1.8.8b7
+
+Write a skill's benchmark before the skill: `co benchmark` checks at least five
+cases, and `co eval run` scores your real Agent on them, PASS, FAIL or
+UNVERIFIED with the evidence, then compares each run with the one before.
+`co browser -t TAB network` and `cookies` show what a page sent and record a
+HAR. Experimental and tested against fakes only: `co discord` and the
+`co telegram` listen/receive/reply verbs as inboxes, `co tiktok` post plans
+(nothing uploads), and Gemini image output with `generate_image`. Outlook no
+longer resends mail after a 504. Carries everything in b6 and b5.
+[Release notes](/releases/1.8.8b7.md).
+
+Install: `python -m pip install --upgrade --pre 'connectonion==1.8.8b7'`.
 
 ## Two devices and a CLI sweep, beta 1.8.8b5
 
