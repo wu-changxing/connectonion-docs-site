@@ -89,23 +89,18 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.6</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.7</h2>
           <p className="text-gray-600 mb-4">
-            WhatsApp is an inbox on a number you already use. A linked device sees the
-            groups that number is in, answers only where it was addressed — an @, or a
-            reply quoting something it said — and can take back what it said with
-            edit and delete. Local models through Ollama, date windows on the mail
-            CLIs, and calendar invitations that actually notify their attendees.
+            The Control Center can receive larger HTML snapshots and shows a visible
+            error when a page is oversized or unreadable. The earlier WhatsApp,
+            Ollama, mail-window, and calendar features remain in the stable package.
           </p>
-          <CommandBlock commands={['python -m pip install --upgrade connectonion==1.8.6', 'co --version', 'co whatsapp check']} />
+          <CommandBlock commands={['python -m pip install --upgrade connectonion==1.8.7', 'co --version']} />
           <p className="text-gray-600 my-4">
-            The offline suite passed 10,431 tests and 12 installed-wheel checks, and
-            WhatsApp was accepted against a real linked account — group traffic,
-            mention gating checked case by case, two unattended reconnects — rather
-            than a mock. Of the twelve defects fixed across this line, eleven were
-            found by using the software; the suite reported none of them.
+            Personal Wiki is still an opt-in preview. Its current beta can be
+            installed with an exact version pin; normal upgrades stay on stable.
           </p>
-          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.6" className="text-green-700 font-semibold hover:underline">Read the 1.8.6 release</Link>
+          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.7" className="text-green-700 font-semibold hover:underline">Read the 1.8.7 release</Link>
           {' · '}<Link href="/cli/whatsapp" className="text-green-700 underline">co whatsapp</Link>
           {' · '}<Link href="/cli/env" className="text-green-700 underline">co env</Link>
           {' · '}<Link href="/cli/outlook" className="text-green-700 underline">Outlook</Link>
