@@ -2,6 +2,9 @@
 
 Plugins are reusable event handlers. Package capabilities and reuse them across agents.
 
+Configured lifecycle plugins can also install tools while keeping operator
+state out of the model schema. See [Coding-agent plugins](coding-agent-plugins.md).
+
 ## Quick Start
 
 ```python
@@ -50,7 +53,7 @@ agent = Agent("a", plugins=[re_act, logger])
 
 | Plugin | Purpose | Docs |
 |--------|---------|------|
-| `skills` | Invoke pre-packaged workflows with scoped permissions | [skills.md](skills.md) |
+| `skills` | Invoke pre-packaged workflows with scoped permissions | [skills.md](../useful_plugins/skills.md) |
 | `subagents` | Run tasks in parallel sub-agents | [subagents.md](../useful_plugins/subagents.md) |
 | `re_act` | Planning + reflection (ReAct pattern) | [re_act.md](../useful_plugins/re_act.md) |
 | `eval` | Task evaluation for debugging | [eval.md](../useful_plugins/eval.md) |
@@ -61,9 +64,10 @@ agent = Agent("a", plugins=[re_act, logger])
 | `system_reminder` | Inject contextual reminders into tool results | [system_reminder.md](../useful_plugins/system_reminder.md) |
 | `auto_compact` | Compact conversation when context gets large | [auto_compact.md](../useful_plugins/auto_compact.md) |
 | `prefer_write_tool` | Guide agent to prefer write over edit for new files | [prefer_write_tool.md](../useful_plugins/prefer_write_tool.md) |
-| `ulw` | Ultra-light workflow: pause loop for user input | [ulw.md](../useful_plugins/ulw.md) |
+| `full_access` | Bounded approval bypass for user-driven turns | [full_access.md](../useful_plugins/full_access.md) |
 | `gmail_plugin` | Gmail OAuth flow | [gmail_plugin.md](../useful_plugins/gmail_plugin.md) |
 | `calendar_plugin` | Google Calendar OAuth flow | [calendar_plugin.md](../useful_plugins/calendar_plugin.md) |
+| `CodexPlugin` / `ClaudeCodePlugin` | Bounded coding-agent delegation with live child activity | [coding-agent-plugins.md](coding-agent-plugins.md) |
 
 ```python
 from connectonion.useful_plugins import skills, re_act, eval, image_result_formatter, tool_approval

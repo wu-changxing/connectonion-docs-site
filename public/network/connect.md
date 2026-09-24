@@ -115,6 +115,23 @@ agent.status    # 'idle' | 'working' | 'waiting'
 
 ---
 
+## Direct tool execution (`remote.call`)
+
+`input()` hands the remote **LLM** a task and waits for it to reason. When you
+already know the exact tool and arguments, `remote.call()` runs it directly — no
+LLM, no session — and returns the raw output (text or a base64 screenshot):
+
+```python
+remote = connect("0x3d40...")
+print(remote.call("bash", command="co status").text)
+shot = remote.call("bash", command="co browser take_screenshot")   # .images extracts base64
+```
+
+Gated by the host's `.co/host.yaml` whitelist. From the shell it's `co call
+<address> <command...>`. Full reference: [remote-call.md](remote-call.md).
+
+---
+
 ## Connection Modes
 
 ### Via Relay (Default)
@@ -518,7 +535,10 @@ println(agent.ui)        // All events for rendering
 
 ## React: useAgentForHuman() Hook
 
-The [`@connectonion/react`](https://www.npmjs.com/package/@connectonion/react) package exports the React hooks and browser connection layer with state management and localStorage persistence. React is its only peer dependency.
+The [`@connectonion/react`](https://www.npmjs.com/package/@connectonion/react) package
+(repo: [openonion/connectonion-react](https://github.com/openonion/connectonion-react))
+exports the React hooks and the browser connection layer with state management and
+localStorage persistence. React is its only peer dependency:
 
 ```bash
 npm install @connectonion/react
@@ -538,12 +558,12 @@ function ChatPage() {
     ui,              // ChatItem[] — all streaming events
     status,          // 'idle' | 'working' | 'waiting'
     isProcessing,    // true while agent is working
-    mode,            // approval mode
+    mode,            // 'read-only' | 'auto' | 'full-access'
+    turnsLeft,       // number | null
     input,           // send a message
     respond,         // answer ask_user
     respondToApproval,
-    respondToPlanReview,
-    setMode,
+    setSessionMode,
     reset,
   } = useAgentForHuman("0x3d4017c3e843...", {
     sessionId: "my-session-123"  // required — auto-persisted to localStorage
@@ -589,7 +609,8 @@ const agent = useAgentForHuman(address, { sessionId })
 agent.ui: ChatItem[]           // All events for rendering
 agent.status: AgentStatus      // 'idle' | 'working' | 'waiting'
 agent.isProcessing: boolean    // true while agent working
-agent.mode: ApprovalMode       // 'safe' | 'plan' | 'accept_edits' | 'ulw'
+agent.mode: Mode // 'read-only' | 'auto' | 'full-access'
+agent.turnsLeft: number | null
 agent.error: Error | null
 agent.sessionId: string
 
@@ -597,10 +618,8 @@ agent.sessionId: string
 agent.input(prompt, options?)       // Send message
 agent.respond(answer)               // Answer ask_user
 agent.respondToApproval(approved, scope, mode?, feedback?)
-agent.respondToPlanReview(message)
-agent.respondToUlwTurnsReached(action, options?)
 agent.submitOnboard(options)        // Submit invite code / payment
-agent.setMode(mode, options?)       // Change approval mode
+agent.setSessionMode(mode)          // Await Host acknowledgement
 agent.setPrompt(prompt)             // Set persistent system prompt
 agent.reset()                       // Clear conversation
 ```
@@ -614,7 +633,8 @@ The hook automatically saves state to localStorage:
 
 ### Interactive Features
 
-Agents can ask questions, request approval, and present plans:
+Agents can ask questions and request tool approval. Todo List progress is
+read-only session data, not an interactive gate:
 
 ```typescript
 // Ask User — agent needs information
@@ -628,10 +648,6 @@ respondToApproval(true, 'once')      // approve once
 respondToApproval(true, 'session')   // approve for session
 respondToApproval(false, 'once', 'reject_explain', 'Too dangerous')
 
-// Plan Review — agent presenting a plan
-// Event: { type: 'plan_review', plan_content: '1. Research\n2. Analyze' }
-respondToPlanReview("Looks good, proceed")
-respondToPlanReview("Skip step 2")
 ```
 
 ---
@@ -677,8 +693,8 @@ oo-chat/
 │   ├── use-agent-sdk.ts                 ← wrapper hook around useAgentForHuman()
 │   └── messages/
 │       ├── tool-call.tsx                ← tool call card
-│       └── tools/plan-card.tsx          ← plan review UI
-└── package.json                         ← depends on connectonion
+│       └── tools/                       ← tool-specific presentation
+└── package.json                         ← depends on @connectonion/react
 ```
 
 ### How It Connects
@@ -696,13 +712,13 @@ export default function ChatSession({ params }) {
     elapsedTime,
     pendingAskUser,
     pendingApproval,
-    pendingPlanReview,
     mode,
+    turnsLeft,
+    availableModes,
     send,
     respondToAskUser,
     respondToApproval,
-    respondToPlanReview,
-    setMode,
+    setSessionMode,
     clear,
   } = useAgentSDK({ agentAddress: address, sessionId })
 
@@ -716,16 +732,17 @@ export default function ChatSession({ params }) {
       onAskUserResponse={respondToAskUser}
       pendingApproval={pendingApproval}
       onApprovalResponse={respondToApproval}
-      pendingPlanReview={pendingPlanReview}
-      onPlanReviewResponse={respondToPlanReview}
       mode={mode}
-      onModeChange={setMode}
+      turnsLeft={turnsLeft}
+      availableModes={availableModes}
+      onModeChange={setSessionMode}
     />
   )
 }
 ```
 
-`useAgentSDK` is a thin wrapper around `useAgentForHuman()` that adds elapsed time tracking and extracts pending states (ask_user, approval, plan_review) from the `ui` array for easy conditional rendering.
+`useAgentSDK` is a thin wrapper around `useAgentForHuman()` that adds elapsed
+time tracking and extracts `ask_user` and approval states for rendering.
 
 ---
 
@@ -748,13 +765,22 @@ agent = connect("0x...", relay_url="ws://localhost:8000/ws/announce")
 class RemoteAgent:
     # Actions
     def input(self, prompt: str) -> Response
+    def set_session_mode(self, mode: str, timeout: float = 30.0) -> None
     def reset(self) -> None
 
     # State (read-only)
     current_session: dict    # Full session data
+    available_modes: list     # Host-advertised modes for this session
     ui: List[UIEvent]        # Shortcut to current_session['trace']
     status: str              # 'idle' | 'working' | 'waiting'
 ```
+
+`set_session_mode()` uses one timeout budget for endpoint resolution,
+CONNECT, PING handling, and the owned OIP mode response. If it raises
+`TimeoutError`, the durable outcome is unknown: Host persistence may have
+completed even though the acknowledgement did not arrive. Reconnect and use
+the next `CONNECTED` state (`available_modes` and
+`current_session["mode"]`) as authority before retrying.
 
 ### useAgentForHuman() (React)
 
@@ -765,14 +791,14 @@ const agent = useAgentForHuman(address, { sessionId })
 agent.ui: ChatItem[]           // All events for rendering
 agent.status: AgentStatus      // 'idle' | 'working' | 'waiting'
 agent.isProcessing: boolean
-agent.mode: ApprovalMode       // 'safe' | 'plan' | 'accept_edits' | 'ulw'
+agent.mode: Mode // 'read-only' | 'auto' | 'full-access'
+agent.turnsLeft: number | null
 
 // Actions
 agent.input(prompt)            // Send message
 agent.respond(answer)          // Answer ask_user
 agent.respondToApproval(approved, scope)
-agent.respondToPlanReview(message)
-agent.setMode(mode)            // Change approval mode
+await agent.setSessionMode(mode)
 agent.reset()                  // Clear conversation
 ```
 
@@ -786,10 +812,8 @@ type ChatItem =
   | { id, type: 'tool_call', name, args?, status, result?, timing_ms? }
   | { id, type: 'ask_user', text, options, multi_select }
   | { id, type: 'approval_needed', tool, arguments, description? }
-  | { id, type: 'plan_review', plan_content }
   | { id, type: 'tool_blocked', tool, reason, message, command? }
   | { id, type: 'onboard_required', methods, paymentAmount? }
-  | { id, type: 'ulw_turns_reached', turns_used, max_turns }
 ```
 
 ### Data Types (Python)
@@ -911,9 +935,11 @@ agent.ui      // ChatItem[] for rendering
 const { ui, input, respond, respondToApproval } = useAgentForHuman("0x...", { sessionId })
 ```
 
-**Event types:** `user`, `agent`, `thinking`, `tool_call`, `ask_user`, `approval_needed`, `plan_review`, `tool_blocked`
+**Event types:** `user`, `agent`, `thinking`, `tool_call`, `ask_user`,
+`approval_needed`, `tool_blocked`, plus observational Todo List state.
 
-**One event type = one UI component.** Render `ui` array, handle interactive events with `respond()` / `respondToApproval()` / `respondToPlanReview()`.
+**One event type = one UI component.** Render `ui` and handle interactive events
+with `respond()` / `respondToApproval()`. Todo List progress is exposed separately.
 
 **Reference implementation:** [oo-chat](https://github.com/openonion/oo-chat) — open-source Next.js chat client built on `@connectonion/react`.
 

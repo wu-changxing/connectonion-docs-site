@@ -81,13 +81,24 @@ What it does:
 4. Calls the OpenOnion auth API.
 5. Saves `OPENONION_API_KEY`, `AGENT_EMAIL`, and `AGENT_ADDRESS` to the appropriate env files.
 
-### `co status` — check account and deployment status
+### `co status` — check credentials, account, and deployments
 
 ```bash
 co status
+co status --reveal  # intentionally print full provider credential values
 ```
 
-Use this after `co auth` to confirm the CLI can load your API key and reach the backend.
+The default output lists supported credential variable names, whether each one is
+configured, discovered-but-not-loaded, conflicting, or missing, and its privacy-safe
+source such as `process environment`, `<project>/.env`, or `~/.co/keys.env`. It never
+prints any raw, partial, hashed, or fingerprinted secret material by default.
+
+Pass `--reveal` (or `-r`) only when you deliberately need the full provider values.
+This prints every discovered value and its source, including conflicts. Avoid using
+it in shared terminals, logs, recordings, screenshots, or support messages.
+
+Use this after `co auth` to confirm the CLI can load your API key and reach the backend,
+or to diagnose why a provider key in `.env` is not visible to the current process.
 
 ### `co keys` — inspect local credentials
 
@@ -128,9 +139,7 @@ llm_do("Hello", model="co/claude-haiku-4-5")
 
 ### Google Models
 ```python
-llm_do("Hello", model="co/gemini-3-pro-preview")
-llm_do("Hello", model="co/gemini-3-flash-preview")
-llm_do("Hello", model="co/gemini-2.5-pro")
+llm_do("Hello", model="co/gemini-3.8-flash")
 ```
 
 ## Real-World Examples
@@ -178,7 +187,7 @@ response = agent.input("Help me write a Python function")
 
 ```python
 # Compare responses from different models
-models = ["co/gpt-4o", "co/claude-sonnet-4-5", "co/gemini-2.5-pro"]
+models = ["co/gpt-4o", "co/claude-sonnet-4-5", "co/gemini-3.8-flash"]
 
 for model in models:
     response = llm_do("What's the meaning of life?", model=model)
@@ -231,7 +240,7 @@ def test_all_models(prompt):
     models = {
         "OpenAI": "co/gpt-4o",
         "Anthropic": "co/claude-sonnet-4-5",
-        "Google": "co/gemini-2.5-pro"
+        "Google": "co/gemini-3.8-flash"
     }
     
     results = {}
@@ -355,11 +364,10 @@ except Exception as e:
 **No agent keys found:**
 ```bash
 # Create global identity and authenticate
-co auth
-
-# Or initialize a project first, then authenticate with project keys
 co init
-co auth
+
+# Or initialize an explicit project using the global identity
+co init ./
 ```
 
 **Token not loading:**

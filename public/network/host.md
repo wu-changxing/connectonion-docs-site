@@ -4,56 +4,7 @@
 
 **Looking to deploy?** See [Deploy Your Agent](deploy.md) for production deployment options.
 
-## Custom HTTP routes
-
-Publish deterministic feeds and H5 APIs from the same process without an LLM
-round trip:
-
-```python
-from connectonion import Agent, HTTPResponse, HTTPRouter, host
-
-http = HTTPRouter()
-
-@http.public.get("/feeds/{category}.ics")
-def feed(category: str):
-    return HTTPResponse(
-        build_ics(category),
-        media_type="text/calendar; charset=utf-8",
-    )
-
-@http.contacts.post("/preferences")
-def preferences(request):
-    return {"saved": request.json(), "for": request.identity}
-
-@http.admin.post("/refresh")
-def refresh(request):
-    return {"started": True, "by": request.identity}
-
-host(Agent("events"), http=http)
-```
-
-| Group | URL prefix | Audience |
-|---|---|---|
-| `http.public` | `/public` | Anyone; no signature |
-| `http.contacts` | `/contacts` | Contacts, whitelist, and admins |
-| `http.admin` | `/admin` | Admins only |
-
-The group stores the authorization rule on the route; the prefix is its visible
-representation, not a string parsed to make a security decision. Protected
-signatures bind method, path, canonical query, exact body digest, timestamp,
-one-use request ID, and recipient.
-
-Handlers may be sync or async. Return `dict`/`list` for JSON, `str`, `bytes`,
-`None` for 204, or `HTTPResponse` for explicit status, headers, and media type.
-Path parameters are passed by name; declare `request` for headers, query, body,
-`json()`, and the verified `identity`.
-
-Framework endpoints cannot be shadowed. Current built-ins, `/admin/trust/*`,
-`/superadmin/*`, and the permanent `/_co/*` namespace are reserved.
-
-Never put an admin private key in browser JavaScript. Native calendar clients
-normally cannot add signature headers, so ordinary `.ics` subscriptions should
-use `/public/*`.
+**Need an `.ics` feed or H5 API?** See [Custom HTTP routes](http-routes.md).
 
 ---
 
@@ -77,7 +28,7 @@ INFO: Loaded global keys: /Users/you/.co/keys.env
 
 [agent] ─────────────────────────────────────
         translator
-        co/gemini-2.5-pro • 12 tools
+        co/gemini-3.8-flash • 12 tools
 
 [host]  ─────────────────────────────────────
         http://localhost:8000
@@ -142,6 +93,9 @@ def host(
     # File Upload Limits
     max_file_size: int = 10,               # MB per file
     max_files_per_request: int = 10,       # Max files in one request
+
+    # Deterministic HTTP resources (optional)
+    http: HTTPRouter = None,
 ) -> None:
 ```
 
@@ -259,6 +213,13 @@ The relay is a pure forwarder — it doesn't parse or modify messages, just rout
 1. Agent sends ANNOUNCE with address and endpoints every 60s
 2. Relay stores agent info (now discoverable)
 3. When client calls `connect("0xaddress")`, SDK tries direct connection first, falls back to relay if needed
+
+Endpoint discovery is best-effort. `AGENT_PUBLIC_DOMAIN` bypasses automatic
+discovery. Otherwise the Host tries local interfaces and a public-IP lookup
+independently; if a container denies interface enumeration, or the public
+lookup is unavailable, the Host still starts and keeps its relay connection.
+When neither source yields a publishable address, the announcement carries no
+direct endpoint and clients use the relay.
 
 ### Heartbeat & Keep-Alive
 
@@ -485,7 +446,7 @@ curl http://localhost:8000/info
   "name": "translator",
   "address": "0x3d4017c3...",
   "tools": ["translate", "detect_language"],
-  "model": "co/gemini-2.5-pro",
+  "model": "co/gemini-3.8-flash",
   "trust": "careful",
   "version": "0.4.1",
   "accepted_inputs": {
@@ -509,13 +470,16 @@ Interactive UI to test your agent in the browser.
 http://localhost:8000/docs
 ```
 
-### GET /admin/logs (Requires API Key)
+### GET /admin/logs (Admin authentication)
 
-Fetch agent activity logs (plain text). Requires `OPENONION_API_KEY` authentication.
+Fetch agent activity logs (plain text). Prefer a signed identity listed in
+`.co/admins.txt`. Non-interactive monitoring may use a distinct,
+per-deployment `CONNECTONION_ADMIN_TOKEN`:
 
 ```bash
+export CONNECTONION_ADMIN_TOKEN="$(openssl rand -hex 32)"
 curl http://localhost:8000/admin/logs \
-  -H "Authorization: Bearer YOUR_OPENONION_API_KEY"
+  -H "Authorization: Bearer $CONNECTONION_ADMIN_TOKEN"
 ```
 
 **Response:**
@@ -525,13 +489,14 @@ curl http://localhost:8000/admin/logs \
 2024-01-15 10:23:46 [translator] Result: Hola
 ```
 
-### GET /admin/sessions (Requires API Key)
+### GET /admin/sessions (Admin authentication)
 
-Fetch eval sessions from `.co/evals` as JSON array. Requires `OPENONION_API_KEY` authentication.
+Fetch eval sessions from `.co/evals` as JSON array. It uses the same signed
+admin or dedicated admin-token authentication as `/admin/logs`.
 
 ```bash
 curl http://localhost:8000/admin/sessions \
-  -H "Authorization: Bearer YOUR_OPENONION_API_KEY"
+  -H "Authorization: Bearer YOUR_ADMIN_TOKEN"
 ```
 
 **Response:**
@@ -553,7 +518,10 @@ curl http://localhost:8000/admin/sessions \
 }
 ```
 
-**Note:** These endpoints require setting `OPENONION_API_KEY` as an environment variable when running your agent. The same key must be used to authenticate requests.
+**Important:** `OPENONION_API_KEY` is only a managed-model billing credential
+and is never an admin password. If bearer automation is needed, generate a
+separate random `CONNECTONION_ADMIN_TOKEN`; configuring it to the billing key
+fails closed. Signed admin requests need no bearer token.
 
 ---
 
@@ -632,7 +600,9 @@ ws.onmessage = (event) => {
 | ATTACH | Client → Server | Authenticate + resume existing session |
 | CONNECTED | Server → Client | Session info (session_id, status) |
 | INPUT | Client → Server | Send prompt (no auth needed) |
+| EXEC | Client → Server | Run one tool directly, no LLM |
 | OUTPUT | Server → Client | Final result + session data |
+| EXEC_RESULT | Server → Client | Result of an EXEC |
 | PING | Server → Client | Keep-alive (every 30s) |
 | PONG | Client → Server | Acknowledge keep-alive |
 | tool_call | Server → Client | Tool started |
@@ -641,6 +611,15 @@ ws.onmessage = (event) => {
 | ask_user | Server → Client | Agent needs input |
 | approval_needed | Server → Client | Tool approval required |
 | ERROR | Server → Client | Error message |
+
+### Direct tool execution (EXEC)
+
+Besides the LLM loop, a hosted agent exposes a **direct execution** fast path:
+clients can run one registered tool with no LLM via `EXEC` / `EXEC_RESULT`
+(`remote.call` in Python, `co call` from the shell). It's gated by the same
+`.co/host.yaml` `permissions` whitelist the LLM approval flow uses — nothing to
+enable, and only whitelisted commands run. See
+[remote-call.md](remote-call.md).
 
 ### Session Recovery
 
@@ -873,8 +852,8 @@ your-project/
 │   ├── GET  /health         ← Health check                    │
 │   ├── GET  /info           ← Agent info                      │
 │   ├── GET  /docs           ← Interactive UI                  │
-│   ├── GET  /admin/logs     ← Activity logs (API key auth)    │
-│   ├── GET  /admin/sessions ← Session logs (API key auth)     │
+│   ├── GET  /admin/logs     ← Activity logs (admin auth)      │
+│   ├── GET  /admin/sessions ← Session logs (admin auth)       │
 │   └── WS   /ws             ← Real-time WebSocket             │
 │                                                              │
 │   P2P Relay Connection                                       │
@@ -986,7 +965,7 @@ signature = signing_key.sign(canonical.encode()).signature.hex()
 
 Trust controls **who can access your agent**. All forms of trust use a trust agent behind the scenes.
 
-See [Trust in ConnectOnion](/docs/concepts/trust.md) for the complete trust system documentation.
+See [Trust in ConnectOnion](../features/trust.md) for the complete trust system documentation.
 
 ### 1. Trust Level (string)
 
@@ -994,7 +973,7 @@ Pre-configured trust agents for common scenarios:
 
 ```python
 host(agent, trust="open")      # Accept all (development)
-host(agent, trust="careful")   # Recommend signature, accept unsigned (default)
+host(agent, trust="careful")   # Admin, whitelisted and contacts (default; every request is signed)
 host(agent, trust="strict")    # Require valid signature (production)
 ```
 
@@ -1041,17 +1020,22 @@ guardian = Agent(
 host(agent, trust=guardian)
 ```
 
-### Environment-Based Defaults
+### One place decides: `.co/host.yaml`
 
-```python
-# No trust parameter needed - auto-detected!
-host(agent)
-
-# CONNECTONION_ENV=development → trust="open"
-# CONNECTONION_ENV=test        → trust="careful"
-# CONNECTONION_ENV=staging     → trust="careful"
-# CONNECTONION_ENV=production  → trust="strict"
+```yaml
+# .co/host.yaml
+trust: careful      # open | careful | strict
 ```
+
+There is no environment variable for this, on purpose. `CONNECTONION_ENV` used
+to be documented as setting trust automatically, with `development` meaning
+`open`. It never actually did anything — and wiring it up would have meant a
+variable sitting in someone's shell profile could open their host to everyone,
+at the moment they were least likely to be reading this page.
+
+How open a host is, is written down in a file its operator owns and can read
+back. Different machines get different files; `co deploy` copies the one you
+mean to the machine you mean.
 
 ---
 
@@ -1277,6 +1261,23 @@ uvicorn myagent:app --workers 4
 gunicorn myagent:app -w 4 -k uvicorn.workers.UvicornWorker
 ```
 
+All workers of a `create_app()` deployment share `.co/replay.sqlite3`, so a
+captured CONNECT, v2 command, admin request, or protected HTTP request cannot
+be accepted once by each process. The ledger contains only short-lived
+signature digests, retained until the signed timestamp leaves the freshness
+window. A locked or unwritable ledger fails closed rather than accepting a
+replay; a ledger whose file was removed under a running host recreates its
+schema on the next claim instead (#1403). For CONNECT, the claim happens after
+Ed25519 verification but before trust policy evaluation, so replay rejection
+cannot repeat policy work or mutations.
+
+`host()` does not write this file. It runs exactly one worker (uvicorn cannot
+fork an app object), so its ledger for unsealed clients is in memory. A sealed
+socket — every 1.8.1 client, direct or relayed — is not held to any ledger:
+its CONNECT must be signed by the identity that sealed it, and nobody else can
+put a frame on it. See the sealed-channel section of
+[websocket-protocol.md](websocket-protocol.md#sealed-direct-channel).
+
 ### Docker
 
 ```dockerfile
@@ -1293,9 +1294,11 @@ services:
     build: .
     ports:
       - "8000:8000"
-    environment:
-      - CONNECTONION_ENV=production
 ```
+
+Trust comes from `.co/host.yaml` inside the image, not from the environment
+block — so what a container will accept is visible in the repo, not in the
+orchestrator's config.
 
 ### Reverse Proxy (Caddy)
 

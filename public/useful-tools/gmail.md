@@ -59,11 +59,19 @@ Your agent can now read and manage Gmail.
 **`get_all_emails(max_results=50)`**
 - Get emails from all folders (inbox, sent, archive)
 
+**`list_inbox(last=10, unread=False)`**
+- Same fetch as `read_inbox()` but returns a list of dicts instead of text
+- Each dict: `{id, from, subject, date, snippet, unread}`
+- Use this when your code needs the data; use `read_inbox()` when an agent needs something readable
+
 ### Search
 
 **`search_emails(query, max_results=10)`**
 - Search using Gmail query syntax
 - Examples: `"from:alice@example.com"`, `"subject:meeting"`, `"is:unread has:attachment"`
+
+**`list_search(query, max_results=10)`**
+- Same search, returned as dicts in the same shape as `list_inbox()`
 
 ### Content
 
@@ -74,6 +82,40 @@ Your agent can now read and manage Gmail.
 - List attachments (filename, size)
 
 ### Actions
+
+**`send(to, subject, body, cc=None, bcc=None, attachments=None)`**
+- Send plain-text mail, optionally attaching a list of files
+- Agent-facing `Gmail()` instances can attach only files inside the current project; resolved symlinks cannot escape it
+- Attachments have a 25 MB combined limit, enforced before file contents are read
+
+### Drafts
+
+Draft methods edit provider-native Gmail drafts and never send them. The
+terminal's `co gmail draft review` and `send --confirm` commands bind the final
+send to reviewed content; draft sending is intentionally not exposed as a public agent
+method.
+
+**`list_drafts(last=20)`**
+- List draft IDs, recipients, subjects, and attachment counts
+
+**`create_draft(to, subject, body, cc=None, bcc=None)`**
+- Create and return an unsent draft
+
+**`get_draft(draft_id)`**
+- Return recipients, body, and the exact attachment manifest
+
+**`add_draft_attachment(draft_id, path)`**
+- Stage a local project file; the draft remains unsent
+- Uses the same path and 25 MB protections as `send()`
+
+**`add_draft_link(draft_id, name, url)`**
+- Append a link to a plain-text body; this does not change sharing permissions
+
+**`remove_draft_attachment(draft_id, attachment)`**
+- Remove the current one-based item number from `get_draft()["items"]` (files then managed links)
+
+**`replace_draft_attachment(draft_id, attachment, path)`**
+- Replace one attachment with a local project file in one draft update
 
 **`mark_read(email_id)`**
 - Mark email as read
@@ -148,8 +190,39 @@ Then import from your local copy:
 from tools.gmail import Gmail      # After - customize freely!
 ```
 
+## From the terminal
+
+The same tool backs [`co gmail`](../cli/gmail.md), so anything your agent can do
+you can do by hand:
+
+```bash
+co gmail                                            # inbox
+co gmail read 3                                     # open #3, preserve unread state
+co gmail read 3 --mark-read                         # explicitly mark read
+co gmail send bob@example.com "Hi" "Body text"
+co gmail search "from:alice@example.com is:unread"
+co gmail draft create bob@example.com "Report" "Please review."
+co gmail draft list               # choose the matching row; create prints an ID
+co gmail draft attach <draft-id> report.pdf
+co gmail draft review <draft-id> --json
+co gmail draft send <draft-id> --confirm <review-token> --json
+```
+
+## See Also
+
+- [`co gmail`](../cli/gmail.md) — the CLI wrapper
+- [GDrive](gdrive.md) — the same shape for Drive files
+- [Outlook](outlook.md) — the equivalent for a Microsoft account
+
 ## Troubleshooting
 
 **Missing gmail.readonly scope**: Run `co auth google`
 
 **Credentials not found**: Run `co auth google`
+
+In the 1.8.4 candidate, `get_draft()` adds an `items` source manifest while
+preserving file-only `attachments`. Local files are tagged as local; existing
+untagged files are external. The CLI records Drive exports and managed links
+inside provider MIME. The older `add_draft_link(name, url)` remains an ordinary
+body append and does not claim verified Drive provenance. No draft send method
+is exposed as an agent tool. See [draft review behavior](../cli/gmail.md).

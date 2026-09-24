@@ -146,7 +146,7 @@ co copy Gmail --force
 | subagents | subagents.py | Sub-agent task delegation |
 | system_reminder | system_reminder.py | Inject contextual reminders into tool results |
 | ui_stream | ui_stream.py | Stream agent output to UI |
-| ulw | ulw.py | Ultra Light Work - autonomous continuous execution |
+| full_access | full_access.py | Bounded Full access approval bypass |
 
 ### Plugins with Prompts
 
@@ -260,6 +260,9 @@ Skills are copied to `.co/skills/<name>/` and auto-discovered by the skills plug
 
 | Name | Description |
 |------|-------------|
+| browser-workflow-skill-builder | Build robust browser automation skills for logged-in sites — save page context, write skill-local extract/verify scripts, and lock flows with hash-verified one-shot actions |
+| co-browser | Drive one persistent, logged-in browser from the shell — solo or multi-agent |
+| install-connectonion | Install & fully set up ConnectOnion so every `co` command works (init+auth→keys.env, email, browser) for a possibly non-technical user — auto-corrects, ends with a plain-language summary |
 | ship-feature | Ship a feature end-to-end — update tests, docs, docs-site, then release to PyPI |
 
 ```bash
