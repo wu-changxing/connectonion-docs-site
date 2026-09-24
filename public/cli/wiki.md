@@ -3,7 +3,7 @@
 Updated 2026-09-22. This documents the Wiki development branch, not a claim
 that it has been released.
 
-See the [2026-09-17 progress review](wiki-progress.md) for the feature inventory,
+See the [2026-09-17 progress review](https://github.com/openonion/connectonion/blob/v1.8.7b4/docs/cli/wiki-progress.md) for the feature inventory,
 current CI blockers and remaining work.
 
 ## Start here
@@ -23,7 +23,7 @@ names in old help text, such as `people/emma.md`, are not built-in records.
 
 ```bash
 co wiki unfinished           # Pages with remaining Unknown sections and a concrete next step
-co wiki open                 # Open the full-page Wiki in your browser
+co wiki open                 # Browse a snapshot in your browser
 co wiki sync --dry-run       # Inspect pending metadata, without running a model
 co wiki sync                 # Process a bounded batch using configured sources/model
 co wiki logs                 # Inspect results, partial coverage and failures
@@ -55,9 +55,7 @@ Piping human output does not hide the next step. Grouped help covers:
 | Sources and background | `subscriptions`, `subscribe`, `unsubscribe`, `start`, `stop` |
 | Settings and diagnostics | `route`, `logs`, `usage`, `doctor`, `config`, `config set` |
 
-`start` explicitly authorizes collection and installs background maintenance
-plus at most one unfinished-page investigation per local day when the day's
-call budget allows;
+`start` explicitly authorizes collection and installs background maintenance;
 `init` does neither. A mapped page is not an investigated or quality-approved page.
 
 ## Installed-skill skeletons at initialization
@@ -65,27 +63,7 @@ call budget allows;
 `co wiki init` deterministically builds People, Organizations, Projects and Skills pages from
 their canonical templates and available source metadata before any model
 investigation. Unknown fields remain explicit; investigation is a separate step.
-See the [initialization interaction contract](wiki-init-contract.md).
-
-Its coverage lines keep the four source states apart, because each one needs a
-different next command:
-
-```text
-gmail: metadata only, 150 days, at most 200 messages per seven-day window; 42 correspondents
-outlook: not connected; not searched. Connect it with co auth microsoft
-codex: /home/you/.codex/sessions — scanned; no sessions in this window
-claude-code: /home/you/.claude/projects — disabled; not scanned
-```
-
-A mailbox that was read and held nobody, one nobody has connected, one the user
-unsubscribed, and one that is connected but would not open are four different
-answers; so are a session directory that is missing, one switched off, and one
-scanned that had nothing inside the window.
-
-Where init can see that an address is probably the user's own — mail goes to it
-repeatedly and nothing ever comes back — it says so and prints the exact
-`init --mine <address>` that confirms it. It never merges on the guess: an
-assistant and a family member look the same from the headers.
+See the [initialization interaction contract](https://github.com/openonion/connectonion/blob/v1.8.7b4/docs/cli/wiki-init-contract.md).
 The map can also be run independently:
 
 ```bash
@@ -112,7 +90,7 @@ an exhaustive plugin-cache or remote-catalog scan. Repeat `--skills-dir` for
 explicit roots; supplying it replaces defaults for that scan. Coverage and
 unreadable files are reported in the index and command result.
 
-The [Wiki CLI reference](../../connectonion/useful_skills/wiki-init/CLI.md) explains
+The [Wiki CLI reference](https://github.com/openonion/connectonion/blob/v1.8.7b4/connectonion/useful_skills/wiki-init/CLI.md) explains
 mail IDs, browser tabs, source/working/output directories and failure recovery.
 
 ## One execution path
@@ -173,13 +151,11 @@ Every command returns a next command, including in JSON and through a pipe.
 | `co wiki sync` | One incremental source batch, optionally extraction followed by maintenance. |
 | `co wiki sync --source codex --dry-run` | Pending metadata only; no model or source body reads. |
 | `co wiki subscribe codex --project /path/to/repo --since 30d` | Save a scoped source choice. |
-| `co wiki subscribe whatsapp --chat <id>` | Read one WhatsApp chat (group or person) from the files `co whatsapp listen` keeps; ids from `co whatsapp chats`. Repeat per chat; the next `co wiki start` shows it and asks before anything is read. `unsubscribe whatsapp --chat <id>` stops one chat. |
 | `co wiki unsubscribe codex` | Disable that source. |
 | `co wiki list people` / `show people/alice.md` / `search Alice` | Inspect Markdown without model calls. |
 | `co wiki status` / `subscriptions` / `config` / `logs` / `usage` / `doctor` | Inspect configuration, progress, diagnostics and reported usage. |
-| `co wiki open` | Open the full-page private Wiki through the current `co ai` Host when its identity is configured; otherwise open a local snapshot. |
-| `co wiki open --local` | Render and open the self-contained local HTML snapshot. |
-| `co wiki open --no-launch` | Return the page address without opening the browser. |
+| `co wiki open` | Render a private, self-contained HTML snapshot and open it. |
+| `co wiki open --no-launch` | Render without opening the browser. |
 
 `init` is the foreground Skill workflow. `start` remains the explicit
 background lifecycle command; initialization does not install a schedule.
@@ -217,21 +193,10 @@ The direct Skill call does not run Wiki's deterministic source collection or
 advance its sync cursor. Use `co wiki investigate` for that orchestration.
 COAI expands the Skill name and supplies its installed directory.
 
-Every Wiki model turn starts from the fixed `.state/tasks/` workspace inside
-the selected Wiki root (`~/.co/wiki` by default). Codex therefore groups
-those turns under one workspace in its history. Inputs, review results and
-disposable page copies live in per-run subdirectories there;
-the runner validates a candidate before promoting it to the notebook.
-
 Codex extraction/maintenance/abstraction use workspace-write. Initialization
 and investigation retain the existing danger-full-access setting for source
-and browser access. When explicitly selected as the Wiki runner, Claude Code
-uses `bypassPermissions` so its headless task can write candidate pages and
-run source commands; the generic `co ai --harness claude-code` default remains
-manual. Wiki removes an ambient `ANTHROPIC_API_KEY` from Claude's subprocess
-environment so the run uses the selected account's subscription rather than
-silently billing the API. Skills govern what the task should do; they are not
-OS permission enforcement.
+and browser access. Claude Code/COAI manage their own permissions. Skills
+govern what the task should do; they are not OS permission enforcement.
 The removed scoped wiki_* tools are no longer a filesystem guarantee.
 
 ## Source coverage and output
@@ -266,7 +231,7 @@ therefore closes its delegate before the Wiki process timeout is reached.
 
 ## Scheduling and accounting
 
-launchd invokes the resolved `co wiki --root ... daily --scheduled` CLI every
+launchd invokes the resolved `co wiki --root ... sync --scheduled` CLI every
 five minutes, with PATH entries for co and installed delegates. Saved local
 time slots determine whether a batch is due. Repeated start reloads one job;
 missed slots coalesce into one catch-up. No permanent Wiki daemon is added.
@@ -281,17 +246,14 @@ read a delegated agent may perform.
 limits, or a $1 stop budget. They need an actual provider meter in the shared
 execution layer. The init Skill now stops after the owner and ranked map by
 default and explicitly reports that percentage enforcement is unavailable.
-The scheduled daily round maintains first, then attempts at most one unfinished
-page per local day. It reserves a bounded number of investigation calls within
-the same daily attempt cap and leaves room for later maintenance slots when
-possible. Initialization currently builds the map without a model call; manual
-investigation remains outside the scheduled cap.
+Investigation/initialization calls are not covered by sync's daily attempt cap.
+Scheduled sync does not yet interleave unfinished investigations.
 
 The UI is a static snapshot; run `open` again after changing pages. No merge,
 release, new background job, broad mailbox backfill or production wiki rewrite
 is implied by the architecture refactor.
 
-See [acceptance evidence](../testing/wiki-acceptance.md).
+See [acceptance evidence](https://github.com/openonion/connectonion/blob/v1.8.7b4/docs/testing/wiki-acceptance.md).
 
 ### Inspect one skill's retained run evidence
 
@@ -332,7 +294,7 @@ establish factual correctness. Full source JSON is retained; a readable copy use
 reversible text chunks so line-limited tools can read all of it.
 
 The requirement-to-code/test checklist and remaining decisions are in
-[wiki-187-checklist.md](wiki-187-checklist.md). This update supersedes earlier
+[wiki-187-checklist.md](https://github.com/openonion/connectonion/blob/v1.8.7b4/docs/cli/wiki-187-checklist.md). This update supersedes earlier
 references to init launching a model or investigating the owner in the same run.
 
 ### First-run People and installed Skills
@@ -366,5 +328,5 @@ Repeated mapping refreshes generated project counts, dates and paths while prese
 
 ## Reflections, review and staged investigation
 
-See [Wiki memory workflows](wiki-memory.md) for `reflect`, `review`, `capture`,
+See [Wiki memory workflows](https://github.com/openonion/connectonion/blob/v1.8.7b4/docs/cli/wiki-memory.md) for `reflect`, `review`, `capture`,
 `route` and `daily`, including provider, retention and budget limits.
