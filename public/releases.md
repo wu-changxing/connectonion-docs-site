@@ -4,9 +4,15 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.7`; the opt-in Wiki beta preview is `1.8.8b1`.
+**Current channels:** stable is `1.8.7`; the opt-in Wiki beta preview is `1.8.8b3`.
 The Personal Wiki feature now targets **1.9.0**. This planning change does not
 rename the published preview or make it a stable release.
+
+## Wiki beta 1.8.8b3
+
+This opt-in preview repairs the real-person investigation flow that accepted zero of three pages in the first live test. The same notebook then accepted 11 of 11 selected people pages after the repair. Initialization explains source coverage and asks about possible owner aliases; a private full-page opening path and one stable Wiki task workspace are included. This is still a preview; the full 1.9.0 quality and harness acceptance remains open. [Release notes](/releases/1.8.8b3.md).
+
+Install: `python -m pip install --upgrade --pre 'connectonion==1.8.8b3'`.
 
 ## Wiki beta 1.8.8b1
 
