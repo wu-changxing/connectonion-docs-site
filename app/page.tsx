@@ -86,7 +86,7 @@ export default function HomePage() {
 
           <p className="text-base sm:text-lg text-gray-600 mb-7 leading-relaxed text-balance">
             Connect your AI agent to your mail, your chats, a real browser, your files
-            and your coding agents — one <code className="font-mono text-gray-800">co</code> command each.
+            and your coding agents. Each connection is one <code className="font-mono text-gray-800">co</code> command.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-sm w-full">
@@ -106,13 +106,9 @@ export default function HomePage() {
           </div>
 
           <p className="mt-5 mb-8 text-sm text-gray-500 flex flex-wrap justify-center gap-x-3 gap-y-1">
-            <span>No OAuth app</span>
+            <span>Open source, Apache-2.0</span>
             <span className="text-gray-300" aria-hidden="true">·</span>
-            <span>No DNS records</span>
-            <span className="text-gray-300" aria-hidden="true">·</span>
-            <span>No Playwright script</span>
-            <span className="text-gray-300" aria-hidden="true">·</span>
-            <span>$5 credits, no API key</span>
+            <span>New accounts get $5 of model credit</span>
           </p>
 
           <div className="mb-8 text-left rounded-2xl border border-gray-800 bg-gray-950 overflow-hidden">
@@ -222,7 +218,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">$5 Free Credits — No API Key Needed</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">$5 of free credit, no API key needed</h3>
                 <p className="text-gray-600 text-sm">
                   Get $5 free credits to try Gemini 2.5 Pro, GPT-4o, Claude, and more. Start building immediately.
                 </p>

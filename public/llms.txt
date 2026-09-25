@@ -1,6 +1,6 @@
 # ConnectOnion Documentation
 
-> ConnectOnion is the agent CLI harness. One `co` command each connects your AI agent to Gmail, Outlook, Google Calendar, WhatsApp, Telegram, Feishu, SMS, a real logged-in browser, Google Drive and a Synology NAS, gives it its own 0x address and mailbox, and plugs it into Claude Code and Codex — no OAuth app, no DNS records, no Playwright script. It also ships a Python SDK (the Agent class, tools, plugins) for building your own agent. Open source, Apache-2.0.
+> ConnectOnion is the agent CLI harness. Each `co` command connects your AI agent to one service: Gmail, Outlook, Google Calendar, WhatsApp, Telegram, Discord, Feishu, SMS, a real logged-in browser, Google Drive or a Synology NAS. It also gives the agent its own 0x address and mailbox, and it works from Claude Code and Codex. You don't create an OAuth app, add DNS records or write a Playwright script. It also ships a Python SDK (the Agent class, tools, plugins) for building your own agent. Open source, Apache-2.0.
 
 ## Getting Started
 
