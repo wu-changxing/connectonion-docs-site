@@ -1,264 +1,170 @@
 # Quick Start
 
-Build your first AI agent in 60 seconds.
+CLI is all you need. Every step here is one `co` command in your terminal:
+no Python file, no OAuth app, no API key. Output shown is what the CLI prints;
+addresses are shortened.
 
-## Install
+## 1. Install
 
 ```bash
 pip install connectonion
 ```
 
-This installs the current stable release. Pip ignores alpha, beta, and release
-candidates unless you pass `--pre` or pin an exact candidate version.
+Python 3.10 or newer. This installs the `co` command.
 
-## Quick Start with CLI
-
-The fastest way to start is with the ConnectOnion CLI:
+## 2. Give your agent an identity
 
 ```bash
-# Create a new agent project
-co create my-agent
-
-# Navigate to the project
-cd my-agent
-
-# Run your agent (API key setup is automatic!)
-python agent.py
+co init
 ```
 
-That's it! You now have a working agent ready to use. 🎉
-
-## Manual Setup (Alternative)
-
-```python
-from connectonion import Agent
-
-# Define a small, deterministic tool
-def word_count(text: str) -> int:
-    """Count words in text."""
-    return len(text.split())
-
-# Create your agent
-agent = Agent(
-    "assistant", 
-    tools=[word_count],
-    max_iterations=5  # Simple calculations don't need many iterations
-)
-
-# Use it!
-result = agent.input("How many words are in 'agents use typed tools'?")
-print(result)
+```text
+🚀 Welcome to ConnectOnion!
+✨ Setting up global configuration...
+  ✓ Generated master keypair
+  ✓ Your address: 0xcbef...3318
+  ✓ Created ~/.co/keys.env
+✓ Saved to ~/.co/keys.env
+✓ Authenticated (Balance: $5.00)
+✓ Global configuration: ~/.co/keys.env
 ```
 
-**Output:**
+That one command gives your agent three things:
 
-```
-There are 4 words.
-```
+- a keypair and a `0x` address, which is its identity everywhere
+- an OpenOnion account with **$5 of credit** for managed models, so no OpenAI,
+  Anthropic or Google key is needed to start
+- its own mailbox at `0x…@mail.openonion.ai`
 
-That's it! You just built an AI agent that can use tools. 🎉
+See it all with `co status`:
 
-## Add More Tools
-
-Want your agent to do more? Just add more functions:
-
-```python
-def uppercase(text: str) -> str:
-    """Convert text to uppercase."""
-    return text.upper()
-
-def get_time() -> str:
-    """Get current time."""
-    from datetime import datetime
-    return datetime.now().strftime("%I:%M %p")
-
-# Create a more capable agent
-agent = Agent(
-    name="assistant",
-    tools=[word_count, uppercase, get_time],
-    max_iterations=10  # Default for general purpose agents
-)
-
-# It can use multiple tools in one request!
-result = agent.input("Uppercase 'hello agent', count its words, and tell me the time")
-print(result)
+```text
+│ Agent Address:
+│ 0xcbef…3318
+│ Email: 0xcbef…@mail.openonion.ai
+│ Balance: $5.0000
 ```
 
-## Make It Yours
+`co status` also lists every credential it can see (OpenAI, Anthropic, Gemini,
+Telegram, Discord …) and keeps the values hidden.
 
-Give your agent a personality with flexible system prompts:
-
-```python
-# Option 1: Direct string
-agent = Agent(
-    name="friendly_bot",
-    system_prompt="You are a cheerful assistant who loves to help!",
-    tools=[word_count, uppercase, get_time]
-)
-
-# Option 2: Load from file (auto-detected)
-agent = Agent(
-    name="expert_bot",
-    system_prompt="prompts/expert.md",  # Loads from file
-    tools=[word_count, uppercase, get_time]
-)
-
-# Option 3: Using Path object
-from pathlib import Path
-agent = Agent(
-    name="custom_bot",
-    system_prompt=Path("prompts/custom_personality.txt"),
-    tools=[word_count, uppercase, get_time]
-)
-
-result = agent.input("Hello!")
-# Response will reflect the personality defined in your prompt
-```
-
-## Track Everything (Automatic!)
-
-ConnectOnion tracks all agent behavior automatically:
-
-```python
-# Cost and context are tracked on the agent after every task
-print(f"Cost: ${agent.total_cost:.4f}")
-print(f"Context used: {agent.context_percent:.1f}%")
-```
-
-**Output:**
-
-```
-Cost: $0.0004
-Context used: 2.1%
-```
-
-## Real Example
-
-Here's a practical agent in ~10 lines:
-
-```python
-from connectonion import Agent
-
-def write_file(filename: str, content: str) -> str:
-    """Save content to a file."""
-    with open(filename, 'w') as f:
-        f.write(content)
-    return f"Saved to {filename}"
-
-def read_file(filename: str) -> str:
-    """Read a file."""
-    with open(filename, 'r') as f:
-        return f.read()
-
-# Create a file assistant
-assistant = Agent(
-    "file_helper", 
-    tools=[write_file, read_file],
-    max_iterations=8  # File operations are usually straightforward
-)
-
-# Use it
-assistant.input("Save 'Hello World' to greeting.txt")
-assistant.input("What's in greeting.txt?")
-```
-
-## CLI Templates
-
-ConnectOnion uses one capable `co-ai` template. Add skills instead of choosing
-between incompatible project skeletons:
+## 3. Its own email — no DNS
 
 ```bash
-# Create the default co-ai project
-co create my-agent
-
-# One template: the same agent `co ai` runs — files, shell, browser,
-# planning, sub-agents. Specialise it with skills, not another template.
-co skills copy commit
-co deploy --skills ~/skills/linkedin-post-submit
-
-# Initialize in existing directory
-co init                    # Adds .co folder only
-co init --template co-ai   # Adds the full project
+co email inbox
 ```
 
-## Copy & Customize Built-in Tools
-
-Want to customize a built-in tool? Copy it to your project:
+```text
+Inbox: no emails
+Send one: co email send <to> "<subject>" "<body>"
+```
 
 ```bash
-# See what's available
-co copy --list
-
-# Copy a tool to ./tools/
-co copy Gmail
-
-# Copy a plugin to ./plugins/
-co copy re_act
-
-# Copy multiple items
-co copy Gmail Shell memory
+co email send you@example.com "Hello" "Sent by my agent."
 ```
 
-Then import from your local copy instead:
+There is no SendGrid account and no SPF, DKIM or MX records to add.
+→ [co email](/cli/email)
 
-```python
-# Before (from package)
-from connectonion import Gmail
+## 4. Connect your Gmail — no OAuth app
 
-# After (from your copy)
-from tools.gmail import Gmail  # Now you can customize it!
+```bash
+co auth google
 ```
 
-### What Gets Created
-
-```
-my-agent/
-├── agent.py                                              # Main agent implementation
-├── .env                                                  # API keys (auto-configured)
-├── co-vibecoding-principles-docs-contexts-all-in-one.md  # Complete framework docs
-├── .gitignore                                            # Git configuration
-└── .co/                                                  # ConnectOnion metadata
-    ├── host.yaml
-    └── docs/
-        └── co-vibecoding-principles-docs-contexts-all-in-one.md
+```text
+Opening Google consent. Credentials will be saved only on this computer.
+Google connected. Actual granted scopes saved locally. Next: co status
 ```
 
-Learn more about templates in the [Templates Documentation](templates/).
+Consent runs through OpenOnion's Google app, so you create no cloud project and
+no consent screen. The credentials come back encrypted to a one-time key your
+CLI generated. Then:
 
-## Next Steps
+```bash
+co gmail inbox                 # numbered list of recent mail
+co gmail read 1                # one email's full body
+co gmail reply 1 "Thanks, on it."
+co gcalendar today             # today's events
+co gdrive list                 # recent Drive files
+```
 
-Ready for more?
+Outlook works the same way: `co auth microsoft`, then `co outlook inbox`.
+→ [co gmail](/cli/gmail) · [co outlook](/cli/outlook) · [co gcalendar](/cli/gcalendar) · [co gdrive](/cli/gdrive)
 
-- **[CLI Reference](cli/)** - All CLI commands and options
-- **[Templates](templates/)** - Pre-built agent templates
-- **[Agent Guide](concepts/agent.md)** - How agents work
-- **[Tools Guide](concepts/tools.md)** - How tools work
-- **[Examples](examples.md)** - Copy-paste ready code
-- **[API Reference](api.md)** - Detailed documentation
+## 5. A real browser — no Playwright script
 
-## Quick Tips
+```bash
+co browser go_to https://example.com
+co browser get_text
+co browser do "find the pricing page and summarise the plans"
+```
 
-1. **Functions = Tools** (no classes needed!)
-2. **Docstrings = Descriptions** (agent reads these)
-3. **Type hints = Better results** (helps agent understand)
-4. **Logging = Free** (automatic activity tracking to `.co/logs/`)
+`co browser` keeps one real browser open, so a login you finish by hand,
+2FA included, stays valid for every later command. `co browser help` lists
+every function. → [co browser](/cli/browser-command)
 
----
+## 6. Chat apps
 
-## Troubleshooting
+```bash
+co whatsapp listen             # scan the QR once; every message becomes a file
+co whatsapp receive            # the next message, as one JSON line
+co telegram send <chat> "Deploy finished."
+```
 
-### "API key not found"
-Make sure you:
-1. Copied `.env.example` to `.env`
-2. Added your actual API key
-3. Are running from the project directory
+Feishu, Lark and Discord use the same verbs (`listen`, `receive`, `send`,
+`reply`). SMS is `co sms pair`.
+→ [co whatsapp](/cli/whatsapp) · [co telegram](/cli/telegram) · [co discord](/cli/discord) · [co feishu](/cli/feishu) · [co sms](/cli/sms)
 
-### "Permission denied"
-Ensure you have write permissions in the current directory.
+## 7. Plug it into Claude Code and Codex
 
-### "Module not found"
-Install ConnectOnion: `pip install connectonion`
+```bash
+co skills link
+```
 
----
+```text
+            Linking 30 bundled skill(s)
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┓
+┃ Skill                          ┃ claude ┃ codex  ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━┩
+│ agent-identity                 │ linked │ linked │
+│ co-browser                     │ linked │ linked │
+│ co-google                      │ linked │ linked │
+│ co-inbox                       │ linked │ linked │
+│ …                              │        │        │
+Next: What is linked now:  co skills list
+```
 
-**Need help?** Check our [examples](examples.md) or [join Discord](https://discord.gg/4xfD9k8AUF) for support.
+Everything above is a shell command, so a coding agent needs only its shell
+and these skills. Ask Claude Code or Codex to "check my Gmail" and it can run
+`co gmail inbox` itself. → [co skills](/cli/skills)
+
+## 8. Talk to your own agent
+
+```bash
+co ai
+```
+
+`co ai` starts the ConnectOnion AI coding agent and prints a
+`chat.openonion.ai` link. Open it in a browser, or send it to someone: they
+install nothing. `co ai "summarise my unread mail"` runs one prompt and exits.
+→ [co ai](/cli/ai)
+
+## 9. See everything
+
+```bash
+co commands                    # every command and subcommand, one per line
+co <command> --help            # the reference for any of them
+co doctor                      # if something is off
+```
+
+There are 42 top-level commands: memory (`co wiki`), your own servers
+(`co deploy --to`, `co server ssh`), schedules (`co schedule`), remote agents
+(`co call`) and more. → [All co commands](/cli)
+
+## Next
+
+- **Use a different model.** Put your own OpenAI, Anthropic or Google key in
+  `~/.co/keys.env` with `co env set`; managed `co/` models keep working.
+- **Build your own agent in Python.** The same capabilities are Python tools:
+  `co create my-agent`, then read the [Python SDK](/agent).

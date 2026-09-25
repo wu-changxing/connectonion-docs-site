@@ -3,11 +3,11 @@ import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Quick Start — ConnectOnion',
-  description: 'Install ConnectOnion and have a working AI agent in 60 seconds. pip install connectonion, then co create — the project is scaffolded for you. Supports OpenAI, Anthropic, Gemini, and managed keys.',
+  description: 'CLI is all you need. pip install connectonion, then co init: your agent gets an address, a mailbox and $5 of credit. Connect Gmail, a real browser, chat apps and Claude Code — one co command each.',
   alternates: { canonical: 'https://docs.connectonion.com/quickstart' },
   openGraph: {
     title: 'Quick Start — ConnectOnion',
-    description: 'Build your first AI agent in 60 seconds with ConnectOnion.',
+    description: 'Connect your AI agent to email, Gmail, a real browser, chat apps and Claude Code from the command line.',
     url: 'https://docs.connectonion.com/quickstart',
   },
 }
@@ -15,38 +15,22 @@ export const metadata: Metadata = {
 const howToData = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": "How to Build an AI Agent with ConnectOnion",
-  "description": "Install ConnectOnion and create a working AI agent in under 60 seconds. The co create command scaffolds the whole project; you edit the generated files.",
-  "totalTime": "PT1M",
+  "name": "How to connect an AI agent to email, Gmail, a browser and chat apps from the command line",
+  "description": "CLI is all you need: every step is one co command.",
+  "totalTime": "PT5M",
   "tool": [
-    { "@type": "HowToTool", "name": "Python 3.9+" },
+    { "@type": "HowToTool", "name": "Python 3.10+" },
     { "@type": "HowToTool", "name": "pip" }
   ],
   "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Install ConnectOnion",
-      "text": "Run pip install connectonion in your terminal to install the package.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Authenticate for managed keys",
-      "text": "Run co auth to authenticate and receive $5 free managed API credits. No API key required.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Write your tool function",
-      "text": "Write a Python function with type hints and a docstring. ConnectOnion automatically converts it into an AI tool.",
-      "position": 3
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Create an agent and run it",
-      "text": "Create an Agent with your tool: agent = Agent('assistant', tools=[my_function]). Then call agent.input('Do the task') to run it.",
-      "position": 4
-    }
+    { "@type": "HowToStep", "name": "Install ConnectOnion", "text": "Run pip install connectonion. It installs the co command. Python 3.10 or newer.", "position": 1 },
+    { "@type": "HowToStep", "name": "Give your agent an identity", "text": "Run co init. It creates a keypair and 0x address, signs in with $5 of credit for managed models, and gives the agent its own mailbox.", "position": 2 },
+    { "@type": "HowToStep", "name": "Use its own email", "text": "Run co email inbox and co email send. No DNS records or email provider account.", "position": 3 },
+    { "@type": "HowToStep", "name": "Connect Gmail", "text": "Run co auth google, then co gmail inbox. No OAuth app; credentials are saved only on your computer.", "position": 4 },
+    { "@type": "HowToStep", "name": "Drive a real browser", "text": "Run co browser go_to, co browser get_text, or co browser do \"…\" for an AI-driven task.", "position": 5 },
+    { "@type": "HowToStep", "name": "Connect chat apps", "text": "Run co whatsapp listen or co telegram send.", "position": 6 },
+    { "@type": "HowToStep", "name": "Plug into Claude Code and Codex", "text": "Run co skills link to link the bundled skills into both.", "position": 7 },
+    { "@type": "HowToStep", "name": "Talk to your agent", "text": "Run co ai; it prints a chat.openonion.ai link.", "position": 8 }
   ]
 }
 

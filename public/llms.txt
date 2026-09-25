@@ -7,7 +7,7 @@
 - [Complete documentation catalog](https://docs.connectonion.com/docs-index.txt): Every documentation route, description, and available Markdown source; generated with the site.
 
 - [Introduction](https://docs.connectonion.com/): The agent CLI harness, and every co command
-- [Quick Start](https://docs.connectonion.com/quickstart): Install and build your first agent in 60 seconds
+- [Quick Start](https://docs.connectonion.com/quickstart): CLI only: install, co init, then connect email, Gmail, a browser, chat apps and Claude Code
 - [Vibe Coding Guide](https://docs.connectonion.com/vibe-coding): Use AI tools like Cursor to build agents
 - [All co commands](https://docs.connectonion.com/cli): All 42 commands and their subcommands, generated from co commands
 
