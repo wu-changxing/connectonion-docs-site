@@ -433,5 +433,40 @@
     "title": "Technical Documentation Specialist System Prompt | ConnectOnion",
     "description": "Copy the Technical Documentation Specialist prompt into Agent(system_prompt=...) and customize its role instructions, response structure, and interaction rules.",
     "path": "/prompts/examples/technical-writer"
+  },
+  "/cli/gcalendar": {
+    "title": "co gcalendar | ConnectOnion",
+    "description": "List, read, create, update and delete Google Calendar events, find free slots and create Meet links — one command, using your saved Google login.",
+    "path": "/cli/gcalendar"
+  },
+  "/cli/telegram": {
+    "title": "co telegram | ConnectOnion",
+    "description": "Send a plain-text Telegram message from the terminal or an agent with a bot you own. It calls Telegram directly — no OpenOnion credits or credential.",
+    "path": "/cli/telegram"
+  },
+  "/cli/feishu": {
+    "title": "co feishu and co lark | ConnectOnion",
+    "description": "Turn a Feishu or Lark bot into a directory of files: listen, receive the next message as JSON, send and reply from the terminal.",
+    "path": "/cli/feishu"
+  },
+  "/cli/sms": {
+    "title": "co sms | ConnectOnion",
+    "description": "Pair an Android phone, read locally decrypted SMS and revoke devices — the agent gets an SMS inbox from one command.",
+    "path": "/cli/sms"
+  },
+  "/cli/proxy": {
+    "title": "co proxy | ConnectOnion",
+    "description": "Share this computer's internet connection with an agent you authorize, so it browses from your network.",
+    "path": "/cli/proxy"
+  },
+  "/cli/server": {
+    "title": "co server | ConnectOnion",
+    "description": "Register a machine, preflight it and name the requirement that failed, then deploy onto it with co deploy --to.",
+    "path": "/cli/server"
+  },
+  "/cli/youtube": {
+    "title": "co youtube | ConnectOnion",
+    "description": "Read your channel and uploads, and preview an upload before it happens, with your saved Google login — like co gmail.",
+    "path": "/cli/youtube"
   }
 }

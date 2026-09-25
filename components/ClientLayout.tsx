@@ -19,8 +19,8 @@ import { HeadingAnchors } from './HeadingAnchors'
 
 const docNavItems = [
   { href: '/quickstart', label: 'Quickstart', prefixes: ['/quickstart', '/vibe-coding'] },
-  { href: '/cli', label: 'CLI', prefixes: ['/cli'] },
-  { href: '/agent', label: 'Agent API', prefixes: ['/agent', '/prompts', '/tools', '/models', '/llm_do', '/on_events', '/plugin'] },
+  { href: '/cli', label: 'CLI', prefixes: ['/cli', '/deploy'] },
+  { href: '/agent', label: 'Python SDK', prefixes: ['/agent', '/prompts', '/tools', '/models', '/llm_do', '/on_events', '/plugin'] },
   { href: '/host', label: 'Network', prefixes: ['/host', '/connect', '/websocket', '/session-reconnect', '/threat-model'] },
   { href: '/useful-tools', label: 'Tools', prefixes: ['/useful-tools', '/memory', '/web-fetch', '/agent-emails', '/gmail', '/outlook'] },
   { href: '/useful-plugins', label: 'Plugins', prefixes: ['/useful-plugins'] },

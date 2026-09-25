@@ -1,15 +1,36 @@
 # ConnectOnion Documentation
 
-> ConnectOnion is a simple, elegant open-source Python framework for building production-ready AI agents. Philosophy: "Keep simple things simple, make complicated things possible." 2-line agent creation, functions as tools, built-in approval system, plugin architecture, and multi-agent networking.
+> ConnectOnion is the agent CLI harness. One `co` command each connects your AI agent to Gmail, Outlook, Google Calendar, WhatsApp, Telegram, Feishu, SMS, a real logged-in browser, Google Drive and a Synology NAS, gives it its own 0x address and mailbox, and plugs it into Claude Code and Codex — no OAuth app, no DNS records, no Playwright script. It also ships a Python SDK (the Agent class, tools, plugins) for building your own agent. Open source, Apache-2.0.
 
 ## Getting Started
 
 - [Complete documentation catalog](https://docs.connectonion.com/docs-index.txt): Every documentation route, description, and available Markdown source; generated with the site.
 
-- [Introduction](https://docs.connectonion.com/): Overview of ConnectOnion framework
+- [Introduction](https://docs.connectonion.com/): The agent CLI harness, and every co command
 - [Quick Start](https://docs.connectonion.com/quickstart): Install and build your first agent in 60 seconds
 - [Vibe Coding Guide](https://docs.connectonion.com/vibe-coding): Use AI tools like Cursor to build agents
-- [CLI Reference](https://docs.connectonion.com/cli): All CLI commands (co create, co init, co auth, co doctor)
+- [All co commands](https://docs.connectonion.com/cli): The whole CLI harness on one page
+
+## CLI: connect your agent
+
+- [co init](https://docs.connectonion.com/cli/init): The agent's identity: a keypair and 0x address
+- [co auth](https://docs.connectonion.com/cli/auth): Sign in to OpenOnion, or connect Google, Microsoft, Feishu or Lark
+- [co email](https://docs.connectonion.com/cli/email): The agent's own mailbox, with no DNS setup
+- [co gmail](https://docs.connectonion.com/cli/gmail): Your Gmail account from the terminal
+- [co outlook](https://docs.connectonion.com/cli/outlook): Your Outlook mail, contacts and calendar
+- [co gcalendar](https://docs.connectonion.com/cli/gcalendar): Google Calendar events and Meet links
+- [co whatsapp](https://docs.connectonion.com/cli/whatsapp): WhatsApp as an inbox of files
+- [co telegram](https://docs.connectonion.com/cli/telegram): Send Telegram messages from a bot you own
+- [co feishu](https://docs.connectonion.com/cli/feishu): A Feishu or Lark bot as an inbox
+- [co sms](https://docs.connectonion.com/cli/sms): An encrypted SMS inbox from a paired Android phone
+- [co browser](https://docs.connectonion.com/cli/browser-command): Drive one persistent, logged-in browser
+- [co proxy](https://docs.connectonion.com/cli/proxy): Lend an agent this computer's internet connection
+- [co gdrive](https://docs.connectonion.com/cli/gdrive): Google Drive files
+- [co syno](https://docs.connectonion.com/cli/synology): A Synology NAS
+- [co youtube](https://docs.connectonion.com/cli/youtube): The YouTube Data API
+- [co skills](https://docs.connectonion.com/cli/skills): Link ConnectOnion's skills into Claude Code and Codex
+- [co call](https://docs.connectonion.com/cli/call): Run one command on a remote agent
+- [co server](https://docs.connectonion.com/cli/server): Servers you own, for co deploy --to
 - [co ai](https://docs.connectonion.com/cli/ai): Built-in AI coding assistant that understands ConnectOnion
 - [co browser](https://docs.connectonion.com/cli/browser-command): Browser automation and screenshot tool
 - [co copy](https://docs.connectonion.com/cli/copy): Copy built-in tools, plugins, skills, and prompts to your project for customization
