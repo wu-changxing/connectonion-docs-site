@@ -68,20 +68,20 @@ export default function HomePage() {
         <div className="w-full max-w-3xl mx-auto text-center relative z-10">
           {/* Brand eyebrow */}
           <div className="flex items-center justify-center gap-2 mb-5">
-            <span className="text-sm font-medium text-gray-500">ConnectOnion</span>
+            <span className="text-sm font-medium text-gray-500">ConnectOnion · the agent CLI harness</span>
             <span className="text-gray-400">·</span>
             <span className="px-2 py-0.5 bg-green-50 text-green-700 text-xs font-semibold rounded-full">Stable v{STABLE_VERSION}</span>
           </div>
 
           {/* The brand line, the same as connectonion.com (the landing repo's
-              DESIGN.md §2b): the category is the H1, what you get is the subline,
+              DESIGN.md §2b): the H1 is the founder's "CLI is all you need.",
+              the category sits in the eyebrow above it, what you get is the subline,
               and the proof is every command, each linking to its page. This used to
               be "Your agent is already written." over a Python file — true, but it
               sold the SDK, and the product people install is the CLI. Only commands
               in `co commands` for the release go in CLI_GROUPS. */}
           <h1 className="heading-1 mb-4 text-balance">
-            The agent{' '}
-            <span className="accent-italic text-[1.05em]">CLI harness.</span>
+            <span className="accent-italic text-[1.05em]">CLI</span> is all you need.
           </h1>
 
           <p className="text-base sm:text-lg text-gray-600 mb-7 leading-relaxed text-balance">
