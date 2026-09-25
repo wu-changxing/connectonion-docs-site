@@ -31,10 +31,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   alternates: { canonical: BASE_URL },
   title: {
-    default: "ConnectOnion - Python AI Agents from a Working Template",
+    default: "ConnectOnion Docs — the agent CLI harness",
     template: "%s",
   },
-  description: "ConnectOnion is an open-source Python toolkit for AI agents. `co create` scaffolds a project that already runs — shell, file editing, search and a model wired in — and you edit it from there. Supports OpenAI, Anthropic, and Gemini.",
+  description: "ConnectOnion is the agent CLI harness. One `co` command each connects your AI agent to Gmail, Outlook, Google Calendar, WhatsApp, Telegram, Feishu, SMS, a real browser, Google Drive and a Synology NAS, and plugs it into Claude Code and Codex. Open source, Apache-2.0.",
   keywords: "ConnectOnion, Python agent framework, AI agents, LLM tools, OpenAI agents, build AI agents, Python AI framework, agent framework, function calling, tool use",
   authors: [{ name: "ConnectOnion Team" }],
   creator: "ConnectOnion",
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "ConnectOnion - Python AI Agents from a Working Template",
-    description: "One command scaffolds an agent that already runs. Plain Python functions become tools automatically. Supports OpenAI, Anthropic, and Gemini.",
+    title: "ConnectOnion Docs — the agent CLI harness",
+    description: "One `co` command each connects your AI agent to Gmail, Outlook, WhatsApp, Telegram, a real browser, Google Drive, Claude Code and Codex. No OAuth app, no DNS records.",
     url: BASE_URL,
     siteName: "ConnectOnion Docs",
     type: "website",
@@ -62,14 +62,14 @@ export const metadata: Metadata = {
         url: `${BASE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "ConnectOnion - Python AI Agents from a Working Template",
+        alt: "ConnectOnion Docs — the agent CLI harness",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ConnectOnion - Python AI Agents from a Working Template",
-    description: "One command scaffolds an agent that already runs. Plain Python functions become tools automatically.",
+    title: "ConnectOnion Docs — the agent CLI harness",
+    description: "One `co` command each connects your AI agent to Gmail, Outlook, WhatsApp, Telegram, a real browser, Google Drive, Claude Code and Codex. No OAuth app, no DNS records.",
     images: [`${BASE_URL}/og-image.png`],
     creator: "@connectonion",
   },
@@ -94,7 +94,7 @@ const structuredData = {
   "alternateName": "Connect Onion",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Python 3.9+",
-  "description": "ConnectOnion is an open-source Python toolkit for AI agents. The co CLI scaffolds a project that already runs, with shell, file editing, search and a model wired in, and plain Python functions become tools automatically.",
+  "description": "ConnectOnion is the agent CLI harness. One co command each connects an AI agent to Gmail, Outlook, Google Calendar, WhatsApp, Telegram, Feishu, SMS, a real browser, Google Drive and a Synology NAS, and plugs it into Claude Code and Codex. It also ships a Python SDK for building your own agent.",
   "url": BASE_URL,
   "author": {
     "@type": "Organization",
@@ -131,7 +131,7 @@ const organizationData = {
     "https://pypi.org/project/connectonion/",
     "https://discord.gg/4xfD9k8AUF"
   ],
-  "description": "ConnectOnion - Open-source Python toolkit for building AI agents from a working template"
+  "description": "ConnectOnion — the agent CLI harness. Open source, Apache-2.0."
 };
 
 // Describe the documentation collection without advertising a nonexistent search endpoint.

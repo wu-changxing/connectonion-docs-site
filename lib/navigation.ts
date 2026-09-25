@@ -18,7 +18,7 @@ import { FaChrome } from 'react-icons/fa'
 
 // Simple, flat navigation structure with all metadata in one place
 export const navigation = [
-  // ─── Getting Started ───────────────────────────────────────────
+  // ─── Getting Started ─────────────────────────────────────────────
   {
     title: 'Introduction',
     href: '/',
@@ -44,205 +44,274 @@ export const navigation = [
     section: 'Getting Started',
     keywords: ['cursor', 'ai', 'vibe', 'coding', 'drag', 'drop', 'docs'],
     prev: { href: '/quickstart', title: 'Quick Start' },
-    next: { href: '/deploy', title: 'Deploy' }
+    next: { href: '/cli', title: 'All co commands' }
   },
-  // ─── CLI ───────────────────────────────────────────────────────
+  // ─── CLI: Start Here ─────────────────────────────────────────────
   {
-    title: 'CLI Reference',
+    title: 'All co commands',
     href: '/cli',
     icon: HiOutlineCommandLine,
-    section: 'CLI',
+    section: 'CLI: Start Here',
     keywords: ['command', 'terminal', 'co', 'commands', 'cli'],
-    prev: { href: '/deploy', title: 'Deploy' },
-    next: { href: '/cli/create', title: 'co create' }
-  },
-  {
-    title: 'co create',
-    href: '/cli/create',
-    icon: HiOutlineFolderPlus,
-    section: 'CLI',
-    parent: '/cli',
-    keywords: ['create', 'project', 'scaffold', 'new', 'template', 'minimal', 'web-research', 'playwright'],
-    prev: { href: '/cli', title: 'CLI Reference' },
+    prev: { href: '/vibe-coding', title: 'Vibe Coding Guide' },
     next: { href: '/cli/init', title: 'co init' }
   },
   {
     title: 'co init',
     href: '/cli/init',
     icon: HiOutlineRocketLaunch,
-    section: 'CLI',
-    parent: '/cli',
+    section: 'CLI: Start Here',
     keywords: ['init', 'initialize', 'existing', 'project', '.env', 'merge', 'docs'],
-    prev: { href: '/cli/create', title: 'co create' },
+    prev: { href: '/cli', title: 'All co commands' },
     next: { href: '/cli/auth', title: 'co auth' }
   },
   {
     title: 'co auth',
     href: '/cli/auth',
     icon: HiOutlineKey,
-    section: 'CLI',
-    parent: '/cli',
+    section: 'CLI: Start Here',
     keywords: ['auth', 'authenticate', 'login', 'token', 'managed', 'keys', 'google', 'oauth'],
     prev: { href: '/cli/init', title: 'co init' },
-    next: { href: '/cli/copy', title: 'co copy' }
+    next: { href: '/cli/setup', title: 'co setup' }
   },
   {
-    title: 'co copy',
-    href: '/cli/copy',
-    icon: HiOutlineDocumentDuplicate,
-    section: 'CLI',
-    parent: '/cli',
-    keywords: ['copy', 'tools', 'plugins', 'prompts', 'templates', 'reuse'],
+    title: 'co setup',
+    href: '/cli/setup',
+    icon: HiOutlineCog,
+    section: 'CLI: Start Here',
+    keywords: ['setup', 'identity', 'agent.json', 'profile', 'keys', 'publish', 'alias', 'bio', 'skill library'],
     prev: { href: '/cli/auth', title: 'co auth' },
-    next: { href: '/cli/ai', title: 'co ai' }
+    next: { href: '/cli/env', title: 'co env' }
   },
   {
-    title: 'co ai',
-    href: '/cli/ai',
-    icon: HiOutlineSparkles,
-    section: 'CLI',
-    parent: '/cli',
-    keywords: ['ai', 'coding', 'agent', 'terminal', 'one-shot', 'interactive', 'web', 'server'],
-    prev: { href: '/cli/copy', title: 'co copy' },
-    next: { href: '/cli/browser-command', title: 'co browser' }
-  },
-  {
-    title: 'co browser',
-    href: '/cli/browser-command',
-    icon: HiOutlineCamera,
-    section: 'CLI',
-    parent: '/cli',
-    keywords: ['browser', 'automation', 'session', 'daemon', 'function', 'do', 'agent', 'patchright', 'playwright', 'screenshot', 'scripting', 'headless', 'tab', 'multi-agent', 'CO_WHO', 'exit codes', 'stealth'],
-    prev: { href: '/cli/ai', title: 'co ai' },
+    title: 'co env',
+    href: '/cli/env',
+    icon: HiOutlineCog,
+    section: 'CLI: Start Here',
+    keywords: ['environment', 'keys', 'configuration', 'secrets'],
+    prev: { href: '/cli/setup', title: 'co setup' },
     next: { href: '/cli/email', title: 'co email' }
   },
+  // ─── CLI: Mail & Calendar ────────────────────────────────────────
   {
     title: 'co email',
     href: '/cli/email',
     icon: HiOutlineEnvelope,
-    section: 'CLI',
-    parent: '/cli',
+    section: 'CLI: Mail & Calendar',
     keywords: ['email', 'agent email', 'inbox', 'send', 'read', 'mail.openonion.ai', 'name', 'upgrade', 'domain', 'quota'],
-    prev: { href: '/cli/browser-command', title: 'co browser' },
+    prev: { href: '/cli/env', title: 'co env' },
     next: { href: '/cli/gmail', title: 'co gmail' }
   },
   {
     title: 'co gmail',
     href: '/cli/gmail',
     icon: HiOutlineInbox,
-    section: 'CLI',
-    parent: '/cli',
+    section: 'CLI: Mail & Calendar',
     keywords: ['gmail', 'google', 'inbox', 'unread', 'read', 'reply', 'send', 'sent', 'search', 'query', 'oauth', 'co auth google', 'mail', 'cc', 'bcc', 'stdin'],
     prev: { href: '/cli/email', title: 'co email' },
+    next: { href: '/cli/outlook', title: 'co outlook' }
+  },
+  {
+    title: 'co outlook',
+    href: '/cli/outlook',
+    icon: HiOutlineEnvelope,
+    section: 'CLI: Mail & Calendar',
+    keywords: ['Microsoft', 'calendar', 'Teams', 'reply'],
+    prev: { href: '/cli/gmail', title: 'co gmail' },
+    next: { href: '/cli/gcalendar', title: 'co gcalendar' }
+  },
+  {
+    title: 'co gcalendar',
+    href: '/cli/gcalendar',
+    icon: HiOutlineCalendar,
+    section: 'CLI: Mail & Calendar',
+    keywords: ['google calendar', 'meet', 'events', 'free slots'],
+    prev: { href: '/cli/outlook', title: 'co outlook' },
+    next: { href: '/cli/whatsapp', title: 'co whatsapp' }
+  },
+  // ─── CLI: Chat Apps ──────────────────────────────────────────────
+  {
+    title: 'co whatsapp',
+    href: '/cli/whatsapp',
+    icon: HiOutlineEnvelope,
+    section: 'CLI: Chat Apps',
+    keywords: ['WhatsApp', 'inbox', 'group', 'mention', 'linked device', 'edit', 'delete', 'bot'],
+    prev: { href: '/cli/gcalendar', title: 'co gcalendar' },
+    next: { href: '/cli/telegram', title: 'co telegram' }
+  },
+  {
+    title: 'co telegram',
+    href: '/cli/telegram',
+    icon: VscComment,
+    section: 'CLI: Chat Apps',
+    keywords: ['telegram', 'bot', 'send', 'message'],
+    prev: { href: '/cli/whatsapp', title: 'co whatsapp' },
+    next: { href: '/cli/feishu', title: 'co feishu · co lark' }
+  },
+  {
+    title: 'co feishu · co lark',
+    href: '/cli/feishu',
+    icon: VscComment,
+    section: 'CLI: Chat Apps',
+    keywords: ['feishu', 'lark', 'bot', 'inbox', 'chat'],
+    prev: { href: '/cli/telegram', title: 'co telegram' },
+    next: { href: '/cli/sms', title: 'co sms' }
+  },
+  {
+    title: 'co sms',
+    href: '/cli/sms',
+    icon: HiOutlineChatBubbleBottomCenterText,
+    section: 'CLI: Chat Apps',
+    keywords: ['sms', 'android', 'phone', 'pair', 'inbox'],
+    prev: { href: '/cli/feishu', title: 'co feishu · co lark' },
+    next: { href: '/cli/browser-command', title: 'co browser' }
+  },
+  // ─── CLI: Browser & Files ────────────────────────────────────────
+  {
+    title: 'co browser',
+    href: '/cli/browser-command',
+    icon: HiOutlineCamera,
+    section: 'CLI: Browser & Files',
+    keywords: ['browser', 'automation', 'session', 'daemon', 'function', 'do', 'agent', 'patchright', 'playwright', 'screenshot', 'scripting', 'headless', 'tab', 'multi-agent', 'CO_WHO', 'exit codes', 'stealth'],
+    prev: { href: '/cli/sms', title: 'co sms' },
+    next: { href: '/cli/proxy', title: 'co proxy' }
+  },
+  {
+    title: 'co proxy',
+    href: '/cli/proxy',
+    icon: HiOutlineGlobeAlt,
+    section: 'CLI: Browser & Files',
+    keywords: ['proxy', 'internet', 'residential', 'network'],
+    prev: { href: '/cli/browser-command', title: 'co browser' },
     next: { href: '/cli/gdrive', title: 'co gdrive' }
   },
   {
     title: 'co gdrive',
     href: '/cli/gdrive',
     icon: HiOutlineFolderOpen,
-    section: 'CLI',
-    parent: '/cli',
+    section: 'CLI: Browser & Files',
     keywords: ['gdrive', 'google drive', 'drive', 'files', 'list', 'search', 'download', 'upload', 'get', 'put', 'rm', 'trash', 'export', 'google docs', 'sheets', 'slides', 'scope', 'oauth'],
-    prev: { href: '/cli/gmail', title: 'co gmail' },
-    next: { href: '/cli/setup', title: 'co setup' }
-  },
-  {
-    title: 'co env',
-    href: '/cli/env',
-    icon: HiOutlineCog,
-    section: 'CLI',
-    parent: '/cli',
-    keywords: ['environment', 'keys', 'configuration', 'secrets']
-  },
-  {
-    title: 'co schedule',
-    href: '/cli/schedule',
-    icon: HiOutlineCog,
-    section: 'CLI',
-    parent: '/cli',
-    keywords: ['schedule', 'schedule.yaml', 'cron', 'recurring', 'every', 'at', 'pause', 'resume', 'run now', 'timer']
+    prev: { href: '/cli/proxy', title: 'co proxy' },
+    next: { href: '/cli/synology', title: 'co syno' }
   },
   {
     title: 'co syno',
     href: '/cli/synology',
     icon: HiOutlineFolderOpen,
-    section: 'CLI',
-    parent: '/cli',
-    keywords: ['NAS', 'Synology', 'share', 'password', 'expiry', 'revoke']
-  },
-  {
-    title: 'co outlook',
-    href: '/cli/outlook',
-    icon: HiOutlineEnvelope,
-    section: 'CLI',
-    parent: '/cli',
-    keywords: ['Microsoft', 'calendar', 'Teams', 'reply']
-  },
-  {
-    title: 'co whatsapp',
-    href: '/cli/whatsapp',
-    icon: HiOutlineEnvelope,
-    section: 'CLI',
-    parent: '/cli',
-    keywords: ['WhatsApp', 'inbox', 'group', 'mention', 'linked device', 'edit', 'delete', 'bot']
-  },
-  {
-    title: 'co setup',
-    href: '/cli/setup',
-    icon: HiOutlineCog,
-    section: 'CLI',
-    parent: '/cli',
-    keywords: ['setup', 'identity', 'agent.json', 'profile', 'keys', 'publish', 'alias', 'bio', 'skill library'],
+    section: 'CLI: Browser & Files',
+    keywords: ['NAS', 'Synology', 'share', 'password', 'expiry', 'revoke'],
     prev: { href: '/cli/gdrive', title: 'co gdrive' },
+    next: { href: '/cli/youtube', title: 'co youtube' }
+  },
+  {
+    title: 'co youtube',
+    href: '/cli/youtube',
+    icon: HiOutlinePhoto,
+    section: 'CLI: Browser & Files',
+    keywords: ['youtube', 'video', 'upload', 'channel'],
+    prev: { href: '/cli/synology', title: 'co syno' },
     next: { href: '/cli/skills', title: 'co skills' }
   },
+  // ─── CLI: Coding Agents ──────────────────────────────────────────
   {
     title: 'co skills',
     href: '/cli/skills',
     icon: HiOutlinePuzzlePiece,
-    section: 'CLI',
-    parent: '/cli',
+    section: 'CLI: Coding Agents',
     keywords: ['skills', 'discover', 'copy', 'link', 'manifest', 'import', 'export', 'symlink', 'claude', 'codex', 'cursor', 'kiro', 'SKILL.md', 'index.json'],
-    prev: { href: '/cli/setup', title: 'co setup' },
+    prev: { href: '/cli/youtube', title: 'co youtube' },
     next: { href: '/cli/sub', title: 'co sub' }
   },
   {
     title: 'co sub',
     href: '/cli/sub',
     icon: HiOutlineArrowPath,
-    section: 'CLI',
-    parent: '/cli',
+    section: 'CLI: Coding Agents',
     keywords: ['sub', 'subscribe', 'follow', 'publisher', 'sync', 'mirror', 'fan-out', 'relay', 'subscriptions', '0x address'],
     prev: { href: '/cli/skills', title: 'co skills' },
-    next: { href: '/agent', title: 'Agent' }
+    next: { href: '/cli/ai', title: 'co ai' }
+  },
+  // ─── CLI: Run & Ship ─────────────────────────────────────────────
+  {
+    title: 'co ai',
+    href: '/cli/ai',
+    icon: HiOutlineSparkles,
+    section: 'CLI: Run & Ship',
+    keywords: ['ai', 'coding', 'agent', 'terminal', 'one-shot', 'interactive', 'web', 'server'],
+    prev: { href: '/cli/sub', title: 'co sub' },
+    next: { href: '/cli/create', title: 'co create' }
+  },
+  {
+    title: 'co create',
+    href: '/cli/create',
+    icon: HiOutlineFolderPlus,
+    section: 'CLI: Run & Ship',
+    keywords: ['create', 'project', 'scaffold', 'new', 'template', 'minimal', 'web-research', 'playwright'],
+    prev: { href: '/cli/ai', title: 'co ai' },
+    next: { href: '/cli/copy', title: 'co copy' }
+  },
+  {
+    title: 'co copy',
+    href: '/cli/copy',
+    icon: HiOutlineDocumentDuplicate,
+    section: 'CLI: Run & Ship',
+    keywords: ['copy', 'tools', 'plugins', 'prompts', 'templates', 'reuse'],
+    prev: { href: '/cli/create', title: 'co create' },
+    next: { href: '/cli/call', title: 'co call' }
+  },
+  {
+    title: 'co call',
+    href: '/cli/call',
+    icon: VscServerProcess,
+    section: 'CLI: Run & Ship',
+    keywords: ['call', 'remote agent', 'address', 'no llm'],
+    prev: { href: '/cli/copy', title: 'co copy' },
+    next: { href: '/deploy', title: 'Deploy' }
   },
   {
     title: 'Deploy',
     href: '/deploy',
     icon: HiOutlineArrowUpTray,
-    section: 'Getting Started',
+    section: 'CLI: Run & Ship',
     difficulty: 'New',
     keywords: ['deploy', 'hosting', 'cloud', 'production', 'docker', 'gcp', 'agents'],
-    prev: { href: '/vibe-coding', title: 'Vibe Coding' },
-    next: { href: '/cli', title: 'CLI' }
+    prev: { href: '/cli/call', title: 'co call' },
+    next: { href: '/cli/server', title: 'co server' }
   },
-
-  // ─── Agent API ─────────────────────────────────────────────
+  {
+    title: 'co server',
+    href: '/cli/server',
+    icon: HiOutlineServerStack,
+    section: 'CLI: Run & Ship',
+    keywords: ['server', 'ssh', 'deploy --to', 'vps', 'preflight'],
+    prev: { href: '/deploy', title: 'Deploy' },
+    next: { href: '/cli/schedule', title: 'co schedule' }
+  },
+  {
+    title: 'co schedule',
+    href: '/cli/schedule',
+    icon: HiOutlineCog,
+    section: 'CLI: Run & Ship',
+    keywords: ['schedule', 'schedule.yaml', 'cron', 'recurring', 'every', 'at', 'pause', 'resume', 'run now', 'timer'],
+    prev: { href: '/cli/server', title: 'co server' },
+    next: { href: '/agent', title: 'Agent' }
+  },
+  // ─── Python SDK: Agent ───────────────────────────────────────────
   {
     title: 'Agent',
     href: '/agent',
     icon: HiOutlineUsers,
-    section: 'Agent API',
+    section: 'Python SDK: Agent',
     difficulty: 'Essential',
     keywords: ['agent', 'create', 'orchestrator', 'core', 'llm', 'conversation', 'iteration'],
-    prev: { href: '/cli/sub', title: 'co sub' },
+    prev: { href: '/cli/schedule', title: 'co schedule' },
     next: { href: '/prompts', title: 'System Prompts' }
   },
   {
     title: 'System Prompts',
     href: '/prompts',
     icon: HiOutlineChatBubbleBottomCenterText,
-    section: 'Agent API',
+    section: 'Python SDK: Agent',
     difficulty: 'Start Here',
     keywords: ['template', 'prompt', 'system', 'message', 'personality', 'behavior'],
     prev: { href: '/agent', title: 'Agent' },
@@ -252,7 +321,7 @@ export const navigation = [
     title: 'Prompt Formats',
     href: '/prompts/formats',
     icon: HiOutlineDocumentText,
-    section: 'Agent API',
+    section: 'Python SDK: Agent',
     parent: '/prompts',
     keywords: ['format', 'prompt', 'template', 'syntax'],
     prev: { href: '/prompts', title: 'System Prompts' },
@@ -262,7 +331,7 @@ export const navigation = [
     title: 'Tools',
     href: '/tools',
     icon: HiOutlineCodeBracket,
-    section: 'Agent API',
+    section: 'Python SDK: Agent',
     keywords: ['function', 'utility', 'actions', 'capabilities', 'tools'],
     prev: { href: '/prompts/formats', title: 'Prompt Formats' },
     next: { href: '/models', title: 'Models' }
@@ -271,7 +340,7 @@ export const navigation = [
     title: 'Models',
     href: '/models',
     icon: HiOutlineCpuChip,
-    section: 'Agent API',
+    section: 'Python SDK: Agent',
     keywords: ['model', 'gpt', 'gemini', 'claude', 'anthropic', 'openai', 'google', 'llm', 'ai'],
     prev: { href: '/tools', title: 'Tools' },
     next: { href: '/models/pricing', title: 'Pricing' }
@@ -280,7 +349,7 @@ export const navigation = [
     title: 'Pricing',
     href: '/models/pricing',
     icon: HiOutlineCurrencyDollar,
-    section: 'Agent API',
+    section: 'Python SDK: Agent',
     parent: '/models',
     keywords: ['pricing', 'cost', 'credits', 'tokens', 'billing', 'managed keys', 'purchase', 'pay', 'price'],
     prev: { href: '/models', title: 'Models' },
@@ -290,7 +359,7 @@ export const navigation = [
     title: 'LLM Function',
     href: '/llm_do',
     icon: HiOutlineSparkles,
-    section: 'Agent API',
+    section: 'Python SDK: Agent',
     keywords: ['ai', 'model', 'openai', 'language', 'llm_do', 'direct', 'gemini', 'anthropic', 'claude'],
     prev: { href: '/models/pricing', title: 'Pricing' },
     next: { href: '/on_events', title: 'Event System (on_events)' }
@@ -299,7 +368,7 @@ export const navigation = [
     title: 'Event System (on_events)',
     href: '/on_events',
     icon: HiOutlineChartBarSquare,
-    section: 'Agent API',
+    section: 'Python SDK: Agent',
     difficulty: 'NEW',
     keywords: ['events', 'on_events', 'hooks', 'lifecycle', 'monitoring', 'after_llm', 'before_tool', 'after_tool', 'on_error', 'after_user_input', 'before_llm'],
     prev: { href: '/llm_do', title: 'LLM Function' },
@@ -309,19 +378,18 @@ export const navigation = [
     title: 'Plugin System',
     href: '/plugin',
     icon: HiOutlinePuzzlePiece,
-    section: 'Agent API',
+    section: 'Python SDK: Agent',
     difficulty: 'NEW',
     keywords: ['plugin', 'plugins', 'extension', 'reusable', 'events', 'custom', 'create', 'build'],
     prev: { href: '/on_events', title: 'Event System (on_events)' },
     next: { href: '/host', title: 'host()' }
   },
-
-  // ─── Network ───────────────────────────────────────────────────
+  // ─── Python SDK: Network ─────────────────────────────────────────
   {
     title: 'host()',
     href: '/host',
     icon: HiOutlineWifi,
-    section: 'Network',
+    section: 'Python SDK: Network',
     difficulty: 'Essential',
     keywords: ['host', 'serve', 'network', 'remote', 'relay', 'websocket', 'distributed', 'http', 'api', 'ed25519'],
     prev: { href: '/plugin', title: 'Plugin System' },
@@ -331,7 +399,7 @@ export const navigation = [
     title: 'Connect to Agents',
     href: '/connect',
     icon: VscServerProcess,
-    section: 'Network',
+    section: 'Python SDK: Network',
     difficulty: 'Essential',
     keywords: ['connect', 'remote', 'network', 'relay', 'distributed', 'client', 'remote agent', 'proxy'],
     prev: { href: '/host', title: 'host()' },
@@ -341,7 +409,7 @@ export const navigation = [
     title: 'Dashboard',
     href: '/dashboard',
     icon: HiOutlineRectangleGroup,
-    section: 'Network',
+    section: 'Python SDK: Network',
     difficulty: 'NEW',
     keywords: ['dashboard', 'home', 'home page', 'dashboard.html', 'ui', 'buttons', 'skill button', 'iframe', 'landing', 'ochat', 'chat client'],
     prev: { href: '/connect', title: 'Connect to Agents' },
@@ -351,7 +419,7 @@ export const navigation = [
     title: 'WebSocket Protocol',
     href: '/websocket-protocol',
     icon: HiOutlineCodeBracket,
-    section: 'Network',
+    section: 'Python SDK: Network',
     keywords: ['websocket', 'protocol', 'connect', 'input', 'output', 'session', 'message', 'auth', 'ping', 'pong', 'reconnect', 'ed25519', 'dashboard_snapshot'],
     prev: { href: '/dashboard', title: 'Dashboard' },
     next: { href: '/session-reconnect', title: 'Session Reconnect' }
@@ -360,7 +428,7 @@ export const navigation = [
     title: 'Session Reconnect',
     href: '/session-reconnect',
     icon: HiOutlineArrowPath,
-    section: 'Network',
+    section: 'Python SDK: Network',
     keywords: ['reconnect', 'websocket', 'session', 'recovery', 'disconnect', 'ping', 'pong', 'cleanup', 'merge'],
     prev: { href: '/websocket-protocol', title: 'WebSocket Protocol' },
     next: { href: '/threat-model', title: 'Threat Model' }
@@ -369,18 +437,17 @@ export const navigation = [
     title: 'Threat Model',
     href: '/threat-model',
     icon: HiOutlineShieldCheck,
-    section: 'Network',
+    section: 'Python SDK: Network',
     keywords: ['security', 'threat', 'risk', 'safety', 'vulnerability'],
     prev: { href: '/session-reconnect', title: 'Session Reconnect' },
     next: { href: '/features/permissions', title: 'Permissions' }
   },
-
-  // ─── Features ──────────────────────────────────────────────────
+  // ─── Python SDK: Features ────────────────────────────────────────
   {
     title: 'Permissions',
     href: '/features/permissions',
     icon: HiOutlineShieldCheck,
-    section: 'Features',
+    section: 'Python SDK: Features',
     difficulty: 'NEW',
     keywords: ['permissions', 'approval', 'security', 'safe tools', 'skills', 'snapshot', 'restore', 'unified'],
     prev: { href: '/threat-model', title: 'Threat Model' },
@@ -390,7 +457,7 @@ export const navigation = [
     title: 'Skills',
     href: '/features/skills',
     icon: HiOutlineCommandLine,
-    section: 'Features',
+    section: 'Python SDK: Features',
     difficulty: 'NEW',
     keywords: ['skills', 'slash command', 'workflow', 'automation', 'git', 'commit', 'permission', 'scope'],
     prev: { href: '/features/permissions', title: 'Permissions' },
@@ -400,7 +467,7 @@ export const navigation = [
     title: 'Audio Transcription',
     href: '/features/transcribe',
     icon: HiOutlineMicrophone,
-    section: 'Features',
+    section: 'Python SDK: Features',
     difficulty: 'New',
     keywords: ['transcribe', 'audio', 'speech', 'voice', 'text', 'gemini', 'mp3', 'wav'],
     prev: { href: '/features/skills', title: 'Skills' },
@@ -410,18 +477,17 @@ export const navigation = [
     title: 'Trust',
     href: '/features/trust',
     icon: HiOutlineShieldCheck,
-    section: 'Features',
+    section: 'Python SDK: Features',
     keywords: ['security', 'safety', 'trust', 'permission', 'multi-agent', 'verification'],
     prev: { href: '/features/transcribe', title: 'Audio Transcription' },
     next: { href: '/useful-tools', title: 'Useful Tools' }
   },
-
-  // ─── Useful Tools ─────────────────────────────────────────────
+  // ─── Python SDK: Tools ───────────────────────────────────────────
   {
     title: 'Useful Tools',
     href: '/useful-tools',
     icon: HiOutlineWrench,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     keywords: ['tools', 'useful_tools', 'integrations', 'gmail', 'outlook', 'memory', 'calendar'],
     prev: { href: '/features/trust', title: 'Trust' },
     next: { href: '/memory', title: 'Memory' }
@@ -430,7 +496,7 @@ export const navigation = [
     title: 'Memory',
     href: '/memory',
     icon: HiOutlineCpuChip,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     difficulty: 'New',
     keywords: ['memory', 'storage', 'persistence', 'remember', 'database', 'rag'],
     prev: { href: '/useful-tools', title: 'Useful Tools' },
@@ -440,7 +506,7 @@ export const navigation = [
     title: 'WebFetch',
     href: '/web-fetch',
     icon: HiOutlineGlobeAlt,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     difficulty: 'New',
     keywords: ['web', 'fetch', 'scrape', 'html', 'parse', 'http', 'research', 'analyze'],
     prev: { href: '/memory', title: 'Memory' },
@@ -450,7 +516,7 @@ export const navigation = [
     title: 'Agent Emails',
     href: '/agent-emails',
     icon: HiOutlineEnvelope,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     difficulty: 'New',
     keywords: ['email', 'send', 'receive', 'mail', 'notification', 'inbox', 'imap'],
     prev: { href: '/web-fetch', title: 'WebFetch' },
@@ -460,7 +526,7 @@ export const navigation = [
     title: 'Send Email',
     href: '/agent-emails/send',
     icon: HiOutlineEnvelope,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     parent: '/agent-emails',
     keywords: ['email', 'send', 'mail', 'notification', 'alert', 'message', 'smtp'],
     prev: { href: '/agent-emails', title: 'Agent Emails' },
@@ -470,7 +536,7 @@ export const navigation = [
     title: 'Receive Emails',
     href: '/agent-emails/receive',
     icon: HiOutlineInbox,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     parent: '/agent-emails',
     keywords: ['email', 'get', 'inbox', 'imap', 'read', 'fetch', 'mail', 'receive'],
     prev: { href: '/agent-emails/send', title: 'Send Email' },
@@ -480,7 +546,7 @@ export const navigation = [
     title: 'Gmail',
     href: '/gmail',
     icon: HiOutlineEnvelope,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     difficulty: 'New',
     keywords: ['gmail', 'google', 'email', 'inbox', 'oauth', 'labels', 'archive', 'crm', 'contacts'],
     prev: { href: '/agent-emails/receive', title: 'Receive Emails' },
@@ -490,7 +556,7 @@ export const navigation = [
     title: 'Outlook',
     href: '/outlook',
     icon: HiOutlineEnvelope,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     difficulty: 'New',
     keywords: ['outlook', 'microsoft', 'email', 'inbox', 'oauth', 'office', '365', 'graph', 'send', 'cli', 'co outlook', 'schedule', 'scheduled', 'cancel', 'reply', 'attach'],
     prev: { href: '/gmail', title: 'Gmail' },
@@ -500,7 +566,7 @@ export const navigation = [
     title: 'Diff Writer',
     href: '/useful-tools/diff-writer',
     icon: HiOutlineCodeBracket,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     keywords: ['diff', 'write', 'file', 'code', 'approval', 'human', 'loop'],
     prev: { href: '/outlook', title: 'Outlook' },
     next: { href: '/useful-tools/shell', title: 'Shell' }
@@ -509,7 +575,7 @@ export const navigation = [
     title: 'Shell',
     href: '/useful-tools/shell',
     icon: HiOutlineCommandLine,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     keywords: ['shell', 'command', 'bash', 'terminal', 'execute', 'run'],
     prev: { href: '/useful-tools/diff-writer', title: 'Diff Writer' },
     next: { href: '/useful-tools/bash', title: 'bash' }
@@ -518,7 +584,7 @@ export const navigation = [
     title: 'bash',
     href: '/useful-tools/bash',
     icon: HiOutlineCommandLine,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     keywords: ['bash', 'shell', 'command', 'execute', 'unix', 'mac', 'subprocess', 'terminal'],
     prev: { href: '/useful-tools/shell', title: 'Shell' },
     next: { href: '/useful-tools/slash-command', title: 'Slash Command' }
@@ -527,7 +593,7 @@ export const navigation = [
     title: 'Slash Command',
     href: '/useful-tools/slash-command',
     icon: HiOutlineCommandLine,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     keywords: ['slash', 'command', 'custom', 'markdown', 'prompt'],
     prev: { href: '/useful-tools/bash', title: 'bash' },
     next: { href: '/useful-tools/terminal', title: 'Terminal' }
@@ -536,7 +602,7 @@ export const navigation = [
     title: 'Terminal',
     href: '/useful-tools/terminal',
     icon: HiOutlineCommandLine,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     keywords: ['terminal', 'pick', 'menu', 'input', 'browse', 'files', 'autocomplete'],
     prev: { href: '/useful-tools/slash-command', title: 'Slash Command' },
     next: { href: '/useful-tools/todo-list', title: 'Todo List' }
@@ -545,7 +611,7 @@ export const navigation = [
     title: 'Todo List',
     href: '/useful-tools/todo-list',
     icon: HiOutlineDocumentText,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     keywords: ['todo', 'task', 'list', 'progress', 'track', 'manage'],
     prev: { href: '/useful-tools/terminal', title: 'Terminal' },
     next: { href: '/useful-tools/file-tools', title: 'FileTools' }
@@ -554,7 +620,7 @@ export const navigation = [
     title: 'FileTools',
     href: '/useful-tools/file-tools',
     icon: HiOutlineDocumentText,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     keywords: ['file', 'tools', 'read', 'write', 'edit', 'glob', 'grep', 'snapshot', 'md5', 'permission'],
     prev: { href: '/useful-tools/todo-list', title: 'Todo List' },
     next: { href: '/useful-tools/read-file', title: 'read_file' }
@@ -563,7 +629,7 @@ export const navigation = [
     title: 'read_file',
     href: '/useful-tools/read-file',
     icon: HiOutlineDocumentText,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     difficulty: 'New',
     keywords: ['read', 'file', 'read_file', 'pdf', 'image', 'vision', 'pptx', 'powerpoint', 'docx', 'word', 'audio', 'video', 'transcript', 'multi-format', 'co copy'],
     prev: { href: '/useful-tools/file-tools', title: 'FileTools' },
@@ -573,7 +639,7 @@ export const navigation = [
     title: 'BrowserAutomation',
     href: '/useful-tools/browser-tools',
     icon: FaChrome,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     keywords: ['browser', 'playwright', 'automation', 'click', 'screenshot', 'navigate', 'session', 'persistent'],
     prev: { href: '/useful-tools/read-file', title: 'read_file' },
     next: { href: '/useful-tools/codex', title: 'Codex' }
@@ -582,18 +648,17 @@ export const navigation = [
     title: 'Codex',
     href: '/useful-tools/codex',
     icon: HiOutlineCodeBracket,
-    section: 'Useful Tools',
+    section: 'Python SDK: Tools',
     keywords: ['codex', 'openai', 'coding agent', 'app-server', 'resume', 'approval'],
     prev: { href: '/useful-tools/browser-tools', title: 'BrowserAutomation' },
     next: { href: '/google-integration', title: 'Google Integration' }
   },
-
-  // ─── Integrations ─────────────────────────────────────────────
+  // ─── Python SDK: Integrations ────────────────────────────────────
   {
     title: 'Google Integration',
     href: '/google-integration',
     icon: HiOutlineCalendar,
-    section: 'Integrations',
+    section: 'Python SDK: Integrations',
     difficulty: 'New',
     keywords: ['google', 'gmail', 'calendar', 'oauth', 'integration', 'schedule', 'meeting'],
     prev: { href: '/useful-tools/codex', title: 'Codex' },
@@ -603,19 +668,18 @@ export const navigation = [
     title: 'Microsoft Integration',
     href: '/microsoft-integration',
     icon: HiOutlineCalendar,
-    section: 'Integrations',
+    section: 'Python SDK: Integrations',
     difficulty: 'New',
     keywords: ['microsoft', 'outlook', 'calendar', 'oauth', 'integration', 'office', '365', 'azure', 'teams'],
     prev: { href: '/google-integration', title: 'Google Integration' },
     next: { href: '/useful-plugins', title: 'Useful Plugins' }
   },
-
-  // ─── Useful Plugins ───────────────────────────────────────────
+  // ─── Python SDK: Plugins ─────────────────────────────────────────
   {
     title: 'Useful Plugins',
     href: '/useful-plugins',
     icon: HiOutlineSquares2X2,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     difficulty: 'NEW',
     keywords: ['plugins', 'useful_plugins', 're_act', 'eval', 'image_result_formatter', 'gmail_plugin', 'calendar_plugin', 'shell_approval'],
     prev: { href: '/microsoft-integration', title: 'Microsoft Integration' },
@@ -625,7 +689,7 @@ export const navigation = [
     title: 're_act',
     href: '/useful-plugins/re-act',
     icon: HiOutlineCpuChip,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['react', 'reasoning', 'plan', 'reflect', 'think'],
     prev: { href: '/useful-plugins', title: 'Useful Plugins' },
@@ -635,7 +699,7 @@ export const navigation = [
     title: 'eval',
     href: '/useful-plugins/eval',
     icon: HiOutlineChartBar,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['eval', 'evaluate', 'debug', 'test', 'expected'],
     prev: { href: '/useful-plugins/re-act', title: 're_act' },
@@ -645,7 +709,7 @@ export const navigation = [
     title: 'image_result_formatter',
     href: '/useful-plugins/image-result-formatter',
     icon: HiOutlinePhoto,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['image', 'vision', 'base64', 'screenshot', 'format', 'upload', 'oo-api', 'url', 'context'],
     prev: { href: '/useful-plugins/eval', title: 'eval' },
@@ -655,7 +719,7 @@ export const navigation = [
     title: 'shell_approval',
     href: '/useful-plugins/shell-approval',
     icon: HiOutlineShieldCheck,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['shell', 'approval', 'security', 'command', 'permission'],
     prev: { href: '/useful-plugins/image-result-formatter', title: 'image_result_formatter' },
@@ -665,7 +729,7 @@ export const navigation = [
     title: 'gmail_plugin',
     href: '/useful-plugins/gmail-plugin',
     icon: HiOutlineEnvelope,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['gmail', 'email', 'approval', 'crm', 'plugin'],
     prev: { href: '/useful-plugins/shell-approval', title: 'shell_approval' },
@@ -675,7 +739,7 @@ export const navigation = [
     title: 'calendar_plugin',
     href: '/useful-plugins/calendar-plugin',
     icon: HiOutlineCalendar,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['calendar', 'events', 'approval', 'google', 'microsoft', 'plugin'],
     prev: { href: '/useful-plugins/gmail-plugin', title: 'gmail_plugin' },
@@ -685,7 +749,7 @@ export const navigation = [
     title: 'system_reminder',
     href: '/useful-plugins/system-reminder',
     icon: HiOutlineChatBubbleBottomCenterText,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     difficulty: 'New',
     keywords: ['system', 'reminder', 'guidance', 'nudge', 'context', 'injection', 'tool', 'result'],
@@ -696,7 +760,7 @@ export const navigation = [
     title: 'prefer_write_tool',
     href: '/useful-plugins/prefer-write-tool',
     icon: HiOutlineShieldCheck,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['write', 'file', 'bash', 'block', 'approval', 'cat', 'echo', 'redirect'],
     prev: { href: '/useful-plugins/system-reminder', title: 'system_reminder' },
@@ -706,7 +770,7 @@ export const navigation = [
     title: 'skills',
     href: '/useful-plugins/skills',
     icon: HiOutlineCommandLine,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['skills', 'workflow', 'slash', 'command', 'permissions', 'snapshot', 'restore'],
     prev: { href: '/useful-plugins/prefer-write-tool', title: 'prefer_write_tool' },
@@ -716,7 +780,7 @@ export const navigation = [
     title: 'tool_approval',
     href: '/useful-plugins/tool-approval',
     icon: HiOutlineShieldCheck,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['approval', 'tool', 'dangerous', 'web', 'websocket', 'permission', 'config'],
     prev: { href: '/useful-plugins/skills', title: 'skills' },
@@ -726,7 +790,7 @@ export const navigation = [
     title: 'auto_compact',
     href: '/useful-plugins/auto-compact',
     icon: HiOutlineArrowPath,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['compact', 'context', 'window', 'compress', 'summarize', 'token', 'overflow', 'memory'],
     prev: { href: '/useful-plugins/tool-approval', title: 'tool_approval' },
@@ -736,7 +800,7 @@ export const navigation = [
     title: 'subagents',
     href: '/useful-plugins/subagents',
     icon: HiOutlineUsers,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['subagents', 'agents', 'spawn', 'delegate', 'task', 'specialized', 'parallel'],
     prev: { href: '/useful-plugins/auto-compact', title: 'auto_compact' },
@@ -746,7 +810,7 @@ export const navigation = [
     title: 'ulw',
     href: '/useful-plugins/ulw',
     icon: HiOutlineRocketLaunch,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['ulw', 'ultra', 'autonomous', 'mode', 'work', 'turns', 'checkpoint', 'approval'],
     prev: { href: '/useful-plugins/subagents', title: 'subagents' },
@@ -756,19 +820,18 @@ export const navigation = [
     title: 'ui_stream',
     href: '/useful-plugins/ui-stream',
     icon: HiOutlineWifi,
-    section: 'Useful Plugins',
+    section: 'Python SDK: Plugins',
     parent: '/useful-plugins',
     keywords: ['stream', 'websocket', 'ui', 'real-time', 'completion', 'host', 'events'],
     prev: { href: '/useful-plugins/ulw', title: 'ulw' },
     next: { href: '/tui', title: 'TUI Components' }
   },
-
-  // ─── TUI Components ───────────────────────────────────────────
+  // ─── Python SDK: TUI ─────────────────────────────────────────────
   {
     title: 'TUI Components',
     href: '/tui',
     icon: HiOutlineCommandLine,
-    section: 'TUI',
+    section: 'Python SDK: TUI',
     difficulty: 'NEW',
     keywords: ['tui', 'terminal', 'ui', 'input', 'pick', 'dropdown', 'status', 'keyboard', 'rich'],
     prev: { href: '/useful-plugins/ui-stream', title: 'ui_stream' },
@@ -778,7 +841,7 @@ export const navigation = [
     title: 'pick',
     href: '/tui/pick',
     icon: HiOutlineChevronDown,
-    section: 'TUI',
+    section: 'Python SDK: TUI',
     keywords: ['pick', 'select', 'menu', 'choice', 'single', 'keyboard', 'navigation'],
     prev: { href: '/tui', title: 'TUI Components' },
     next: { href: '/tui/input', title: 'Input' }
@@ -787,7 +850,7 @@ export const navigation = [
     title: 'Input',
     href: '/tui/input',
     icon: HiOutlineCursorArrowRays,
-    section: 'TUI',
+    section: 'Python SDK: TUI',
     keywords: ['input', 'text', 'autocomplete', 'trigger', 'type', 'file', 'command'],
     prev: { href: '/tui/pick', title: 'pick' },
     next: { href: '/tui/dropdown', title: 'Dropdown' }
@@ -796,7 +859,7 @@ export const navigation = [
     title: 'Dropdown',
     href: '/tui/dropdown',
     icon: HiOutlineChevronDown,
-    section: 'TUI',
+    section: 'Python SDK: TUI',
     keywords: ['dropdown', 'list', 'selection', 'autocomplete', 'item', 'menu'],
     prev: { href: '/tui/input', title: 'Input' },
     next: { href: '/tui/status-bar', title: 'StatusBar' }
@@ -805,7 +868,7 @@ export const navigation = [
     title: 'StatusBar',
     href: '/tui/status-bar',
     icon: HiOutlinePresentationChartBar,
-    section: 'TUI',
+    section: 'Python SDK: TUI',
     keywords: ['status', 'bar', 'powerline', 'segment', 'progress', 'display'],
     prev: { href: '/tui/dropdown', title: 'Dropdown' },
     next: { href: '/tui/footer', title: 'Footer' }
@@ -814,7 +877,7 @@ export const navigation = [
     title: 'Footer',
     href: '/tui/footer',
     icon: HiOutlineRectangleGroup,
-    section: 'TUI',
+    section: 'Python SDK: TUI',
     keywords: ['footer', 'tips', 'hints', 'help', 'display'],
     prev: { href: '/tui/status-bar', title: 'StatusBar' },
     next: { href: '/tui/divider', title: 'Divider' }
@@ -823,7 +886,7 @@ export const navigation = [
     title: 'Divider',
     href: '/tui/divider',
     icon: HiOutlineMinus,
-    section: 'TUI',
+    section: 'Python SDK: TUI',
     keywords: ['divider', 'separator', 'line', 'horizontal', 'visual'],
     prev: { href: '/tui/footer', title: 'Footer' },
     next: { href: '/tui/fuzzy', title: 'Fuzzy Matching' }
@@ -832,7 +895,7 @@ export const navigation = [
     title: 'Fuzzy Matching',
     href: '/tui/fuzzy',
     icon: HiOutlineMagnifyingGlass,
-    section: 'TUI',
+    section: 'Python SDK: TUI',
     keywords: ['fuzzy', 'match', 'search', 'score', 'highlight', 'autocomplete'],
     prev: { href: '/tui/divider', title: 'Divider' },
     next: { href: '/tui/keys', title: 'Keyboard Input' }
@@ -841,7 +904,7 @@ export const navigation = [
     title: 'Keyboard Input',
     href: '/tui/keys',
     icon: VscKey,
-    section: 'TUI',
+    section: 'Python SDK: TUI',
     keywords: ['keyboard', 'input', 'getch', 'read_key', 'arrow', 'escape', 'enter'],
     prev: { href: '/tui/fuzzy', title: 'Fuzzy Matching' },
     next: { href: '/tui/providers', title: 'Providers' }
@@ -850,7 +913,7 @@ export const navigation = [
     title: 'Providers',
     href: '/tui/providers',
     icon: HiOutlineSquare3Stack3D,
-    section: 'TUI',
+    section: 'Python SDK: TUI',
     keywords: ['provider', 'file', 'static', 'autocomplete', 'data', 'source'],
     prev: { href: '/tui/keys', title: 'Keyboard Input' },
     next: { href: '/tui/chat', title: 'Chat Interface' }
@@ -859,19 +922,18 @@ export const navigation = [
     title: 'Chat Interface',
     href: '/tui/chat',
     icon: HiOutlineChatBubbleBottomCenterText,
-    section: 'TUI',
+    section: 'Python SDK: TUI',
     difficulty: 'New',
     keywords: ['chat', 'tui', 'terminal', 'interface', 'conversation', 'interactive'],
     prev: { href: '/tui/providers', title: 'Providers' },
     next: { href: '/auto-debug', title: 'Interactive Debugging' }
   },
-
-  // ─── Debug ─────────────────────────────────────────────────────
+  // ─── Python SDK: Debug ───────────────────────────────────────────
   {
     title: 'Interactive Debugging',
     href: '/auto-debug',
     icon: HiOutlineBugAnt,
-    section: 'Debug',
+    section: 'Python SDK: Debug',
     difficulty: 'Essential',
     keywords: ['debug', 'auto_debug', 'interactive', 'breakpoint', 'xray', 'inspect', 'pause', 'repl', 'python', 'variables', 'state', 'agent debugging', 'llm debugging'],
     prev: { href: '/tui/chat', title: 'Chat Interface' },
@@ -881,7 +943,7 @@ export const navigation = [
     title: 'Auto Debug Exception',
     href: '/auto-debug-exception',
     icon: HiOutlineBugAnt,
-    section: 'Debug',
+    section: 'Python SDK: Debug',
     keywords: ['debug', 'exception', 'crash', 'error', 'ai', 'runtime', 'inspection', 'traceback', 'fix'],
     prev: { href: '/auto-debug', title: 'Interactive Debugging' },
     next: { href: '/tools/browser', title: 'Browser Screenshots' }
@@ -890,7 +952,7 @@ export const navigation = [
     title: 'Browser Screenshots',
     href: '/tools/browser',
     icon: HiOutlineCamera,
-    section: 'Debug',
+    section: 'Python SDK: Debug',
     keywords: ['browser', 'screenshot', 'debug', 'capture', 'viewport', 'playwright', 'test', 'responsive'],
     prev: { href: '/auto-debug-exception', title: 'Auto Debug Exception' },
     next: { href: '/logging', title: 'Logging' }
@@ -899,7 +961,7 @@ export const navigation = [
     title: 'Logging',
     href: '/logging',
     icon: HiOutlineDocumentText,
-    section: 'Debug',
+    section: 'Python SDK: Debug',
     keywords: ['logging', 'log', 'file', 'output', 'debug', 'audit', 'record', 'trace', 'monitor', 'activity'],
     prev: { href: '/tools/browser', title: 'Browser Screenshots' },
     next: { href: '/xray', title: '@xray Decorator' }
@@ -908,7 +970,7 @@ export const navigation = [
     title: '@xray Decorator',
     href: '/xray',
     icon: HiOutlineBugAnt,
-    section: 'Debug',
+    section: 'Python SDK: Debug',
     keywords: ['debug', 'xray', 'decorator', 'trace', 'monitor', 'visibility'],
     prev: { href: '/logging', title: 'Logging' },
     next: { href: '/xray/trace', title: 'trace() Visual Flow' }
@@ -917,14 +979,13 @@ export const navigation = [
     title: 'trace() Visual Flow',
     href: '/xray/trace',
     icon: VscGitMerge,
-    section: 'Debug',
+    section: 'Python SDK: Debug',
     parent: '/xray',
     keywords: ['trace', 'flow', 'visual', 'debug', 'execution'],
     prev: { href: '/xray', title: '@xray Decorator' },
     next: { href: '/blog', title: 'All Posts' }
   },
-
-  // ─── Blog ──────────────────────────────────────────────────────
+  // ─── Blog ────────────────────────────────────────────────────────
   {
     title: 'All Posts',
     href: '/blog',
@@ -1082,8 +1143,7 @@ export const navigation = [
     prev: { href: '/blog/an-image-prefix-is-not-an-image', title: 'An Image Prefix Is Not an Image' },
     next: { href: '/releases', title: 'Release Channels' }
   },
-
-  // ─── Releases ──────────────────────────────────────────────────
+  // ─── Releases ────────────────────────────────────────────────────
   {
     title: 'Release Channels',
     href: '/releases',
@@ -1094,8 +1154,7 @@ export const navigation = [
     prev: { href: '/blog/headless-does-not-mean-unconfigured', title: 'Headless Does Not Mean Unconfigured' },
     next: { href: '/roadmap', title: 'Coming Soon Features' }
   },
-
-  // ─── Roadmap ───────────────────────────────────────────────────
+  // ─── Roadmap ─────────────────────────────────────────────────────
   {
     title: 'Coming Soon Features',
     href: '/roadmap',
@@ -1106,8 +1165,7 @@ export const navigation = [
     prev: { href: '/releases', title: 'Release Channels' },
     next: { href: '/links', title: 'All Links' }
   },
-
-  // ─── Connect ───────────────────────────────────────────────────
+  // ─── Connect ─────────────────────────────────────────────────────
   {
     title: 'All Links',
     href: '/links',
@@ -1117,8 +1175,7 @@ export const navigation = [
     prev: { href: '/roadmap', title: 'Coming Soon Features' },
     next: null
   },
-
-  // ─── Admin (hidden from sidebar) ──────────────────────────────
+  // ─── Admin ───────────────────────────────────────────────────────
   {
     title: 'Website Maintenance',
     href: '/website-maintenance',

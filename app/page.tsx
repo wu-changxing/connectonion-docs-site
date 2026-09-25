@@ -3,15 +3,23 @@
 import { FaDiscord, FaGithub } from 'react-icons/fa'
 import { HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineCheckCircle, HiOutlineGlobeAlt, HiOutlineBolt, HiOutlineBugAnt, HiOutlineSparkles, HiOutlineCpuChip, HiOutlineTableCells, HiOutlineDocumentText, HiOutlinePuzzlePiece, HiOutlineArrowRight } from 'react-icons/hi2'
 import Link from 'next/link'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { CommandBlock } from '../components/CommandBlock'
 import { CopyMarkdownButton } from '../components/CopyMarkdownButton'
 import { ContentNavigation } from '../components/ContentNavigation'
 import { MacOSDownload } from '../components/MacOSDownload'
 import { AIFirstDevelopment } from '../components/AIFirstDevelopment'
 import { NonObviousAdvantages } from '../components/NonObviousAdvantages'
-import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { STABLE_VERSION } from '../lib/version'
+
+/** What each command connects, in the order the sidebar lists them. Stable only. */
+const CLI_GROUPS: [string, [string, string][]][] = [
+  ['identity', [['co init', '/cli/init'], ['co auth', '/cli/auth'], ['co email', '/cli/email']]],
+  ['mail & calendar', [['co gmail', '/cli/gmail'], ['co outlook', '/cli/outlook'], ['co gcalendar', '/cli/gcalendar']]],
+  ['chat apps', [['co whatsapp', '/cli/whatsapp'], ['co telegram', '/cli/telegram'], ['co feishu', '/cli/feishu'], ['co sms', '/cli/sms']]],
+  ['browser & files', [['co browser', '/cli/browser-command'], ['co proxy', '/cli/proxy'], ['co gdrive', '/cli/gdrive'], ['co syno', '/cli/synology'], ['co youtube', '/cli/youtube']]],
+  ['coding agents', [['co skills', '/cli/skills'], ['co sub', '/cli/sub']]],
+  ['run & ship', [['co ai', '/cli/ai'], ['co call', '/cli/call'], ['co deploy', '/deploy'], ['co server', '/cli/server']]],
+]
 
 export default function HomePage() {
   return (
@@ -27,7 +35,7 @@ export default function HomePage() {
             <Link href="/quickstart" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors hidden sm:block">
               Quickstart
             </Link>
-            <Link href="/agent" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors hidden sm:block">
+            <Link href="/cli" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors hidden sm:block">
               Docs
             </Link>
             <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors">
@@ -64,31 +72,23 @@ export default function HomePage() {
             <span className="px-2 py-0.5 bg-green-50 text-green-700 text-xs font-semibold rounded-full">Stable v{STABLE_VERSION}</span>
           </div>
 
-          {/* Value proposition headline.
-              Do NOT reinstate "Build AI Agents in 2 lines of Python". That claim was
-              retired on purpose: nobody writes those two lines — `co create` writes the
-              whole project, and the user edits it.
-              This also went through a draft reading "Not a framework. A template you
-              edit." Two reviewers killed it independently and they were right: it spends
-              the largest type on the page arguing with a competitor, it never says the
-              word "agent", and an engineer looking at an Agent() constructor with a
-              plugin system will simply answer "yes it is". State the fact instead —
-              the file already exists — and let the reader draw the conclusion. */}
+          {/* The brand line, the same as connectonion.com (the landing repo's
+              DESIGN.md §2b): the category is the H1, what you get is the subline,
+              and the proof is every command, each linking to its page. This used to
+              be "Your agent is already written." over a Python file — true, but it
+              sold the SDK, and the product people install is the CLI. Only commands
+              in the stable release go in CLI_GROUPS; check `co commands` after a
+              plain `pip install connectonion`. */}
           <h1 className="heading-1 mb-4 text-balance">
-            Your agent is{' '}
-            <span className="accent-italic text-[1.05em]">already written.</span>
+            The agent{' '}
+            <span className="accent-italic text-[1.05em]">CLI harness.</span>
           </h1>
 
           <p className="text-base sm:text-lg text-gray-600 mb-7 leading-relaxed text-balance">
-            One command scaffolds a working project — shell, file editing and a model
-            already wired. You edit it. Nothing to build first.
+            Connect your AI agent to your mail, your chats, a real browser, your files
+            and your coding agents — one <code className="font-mono text-gray-800">co</code> command each.
           </p>
 
-          {/* CTAs sit ABOVE the proof, not below it. The proof card is ~440px tall, so
-              with the buttons underneath there was nothing clickable in a 900px viewport
-              and the only "there's more" hint was a chevron pinned to the bottom of a
-              1240px section — i.e. itself offscreen. The card now bleeds past the fold on
-              purpose and does that job. */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-sm w-full">
             <a href="/quickstart" className="btn btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto">
               Quick Start →
@@ -105,97 +105,36 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Deliberately a text row and not three cards: cards would cost ~180px in the
-              one place the page cannot spare it, and would sit a screen above the
-              Documentation grid as a second competing grid. The card below demonstrates;
-              this line only labels. */}
           <p className="mt-5 mb-8 text-sm text-gray-500 flex flex-wrap justify-center gap-x-3 gap-y-1">
-            <span>No signup</span>
+            <span>No OAuth app</span>
             <span className="text-gray-300" aria-hidden="true">·</span>
-            <span>Your code, your repo</span>
+            <span>No DNS records</span>
+            <span className="text-gray-300" aria-hidden="true">·</span>
+            <span>No Playwright script</span>
             <span className="text-gray-300" aria-hidden="true">·</span>
             <span>$5 credits, no API key</span>
           </p>
 
-          {/* One card, two panes, an arrow between them.
-              These used to be two free-floating dark blocks of different widths, and both
-              reviewers read them as a repeated broken element. Worse, nothing on screen
-              showed that the second was PRODUCED BY the first — which is the entire
-              claim. The card exists to make that causal, not for decoration. */}
-          <div className="mb-4 text-left rounded-2xl border border-gray-200 bg-white p-3 sm:p-4 shadow-sm">
-            {/* Pane 1 — what you type */}
-            <div className="rounded-xl overflow-hidden border border-gray-800">
-              <div className="bg-gray-900 px-4 py-2 flex items-center gap-2.5 border-b border-gray-800">
-                <span className="text-[10px] font-bold text-gray-950 bg-green-500 rounded-full w-4 h-4 flex items-center justify-center shrink-0">1</span>
-                <span className="text-xs text-gray-400 font-mono">you type this</span>
-              </div>
-              <div className="bg-gray-950 px-4 py-3 font-mono text-xs sm:text-sm overflow-x-auto">
-                <div className="whitespace-nowrap"><span className="text-green-500 select-none mr-2 opacity-60">$</span><span className="text-green-400">pip</span><span className="text-gray-100"> install </span><span className="text-blue-400">connectonion</span></div>
-                <div className="whitespace-nowrap"><span className="text-green-500 select-none mr-2 opacity-60">$</span><span className="text-gray-500">co</span><span className="text-gray-100"> create my-agent</span></div>
-                <div className="whitespace-nowrap text-green-400 mt-1.5 pl-4">✅ Created my-agent</div>
-              </div>
+          <div className="mb-8 text-left rounded-2xl border border-gray-800 bg-gray-950 overflow-hidden">
+            <div className="bg-gray-900 px-4 py-2 flex items-center justify-between gap-3 border-b border-gray-800">
+              <span className="text-xs text-gray-400 font-mono">$ co commands</span>
+              <span className="text-[11px] text-gray-400 font-mono whitespace-nowrap">click a command for its page</span>
             </div>
-
-            {/* The causal join */}
-            <div className="flex items-center gap-2 py-2.5 pl-1">
-              <svg className="w-4 h-4 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-              <span className="text-xs text-gray-500">and it wrote the whole project, including:</span>
-            </div>
-
-            {/* Pane 2 — the file it wrote. Copied verbatim from
-                connectonion/cli/templates/minimal/agent.py. If that file changes, this is
-                wrong. A hand-written snippet here would be a lie about what lands on disk,
-                and the honesty is the only reason this beats a hello-world. */}
-            <div className="rounded-xl overflow-hidden border border-gray-800">
-              <div className="bg-gray-900 px-4 py-2 flex items-center gap-2.5 border-b border-gray-800">
-                <span className="text-[10px] font-bold text-gray-950 bg-green-500 rounded-full w-4 h-4 flex items-center justify-center shrink-0">2</span>
-                <span className="text-xs text-gray-300 font-mono">my-agent/agent.py</span>
-                <span className="text-[11px] text-gray-500 font-mono ml-auto whitespace-nowrap">you wrote none of it</span>
-              </div>
-              {/* relative + the fade below: at 390px this is wider than the viewport and
-                  scrolls sideways. It always scrolled; nothing said so, so it just looked
-                  cut off. The gradient is the only affordance. */}
-              <div className="bg-gray-950 relative">
-                <SyntaxHighlighter
-                  language="python"
-                  style={okaidia}
-                  customStyle={{
-                    background: 'transparent',
-                    padding: '0.875rem 1.25rem',
-                    margin: 0,
-                    fontSize: '0.875rem',
-                    lineHeight: '1.65',
-                  }}
-                >
-{`from connectonion import Agent, bash, read_file, edit, glob, grep, write
-from connectonion.useful_plugins import image_result_formatter, tool_approval
-
-agent = Agent(
-    name="my-agent",
-    system_prompt="prompt.md",
-    tools=[bash, read_file, edit, glob, grep, write],
-    plugins=[image_result_formatter, tool_approval],
-    model="co/gemini-3.7-flash",
-)
-
-print(agent.input("what is your task?"))`}
-                </SyntaxHighlighter>
-                <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-gray-950 via-gray-950/70 to-transparent pointer-events-none lg:hidden" />
-              </div>
+            <div className="grid sm:grid-cols-2 gap-px bg-gray-800">
+              {CLI_GROUPS.map(([group, cmds]) => (
+                <div key={group} className="bg-gray-950 px-4 py-3">
+                  <div className="text-[11px] font-mono text-gray-400 mb-1.5"># {group}</div>
+                  <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-sm">
+                    {cmds.map(([cmd, href]) => (
+                      <Link key={cmd} href={href} className="text-green-400 hover:text-green-300 hover:underline">
+                        {cmd}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-
-          {/* Answers the question a sceptical engineer asks first. `co/` is a proxy
-              through our servers, which is a fair thing to be suspicious about — so say
-              it plainly and say how to leave, rather than letting them find out later. */}
-          <p className="text-sm text-gray-500 mb-8 text-balance">
-            <code className="font-mono text-gray-700">co/gemini-3.7-flash</code> runs on our
-            managed keys — $5 of credits, no API key to sign up for. Swap in{' '}
-            <code className="font-mono text-gray-700">gpt-4o</code>,{' '}
-            <code className="font-mono text-gray-700">claude-…</code> or your own key any time.
-          </p>
         </div>
 
         {/* The bouncing chevron that used to live here was pinned to the bottom of a
@@ -211,8 +150,8 @@ print(agent.input("what is your task?"))`}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
             {[
               { href: '/quickstart', icon: HiOutlineRocketLaunch, label: 'Quick Start', sub: 'Get running in 60s' },
-              { href: '/agent', icon: HiOutlineCpuChip, label: 'Agent API', sub: 'Core class + methods' },
-              { href: '/cli', icon: HiOutlineCommandLine, label: 'CLI Reference', sub: 'co commands & flags' },
+              { href: '/cli', icon: HiOutlineCommandLine, label: 'All co commands', sub: 'The CLI harness' },
+              { href: '/agent', icon: HiOutlineCpuChip, label: 'Python SDK', sub: 'Build your own agent' },
               { href: '/models', icon: HiOutlineTableCells, label: 'Models', sub: 'GPT / Claude / Gemini' },
               { href: '/useful-plugins', icon: HiOutlinePuzzlePiece, label: 'Plugins', sub: 'ReAct, Eval, Shell...' },
               { href: '/tui', icon: HiOutlineCommandLine, label: 'TUI Components', sub: 'pick, chat, fuzzy...' },
@@ -236,7 +175,7 @@ print(agent.input("what is your task?"))`}
             ))}
           </div>
           <div className="mt-4 text-right">
-            <Link href="/agent" className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-gray-800 transition-colors">
+            <Link href="/cli" className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-gray-800 transition-colors">
               All documentation <HiOutlineArrowRight className="w-3 h-3" />
             </Link>
           </div>

@@ -20,6 +20,13 @@ const routeToMarkdownMap: Record<string, string> = {
   '/cli/synology': '/cli/synology.md',
   '/cli/outlook': '/cli/outlook.md',
   '/cli/whatsapp': '/cli/whatsapp.md',
+  '/cli/youtube': '/cli/youtube.md',
+  '/cli/server': '/cli/server.md',
+  '/cli/proxy': '/cli/proxy.md',
+  '/cli/sms': '/cli/sms.md',
+  '/cli/feishu': '/cli/feishu.md',
+  '/cli/telegram': '/cli/telegram.md',
+  '/cli/gcalendar': '/cli/gcalendar.md',
 
   // Core Concepts
   '/prompts': '/tutorials/prompts.md',
