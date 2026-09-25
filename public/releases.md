@@ -4,9 +4,20 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.7`; the opt-in beta preview is `1.8.8b12`.
-The Personal Wiki feature now targets **1.9.0**. This planning change does not
-rename the published preview or make it a stable release.
+**Current channels:** stable is `1.8.8`; no preview is open.
+The Personal Wiki ships in 1.8.8 as Experimental and becomes long-term
+supported in **1.9.0**.
+
+## Tested by strangers, stable 1.8.8
+
+Twelve previews fed it, and five testers installed three of them into empty
+profiles and used them as new users; every finding was fixed before the next
+walk. New and stable: one conversation on two devices, skill benchmarks,
+`co browser network` and `cookies`, and `co schedule`. The Wiki, `co claude`,
+Discord, the Telegram inbox and TikTok ship labelled Experimental.
+[Release notes](/releases/1.8.8.md).
+
+Install: `python -m pip install --upgrade connectonion`.
 
 ## The agent cannot read the answers, beta 1.8.8b12
 
