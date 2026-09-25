@@ -1,7 +1,5 @@
 # Scheduled work: `.co/schedule.yaml` and `co schedule`
 
-> **Preview.** The `.co/schedule.yaml` format works in the stable release. The `co schedule` command, pause and run-now, and the scheduler changes described under *How it runs* ship in the 1.8.8b9 preview: `pip install --upgrade 'connectonion==1.8.8b9'`.
-
 An agent can do work on its own clock: a report every Monday at 9, a sync
 every 15 minutes. You write the schedule in `.co/schedule.yaml`; the hosted
 agent (the script that calls `host(...)`, locally or after `co deploy`) runs it; `co schedule` shows it and

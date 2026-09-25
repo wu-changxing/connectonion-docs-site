@@ -9,7 +9,7 @@
 - [Introduction](https://docs.connectonion.com/): The agent CLI harness, and every co command
 - [Quick Start](https://docs.connectonion.com/quickstart): Install and build your first agent in 60 seconds
 - [Vibe Coding Guide](https://docs.connectonion.com/vibe-coding): Use AI tools like Cursor to build agents
-- [All co commands](https://docs.connectonion.com/cli): The whole CLI harness on one page
+- [All co commands](https://docs.connectonion.com/cli): All 42 commands and their subcommands, generated from co commands
 
 ## CLI: connect your agent
 
@@ -20,7 +20,8 @@
 - [co outlook](https://docs.connectonion.com/cli/outlook): Your Outlook mail, contacts and calendar
 - [co gcalendar](https://docs.connectonion.com/cli/gcalendar): Google Calendar events and Meet links
 - [co whatsapp](https://docs.connectonion.com/cli/whatsapp): WhatsApp as an inbox of files
-- [co telegram](https://docs.connectonion.com/cli/telegram): Send Telegram messages from a bot you own
+- [co telegram](https://docs.connectonion.com/cli/telegram): A Telegram bot: send, plus experimental listen, receive and reply
+- [co discord](https://docs.connectonion.com/cli/discord): Experimental: a Discord bot as an inbox
 - [co feishu](https://docs.connectonion.com/cli/feishu): A Feishu or Lark bot as an inbox
 - [co sms](https://docs.connectonion.com/cli/sms): An encrypted SMS inbox from a paired Android phone
 - [co browser](https://docs.connectonion.com/cli/browser-command): Drive one persistent, logged-in browser
@@ -28,9 +29,13 @@
 - [co gdrive](https://docs.connectonion.com/cli/gdrive): Google Drive files
 - [co syno](https://docs.connectonion.com/cli/synology): A Synology NAS
 - [co youtube](https://docs.connectonion.com/cli/youtube): The YouTube Data API
+- [co tiktok](https://docs.connectonion.com/cli/tiktok): Experimental: TikTok post plans and read-only readiness
 - [co skills](https://docs.connectonion.com/cli/skills): Link ConnectOnion's skills into Claude Code and Codex
+- [co wiki](https://docs.connectonion.com/cli/wiki): Experimental: memory — a notebook of your work, from mail and coding sessions
+- [co benchmark](https://docs.connectonion.com/cli/benchmark): Benchmark a skill, then co eval it on the real agent
 - [co call](https://docs.connectonion.com/cli/call): Run one command on a remote agent
-- [co server](https://docs.connectonion.com/cli/server): Servers you own, for co deploy --to
+- [co server](https://docs.connectonion.com/cli/server): Servers you own, for co deploy --to; co server ssh opens a shell
+- [co schedule](https://docs.connectonion.com/cli/schedule): The agent's recurring work, from .co/schedule.yaml
 - [co ai](https://docs.connectonion.com/cli/ai): Built-in AI coding assistant that understands ConnectOnion
 - [co browser](https://docs.connectonion.com/cli/browser-command): Browser automation and screenshot tool
 - [co copy](https://docs.connectonion.com/cli/copy): Copy built-in tools, plugins, skills, and prompts to your project for customization

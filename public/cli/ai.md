@@ -244,6 +244,34 @@ still receives the provider invocation and opens the same interactive Work Room.
 - Watch Claude's inner tools start and finish as live O Chat cards
 - Receive one stable JSON result for success, timeout, or provider errors
 
+### Share a native Claude Code terminal
+
+Run `co claude --cwd /path/to/project` to launch Claude's normal interactive
+terminal with an OIP Work Room. The command prints a private Work Room URL and a
+pairing code. Open the URL in O Chat, pass the invite gate, then enter that code
+to watch the same Claude session. The browser can take control, send a direct
+Claude Code message, and return control to the terminal.
+`co claude --resume <session-id>` resumes an existing Claude session; `--model haiku` selects a
+smaller model for a trial. `--no-share` starts the terminal without a Work Room.
+
+The terminal process must remain running while the Work Room is available.
+Only one side writes the Claude session at a time. Pairing claims the private
+OIP session for that browser identity; later control and message commands are
+signed. The station's scoped Hooks expose session identity and live activity,
+while its transcript reader forwards visible conversation text. Hook tool input
+is not stored in the OIP trace. A browser message resumes the native Claude
+session directly, without wrapping it in another agent prompt.
+
+Browser-initiated turns always run Claude in its manual permission mode,
+whatever the Host mode or Work Room permission choice, so every action that
+needs permission reaches the station's approval Hook. File edits inside the
+selected workspace require a visible owner approval. Unknown actions, commands,
+and paths outside that workspace are denied; Claude's built-in read-only
+commands (such as `ls` or `git status`) never ask and still run. Browser turns
+also do not load the repository's `.claude/` settings, `CLAUDE.md`, or MCP
+servers. Native Claude's own terminal permission controls and project settings
+still govern turns made in the terminal.
+
 ### Delegate to Claude Code
 
 `co ai` can delegate an implementation or investigation while retaining
@@ -260,14 +288,17 @@ such as `Claude Code › Read`, `Claude Code › Edit`, and `Claude Code › Bas
 it happens. The enclosing ConnectOnion agent keeps ownership of the final
 answer and reviews Claude's result.
 
-Read only maps to Claude's manual permission mode, Auto maps to
-`acceptEdits`, and Full access maps to Claude Auto mode. The
-integration never selects `bypassPermissions`, and the selected mode is
-supplied again when a session resumes. Separately, every delegated run uses
-Claude's `--safe-mode` isolation switch, which disables
-ordinary user and project customizations—including `CLAUDE.md`, skills,
-plugins, hooks, MCP servers, commands, and custom agents—so they cannot raise
-that mode's authority; admin-managed policy still applies. The directory
+Read only maps to Claude's manual permission mode; Auto and Full access map to
+Claude Auto mode unless the Work Room picks a narrower Claude option such as
+Accept edits. Bypass permissions needs the separately confirmed Full access
+ceiling, and the selected mode is supplied again when a session resumes.
+Separately, every delegated run loads only the user's own Claude settings plus
+ConnectOnion's scoped Hooks (`--setting-sources user --strict-mcp-config`).
+The project's `.claude/settings.json`, `.claude/settings.local.json`,
+`CLAUDE.md`, and MCP servers are not loaded, so a cloned repository cannot add
+Hooks or allow-list Bash to raise the mode's authority; admin-managed policy
+still applies. (1.8.6 used `--safe-mode`, which also disables the Hooks the
+connector now needs.) The directory
 passed by the model must resolve inside the project root where `co ai` started.
 Relevant project instructions are already carried by the parent prompt instead
 of being reloaded as provider-side filesystem configuration.
@@ -275,9 +306,9 @@ of being reloaded as provider-side filesystem configuration.
 Claude Code runs in headless `stream-json` mode. Its inner tool activity is
 visible, but it still cannot display an unmatched Claude permission prompt in
 the `co ai` UI: Read only can run actions allowed by its bound provider mode,
-while other protected actions fail closed. Auto automatically
-permits in-scope edits, but shell or network actions that still need a prompt
-also fail closed. A denied action can be described in a successful provider
+while other protected actions fail closed. In Auto, Claude's own Auto-mode
+reviewer decides which in-scope edits and shell commands run; anything it still
+routes to a prompt fails closed. A denied action can be described in a successful provider
 result, so always review the diff and test output rather than treating `status`
 alone as proof of completion.
 
@@ -344,8 +375,10 @@ This is loaded every session, so the agent always follows your rules.
 
 `co ai` uses your global identity from `~/.co/`:
 
-- Logs saved to `~/.co/logs/oo.log`
-- Session records saved to `~/.co/evals/` (the newest 500 are retained)
+- Logs saved to `.co/logs/oo.log` and session records to `.co/evals/` of the
+  project you run it in, the same place `Agent()` and `python agent.py` write
+  (the newest 500 are retained); outside a project, or with
+  `CONNECTONION_LOG` set, they go to `~/.co/logs/` and `~/.co/evals/`
 - Resumable one-shot sessions saved privately under `~/.co/ai/sessions/`
 - Same address across all `co ai` sessions
 

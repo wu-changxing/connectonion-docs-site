@@ -6,7 +6,7 @@ import { renderBlogMarkdown } from '../lib/blog-content.mjs'
 import { STABLE_VERSION } from '../lib/version'
 
 /** Render the reviewed, repository-owned CLI guide used by the installed package. */
-export function ReleaseCliGuide({ name }: { name: 'env' | 'environment' | 'init' | 'create' | 'gmail' | 'gdrive' | 'synology' | 'outlook' | 'whatsapp' | 'schedule' | 'gcalendar' | 'telegram' | 'feishu' | 'sms' | 'proxy' | 'server' | 'youtube' }) {
+export function ReleaseCliGuide({ name }: { name: 'env' | 'environment' | 'init' | 'create' | 'gmail' | 'gdrive' | 'synology' | 'outlook' | 'whatsapp' | 'schedule' | 'gcalendar' | 'telegram' | 'feishu' | 'sms' | 'proxy' | 'server' | 'youtube' | 'commands' | 'discord' | 'wiki-help' | 'benchmark' | 'tiktok' }) {
   const markdown = fs.readFileSync(path.join(process.cwd(), 'public', 'cli', `${name}.md`), 'utf8')
   return (
     <main className="px-4 md:px-8 py-16 md:py-24">
