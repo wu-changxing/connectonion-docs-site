@@ -11,7 +11,7 @@
 const routeToMarkdownMap: Record<string, string> = {
   // Getting Started
   '/': '/tutorials/getting-started.md',
-  '/quickstart': '/tutorials/quickstart.md',
+  '/quickstart': '/quickstart/quickstart.md',
   '/vibe-coding': '/tutorials/vibe-coding.md',
   '/cli': '/cli/commands.md',
   

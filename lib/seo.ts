@@ -20,8 +20,8 @@ export const pageSEO: Record<string, PageSEO> = {
     section: 'Home',
   },
   '/quickstart': {
-    title: 'Quick Start - Build Your First AI Agent in 60 Seconds | ConnectOnion',
-    description: 'Install ConnectOnion and build a working AI agent in under 60 seconds. Step-by-step guide: pip install, write a function, create an agent. No boilerplate needed.',
+    title: 'Quick Start - CLI is all you need | ConnectOnion',
+    description: 'pip install connectonion, then co init: an address, a mailbox and $5 of credit. Connect Gmail, a real browser, WhatsApp and Claude Code, one co command each.',
     path: '/quickstart',
     section: 'Getting Started',
   },
