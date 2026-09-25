@@ -4,9 +4,22 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.7`; the opt-in beta preview is `1.8.8b7`.
+**Current channels:** stable is `1.8.7`; the opt-in beta preview is `1.8.8b11`.
 The Personal Wiki feature now targets **1.9.0**. This planning change does not
 rename the published preview or make it a stable release.
+
+## Tested by strangers, beta 1.8.8b11
+
+Five testers installed 1.8.8b7 and then 1.8.8b9 into empty profiles and used
+them as new users; b9 and b11 carry what they found (b10 was tagged but never built). A stale approval on a
+second device is refused instead of approving the next request, a visitor's
+agent Home shows only their own runs, headless Claude Code no longer loads a
+cloned repo's settings, Wiki runs are confined, the install line no longer
+pulls pre-release dependencies, every `co browser` command ends within its
+deadline, and a first benchmark no longer spends a dollar. Carries b8 and b9.
+[Release notes](/releases/1.8.8b11.md).
+
+Install: `python -m pip install --upgrade 'connectonion==1.8.8b11'`.
 
 ## Benchmarks, page network, and finished work brought home, beta 1.8.8b7
 
