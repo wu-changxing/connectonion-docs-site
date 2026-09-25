@@ -149,6 +149,11 @@
     "description": "List, search, download, and upload Google Drive files from the terminal — the same Drive access your agents get from the GDrive tool, as a command.",
     "path": "/cli/gdrive"
   },
+  "/cli/schedule": {
+    "title": "co schedule | ConnectOnion",
+    "description": "An agent's recurring work: write it in .co/schedule.yaml, then see, check, run now, pause and resume it with co schedule.",
+    "path": "/cli/schedule"
+  },
   "/cli/gmail": {
     "title": "co gmail | ConnectOnion",
     "description": "Read, reply, send, and search your own Gmail account right in the terminal — the same Gmail API your agents use, as a command.",

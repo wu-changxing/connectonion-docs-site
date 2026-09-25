@@ -155,6 +155,14 @@ export const navigation = [
     keywords: ['environment', 'keys', 'configuration', 'secrets']
   },
   {
+    title: 'co schedule',
+    href: '/cli/schedule',
+    icon: HiOutlineCog,
+    section: 'CLI',
+    parent: '/cli',
+    keywords: ['schedule', 'schedule.yaml', 'cron', 'recurring', 'every', 'at', 'pause', 'resume', 'run now', 'timer']
+  },
+  {
     title: 'co syno',
     href: '/cli/synology',
     icon: HiOutlineFolderOpen,
