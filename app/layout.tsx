@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   alternates: { canonical: BASE_URL },
   title: {
-    default: "ConnectOnion Docs — the agent CLI harness",
+    default: "ConnectOnion Docs — CLI is all you need",
     template: "%s",
   },
   description: "ConnectOnion is the agent CLI harness. One `co` command each connects your AI agent to Gmail, Outlook, Google Calendar, WhatsApp, Telegram, Feishu, SMS, a real browser, Google Drive and a Synology NAS, and plugs it into Claude Code and Codex. Open source, Apache-2.0.",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "ConnectOnion Docs — the agent CLI harness",
+    title: "ConnectOnion Docs — CLI is all you need",
     description: "One `co` command each connects your AI agent to Gmail, Outlook, WhatsApp, Telegram, a real browser, Google Drive, Claude Code and Codex. No OAuth app, no DNS records.",
     url: BASE_URL,
     siteName: "ConnectOnion Docs",
@@ -62,13 +62,13 @@ export const metadata: Metadata = {
         url: `${BASE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "ConnectOnion Docs — the agent CLI harness",
+        alt: "ConnectOnion Docs — CLI is all you need",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ConnectOnion Docs — the agent CLI harness",
+    title: "ConnectOnion Docs — CLI is all you need",
     description: "One `co` command each connects your AI agent to Gmail, Outlook, WhatsApp, Telegram, a real browser, Google Drive, Claude Code and Codex. No OAuth app, no DNS records.",
     images: [`${BASE_URL}/og-image.png`],
     creator: "@connectonion",
