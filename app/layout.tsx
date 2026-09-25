@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "ConnectOnion Docs — CLI is all you need",
-    description: "One `co` command each connects your AI agent to Gmail, Outlook, WhatsApp, Telegram, a real browser, Google Drive, Claude Code and Codex. No OAuth app, no DNS records.",
+    description: "Each `co` command connects your AI agent to one service: Gmail, Outlook, WhatsApp, Telegram, a real browser, Google Drive, Claude Code or Codex, without an OAuth app or DNS records.",
     url: BASE_URL,
     siteName: "ConnectOnion Docs",
     type: "website",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ConnectOnion Docs — CLI is all you need",
-    description: "One `co` command each connects your AI agent to Gmail, Outlook, WhatsApp, Telegram, a real browser, Google Drive, Claude Code and Codex. No OAuth app, no DNS records.",
+    description: "Each `co` command connects your AI agent to one service: Gmail, Outlook, WhatsApp, Telegram, a real browser, Google Drive, Claude Code or Codex, without an OAuth app or DNS records.",
     images: [`${BASE_URL}/og-image.png`],
     creator: "@connectonion",
   },

@@ -1,8 +1,8 @@
 # Quick Start
 
-CLI is all you need. Every step here is one `co` command in your terminal:
-no Python file, no OAuth app, no API key. Output shown is what the CLI prints;
-addresses are shortened.
+Every step here is a `co` command you run in your terminal. You won't write
+any Python or need an API key. The output shown is what the CLI prints, with
+addresses shortened.
 
 ## 1. Install
 
@@ -48,7 +48,7 @@ See it all with `co status`:
 `co status` also lists every credential it can see (OpenAI, Anthropic, Gemini,
 Telegram, Discord …) and keeps the values hidden.
 
-## 3. Its own email — no DNS
+## 3. Send and read email
 
 ```bash
 co email inbox
@@ -63,10 +63,11 @@ Send one: co email send <to> "<subject>" "<body>"
 co email send you@example.com "Hello" "Sent by my agent."
 ```
 
-There is no SendGrid account and no SPF, DKIM or MX records to add.
+The mailbox is hosted by OpenOnion, so you don't need an email provider or
+any DNS records.
 → [co email](/cli/email)
 
-## 4. Connect your Gmail — no OAuth app
+## 4. Connect Gmail
 
 ```bash
 co auth google
@@ -77,8 +78,8 @@ Opening Google consent. Credentials will be saved only on this computer.
 Google connected. Actual granted scopes saved locally. Next: co status
 ```
 
-Consent runs through OpenOnion's Google app, so you create no cloud project and
-no consent screen. The credentials come back encrypted to a one-time key your
+Consent runs through OpenOnion's Google app, so you don't create a Google Cloud
+project or a consent screen. The credentials come back encrypted to a one-time key your
 CLI generated. Then:
 
 ```bash
@@ -92,7 +93,7 @@ co gdrive list                 # recent Drive files
 Outlook works the same way: `co auth microsoft`, then `co outlook inbox`.
 → [co gmail](/cli/gmail) · [co outlook](/cli/outlook) · [co gcalendar](/cli/gcalendar) · [co gdrive](/cli/gdrive)
 
-## 5. A real browser — no Playwright script
+## 5. Drive a browser
 
 ```bash
 co browser go_to https://example.com
@@ -116,7 +117,7 @@ Feishu, Lark and Discord use the same verbs (`listen`, `receive`, `send`,
 `reply`). SMS is `co sms pair`.
 → [co whatsapp](/cli/whatsapp) · [co telegram](/cli/telegram) · [co discord](/cli/discord) · [co feishu](/cli/feishu) · [co sms](/cli/sms)
 
-## 7. Plug it into Claude Code and Codex
+## 7. Use it from Claude Code and Codex
 
 ```bash
 co skills link
@@ -139,7 +140,7 @@ Everything above is a shell command, so a coding agent needs only its shell
 and these skills. Ask Claude Code or Codex to "check my Gmail" and it can run
 `co gmail inbox` itself. → [co skills](/cli/skills)
 
-## 8. Talk to your own agent
+## 8. Chat with your agent
 
 ```bash
 co ai
@@ -150,7 +151,7 @@ co ai
 install nothing. `co ai "summarise my unread mail"` runs one prompt and exits.
 → [co ai](/cli/ai)
 
-## 9. See everything
+## 9. Find other commands
 
 ```bash
 co commands                    # every command and subcommand, one per line
