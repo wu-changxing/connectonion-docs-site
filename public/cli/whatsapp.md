@@ -86,9 +86,11 @@ bundled protocol implementation old enough to start failing.
 ~/.co/inbox/whatsapp/
 ├── received.jsonl      every message ever received
 ├── sent.jsonl          every reply
+├── own.jsonl           what the account owner typed on their phone (a record, never queued)
 ├── new/                unread, one file each
 ├── cur/                taken by a consumer
 ├── outbox/             replies waiting for the listener (see below)
+├── media/              photos, documents and voice notes, as they arrived
 ├── session.db          the linked device
 └── log
 ```
@@ -100,6 +102,33 @@ because they behave the same here.
 `chat` is the group JID (`1203630000000@g.us`) for a group message and the
 peer's JID (`447700900123@s.whatsapp.net`) for a direct one, so `reply` lands
 where the question was asked either way.
+
+## Photos, documents and voice notes
+
+A media message arrives with `kind` set to what it is — `image`, `video`,
+`audio`, `document`, `sticker` — and the bytes are fetched as it arrives, into
+`media/`. The record names the file:
+
+```json
+{"id":"3EB0…","chat":"447700900123@s.whatsapp.net","kind":"image","text":"",
+ "media":{"path":"/Users/you/.co/inbox/whatsapp/media/3EB0….jpg",
+          "mime":"image/jpeg","size":184320}}
+```
+
+So a consumer that receives this can open the file, and one that cannot read
+images can at least say which file it is declining to read.
+
+**Why at arrival and not on demand.** The media keys live in the protobuf
+envelope, and the queue record does not keep it, so a later `download <id>`
+would have nothing to download from. WhatsApp also drops media from its own
+servers after a while. The moment the message arrives is the only moment the
+file is reliably reachable.
+
+**When it fails, it says so.** An expired or unreachable file leaves
+`{"media":{"error":"…"}}` on the record and a line in `log`, and writes no
+file — a zero-byte document is worse than an error, because a consumer reads
+it as an empty document. Anything over 64 MB is refused the same way rather
+than filling the disk the inbox lives on.
 
 ## Groups: when the bot answers
 
@@ -125,13 +154,21 @@ back the same way. With no listener running, `send` waits 30 seconds and then
 says so:
 
 ```
-No listener answered in 30s. WhatsApp allows one connection per linked
-device, so sending goes through the listener rather than opening a second
-one. Next: co whatsapp listen
+No listener answered in 30s, so nothing was sent. WhatsApp allows one connection
+per linked device, so sending goes through the listener rather than opening a
+second one. Next: co whatsapp listen
 ```
 
-This also means `send` and `reply` work without the extra installed. Only
-`listen` needs it.
+"Nothing was sent" is a promise, and it holds. Before the failure is printed the
+request is withdrawn from `outbox/` in one atomic step; the listener claims a
+request with the same kind of step, so exactly one of them has it. If the
+listener got there first, `send` waits for its answer instead of reporting a
+failure. A request whose sender is gone — killed, or long since told it failed —
+is thrown away by the next listener with a line in `log`, never sent late.
+
+So `send` and `reply` work without the extra installed while a listener is
+running. With no listener and no extra, nothing could ever send, so they exit 3
+at once and print the pip command, as `check` does.
 
 ## The protocol snapshot
 

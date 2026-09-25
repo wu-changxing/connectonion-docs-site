@@ -11,14 +11,15 @@ import { AIFirstDevelopment } from '../components/AIFirstDevelopment'
 import { NonObviousAdvantages } from '../components/NonObviousAdvantages'
 import { STABLE_VERSION } from '../lib/version'
 
-/** What each command connects, in the order the sidebar lists them. Stable only. */
+/** What each command connects, in the order the sidebar lists them. Only
+ *  commands with a guide page; /cli lists all of them. */
 const CLI_GROUPS: [string, [string, string][]][] = [
-  ['identity', [['co init', '/cli/init'], ['co auth', '/cli/auth'], ['co email', '/cli/email']]],
-  ['mail & calendar', [['co gmail', '/cli/gmail'], ['co outlook', '/cli/outlook'], ['co gcalendar', '/cli/gcalendar']]],
-  ['chat apps', [['co whatsapp', '/cli/whatsapp'], ['co telegram', '/cli/telegram'], ['co feishu', '/cli/feishu'], ['co sms', '/cli/sms']]],
-  ['browser & files', [['co browser', '/cli/browser-command'], ['co proxy', '/cli/proxy'], ['co gdrive', '/cli/gdrive'], ['co syno', '/cli/synology'], ['co youtube', '/cli/youtube']]],
-  ['coding agents', [['co skills', '/cli/skills'], ['co sub', '/cli/sub']]],
-  ['run & ship', [['co ai', '/cli/ai'], ['co call', '/cli/call'], ['co deploy', '/deploy'], ['co server', '/cli/server']]],
+  ['identity & account', [['co init', '/cli/init'], ['co auth', '/cli/auth'], ['co setup', '/cli/setup'], ['co env', '/cli/env']]],
+  ['mail & calendar', [['co email', '/cli/email'], ['co gmail', '/cli/gmail'], ['co outlook', '/cli/outlook'], ['co gcalendar', '/cli/gcalendar']]],
+  ['chat apps', [['co whatsapp', '/cli/whatsapp'], ['co telegram', '/cli/telegram'], ['co discord', '/cli/discord'], ['co feishu', '/cli/feishu'], ['co sms', '/cli/sms']]],
+  ['browser & files', [['co browser', '/cli/browser-command'], ['co proxy', '/cli/proxy'], ['co gdrive', '/cli/gdrive'], ['co syno', '/cli/synology'], ['co youtube', '/cli/youtube'], ['co tiktok', '/cli/tiktok']]],
+  ['coding agents & memory', [['co skills', '/cli/skills'], ['co sub', '/cli/sub'], ['co wiki', '/cli/wiki']]],
+  ['build & ship', [['co ai', '/cli/ai'], ['co benchmark', '/cli/benchmark'], ['co call', '/cli/call'], ['co deploy', '/deploy'], ['co server', '/cli/server'], ['co schedule', '/cli/schedule']]],
 ]
 
 export default function HomePage() {
@@ -77,8 +78,7 @@ export default function HomePage() {
               and the proof is every command, each linking to its page. This used to
               be "Your agent is already written." over a Python file — true, but it
               sold the SDK, and the product people install is the CLI. Only commands
-              in the stable release go in CLI_GROUPS; check `co commands` after a
-              plain `pip install connectonion`. */}
+              in `co commands` for the release go in CLI_GROUPS. */}
           <h1 className="heading-1 mb-4 text-balance">
             The agent{' '}
             <span className="accent-italic text-[1.05em]">CLI harness.</span>
@@ -118,7 +118,7 @@ export default function HomePage() {
           <div className="mb-8 text-left rounded-2xl border border-gray-800 bg-gray-950 overflow-hidden">
             <div className="bg-gray-900 px-4 py-2 flex items-center justify-between gap-3 border-b border-gray-800">
               <span className="text-xs text-gray-400 font-mono">$ co commands</span>
-              <span className="text-[11px] text-gray-400 font-mono whitespace-nowrap">click a command for its page</span>
+              <Link href="/cli" className="text-[11px] text-green-400 font-mono whitespace-nowrap hover:underline">all 42 commands →</Link>
             </div>
             <div className="grid sm:grid-cols-2 gap-px bg-gray-800">
               {CLI_GROUPS.map(([group, cmds]) => (

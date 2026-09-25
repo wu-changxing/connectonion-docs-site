@@ -441,7 +441,7 @@
   },
   "/cli/telegram": {
     "title": "co telegram | ConnectOnion",
-    "description": "Send a plain-text Telegram message from the terminal or an agent with a bot you own. It calls Telegram directly — no OpenOnion credits or credential.",
+    "description": "A Telegram bot you own: send from the terminal or an agent, plus experimental listen, receive and reply. It calls Telegram directly — no OpenOnion credits.",
     "path": "/cli/telegram"
   },
   "/cli/feishu": {
@@ -468,5 +468,25 @@
     "title": "co youtube | ConnectOnion",
     "description": "Read your channel and uploads, and preview an upload before it happens, with your saved Google login — like co gmail.",
     "path": "/cli/youtube"
+  },
+  "/cli/discord": {
+    "title": "co discord | ConnectOnion",
+    "description": "Experimental: a Discord bot as a directory of files — listen, receive the next message as JSON, send and reply, with the same verbs as co feishu.",
+    "path": "/cli/discord"
+  },
+  "/cli/wiki": {
+    "title": "co wiki | ConnectOnion",
+    "description": "Experimental: a notebook about the people, projects and tools in your work, built and kept current from your mail and coding sessions.",
+    "path": "/cli/wiki"
+  },
+  "/cli/benchmark": {
+    "title": "co benchmark and co eval | ConnectOnion",
+    "description": "Write the standard before editing a skill with co benchmark, then run every case on the real agent and read scored reports with co eval.",
+    "path": "/cli/benchmark"
+  },
+  "/cli/tiktok": {
+    "title": "co tiktok | ConnectOnion",
+    "description": "Experimental: prepare a local TikTok post plan and verify login readiness. Read-only — nothing is uploaded.",
+    "path": "/cli/tiktok"
   }
 }

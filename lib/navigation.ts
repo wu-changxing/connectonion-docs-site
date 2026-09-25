@@ -146,6 +146,15 @@ export const navigation = [
     section: 'CLI: Chat Apps',
     keywords: ['telegram', 'bot', 'send', 'message'],
     prev: { href: '/cli/whatsapp', title: 'co whatsapp' },
+    next: { href: '/cli/discord', title: 'co discord' }
+  },
+  {
+    title: 'co discord',
+    href: '/cli/discord',
+    icon: VscComment,
+    section: 'CLI: Chat Apps',
+    keywords: ['discord', 'bot', 'inbox', 'chat', 'experimental'],
+    prev: { href: '/cli/telegram', title: 'co telegram' },
     next: { href: '/cli/feishu', title: 'co feishu · co lark' }
   },
   {
@@ -154,7 +163,7 @@ export const navigation = [
     icon: VscComment,
     section: 'CLI: Chat Apps',
     keywords: ['feishu', 'lark', 'bot', 'inbox', 'chat'],
-    prev: { href: '/cli/telegram', title: 'co telegram' },
+    prev: { href: '/cli/discord', title: 'co discord' },
     next: { href: '/cli/sms', title: 'co sms' }
   },
   {
@@ -210,42 +219,60 @@ export const navigation = [
     section: 'CLI: Browser & Files',
     keywords: ['youtube', 'video', 'upload', 'channel'],
     prev: { href: '/cli/synology', title: 'co syno' },
+    next: { href: '/cli/tiktok', title: 'co tiktok' }
+  },
+  {
+    title: 'co tiktok',
+    href: '/cli/tiktok',
+    icon: HiOutlinePhoto,
+    section: 'CLI: Browser & Files',
+    keywords: ['tiktok', 'post', 'video', 'experimental'],
+    prev: { href: '/cli/youtube', title: 'co youtube' },
     next: { href: '/cli/skills', title: 'co skills' }
   },
-  // ─── CLI: Coding Agents ──────────────────────────────────────────
+  // ─── CLI: Coding Agents & Memory ─────────────────────────────────
   {
     title: 'co skills',
     href: '/cli/skills',
     icon: HiOutlinePuzzlePiece,
-    section: 'CLI: Coding Agents',
+    section: 'CLI: Coding Agents & Memory',
     keywords: ['skills', 'discover', 'copy', 'link', 'manifest', 'import', 'export', 'symlink', 'claude', 'codex', 'cursor', 'kiro', 'SKILL.md', 'index.json'],
-    prev: { href: '/cli/youtube', title: 'co youtube' },
+    prev: { href: '/cli/tiktok', title: 'co tiktok' },
     next: { href: '/cli/sub', title: 'co sub' }
   },
   {
     title: 'co sub',
     href: '/cli/sub',
     icon: HiOutlineArrowPath,
-    section: 'CLI: Coding Agents',
+    section: 'CLI: Coding Agents & Memory',
     keywords: ['sub', 'subscribe', 'follow', 'publisher', 'sync', 'mirror', 'fan-out', 'relay', 'subscriptions', '0x address'],
     prev: { href: '/cli/skills', title: 'co skills' },
+    next: { href: '/cli/wiki', title: 'co wiki' }
+  },
+  {
+    title: 'co wiki',
+    href: '/cli/wiki',
+    icon: HiOutlineBookOpen,
+    section: 'CLI: Coding Agents & Memory',
+    keywords: ['wiki', 'memory', 'notebook', 'people', 'projects', 'experimental'],
+    prev: { href: '/cli/sub', title: 'co sub' },
     next: { href: '/cli/ai', title: 'co ai' }
   },
-  // ─── CLI: Run & Ship ─────────────────────────────────────────────
+  // ─── CLI: Build & Ship ───────────────────────────────────────────
   {
     title: 'co ai',
     href: '/cli/ai',
     icon: HiOutlineSparkles,
-    section: 'CLI: Run & Ship',
+    section: 'CLI: Build & Ship',
     keywords: ['ai', 'coding', 'agent', 'terminal', 'one-shot', 'interactive', 'web', 'server'],
-    prev: { href: '/cli/sub', title: 'co sub' },
+    prev: { href: '/cli/wiki', title: 'co wiki' },
     next: { href: '/cli/create', title: 'co create' }
   },
   {
     title: 'co create',
     href: '/cli/create',
     icon: HiOutlineFolderPlus,
-    section: 'CLI: Run & Ship',
+    section: 'CLI: Build & Ship',
     keywords: ['create', 'project', 'scaffold', 'new', 'template', 'minimal', 'web-research', 'playwright'],
     prev: { href: '/cli/ai', title: 'co ai' },
     next: { href: '/cli/copy', title: 'co copy' }
@@ -254,25 +281,34 @@ export const navigation = [
     title: 'co copy',
     href: '/cli/copy',
     icon: HiOutlineDocumentDuplicate,
-    section: 'CLI: Run & Ship',
+    section: 'CLI: Build & Ship',
     keywords: ['copy', 'tools', 'plugins', 'prompts', 'templates', 'reuse'],
     prev: { href: '/cli/create', title: 'co create' },
+    next: { href: '/cli/benchmark', title: 'co benchmark · co eval' }
+  },
+  {
+    title: 'co benchmark · co eval',
+    href: '/cli/benchmark',
+    icon: HiOutlineChartBar,
+    section: 'CLI: Build & Ship',
+    keywords: ['benchmark', 'eval', 'skill', 'test', 'score'],
+    prev: { href: '/cli/copy', title: 'co copy' },
     next: { href: '/cli/call', title: 'co call' }
   },
   {
     title: 'co call',
     href: '/cli/call',
     icon: VscServerProcess,
-    section: 'CLI: Run & Ship',
+    section: 'CLI: Build & Ship',
     keywords: ['call', 'remote agent', 'address', 'no llm'],
-    prev: { href: '/cli/copy', title: 'co copy' },
+    prev: { href: '/cli/benchmark', title: 'co benchmark · co eval' },
     next: { href: '/deploy', title: 'Deploy' }
   },
   {
     title: 'Deploy',
     href: '/deploy',
     icon: HiOutlineArrowUpTray,
-    section: 'CLI: Run & Ship',
+    section: 'CLI: Build & Ship',
     difficulty: 'New',
     keywords: ['deploy', 'hosting', 'cloud', 'production', 'docker', 'gcp', 'agents'],
     prev: { href: '/cli/call', title: 'co call' },
@@ -282,7 +318,7 @@ export const navigation = [
     title: 'co server',
     href: '/cli/server',
     icon: HiOutlineServerStack,
-    section: 'CLI: Run & Ship',
+    section: 'CLI: Build & Ship',
     keywords: ['server', 'ssh', 'deploy --to', 'vps', 'preflight'],
     prev: { href: '/deploy', title: 'Deploy' },
     next: { href: '/cli/schedule', title: 'co schedule' }
@@ -291,7 +327,7 @@ export const navigation = [
     title: 'co schedule',
     href: '/cli/schedule',
     icon: HiOutlineCog,
-    section: 'CLI: Run & Ship',
+    section: 'CLI: Build & Ship',
     keywords: ['schedule', 'schedule.yaml', 'cron', 'recurring', 'every', 'at', 'pause', 'resume', 'run now', 'timer'],
     prev: { href: '/cli/server', title: 'co server' },
     next: { href: '/agent', title: 'Agent' }

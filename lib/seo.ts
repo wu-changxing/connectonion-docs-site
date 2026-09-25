@@ -74,8 +74,8 @@ export const pageSEO: Record<string, PageSEO> = {
     section: 'Core Concepts',
   },
   '/cli': {
-    title: 'CLI Reference - co create, co init, co auth | ConnectOnion',
-    description: 'Complete CLI reference for the co command. Create agents, initialize projects, authenticate, check status, and run diagnostics from the terminal.',
+    title: 'Every co command - the agent CLI harness | ConnectOnion',
+    description: 'All 42 co commands and their subcommands, generated from co commands: Gmail, Outlook, WhatsApp, Telegram, Discord, a real browser, Drive, SSH to your servers, Claude Code and more.',
     path: '/cli',
     section: 'Getting Started',
   },
