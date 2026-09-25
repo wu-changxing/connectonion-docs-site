@@ -95,6 +95,7 @@ export default function CLIPage() {
               { cmd: 'co outlook', desc: 'Send and read Outlook email', href: '#co-outlook' },
               { cmd: 'co gmail', desc: 'Send and read your Gmail', href: '/cli/gmail' },
               { cmd: 'co gdrive', desc: 'List, download & upload Drive files', href: '/cli/gdrive' },
+              { cmd: 'co schedule', desc: 'See, check, run now, pause & resume scheduled work', href: '/cli/schedule' },
               { cmd: 'co email', desc: "Your agent's own email address", href: '/cli/email' },
             ].map(({ cmd, desc, href }) => (
               <a key={cmd} href={href} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors group">
