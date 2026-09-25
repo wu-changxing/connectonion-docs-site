@@ -4,9 +4,21 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.7`; the opt-in beta preview is `1.8.8b11`.
+**Current channels:** stable is `1.8.7`; the opt-in beta preview is `1.8.8b12`.
 The Personal Wiki feature now targets **1.9.0**. This planning change does not
 rename the published preview or make it a stable release.
+
+## The agent cannot read the answers, beta 1.8.8b12
+
+During `co eval run` the agent under test could search the project, read the
+benchmark file and pass by reading the expected outcomes. Those reads are now
+refused for the length of the run, and an attempt that saw the answers anyway
+is INVALID, not a pass. Also: `co browser tab ls` starts nothing when no
+browser is open, the paid browser engine keeps its profile inside
+`CO_BROWSER_PROFILE_DIR`, and each Wiki notebook's schedule has its own label.
+Carries b11. [Release notes](/releases/1.8.8b12.md).
+
+Install: `python -m pip install --upgrade 'connectonion==1.8.8b12'`.
 
 ## Tested by strangers, beta 1.8.8b11
 
