@@ -14,8 +14,9 @@ The browser now receives the provider's `awaiting_approval` state before a
 verified workspace edit asks for a decision. Its **Allow once** and **Reject**
 controls no longer disappear while Claude waits. Station's fixed owner-review
 mode cannot be changed through the provider profile API. Bash and MCP tools
-still have no Station browser approval path. The browser's policy-label
-correction is in a separate O Chat preview.
+still have no Station browser approval path. O Chat now shows that fixed policy
+and uses React SDK `0.4.4-rc.7`. Complete one terminal turn before taking
+browser control of a new Station ([known limit](https://github.com/openonion/connectonion/issues/1776)).
 [Release notes](/releases/1.8.9b5.md) ·
 [Design Journal](/blog/the-approval-the-browser-could-not-see).
 
