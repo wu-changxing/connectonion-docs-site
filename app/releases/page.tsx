@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'Subscribed skills now reconcile withdrawn content and carry signed companion files. Browser tasks use one quoted instruction without a do verb.'
+                ? 'Subscribed skills now reconcile withdrawn content and carry signed companion files. Browser tasks use one quoted instruction; the Host watcher is removed.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (

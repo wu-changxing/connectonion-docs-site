@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import CodeWithResult from '../../../components/CodeWithResult'
 import { PageHeader } from '../../../components/PageHeader'
 import { HiOutlineBellAlert } from 'react-icons/hi2'
@@ -47,9 +46,10 @@ agent = Agent("worker", plugins=[watch_events(claim_events)])`}
             more iteration. It runs only while <code>Agent.input()</code> is active.
           </p>
           <p className="text-gray-700">
-            To observe sources and wake an idle Agent, use the Host{' '}
-            <Link href="/host" className="text-blue-700 underline">watch configuration</Link>.
-            Host stores events in SQLite and binds this plugin to the active turn.
+            A session-owned runner must observe sources and wake an idle Agent.
+            That runtime is tracked in{' '}
+            <a href="https://github.com/openonion/connectonion/issues/1788" className="text-blue-700 underline">issue #1788</a>.
+            This plugin only handles events during an active turn.
           </p>
         </section>
       </div>

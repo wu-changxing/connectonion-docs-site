@@ -4,6 +4,10 @@ tags: [Agents, Watchers, Architecture]
 
 # The file changed. Why didn't the agent wake up?
 
+**Historical note:** This article describes the 1.8.9b9 Host watch preview.
+The implementation was removed in 1.8.9b12; Agent-owned
+session watches are tracked in [#1788](https://github.com/openonion/connectonion/issues/1788).
+
 Issue #1499 asked for an agent that notices events by itself. Picture a Host
 waiting quietly while `notes.md` changes. The tempting answer was to add a
 `before_iteration` hook that checks the file. I followed that path through the
@@ -49,3 +53,11 @@ queue acknowledgement, and the copied plugin loading outside the package.
 The merged PR's Python 3.10–3.13 CI matrix passed. A different kind of watch,
 registered by an Agent to resume its original conversation days later, still
 needs the session-owned runtime planned in #1788.
+
+After b9 was published, the boundary itself changed. A Host can keep a source
+alive, but its network lifetime is wider than the Agent conversation that
+asked to be notified. The desired watch belongs to that original session:
+its owner, event inbox and next turn should be recovered together. b12 removed
+the Host observer and queue while keeping the iteration plugin. That leaves a
+visible gap until #1788 supplies the session runner; pretending the copied
+plugin could wake an idle Agent would hide that gap from anyone upgrading.
