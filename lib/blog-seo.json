@@ -1,4 +1,8 @@
 {
+  "an-id-before-a-session": {
+    "title": "Start an Empty Claude Station from the Browser",
+    "description": "Why Claude SessionStart supplies an ID before a resumable transcript exists, and how OIP handover and ACKs handle the first browser turn."
+  },
   "the-approval-the-browser-could-not-see": {
     "title": "Fix Claude Station Approvals Hidden in the OIP Work Room",
     "description": "Trace a real Claude Code approval deadlock from a blocking Hook to an OIP lifecycle event, then verify the browser decision with Haiku."
