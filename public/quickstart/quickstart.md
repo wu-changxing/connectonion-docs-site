@@ -98,7 +98,7 @@ Outlook works the same way: `co auth microsoft`, then `co outlook inbox`.
 ```bash
 co browser go_to https://example.com
 co browser get_text
-co browser do "find the pricing page and summarise the plans"
+co browser "find the pricing page and summarise the plans"
 ```
 
 `co browser` keeps one real browser open, so a login you finish by hand,

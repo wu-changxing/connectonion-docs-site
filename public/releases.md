@@ -1,478 +1,232 @@
 # Release channels
 
-ConnectOnion keeps normal stable installs separate from opt-in release work.
-More than one feature train can be public at once. Preview builds never replace
-the stable recommendation until that version has completed release acceptance.
+ConnectOnion has two release channels:
 
-**Current channels:** stable is `1.8.8`; the opt-in preview is `1.8.9b7`.
-The Personal Wiki ships in 1.8.8 as Experimental and becomes long-term
-supported in **1.9.0**.
+- **Stable** is the default `pip install connectonion` channel for production.
+- **Preview** contains opt-in alpha, beta, and release-candidate builds.
 
-## Claude Station first browser turn, beta 1.8.9b7
+Preview releases never replace the stable recommendation. Install one by
+pinning its exact version: `pip install --upgrade 'connectonion==X.YbN'`. The
+pin alone lets pip take that one preview. Do not add `--pre`: it applies to
+every dependency too, and under it 1.8.8b7 resolved httpx 1.0.dev6, which has
+no `AsyncClient`, and every remote agent call crashed.
 
-Take browser control before the terminal's first prompt. The first browser
-message starts a new native Claude session; later turns resume it. A verified
-workspace edit still waits for **Allow once** or **Reject**, and an early native
-start failure rejects the pending message promptly. O Chat uses React SDK
-`0.4.4-rc.8` for the clearer startup error. Bash and MCP tools still have no
-Station browser approval path. The b7 preview also includes b6 Wiki maintenance.
-[Release notes](/releases/1.8.9b7.md) ·
-[Design Journal](/blog/an-id-before-a-session).
+## Current release
 
-Install: `python -m pip install --upgrade 'connectonion==1.8.9b7'`.
-
-## Offline Wiki maintenance, beta 1.8.9b6
-
-An offline maintenance batch may read and write staged local files without
-using the network or source apps. Unchanged runs need a source-linked
-completion receipt before advancing progress, and Markdown numbered source
-labels are accepted after narrow normalization. This preview carries the
-1.8.9b5 Claude Station approval repair. Synthetic Luna runs and installed-wheel
-checks passed; production mailbox quality has not been established.
-[Release notes](/releases/1.8.9b6.md) ·
-[Design Journal](/blog/the-offline-agent-needed-files).
-
-Install: `python -m pip install --upgrade 'connectonion==1.8.9b6'`.
-
-## Claude Station approvals, beta 1.8.9b5
-
-The browser now receives the provider's `awaiting_approval` state before a
-verified workspace edit asks for a decision. Its **Allow once** and **Reject**
-controls no longer disappear while Claude waits. Station's fixed owner-review
-mode cannot be changed through the provider profile API. Bash and MCP tools
-still have no Station browser approval path. O Chat now shows that fixed policy
-and uses React SDK `0.4.4-rc.7`. Complete one terminal turn before taking
-browser control of a new Station ([fixed in b7](https://github.com/openonion/connectonion/issues/1776)).
-[Release notes](/releases/1.8.9b5.md) ·
-[Design Journal](/blog/the-approval-the-browser-could-not-see).
-
-Install: `python -m pip install --upgrade 'connectonion==1.8.9b5'`.
-
-## Tested by strangers, stable 1.8.8
-
-Twelve previews fed it, and five testers installed three of them into empty
-profiles and used them as new users; every finding was fixed before the next
-walk. New and stable: one conversation on two devices, skill benchmarks,
-`co browser network` and `cookies`, and `co schedule`. The Wiki, `co claude`,
-Discord, the Telegram inbox and TikTok ship labelled Experimental.
-[Release notes](/releases/1.8.8.md).
-
-Install: `python -m pip install --upgrade connectonion`.
-
-## The agent cannot read the answers, beta 1.8.8b12
-
-During `co eval run` the agent under test could search the project, read the
-benchmark file and pass by reading the expected outcomes. Those reads are now
-refused for the length of the run, and an attempt that saw the answers anyway
-is INVALID, not a pass. Also: `co browser tab ls` starts nothing when no
-browser is open, the paid browser engine keeps its profile inside
-`CO_BROWSER_PROFILE_DIR`, and each Wiki notebook's schedule has its own label.
-Carries b11. [Release notes](/releases/1.8.8b12.md).
-
-Install: `python -m pip install --upgrade 'connectonion==1.8.8b12'`.
-
-## Tested by strangers, beta 1.8.8b11
-
-Five testers installed 1.8.8b7 and then 1.8.8b9 into empty profiles and used
-them as new users; b9 and b11 carry what they found (b10 was tagged but never built). A stale approval on a
-second device is refused instead of approving the next request, a visitor's
-agent Home shows only their own runs, headless Claude Code no longer loads a
-cloned repo's settings, Wiki runs are confined, the install line no longer
-pulls pre-release dependencies, every `co browser` command ends within its
-deadline, and a first benchmark no longer spends a dollar. Carries b8 and b9.
-[Release notes](/releases/1.8.8b11.md).
-
-Install: `python -m pip install --upgrade 'connectonion==1.8.8b11'`.
-
-## Benchmarks, page network, and finished work brought home, beta 1.8.8b7
-
-Write a skill's benchmark before the skill: `co benchmark` checks at least five
-cases, and `co eval run` scores your real Agent on them, PASS, FAIL or
-UNVERIFIED with the evidence, then compares each run with the one before.
-`co browser -t TAB network` and `cookies` show what a page sent and record a
-HAR. Experimental and tested against fakes only: `co discord` and the
-`co telegram` listen/receive/reply verbs as inboxes, `co tiktok` post plans
-(nothing uploads), and Gemini image output with `generate_image`. Outlook no
-longer resends mail after a 504. Carries everything in b6 and b5.
-[Release notes](/releases/1.8.8b7.md).
-
-Install: `python -m pip install --upgrade --pre 'connectonion==1.8.8b7'`.
-
-## Two devices and a CLI sweep, beta 1.8.8b5
-
-One conversation can now be open on a laptop and a phone at the same time — the
-same identity on both — through the relay too; a turn started on one streams to
-the other, and switching devices no longer erases a turn. `co browser close`
-ends every process it owned and says so, refused `co ai` commands are logged in
-full, `co proxy diagnose` names each endpoint it tried, and `co whatsapp` gains
-`react` and `group create`/`add`. Carries everything in b4.
-[Release notes](/releases/1.8.8b5.md).
-
-Install: `python -m pip install --upgrade --pre 'connectonion==1.8.8b5'`.
-
-## Claude Code and Wiki beta 1.8.8b4
-
-`co claude` starts the native Claude Code terminal and an OIP Work Room. A paired
-browser can watch the same session, take control, send a direct Claude Code
-message, and return control to the terminal. The terminal process must remain
-running. This opt-in beta carries the Wiki preview work from b3; full Wiki
-acceptance remains targeted at 1.9.0. [Release notes](/releases/1.8.8b4.md).
-
-Install: `python -m pip install --upgrade --pre 'connectonion==1.8.8b4'`.
-
-## Wiki beta 1.8.8b3
-
-This opt-in preview repairs the real-person investigation flow that accepted zero of three pages in the first live test. The same notebook then accepted 11 of 11 selected people pages after the repair. Initialization explains source coverage and asks about possible owner aliases; a private full-page opening path and one stable Wiki task workspace are included. This is still a preview; the full 1.9.0 quality and harness acceptance remains open. [Release notes](/releases/1.8.8b3.md).
-
-Install: `python -m pip install --upgrade --pre 'connectonion==1.8.8b3'`.
-
-## Wiki beta 1.8.8b1
-
-At publication, this preview moved Wiki to the 1.8.8 preview line; the stable
-feature target was later moved to 1.9.0. Stable 1.8.7 contains the dashboard
-patch. This preview retains b4 features and fixes `sync --all --dry-run`
-entering execution. Historical 1.8.7b previews remain unchanged.
-[Release notes](/releases/1.8.8b1.md).
-
-Install: `python -m pip install --upgrade --pre connectonion==1.8.8b1`.
-
-## Wiki beta 1.8.7b3
-
-`co wiki init` now runs without questions, uses connected mailboxes, and prints auth tips afterward for disconnected sources. See [preview notes](/releases/1.8.7b3.md).
-
-## Wiki beta 1.8.7b1
-
-Initialize with `co wiki init --mail outlook` (or Gmail), then open the snapshot with `co wiki open`. The beta fixes partial-source reporting, repeated initialization metadata, and skill catalog/search grouping. See [preview notes](/releases/1.8.7b1.md).
-
-Install explicitly: `python -m pip install --upgrade --pre connectonion==1.8.7b1`.
-
-The earlier release history follows.
-
-## Stable 1.8.4
-
-Explicit global configuration and `co env`, reviewed Gmail operations, verified
-Synology sharing, and Outlook calendar commands are now in the stable package.
+Stable **1.8.8** is the default production channel. See
+[1.8.8 release notes](releases/1.8.8.md).
 
 ```bash
-python -m pip install --upgrade connectonion==1.8.4
-co --version
-co env
+python -m pip install --upgrade 'connectonion==1.8.8'
 ```
 
-The merged code passed 8,666 offline tests, with 21 skipped and 79.79% coverage,
-and 11 installed-wheel checks. Gmail/Drive and one physical NAS were exercised.
-NAS browser checks covered password rejection, successful unlock, already expired
-links and revocation after access. Microsoft request contracts have mocked tests;
-no live Microsoft tenant was used. Companion Control Center hosting remains local
-acceptance, with production deployment separate from this Python release.
+## Current preview
 
-[Release notes](/releases/1.8.4.md) ·
-[Release artifacts](https://github.com/openonion/connectonion/releases/tag/v1.8.4) ·
-[Configuration](/cli/env) · [Synology](/cli/synology) · [Outlook](/cli/outlook)
-
-## Earlier stable 1.8.3
-
-Gmail, Drive, Calendar and YouTube share one locally saved Google login.
-The release adds Gmail draft attachments, primary-calendar commands and
-YouTube metadata, uploads and title/description updates. YouTube writes show
-an exact preview and its complete confirmation command before execution.
-
-Read-only production acceptance passed for all four services on 2026-09-07
-using an existing local grant. Existing polling/bodyless-refresh clients should
-upgrade; no Google credential database migration is needed. TikTok is excluded.
+Beta **1.8.9b12** fixes subscribed skill reconciliation, preserves signed
+companion files, and removes the `do` verb from natural-language browser tasks.
+See [1.8.9b12 release notes](releases/1.8.9b12.md) for the scope and limits.
 
 ```bash
-python -m pip install --upgrade connectonion==1.8.3
-```
-
-[Release artifacts](https://github.com/openonion/connectonion/releases/tag/v1.8.3)
-· [Google commands and recovery](/google-integration)
-
-## Earlier stable 1.8.1
-
-System Chrome remains the free default. Paid Onion is selected explicitly with
-`co browser --engine onion`; close that session before returning to the default.
-The Linux CLI lifecycle was exercised with a dedicated test account. There is
-no paid UI panel and no automatic per-read/write engine switching.
-
-Browser status now correctly detects downloaded Chromium. Proxy-authentication
-rejection and Chrome network-error pages produce typed, nonzero navigation
-failures instead of false success. Normal empty or HTTP 404 pages remain readable.
-The production catalogue now includes the paid Apple Silicon macOS artifact;
-Intel Macs continue to use system Chrome until their native artifact is promoted.
-See the [1.8.1 release](https://github.com/openonion/connectonion/releases/tag/v1.8.1).
-
-```bash
-python -m pip install --upgrade connectonion==1.8.1
-```
-
-The sections below retain historical channel and preview notes, not current
-version recommendations.
-
-## Version meanings
-
-| Version | Meaning |
-|---|---|
-| `1.6.12` | Previous stable 1.6 maintenance release |
-| `1.7.0rc12` | Accepted final 1.7 release candidate |
-| `1.7.0` | Initial Stable/LTS 1.7 release |
-| `1.7.1` | Current Stable/LTS 1.7 maintenance release |
-| `1.8.0a8` | Latest incomplete, opt-in feature preview |
-
-Patch numbers are not progress toward the next feature version. Alpha, beta,
-and RC suffixes describe confidence in one feature train.
-
-## Install stable
-
-```bash
-python -m pip install --upgrade connectonion
-```
-
-This remains on stable even after an alpha, beta, or RC is published.
-
-## Install exact stable 1.7
-
-Use the exact pin for a reproducible 1.7 installation:
-
-```bash
-python -m pip install --upgrade connectonion==1.7.1
+python -m pip install --upgrade 'connectonion==1.8.9b12'
 co --version
 ```
 
-A broad `--pre` upgrade follows the 1.8 preview train instead of Stable 1.7.
+The Host watcher shipped in b9 and remains in b11. It is removed from b12;
+Agent-owned watches belong to the session runtime
+tracked in [#1788](https://github.com/openonion/connectonion/issues/1788).
 
-## Join the latest preview track
+<details>
+<summary>The preview line that became 1.8.5</summary>
+
+Beta **1.8.5b11** made the command line name what to run next, and made
+calendar invitations actually arrive. `co gcalendar` never passed Google's
+`sendUpdates`, so an event with attendees invited nobody — and `Event created`
+read the same whether three people were invited or none, so the silent failure
+was indistinguishable from success until a client's guest said they got nothing.
+Moving or cancelling a meeting told its attendees nothing either, which is worse.
+The confirmation now names who was invited, and echoes the time in the zone it
+was written in: `16:30+10:00` used to be confirmed as `06:30 AM`.
+
+An audit against `useful_skills/cli-skill-design` fixed four things in the CLI
+itself. Every deliberate refusal printed two next steps, one of them useless and
+read first by anyone merging streams. A typo ended at `co --help` even when
+Click had already worked out the answer — `co larc` now says `Next: co lark`,
+and `co like`, which nothing matches, says `Next: co commands` rather than
+pointing at a boxed screen of groups. Two failures named no command at all. And
+the `co env` skill had never learned about `rotate`, `--secret` or
+`--from-console`.
+
+A missing bot permission is now one link away instead of a Developer Console
+visit, and #1462's reconnect gate passed: history recovery had never once been
+allowed to run, and once it was, a message posted during a 90-second gap came
+back exactly once.
+
+It carries `b10`, which makes `co auth lark` create an application and return its
+secret — **correcting b9, which shipped a warning saying it could not.** The
+cause was one path segment. We printed the URL the SDK hands over,
+`<open-host>/page/launcher?user_code=…`, and that page renders "Link expired"
+whenever its own acknowledgement call fails, for a code the server reports as
+pending in the same second. `lark-cli` discards that URL and builds
+`<open-host>/page/cli?user_code=…`; pointed there, the same tenant produced the
+creation form, an application, and its secret. Nothing about a tenant, a region,
+or a code's lifetime was ever involved. `--app-id` reuse works too.
+
+It carries `b9`, which lets an app secret be stored encrypted. `co env set --secret`
+writes ciphertext under a key derived at a SLIP-0013 path and kept nowhere, and
+`co env rotate` moves it to the next index. There is no master key, so there is
+no keychain to be blocked by a sandbox or a machine with no logged-in human; the
+root is `.co/keys/agent.key`, not the optional `recovery.txt`, so writing your
+twelve words down and deleting that file cannot orphan a secret — and those
+words still reach it, because the agent key is derived from them.
+
+It also carries `co env set --from-console`, which accepts an app credential
+copied from the Developer Console — still the right route when you already keep
+an application there, though no longer the only way out of a tenant `co auth`
+could not serve. And `co auth lark` reports the server's real link lifetime
+instead of the SDK's fallback of 600, which is how "it expired after two
+minutes" was investigated as a timeout that never existed.
+
+It carries `b8`, which makes `co auth lark` begin on Lark. It used to print an
+`open.feishu.cn` link and, on failure, tell a Lark user to run `co auth feishu`;
+the accounts domain, the wording, and the reuse command offered from lark-cli's
+config all follow the brand now.
+
+It carries `b7`, which lets an agent reach a tab the site opened for itself — a
+payment popup, a "view invoice" button, any `target="_blank"` link. Those pages
+belong to no session, so they appeared on no board and every `-t` command kept
+running in the page before them. `co browser list_pages` shows the browser's
+real pages with the session driving each, `switch_page <index>` points a session
+at one, and `tab ls` counts what it cannot show and names the verb.
+
+It carries `b6`, which installs the paid browser's driver from PyPI. `onionwright`
+held only a name reservation there — one file and a version string — while the
+real client travelled a licence-gated endpoint; it is published normally now, so
+`pip install 'connectonion[wtf]'` works and the installer is 289 lines shorter.
+The browser binary stays licence-gated and the runtime licence is still checked
+at launch.
+
+It carries `b5`, which makes asking for the paid engine enough. The route to the WTF
+Browser was three commands, and the first one asked the caller to decide nothing —
+the engine cannot run without its client. An explicit `--engine wtf` now fetches
+it; `auto`, `system` and `--engine wtf help` still install nothing, because
+importing ConnectOnion or taking the free engine must never mutate a Python
+environment. The paid browser also runs on **Intel Macs** now: its object had
+been staged and unpromoted since a gate failure on 2026-09-04, and the re-run
+passed on real Intel hardware on 2026-09-13.
+
+It carries `b4`, which fixes what `b3` could not install. `co browser install-onion`
+reported `pip could not install Onionwright (exit 1)` when pip had declined by
+policy — PEP 668's externally-managed marker, the default on Homebrew and most
+distro Pythons — and had named the override itself. pip's output is captured now
+so a refusal can be told from a failure, and a policy refusal names the
+interpreter and both routes out. The new `--break-system-packages` is opt-in.
+
+It carries everything from `b3`, which fixes two ways the browser could waste an afternoon, both
+found by an unattended agent. `co browser wait` takes seconds while every
+neighbouring knob is named in milliseconds, so `wait 2500` meant forty-one
+minutes holding a tab's lock — every command behind it timed out while
+`status` kept answering, so nothing looked broken. It is capped at 60 seconds
+now and refuses before taking the lock, naming the value you meant. And a
+daemon pinned to an engine refused every bare command, `close` included, while
+its own error told you to run `close`: `auto` is no preference now, verbs that
+touch no page are never gated, and a refusal names only commands that daemon
+would accept. A dead paid session names its recovery, and the paid engine says
+it bills before it spends.
+
+It carries everything from `b2`: `co browser config`, the paid engine called
+`wtf`, `consume`, and `co auth feishu --app-id`.
+
+The no-loss-across-a-reconnect gate passed on 15 September, against a real
+group — the last thing between this line and stable.
+See [1.8.5b11 release notes](releases/1.8.5b11.md).
+
+</details>
+
+All eleven 1.8.5 previews (a1 through b11) are superseded by stable 1.8.5;
+1.8.4a1 and 1.8.4a2
+are historical, and the planned 1.8.4b1 was folded into the stable release. The
+tag workflow builds and verifies the public package before documentation is
+deployed. Google authorization from 1.8.3 is retained; TikTok remains deferred.
+The sections below are historical notes.
+
+## Historical 1.7 preview work
+
+- Stable release: `1.6.10`
+- Preview target: `1.7.0a13`
+- Browser client: `@connectonion/react@0.4.2-alpha.11`
+
+The preview uses OIP 0.1 as the only first-party browser protocol. The Python
+Host serves the authenticated `/ws` connection; `@connectonion/react` owns the
+browser client; O Chat consumes the exact React prerelease. Codex and Claude
+Code remain native backend provider adapters and publish their normalized
+activity through OIP.
+
+Alpha 7 makes explicit Codex requests deterministic: natural-language verbs,
+`/codex`, delegation language, and Chinese requests route through the native
+Codex adapter before the model chooses a tool. `open Codex` creates or resumes
+the provider session without inventing a prompt, and an OIP-visible guard blocks
+direct Codex launches through shell tools without affecting ordinary shell text.
+The browser continues to use OIP 0.1 and the same shared Work Room card.
+
+Alpha 8 closes the open-only lifecycle found by public browser acceptance.
+Codex writes a rollout only after its first turn, so an open-only app-server now
+stays alive in a bounded, expiring registry. The first Work Room message claims
+that exact provider thread, completes the real turn, persists the rollout, and
+then closes the process. The session ID shown when Codex opens is therefore the
+same one used by the first task.
+
+Alpha 9 makes reload an authenticated OIP reattach instead of a false second
+login. A fresh signed CONNECT that reaches the still-live relay queue is accepted
+only when caller, recipient, signed-command capability, OIP protocol, and session
+are unchanged. The Host republishes CONNECTED without duplicating a running
+forwarder; every mismatch and signature replay remains rejected.
+
+Alpha 10 separates that reattach proof from first-connect authorization. The
+same live caller must still present a fresh signature and unchanged recipient,
+capability, protocol, session, replay claim, and current blacklist status, but
+the Host no longer repeats mutable onboarding/contact/admin policy or rebuilds
+permission authority for a connection that is already authorized. It republishes
+the existing mode, profile, transcript, and dashboard state. A first Send or
+Codex Work Room follow-up racing the eager browser CONNECT now reaches its input
+instead of surfacing a local trust-file error.
+
+Alpha 11 makes the OIP 0.1 rolling window explicit. Descriptor-less 0.1 peers
+remain readable, Direct and Relay use the same compatibility gate, unsupported
+versions fail once without retry, discovery stays uncached, and Host records only
+content-free compatibility classifications. DD-053 now defines the release and
+time boundary before a reader can be removed.
+
+Alpha 12 closes the production blockers found by real Chrome acceptance. Claude
+Code keeps its authenticated macOS CLI environment and publishes a resumable
+Work Room lifecycle like Codex. Stop now terminates the complete hosted Bash
+process group, and multimodal messages no longer crash slash-command dispatch or
+lose their image parts. The release gate includes fresh onboarding, approval,
+cancellation with a process-tree check, text and image attachments, reconnect,
+both native coding adapters, mobile layout, and session rollback across exact
+published React and Host prereleases.
+
+Alpha 13 makes a long native coding run observable while it is still running.
+Codex and Claude Code emit their provider lifecycle and child work in a live,
+non-persistent presentation lane; their canonical trace remains transactional
+until the outer hosted tool commits. A cancellation closes the live provider
+card without leaking that uncommitted trace. Native Codex approvals now carry
+safe exact provider correlation, so React and O Chat put the decision on the
+right Work Room card instead of a generic outer tool. The default UI presents a
+bounded semantic activity snapshot; raw commands and outputs stay behind
+disclosure.
+
+Normal upgrades stay on stable. Preview testers opt in explicitly:
 
 ```bash
-python -m pip install --pre --upgrade connectonion
+python -m pip install connectonion==1.7.0a13
 ```
 
-The `--pre` flag is an explicit opt-in to the latest feature train. For a
-reproducible 1.8 test, use an exact pin:
-
-```bash
-python -m pip install connectonion==1.8.0a8
-```
-
-## Preview 1.8.0a8: retained chat synchronization
-
-The experimental OIP `session-sync/0.1` extension exposes owner-scoped,
-revision-based retained chat history from the Agent machine. Clients can
-discover changes, read snapshots, and rename or archive chats without taking
-over another device's live connection. Local drafts and pending input remain
-local; a mode-only CONNECT record does not become remote chat history until
-the first user turn.
-
-Use `connectonion==1.8.0a8` with `@connectonion/react@0.4.4-rc.1` for this
-preview. The React client signs a fresh nonce into every CONNECT, including
-reconnects, so simultaneous pages do not collide with replay protection. The
-Host keeps public-relay routing metadata separate from chat resume state.
-Remote-only transcripts must use `SESSION_GET`/`SESSION_SNAPSHOT`; the paired
-[O Chat snapshot integration](https://github.com/openonion/oo-chat/pull/244)
-tracks the frontend rollout separately.
-
-The a6 and a7 tags are immutable, unpublished candidates stopped before PyPI
-publication. A7 repaired the private-driver release workflow, then live
-two-device testing found the empty-session history defect corrected in a8.
-See the [v1.8.0a8 GitHub Release](https://github.com/openonion/connectonion/releases/tag/v1.8.0a8).
-
-## Stable 1.7.1
-
-ConnectOnion 1.7.1 is a maintenance release for the stable 1.7 line. It
-detects OpenRouter credentials before the OpenAI fallback, reuses a valid
-Outlook access token until refresh is actually needed, reports file-tool
-refusals as failures, and marks max-iteration runs as incomplete. It does not
-change the browser runtime or the independent 1.8 preview channel.
-
-See the [v1.7.1 GitHub Release](https://github.com/openonion/connectonion/releases/tag/v1.7.1)
-for the merged pull requests and full `v1.7.0...v1.7.1` changelog.
-
-## How a candidate earns promotion
-
-Each release gate starts from the exact published package, launches its real
-`co ai` Host, and connects the production O Chat build through a real browser.
-The acceptance flow exercises a deterministic catalog search and attachment
-download through `co browser`, C, C++, and Rust projects, native Codex
-delegation, permission modes, cancellation, Host restart, and reconnect
-without resending the last prompt.
-
-The run produces screenshots, sanitized logs, and a hash-addressed manifest.
-UI text alone cannot mark the gate as passed: process state, workspace output,
-reconnect state, and the absence of a duplicate input are checked independently.
-A failed gate stays failed and feeds the next issue and PR.
-
-Backend promotion also collects the complete mocked `oo-api` test tree.
-Integration and live-provider cases stay explicit, but a new billing or API
-contract test cannot sit outside CI just because it was added in a separate
-test module.
-
-## Stable 1.7.0
-
-The 1.7 product path uses OIP across Core, `@connectonion/react`, and O Chat.
-The accepted RC12 product source earned Stable after the protected Python 3.10–3.13 matrix, native Windows
-browser transport, Windows and macOS installed-wheel E2E, trusted publishing,
-independent public-byte verification, native Codex and Claude Code Work Room
-journeys, provider permissions and Stop, Host restart/reconnect, compiled-language
-projects, Outlook attachment checks, and responsive UI review all passed.
-
-The public 1.7.0b4 gate exposed one difference between hosted and headless Auto:
-without a dialog channel, an outside-workspace write could skip the classifier.
-Beta 5 applied the deterministic boundary in both paths. Its exact public wheel
-passed a denied outside Auto write, left the target absent, and then completed
-the same outside read and write plus Todo lifecycle under explicit bounded Full
-access. Beta 10 was the final published beta. Its exact Core package and
-O Chat build at `3eb9bbb` passed localhost first-run invite authentication, real
-browser/C/C++/Rust work, native Codex delegation, Full access, Read only, Auto,
-Stop, Host restart, Reconnect, conversation/composer checks, and independent
-desktop/tablet/mobile UI review. RC1 synchronizes the Work Room client/composer
-correction, the normalized managed-usage reader, and the expanded deterministic
-browser gate. None of those changes count as accepted merely because RC1 exists:
-the exact installed RC must repeat real browser catalog search and attachment
-download plus the complete acceptance window before stable promotion, as recorded in
-[issue #792](https://github.com/openonion/connectonion/issues/792).
-
-Work Room is the remote client for that native provider session, not a status
-panel. Attributed user/provider messages and the provider-targeted composer stay
-visible through running, approval, Stop, reconnect, and terminal states. A state
-that cannot accept input disables the composer and explains why; it does not
-delete the conversation controls.
-
-Installed RC1 review also found that outer COAI permission was visible while
-the opened Work Room lacked its provider-native selector, so RC1 cannot promote
-unchanged. RC2 retains the outer mode as the Host ceiling, exposes
-revision-bound Codex and Claude Code native choices inside Work Room, waits for
-Host acknowledgement, and separately confirms elevated profiles. Its paired
-React reader is `0.4.3-rc.0`; O Chat `88ba1a362ce299942268275785b628dfe2cd96e9`
-passed final-head desktop, tablet, mobile, and continuous invite/mode/Control
-Center evidence before deployment.
-
-RC3 lets an authenticated invited owner change its own Work Room provider
-profile within the outer Host ceiling. It remains a synchronization and testing
-candidate, not stable approval: the exact RC3 gate exposed
-[issue #1222](https://github.com/openonion/connectonion/issues/1222), where an
-already-open Codex Work Room did not receive the provider downgrade revision
-after the outer mode changed from Full access to Auto. That authority defect
-must be fixed and the exact installed-artifact gate repeated before promotion.
-
-RC4 contains that provider downgrade correction together with the bounded
-follow-up fixes found by the repeated gate: native Auto mapping for Claude Code,
-optional hosted working directories, and coalesced transactional session
-snapshots so long provider runs cannot hide the next approval or terminal
-composer behind superseded state. The accepted pre-publication candidate passed
-fresh invite onboarding, real browser work, strict C11/C++20/Rust, native Codex
-and Claude Code, provider follow-up, Stop, reconnect, and manual review of 22
-hashed desktop, tablet, and mobile screenshots. Publication and the final
-unchanged-candidate window remain controlled by
-[issue #792](https://github.com/openonion/connectonion/issues/792).
-
-The repeated RC4 native Stop gate then found a narrower authority-ordering
-defect. A stopped continuation may omit an unchanged permission catalog; the
-next outer Full Access to Auto transaction could first stream a repair under
-the old ceiling and only then stream the final downgrade. RC5 commits the new
-outer mode before reconciling provider permissions, so each affected Work Room
-receives one observable permission result at the final ceiling. Its coordinated
-O Chat client keeps the latest Host-verified selector and composer visible in
-terminal Work Rooms, but replaces that fallback immediately when the Host sends
-a newer narrowed snapshot. RC4 cannot promote unchanged; the complete public
-RC5 native-provider, browser, compiled-language, reconnect, responsive UI, and
-manual design-review gate had to pass first.
-
-That exact RC5 run reached real Codex Stop and found a different state-boundary
-bug. The isolated provider-only continuation copied the outer `full-access`
-name without the positive `turns_left` value that makes the bounded grant
-valid. Canonical validation safely showed Auto in the browser, while the
-durable Host and provider ceiling still retained Full Access. RC6 copies the
-complete Host-validated mode tuple into direct Codex and Claude Code turns. It
-does not renew or consume the outer grant, and malformed Full Access still
-fails closed. RC5 cannot promote unchanged; the complete exact public RC6 gate
-must prove that Stop preserves the real outer state until an acknowledged Auto
-transaction immediately narrows provider authority.
-
-The exact RC6 gate passed browser search/download, strict C/C++/Rust work,
-native Codex, provider Stop, permission changes, and responsive layouts. Native
-Claude Code then completed its scoped project and returned success, but the
-parent model supplied no user-facing final text. The provider work was real;
-the outer conversation still lacked a valid terminal answer and never restored
-its composer. RC7 makes one bounded recovery call asking only for a conclusion
-grounded in recorded tool results. A second empty response fails explicitly
-instead of fabricating success or emitting an unusable empty outcome. RC6
-cannot promote unchanged; RC7 must repeat the complete parent and Work Room
-journey from the exact public artifact.
-
-The RC7 journey then exposed a measurement error at the browser boundary.
-Repeated state queries and cleanup looked as though they were queued behind a
-stuck daemon, but an absent-daemon `co browser status` still took 40.82 seconds:
-the client was importing Agent, Playwright, the terminal UI, and provider
-integrations before it ever reached the socket. RC8 keeps direct browser RPCs
-on a lightweight transport path and loads the full schema only for help,
-natural-language `do`, and the long-lived daemon. The same cold status check
-takes 2.91 seconds; an isolated real-browser smoke completes warm page-state
-queries and per-tab cleanup in 4.50 and 4.44 seconds. RC7 cannot promote
-unchanged; the exact public RC8 bytes must repeat the complete browser, native
-provider, compiled-language, reconnect, permission, and responsive UI gate.
-Whole-browser graceful teardown latency is separately bounded by the owned-PID
-cleanup and tracked for the 1.7.1 reliability patch.
-
-RC8's exact public journey completed browser search and download, strict
-C/C++/Rust work, Codex permission and Stop flows, and a real Claude Code
-project. Claude returned successfully, but the following parent-model
-settlement call never returned, so the Work Room remained stopped without a
-composer. RC9 bounds post-Codex and post-Claude settlement calls to 90 seconds,
-abandons late results, and makes one concise retry grounded only in the recorded
-provider result. If that retry also times out, the turn now fails explicitly.
-RC8 cannot promote unchanged; the exact public RC9 bytes must repeat the full
-end-to-end gate before stable promotion.
-
-The RC9 installed-wheel gate refined that failure after Claude Code completed
-its real C11 project: the parent received the provider result, then opened a
-new outer tool chain and stranded the Workroom composer beyond the release
-timeout. RC10 makes native-provider completion a terminal settlement boundary.
-The parent may return only a concise final response grounded in the recorded
-provider result; one attempted non-provider tool batch is discarded and
-retried once, while a repeated attempt fails explicitly so Host can publish a
-terminal outcome. The exact pre-publication candidate restored the composer
-and passed fresh invite onboarding, real Co-browser search/download, strict
-C11/C++20/Rust, native Codex and Claude Code projects, both provider-scoped Stop
-controls, Codex permission ceilings, voice recovery, outer Stop, reconnect,
-responsive layout, and review of 28 hashed screenshots with O Chat
-`aa435040be6166dd946afff9cee63b59cfb68057`. RC9 cannot promote unchanged; the
-exact public RC10 bytes must repeat this complete journey before Stable is
-considered.
-
-The release-line audit before that promotion found a different class of gap:
-RC10 did not contain every applicable fix already published in 1.6.12. RC11
-forwards server-region selection, scoped mailbox sharing, explicit provider
-network bounds, Outlook inline-signature filtering, the AI implementation
-contract, template-first delivery guidance, and durable release evidence while
-leaving 1.6 version metadata behind. Main/1.8 receives the missing subset too.
-RC11 is therefore a new candidate, not an unchanged RC10 promotion. Its exact
-public bytes must repeat the complete installed-artifact gate before Stable.
-
-Stable preparation then exposed two narrower blockers in RC11. A truncated
-image-looking data URL could terminate the agent after successful tool work,
-and unattended Auto ignored an operator's configured `co browser status`
-grant when no live approval dialog existed. RC12 requires complete supported
-image structure before upload and restores deliberate ordinary-command grants
-without letting the historical broad `co *` rule authorize publishing,
-deployment, credentials, deletion, or unknown effects. Both fixes also move to
-main/1.8. RC12 repeated these affected public-byte checks and became the Stable
-source.
-
-Real Codex and Claude provider smokes, upgrade and rollback coverage, backend
-reconciliation, release protection, and the full release-candidate acceptance
-window all closed before promotion. Historical-secret alerts have been cleared.
-
-## Design journal policy
+## Design Journal
 
 Release notes record what changed. A Design Journal post records the problem,
-alternatives, decision, tradeoffs, evidence, and the condition that would make
-us revisit it. Meaningful feature launches, phase promotions, stable releases,
-and material architecture decisions receive a public entry only after the
-claimed PyPI package and GitHub Release are visible.
+alternatives, decision, tradeoffs, evidence, and what would make us revisit it.
+Meaningful feature-train launches, phase promotions, stable releases, and
+material architecture decisions receive a new or substantially updated post.
 
-For the OIP boundary and remote-client UI contract, see
-[The Work Room Is a Client, Not a Status Panel](/blog/workroom-is-a-view).
-
-## 1.8.7b2 — Wiki memory workflows (preview)
-
-Attributed reflections, reviewable questions and connections, explicit investigation stages and durable local capture. See [preview notes](/releases/1.8.7b2.md) and [commands](/cli/wiki-memory.md). Stable remains 1.8.6.
+The OIP-only decision is recorded in
+[DD-053](design-decisions/053-oip-only-browser-and-native-coding-adapters.md).

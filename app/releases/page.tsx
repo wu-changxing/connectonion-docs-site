@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'Claude Station can start its first turn from the browser. This build also includes the b6 Wiki maintenance fix.'
+                ? 'Subscribed skills now reconcile withdrawn content and carry signed companion files. Browser tasks use one quoted instruction without a do verb.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
@@ -86,8 +86,8 @@ export default function ReleasesPage() {
                   <Link href={`/releases/${PREVIEW_VERSION}.md`} className="inline-flex min-h-11 items-center font-semibold text-amber-900 underline underline-offset-4 hover:text-amber-950">
                     Read the preview notes
                   </Link>
-                  <Link href="/blog/an-id-before-a-session" className="inline-flex min-h-11 items-center text-amber-900 underline underline-offset-4 hover:text-amber-950">
-                    How the first turn works
+                  <Link href="/blog/a-subscription-is-not-a-copy" className="inline-flex min-h-11 items-center text-amber-900 underline underline-offset-4 hover:text-amber-950">
+                    Why subscriptions track ownership
                   </Link>
                 </div>
               </>
@@ -108,6 +108,7 @@ export default function ReleasesPage() {
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
             <Link href="https://github.com/openonion/connectonion/releases" className="text-green-800 underline underline-offset-4 hover:text-green-950">Complete release history</Link>
+            <Link href="/releases/1.8.9b11.md" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.8.9b11 · Wiki onboarding</Link>
             <Link href="/releases/1.8.9b6.md" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.8.9b6 · Wiki maintenance</Link>
             <Link href="/releases/1.8.9b5.md" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.8.9b5 · Claude approvals</Link>
           </div>
