@@ -1,0 +1,41 @@
+# Watch Events Plugin
+
+`watch_events` inserts claimed events into an Agent that is already running.
+It uses `before_iteration` so the next model decision sees the latest event.
+If an event arrives during the final model call, `after_iteration` asks the
+Agent for one more iteration. The message uses the existing internal
+`<system-reminder>` format: it is a model-visible `user` role message, not a
+provider `system` role.
+
+```python
+from collections import deque
+
+from connectonion import Agent
+from connectonion.useful_plugins import watch_events
+
+pending = deque()
+
+def claim_events():
+    batch = list(pending)
+    pending.clear()
+    return batch  # Each item: {"id": "stable-id", "content": "What changed"}
+
+agent = Agent("worker", plugins=[watch_events(claim_events)])
+pending.append({"id": "file-42", "content": "notes.md changed"})
+agent.input("Check the project")
+```
+
+The callback owns its queue and should claim events atomically when multiple
+workers may run. The plugin records event IDs in the session trace, marks the
+reminder internal for the Host UI, and accepts at most four batches per turn by
+default. Use `watch_events(claim_events, max_batches=2)` to change that limit.
+Create a fresh plugin for each Agent instance so the batch limit is per turn.
+
+An Agent plugin runs only while `Agent.input()` is active. It cannot observe
+events or wake an idle session by itself. Host watches use a background source
+observer and SQLite queue for that job, then bind this plugin to the watch's
+active turn. See [Host watches](/host).
+
+To edit the plugin for your own Agent, run `co copy watch_events` and import
+`watch_events` from `plugins.watch_events`. The copied file uses absolute
+ConnectOnion imports so it works outside the package tree.

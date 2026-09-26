@@ -118,6 +118,24 @@ agent = Agent("devops", tools=[run_command], plugins=[shell_approval])`,
     status: 'available'
   },
   {
+    id: 'watch-events',
+    name: 'watch_events',
+    title: 'Watch Events',
+    description: 'Adds claimed external events to a running Agent at iteration boundaries',
+    whenToUse: 'When an active Agent should see new event data before its next model decision.',
+    setup: 'needs an event source',
+    icon: HiOutlineChatBubbleBottomCenterText,
+    color: 'text-gray-500',
+    bgColor: 'bg-white',
+    borderColor: 'border-gray-200',
+    href: '/useful-plugins/watch-events',
+    events: ['before_iteration', 'after_iteration'],
+    usage: `from connectonion.useful_plugins import watch_events
+
+agent = Agent("worker", plugins=[watch_events(claim_events)])`,
+    status: 'available'
+  },
+  {
     id: 'system-reminder',
     name: 'system_reminder',
     title: 'System Reminder',

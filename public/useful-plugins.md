@@ -22,6 +22,26 @@ Learn how to build custom plugins in the [Plugin System documentation](/plugin).
 
 ## Available Plugins
 
+### Watch Events
+
+Insert already claimed observations at Agent iteration boundaries. The plugin
+accepts a callback that returns records with `id` and `content`. It adds an
+internal reminder before the next model decision and can request one more
+iteration if an event arrives during a final model call.
+
+**Events used**: `before_iteration`, `after_iteration`
+
+```python
+from connectonion.useful_plugins import watch_events
+
+agent = Agent("worker", plugins=[watch_events(claim_events)])
+```
+
+The plugin runs only while `Agent.input()` is active. For a Host that must
+notice events while idle, declare `watch:` in `.co/host.yaml`; Host observes
+and queues events, then binds this plugin to the active watch turn. Use
+`co copy watch_events` to edit the plugin for your own Agent.
+
 ### ReAct Pattern
 
 Implements Reason + Act pattern with planning before action and reflection after tool execution
@@ -128,4 +148,3 @@ agent = Agent(
 ## Build Your Own Plugin
 
 Learn how to create custom plugins using the event system in the [Plugin System documentation](/plugin).
-

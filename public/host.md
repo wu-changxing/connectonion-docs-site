@@ -76,6 +76,33 @@ def host(
 
 ## How It Works
 
+### Event watchers (1.8.9 preview)
+
+Declare fixed file paths or timers in `.co/host.yaml`:
+
+```yaml
+watch:
+  - name: notes
+    source: file
+    path: notes.md
+  - name: heartbeat
+    source: timer
+    every: 15m
+```
+
+The Host observes these sources and stores events in `.co/watch-state.sqlite3`.
+An event for an idle watch starts a normal user turn in that watch's continuing
+session. Later events arriving during the turn are delivered by the
+[`watch_events` plugin](/useful-plugins/watch-events) at the next Agent iteration. Its
+`<system-reminder>` is an internal model-visible user-role message, not a
+provider system-role instruction. Event data is labeled untrusted.
+
+Use `co watch list` to inspect status and `co watch retry <event-id>` after
+fixing a failed delivery. Fixed-path polling can combine rapid writes; the
+watch plugin alone cannot wake an idle Agent.
+
+---
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                      host(agent)                        │
