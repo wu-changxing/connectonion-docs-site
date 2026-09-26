@@ -4,9 +4,22 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.8`; the opt-in preview is `1.8.9b6`.
+**Current channels:** stable is `1.8.8`; the opt-in preview is `1.8.9b7`.
 The Personal Wiki ships in 1.8.8 as Experimental and becomes long-term
 supported in **1.9.0**.
+
+## Claude Station first browser turn, beta 1.8.9b7
+
+Take browser control before the terminal's first prompt. The first browser
+message starts a new native Claude session; later turns resume it. A verified
+workspace edit still waits for **Allow once** or **Reject**, and an early native
+start failure rejects the pending message promptly. O Chat uses React SDK
+`0.4.4-rc.8` for the clearer startup error. Bash and MCP tools still have no
+Station browser approval path. The b7 preview also includes b6 Wiki maintenance.
+[Release notes](/releases/1.8.9b7.md) ·
+[Design Journal](/blog/an-id-before-a-session).
+
+Install: `python -m pip install --upgrade 'connectonion==1.8.9b7'`.
 
 ## Offline Wiki maintenance, beta 1.8.9b6
 
@@ -29,7 +42,7 @@ controls no longer disappear while Claude waits. Station's fixed owner-review
 mode cannot be changed through the provider profile API. Bash and MCP tools
 still have no Station browser approval path. O Chat now shows that fixed policy
 and uses React SDK `0.4.4-rc.7`. Complete one terminal turn before taking
-browser control of a new Station ([known limit](https://github.com/openonion/connectonion/issues/1776)).
+browser control of a new Station ([fixed in b7](https://github.com/openonion/connectonion/issues/1776)).
 [Release notes](/releases/1.8.9b5.md) ·
 [Design Journal](/blog/the-approval-the-browser-could-not-see).
 
