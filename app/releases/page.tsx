@@ -96,9 +96,9 @@ export default function ReleasesPage() {
           </p>
           <CommandBlock commands={['python -m pip install --upgrade connectonion==1.8.8', 'co --version']} />
           <p className="text-gray-600 my-4">
-            The 1.8.9b5 preview repairs Claude Station approval state. It is
+            The 1.8.9b6 preview repairs offline Wiki maintenance. It is
             installed only with an exact version pin; normal upgrades stay on 1.8.8.
-            Complete one terminal turn before taking browser control of a new Station.
+            The earlier Claude Station approval fix remains included.
           </p>
           <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.8" className="text-green-700 font-semibold hover:underline">Read the 1.8.8 release</Link>
           {' · '}<Link href="/cli/whatsapp" className="text-green-700 underline">co whatsapp</Link>
@@ -108,14 +108,14 @@ export default function ReleasesPage() {
 
         <section className="mb-14 rounded-lg border border-amber-200 bg-amber-50 p-6">
           <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Opt-in preview</p>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Claude Station approvals in 1.8.9b5</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Offline Wiki maintenance in 1.8.9b6</h2>
           <p className="text-gray-600 mb-4">
-            A browser decision now appears when Claude asks to edit a verified workspace file.
-            Shell and MCP approval in the Work Room remain future work.
+            Staged local files are available to offline Wiki runs. An unchanged
+            batch needs a source-linked receipt before its progress advances.
           </p>
-          <CommandBlock commands={["python -m pip install --upgrade 'connectonion==1.8.9b5'"]} />
-          <Link href="/releases/1.8.9b5.md" className="mt-4 inline-block text-green-700 font-semibold hover:underline">Read the preview notes</Link>
-          {' · '}<Link href="/blog/the-approval-the-browser-could-not-see" className="text-green-700 underline">Why the approval was hidden</Link>
+          <CommandBlock commands={["python -m pip install --upgrade 'connectonion==1.8.9b6'"]} />
+          <Link href="/releases/1.8.9b6.md" className="mt-4 inline-block text-green-700 font-semibold hover:underline">Read the preview notes</Link>
+          {' · '}<Link href="/blog/the-offline-agent-needed-files" className="text-green-700 underline">Why the offline run stopped</Link>
         </section>
 
         <section className="mb-14 rounded-lg border border-green-200 bg-green-50 p-6">
