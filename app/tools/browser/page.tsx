@@ -41,13 +41,13 @@ This:
 
 \`\`\`bash
 co browser <function> [args...]
-co browser do "<natural language instruction>"
+co browser "<natural language instruction>"
 co browser help
 \`\`\`
 
 Two ways to drive the browser, mixable in the same session:
 - **Direct function call** — \`co browser go_to x.com\`. Deterministic, instant, free (no LLM).
-- **Natural language** — \`co browser do "find the cheapest flight"\`. The AI agent figures out the steps.
+- **Natural language** — \`co browser "find the cheapest flight"\`. The AI agent figures out the steps.
 
 Run \`co browser help\` to list every callable function with its arguments — the fastest way to find the exact name before calling it.
 
@@ -673,7 +673,7 @@ co browser set_viewport 1920 1080 && co browser take_screenshot view-desktop.png
 
             <div className="mt-4 pt-4 border-t border-gray-200">
               <p className="text-gray-700 text-sm">
-                For sophisticated flows, hand the browser to the AI agent with <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">co browser do "..."</code>, or build an agent with the <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">BrowserAutomation</code> tool directly.
+                For sophisticated flows, hand the browser to the AI agent with <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">co browser "..."</code>, or build an agent with the <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">BrowserAutomation</code> tool directly.
               </p>
             </div>
           </div>

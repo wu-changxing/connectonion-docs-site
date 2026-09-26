@@ -27,7 +27,7 @@ const howToData = {
     { "@type": "HowToStep", "name": "Give your agent an identity", "text": "Run co init. It creates a keypair and 0x address, signs in with $5 of credit for managed models, and gives the agent its own mailbox.", "position": 2 },
     { "@type": "HowToStep", "name": "Use its own email", "text": "Run co email inbox and co email send. No DNS records or email provider account.", "position": 3 },
     { "@type": "HowToStep", "name": "Connect Gmail", "text": "Run co auth google, then co gmail inbox. No OAuth app; credentials are saved only on your computer.", "position": 4 },
-    { "@type": "HowToStep", "name": "Drive a real browser", "text": "Run co browser go_to, co browser get_text, or co browser do \"…\" for an AI-driven task.", "position": 5 },
+    { "@type": "HowToStep", "name": "Drive a real browser", "text": "Run co browser go_to, co browser get_text, or co browser \"…\" for an AI-driven task.", "position": 5 },
     { "@type": "HowToStep", "name": "Connect chat apps", "text": "Run co whatsapp listen or co telegram send.", "position": 6 },
     { "@type": "HowToStep", "name": "Plug into Claude Code and Codex", "text": "Run co skills link to link the bundled skills into both.", "position": 7 },
     { "@type": "HowToStep", "name": "Talk to your agent", "text": "Run co ai; it prints a chat.openonion.ai link.", "position": 8 }

@@ -55,7 +55,7 @@ co sub remove changxing`}
           />
 
           <p className="text-gray-600 mt-4">
-            After any <code className="bg-gray-100 px-2 py-1 rounded">co sub</code> invocation that pulls new content, <strong>restart your coding agent</strong> to pick up the new skills.
+            Restart a coding agent when the sync reports a positive installed count for it. A recorded subscription with no mirrored or installed skills needs no restart.
           </p>
         </section>
 
@@ -67,7 +67,7 @@ co sub remove changxing`}
           </h2>
 
           <p className="text-gray-700 mb-6">
-            One subscription is mirrored once into <code className="bg-gray-100 px-2 py-1 rounded">~/.co/subs/&lt;alias&gt;/</code> (the single source of truth), then distributed into every coding agent installed on your machine:
+            One signed subscription, including published companion files, is mirrored into <code className="bg-gray-100 px-2 py-1 rounded">~/.co/subs/&lt;alias&gt;/</code> and distributed into detected coding agents. The local alias stays pinned if the publisher renames theirs. Active skills are also available in <code className="bg-gray-100 px-2 py-1 rounded">co ai</code> as <code className="bg-gray-100 px-2 py-1 rounded">&lt;alias&gt;-&lt;skill&gt;</code>.
           </p>
 
           <div className="overflow-x-auto mb-6">
@@ -102,7 +102,7 @@ co sub remove changxing`}
           </h2>
 
           <p className="text-gray-700 mb-8">
-            <code className="bg-gray-100 px-2 py-1 rounded">co sub</code> is the <strong>sync verb</strong>: with a target it syncs one publisher; with no target it re-syncs every entry in <code className="bg-gray-100 px-1 rounded">~/.co/subscriptions.txt</code>. Subscribing and refreshing are the same operation — re-running re-fetches the profile, re-writes the mirrored bodies, and re-runs the fan-out.
+            <code className="bg-gray-100 px-2 py-1 rounded">co sub sync &lt;target&gt;</code> follows or refreshes one publisher. Bare <code className="bg-gray-100 px-2 py-1 rounded">co sub</code> refreshes every entry in <code className="bg-gray-100 px-1 rounded">~/.co/subscriptions.txt</code>. A refresh reconciles owned installations with the current signed publish, including withdrawn skills.
           </p>
 
           <div className="space-y-10">
@@ -113,7 +113,7 @@ co sub remove changxing`}
                 result={`Fetching profile 0xcd92510bb6cc...
 ✓ Subscribed to changxing (0xcd92510bb6cc...)
   mirrored 18 skill(s) → /Users/you/.co/subs/changxing
-  claude: installed 1 skill(s)
+  claude: installed 18 skill(s)
   codex: installed 18 skill(s)
   openclaw: installed 18 skill(s)
   cursor: installed 17 skill(s)
@@ -122,7 +122,7 @@ co sub remove changxing`}
                 language="bash"
               />
               <p className="text-gray-600 text-sm mt-3">
-                Idempotent — re-running refreshes. Once a publisher is in <code className="bg-gray-100 px-1 rounded">subscriptions.txt</code>, the alias works as shorthand: <code className="bg-gray-100 px-1 rounded">co sub sync changxing</code>. <code className="bg-gray-100 px-1 rounded">--relay &lt;url&gt;</code> overrides the relay (default <code className="bg-gray-100 px-1 rounded">https://oo.openonion.ai</code>).
+                Re-running refreshes. Once a publisher is in <code className="bg-gray-100 px-1 rounded">subscriptions.txt</code>, the pinned local alias works as shorthand: <code className="bg-gray-100 px-1 rounded">co sub sync changxing</code>. <code className="bg-gray-100 px-1 rounded">--relay &lt;url&gt;</code> overrides the configured relay. A conflicting user file or directory is preserved and reported.
               </p>
             </div>
 
@@ -138,24 +138,24 @@ co sub remove changxing`}
               <h3 className="text-xl font-semibold mb-3">co sub list — local view only</h3>
               <CodeWithResult
                 code={`co sub list`}
-                result={`                          Subscriptions
-┏━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┓
-┃ Alias     ┃ Address                         ┃ Version ┃ Skills ┃
-┡━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━┩
-│ changxing │ 0xcd92510bb6cc0903…             │ v0.1.0  │     18 │
-└───────────┴─────────────────────────────────┴─────────┴────────┘
+                result={`                              Subscriptions
+┏━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃ Alias     ┃ Address            ┃ Version ┃ Listed/Mirrored ┃ Installed ┃
+┡━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━┩
+│ changxing │ 0xcd92510bb6cc…  │ v0.1.0  │           18/18 │ codex:18  │
+└───────────┴────────────────────┴─────────┴─────────────────┴───────────┘
 
 Stored in: /Users/you/.co/subscriptions.txt`}
                 language="bash"
               />
-              <p className="text-gray-600 text-sm mt-3">No network calls — pure local read.</p>
+              <p className="text-gray-600 text-sm mt-3">No network calls. The first count is signed profile names; the second is locally available bodies. Installed counts reflect detected coding agents.</p>
             </div>
 
             <div>
               <h3 className="text-xl font-semibold mb-3">co sub remove &lt;alias|0xaddress&gt;</h3>
               <CommandBlock commands={['co sub remove changxing']} />
               <p className="text-gray-600 text-sm mt-3">
-                Reverse of sync: drops the line from <code className="bg-gray-100 px-1 rounded">subscriptions.txt</code>, uninstalls every per-tool symlink/copy, and deletes <code className="bg-gray-100 px-1 rounded">~/.co/subs/&lt;alias&gt;/</code>. Idempotent.
+                Reverse of sync: drops the line from <code className="bg-gray-100 px-1 rounded">subscriptions.txt</code>, removes owned per-tool links and copies, and deletes <code className="bg-gray-100 px-1 rounded">~/.co/subs/&lt;alias&gt;/</code>. User paths with a matching name are left alone.
               </p>
             </div>
           </div>
@@ -173,11 +173,11 @@ Stored in: /Users/you/.co/subscriptions.txt`}
           </p>
 
           <p className="text-gray-700 mb-6">
-            Once you&apos;ve subscribed by address, the alias from the publisher&apos;s profile is recorded next to it — from then on either works. A bare alias that&apos;s <em>not</em> already in <code className="bg-gray-100 px-1 rounded">subscriptions.txt</code> errors out and tells you to paste the address.
+            Once you&apos;ve subscribed by address, its local alias is pinned next to it. A later publisher rename does not change your install paths. The pinned alias works for refresh; a new alias that is not in <code className="bg-gray-100 px-1 rounded">subscriptions.txt</code> requires the full address.
           </p>
 
           <p className="text-gray-700 mb-4">
-            <code className="bg-gray-100 px-2 py-1 rounded">~/.co/subscriptions.txt</code> is plain text — edit it by hand if you like; <code className="bg-gray-100 px-1 rounded">co sub</code> is just sugar:
+            <code className="bg-gray-100 px-2 py-1 rounded">~/.co/subscriptions.txt</code> is plain text. Let <code className="bg-gray-100 px-1 rounded">co sub sync</code> and <code className="bg-gray-100 px-1 rounded">co sub remove</code> maintain it alongside the mirror and authenticated revision state:
           </p>
 
           <div className="bg-gray-900 text-gray-100 rounded-lg p-6 overflow-x-auto">
@@ -192,11 +192,11 @@ Stored in: /Users/you/.co/subscriptions.txt`}
         <section className="mb-20">
           <h2 className="heading-2">
             <HiOutlineShieldCheck className="w-8 h-8 text-gray-700" />
-            v1 Limitations
+            Current Limits
           </h2>
 
           <ul className="space-y-3 text-gray-700 list-disc pl-6">
-            <li><strong>No signature verification yet.</strong> The relay strips <code className="bg-gray-100 px-1 rounded">signer</code>/<code className="bg-gray-100 px-1 rounded">signature</code> from profile responses, so the client trusts the relay. When the relay exposes the signature, <code className="bg-gray-100 px-1 rounded">co sub</code> will verify locally before writing anything to disk.</li>
+            <li><strong>Signed publisher required.</strong> The subscriber verifies the publisher&apos;s profile-v2 signature, body, and companion files before writing them. An older relay that omits signed file bytes causes the sync to fail.</li>
             <li><strong>No lazy version check.</strong> Every sync re-pulls the full profile + every skill body even if nothing changed. A future <code className="bg-gray-100 px-1 rounded">profile-head</code> relay endpoint will let it skip unchanged publishers — the CLI surface won&apos;t change.</li>
           </ul>
         </section>

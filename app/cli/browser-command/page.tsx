@@ -46,7 +46,7 @@ export default function CliBrowserCommandPage() {
           <CodeWithResult
             code={`co browser go_to https://news.ycombinator.com   # opens a real browser, navigates
 co browser get_text                              # dumps the page text
-co browser do "click the top story and summarize it"   # let the AI agent do it
+co browser "click the top story and summarize it"   # let the AI agent run one task
 co browser close                                 # shut the browser down`}
             language="bash"
           />
@@ -96,7 +96,7 @@ co browser go_to example.com  # free default again`}
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-2">Natural language</h3>
-              <code className="text-sm bg-gray-100 px-2 py-1 rounded">co browser do &quot;find the cheapest flight&quot;</code>
+              <code className="text-sm bg-gray-100 px-2 py-1 rounded">co browser &quot;find the cheapest flight&quot;</code>
               <p className="text-gray-600 text-sm mt-3">An AI agent operates the same live browser and figures out the steps itself.</p>
             </div>
           </div>
@@ -269,7 +269,7 @@ co browser go_to example.com`}
 
           <CodeWithResult
             code={`co browser [-t TAB] <function> [args]    # run a browser function (bare = the shared 'main' tab)
-co browser [-t TAB] do "<instruction>"   # let the AI agent do it — same targeting grammar
+co browser [-t TAB] "<instruction>"      # let the AI agent run one task
 co browser tab open [NAME] [--who <agent>] [--for "<purpose>"]   # register a tab; prints its name
 co browser tab ls [--json]               # the board: every tab, who runs it, last command
 co browser tab close <NAME>              # release your tab when the task is done
@@ -299,25 +299,25 @@ co browser save_state auth.json                  # export cookies/localStorage (
           </p>
         </section>
 
-        {/* do — natural language */}
+        {/* Natural-language tasks */}
         <section className="mb-20">
           <h2 className="heading-2">
             <HiOutlineCpuChip className="w-8 h-8 text-gray-700" />
-            do — Natural Language
+            Natural-Language Tasks
           </h2>
 
           <p className="text-gray-700 mb-6">
-            <code className="bg-gray-100 px-2 py-1 rounded">do</code> hands the same live browser to an AI agent that sees the page and works out the steps itself — clicking, typing, scrolling, reading — until your instruction is done:
+            A quoted instruction hands the same live browser to an AI agent that sees the page and works out the steps itself — clicking, typing, scrolling, reading — until your task is done:
           </p>
 
           <CodeWithResult
-            code={`co browser do "log into github with the saved credentials and open my notifications"
-co browser -t scrape do "collect every plan name and monthly price into a list"`}
+            code={`co browser "log into github with the saved credentials and open my notifications"
+co browser -t scrape "collect every plan name and monthly price into a list"`}
             language="bash"
           />
 
           <p className="text-gray-600 mt-4">
-            Describe the <strong>end state</strong> you want (&quot;download the June invoice PDF&quot;), not the steps. <code className="bg-gray-100 px-1 rounded">do</code> costs LLM calls and is slower than direct functions — use functions for anything deterministic, <code className="bg-gray-100 px-1 rounded">do</code> for judgment. While a <code className="bg-gray-100 px-1 rounded">do</code> runs, the daemon is busy: other commands queue behind it (or exit 4 if they target its tab). This path uses managed keys — run <code className="bg-gray-100 px-1 rounded">co auth</code> once if you see an authentication message.
+            Describe the <strong>end state</strong> you want (&quot;download the June invoice PDF&quot;). A quoted task costs LLM calls and is slower than direct functions; use direct functions for deterministic actions and a quoted task for judgment. Model calls run in the CLI process while browser actions reach the daemon, so unrelated tabs remain available. This path uses managed keys — run <code className="bg-gray-100 px-1 rounded">co auth</code> once if you see an authentication message.
           </p>
         </section>
 
