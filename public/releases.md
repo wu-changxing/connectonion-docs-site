@@ -4,9 +4,21 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.8`; the opt-in preview is `1.8.9b7`.
+**Current channels:** stable is `1.8.8`; the opt-in preview is `1.8.9b10`.
 The Personal Wiki ships in 1.8.8 as Experimental and becomes long-term
 supported in **1.9.0**.
+
+## A free managed default, beta 1.8.9b10
+
+New Agents and `llm_do()` use `co/llama` for text when no model is specified.
+`co/gemma` is another free choice. If a paid call runs out of credits, the
+error names a free route to keep using. Audio transcription still uses Gemini.
+The GPU proxy admits one request at a time, with a 4,096-token context and a
+1,024-token output cap. The stable channel remains 1.8.8.
+[Release notes](/releases/1.8.9b10.md) ·
+[Design Journal](/blog/a-free-model-after-the-credits-run-out).
+
+Install: `python -m pip install --upgrade 'connectonion==1.8.9b10'`.
 
 ## Claude Station first browser turn, beta 1.8.9b7
 

@@ -1,18 +1,18 @@
 # Models
 
-ConnectOnion supports the latest models from OpenAI, Google Gemini, Anthropic Claude, and Mistral AI. The default model is `co/gemini-2.5-pro` - best price-performance for AI agents.
+ConnectOnion supports free managed Llama and Gemma models alongside OpenAI, Google Gemini, Anthropic Claude, and Mistral AI. The default text model is `co/llama`.
 
 ## Quick Start
 
 ```python
 from connectonion import Agent
 
-# Default model (gemini-2.5-pro) - recommended for most use cases
+# Free default text model (Llama 3.1 8B)
 agent = Agent("assistant")
 
 # Or specify a model explicitly
 agent = Agent("assistant", model="co/gpt-5")              # OpenAI
-agent = Agent("assistant", model="co/gemini-2.5-pro")     # Google (default)
+agent = Agent("assistant", model="co/gemma")              # Free Gemma alternative
 agent = Agent("assistant", model="co/claude-sonnet-4-5")  # Anthropic
 ```
 
@@ -233,7 +233,7 @@ agent_mistral = Agent("assistant", model="co/mistral/mistral-large-latest", tool
 ```python
 # Top tier models from each provider
 agent = Agent("assistant", model="co/gpt-5")             # OpenAI flagship
-agent = Agent("assistant", model="co/gemini-2.5-pro")    # Google default
+agent = Agent("assistant", model="co/gemini-2.5-pro")    # Google option
 agent = Agent("assistant", model="co/claude-sonnet-4-5") # Anthropic flagship
 ```
 

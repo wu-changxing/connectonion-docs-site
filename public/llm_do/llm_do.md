@@ -7,7 +7,7 @@ Make direct LLM calls with optional structured output. Supports OpenAI, Google G
 ```python
 from connectonion import llm_do
 
-# OpenAI (default)
+# Free managed Llama (default)
 answer = llm_do("What's 2+2?")  
 print(answer)  # "4"
 
