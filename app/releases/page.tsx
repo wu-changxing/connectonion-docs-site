@@ -98,6 +98,7 @@ export default function ReleasesPage() {
           <p className="text-gray-600 my-4">
             The 1.8.9b5 preview repairs Claude Station approval state. It is
             installed only with an exact version pin; normal upgrades stay on 1.8.8.
+            Complete one terminal turn before taking browser control of a new Station.
           </p>
           <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.8" className="text-green-700 font-semibold hover:underline">Read the 1.8.8 release</Link>
           {' · '}<Link href="/cli/whatsapp" className="text-green-700 underline">co whatsapp</Link>
