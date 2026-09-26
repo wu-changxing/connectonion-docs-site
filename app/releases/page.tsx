@@ -1,312 +1,147 @@
 /**
- * @purpose Explain stable, alpha, beta, RC, and LTS release channels
+ * @purpose Help readers choose the stable release or an exact-pin preview
  * @context Public counterpart of connectonion/docs/releases.md
  */
 
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import {
   HiOutlineArrowPath,
   HiOutlineBeaker,
   HiOutlineCheckCircle,
+  HiOutlineClipboard,
   HiOutlineShieldCheck,
 } from 'react-icons/hi2'
-import { CommandBlock } from '../../components/CommandBlock'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
-import {
-  PREVIEW_VERSION,
-  STABILIZING_VERSION,
-  STABLE_VERSION,
-} from '../../lib/version'
+import { PREVIEW_VERSION, STABILIZING_VERSION, STABLE_VERSION } from '../../lib/version'
 
 const channels = [
-  {
-    version: 'X.Y.ZaN',
-    name: 'Alpha',
-    description: 'Incomplete, usable slices for opt-in developers. Interfaces may still change.',
-    icon: HiOutlineBeaker,
-  },
-  {
-    version: 'X.Y.ZbN',
-    name: 'Beta',
-    description: 'Feature-complete. Testing shifts to integration, upgrades, compatibility, and real users.',
-    icon: HiOutlineArrowPath,
-  },
-  {
-    version: 'X.Y.ZrcN',
-    name: 'Release candidate',
-    description: 'Could become stable unchanged. Only release-blocking fixes are accepted.',
-    icon: HiOutlineCheckCircle,
-  },
-  {
-    version: 'X.Y.Z',
-    name: 'Stable / LTS',
-    description: 'Default for normal installs. Preview builds require an explicit opt-in.',
-    icon: HiOutlineShieldCheck,
-  },
+  { name: 'Alpha', version: 'X.Y.ZaN', description: 'Incomplete, opt-in developer work.', icon: HiOutlineBeaker },
+  { name: 'Beta', version: 'X.Y.ZbN', description: 'Feature-complete; testing continues.', icon: HiOutlineArrowPath },
+  { name: 'Release candidate', version: 'X.Y.ZrcN', description: 'Only release-blocking fixes remain.', icon: HiOutlineCheckCircle },
+  { name: 'Stable / LTS', version: 'X.Y.Z', description: 'Recommended for normal installs.', icon: HiOutlineShieldCheck },
 ]
+
+function InstallCommand({ command }: { command: string }) {
+  const [copied, setCopied] = useState(false)
+  return (
+    <div className="flex min-w-0 items-start gap-2 rounded-lg bg-gray-950 px-4 py-3 text-white">
+      <code className="min-w-0 flex-1 whitespace-normal break-words font-mono text-sm leading-6">{command}</code>
+      <button
+        type="button"
+        onClick={() => { void navigator.clipboard.writeText(command); setCopied(true) }}
+        aria-label={copied ? 'Install command copied' : 'Copy install command'}
+        className="inline-flex min-h-11 shrink-0 items-center gap-1 rounded-md px-2 text-xs font-semibold text-gray-200 hover:bg-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400"
+      >
+        <HiOutlineClipboard className="h-4 w-4" aria-hidden />
+        {copied ? 'Copied' : 'Copy'}
+      </button>
+    </div>
+  )
+}
 
 export default function ReleasesPage() {
   return (
-    <div className="px-4 md:px-8 py-16 md:py-24">
-      <div className="max-w-4xl mx-auto">
+    <div className="px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-4xl">
         <PageHeader
-          breadcrumbs={[
-            { label: 'Docs', href: '/' },
-            { label: 'Release Channels' },
-          ]}
+          breadcrumbs={[{ label: 'Docs', href: '/' }, { label: 'Release Channels' }]}
           icon={HiOutlineArrowPath}
           title="Release Channels"
-          description="Stable releases, exact-pin candidates, and opt-in previews stay explicit."
+          description="Choose the stable release, or opt into a specific preview."
           markdownPath="/releases.md"
           markdownFilename="releases.md"
         />
 
-        <section className="mb-10 grid md:grid-cols-2 xl:grid-cols-3 gap-4" aria-label="Current releases">
-          <div className="border border-green-200 bg-green-50 rounded-lg p-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">Current stable</p>
-            <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">v{STABLE_VERSION}</p>
-            <p className="text-sm text-gray-600 mt-2">Installed by normal pip commands.</p>
-          </div>
-          <div className="border border-amber-200 bg-amber-50 rounded-lg p-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Release candidate</p>
-            <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">
-              {STABILIZING_VERSION ? `v${STABILIZING_VERSION}` : 'No active candidate'}
+        <section aria-label="Current releases" className="mb-12 grid gap-6 md:grid-cols-2">
+          <div className="min-w-0 rounded-lg border border-green-200 bg-white p-6">
+            <p className="mb-2 text-sm font-semibold text-green-800">Recommended · Stable</p>
+            <h2 className="mb-3 text-3xl font-bold text-gray-950">ConnectOnion {STABLE_VERSION}</h2>
+            <p className="mb-6 text-base leading-7 text-gray-700">
+              The default for everyday use. Preview releases never replace this version in normal upgrades.
             </p>
-            <p className="text-sm text-gray-600 mt-2">{STABILIZING_VERSION ? 'Exact-pin candidate under release gates.' : 'No active release candidate.'}</p>
+            <InstallCommand command="python -m pip install --upgrade connectonion" />
+            <Link href={`https://github.com/openonion/connectonion/releases/tag/v${STABLE_VERSION}`} className="mt-5 inline-flex min-h-11 items-center font-semibold text-green-800 underline underline-offset-4 hover:text-green-950">
+              Read the stable release
+            </Link>
           </div>
-          <div className="border border-gray-200 bg-gray-50 rounded-lg p-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Latest preview</p>
-            <p className="text-2xl font-bold text-gray-900 whitespace-nowrap">{PREVIEW_VERSION ? `v${PREVIEW_VERSION}` : 'No newer preview'}</p>
-            <p className="text-sm text-gray-600 mt-2">
+
+          <div className="min-w-0 rounded-lg border border-amber-300 bg-amber-50/50 p-6">
+            <p className="mb-2 text-sm font-semibold text-amber-800">Opt in · Latest preview</p>
+            <h2 className="mb-3 text-3xl font-bold text-gray-950">
+              {PREVIEW_VERSION ? `ConnectOnion ${PREVIEW_VERSION}` : 'No active preview'}
+            </h2>
+            <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'Available only to users who explicitly opt in.'
-                : 'No newer feature-train preview is currently published.'}
+                ? 'Claude Station can start its first turn from the browser. This build also includes the b6 Wiki maintenance fix.'
+                : 'The stable release is the current recommendation.'}
             </p>
-          </div>
-        </section>
-
-        <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.8</h2>
-          <p className="text-gray-600 mb-4">
-            One conversation works across two devices with request-bound approvals.
-            Personal Wiki and <code>co claude</code> ship as experimental commands.
-          </p>
-          <CommandBlock commands={['python -m pip install --upgrade connectonion==1.8.8', 'co --version']} />
-          <p className="text-gray-600 my-4">
-            The 1.8.9b7 preview lets a new Claude Station start its first turn in
-            the browser and includes the b6 Wiki maintenance fix. It is installed
-            only with an exact version pin; normal upgrades stay on 1.8.8.
-          </p>
-          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.8" className="text-green-700 font-semibold hover:underline">Read the 1.8.8 release</Link>
-          {' · '}<Link href="/cli/whatsapp" className="text-green-700 underline">co whatsapp</Link>
-          {' · '}<Link href="/cli/env" className="text-green-700 underline">co env</Link>
-          {' · '}<Link href="/cli/outlook" className="text-green-700 underline">Outlook</Link>
-        </section>
-
-        <section className="mb-14 rounded-lg border border-amber-200 bg-amber-50 p-6">
-          <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Opt-in preview</p>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Claude Station first browser turn in 1.8.9b7</h2>
-          <p className="text-gray-600 mb-4">
-            Take control before the terminal&apos;s first prompt, approve a verified
-            workspace edit, and return to the terminal. Native start failures
-            report promptly. Shell and MCP approval remain future work.
-          </p>
-          <CommandBlock commands={["python -m pip install --upgrade 'connectonion==1.8.9b7'"]} />
-          <Link href="/releases/1.8.9b7.md" className="mt-4 inline-block text-green-700 font-semibold hover:underline">Read the preview notes</Link>
-          {' · '}<Link href="/blog/an-id-before-a-session" className="text-green-700 underline">Why the first turn failed</Link>
-        </section>
-
-        <section className="mb-14 rounded-lg border border-green-200 bg-green-50 p-6">
-          <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">Stable 1.7 design</p>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">A Work Room is a client, not a status panel</h2>
-          <p className="text-gray-600 mb-4">
-            OIP gives the browser one session boundary while native Codex and Claude Code keep their
-            own conversation, lifecycle, permissions, and follow-up semantics.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 text-sm font-semibold">
-            <Link href="/blog/workroom-is-a-view" className="text-green-700 hover:underline">
-              The Work Room Is a Client
-            </Link>
-            <span className="hidden sm:inline text-green-400">·</span>
-            <Link href="/blog/oip-native-coding-adapters" className="text-green-700 hover:underline">
-              One Browser Protocol, Native Adapters
-            </Link>
-          </div>
-        </section>
-
-        <section className="mb-14">
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
-            <p className="text-gray-900 font-semibold mb-2">A version is a compatibility promise, not a progress counter.</p>
-            <p className="text-gray-600">
-              A version such as <code>1.6.3</code> maintains stable 1.6. New 1.7 features are tested as
-              {' '}<code>1.7.0aN</code>, <code>1.7.0bN</code>, and <code>1.7.0rcN</code> before <code>1.7.0</code> becomes stable.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {channels.map((channel) => {
-              const Icon = channel.icon
-              return (
-                <div key={channel.name} className="border border-gray-200 rounded-lg p-5 bg-white">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Icon className="w-5 h-5 text-gray-600" />
-                    <h2 className="font-semibold text-gray-900">{channel.name}</h2>
-                    <code className="ml-auto text-xs bg-gray-100 px-2 py-1 rounded">{channel.version}</code>
-                  </div>
-                  <p className="text-sm text-gray-600 leading-relaxed">{channel.description}</p>
+            {PREVIEW_VERSION && (
+              <>
+                <InstallCommand command={`python -m pip install --upgrade 'connectonion==${PREVIEW_VERSION}'`} />
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-1">
+                  <Link href={`/releases/${PREVIEW_VERSION}.md`} className="inline-flex min-h-11 items-center font-semibold text-amber-900 underline underline-offset-4 hover:text-amber-950">
+                    Read the preview notes
+                  </Link>
+                  <Link href="/blog/an-id-before-a-session" className="inline-flex min-h-11 items-center text-amber-900 underline underline-offset-4 hover:text-amber-950">
+                    How the first turn works
+                  </Link>
                 </div>
-              )
-            })}
+              </>
+            )}
           </div>
         </section>
 
-        <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Install stable</h2>
-          <CommandBlock commands={['python -m pip install --upgrade connectonion']} />
-          <p className="text-sm text-gray-600 mt-4">
-            Normal installs and upgrades ignore preview releases. Publishing a preview does not move existing users off stable.
+        {STABILIZING_VERSION && (
+          <p className="mb-10 border-l-2 border-amber-500 pl-4 text-base text-gray-700">
+            Release candidate {STABILIZING_VERSION} is available with an exact version pin.
           </p>
-        </section>
+        )}
 
-        <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Install exact stable</h2>
-          <CommandBlock commands={[
-            STABILIZING_VERSION
-              ? `python -m pip install --upgrade connectonion==${STABILIZING_VERSION}`
-              : `python -m pip install --upgrade connectonion==${STABLE_VERSION}`,
-            'co --version',
-          ]} />
-          <p className="text-sm text-gray-600 mt-4">
-            Use the exact pin for a reproducible stable installation. Preview releases
-            stay separate from normal upgrades.
+        <section className="mb-12 border-t border-gray-200 pt-8">
+          <h2 className="mb-3 text-2xl font-semibold text-gray-950">Earlier releases</h2>
+          <p className="mb-4 text-base leading-7 text-gray-700">
+            Browse past previews, release evidence, and version policy in the complete archive.
           </p>
-        </section>
-
-        <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Join the preview track</h2>
-          <CommandBlock commands={[
-            `python -m pip install --upgrade 'connectonion==${PREVIEW_VERSION || 'X.Y.ZbN'}'`,
-            'co --version',
-          ]} />
-          <p className="text-sm text-gray-600 mt-4">
-            Use an exact pin for this Python preview. It does not enable prerelease
-            versions of unrelated dependencies.
-          </p>
-        </section>
-
-        <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Earlier preview 1.8.0a8: retained chat synchronization</h2>
-          <div className="space-y-4 text-gray-700">
-            <p>
-              The experimental OIP <code>session-sync/0.1</code> extension exposes owner-scoped,
-              revision-based chat history from the Agent machine. Clients can discover changes,
-              read snapshots, and rename or archive chats without taking over another device&apos;s
-              live connection. Drafts remain local, and an empty CONNECT does not appear as a chat.
-            </p>
-            <p>
-              Pair <code>connectonion==1.8.0a8</code> with <code>@connectonion/react@0.4.4-rc.1</code>.
-              Fresh signed CONNECT nonces prevent same-second replay collisions; Host relay metadata
-              stays separate from resume state. Remote-only transcripts use <code>SESSION_GET</code>/{' '}
-              <code>SESSION_SNAPSHOT</code>. The{' '}
-              <a className="text-green-700 hover:underline" href="https://github.com/openonion/oo-chat/pull/244">
-                paired O Chat PR
-              </a>{' '}
-              tracks the frontend rollout separately.
-            </p>
-            <p className="text-sm text-gray-600">
-              The a6 and a7 tags were stopped before PyPI publication and remain immutable audit
-              records. A8 includes the release-workflow repair and the empty-session correction found
-              by live two-device E2E.{' '}
-              <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/releases/tag/v1.8.0a8">
-                Read the a8 release notes.
-              </a>
-            </p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
+            <Link href="https://github.com/openonion/connectonion/releases" className="text-green-800 underline underline-offset-4 hover:text-green-950">Complete release history</Link>
+            <Link href="/releases/1.8.9b6.md" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.8.9b6 · Wiki maintenance</Link>
+            <Link href="/releases/1.8.9b5.md" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.8.9b5 · Claude approvals</Link>
           </div>
         </section>
 
-        <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Current plan</h2>
-          <div className="border-l-2 border-gray-300 pl-5 space-y-4 text-gray-700">
-            <p><strong>1.6.x:</strong> previous stable maintenance line.</p>
-            <p><strong>1.7.x:</strong> earlier maintenance line.</p>
-            <p><strong>1.8.x:</strong> current stable line; {STABLE_VERSION} is the latest stable release.</p>
-            <p className="text-sm">
-              Track the live scope in the{' '}
-              <a className="text-green-700 hover:underline" href="https://github.com/openonion/connectonion/issues/1555">
-                1.8.6 release tracker
-              </a>{' '}
-              and the exact PR inventory and phase gates in{' '}
-              <a className="text-green-700 hover:underline" href="https://github.com/openonion/browser/issues/134">
-                cross-repository roadmap
-              </a>.
+        <details className="mb-12 rounded-lg border border-gray-200 bg-white">
+          <summary className="flex min-h-14 cursor-pointer items-center px-5 text-base font-semibold text-gray-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
+            How release channels work
+          </summary>
+          <div className="border-t border-gray-200 px-5 py-5">
+            <p className="mb-5 text-base leading-7 text-gray-700">
+              An exact version pin opts you into a preview without changing normal stable installs.
+              Promotion follows tests against the published package and a real browser.
             </p>
+            <dl className="divide-y divide-gray-100">
+              {channels.map(channel => {
+                const Icon = channel.icon
+                return (
+                  <div key={channel.name} className="grid gap-1 py-3 sm:grid-cols-[10rem_7rem_1fr] sm:items-baseline sm:gap-3">
+                    <dt className="flex items-center gap-2 font-semibold text-gray-900">
+                      <Icon className="h-4 w-4 shrink-0 text-gray-600" aria-hidden />
+                      {channel.name}
+                    </dt>
+                    <dd className="font-mono text-sm text-gray-700">{channel.version}</dd>
+                    <dd className="text-sm text-gray-700">{channel.description}</dd>
+                  </div>
+                )
+              })}
+            </dl>
+            <Link href="/releases.md" className="mt-5 inline-flex min-h-11 items-center font-semibold text-green-800 underline underline-offset-4 hover:text-green-950">
+              Read the release policy
+            </Link>
           </div>
-          <div className="mt-6 rounded-lg border border-gray-200 bg-white p-5 text-sm text-gray-700 space-y-3">
-            <p className="font-semibold text-gray-900">How a candidate earns promotion</p>
-            <p>
-              Each release gate starts from the exact published package, launches its real <code>co ai</code>{' '}
-              Host, and connects the production O Chat build through a real browser. The acceptance flow exercises
-              a deterministic catalog search and attachment download through <code>co browser</code>, C, C++, and
-              Rust projects, native Codex delegation, permission modes, cancellation, Host restart, and reconnect
-              without resending the last prompt.
-            </p>
-            <p>
-              The run produces screenshots, sanitized logs, and a hash-addressed manifest. UI text alone cannot
-              mark the gate as passed: process state, workspace output, reconnect state, and the absence of a
-              duplicate input are checked independently. A failed gate stays failed and feeds the next issue and PR.
-            </p>
-            <p>
-              Backend promotion also collects the complete mocked <code>oo-api</code> test tree. Integration and
-              live-provider cases stay explicit, but a new billing or API contract test cannot sit outside CI just
-              because it was added in a separate test module.
-            </p>
-          </div>
-          <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-700 space-y-3">
-            <p>
-              <strong>Stable outcome:</strong> the accepted RC12 product source completed the exact installed-artifact
-              gate and became 1.7.0. The coordinated browser reader is <code>@connectonion/react@0.4.3</code>;
-              O Chat owns presentation rather than parsing provider-private streams.
-            </p>
-            <p>
-              Claude Code and Codex preserve their provider session IDs, stream normalized tool activity through
-              OIP, and appear as live cards in O Chat through <code>@connectonion/react</code>.
-            </p>
-            <p>
-              The public wheel denied an outside-workspace write in headless Auto and left its target absent; explicit
-              bounded Full access then completed the outside canary read and write plus the full Todo lifecycle.
-            </p>
-            <p>
-              A running coding task now streams compact, correlated provider activity and its nested approval into
-              one Work Room. That Work Room remains a real remote Codex or Claude Code client: attributed user and
-              provider messages and the provider-targeted composer stay visible through running, approval, Stop,
-              reconnect, and completion. Temporarily unavailable input is disabled with a reason, not removed.
-              Recent semantic steps stay readable; raw commands and outputs are opt-in details.
-            </p>
-            <p>
-              Descriptor-less OIP 0.1 peers remain readable through 1.7.x. Unsupported versions fail once without
-              reconnecting, and privacy-safe compatibility telemetry contains no prompts, identities, or paths.
-            </p>
-          </div>
-        </section>
-
-        <section className="mb-14 rounded-lg border border-gray-200 bg-gray-50 p-6">
-          <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Design Journal</p>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Why the preview train uses alpha, beta, and RC</h2>
-          <p className="text-gray-600 mb-4">
-            Release notes explain what changed. The design journal explains why OIP owns the browser boundary,
-            while a Work Room treats one long native coding task as a live, correlated surface rather than a
-            terminal transcript.
-          </p>
-          <Link
-            href="/blog/a-tool-transaction-is-not-a-work-room"
-            className="text-sm font-semibold text-green-700 hover:underline"
-          >
-            Read the Work Room decision
-          </Link>
-        </section>
+        </details>
 
         <ContentNavigation />
       </div>
