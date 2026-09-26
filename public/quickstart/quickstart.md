@@ -83,9 +83,9 @@ project or a consent screen. The credentials come back encrypted to a one-time k
 CLI generated. Then:
 
 ```bash
-co gmail inbox                 # numbered list of recent mail
-co gmail read 1                # one email's full body
-co gmail reply 1 "Thanks, on it."
+co gmail inbox                 # recent mail, numbered, with a listing ID
+co gmail read 1 --listing <id> # one email's full body
+co gmail reply 1 "Thanks, on it." --listing <id>
 co gcalendar today             # today's events
 co gdrive list                 # recent Drive files
 ```

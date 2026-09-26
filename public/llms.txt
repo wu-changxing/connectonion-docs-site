@@ -11,6 +11,16 @@
 - [Vibe Coding Guide](https://docs.connectonion.com/vibe-coding): Use AI tools like Cursor to build agents
 - [All co commands](https://docs.connectonion.com/cli): All 42 commands and their subcommands, generated from co commands
 
+## Guides
+
+- [What is an agent CLI harness?](https://docs.connectonion.com/guides/what-is-an-agent-cli-harness): An agent CLI harness is a set of command-line tools an AI agent runs to reach email, chat apps, a browser, files and servers. How it works, and what ConnectOnion includes.
+- [How to give Claude Code or Codex access to Gmail](https://docs.connectonion.com/guides/claude-code-gmail): Connect Gmail to Claude Code or Codex in three commands: pip install connectonion, co auth google, co skills link. No Google Cloud project; credentials stay on your computer.
+- [How to give an AI agent access to Gmail and Outlook](https://docs.connectonion.com/guides/ai-agent-gmail): Connect an AI agent to Gmail with co auth google or Outlook with co auth microsoft. No OAuth app to register; the agent reads, searches, sends and replies with co gmail and co outlook.
+- [How to give an AI agent its own email address](https://docs.connectonion.com/guides/ai-agent-email-address): co init gives an AI agent its own mailbox at 0x…@mail.openonion.ai with no DNS records or email provider. Send with co email send, read with co email inbox, claim a readable name.
+- [How to give an AI agent a real, logged-in browser](https://docs.connectonion.com/guides/ai-agent-browser): co browser keeps one real Chrome open between commands. Log in by hand once, 2FA included, and every later command or co browser do task runs in that session. No Playwright script.
+- [How to connect an AI agent to WhatsApp](https://docs.connectonion.com/guides/ai-agent-whatsapp): co whatsapp links a number as a companion device by QR, writes every message to ~/.co/inbox/whatsapp/, and lets an agent receive, reply and send from the command line.
+- [How to connect an AI agent to Telegram, Discord, Feishu or SMS](https://docs.connectonion.com/guides/ai-agent-chat-apps): Each chat app becomes an inbox of files an agent reads with receive and answers with reply: co telegram, co discord, co feishu, co lark and co sms. The listeners dial out, so no public webhook.
+
 ## CLI: connect your agent
 
 - [co init](https://docs.connectonion.com/cli/init): The agent's identity: a keypair and 0x address

@@ -1,7 +1,7 @@
 import { ReleaseCliGuide } from '../../../components/ReleaseCliGuide'
 
 export const metadata = {
-  "title": "co outlook: email, calendar and Teams from the terminal | ConnectOnion",
+  "title": "Outlook CLI for AI agents: mail, calendar, Teams (co outlook) | ConnectOnion",
   "description": "Read and reply to Outlook mail, manage scheduled sends, and preview calendar events or Teams meetings before confirming writes.",
   "alternates": {
     "canonical": "/cli/outlook"
