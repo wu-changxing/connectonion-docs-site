@@ -147,6 +147,7 @@ export default function HomePage() {
             {[
               { href: '/quickstart', icon: HiOutlineRocketLaunch, label: 'Quick Start', sub: 'Get running in 60s' },
               { href: '/cli', icon: HiOutlineCommandLine, label: 'All co commands', sub: 'The CLI harness' },
+              { href: '/guides', icon: HiOutlineSparkles, label: 'Guides', sub: 'Gmail, WhatsApp, browser…' },
               { href: '/agent', icon: HiOutlineCpuChip, label: 'Python SDK', sub: 'Build your own agent' },
               { href: '/models', icon: HiOutlineTableCells, label: 'Models', sub: 'GPT / Claude / Gemini' },
               { href: '/useful-plugins', icon: HiOutlinePuzzlePiece, label: 'Plugins', sub: 'ReAct, Eval, Shell...' },

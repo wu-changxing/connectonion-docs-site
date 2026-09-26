@@ -1,7 +1,7 @@
 import { ReleaseCliGuide } from '../../../components/ReleaseCliGuide'
 
 export const metadata = {
-  "title": "co discord: a Discord bot as an inbox | ConnectOnion",
+  "title": "Discord bot CLI for AI agents (co discord) | ConnectOnion",
   "description": "Experimental: a Discord bot as a directory of files — listen, receive the next message as JSON, send and reply, with the same verbs as co feishu.",
   "alternates": {
     "canonical": "/cli/discord"

@@ -125,7 +125,7 @@
     "path": "/cli/auth"
   },
   "/cli/call": {
-    "title": "co call | ConnectOnion",
+    "title": "Run a command on a remote AI agent (co call) | ConnectOnion",
     "description": "Run one command on a remote agent from the shell, print the result. No LLM, no session — like a remote command line.",
     "path": "/cli/call"
   },
@@ -140,12 +140,12 @@
     "path": "/cli/create"
   },
   "/cli/email": {
-    "title": "co email | ConnectOnion",
-    "description": "Every agent gets its own email address. Send and read from it right in the terminal — no separate mail client, no Gmail OAuth.",
+    "title": "An email address for your AI agent (co email) | ConnectOnion",
+    "description": "Every agent gets its own address at 0x…@mail.openonion.ai. Send and read from it in the terminal, with no DNS records and no Gmail OAuth.",
     "path": "/cli/email"
   },
   "/cli/gdrive": {
-    "title": "co gdrive | ConnectOnion",
+    "title": "Google Drive CLI for AI agents (co gdrive) | ConnectOnion",
     "description": "List, search, download, and upload Google Drive files from the terminal — the same Drive access your agents get from the GDrive tool, as a command.",
     "path": "/cli/gdrive"
   },
@@ -155,7 +155,7 @@
     "path": "/cli/schedule"
   },
   "/cli/gmail": {
-    "title": "co gmail | ConnectOnion",
+    "title": "Gmail CLI for AI agents and Claude Code (co gmail) | ConnectOnion",
     "description": "Read, reply, send, and search your own Gmail account right in the terminal — the same Gmail API your agents use, as a command.",
     "path": "/cli/gmail"
   },
@@ -170,8 +170,8 @@
     "path": "/cli/setup"
   },
   "/cli/skills": {
-    "title": "co skills | ConnectOnion",
-    "description": "Scan skill files across your AI coding agents (Claude Code, Codex, Cursor, Kiro) and import the ones you want into ~/.co/skills/ so ConnectOnion can use them.",
+    "title": "Claude Code and Codex skills for ConnectOnion (co skills) | ConnectOnion",
+    "description": "co skills link puts ConnectOnion's bundled skills into Claude Code and Codex; co skills discover finds SKILL.md files from Claude Code, Codex, Cursor and Kiro.",
     "path": "/cli/skills"
   },
   "/cli/sub": {
@@ -435,22 +435,22 @@
     "path": "/prompts/examples/technical-writer"
   },
   "/cli/gcalendar": {
-    "title": "co gcalendar | ConnectOnion",
+    "title": "Google Calendar CLI for AI agents, with Meet (co gcalendar) | ConnectOnion",
     "description": "List, read, create, update and delete Google Calendar events, find free slots and create Meet links — one command, using your saved Google login.",
     "path": "/cli/gcalendar"
   },
   "/cli/telegram": {
-    "title": "co telegram | ConnectOnion",
+    "title": "Telegram bot CLI for AI agents (co telegram) | ConnectOnion",
     "description": "A Telegram bot you own: send from the terminal or an agent, plus experimental listen, receive and reply. It calls Telegram directly — no OpenOnion credits.",
     "path": "/cli/telegram"
   },
   "/cli/feishu": {
-    "title": "co feishu and co lark | ConnectOnion",
+    "title": "Feishu and Lark bot CLI for AI agents (co feishu, co lark) | ConnectOnion",
     "description": "Turn a Feishu or Lark bot into a directory of files: listen, receive the next message as JSON, send and reply from the terminal.",
     "path": "/cli/feishu"
   },
   "/cli/sms": {
-    "title": "co sms | ConnectOnion",
+    "title": "SMS inbox for AI agents (co sms) | ConnectOnion",
     "description": "Pair an Android phone, read locally decrypted SMS and revoke devices — the agent gets an SMS inbox from one command.",
     "path": "/cli/sms"
   },
@@ -465,12 +465,12 @@
     "path": "/cli/server"
   },
   "/cli/youtube": {
-    "title": "co youtube | ConnectOnion",
+    "title": "YouTube CLI for AI agents (co youtube) | ConnectOnion",
     "description": "Read your channel and uploads, and preview an upload before it happens, with your saved Google login — like co gmail.",
     "path": "/cli/youtube"
   },
   "/cli/discord": {
-    "title": "co discord | ConnectOnion",
+    "title": "Discord bot CLI for AI agents (co discord) | ConnectOnion",
     "description": "Experimental: a Discord bot as a directory of files — listen, receive the next message as JSON, send and reply, with the same verbs as co feishu.",
     "path": "/cli/discord"
   },
@@ -488,5 +488,45 @@
     "title": "co tiktok | ConnectOnion",
     "description": "Experimental: prepare a local TikTok post plan and verify login readiness. Read-only — nothing is uploaded.",
     "path": "/cli/tiktok"
+  },
+  "/guides": {
+    "title": "Guides | ConnectOnion",
+    "description": "Answers to the questions people ask about giving an AI agent real access: Gmail, Outlook, an email address, a browser, WhatsApp, Telegram, Discord, Feishu and SMS.",
+    "path": "/guides"
+  },
+  "/guides/what-is-an-agent-cli-harness": {
+    "title": "What is an agent CLI harness? | ConnectOnion",
+    "description": "An agent CLI harness is a set of command-line tools an AI agent runs to reach email, chat apps, a browser, files and servers. How it works, and what ConnectOnion includes.",
+    "path": "/guides/what-is-an-agent-cli-harness"
+  },
+  "/guides/claude-code-gmail": {
+    "title": "Give Claude Code or Codex access to Gmail | ConnectOnion",
+    "description": "Connect Gmail to Claude Code or Codex in three commands: pip install connectonion, co auth google, co skills link. No Google Cloud project; credentials stay on your computer.",
+    "path": "/guides/claude-code-gmail"
+  },
+  "/guides/ai-agent-gmail": {
+    "title": "Give an AI agent access to Gmail and Outlook | ConnectOnion",
+    "description": "Connect an AI agent to Gmail with co auth google or Outlook with co auth microsoft. No OAuth app to register; the agent reads, searches, sends and replies with co gmail and co outlook.",
+    "path": "/guides/ai-agent-gmail"
+  },
+  "/guides/ai-agent-email-address": {
+    "title": "Give an AI agent its own email address | ConnectOnion",
+    "description": "co init gives an AI agent its own mailbox at 0x…@mail.openonion.ai with no DNS records or email provider. Send with co email send, read with co email inbox, claim a readable name.",
+    "path": "/guides/ai-agent-email-address"
+  },
+  "/guides/ai-agent-browser": {
+    "title": "Give an AI agent a logged-in browser | ConnectOnion",
+    "description": "co browser keeps one real Chrome open between commands. Log in by hand once, 2FA included, and every later command or co browser do task runs in that session. No Playwright script.",
+    "path": "/guides/ai-agent-browser"
+  },
+  "/guides/ai-agent-whatsapp": {
+    "title": "Connect an AI agent to WhatsApp | ConnectOnion",
+    "description": "co whatsapp links a number as a companion device by QR, writes every message to ~/.co/inbox/whatsapp/, and lets an agent receive, reply and send from the command line.",
+    "path": "/guides/ai-agent-whatsapp"
+  },
+  "/guides/ai-agent-chat-apps": {
+    "title": "Connect an AI agent to Telegram, Discord, Feishu or SMS | ConnectOnion",
+    "description": "Each chat app becomes an inbox of files an agent reads with receive and answers with reply: co telegram, co discord, co feishu, co lark and co sms. The listeners dial out, so no public webhook.",
+    "path": "/guides/ai-agent-chat-apps"
   }
 }

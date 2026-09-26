@@ -44,6 +44,79 @@ export const navigation = [
     section: 'Getting Started',
     keywords: ['cursor', 'ai', 'vibe', 'coding', 'drag', 'drop', 'docs'],
     prev: { href: '/quickstart', title: 'Quick Start' },
+    next: { href: '/guides', title: 'All guides' }
+  },
+  // ─── Guides ──────────────────────────────────────────────────────
+  {
+    title: 'All guides',
+    href: '/guides',
+    icon: HiOutlineBookOpen,
+    section: 'Guides',
+    keywords: ['guides', 'how to', 'questions'],
+    prev: { href: '/vibe-coding', title: 'Vibe Coding Guide' },
+    next: { href: '/guides/what-is-an-agent-cli-harness', title: 'What is an agent CLI harness?' }
+  },
+  {
+    title: 'What is an agent CLI harness?',
+    href: '/guides/what-is-an-agent-cli-harness',
+    icon: HiOutlineCommandLine,
+    section: 'Guides',
+    keywords: ['agent cli harness', 'what is', 'cli for agents'],
+    prev: { href: '/guides', title: 'All guides' },
+    next: { href: '/guides/claude-code-gmail', title: 'Claude Code or Codex + Gmail' }
+  },
+  {
+    title: 'Claude Code or Codex + Gmail',
+    href: '/guides/claude-code-gmail',
+    icon: HiOutlineEnvelope,
+    section: 'Guides',
+    keywords: ['claude code', 'codex', 'gmail', 'skills'],
+    prev: { href: '/guides/what-is-an-agent-cli-harness', title: 'What is an agent CLI harness?' },
+    next: { href: '/guides/ai-agent-gmail', title: 'Gmail and Outlook for agents' }
+  },
+  {
+    title: 'Gmail and Outlook for agents',
+    href: '/guides/ai-agent-gmail',
+    icon: HiOutlineEnvelope,
+    section: 'Guides',
+    keywords: ['gmail', 'outlook', 'agent email', 'oauth'],
+    prev: { href: '/guides/claude-code-gmail', title: 'Claude Code or Codex + Gmail' },
+    next: { href: '/guides/ai-agent-email-address', title: 'An email address for your agent' }
+  },
+  {
+    title: 'An email address for your agent',
+    href: '/guides/ai-agent-email-address',
+    icon: HiOutlineInbox,
+    section: 'Guides',
+    keywords: ['email address', 'mailbox', 'dns'],
+    prev: { href: '/guides/ai-agent-gmail', title: 'Gmail and Outlook for agents' },
+    next: { href: '/guides/ai-agent-browser', title: 'A logged-in browser for your agent' }
+  },
+  {
+    title: 'A logged-in browser for your agent',
+    href: '/guides/ai-agent-browser',
+    icon: HiOutlineGlobeAlt,
+    section: 'Guides',
+    keywords: ['browser', 'login', '2fa', 'playwright'],
+    prev: { href: '/guides/ai-agent-email-address', title: 'An email address for your agent' },
+    next: { href: '/guides/ai-agent-whatsapp', title: 'WhatsApp for your agent' }
+  },
+  {
+    title: 'WhatsApp for your agent',
+    href: '/guides/ai-agent-whatsapp',
+    icon: VscComment,
+    section: 'Guides',
+    keywords: ['whatsapp', 'qr', 'linked device'],
+    prev: { href: '/guides/ai-agent-browser', title: 'A logged-in browser for your agent' },
+    next: { href: '/guides/ai-agent-chat-apps', title: 'Telegram, Discord, Feishu, SMS' }
+  },
+  {
+    title: 'Telegram, Discord, Feishu, SMS',
+    href: '/guides/ai-agent-chat-apps',
+    icon: VscComment,
+    section: 'Guides',
+    keywords: ['telegram', 'discord', 'feishu', 'lark', 'sms'],
+    prev: { href: '/guides/ai-agent-whatsapp', title: 'WhatsApp for your agent' },
     next: { href: '/cli', title: 'All co commands' }
   },
   // ─── CLI: Start Here ─────────────────────────────────────────────
@@ -53,7 +126,7 @@ export const navigation = [
     icon: HiOutlineCommandLine,
     section: 'CLI: Start Here',
     keywords: ['command', 'terminal', 'co', 'commands', 'cli'],
-    prev: { href: '/vibe-coding', title: 'Vibe Coding Guide' },
+    prev: { href: '/guides/ai-agent-chat-apps', title: 'Telegram, Discord, Feishu, SMS' },
     next: { href: '/cli/init', title: 'co init' }
   },
   {
