@@ -160,6 +160,8 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 - [Complete engineering blog index](https://docs.connectonion.com/blog/llms.txt): AI-readable catalog of every published field note, with canonical URLs, summaries, and topics
 - [Engineering blog RSS](https://docs.connectonion.com/blog/feed.xml): Chronological feed of new ConnectOnion design decisions and implementation lessons
 
+- [A Model That Still Answers After Credits Run Out](https://docs.connectonion.com/blog/a-free-model-after-the-credits-run-out): Why the managed default moved to a free GPU route, with the production billing and tool-call evidence and current capacity limits
+
 - [An ID Before a Session](https://docs.connectonion.com/blog/an-id-before-a-session): Why a Claude SessionStart ID may not yet be resumable, and how the first OIP browser turn starts safely
 
 - [The Approval the Browser Could Not See](https://docs.connectonion.com/blog/the-approval-the-browser-could-not-see): Claude Station's OIP approval lifecycle, real Haiku browser evidence, and remaining permission limits

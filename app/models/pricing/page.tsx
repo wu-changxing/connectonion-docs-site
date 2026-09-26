@@ -17,7 +17,7 @@ export default function PricingPage() {
         icon={HiOutlineCurrencyDollar}
         iconColor="icon-ui"
         title="Managed Keys Pricing"
-        description="Same pricing as official APIs. No markup, no hidden fees. Pay only for what you use."
+        description="co/llama and co/gemma are free. Paid managed models use official API prices without markup."
       />
 
       {/* How It Works */}
@@ -27,7 +27,7 @@ export default function PricingPage() {
           <div className="space-y-4 text-gray-700">
             <div className="flex items-start gap-3">
               <span className="text-gray-500 font-bold text-lg">1.</span>
-              <p>Add credits to your account — <a href="https://o.openonion.ai/purchase" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-700 underline">buy credits here</a> or run <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co purchase</code></p>
+              <p>Use the free default <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">co/llama</code>, or add credits for paid models.</p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-gray-500 font-bold text-lg">2.</span>
@@ -35,7 +35,7 @@ export default function PricingPage() {
             </div>
             <div className="flex items-start gap-3">
               <span className="text-gray-500 font-bold text-lg">3.</span>
-              <p>Credits are deducted per-token at official API rates. No expiration.</p>
+              <p>Free local models charge $0. Paid models deduct credits per token at official API rates.</p>
             </div>
           </div>
         </div>
@@ -55,6 +55,14 @@ export default function PricingPage() {
           </div>
           <HiOutlineArrowTopRightOnSquare className="h-5 w-5 text-gray-400 group-hover:text-gray-700 flex-shrink-0" />
         </a>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="heading-2">Free Managed Models</h2>
+        <p className="text-gray-700">
+          <code>co/llama</code> (default text model) and <code>co/gemma</code> cost $0 for input and output tokens.
+          The shared GPU currently handles one request at a time with a 4,096-token context and 1,024-token output cap.
+        </p>
       </section>
 
       {/* OpenAI Pricing */}
@@ -129,11 +137,10 @@ export default function PricingPage() {
               <tr>
                 <td className="px-4 py-3">
                   <code className="text-sm text-gray-700">gemini-3.7-flash</code>
-                  <span className="ml-2 text-xs bg-gray-100 text-gray-700 px-1.5 py-0.5 rounded">default</span>
                 </td>
                 <td className="px-4 py-3 text-gray-700">$0.75</td>
                 <td className="px-4 py-3 text-gray-700">$3.75</td>
-                <td className="px-4 py-3 text-gray-600">Default model — intro pricing through 2026-12-31, then $1.50 / $7.50</td>
+                <td className="px-4 py-3 text-gray-600">Fast paid Gemini — intro pricing through 2026-12-31, then $1.50 / $7.50</td>
               </tr>
               <tr>
                 <td className="px-4 py-3">

@@ -72,7 +72,7 @@ export default function LLMPage() {
               <CodeWithResult 
                 code={`from connectonion import llm_do
 
-# OpenAI (default)
+# Free managed Llama (default)
 answer = llm_do("What's 2+2?")
 print(answer)
 
@@ -327,7 +327,7 @@ Answer(result=4)`}
                     <tr className="border-b border-gray-200">
                       <td className="py-3 px-4"><code className="text-gray-500">model</code></td>
                       <td className="py-3 px-4 text-gray-700">str</td>
-                      <td className="py-3 px-4 text-gray-700">"co/gemini-3.7-flash"</td>
+                      <td className="py-3 px-4 text-gray-700">"co/llama"</td>
                       <td className="py-3 px-4 text-gray-700">Model to use (supports OpenAI, Gemini, Claude)</td>
                     </tr>
                     <tr className="border-b border-gray-200">

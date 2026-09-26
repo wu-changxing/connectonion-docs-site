@@ -98,8 +98,12 @@ response = agent.input("Hello!")
 - **gpt-5-nano** - Fastest, most cost-efficient
 - **o4-mini** - OpenAI's newest reasoning model
 
+### Free Managed Models
+- **co/llama** - Default text model, Llama 3.1 8B on ConnectOnion's GPU
+- **co/gemma** - Free Gemma 4 12B alternative
+
 ### Google Gemini Models
-- **gemini-3.7-flash** - Default model, newest fast Gemini, 1M context
+- **gemini-3.7-flash** - Fast Gemini option, 1M context
 - **gemini-3.6-flash** - Previous default, fast Gemini
 - **gemini-3.5-flash** - Previous fast Gemini
 - **gemini-3-pro-preview** - State-of-the-art reasoning, 1M context
@@ -248,6 +252,18 @@ response = agent.input("Explain quantum computing")`}
             </thead>
             <tbody className="divide-y divide-gray-200">
               <tr>
+                <td className="px-4 py-3"><code className="text-sm">co/llama</code></td>
+                <td className="px-4 py-3">ConnectOnion GPU</td>
+                <td className="px-4 py-3">4K</td>
+                <td className="px-4 py-3 text-gray-700">Free default text model, with tool calling</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3"><code className="text-sm">co/gemma</code></td>
+                <td className="px-4 py-3">ConnectOnion GPU</td>
+                <td className="px-4 py-3">4K</td>
+                <td className="px-4 py-3 text-gray-700">Free alternative</td>
+              </tr>
+              <tr>
                 <td className="px-4 py-3"><code className="text-sm">gpt-5</code></td>
                 <td className="px-4 py-3">OpenAI</td>
                 <td className="px-4 py-3">200K</td>
@@ -257,7 +273,7 @@ response = agent.input("Explain quantum computing")`}
                 <td className="px-4 py-3"><code className="text-sm">gemini-3.7-flash</code></td>
                 <td className="px-4 py-3">Google</td>
                 <td className="px-4 py-3">1M</td>
-                <td className="px-4 py-3 text-gray-700">Default model, newest fast Gemini</td>
+                <td className="px-4 py-3 text-gray-700">Fast paid Gemini option</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm">gemini-3-pro-preview</code></td>
@@ -292,7 +308,7 @@ response = agent.input("Explain quantum computing")`}
       <section className="mb-16">
         <h2 className="heading-2">Default Models</h2>
         <p className="text-gray-700 mb-4">
-          When you don't specify a model, ConnectOnion uses these optimized defaults:
+          When you don't specify a text model, ConnectOnion uses the free managed co/llama route:
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -305,15 +321,15 @@ response = agent.input("Explain quantum computing")`}
               For <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Agent()</code> class
             </p>
             <CodeWithResult
-              code={`# Default: co/gemini-3.7-flash
-agent = Agent("assistant")  # Uses co/gemini-3.7-flash
+              code={`# Default: co/llama
+agent = Agent("assistant")  # Uses co/llama
 
 # Same as:
-agent = Agent("assistant", model="co/gemini-3.7-flash")`}
+agent = Agent("assistant", model="co/llama")`}
               result=""
             />
             <p className="text-xs text-gray-500 mt-3">
-              Best for agentic tasks with tool calling and complex reasoning
+              Free text and tool calling on the shared GPU; 4,096-token context
             </p>
           </div>
 
@@ -328,15 +344,15 @@ agent = Agent("assistant", model="co/gemini-3.7-flash")`}
             <CodeWithResult
               code={`from connectonion import llm_do
 
-# Default: co/gemini-3.7-flash
+# Default: co/llama
 result = llm_do("Summarize this text...")
 
 # Same as:
-result = llm_do("...", model="co/gemini-3.7-flash")`}
+result = llm_do("...", model="co/llama")`}
               result=""
             />
             <p className="text-xs text-gray-500 mt-3">
-              Fast and cost-effective for simple LLM calls
+              Free for text calls; co/gemma is another free managed option
             </p>
           </div>
         </div>
@@ -444,7 +460,7 @@ result = llm_do("...", model="co/gemini-3.7-flash")`}
               <div className="space-y-3">
                 <div className="flex items-start">
                   <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.7-flash</code>
-                  <span className="text-gray-700">Newest fast Gemini, 1M context - <strong className="text-gray-900">Default model</strong></span>
+                  <span className="text-gray-700">Fast Gemini option, 1M context</span>
                 </div>
                 <div className="flex items-start">
                   <code className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm mr-3 font-mono">gemini-3.6-flash</code>

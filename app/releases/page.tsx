@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'Claude Station can start its first turn from the browser. This build also includes the b6 Wiki maintenance fix.'
+                ? 'Managed text calls use the free co/llama model by default. co/gemma is another free choice, and credit errors point to a free route.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
@@ -86,8 +86,8 @@ export default function ReleasesPage() {
                   <Link href={`/releases/${PREVIEW_VERSION}.md`} className="inline-flex min-h-11 items-center font-semibold text-amber-900 underline underline-offset-4 hover:text-amber-950">
                     Read the preview notes
                   </Link>
-                  <Link href="/blog/an-id-before-a-session" className="inline-flex min-h-11 items-center text-amber-900 underline underline-offset-4 hover:text-amber-950">
-                    How the first turn works
+                  <Link href="/blog/a-free-model-after-the-credits-run-out" className="inline-flex min-h-11 items-center text-amber-900 underline underline-offset-4 hover:text-amber-950">
+                    Why the free model changed
                   </Link>
                 </div>
               </>
