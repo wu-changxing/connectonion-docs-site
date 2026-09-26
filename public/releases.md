@@ -4,9 +4,22 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.8`; no preview is open.
+**Current channels:** stable is `1.8.8`; the opt-in preview is `1.8.9b5`.
 The Personal Wiki ships in 1.8.8 as Experimental and becomes long-term
 supported in **1.9.0**.
+
+## Claude Station approvals, beta 1.8.9b5
+
+The browser now receives the provider's `awaiting_approval` state before a
+verified workspace edit asks for a decision. Its **Allow once** and **Reject**
+controls no longer disappear while Claude waits. Station's fixed owner-review
+mode cannot be changed through the provider profile API. Bash and MCP tools
+still have no Station browser approval path. The browser's policy-label
+correction is in a separate O Chat preview.
+[Release notes](/releases/1.8.9b5.md) ·
+[Design Journal](/blog/the-approval-the-browser-could-not-see).
+
+Install: `python -m pip install --upgrade 'connectonion==1.8.9b5'`.
 
 ## Tested by strangers, stable 1.8.8
 
