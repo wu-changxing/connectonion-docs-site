@@ -151,6 +151,12 @@ export const pageSEO: Record<string, PageSEO> = {
     path: '/useful-plugins',
     section: 'Useful Plugins',
   },
+  '/useful-plugins/watch-events': {
+    title: 'Watch Events Plugin - Agent Iteration Events | ConnectOnion',
+    description: 'Use a copyable Agent plugin to insert claimed external events before the next model decision while the agent is running.',
+    path: '/useful-plugins/watch-events',
+    section: 'Useful Plugins',
+  },
   '/useful-plugins/re-act': {
     title: 'ReAct Plugin - Reasoning + Acting | ConnectOnion',
     description: 'Add ReAct (Reasoning + Acting) to your agent. The re_act plugin makes agents reflect and plan after each tool call for better decision-making.',
