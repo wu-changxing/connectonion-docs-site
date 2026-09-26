@@ -89,21 +89,32 @@ export default function ReleasesPage() {
         </section>
 
         <section className="mb-14">
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.7</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Stable 1.8.8</h2>
           <p className="text-gray-600 mb-4">
-            The Control Center can receive larger HTML snapshots and shows a visible
-            error when a page is oversized or unreadable. The earlier WhatsApp,
-            Ollama, mail-window, and calendar features remain in the stable package.
+            One conversation works across two devices with request-bound approvals.
+            Personal Wiki and <code>co claude</code> ship as experimental commands.
           </p>
-          <CommandBlock commands={['python -m pip install --upgrade connectonion==1.8.7', 'co --version']} />
+          <CommandBlock commands={['python -m pip install --upgrade connectonion==1.8.8', 'co --version']} />
           <p className="text-gray-600 my-4">
-            Personal Wiki is still an opt-in preview. Its current beta can be
-            installed with an exact version pin; normal upgrades stay on stable.
+            The 1.8.9b5 preview repairs Claude Station approval state. It is
+            installed only with an exact version pin; normal upgrades stay on 1.8.8.
           </p>
-          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.7" className="text-green-700 font-semibold hover:underline">Read the 1.8.7 release</Link>
+          <Link href="https://github.com/openonion/connectonion/releases/tag/v1.8.8" className="text-green-700 font-semibold hover:underline">Read the 1.8.8 release</Link>
           {' · '}<Link href="/cli/whatsapp" className="text-green-700 underline">co whatsapp</Link>
           {' · '}<Link href="/cli/env" className="text-green-700 underline">co env</Link>
           {' · '}<Link href="/cli/outlook" className="text-green-700 underline">Outlook</Link>
+        </section>
+
+        <section className="mb-14 rounded-lg border border-amber-200 bg-amber-50 p-6">
+          <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Opt-in preview</p>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">Claude Station approvals in 1.8.9b5</h2>
+          <p className="text-gray-600 mb-4">
+            A browser decision now appears when Claude asks to edit a verified workspace file.
+            Shell and MCP approval in the Work Room remain future work.
+          </p>
+          <CommandBlock commands={["python -m pip install --upgrade 'connectonion==1.8.9b5'"]} />
+          <Link href="/releases/1.8.9b5.md" className="mt-4 inline-block text-green-700 font-semibold hover:underline">Read the preview notes</Link>
+          {' · '}<Link href="/blog/the-approval-the-browser-could-not-see" className="text-green-700 underline">Why the approval was hidden</Link>
         </section>
 
         <section className="mb-14 rounded-lg border border-green-200 bg-green-50 p-6">
@@ -167,23 +178,20 @@ export default function ReleasesPage() {
             'co --version',
           ]} />
           <p className="text-sm text-gray-600 mt-4">
-            Use the exact pin for a reproducible stable installation. A broad <code>--pre</code> upgrade follows the
-            highest published feature train, which is currently {PREVIEW_VERSION ? <code>{PREVIEW_VERSION}</code> : 'not published'},
-            rather than the stable channel.
+            Use the exact pin for a reproducible stable installation. Preview releases
+            stay separate from normal upgrades.
           </p>
         </section>
 
         <section className="mb-14">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Join the preview track</h2>
           <CommandBlock commands={[
-            'python -m pip install --pre --upgrade connectonion',
+            `python -m pip install --upgrade 'connectonion==${PREVIEW_VERSION || 'X.Y.ZbN'}'`,
             'co --version',
           ]} />
           <p className="text-sm text-gray-600 mt-4">
-            The <code>--pre</code> flag is the explicit opt-in. An exact pin such as{' '}
-            <code>{PREVIEW_VERSION ? `connectonion==${PREVIEW_VERSION}` : 'connectonion==X.Y.ZaN'}</code>{' '}
-            also opts in and does not need <code>--pre</code>.
-            {!PREVIEW_VERSION && ' No preview is published, so this command currently keeps the latest stable release.'}
+            Use an exact pin for this Python preview. It does not enable prerelease
+            versions of unrelated dependencies.
           </p>
         </section>
 
