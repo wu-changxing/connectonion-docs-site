@@ -4,9 +4,22 @@ ConnectOnion keeps normal stable installs separate from opt-in release work.
 More than one feature train can be public at once. Preview builds never replace
 the stable recommendation until that version has completed release acceptance.
 
-**Current channels:** stable is `1.8.8`; the opt-in preview is `1.8.9b5`.
+**Current channels:** stable is `1.8.8`; the opt-in preview is `1.8.9b6`.
 The Personal Wiki ships in 1.8.8 as Experimental and becomes long-term
 supported in **1.9.0**.
+
+## Offline Wiki maintenance, beta 1.8.9b6
+
+An offline maintenance batch may read and write staged local files without
+using the network or source apps. Unchanged runs need a source-linked
+completion receipt before advancing progress, and Markdown numbered source
+labels are accepted after narrow normalization. This preview carries the
+1.8.9b5 Claude Station approval repair. Synthetic Luna runs and installed-wheel
+checks passed; production mailbox quality has not been established.
+[Release notes](/releases/1.8.9b6.md) ·
+[Design Journal](/blog/the-offline-agent-needed-files).
+
+Install: `python -m pip install --upgrade 'connectonion==1.8.9b6'`.
 
 ## Claude Station approvals, beta 1.8.9b5
 
