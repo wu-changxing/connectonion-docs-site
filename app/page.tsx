@@ -80,14 +80,9 @@ export default function HomePage() {
               be "Your agent is already written." over a Python file — true, but it
               sold the SDK, and the product people install is the CLI. Only commands
               in `co commands` for the release go in CLI_GROUPS. */}
-          <h1 className="heading-1 mb-4 text-balance">
+          <h1 className="heading-1 mb-8 text-balance">
             <span className="accent-italic text-[1.05em]">CLI</span> is all you need.
           </h1>
-
-          <p className="text-base sm:text-lg text-gray-600 mb-7 leading-relaxed text-balance">
-            Connect your AI agent to your mail, your chats, a real browser, your files
-            and your coding agents. Each connection is one <code className="font-mono text-gray-800">co</code> command.
-          </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-sm w-full">
             <a href="/quickstart" className="btn btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto">
