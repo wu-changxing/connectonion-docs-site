@@ -341,6 +341,51 @@ export const GUIDES: Guide[] = [
     ],
     keywords: ['agent-friendly CLI', 'CLI for AI agents', 'is my CLI usable by an LLM', 'co audit', 'CLI help for agents'],
   },
+  {
+    slug: 'cli-vs-mcp',
+    title: 'CLI vs MCP for AI agents: why a CLI harness',
+    seoTitle: 'CLI vs MCP (and skills) for AI agents | ConnectOnion',
+    description:
+      'MCP loads every tool definition into the model context up front; skills must be found and installed per agent. A CLI costs nothing until the agent runs it, and --help is the manual.',
+    answer:
+      'Use a CLI when you want an agent to reach many services without paying for them in context. Most MCP clients load every tool definition into the model\'s context before the conversation starts (Anthropic measured 58 tools across five servers at about 55K tokens), and a skill helps only once someone has found it and installed it for that agent. A CLI is a program on the PATH: nothing is in context until the agent runs it, bare `co` lists the commands in about 5 KB, `--help` explains the one it needs, and each command ends by printing what to run next. Any agent with a shell can use it: Claude Code, Codex, OpenCode or Cursor.',
+    steps: [
+      { name: 'Install once', text: 'One package gives the agent every `co` command. There is no server process to run and nothing to configure per client.', code: 'pip install connectonion\nco init' },
+      { name: 'Tell your agent to use co', text: 'In Claude Code, Codex, OpenCode or any agent with a shell, say what you want and add "use co". You don\'t list tools in the prompt.' },
+      {
+        name: 'Let it discover the rest',
+        text: 'The agent reads the command list, opens `--help` on the command it needs, and follows the `Next:` line. Each step is about a thousand tokens, spent only when needed.',
+        code: 'co\nco gmail --help\nco gmail\n# Connect Gmail first:\n# Next: co auth google',
+      },
+      { name: 'Add skills only as a shortcut', text: '`co skills link` puts ConnectOnion\'s skills into Claude Code and Codex. It saves the agent a step; nothing requires it.', code: 'co skills link' },
+      { name: 'Check any CLI the same way', text: 'In the 1.8.9 preview, `co audit` scores any program\'s help pages the way an agent reads them.', code: 'co audit gh pr' },
+    ],
+    faq: [
+      [
+        'Why not MCP?',
+        'MCP works, but most clients load every tool definition into context up front: "Most MCP clients load all tool definitions upfront directly into context", and moving to on-demand discovery cut one task from 150,000 tokens to 2,000 ([Code execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp), Anthropic, Nov 2025). A five-server setup with 58 tools took about 55K tokens before the conversation started ([Advanced tool use](https://www.anthropic.com/engineering/advanced-tool-use), Anthropic, Nov 2025). A CLI is on-demand by nature.',
+      ],
+      [
+        'Why not skills?',
+        'A skill helps only once someone has found it and put it in that agent\'s own folder, such as ~/.claude/skills or ~/.codex, and each agent keeps its own. With a CLI, the program is the list: a new command appears the next time the agent runs `co`.',
+      ],
+      [
+        'Is ConnectOnion for people or for AI agents?',
+        'For agents. You install it and tell your agent to use `co`. You can run the same commands to check what it did, but you don\'t need to learn them.',
+      ],
+      ['Which agents can use it?', 'Any agent that can run shell commands: Claude Code, Codex, OpenCode, Cursor, ConnectOnion\'s own `co ai`, or a script.'],
+      [
+        'Can I use MCP or skills as well?',
+        'Yes. They are not mutually exclusive. ConnectOnion ships skills for Claude Code and Codex (`co skills link`), and an agent that has MCP servers can run `co` beside them.',
+      ],
+    ],
+    related: [
+      ['What is an agent CLI harness?', '/guides/what-is-an-agent-cli-harness'],
+      ['How to tell if a CLI works for an AI agent', '/guides/cli-for-ai-agents'],
+      ['All co commands', '/cli'],
+    ],
+    keywords: ['CLI vs MCP', 'why not MCP', 'MCP context window', 'MCP token cost', 'CLI for AI agents', 'skills vs MCP', 'OpenCode', 'Claude Code CLI tools'],
+  },
 ]
 
 export function getGuide(slug: string): Guide {

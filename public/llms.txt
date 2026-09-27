@@ -13,6 +13,7 @@
 
 ## Guides
 
+- [CLI vs MCP for AI agents: why a CLI harness](https://docs.connectonion.com/guides/cli-vs-mcp): MCP loads every tool definition into context up front and skills must be installed per agent; a CLI costs nothing until the agent runs it, and --help is the manual.
 - [What is an agent CLI harness?](https://docs.connectonion.com/guides/what-is-an-agent-cli-harness): An agent CLI harness is a set of command-line tools an AI agent runs to reach email, chat apps, a browser, files and servers. How it works, and what ConnectOnion includes.
 - [How to give Claude Code or Codex access to Gmail](https://docs.connectonion.com/guides/claude-code-gmail): Connect Gmail to Claude Code or Codex in three commands: pip install connectonion, co auth google, co skills link. No Google Cloud project; credentials stay on your computer.
 - [How to give an AI agent access to Gmail and Outlook](https://docs.connectonion.com/guides/ai-agent-gmail): Connect an AI agent to Gmail with co auth google or Outlook with co auth microsoft. No OAuth app to register; the agent reads, searches, sends and replies with co gmail and co outlook.

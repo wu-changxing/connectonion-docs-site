@@ -11,7 +11,8 @@ export function GuideArticle({ slug }: { slug: string }) {
   const g = getGuide(slug)
   const md = guideMarkdown(g)
   const url = `${BASE}/guides/${g.slug}`
-  const plain = (s: string) => s.replace(/`/g, '')
+  // Plain text for JSON-LD: no backticks, and [text](url) becomes "text (url)".
+  const plain = (s: string) => s.replace(/`/g, '').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1 ($2)')
   const graph = {
     '@context': 'https://schema.org',
     '@graph': [
