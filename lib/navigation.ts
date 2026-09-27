@@ -9,7 +9,7 @@
  *   Structure: each item has {title, href, icon, section, keywords[], prev, next, difficulty?, parent?, hidden?}
  */
 import {
-  HiOutlineHome, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
+  HiOutlineHome, HiOutlineCheckCircle, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
   HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineBookOpen,
   HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone, HiOutlineArrowPath, HiOutlineFolderPlus, HiOutlineKey, HiOutlineDocumentDuplicate, HiOutlineServerStack
 } from 'react-icons/hi2'
@@ -117,6 +117,15 @@ export const navigation = [
     section: 'Guides',
     keywords: ['telegram', 'discord', 'feishu', 'lark', 'sms'],
     prev: { href: '/guides/ai-agent-whatsapp', title: 'WhatsApp for your agent' },
+    next: { href: '/guides/cli-for-ai-agents', title: 'Is a CLI fit for an agent?' }
+  },
+  {
+    title: 'Is a CLI fit for an agent?',
+    href: '/guides/cli-for-ai-agents',
+    icon: HiOutlineCheckCircle,
+    section: 'Guides',
+    keywords: ['co audit', 'agent-friendly cli', 'help pages'],
+    prev: { href: '/guides/ai-agent-chat-apps', title: 'Telegram, Discord, Feishu, SMS' },
     next: { href: '/cli', title: 'All co commands' }
   },
   // ─── CLI: Start Here ─────────────────────────────────────────────
@@ -126,7 +135,7 @@ export const navigation = [
     icon: HiOutlineCommandLine,
     section: 'CLI: Start Here',
     keywords: ['command', 'terminal', 'co', 'commands', 'cli'],
-    prev: { href: '/guides/ai-agent-chat-apps', title: 'Telegram, Discord, Feishu, SMS' },
+    prev: { href: '/guides/cli-for-ai-agents', title: 'Is a CLI fit for an agent?' },
     next: { href: '/cli/init', title: 'co init' }
   },
   {
@@ -366,6 +375,15 @@ export const navigation = [
     section: 'CLI: Build & Ship',
     keywords: ['benchmark', 'eval', 'skill', 'test', 'score'],
     prev: { href: '/cli/copy', title: 'co copy' },
+    next: { href: '/cli/audit', title: 'co audit (preview)' }
+  },
+  {
+    title: 'co audit (preview)',
+    href: '/cli/audit',
+    icon: HiOutlineCheckCircle,
+    section: 'CLI: Build & Ship',
+    keywords: ['audit', 'help', 'agent harness', 'score', 'preview'],
+    prev: { href: '/cli/benchmark', title: 'co benchmark · co eval' },
     next: { href: '/cli/call', title: 'co call' }
   },
   {
@@ -374,7 +392,7 @@ export const navigation = [
     icon: VscServerProcess,
     section: 'CLI: Build & Ship',
     keywords: ['call', 'remote agent', 'address', 'no llm'],
-    prev: { href: '/cli/benchmark', title: 'co benchmark · co eval' },
+    prev: { href: '/cli/audit', title: 'co audit (preview)' },
     next: { href: '/deploy', title: 'Deploy' }
   },
   {

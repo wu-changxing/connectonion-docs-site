@@ -1,6 +1,6 @@
 # Every co command
 
-ConnectOnion is the agent CLI harness: 42 top-level commands, one `co` prefix. This page is generated from `co commands` on 1.8.8, the summaries verbatim. Run `co commands` for the same list in your terminal, or add `--help` to any command.
+ConnectOnion is the agent CLI harness: 42 top-level commands, one `co` prefix, plus `co audit` in the 1.8.9 preview. This page is generated from `co commands` on 1.8.8, the summaries verbatim. Run `co commands` for the same list in your terminal, or add `--help` to any command.
 
 ```bash
 pip install connectonion
@@ -80,6 +80,7 @@ co commands      # this page, in your terminal
 | [`co ai`](/cli/ai) | Start AI coding agent or run one-shot prompt. | — |
 | [`co create`](/cli/create) | Create new project. | — |
 | [`co copy`](/cli/copy) | Copy built-in tools/plugins to customize. | — |
+| [`co audit`](/cli/audit) | Preview (1.8.9): Is a CLI fit for an agent harness? Runs its --help pages and scores them: usage, examples, documented flags, every subcommand reachable. | — |
 | [`co benchmark`](/cli/benchmark) | Author the standard BEFORE editing a skill. | list · check |
 | [`co eval`](/cli/benchmark) | Run a benchmark with the real Agent and inspect scored reports. | run · report · legacy |
 

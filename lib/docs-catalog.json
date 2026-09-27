@@ -528,5 +528,15 @@
     "title": "Connect an AI agent to Telegram, Discord, Feishu or SMS | ConnectOnion",
     "description": "Each chat app becomes an inbox of files an agent reads with receive and answers with reply: co telegram, co discord, co feishu, co lark and co sms. The listeners dial out, so no public webhook.",
     "path": "/guides/ai-agent-chat-apps"
+  },
+  "/cli/audit": {
+    "title": "Is your CLI fit for an AI agent? (co audit) | ConnectOnion",
+    "description": "co audit runs any CLI's --help pages, including every subcommand, and scores them for an agent. Preview in 1.8.9.",
+    "path": "/cli/audit"
+  },
+  "/guides/cli-for-ai-agents": {
+    "title": "Is your CLI agent-friendly? Check it with co audit | ConnectOnion",
+    "description": "An AI agent only has what a CLI prints. co audit runs a command's --help pages, every subcommand included, and scores them for an agent.",
+    "path": "/guides/cli-for-ai-agents"
   }
 }

@@ -283,6 +283,64 @@ export const GUIDES: Guide[] = [
     ],
     keywords: ['AI agent Telegram bot', 'AI agent Discord bot', 'Feishu bot AI agent', 'Lark bot', 'AI agent SMS', 'chat app AI agent CLI'],
   },
+  {
+    slug: 'cli-for-ai-agents',
+    title: 'How to tell if a CLI works for an AI agent',
+    seoTitle: 'Is your CLI agent-friendly? Check it with co audit | ConnectOnion',
+    description:
+      "An AI agent only has what a CLI prints. co audit runs a command's --help pages, every subcommand included, and scores them: prints, no hang, no files written, usage, examples, documented flags.",
+    answer:
+      'An agent that drives a command-line tool has only what the tool prints, so check its help pages the way an agent would. `co audit <command>` runs `--help` on the command and on every subcommand it lists, each in an empty home and working directory with no input, and scores every page: it prints and exits, it returns within 20 seconds, reading it writes no file, it has a usage line and an example, and its examples use only documented flags. It never reads source code. It ships in the ConnectOnion 1.8.9 preview.',
+    steps: [
+      {
+        name: 'Install the preview',
+        text: '`co audit` is in 1.8.9, which is a preview. The stable release, 1.8.8, does not have it yet.',
+        code: 'pip install --pre connectonion',
+      },
+      {
+        name: 'Audit a CLI',
+        text: 'Name the command as you would type it. It works on any program on your PATH, not only co.',
+        code: 'co audit yt-dlp\nco audit gh pr\nco audit co gmail',
+      },
+      {
+        name: 'Read the result',
+        text: 'Exit 0 means fit. Exit 1 lists each problem with its fix, and a table scores every rule across all the pages it found.',
+        code: 'gh: 228 pages\n  prints         227/228\n  hangs          228/228\n  writes           1/228\n  usage          228/228\n  example        127/228\n✗ not yet fit for an agent harness: 329 problems',
+      },
+      {
+        name: 'Ask a model to review the pages (optional)',
+        text: 'Pages that pass every rule go to a model, which judges what a rule cannot: is the first line clear, does the page say what the command reads or changes, is the example realistic and simple. It returns one concrete rewrite. This calls a model.',
+        code: 'co audit gh pr --review',
+      },
+      {
+        name: 'Check only what changed',
+        text: 'Save an inventory of help fingerprints, then audit only the commands added or changed since.',
+        code: 'co audit co --inventory > before.json\nco audit co --since before.json',
+      },
+    ],
+    faq: [
+      [
+        'What makes a CLI usable by an AI agent?',
+        'Its help must print and exit, return quickly without waiting for input, not write files, and show a usage line and a working example that uses only documented flags. Every subcommand must be reachable from the help of its parent. Those are the rules co audit checks.',
+      ],
+      ['Does co audit read the source code?', 'No. It judges each command only from what its help prints, the same information an agent has.'],
+      [
+        'What does it run on my machine?',
+        'Only `<command> --help` (or `-h`) for the command and each subcommand it lists, each in an empty home and working directory with no input. If reading help creates a file, the `writes` rule reports it.',
+      ],
+      [
+        'Which help formats does it understand?',
+        'Typer and Rich panels, `Commands:`-style sections (uv, click, kubectl), `CORE COMMANDS` rows (gh), and argparse\'s `{build,serve}`.',
+      ],
+      ['Is it in the stable release?', 'Not yet. co audit ships in the 1.8.9 preview; install it with `pip install --pre connectonion`.'],
+    ],
+    related: [
+      ['co audit reference', '/cli/audit'],
+      ['What is an agent CLI harness?', '/guides/what-is-an-agent-cli-harness'],
+      ['All co commands', '/cli'],
+    ],
+    keywords: ['agent-friendly CLI', 'CLI for AI agents', 'is my CLI usable by an LLM', 'co audit', 'CLI help for agents'],
+  },
 ]
 
 export function getGuide(slug: string): Guide {

@@ -15,6 +15,7 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/guides/ai-agent-browser', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/guides/ai-agent-whatsapp', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/guides/ai-agent-chat-apps', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/guides/cli-for-ai-agents', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/vibe-coding', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/cli', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/cli/ai', priority: 0.6, changeFrequency: 'monthly' },
