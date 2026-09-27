@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'Wiki upkeep that finishes: one page per model turn, stale map pages archived, and a day that can keep up. Earlier previews in this line added co browser import and made co wiki open local by default.'
+                ? 'The Wiki knows what it can spend: investigation budgets on the same weekly meter Codex shows you, and co wiki investigate all --budget runs the first pass after init. Earlier previews in this line added co browser import and made co wiki open local by default.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
