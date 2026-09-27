@@ -99,7 +99,7 @@ response = agent.input("Hello!")
 - **o4-mini** - OpenAI's newest reasoning model
 
 ### Google Gemini Models
-- **gemini-3.8-flash** - Default model in stable 1.8.8, newest fast Gemini, 1M context
+- **gemini-3.8-flash** - Default model, newest fast Gemini, 1M context
 - **gemini-3.7-flash** - Previous default, fast Gemini
 - **gemini-3.6-flash** - Older fast Gemini
 - **gemini-3.5-flash** - Previous fast Gemini
@@ -258,7 +258,7 @@ response = agent.input("Explain quantum computing")`}
                 <td className="px-4 py-3"><code className="text-sm">gemini-3.8-flash</code></td>
                 <td className="px-4 py-3">Google</td>
                 <td className="px-4 py-3">1M</td>
-                <td className="px-4 py-3 text-gray-700">Default in stable 1.8.8, newest fast Gemini</td>
+                <td className="px-4 py-3 text-gray-700">Default model, newest fast Gemini</td>
               </tr>
               <tr>
                 <td className="px-4 py-3"><code className="text-sm">gemini-3-pro-preview</code></td>
@@ -293,7 +293,7 @@ response = agent.input("Explain quantum computing")`}
       <section className="mb-16">
         <h2 className="heading-2">Default Models</h2>
         <p className="text-gray-700 mb-4">
-          When you don't specify a model, ConnectOnion uses these defaults. Stable 1.8.8 uses co/gemini-3.8-flash; the 1.8.9 previews since 1.8.9b10 use the free co/llama instead:
+          When you don't specify a model, ConnectOnion uses co/gemini-3.8-flash. Out of credits? co status names the free co/gemma and co/llama, or a local model as ollama/&lt;model&gt;:
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -306,13 +306,13 @@ response = agent.input("Explain quantum computing")`}
               For <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Agent()</code> class
             </p>
             <CodeWithResult
-              code={`# Default in stable 1.8.8: co/gemini-3.8-flash
+              code={`# Default: co/gemini-3.8-flash
 agent = Agent("assistant")
 
 # Same as:
 agent = Agent("assistant", model="co/gemini-3.8-flash")
 
-# 1.8.9 previews (b10 and later) default to the free co/llama`}
+# Free when your credits run out: model="co/gemma" or model="ollama/llama3.2"`}
               result=""
             />
             <p className="text-xs text-gray-500 mt-3">

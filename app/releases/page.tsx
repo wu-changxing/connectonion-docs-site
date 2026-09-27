@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'The Wiki knows what it can spend: investigation budgets on the same weekly meter Codex shows you, and co wiki investigate all --budget runs the first pass after init. Earlier previews in this line added co browser import and made co wiki open local by default.'
+                ? 'Gemini 3.8 is the default model again, and at a zero balance co status names the free co/gemma and Ollama. b16 added WhatsApp pictures and files and named people in the Wiki map; b15 budgeted the Wiki on the Codex week.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
