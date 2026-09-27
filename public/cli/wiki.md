@@ -201,6 +201,15 @@ route and both switches live in `connectonion/wiki/reader.py` (`LIVE_WIKI_URL`,
 means the snapshot. If the live view says the Wiki is not yours, add the
 browser's address as an admin of the Host: `co trust admin add <address>`.
 
+The page reads each record for what it knows (#1836). A page carries one of
+three tags: **Mapped** (an outline from your sources; its status line still says
+"not investigated yet"), **Some findings** (written content, no investigation
+pass yet) and **Investigated**. "Unknown" lines and placeholders are not shown;
+the headings still empty are named once at the foot of the page with the
+`co wiki investigate '<page>'` command that fills them. Lists put pages with
+findings first, then newest last contact. The Markdown file is unchanged, and
+**Copy Markdown** at the foot copies it as written, unknowns included.
+
 `init` is the foreground Skill workflow. `start` remains the explicit
 background lifecycle command; initialization does not install a schedule.
 Map is a stage inside wiki-init, not a separate model runner.
@@ -331,10 +340,46 @@ a later maintenance failure. Reported tokens are not account quota or dollars.
 The input-character limit bounds gathered/digested material, not every tool
 read a delegated agent may perform.
 
-**Not implemented:** hard 2% initialization / 1% daily subscription spending
-limits, or a $1 stop budget. They need an actual provider meter in the shared
-execution layer. The init Skill now stops after the owner and ranked map by
-default and explicitly reports that percentage enforcement is unavailable.
+### Codex quota (#1843)
+
+With the Codex runner, the notebook reads your Codex plan's own meter: the
+weekly window's `used_percent`, its length and when it resets, as
+`codex app-server` reports them (`account/rateLimits/read`). Reading it starts
+no model turn and costs nothing. Codex reports whole percents, so every figure
+below is good to about one point.
+
+- **Every run records the meter before and after** (`quota` in the run log,
+  shown by `co wiki logs`). The difference is what that run cost in points of
+  your week, measured rather than estimated from tokens.
+- **Investigation has a weekly budget**, `limits.investigation_quota_points`,
+  default **10** points of the weekly window (owner, 2026-09-27). The
+  scheduled round adds up the points its investigation runs used since the
+  window last reset, and starts no new page once that reaches the budget.
+- **Manual investigation counts too** (#1842). `co wiki investigate PAGE`,
+  `me` and CATEGORY runs record the meter like the round does, and their
+  points count toward the same weekly budget. A CATEGORY run stops starting
+  pages when the weekly budget is spent, when its own `--budget N` is spent, or
+  at the floor, and says which; the page in flight finishes.
+- **The first pass after init** is `co wiki investigate all --budget 10`: one
+  queue over people, projects and organisations by weight (the same order the
+  round uses), until 10 points of the week are spent. `--list` shows that
+  order without running a model.
+- **A floor protects your own coding.** No investigation page starts once the
+  week is at `limits.quota_floor_percent` or more, default **70%**, however much
+  of the wiki's budget is left. The wiki shares this quota with your real work.
+- `co wiki status` reads the meter now and says it in two lines, for example
+  `Codex week: 5% used on pro; resets Sun 04 Oct 09:49` and
+  `Investigation this week: 0 of 10 points; nothing starts once the week is at 70%`.
+  `--json` gives the same numbers under `quota` and `investigation_quota`.
+- When the meter cannot be read (another runner, Codex not signed in, an older
+  Codex), the run says `quota: unknown (<why>)` and the daily call cap
+  (`limits.runner_calls_per_day`) is the only bound, as before.
+
+Maintenance is not quota-gated: it is the incremental daily pass and stays
+bounded by the call cap. Its cost now shows in points, so a cap can follow
+from real numbers. This supersedes the earlier unimplemented 2% initialization
+/ 1% daily targets, which needed exactly this meter.
+
 The scheduled daily round maintains first, then attempts at most one unfinished
 page per local day. It reserves a bounded number of investigation calls within
 the same daily attempt cap and leaves room for later maintenance slots when
