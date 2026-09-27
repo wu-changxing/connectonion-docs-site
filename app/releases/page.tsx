@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'Subscribed skills now reconcile withdrawn content and carry signed companion files. Browser tasks use one quoted instruction; the Host watcher is removed.'
+                ? 'Wiki upkeep that finishes: one page per model turn, stale map pages archived, and a day that can keep up. Earlier previews in this line added co browser import and made co wiki open local by default.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
@@ -86,8 +86,8 @@ export default function ReleasesPage() {
                   <Link href={`/releases/${PREVIEW_VERSION}.md`} className="inline-flex min-h-11 items-center font-semibold text-amber-900 underline underline-offset-4 hover:text-amber-950">
                     Read the preview notes
                   </Link>
-                  <Link href="/blog/a-subscription-is-not-a-copy" className="inline-flex min-h-11 items-center text-amber-900 underline underline-offset-4 hover:text-amber-950">
-                    Why subscriptions track ownership
+                  <Link href="/releases.md" className="inline-flex min-h-11 items-center text-amber-900 underline underline-offset-4 hover:text-amber-950">
+                    Every release
                   </Link>
                 </div>
               </>

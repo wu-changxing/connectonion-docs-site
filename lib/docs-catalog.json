@@ -516,7 +516,7 @@
   },
   "/guides/ai-agent-browser": {
     "title": "Give an AI agent a logged-in browser | ConnectOnion",
-    "description": "co browser keeps one real Chrome open between commands. Log in by hand once, 2FA included, and every later command or co browser do task runs in that session. No Playwright script.",
+    "description": "co browser keeps one real Chrome open between commands. Log in by hand once, 2FA included, and every later command or quoted co browser task runs in that session. No Playwright script.",
     "path": "/guides/ai-agent-browser"
   },
   "/guides/ai-agent-whatsapp": {
