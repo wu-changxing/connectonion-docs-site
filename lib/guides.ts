@@ -204,14 +204,14 @@ export const GUIDES: Guide[] = [
     title: 'How to give an AI agent a real, logged-in browser',
     seoTitle: 'Give an AI agent a logged-in browser | ConnectOnion',
     description:
-      'co browser keeps one real Chrome open between commands. Log in by hand once, 2FA included, and every later command or co browser do task runs in that session. No Playwright script.',
+      'co browser keeps one real Chrome open between commands. Log in by hand once, 2FA included, and every later command or quoted co browser task runs in that session. No Playwright script.',
     answer:
-      'Use `co browser`. It keeps one real browser open between commands, using your system Chrome by default with a persistent profile. You log in to a site by hand once, including 2FA, and every later command runs in that logged-in session: `co browser go_to`, `co browser get_text`, `co browser take_screenshot`, or `co browser do "…"` to hand a whole task to an AI agent. You don\'t write a Playwright script.',
+      'Use `co browser`. It keeps one real browser open between commands, using your system Chrome by default with a persistent profile. You log in to a site by hand once, including 2FA, and every later command runs in that logged-in session: `co browser go_to`, `co browser get_text`, `co browser take_screenshot`, or `co browser "…"` to hand a whole task to an AI agent. You don\'t write a Playwright script.',
     steps: [
       { name: 'Open a page', text: 'The first command starts the browser. It is visible by default; add `--headless` for scripts.', code: 'pip install connectonion\nco browser go_to https://example.com' },
       { name: 'Log in by hand', text: 'Type the password and the 2FA code yourself in the window. The profile persists, so the login stays valid for later commands.' },
       { name: 'Read and act', text: '`co browser help` lists more than forty functions: clicking, typing, extracting, screenshots, uploads, network and cookies.', code: 'co browser get_text\nco browser click "the Export button"\nco browser take_screenshot page.png' },
-      { name: 'Hand over a whole task', text: '`do` puts ConnectOnion\'s browser agent on the same live browser. It is billed to your OpenOnion account.', code: 'co browser do "export every overdue row to arrears.csv"' },
+      { name: 'Hand over a whole task', text: 'A quoted instruction puts ConnectOnion\'s browser agent on the same live browser. It is billed to your OpenOnion account.', code: 'co browser "export every overdue row to arrears.csv"' },
       { name: 'Share it between agents', text: 'Each agent opens its own tab and passes `-t` to every command, so several agents can use one browser without clashing.', code: 'co browser tab open research --who claude --for "pricing research"\nco browser -t research go_to https://example.com\nco browser tab ls' },
     ],
     faq: [

@@ -35,6 +35,7 @@ Options (before the command):
   --json        Machine-readable output: {"ok", "data", "next"}.
 
 First time:   co wiki init
+Example:      co wiki search "term sheet" --in people
 Every page:   co wiki <command> --help
 Advanced:     co wiki advanced --help   (scan, map-skills, stub, reflect, reflections,
               propose, review, abstract, capture)
@@ -124,13 +125,19 @@ Back:     co wiki --help
 ## co wiki open
 
 ```
-Open the notebook in your browser, as a private page on your own agent.
-Read-only.
+Open the notebook in your web browser to read it. Read-only: pages do not change.
 
-Usage:    co wiki open [--local] [--no-launch]
+Usage:    co wiki open [--live] [--no-launch]
 Example:  co wiki open
-          --local opens a static snapshot file instead of the live page.
-Effects:  None to pages.
+          Renders a fresh snapshot of the notebook to a temporary file and opens
+          it. Works offline; run it again to see newer pages.
+          co wiki open --live
+          Opens the live view in O Chat, read from your co ai Host. Checks the
+          Host first; if it is not online, says so (start it with co ai) and
+          opens the snapshot instead. Only for the default notebook.
+          --no-launch prints the page without opening a browser.
+Effects:  Reads pages and changes none. The snapshot is written outside the
+          notebook, to a temporary file.
 Next:     co wiki show PAGE   (to read one page in the terminal)
 Back:     co wiki --help
 ```
@@ -206,6 +213,7 @@ Turn daily upkeep off by removing the schedule. Pages, source approvals and manu
 co wiki sync all stay.
 
 Usage:    co wiki stop
+Example:  co wiki stop
 Next:     co wiki status
 Back:     co wiki --help
 ```
@@ -217,6 +225,7 @@ Show whether the schedule is on, when it runs next, what ran today, and what it 
 Read-only.
 
 Usage:    co wiki status
+Example:  co wiki status
 Next:     co wiki logs   (details of each run)
 Back:     co wiki --help
 ```
@@ -308,6 +317,7 @@ logins, session folders, spreadsheet support and the schedule. Read-only; it nev
 logs in or repairs.
 
 Usage:    co wiki doctor
+Example:  co wiki doctor
 Output:   One line per check, with the command that fixes each failure.
 Back:     co wiki --help
 ```
