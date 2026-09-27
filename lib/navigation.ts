@@ -63,6 +63,15 @@ export const navigation = [
     section: 'Guides',
     keywords: ['agent cli harness', 'what is', 'cli for agents'],
     prev: { href: '/guides', title: 'All guides' },
+    next: { href: '/guides/cli-vs-mcp', title: 'CLI vs MCP (and skills)' }
+  },
+  {
+    title: 'CLI vs MCP (and skills)',
+    href: '/guides/cli-vs-mcp',
+    icon: HiOutlineCommandLine,
+    section: 'Guides',
+    keywords: ['mcp', 'skills', 'context', 'cli vs mcp', 'why not mcp'],
+    prev: { href: '/guides/what-is-an-agent-cli-harness', title: 'What is an agent CLI harness?' },
     next: { href: '/guides/claude-code-gmail', title: 'Claude Code or Codex + Gmail' }
   },
   {
@@ -71,7 +80,7 @@ export const navigation = [
     icon: HiOutlineEnvelope,
     section: 'Guides',
     keywords: ['claude code', 'codex', 'gmail', 'skills'],
-    prev: { href: '/guides/what-is-an-agent-cli-harness', title: 'What is an agent CLI harness?' },
+    prev: { href: '/guides/cli-vs-mcp', title: 'CLI vs MCP (and skills)' },
     next: { href: '/guides/ai-agent-gmail', title: 'Gmail and Outlook for agents' }
   },
   {

@@ -538,5 +538,10 @@
     "title": "Is your CLI agent-friendly? Check it with co audit | ConnectOnion",
     "description": "An AI agent only has what a CLI prints. co audit runs a command's --help pages, every subcommand included, and scores them for an agent.",
     "path": "/guides/cli-for-ai-agents"
+  },
+  "/guides/cli-vs-mcp": {
+    "title": "CLI vs MCP (and skills) for AI agents | ConnectOnion",
+    "description": "MCP loads every tool definition into the model context up front; skills must be found and installed per agent. A CLI costs nothing until the agent runs it.",
+    "path": "/guides/cli-vs-mcp"
   }
 }
