@@ -32,6 +32,7 @@ co commands      # this page, in your terminal
 | [`co email`](/cli/email) | Send and read email from the agent's address | send · inbox · read · addresses · default · name · share · unshare · upgrade · sent |
 | [`co gmail`](/cli/gmail) | Send and read email from your Gmail account. | inbox · read · reply · send · sent · search · mark · archive · star · attachments · download · unanswered · draft · label |
 | [`co outlook`](/cli/outlook) | Your Outlook account: mail, scheduled sends, contacts and calendar. | send · inbox · read · download · reply · scheduled · cancel · sent · search · contact · calendar |
+| [`co onenote`](/cli/onenote) | List notebooks and pages by number; read or create a page. Preview 1.8.9b21. | ls · pages · read · create |
 | [`co gcalendar`](/cli/gcalendar) | Google Calendar events and Meet links. | list · today · read · meetings · free · create · meet · update · delete |
 
 ## Chat apps

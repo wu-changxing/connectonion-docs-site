@@ -6,7 +6,7 @@ import { renderBlogMarkdown } from '../lib/blog-content.mjs'
 import { PREVIEW_VERSION, STABLE_VERSION } from '../lib/version'
 
 /** Render the reviewed, repository-owned CLI guide used by the installed package. */
-export type CliGuideName = 'env' | 'environment' | 'init' | 'create' | 'gmail' | 'gdrive' | 'synology' | 'outlook' | 'whatsapp' | 'schedule' | 'gcalendar' | 'telegram' | 'feishu' | 'sms' | 'proxy' | 'server' | 'youtube' | 'commands' | 'discord' | 'wiki-help' | 'benchmark' | 'tiktok' | 'audit'
+export type CliGuideName = 'env' | 'environment' | 'init' | 'create' | 'gmail' | 'gdrive' | 'synology' | 'outlook' | 'onenote' | 'whatsapp' | 'schedule' | 'gcalendar' | 'telegram' | 'feishu' | 'sms' | 'proxy' | 'server' | 'youtube' | 'commands' | 'discord' | 'wiki-help' | 'benchmark' | 'tiktok' | 'audit'
 
 /** A guide for a command that ships only in the current preview says so, with the exact pin. */
 export function ReleaseCliGuide({ name, preview = false }: { name: CliGuideName; preview?: boolean }) {

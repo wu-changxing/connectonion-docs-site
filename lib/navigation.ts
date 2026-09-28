@@ -209,6 +209,15 @@ export const navigation = [
     section: 'CLI: Mail & Calendar',
     keywords: ['Microsoft', 'calendar', 'Teams', 'reply'],
     prev: { href: '/cli/gmail', title: 'co gmail' },
+    next: { href: '/cli/onenote', title: 'co onenote' }
+  },
+  {
+    title: 'co onenote',
+    href: '/cli/onenote',
+    icon: HiOutlineDocumentText,
+    section: 'CLI: Mail & Calendar',
+    keywords: ['Microsoft', 'OneNote', 'notebooks', 'sections', 'pages', 'numbered rows', 'notes'],
+    prev: { href: '/cli/outlook', title: 'co outlook' },
     next: { href: '/cli/gcalendar', title: 'co gcalendar' }
   },
   {
@@ -217,7 +226,7 @@ export const navigation = [
     icon: HiOutlineCalendar,
     section: 'CLI: Mail & Calendar',
     keywords: ['google calendar', 'meet', 'events', 'free slots'],
-    prev: { href: '/cli/outlook', title: 'co outlook' },
+    prev: { href: '/cli/onenote', title: 'co onenote' },
     next: { href: '/cli/whatsapp', title: 'co whatsapp' }
   },
   // ─── CLI: Chat Apps ──────────────────────────────────────────────

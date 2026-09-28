@@ -84,6 +84,7 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/cli/email', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/cli/gdrive', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/cli/gmail', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/cli/onenote', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/cli/init', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/cli/setup', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/cli/skills', priority: 0.7, changeFrequency: 'monthly' },

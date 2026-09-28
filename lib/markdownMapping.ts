@@ -19,6 +19,7 @@ const routeToMarkdownMap: Record<string, string> = {
   '/cli/environment': '/cli/environment.md',
   '/cli/synology': '/cli/synology.md',
   '/cli/outlook': '/cli/outlook.md',
+  '/cli/onenote': '/cli/onenote.md',
   '/cli/whatsapp': '/cli/whatsapp.md',
   '/cli/audit': '/cli/audit.md',
   '/cli/tiktok': '/cli/tiktok.md',
