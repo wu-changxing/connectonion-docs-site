@@ -10,8 +10,9 @@ import { renderBlogMarkdown } from '../../lib/blog-content.mjs'
  *
  * It used to open with `co create` and then teach Python: custom tools, @xray,
  * breakpoints. That is the SDK, and it now lives under Python SDK. A reader
- * here should finish with an identity, a mailbox, Gmail, a browser and their
- * coding agent connected, and never open an editor. Output in the Markdown is
+ * here should finish with an identity, understand the selected environment,
+ * use Outlook and Gmail, and connect a browser and coding agent without
+ * opening an editor. Output in the Markdown is
  * what the CLI printed on a clean ~/.co (co init, co status, co email inbox,
  * co skills link) or is copied from the source (co auth google's two lines).
  */

@@ -15,7 +15,7 @@ export function QuickStartHeader() {
       icon={HiOutlinePlay}
       iconColor="icon-ui"
       title="Quick Start"
-      description="Set up an identity, email, Gmail, a browser, chat apps and Claude Code from the command line."
+      description="Inspect your environment, connect Outlook and Gmail, then use the same co commands for mail, browser, files and chat."
       markdownPath="/quickstart/quickstart.md"
       markdownFilename="quickstart.md"
     />
