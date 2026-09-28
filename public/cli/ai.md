@@ -24,6 +24,26 @@ co ai
 - Agent runs in your project directory
 - Serves OIP 0.1 over the authenticated `/ws` connection
 
+### Watch work in this session
+
+The Agent can call `watch_task(task_id)` after `run_background()` and return to
+the same conversation when that task finishes. It can also call
+`watch_every(minutes=30, probe="gmail_search", query="...")` to check for new
+matching mail. Registration records the current result as a baseline. Checks
+with no new message IDs do not call the model. Use `list_watches()` and
+`cancel_watch(watch_id)` to inspect or stop a watch. Watches expire within
+seven days.
+
+The session watch service runs in the `co ai` process and stores its state in
+`~/.co/session-watches.sqlite3`. It requires a running process to check sources
+or wake a session. Pending events and recurring schedules survive a restart;
+if an old background process ended without a recorded exit status, its result
+is reported as unknown. An unattended watch turn starts in Read only mode.
+The conversation shows a **Watch observation** separately from the Agent's
+answer. During an active turn, the Agent checks for new observations at each
+iteration boundary. A Full Access user turn defers watch data to a separate
+Read only turn.
+
 On its first web-server start, `co ai` creates a private owner invite in
 `~/.co/keys.env`. The code is never printed in startup logs. When you are ready
 to connect your own client, reveal it intentionally:
@@ -110,7 +130,7 @@ POSIX systems additionally enforce `0700` directories and `0600` files.
 ```bash
 co ai --port 9000
 co ai --model co/gemini-3.8-flash
-co ai "Build an agent" --model co/gpt-4o --max-iterations 50
+co ai "Build an agent" --model co/gpt-5 --max-iterations 50
 co ai --full-access "Fix the failing suite" --full-access-turns 20
 co ai --eval "Check whether this agent really completed the task"
 co ai --invite-code-file /path/to/private-invite
@@ -194,6 +214,11 @@ The agent has a full suite of tools for coding tasks:
 
 **Shell**
 - Run bash commands (with approval flow for destructive operations)
+
+**Web**
+- Search the web (`web_search`): Gemini's answer grounded in Google Search plus its sources, charged per query to your credits; free DuckDuckGo when credits run out. Your own `SERPER_API_KEY` / `BRAVE_API_KEY` is used first when set
+- Read a page as Markdown (`web_fetch`), or ask a question about it; private and local addresses are refused
+- Same tools from any shell: [`co search` / `co fetch`](search.md)
 
 **Planning**
 - Track complex work with a visible todo list; handle simple work directly
