@@ -9,18 +9,8 @@ import { ContentNavigation } from '../components/ContentNavigation'
 import { MacOSDownload } from '../components/MacOSDownload'
 import { AIFirstDevelopment } from '../components/AIFirstDevelopment'
 import { NonObviousAdvantages } from '../components/NonObviousAdvantages'
+import { CommandLogoWall } from '../components/CommandLogoWall'
 import { STABLE_VERSION } from '../lib/version'
-
-/** What each command connects, in the order the sidebar lists them. Only
- *  commands with a guide page; /cli lists all of them. */
-const CLI_GROUPS: [string, [string, string][]][] = [
-  ['identity & account', [['co init', '/cli/init'], ['co auth', '/cli/auth'], ['co setup', '/cli/setup'], ['co env', '/cli/env']]],
-  ['mail & calendar', [['co email', '/cli/email'], ['co gmail', '/cli/gmail'], ['co outlook', '/cli/outlook'], ['co gcalendar', '/cli/gcalendar']]],
-  ['chat apps', [['co whatsapp', '/cli/whatsapp'], ['co telegram', '/cli/telegram'], ['co discord', '/cli/discord'], ['co feishu', '/cli/feishu'], ['co sms', '/cli/sms']]],
-  ['browser & files', [['co browser', '/cli/browser-command'], ['co proxy', '/cli/proxy'], ['co gdrive', '/cli/gdrive'], ['co syno', '/cli/synology'], ['co youtube', '/cli/youtube'], ['co tiktok', '/cli/tiktok']]],
-  ['coding agents & memory', [['co skills', '/cli/skills'], ['co sub', '/cli/sub'], ['co wiki', '/cli/wiki']]],
-  ['build & ship', [['co ai', '/cli/ai'], ['co benchmark', '/cli/benchmark'], ['co call', '/cli/call'], ['co deploy', '/deploy'], ['co server', '/cli/server'], ['co schedule', '/cli/schedule']]],
-]
 
 export default function HomePage() {
   return (
@@ -73,14 +63,9 @@ export default function HomePage() {
             <span className="px-2 py-0.5 bg-green-50 text-green-700 text-xs font-semibold rounded-full">Stable v{STABLE_VERSION}</span>
           </div>
 
-          {/* The brand line, the same as connectonion.com (the landing repo's
-              DESIGN.md §2b): the H1 is the founder's "CLI is all you need.",
-              the category sits in the eyebrow above it, what you get is the subline,
-              and the proof is every command, each linking to its page. This used to
-              be "Your agent is already written." over a Python file — true, but it
-              sold the SDK, and the product people install is the CLI. Only commands
-              in `co commands` for the release go in CLI_GROUPS. */}
-          <h1 className="heading-1 mb-8 text-balance">
+          {/* Match the landing page's category and promise. The responsive
+              command wall below is the visual proof and keeps links usable. */}
+          <h1 className="heading-1 mb-4 text-balance">
             <span className="accent-italic text-[1.05em]">CLI</span> is all you need.
           </h1>
 
@@ -106,26 +91,7 @@ export default function HomePage() {
             <span>New accounts get $5 of model credit</span>
           </p>
 
-          <div className="mb-8 text-left rounded-2xl border border-gray-800 bg-gray-950 overflow-hidden">
-            <div className="bg-gray-900 px-4 py-2 flex items-center justify-between gap-3 border-b border-gray-800">
-              <span className="text-xs text-gray-400 font-mono">$ co commands</span>
-              <Link href="/cli" className="text-[11px] text-green-400 font-mono whitespace-nowrap hover:underline">all 42 commands →</Link>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-px bg-gray-800">
-              {CLI_GROUPS.map(([group, cmds]) => (
-                <div key={group} className="bg-gray-950 px-4 py-3">
-                  <div className="text-[11px] font-mono text-gray-400 mb-1.5"># {group}</div>
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-sm">
-                    {cmds.map(([cmd, href]) => (
-                      <Link key={cmd} href={href} className="text-green-400 hover:text-green-300 hover:underline">
-                        {cmd}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <CommandLogoWall />
         </div>
 
         {/* The bouncing chevron that used to live here was pinned to the bottom of a
