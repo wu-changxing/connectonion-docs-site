@@ -548,5 +548,15 @@
     "title": "CLI vs MCP (and skills) for AI agents | ConnectOnion",
     "description": "MCP loads every tool definition into the model context up front; skills must be found and installed per agent. A CLI costs nothing until the agent runs it.",
     "path": "/guides/cli-vs-mcp"
+  },
+  "/cli/search": {
+    "title": "Web search CLI for AI agents (co search, co fetch) | ConnectOnion",
+    "description": "Search the web and read a page as Markdown from the terminal or co ai: grounded answers with sources, or free DuckDuckGo results.",
+    "path": "/cli/search"
+  },
+  "/cli/slack": {
+    "title": "Slack bot CLI for AI agents (co slack) | ConnectOnion",
+    "description": "Experimental: a Slack bot as a directory of files over Socket Mode — listen, receive the next message as JSON, send and reply in the thread.",
+    "path": "/cli/slack"
   }
 }
