@@ -145,7 +145,7 @@ teammate's agent to run an allowed check, then email me a summary.” The visibl
 would be `co telegram receive`, `co search` and `co fetch`, `co call`, and
 finally `co email send` with an explicit recipient.
 
-![A verified co search preview finds and fetches the official Microsoft Graph sendMail documentation](https://www.connectonion.com/aha-search.gif)
+![A verified co search preview finds and fetches the ConnectOnion GitHub repository](https://www.connectonion.com/aha-search.gif)
 
 This GIF shows **only a verified read-only search and fetch**, not the full
 workflow. `co search` is in the **1.8.9 preview**. Telegram `receive` is
