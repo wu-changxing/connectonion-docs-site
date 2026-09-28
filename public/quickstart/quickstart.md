@@ -145,10 +145,11 @@ teammate's agent to run an allowed check, then email me a summary.” The visibl
 would be `co telegram receive`, `co search` and `co fetch`, `co call`, and
 finally `co email send` with an explicit recipient.
 
-![A verified co search preview finds and fetches the ConnectOnion GitHub repository](https://www.connectonion.com/aha-search.gif)
+![A verified co search preview answers what ConnectOnion is with GitHub and website sources](https://www.connectonion.com/aha-search.gif)
 
-This GIF shows **only a verified read-only search and fetch**, not the full
-workflow. `co search` is in the **1.8.9 preview**. Telegram `receive` is
+This GIF shows **only a verified read-only `co search ConnectOnion` answer**,
+not the full workflow. The configured search engine may use account credits;
+`co search` is in the **1.8.9 preview**. Telegram `receive` is
 experimental and reads only messages delivered to a bot you control. A remote
 agent must be reachable and allow the requested command; using that agent's
 Codex additionally requires Codex to be installed, authenticated and permitted
