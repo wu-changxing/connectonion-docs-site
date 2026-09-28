@@ -141,7 +141,7 @@ co --env-file ./.env outlook
 
 After connecting the services you need, imagine asking your coding agent:
 “Read the context from my Telegram bot, check the official docs, ask a
-teammate's agent to verify it, then email me a summary.” The visible commands
+teammate's agent to run an allowed check, then email me a summary.” The visible commands
 would be `co telegram receive`, `co search` and `co fetch`, `co call`, and
 finally `co email send` with an explicit recipient.
 
