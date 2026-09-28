@@ -69,6 +69,13 @@ export default function HomePage() {
             <span className="accent-italic text-[1.05em]">CLI</span> is all you need.
           </h1>
 
+          <p className="mx-auto mb-6 max-w-2xl text-sm leading-6 text-gray-600 sm:text-base">
+            Inspect the settings your agent uses with <Link href="/cli/env" className="font-mono text-green-700 hover:underline">co env</Link>,
+            connect Microsoft once with <Link href="/cli/auth" className="font-mono text-green-700 hover:underline">co auth microsoft</Link>,
+            then use <Link href="/cli/outlook" className="font-mono text-green-700 hover:underline">co outlook</Link>.
+            The same CLI reaches Gmail, browsers, files and chat.
+          </p>
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-sm w-full">
             <a href="/quickstart" className="btn btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto">
               Quick Start →
