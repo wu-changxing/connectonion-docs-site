@@ -365,6 +365,15 @@ export const navigation = [
     section: 'CLI: Coding Agents & Memory',
     keywords: ['sub', 'subscribe', 'follow', 'publisher', 'sync', 'mirror', 'fan-out', 'relay', 'subscriptions', '0x address'],
     prev: { href: '/cli/skills', title: 'co skills' },
+    next: { href: '/rem', title: 'co rem' }
+  },
+  {
+    title: 'co rem',
+    href: '/rem',
+    icon: HiOutlineCpuChip,
+    section: 'CLI: Coding Agents & Memory',
+    keywords: ['rem', 'co rem', 'memory', 'agent memory', 'wiki', 'notebook', 'people', 'projects', 'experimental'],
+    prev: { href: '/cli/sub', title: 'co sub' },
     next: { href: '/cli/wiki', title: 'co wiki' }
   },
   {
@@ -373,7 +382,7 @@ export const navigation = [
     icon: HiOutlineBookOpen,
     section: 'CLI: Coding Agents & Memory',
     keywords: ['wiki', 'memory', 'notebook', 'people', 'projects', 'experimental'],
-    prev: { href: '/cli/sub', title: 'co sub' },
+    prev: { href: '/rem', title: 'co rem' },
     next: { href: '/cli/ai', title: 'co ai' }
   },
   // ─── CLI: Build & Ship ───────────────────────────────────────────
