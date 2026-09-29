@@ -26,6 +26,8 @@ const routeToMarkdownMap: Record<string, string> = {
   '/cli/benchmark': '/cli/benchmark.md',
   '/cli/wiki': '/cli/wiki-help.md',
   '/cli/discord': '/cli/discord.md',
+  '/cli/slack': '/cli/slack.md',
+  '/cli/search': '/cli/search.md',
   '/cli/youtube': '/cli/youtube.md',
   '/cli/server': '/cli/server.md',
   '/cli/proxy': '/cli/proxy.md',

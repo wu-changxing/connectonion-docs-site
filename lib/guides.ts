@@ -290,12 +290,12 @@ export const GUIDES: Guide[] = [
     description:
       "An AI agent only has what a CLI prints. co audit runs a command's --help pages, every subcommand included, and scores them: prints, no hang, no files written, usage, examples, documented flags.",
     answer:
-      'An agent that drives a command-line tool has only what the tool prints, so check its help pages the way an agent would. `co audit <command>` runs `--help` on the command and on every subcommand it lists, each in an empty home and working directory with no input, and scores every page: it prints and exits, it returns within 20 seconds, reading it writes no file, it has a usage line and an example, and its examples use only documented flags. It never reads source code. It ships in the ConnectOnion 1.8.9 preview.',
+      'An agent that drives a command-line tool has only what the tool prints, so check its help pages the way an agent would. `co audit <command>` runs `--help` on the command and on every subcommand it lists, each in an empty home and working directory with no input, and scores every page: it prints and exits, it returns within 20 seconds, reading it writes no file, it has a usage line and an example, and its examples use only documented flags. It never reads source code. It ships in ConnectOnion 1.8.9.',
     steps: [
       {
-        name: 'Install the preview',
-        text: '`co audit` is in 1.8.9, which is a preview. The stable release, 1.8.8, does not have it yet.',
-        code: 'pip install --pre connectonion',
+        name: 'Install ConnectOnion',
+        text: '`co audit` is in 1.8.9, the stable release.',
+        code: 'pip install --upgrade connectonion',
       },
       {
         name: 'Audit a CLI',

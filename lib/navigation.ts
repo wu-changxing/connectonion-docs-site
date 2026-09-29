@@ -255,6 +255,15 @@ export const navigation = [
     section: 'CLI: Chat Apps',
     keywords: ['discord', 'bot', 'inbox', 'chat', 'experimental'],
     prev: { href: '/cli/telegram', title: 'co telegram' },
+    next: { href: '/cli/slack', title: 'co slack' }
+  },
+  {
+    title: 'co slack',
+    href: '/cli/slack',
+    icon: VscComment,
+    section: 'CLI: Chat Apps',
+    keywords: ['slack', 'bot', 'inbox', 'chat', 'socket mode', 'experimental'],
+    prev: { href: '/cli/discord', title: 'co discord' },
     next: { href: '/cli/feishu', title: 'co feishu · co lark' }
   },
   {
@@ -263,7 +272,7 @@ export const navigation = [
     icon: VscComment,
     section: 'CLI: Chat Apps',
     keywords: ['feishu', 'lark', 'bot', 'inbox', 'chat'],
-    prev: { href: '/cli/discord', title: 'co discord' },
+    prev: { href: '/cli/slack', title: 'co slack' },
     next: { href: '/cli/sms', title: 'co sms' }
   },
   {
@@ -283,6 +292,15 @@ export const navigation = [
     section: 'CLI: Browser & Files',
     keywords: ['browser', 'automation', 'session', 'daemon', 'function', 'do', 'agent', 'patchright', 'playwright', 'screenshot', 'scripting', 'headless', 'tab', 'multi-agent', 'CO_WHO', 'exit codes', 'stealth'],
     prev: { href: '/cli/sms', title: 'co sms' },
+    next: { href: '/cli/search', title: 'co search' }
+  },
+  {
+    title: 'co search',
+    href: '/cli/search',
+    icon: HiOutlineCamera,
+    section: 'CLI: Browser & Files',
+    keywords: ['search', 'fetch', 'web', 'duckduckgo', 'ddg', 'markdown', 'grounded'],
+    prev: { href: '/cli/browser-command', title: 'co browser' },
     next: { href: '/cli/proxy', title: 'co proxy' }
   },
   {
@@ -291,7 +309,7 @@ export const navigation = [
     icon: HiOutlineGlobeAlt,
     section: 'CLI: Browser & Files',
     keywords: ['proxy', 'internet', 'residential', 'network'],
-    prev: { href: '/cli/browser-command', title: 'co browser' },
+    prev: { href: '/cli/search', title: 'co search' },
     next: { href: '/cli/gdrive', title: 'co gdrive' }
   },
   {
