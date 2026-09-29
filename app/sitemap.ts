@@ -91,6 +91,7 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/cli/setup', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/cli/skills', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/cli/sub', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/rem', priority: 0.8, changeFrequency: 'weekly' },
   { path: '/releases', priority: 0.7, changeFrequency: 'weekly' },
   { path: '/useful-tools/read-file', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog/connectonion-1-6', priority: 0.6, changeFrequency: 'monthly' },

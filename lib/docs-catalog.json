@@ -479,6 +479,11 @@
     "description": "Experimental: a Discord bot as a directory of files — listen, receive the next message as JSON, send and reply, with the same verbs as co feishu.",
     "path": "/cli/discord"
   },
+  "/rem": {
+    "title": "co rem: your agent's memory of people and projects | ConnectOnion",
+    "description": "co rem keeps Markdown pages on the people, projects and tools in your work, from your mail and Codex and Claude Code sessions, on your machine. Available today as co wiki (Experimental); co rem from 1.9.0.",
+    "path": "/rem"
+  },
   "/cli/wiki": {
     "title": "co wiki | ConnectOnion",
     "description": "Experimental: a notebook about the people, projects and tools in your work, built and kept current from your mail and coding sessions.",

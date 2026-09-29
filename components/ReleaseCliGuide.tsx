@@ -9,7 +9,7 @@ import { PREVIEW_VERSION, STABLE_VERSION } from '../lib/version'
 export type CliGuideName = 'env' | 'environment' | 'init' | 'create' | 'gmail' | 'gdrive' | 'synology' | 'outlook' | 'onenote' | 'whatsapp' | 'schedule' | 'gcalendar' | 'telegram' | 'feishu' | 'sms' | 'proxy' | 'server' | 'youtube' | 'commands' | 'discord' | 'wiki-help' | 'benchmark' | 'tiktok' | 'audit' | 'search' | 'slack'
 
 /** A guide for a command that ships only in the current preview says so, with the exact pin. */
-export function ReleaseCliGuide({ name, preview = false }: { name: CliGuideName; preview?: boolean }) {
+export function ReleaseCliGuide({ name, preview = false, intro }: { name: CliGuideName; preview?: boolean; intro?: React.ReactNode }) {
   const markdown = fs.readFileSync(path.join(process.cwd(), 'public', 'cli', `${name}.md`), 'utf8')
   return (
     <main className="px-4 md:px-8 py-16 md:py-24">
@@ -26,6 +26,9 @@ export function ReleaseCliGuide({ name, preview = false }: { name: CliGuideName;
           )}
           <CopyMarkdownButton markdownPath={`/cli/${name}.md`} filename={`${name}.md`} floatingMobile={false} />
         </div>
+        {/* A site-owned note above the synced guide: the guide text is copied
+            verbatim from the CLI, so anything the site adds goes here, not into it. */}
+        {intro}
         <div className="blog-prose break-words [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:leading-tight [&_h1]:mb-8" dangerouslySetInnerHTML={{ __html: renderBlogMarkdown(markdown) }} />
       </article>
     </main>
