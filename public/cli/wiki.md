@@ -1,4 +1,7 @@
-# Personal Wiki — current branch contract
+# Personal Wiki — 1.8.x preview contract
+
+Historical 1.8.x preview contract. The current [co rem guide](/cli/rem) covers
+the model-backed `init` first run; `--no-investigate` requests a map-only run.
 
 Updated 2026-09-24. The Wiki ships in the opt-in 1.8.8 previews and becomes
 long-term supported in 1.9.0 (#1664 names it first). The command surface and
@@ -380,11 +383,11 @@ bounded by the call cap. Its cost now shows in points, so a cap can follow
 from real numbers. This supersedes the earlier unimplemented 2% initialization
 / 1% daily targets, which needed exactly this meter.
 
-The scheduled daily round maintains first, then attempts at most one unfinished
-page per local day. It reserves a bounded number of investigation calls within
-the same daily attempt cap and leaves room for later maintenance slots when
-possible. Initialization currently builds the map without a model call; manual
-investigation remains outside the scheduled cap.
+The scheduled daily round maintained first, then attempted at most one unfinished
+page per local day. It reserved a bounded number of investigation calls within
+the same daily attempt cap and left room for later maintenance slots when
+possible. In this historical preview, initialization built only the map; manual
+investigation remained outside the scheduled cap.
 
 The UI is a static snapshot; run `open` again after changing pages. No merge,
 release, new background job, broad mailbox backfill or production wiki rewrite
