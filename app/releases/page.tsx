@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'Gemini 3.8 is the default model again, and at a zero balance co status names the free co/gemma and Ollama. b16 added WhatsApp pictures and files and named people in the Wiki map; b15 budgeted the Wiki on the Codex week.'
+                ? 'REM opens on what changed and who owes whom. People, Organisations and Projects are sortable sheets; person pages show cited Facts and Insight.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (

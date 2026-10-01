@@ -6,10 +6,23 @@ sessions, and keeps a Markdown page on each person, project and tool you work
 with. Your agent reads those pages, so it picks up where you left off instead
 of asking you again.
 
-> **Today it is `co wiki`.** It ships in ConnectOnion 1.8.9, labelled
-> Experimental, so its commands may still change. In 1.9.0 it becomes
-> `co rem`, the release that supports it long-term. Every command on this page
-> is one you can run now.
+> Stable 1.8.10 includes the Experimental `co wiki` command. The opt-in
+> **1.9.0a10 preview** includes `co rem` with the redesigned reader, a
+> sortable People sheet, cited Facts and Insight, and a local SQLite index.
+> The commands below describe the stable `co wiki` route.
+
+## Try the REM preview
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.0a10'
+co rem init
+co rem open
+```
+
+The first run maps your sources and starts writing your own page and the
+highest-priority pages. People, Organisations and Projects open as tables; a
+person page leads with what is owed and cited facts. See the
+[preview notes](/releases/1.9.0a10.md) for screenshots and current limits.
 
 ## Start
 
@@ -105,10 +118,10 @@ everything to searching the saved material
 capped. On Linux and Windows the schedule is not installed yet; run
 `co wiki sync` yourself. `co wiki stop` turns it off and keeps your pages.
 
-## Coming in 1.9.0
+## Coming in stable 1.9.0
 
-The command becomes `co rem`, and the first run is being reworked so that your
-own page is investigated right after `init`
+The preview already uses `co rem`. Its first run and reader are being tested
+before the stable 1.9.0 release
 ([#1943](https://github.com/openonion/connectonion/issues/1943)).
 
 ## More
