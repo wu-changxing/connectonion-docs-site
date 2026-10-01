@@ -15,8 +15,8 @@ export default function Page() {
       name="wiki-help"
       intro={
         <p className="mb-8 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900">
-          co wiki becomes <strong>co rem</strong> in 1.9.0.{' '}
-          <Link href="/rem" className="underline underline-offset-4">What co rem is, what it reads and what it costs →</Link>
+          Stable 1.8.10 includes <strong>co wiki</strong>. The opt-in 1.9.0 alpha uses <strong>co rem</strong>.{' '}
+          <Link href="/rem" className="underline underline-offset-4">Explore the REM preview →</Link>
         </p>
       }
     />
