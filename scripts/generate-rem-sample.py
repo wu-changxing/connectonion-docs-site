@@ -15,7 +15,7 @@ import re
 import subprocess
 import sys
 import tempfile
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
@@ -53,6 +53,27 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="rem-sample-") as tmp:
         root = build(Path(tmp) / "rem", now=datetime(args.date.year, args.date.month, args.date.day, tzinfo=timezone.utc))
         html = render(root)
+        frozen_at = datetime(args.date.year, args.date.month, args.date.day, 6, 30, tzinfo=timezone.utc)
+        html, as_of_count = re.subn(
+            r'("as_of": ")[^"]+(")',
+            r'\g<1>' + frozen_at.isoformat(timespec="seconds") + r'\g<2>',
+            html,
+            count=1,
+        )
+        if as_of_count != 1:
+            raise RuntimeError("rendered sample has no snapshot timestamp to freeze")
+        html, updated_count = re.subn(
+            r'("updated": ")[^"]+(")',
+            r'\g<1>' + frozen_at.isoformat(timespec="seconds") + r'\g<2>',
+            html,
+        )
+        if not updated_count:
+            raise RuntimeError("rendered sample has no record timestamps to freeze")
+        html = re.sub(
+            r'("since": ")[^"]+(")',
+            r'\g<1>' + (frozen_at - timedelta(days=60)).isoformat(timespec="seconds") + r'\g<2>',
+            html,
+        )
         html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
         html = html.replace(str(root), "/sample-notebook")
         html = html.replace("/sample-owner/", "~/").replace("/sample-owner", "~")
