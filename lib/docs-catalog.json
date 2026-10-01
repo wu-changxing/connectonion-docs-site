@@ -480,9 +480,19 @@
     "path": "/cli/discord"
   },
   "/rem": {
-    "title": "co rem: your agent's memory of people and projects | ConnectOnion",
-    "description": "co rem keeps Markdown pages on the people, projects and tools in your work, from your mail and Codex and Claude Code sessions, on your machine. Available today as co wiki (Experimental); co rem from 1.9.0.",
+    "title": "co rem: Overnight AI Memory and Morning Recall | ConnectOnion",
+    "description": "REM works through approved sources while you sleep, carries context into the morning, and helps you remember it. Explore the opt-in co rem preview and its limits.",
     "path": "/rem"
+  },
+  "/rem/demo": {
+    "title": "co rem sample reader: explore an invented notebook | ConnectOnion",
+    "description": "Explore the real co rem morning reader with invented people, projects, source records, and an older-memory reveal. This frozen sample comes from the 1.9.0a11 preview.",
+    "path": "/rem/demo"
+  },
+  "/cli/rem": {
+    "title": "co rem CLI reference for the opt-in preview | ConnectOnion",
+    "description": "Commands, source controls, review steps, and limits for the opt-in co rem 1.9.0 preview. Read the exact release-synced CLI guide.",
+    "path": "/cli/rem"
   },
   "/cli/wiki": {
     "title": "co wiki | ConnectOnion",

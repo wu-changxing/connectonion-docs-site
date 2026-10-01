@@ -13,8 +13,9 @@ PyPI published, never from main: main carries features nobody can install yet.
 What it copies, from the tag:
 - docs/cli/<name>.md -> public/cli/<name>.md, for every page this site already
   publishes (a new framework page is listed, not published: some are internal)
-- connectonion/cli/commands/wiki_help.md -> public/cli/wiki-help.md, keeping
-  this site's own introduction above the first `## ` heading
+- connectonion/cli/commands/wiki_help.md -> public/cli/wiki-help.md when the
+  tag still contains it, keeping this site's own introduction above the first
+  `## ` heading. New REM previews no longer ship this stable-channel file.
 - docs/releases/<version>.md and its assets/v<version>/ for 1.8.8 and later,
   when the site does not have that version yet. A note already here is kept:
   once published, a note is edited for the site (image links, "## Install
@@ -44,9 +45,15 @@ def version_key(name: str):
 
 def files_at(framework: Path, tag: str) -> dict:
     """{path: bytes} for the paths this script copies, as they are at `tag`."""
+    paths = ["docs/cli", "docs/releases", "docs/releases.md"]
+    wiki_help = "connectonion/cli/commands/wiki_help.md"
+    if subprocess.run(
+        ["git", "-C", str(framework), "cat-file", "-e", f"{tag}:{wiki_help}"],
+        capture_output=True,
+    ).returncode == 0:
+        paths.append(wiki_help)
     archive = subprocess.run(
-        ["git", "-C", str(framework), "archive", tag, "docs/cli", "docs/releases", "docs/releases.md",
-         "connectonion/cli/commands/wiki_help.md"], capture_output=True, check=True).stdout
+        ["git", "-C", str(framework), "archive", tag, *paths], capture_output=True, check=True).stdout
     with tarfile.open(fileobj=io.BytesIO(archive)) as tar:
         return {m.name: tar.extractfile(m).read() for m in tar.getmembers() if m.isfile()}
 
@@ -75,10 +82,12 @@ def main() -> int:
             else:
                 unpublished.append(path)
 
-    help_page = SITE / "public/cli/wiki-help.md"
-    body = src["connectonion/cli/commands/wiki_help.md"].decode()
-    site_intro = help_page.read_text().split("\n## ", 1)[0]
-    write(help_page, (site_intro + "\n## " + body.split("\n## ", 1)[1]).encode(), changed)
+    wiki_help = src.get("connectonion/cli/commands/wiki_help.md")
+    if wiki_help:
+        help_page = SITE / "public/cli/wiki-help.md"
+        body = wiki_help.decode()
+        site_intro = help_page.read_text().split("\n## ", 1)[0]
+        write(help_page, (site_intro + "\n## " + body.split("\n## ", 1)[1]).encode(), changed)
 
     # Notes first, so a new version's assets follow its note in.
     added = set()
