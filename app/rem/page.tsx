@@ -10,7 +10,7 @@ import { STABLE_VERSION } from '../../lib/version'
 const URL = 'https://docs.connectonion.com/rem'
 const TITLE = "co rem: your agent's memory of people and projects | ConnectOnion"
 const DESCRIPTION =
-  'co rem keeps Markdown pages on the people, projects and tools in your work, from your mail and Codex and Claude Code sessions, on your machine and your own Codex plan. Available today as co wiki (Experimental); co rem from 1.9.0.'
+  'co rem keeps Markdown pages on the people, projects and tools in your work, from your mail and Codex and Claude Code sessions. Try co rem in the opt-in 1.9.0 preview; stable 1.8.10 includes co wiki as Experimental.'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
