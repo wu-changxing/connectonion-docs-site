@@ -56,6 +56,12 @@ def main() -> int:
         html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
         html = html.replace(str(root), "/sample-notebook")
         html = html.replace("/sample-owner/", "~/").replace("/sample-owner", "~")
+        # The fixture contains an illustrative completed pass but has no actual
+        # consent or scheduler. Explain that combination in the public sample.
+        html = html.replace(
+            "Not started — run `co rem start` to authorize sources and begin",
+            "Sample notebook — illustrative pass; no schedule is active",
+        )
         forbidden = (real_home, tmp, "/var/folders/", "Bearer ")
         if any(token and token in html for token in forbidden) or re.search(r"\bsk-[A-Za-z0-9]{20,}\b", html):
             raise RuntimeError("rendered sample contains a local path or credential-shaped string")
