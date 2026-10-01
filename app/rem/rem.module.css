@@ -58,7 +58,7 @@
 
 .heroMeta { font-size: 11px; color: #b9c6ef; }
 .wordmark { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: #fff; }
-.moon { width: 15px; height: 15px; border-radius: 50%; box-shadow: inset -5px -1px 0 #c5d1ff; transform: rotate(-28deg); }
+.eyeMark { width: 24px; height: 24px; flex: none; }
 .previewBadge { border: 1px solid rgba(183, 199, 249, .32); border-radius: 999px; padding: 7px 11px; }
 
 .heroCopy { max-width: 900px; padding: clamp(70px, 8vw, 130px) 0 clamp(54px, 6vw, 86px); }

@@ -2,7 +2,7 @@
 """Generate a public, invented REM reader from an exact framework release.
 
     python3 scripts/generate-rem-sample.py \
-      --framework ../connectonion --tag v1.9.0a11 --date 2026-10-01
+      --framework ../connectonion --tag v1.9.0a13 --date 2026-10-02
 
 The output is a frozen, self-contained HTML snapshot. This command refuses a
 checkout whose package or fixture differs from the named tag, and replaces
@@ -11,10 +11,11 @@ local paths before publishing it. Never point it at a personal notebook.
 
 import argparse
 import os
+import re
 import subprocess
 import sys
 import tempfile
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
@@ -52,11 +53,38 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="rem-sample-") as tmp:
         root = build(Path(tmp) / "rem", now=datetime(args.date.year, args.date.month, args.date.day, tzinfo=timezone.utc))
         html = render(root)
+        frozen_at = datetime(args.date.year, args.date.month, args.date.day, 6, 30, tzinfo=timezone.utc)
+        html, as_of_count = re.subn(
+            r'("as_of": ")[^"]+(")',
+            r'\g<1>' + frozen_at.isoformat(timespec="seconds") + r'\g<2>',
+            html,
+            count=1,
+        )
+        if as_of_count != 1:
+            raise RuntimeError("rendered sample has no snapshot timestamp to freeze")
+        html, updated_count = re.subn(
+            r'("updated": ")[^"]+(")',
+            r'\g<1>' + frozen_at.isoformat(timespec="seconds") + r'\g<2>',
+            html,
+        )
+        if not updated_count:
+            raise RuntimeError("rendered sample has no record timestamps to freeze")
+        html = re.sub(
+            r'("since": ")[^"]+(")',
+            r'\g<1>' + (frozen_at - timedelta(days=60)).isoformat(timespec="seconds") + r'\g<2>',
+            html,
+        )
         html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
         html = html.replace(str(root), "/sample-notebook")
         html = html.replace("/sample-owner/", "~/").replace("/sample-owner", "~")
-        forbidden = (real_home, tmp, "/var/folders/", "sk-", "Bearer ")
-        if any(token and token in html for token in forbidden):
+        # The fixture contains an illustrative completed pass but has no actual
+        # consent or scheduler. Explain that combination in the public sample.
+        html = html.replace(
+            "Not started — run `co rem start` to authorize sources and begin",
+            "Sample notebook — illustrative pass; no schedule is active",
+        )
+        forbidden = (real_home, tmp, "/var/folders/", "Bearer ")
+        if any(token and token in html for token in forbidden) or re.search(r"\bsk-[A-Za-z0-9]{20,}\b", html):
             raise RuntimeError("rendered sample contains a local path or credential-shaped string")
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
