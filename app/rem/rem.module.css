@@ -94,6 +94,8 @@
 .desktopShot { display: block; width: 100%; height: auto; }
 .phoneShot { display: none; }
 .frameNote { margin: 18px 2px 0; color: #aab8db; font-size: 10px; line-height: 1.6; }
+.frameOpen { display: inline-flex; align-items: center; min-height: 44px; margin: 6px 2px 0; color: #d8e3ff; font-size: 13px; font-weight: 650; text-decoration: underline; text-underline-offset: 4px; }
+.frameOpen:hover { color: #fff; }
 
 .experience,
 .truth,
