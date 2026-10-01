@@ -480,7 +480,7 @@
     "path": "/cli/discord"
   },
   "/rem": {
-    "title": "REM — wake up with the context you need | ConnectOnion",
+    "title": "co rem: Overnight AI Memory and Morning Recall | ConnectOnion",
     "description": "REM works through approved sources while you sleep, carries context into the morning, and helps you remember it. Explore the opt-in co rem preview and its limits.",
     "path": "/rem"
   },

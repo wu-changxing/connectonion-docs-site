@@ -10,7 +10,7 @@ import { PREVIEW_VERSION, STABLE_VERSION } from '../../lib/version'
 import styles from './rem.module.css'
 
 const URL = 'https://docs.connectonion.com/rem'
-const TITLE = 'REM — wake up with the context you need | ConnectOnion'
+const TITLE = 'co rem: Overnight AI Memory and Morning Recall | ConnectOnion'
 const DESCRIPTION =
   'REM works through approved sources while you sleep, carries context into the morning, and helps you remember it. Explore the opt-in co rem preview and its limits.'
 
