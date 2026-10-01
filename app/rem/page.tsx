@@ -69,8 +69,8 @@ export default function Page() {
             <p className={styles.eyebrow}>A memory with a night cycle</p>
             <h1 id="rem-title">Wake up with the <em>context</em> you need.</h1>
             <p className={styles.heroLead}>
-              REM works through sources you approve while you sleep. In the morning,
-              it brings forward the people, projects, and open threads worth remembering.
+              Your first run investigates recent important people, projects and organizations.
+              After you approve a schedule, REM keeps that context current overnight.
             </p>
             <div className={styles.heroActions}>
               <Link className={styles.primaryAction} href="/rem/demo">Explore a sample notebook <span aria-hidden="true">↗</span></Link>
@@ -131,9 +131,10 @@ export default function Page() {
               a page actually links to another. Proposed connections remain questions for review.
             </p>
             <p>
-              This preview knows which <em>pages</em> the latest pass updated. It does not yet
-              prove which claim was learned that night. Revealing an older answer does not
-              measure retention. Both are tracked openly in the{' '}
+              Completed nightly passes can compare cited Facts and Contact fields before and
+              after the run. Other prose changes remain page-level, and older run logs have
+              no field comparison. Revealing an older answer does not measure retention.
+              These limits are tracked in the{' '}
               <Link href="https://github.com/openonion/connectonion/blob/main/docs/design-evidence/rem-product-audit-2026-10-01.md">product audit</Link>.
             </p>
           </div>
@@ -146,6 +147,12 @@ export default function Page() {
             <p>
               The reader is a local snapshot. An exact version pin opts you into the alpha;
               ordinary installs stay on stable {STABLE_VERSION}.
+            </p>
+            <p>
+              <code>co rem init</code> uses your configured model to investigate the first set of
+              pages, then lets you open a notebook with cited findings. It aims for roughly
+              20% of a weekly runner allowance and finishes the selected work even if it
+              takes more, subject to the configured safety floor.
             </p>
           </div>
           <div className={styles.terminal}>
