@@ -1,5 +1,9 @@
 # co wiki — memory for your agent
 
+Archived 1.8.x `co wiki` preview help. For the current model-backed first run,
+see [co rem](/cli/rem): `co rem init` investigates recent important memories by
+default; `--no-investigate` requests a map-only run.
+
 **Experimental.** A notebook about the people, projects and tools in your work,
 kept up to date from your mail and coding sessions. Below is every `co wiki`
 `--help` page, verbatim from the CLI; a test in the framework holds them to the
