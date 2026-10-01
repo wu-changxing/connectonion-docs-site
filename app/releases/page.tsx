@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'REM opens with context from its latest pass and an optional recall question. This preview also fixes local reader snapshots on Windows.'
+                ? 'REM opens records with state, next exchanges and connected context. It separates cited field changes from page rewrites and lets you inspect archived source excerpts.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (

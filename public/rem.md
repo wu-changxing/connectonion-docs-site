@@ -2,20 +2,20 @@
 
 REM is named for rapid eye movement sleep. It works from sources you approve,
 keeps a local notebook about people and projects, and brings context forward
-when you return. The opt-in `co rem` 1.9.0a12 alpha begins the reader with pages
-touched by the latest pass, an existing link between pages, open threads, and
-an older memory to recall before revealing it.
+when you return. The opt-in `co rem` 1.9.0a13 alpha begins with the morning
+context, open threads and an older memory to recall. Records open as focused
+views of state, next exchanges, facts and connected context.
 
 The reader image on this page is a real product frame made with an invented
 notebook. No private correspondence is in the example.
 [Explore the full-size sample reader](/rem/demo) to follow a page, inspect a
 source record, and reveal an older memory before installing the alpha. The
-sample is frozen on 1 October 2026 and uses only invented people and sources.
+sample is frozen on 2 October 2026 and uses only invented people and sources.
 
 ## Start the opt-in preview
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a12'
+python -m pip install --upgrade 'connectonion==1.9.0a13'
 co auth google               # or: co auth microsoft
 co rem init --days 5          # a smaller first-run trial
 co rem open                   # read a local, offline snapshot
@@ -28,22 +28,29 @@ before spending tokens. `co rem start` shows which sources, runner, model,
 schedule and limits will be used and asks before enabling background updates.
 `co rem stop` turns the schedule off without deleting the notebook. Run
 `co rem open` again to render a newer snapshot.
-The a12 revision fixes local snapshot opening on Windows.
+The reader runs locally and works offline. It inherits the a12 fix for Windows
+snapshot opening.
 
 ## What the morning reader can show
 
 - Up to three pages touched by the latest pass, with their current statement
-  and a route to the page and its sources.
-- A connection already written as a link between two pages. Proposed links
-  remain questions for review.
+  and a route to the page and its sources. Cited Facts and Contact value changes
+  are shown separately from page rewrites.
+- Direct page links, unambiguous name mentions and backlinks, each labeled by
+  its basis. A mention helps navigation; it does not prove a relationship.
 - A question from an older page. You can pause before revealing what that page
   already says; the reveal is not a learning score.
-- Open threads: what is waiting on you and what others owe you.
+- Open threads: what is waiting on you and what others owe you, with a complete
+  action view and direct record links.
+- Focused people and project records with dated activity, compact facts,
+  decisions when recorded, and the original Markdown under a disclosure.
+- Archived original excerpts and cited conversations when the source bodies
+  are available locally.
 - The last pass's counts and run history, available in a disclosure.
 
-The run log says which *page* was rewritten. It does not yet prove which claim
-was learned, corrected or rephrased overnight. REM therefore labels the card
-as an updated page. [Verified claim-level changes](https://github.com/openonion/connectonion/issues/2096),
+The run log says which *page* was rewritten. New runs can also compare cited,
+keyed field values; they cannot establish a meaning change in free prose or
+retroactively compare older runs. [Broader claim-level changes](https://github.com/openonion/connectonion/issues/2096),
 [durable recall](https://github.com/openonion/connectonion/issues/2097), and
 [source-backed questions and approved actions](https://github.com/openonion/connectonion/issues/2071)
 are open work. The [product audit](https://github.com/openonion/connectonion/blob/main/docs/design-evidence/rem-product-audit-2026-10-01.md)
@@ -64,4 +71,4 @@ The default `pip install connectonion` channel remains stable 1.8.10. Its
 experimental memory command is `co wiki`. The `co rem` alpha requires the
 exact version pin above. Preview releases can change before 1.9.0 is stable.
 Read [release channels](/releases) and the
-[1.9.0a12 notes](/releases/1.9.0a12.md) before installing.
+[1.9.0a13 notes](/releases/1.9.0a13.md) before installing.

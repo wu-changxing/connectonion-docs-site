@@ -41,7 +41,7 @@ const moments = [
     number: '02',
     time: 'In the morning',
     title: 'See what carried forward.',
-    copy: 'The reader leads with pages touched by the latest pass, existing links between them, and what remains open.',
+    copy: 'The reader separates cited fact changes from page rewrites, then shows what needs your answer and what remains connected.',
   },
   {
     number: '03',
@@ -61,7 +61,15 @@ export default function Page() {
       <div className={styles.shell}>
         <section className={styles.hero} aria-labelledby="rem-title">
           <div className={styles.heroMeta}>
-            <span className={styles.wordmark}><span className={styles.moon} aria-hidden="true" /> CONNECTONION / REM</span>
+            <span className={styles.wordmark}>
+              <svg className={styles.eyeMark} viewBox="0 0 32 32" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#1b2548" />
+                <path d="M4.5 16c3.2-5.1 7.1-7.6 11.5-7.6S24.3 10.9 27.5 16c-3.2 5.1-7.1 7.6-11.5 7.6S7.7 21.1 4.5 16Z" fill="none" stroke="#dbe3ff" strokeWidth="1.65" />
+                <circle cx="16" cy="16" r="4" fill="#dbe3ff" />
+                <path d="M8.5 25.5c4.8 3 11.6 3 16.1-.6" fill="none" stroke="#dfa75a" strokeWidth="1.65" strokeLinecap="round" />
+              </svg>
+              CONNECTONION / REM
+            </span>
             <span className={styles.previewBadge}>Opt-in alpha {preview ?? 'preview'}</span>
           </div>
 
@@ -86,7 +94,7 @@ export default function Page() {
             <Image
               className={styles.desktopShot}
               src="/rem/reader-desktop.png"
-              alt="REM reader showing three pages updated in the latest pass, a connected page, a recall prompt, and open threads"
+              alt="REM reader showing the morning brief, an older memory to recall, and open threads"
               width={1440}
               height={900}
               loading="eager"
@@ -94,7 +102,7 @@ export default function Page() {
             <Image
               className={styles.phoneShot}
               src="/rem/reader-phone.png"
-              alt="REM morning reader at phone width showing the latest pass and updated pages"
+              alt="REM morning reader at phone width showing today's context and open threads"
               width={390}
               height={844}
             />
@@ -127,13 +135,14 @@ export default function Page() {
           </div>
           <div className={styles.truthBody}>
             <p>
-              A morning card links back to its page and sources. A connection appears only when
-              a page actually links to another. Proposed connections remain questions for review.
+              A morning card links back to its page and sources. The reader labels direct links,
+              cited mentions and backlinks differently. A name mention helps navigation; it is
+              not a verified relationship.
             </p>
             <p>
-              This preview knows which <em>pages</em> the latest pass updated. It does not yet
-              prove which claim was learned that night. Revealing an older answer does not
-              measure retention. Both are tracked openly in the{' '}
+              This preview compares cited, keyed Facts and Contact values before and after a pass.
+              A rewritten page alone is not called a new fact. Prose-level change detection and
+              durable recall feedback remain open work in the{' '}
               <Link href="https://github.com/openonion/connectonion/blob/main/docs/design-evidence/rem-product-audit-2026-10-01.md">product audit</Link>.
             </p>
           </div>

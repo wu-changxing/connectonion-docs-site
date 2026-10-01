@@ -2,7 +2,7 @@
 """Generate a public, invented REM reader from an exact framework release.
 
     python3 scripts/generate-rem-sample.py \
-      --framework ../connectonion --tag v1.9.0a11 --date 2026-10-01
+      --framework ../connectonion --tag v1.9.0a13 --date 2026-10-02
 
 The output is a frozen, self-contained HTML snapshot. This command refuses a
 checkout whose package or fixture differs from the named tag, and replaces
@@ -11,6 +11,7 @@ local paths before publishing it. Never point it at a personal notebook.
 
 import argparse
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -55,8 +56,8 @@ def main() -> int:
         html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
         html = html.replace(str(root), "/sample-notebook")
         html = html.replace("/sample-owner/", "~/").replace("/sample-owner", "~")
-        forbidden = (real_home, tmp, "/var/folders/", "sk-", "Bearer ")
-        if any(token and token in html for token in forbidden):
+        forbidden = (real_home, tmp, "/var/folders/", "Bearer ")
+        if any(token and token in html for token in forbidden) or re.search(r"\bsk-[A-Za-z0-9]{20,}\b", html):
             raise RuntimeError("rendered sample contains a local path or credential-shaped string")
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)

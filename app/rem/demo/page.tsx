@@ -6,7 +6,7 @@ import styles from './demo.module.css'
 const URL = 'https://docs.connectonion.com/rem/demo'
 const TITLE = 'co rem sample reader: explore an invented notebook | ConnectOnion'
 const DESCRIPTION =
-  'Explore the real co rem morning reader with invented people, projects, source records, and an older-memory reveal. This frozen sample comes from the 1.9.0a11 preview.'
+  'Explore the co rem reader with invented people, projects, connected context, archived sources, and a morning recall prompt. This frozen sample comes from the 1.9.0a13 preview.'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
