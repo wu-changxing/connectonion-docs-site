@@ -23,14 +23,14 @@ python -m pip install --upgrade 'connectonion==1.8.10'
 
 ## Current preview
 
-Alpha **1.9.0a10**: co rem's redesigned reader and terminal, with sortable
+Alpha **1.9.0a11**: co rem's morning reader leads with context from the latest
+pass and an optional recall question. It includes the a10 redesign: sortable
 People, Organisations and Projects sheets, cited Facts and Insight, and a
-SQLite index beside the pages. Investigation now writes those Facts and Insight
-blocks. The preview also includes the fixes and features merged since the a9
-tag. See [1.9.0a10 notes](releases/1.9.0a10.md).
+SQLite index beside the pages. The brief identifies updated pages; it does not
+yet identify changed claims. See [1.9.0a11 notes](releases/1.9.0a11.md).
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a10'
+python -m pip install --upgrade 'connectonion==1.9.0a11'
 co rem open
 ```
 
