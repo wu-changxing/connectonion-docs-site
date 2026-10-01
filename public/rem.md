@@ -8,6 +8,9 @@ an older memory to recall before revealing it.
 
 The reader image on this page is a real product frame made with an invented
 notebook. No private correspondence is in the example.
+[Explore the full-size sample reader](/rem/demo) to follow a page, inspect a
+source record, and reveal an older memory before installing the alpha. The
+sample is frozen on 1 October 2026 and uses only invented people and sources.
 
 ## Start the opt-in preview
 

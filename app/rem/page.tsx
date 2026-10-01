@@ -7,6 +7,7 @@ import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { renderBlogMarkdown } from '../../lib/blog-content.mjs'
 import { PREVIEW_VERSION, STABLE_VERSION } from '../../lib/version'
+import { REM_SAMPLE_VERSION } from '../../lib/rem-sample'
 import styles from './rem.module.css'
 
 const URL = 'https://docs.connectonion.com/rem'
@@ -72,8 +73,8 @@ export default function Page() {
               it brings forward the people, projects, and open threads worth remembering.
             </p>
             <div className={styles.heroActions}>
-              <a className={styles.primaryAction} href="#start">Try the preview <span aria-hidden="true">↗</span></a>
-              <a className={styles.secondaryAction} href="#experience">See the memory loop <span aria-hidden="true">↓</span></a>
+              <Link className={styles.primaryAction} href="/rem/demo">Explore a sample notebook <span aria-hidden="true">↗</span></Link>
+              <a className={styles.secondaryAction} href="#start">Try the preview <span aria-hidden="true">↓</span></a>
             </div>
           </div>
 
@@ -98,7 +99,8 @@ export default function Page() {
               height={844}
             />
           </div>
-          <p className={styles.frameNote}>A real reader frame from the {preview ?? 'latest'} preview. Names and sources in the image are invented for review.</p>
+          <p className={styles.frameNote}>A real reader frame from the {REM_SAMPLE_VERSION} preview. Names and sources in the image are invented for review.</p>
+          <Link className={styles.frameOpen} href="/rem/demo">Open the full-size sample reader →</Link>
         </section>
 
         <section id="experience" className={styles.experience} aria-labelledby="experience-title">

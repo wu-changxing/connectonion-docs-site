@@ -38,6 +38,12 @@ export default function ClientLayout({
   const isHomepage = pathname === '/'
   const isBlog = pathname.startsWith('/blog')
 
+  // The released reader snapshot needs the whole viewport for its own
+  // navigation and source panes; the docs sidebar would make it unreadable.
+  if (pathname === '/rem/demo') {
+    return <>{children}</>
+  }
+
   if (isHomepage) {
     return (
       <>
