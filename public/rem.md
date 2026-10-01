@@ -2,7 +2,7 @@
 
 REM is named for rapid eye movement sleep. It works from sources you approve,
 keeps a local notebook about people and projects, and brings context forward
-when you return. The opt-in `co rem` 1.9.0a14 alpha begins with pages touched
+when you return. The opt-in `co rem` 1.9.0a15 alpha begins with pages touched
 by the latest pass, open threads and an older memory to recall. Records open
 as focused views of state, next exchanges, facts and connected context.
 
@@ -15,7 +15,7 @@ sample is frozen on 2 October 2026 and uses only invented people and sources.
 ## Start the opt-in preview
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a14'
+python -m pip install --upgrade 'connectonion==1.9.0a15'
 co auth google               # or: co auth microsoft
 co rem init --days 5          # a smaller first-run trial
 co rem open                   # read a local, offline snapshot
@@ -27,7 +27,9 @@ model to investigate your page, recent important people, active projects and
 related organizations, including in scripts and JSON runs. It estimates the
 work before spending tokens. Roughly 20% of a weekly runner allowance is a
 target; the selected investigation can use more to finish, subject to the
-configured safety floor. `co rem start` shows which sources, runner, model,
+configured safety floor. The first run selects projects from the map it just
+showed. Session folders found afterward remain candidates and do not silently
+add project pages to that count. `co rem start` shows which sources, runner, model,
 schedule and limits will be used and asks before enabling background updates.
 `co rem stop` turns the schedule off without deleting the notebook. Run
 `co rem open` again to render a newer snapshot.
@@ -75,4 +77,4 @@ The default `pip install connectonion` channel remains stable 1.8.10. Its
 experimental memory command is `co wiki`. The `co rem` alpha requires the
 exact version pin above. Preview releases can change before 1.9.0 is stable.
 Read [release channels](/releases) and the
-[1.9.0a14 notes](/releases/1.9.0a14.md) before installing.
+[1.9.0a15 notes](/releases/1.9.0a15.md) before installing.
