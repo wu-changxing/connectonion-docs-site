@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'REM opens with context from its latest pass and an optional recall question. People, Organisations and Projects are sortable sheets; person pages show cited Facts and Insight.'
+                ? 'REM opens with context from its latest pass and an optional recall question. This preview also fixes local reader snapshots on Windows.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (

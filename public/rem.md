@@ -7,14 +7,15 @@ with. Your agent reads those pages, so it picks up where you left off instead
 of asking you again.
 
 > Stable 1.8.10 includes the Experimental `co wiki` command. The opt-in
-> **1.9.0a11 preview** includes `co rem` with a morning brief and a recall
+> **1.9.0a12 preview** includes `co rem` with a morning brief and a recall
 > question, sortable People sheets, cited Facts and Insight, and a local SQLite index.
+> It also fixes `co rem open` on Windows.
 > The commands below describe the stable `co wiki` route.
 
 ## Try the REM preview
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a11'
+python -m pip install --upgrade 'connectonion==1.9.0a12'
 co rem init
 co rem open
 ```
@@ -23,7 +24,7 @@ The first run maps your sources and starts writing your own page and the
 highest-priority pages. People, Organisations and Projects open as tables; a
 person page leads with what is owed and cited facts. The reader's first screen
 shows current context from the latest pass and an optional recall question.
-See the [preview notes](/releases/1.9.0a11.md) for screenshots and current limits.
+See the [preview notes](/releases/1.9.0a12.md) for the fix, screenshots and current limits.
 
 ## Start
 

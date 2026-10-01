@@ -23,14 +23,15 @@ python -m pip install --upgrade 'connectonion==1.8.10'
 
 ## Current preview
 
-Alpha **1.9.0a11**: co rem's morning reader leads with context from the latest
-pass and an optional recall question. It includes the a10 redesign: sortable
-People, Organisations and Projects sheets, cited Facts and Insight, and a
-SQLite index beside the pages. The brief identifies updated pages; it does not
-yet identify changed claims. See [1.9.0a11 notes](releases/1.9.0a11.md).
+Alpha **1.9.0a12**: co rem's morning reader leads with context from the latest
+pass and an optional recall question. This revision fixes local reader
+snapshots on Windows. It includes the a10 redesign: sortable People,
+Organisations and Projects sheets, cited Facts and Insight, and a SQLite index.
+The brief identifies updated pages; it does not yet identify changed claims.
+See [1.9.0a12 notes](releases/1.9.0a12.md).
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a11'
+python -m pip install --upgrade 'connectonion==1.9.0a12'
 co rem open
 ```
 
