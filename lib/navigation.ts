@@ -137,6 +137,20 @@ export const navigation = [
     prev: { href: '/guides/ai-agent-chat-apps', title: 'Telegram, Discord, Feishu, SMS' },
     next: { href: '/cli', title: 'All co commands' }
   },
+  {
+    title: 'Experimental integrations', href: '/cli/experimental-integrations',
+    icon: HiOutlinePuzzlePiece, section: 'CLI: Start Here',
+    keywords: ['experimental', 'google docs', 'google sheets', 'notion', 'airtable', 'integrations'],
+    prev: { href: '/cli', title: 'All co commands' },
+    next: { href: '/cli/feedback', title: 'Feedback' }
+  },
+  {
+    title: 'Feedback', href: '/cli/feedback',
+    icon: HiOutlineBugAnt, section: 'CLI: Start Here',
+    keywords: ['feedback', 'bug', 'issue', 'discord', 'email', 'listener'],
+    prev: { href: '/cli/experimental-integrations', title: 'Experimental integrations' },
+    next: { href: '/cli/init', title: 'co init' }
+  },
   // ─── CLI: Start Here ─────────────────────────────────────────────
   {
     title: 'All co commands',

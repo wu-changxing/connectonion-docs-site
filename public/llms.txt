@@ -25,6 +25,8 @@
 
 ## CLI: connect your agent
 
+- [Experimental integrations](https://docs.connectonion.com/cli/experimental-integrations): 23 small connectors on a development branch; setup and current validation limits.
+- [CLI feedback](https://docs.connectonion.com/cli/feedback): GitHub, Discord, Agent email and the maintainer mailbox collector.
 - [co init](https://docs.connectonion.com/cli/init): The agent's identity: a keypair and 0x address
 - [co auth](https://docs.connectonion.com/cli/auth): Sign in to OpenOnion, or connect Google, Microsoft, Feishu or Lark
 - [co email](https://docs.connectonion.com/cli/email): The agent's own mailbox, with no DNS setup

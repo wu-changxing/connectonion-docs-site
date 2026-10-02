@@ -18,6 +18,16 @@ export interface PageContent {
 
 // Page content database - comprehensive full-text search index
 export const pageContentIndex: PageContent[] = [
+  {
+    title: 'Experimental CLI integrations', href: '/cli/experimental-integrations', section: 'CLI: Start Here',
+    keywords: ['Google Docs', 'Google Sheets', 'Google Slides', 'Google Forms', 'OneDrive', 'SharePoint', 'Excel', 'To Do', 'Notion', 'Airtable', 'Todoist', 'Trello', 'Asana', 'HubSpot', 'Stripe', 'Jira', 'Confluence', 'Zendesk', 'Dropbox', 'Figma', 'Shopify', 'GitHub', 'DingTalk'],
+    content: '23 experimental API and official CLI connectors. Development branch installation, token and OAuth setup, raw JSON, pagination, write previews and current account validation limits.'
+  },
+  {
+    title: 'CLI feedback', href: '/cli/feedback', section: 'CLI: Start Here',
+    keywords: ['feedback', 'bugs', 'GitHub', 'Discord', 'email', 'listener', 'report'],
+    content: 'co feedback report prints versioned report links. Contact aaron.xie@mail.openonion.ai with subject [ConnectOnion feedback]. The mailbox owner can run the read-only collector, which preserves unread state and deduplicates local receipts.'
+  },
   // Getting Started
   {
     title: 'Introduction',

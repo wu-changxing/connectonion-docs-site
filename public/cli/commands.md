@@ -94,3 +94,8 @@ co commands      # this page, in your terminal
 | [`co schedule`](/cli/schedule) | This agent's own recurring work, from .co/schedule.yaml: see it, check it, run an entry now, pause or resume one. | list · check · run · pause · resume |
 
 Commands without a link have no guide yet; their `--help` is the reference.
+
+
+## Experimental development branch
+
+[23 experimental integrations](experimental-integrations.md) and [feedback commands](feedback.md) are implemented on the #2153 development branch and are not yet available in a PyPI release. Follow the preview install instructions to try them.

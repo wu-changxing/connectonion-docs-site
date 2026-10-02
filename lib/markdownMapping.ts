@@ -14,6 +14,8 @@ const routeToMarkdownMap: Record<string, string> = {
   '/quickstart': '/quickstart/quickstart.md',
   '/vibe-coding': '/tutorials/vibe-coding.md',
   '/cli': '/cli/commands.md',
+  '/cli/experimental-integrations': '/cli/experimental-integrations.md',
+  '/cli/feedback': '/cli/feedback.md',
   
   '/cli/env': '/cli/env.md',
   '/cli/environment': '/cli/environment.md',
