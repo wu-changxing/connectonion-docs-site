@@ -27,3 +27,11 @@ review. Rebuilt with Webpack and reran blog checks: 121 Markdown files,
 137 canonical/feed/sitemap entries and 113 generated pages passed. Refreshed
 homepage screenshots; final checks still show 53 cards and no desktop/mobile
 horizontal overflow. The co rem card keeps main's `/rem` canonical target.
+
+Independent AI founder/marketing/UI review is recorded in `independent-review.md`.
+The wrong journal category and truncated generated intro were fixed with
+explicit GitHub/Inbox/CLI metadata in the canonical source. Production build,
+blog checks, and independent desktop/phone journal and listing rechecks passed.
+Updated journal screenshots and JSON flow/viewport observations are included.
+The existing dismissible mobile star banner is a scoped follow-up. README new
+image rendering remains an explicit check after landing endpoint deployment.

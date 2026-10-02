@@ -1,0 +1,632 @@
+[
+  {
+    "title": "Agent CLI harness docs: Gmail, WhatsApp, browser, Claude Code | ConnectOnion",
+    "text": "ConnectOnion\nQuickstart\nDocs\nBlog\nGet Started\nConnectOnion · the agent CLI harness\n·\nStable v1.8.10\nCLI is all you need.\n\nInspect the settings your agent uses with co env, connect Microsoft once with co auth microsoft, then use co outlook. The same CLI reaches Gmail, browsers, files and chat.\n\nQuick Start →\nGitHub\nDiscord\n\nOpen source, Apache-2.0\n·\nNew accounts get $5 of model credit\n\n$ co commands · one command per connection\nBrowse all commands →\n# identity & memory\n0x address\nco init\nAgent mailbox\nco email\nco rem\nco rem\nSecrets\nco env\nCredits\nco transfer\n# mail, calendar & notes\nGmail\nco gmail\nOutlook\nco outlook\nGoogle Calendar\nco gcalendar\nGoogle Meet\nco gcalendar meet\nOneNote\nco onenote\nTeams meetings\nco outlook calendar\n# chat apps\nWhatsApp\nco whatsapp\nTelegram\nco telegram\nDiscord\nco discord\nSlack\nco slack\nFeishu\nco feishu\nLark\nco lark\nSMS\nco sms\n# browser & files\nYour Chrome\nco browser\nRemote browser\nco remote-browser\nGoogle Drive\nco gdrive\nYouTube\nco youtube\nTikTok plans\nco tiktok\nSynology NAS\nco syno\nWeb search\nco search\nWeb fetch\nco fetch\n# issues & feedback\nGitHubnext preview\nco github\nLinear\nco linear\nCanny\nco canny\n# coding agents\nco ai\nco ai\nClaude Code\nco claude\nCodex\nco skills link\nYour skills\nco skills\nShared skills\nco sub\nEvals\nco eval\nCLI audit\nco audit\nCursor\nco skills discover\nKiro\nco skills discover\n# models\nManaged keys\nco/… ($5 credit)\nOpenAI\ngpt-…\nAnthropic\nclaude-…\nGemini\ngemini-…\nMistral\nmistral/…\nGroq\ngroq/…\nGrok\ngrok/…\nOpenRouter\nopenrouter/…\nOllama (local)\nollama/…\n# agents & servers\nRemote agents\nco call\nTrust\nco trust\nYour internet\nco proxy\nYour servers\nco deploy --to\nSSH\nco server ssh\nSchedules\nco schedule\n\nDOCUMENTATION\n\nQuick Start\nGet running in 60s\nAll co commands\nThe CLI harness\nGuides\nGmail, WhatsApp, browser…\nco rem\nYour agent's memory\nPython SDK\nBuild your own agent\nModels\nGPT / Claude / Gemini\nPlugins\nReAct, Eval, Shell...\nTUI Components\npick, chat, fuzzy...\nAuto Debug\nInteractive breakpoints\nLogging\nLogs, sessions, YAML\nDesign Journal\nWhy we built it this way\nAll documentation\nBEYOND CODE COMPARISON\nWhat You Get Without Building It\n\nNone of this is about writing less code. It is what already ships in the box.\n\nBuilt-in AI Programmer\n\nAn AI that knows the template inside out\n\nRun co ai — an AI coding assistant built with ConnectOnion that writes working agent code. Fully open-source.\n\nco ai   # Opens chat with AI that deeply understands ConnectOnion\nBuilt-in Frontend & Backend\n\nJust write prompt and tools — deploy\n\nNo FastAPI backend. No React frontend. No API wiring. It is already in the template.\n\n# ConnectOnion:\nagent = Agent(\"support\", tools=[search, reply])\nhost(agent)  # Done. Frontend + backend included.\nReady-to-Use Tool Ecosystem\n\nImport and use — no schema, no wiring\n\nbash, Shell, FileTools, BrowserAutomation, Gmail, Outlook, Calendar, Memory, TodoList — all built-in. Need to customize? co copy takes the source.\n\nfrom connectonion import bash, Gmail, Memory, TodoList\nfrom connectonion.useful_tools import FileTools\n\nagent = Agent(\"assistant\", tools=[bash, Gmail(), Memory(), FileTools()])\n\nco copy Gmail   # Copies source to your project for customization\nBuilt-in Approval System\n\nSafety by default, not by effort\n\nDangerous operations automatically trigger approval. Plugin-based — turn it off, customize it, or replace it entirely.\n\nfrom connectonion.useful_plugins import shell_approval, tool_approval\n\nagent = Agent(\"assistant\", tools=[bash], plugins=[shell_approval])\n# Shell commands now require approval before execution\nSkills System\n\nReusable workflows with auto permission scoping\n\nUser types /commit — skill loads, git commands auto-approved, permission cleared after execution. Auto-discovers Claude Code skills.\n\nfrom connectonion.useful_plugins import skills\n\nagent = Agent(\"assistant\", tools=[bash], plugins=[skills])\n\n# Three-level auto-discovery:\n# .co/skills/       — project-level (highest priority)\n# ~/.co/skills/     — user-level\n# .claude/skills/   — Claude Code compatible (auto-loaded)\nClaude Code-Equivalent Plugins\n\nSame capabilities, open to any agent\n\nauto_compact, subagents, ulw, tool_approval — these mirror Claude Code's internal capabilities. ConnectOnion makes them available to every agent you build.\n\nfrom connectonion.useful_plugins import auto_compact, subagents, ulw\n\nagent = Agent(\"researcher\", tools=[search], plugins=[\n    auto_compact,   # Auto-compress context at 90% capacity\n    subagents,      # Spawn sub-agents with independent tools\n    ulw,            # Ultra Light Work — fully autonomous mode\n])\nMulti-Agent Trust System\n\nZero token cost for 90% of trust decisions\n\nFast Rules handle trust before LLM involvement. Blocklist, whitelist, invite codes — all resolved instantly.\n\nagent = Agent(\"production\", trust=\"careful\")\n# careful: whitelist → allow, unknown → ask LLM, blocked → deny\n\n# Three presets:\n# \"open\"    — development (allow all)\n# \"careful\" — staging (whitelist + LLM fallback)\n# \"strict\"  — production (whitelist only)\nThe Future is AI-First\nAI Agents Building AI Agents\n\nWhy write code when you can describe what you want? ConnectOnion enables meta-agents that build, test, and deploy other agents.\n\n🤔\nTraditional Development\n✗\nWrite boilerplate, test, debug, repeat\n✗\nManual tool integration for every agent\n✗\nHours spent on repetitive patterns\n✗\nHuman bottleneck in agent creation\nAI-First with ConnectOnion\n✓\nDescribe your agent, let AI build it\n✓\nMeta-agents generate, test, and deploy\n✓\nShip agents in minutes, not hours\n✓\nAI handles the boring parts\nWhy AI-First Development Wins\n10x Faster Development\n\nMeta-agents generate production-ready code in minutes. What took hours now takes seconds.\n\nSelf-Improving Agents\n\nAgents analyze their own execution, identify issues, and generate fixes automatically.\n\nZero Boilerplate\n\nFocus on what you want to build, not how. AI handles imports, error handling, and best practices.\n\nReal-World Example\n\nBuild an email automation agent using a meta-agent:\n\nYou:\n\n\"Create an agent that monitors my inbox and replies to customer questions about pricing\"\n\nMeta-Agent:\n✓ Generated Gmail integration tool\n✓ Created pricing knowledge base\n✓ Built reply agent with context\n✓ Added tests and error handling\n✓ Agent deployed and running\nTime saved: 4 hours · Lines of code written by you: 0\nStart Building AI-First\n\nNo credit card required · Free tier available\n\nOpenOnion for macOS\n\nNative menu bar app for managing your AI agents. Beautiful, fast, and always one click away.\n\nNative Design\n\nBeautiful polished UI following Apple HIG.\n\nLive Stats\n\nTrack uptime and requests in real-time.\n\nFull Settings\n\nConfigure models, keys, and preferences.\n\nQuick Access\n\nOpen chat and control agents from menu bar.\n\nDownload for macOS\n\nFully code-signed and notarized · macOS 12+ · Universal Binary\n\nDownload Latest\nView All Releases\nv0.7.9 · Intel & Apple Silicon\nFREE\n$5 of free credit, no API key needed\n\nGet $5 free credits to try Gemini 2.5 Pro, GPT-4o, Claude, and more. Start building immediately.\n\nmodel=\"co/gemini-3.7-flash\"\nCheck balance: co status\nWhat You Can Build\nFunctions = Tools\ndef search(q: str):\nreturn results\n\nNo wrappers. No decorators. Just functions.\n\nDeploy Anywhere\nagent.serve()\n# Globally accessible\n\nFrom your laptop. No AWS needed.\n\nConnect Agents\nother = connect(\"0x...\")\n# Agents as tools\n\nBuild agent networks. Like the internet, but for AI.\n\nProduction Ready\n\nBuilt for production from day one\n\nAuto Log\n\n.co/logs/\n\n@xray\n\nBreakpoints\n\nPlugins\n\nJust functions\n\nHuman Loop\n\nApproval flows\n\nLearn more in docs →\n0 lines\n\nTo get started. The template is already written.\n\n1 file\n\nIs the thing you change. Usually just the prompt.\n\nYour code\n\nIt lives in your repo, not behind an abstraction.\n\nReady to Start?\nDiscord\nGitHub\nTerminal\nbash\n$pip install connectonion\n$co create my-agent\n$cd my-agent && python agent.py\n\nInstalls stable. Preview releases need an explicit --pre flag or an exact version pin.\n\nQuick Start →\n\nThree commands to a running agent. No AWS. No API key.\n\nCopy\nDownload\nNEXT\nGetting Started\nQuick Start\nReady to build?\nGet Started\nView on GitHub\nConnectOnion\n·\n© 2026\n·\nApache-2.0 License",
+    "headings": [
+      "CLI is all you need.",
+      "$ co commands · one command per connection",
+      "# identity & memory",
+      "# mail, calendar & notes",
+      "# chat apps",
+      "# browser & files",
+      "# issues & feedback",
+      "# coding agents",
+      "# models",
+      "# agents & servers",
+      "What You Get Without Building It",
+      "Built-in AI Programmer",
+      "Built-in Frontend & Backend",
+      "Ready-to-Use Tool Ecosystem",
+      "Built-in Approval System",
+      "Skills System",
+      "Claude Code-Equivalent Plugins",
+      "Multi-Agent Trust System",
+      "AI Agents Building AI Agents",
+      "🤔Traditional Development",
+      "AI-First with ConnectOnion",
+      "Why AI-First Development Wins",
+      "Real-World Example",
+      "OpenOnion for macOS",
+      "Native Design",
+      "Live Stats",
+      "Full Settings",
+      "Quick Access",
+      "Download for macOS",
+      "$5 of free credit, no API key needed",
+      "What You Can Build",
+      "Functions = Tools",
+      "Deploy Anywhere",
+      "Connect Agents",
+      "Production Ready",
+      "Ready to Start?",
+      "Ready to build?"
+    ],
+    "links": [
+      {
+        "text": "GitHub",
+        "href": "https://github.com/openonion/connectonion"
+      },
+      {
+        "text": "Browse all commands →",
+        "href": "/cli"
+      },
+      {
+        "text": "GitHubnext previewco github",
+        "href": "/cli/github"
+      },
+      {
+        "text": "Linearco linear",
+        "href": "/cli/linear"
+      },
+      {
+        "text": "Cannyco canny",
+        "href": "/cli/canny"
+      },
+      {
+        "text": "All co commandsThe CLI harness",
+        "href": "/cli"
+      },
+      {
+        "text": "GitHub",
+        "href": "https://github.com/openonion/connectonion"
+      },
+      {
+        "text": "View on GitHub",
+        "href": "https://github.com/openonion/connectonion"
+      }
+    ],
+    "overflow": false,
+    "route": "docs",
+    "mode": "desktop",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "title": "Agent CLI harness docs: Gmail, WhatsApp, browser, Claude Code | ConnectOnion",
+    "text": "ConnectOnion\nBlog\nGet Started\nConnectOnion · the agent CLI harness\n·\nStable v1.8.10\nCLI is all you need.\n\nInspect the settings your agent uses with co env, connect Microsoft once with co auth microsoft, then use co outlook. The same CLI reaches Gmail, browsers, files and chat.\n\nQuick Start →\nGitHub\nDiscord\n\nOpen source, Apache-2.0\n·\nNew accounts get $5 of model credit\n\n$ co commands · one command per connection\nBrowse all commands →\n# identity & memory\n0x address\nco init\nAgent mailbox\nco email\nco rem\nco rem\nSecrets\nco env\nCredits\nco transfer\n# mail, calendar & notes\nGmail\nco gmail\nOutlook\nco outlook\nGoogle Calendar\nco gcalendar\nGoogle Meet\nco gcalendar meet\nOneNote\nco onenote\nTeams meetings\nco outlook calendar\n# chat apps\nWhatsApp\nco whatsapp\nTelegram\nco telegram\nDiscord\nco discord\nSlack\nco slack\nFeishu\nco feishu\nLark\nco lark\nSMS\nco sms\n# browser & files\nYour Chrome\nco browser\nRemote browser\nco remote-browser\nGoogle Drive\nco gdrive\nYouTube\nco youtube\nTikTok plans\nco tiktok\nSynology NAS\nco syno\nWeb search\nco search\nWeb fetch\nco fetch\n# issues & feedback\nGitHubnext preview\nco github\nLinear\nco linear\nCanny\nco canny\n# coding agents\nco ai\nco ai\nClaude Code\nco claude\nCodex\nco skills link\nYour skills\nco skills\nShared skills\nco sub\nEvals\nco eval\nCLI audit\nco audit\nCursor\nco skills discover\nKiro\nco skills discover\n# models\nManaged keys\nco/… ($5 credit)\nOpenAI\ngpt-…\nAnthropic\nclaude-…\nGemini\ngemini-…\nMistral\nmistral/…\nGroq\ngroq/…\nGrok\ngrok/…\nOpenRouter\nopenrouter/…\nOllama (local)\nollama/…\n# agents & servers\nRemote agents\nco call\nTrust\nco trust\nYour internet\nco proxy\nYour servers\nco deploy --to\nSSH\nco server ssh\nSchedules\nco schedule\n\nDOCUMENTATION\n\nQuick Start\nGet running in 60s\nAll co commands\nThe CLI harness\nGuides\nGmail, WhatsApp, browser…\nco rem\nYour agent's memory\nPython SDK\nBuild your own agent\nModels\nGPT / Claude / Gemini\nPlugins\nReAct, Eval, Shell...\nTUI Components\npick, chat, fuzzy...\nAuto Debug\nInteractive breakpoints\nLogging\nLogs, sessions, YAML\nDesign Journal\nWhy we built it this way\nAll documentation\nBEYOND CODE COMPARISON\nWhat You Get Without Building It\n\nNone of this is about writing less code. It is what already ships in the box.\n\nBuilt-in AI Programmer\n\nAn AI that knows the template inside out\n\nRun co ai — an AI coding assistant built with ConnectOnion that writes working agent code. Fully open-source.\n\nco ai   # Opens chat with AI that deeply understands ConnectOnion\nBuilt-in Frontend & Backend\n\nJust write prompt and tools — deploy\n\nNo FastAPI backend. No React frontend. No API wiring. It is already in the template.\n\n# ConnectOnion:\nagent = Agent(\"support\", tools=[search, reply])\nhost(agent)  # Done. Frontend + backend included.\nReady-to-Use Tool Ecosystem\n\nImport and use — no schema, no wiring\n\nbash, Shell, FileTools, BrowserAutomation, Gmail, Outlook, Calendar, Memory, TodoList — all built-in. Need to customize? co copy takes the source.\n\nfrom connectonion import bash, Gmail, Memory, TodoList\nfrom connectonion.useful_tools import FileTools\n\nagent = Agent(\"assistant\", tools=[bash, Gmail(), Memory(), FileTools()])\n\nco copy Gmail   # Copies source to your project for customization\nBuilt-in Approval System\n\nSafety by default, not by effort\n\nDangerous operations automatically trigger approval. Plugin-based — turn it off, customize it, or replace it entirely.\n\nfrom connectonion.useful_plugins import shell_approval, tool_approval\n\nagent = Agent(\"assistant\", tools=[bash], plugins=[shell_approval])\n# Shell commands now require approval before execution\nSkills System\n\nReusable workflows with auto permission scoping\n\nUser types /commit — skill loads, git commands auto-approved, permission cleared after execution. Auto-discovers Claude Code skills.\n\nfrom connectonion.useful_plugins import skills\n\nagent = Agent(\"assistant\", tools=[bash], plugins=[skills])\n\n# Three-level auto-discovery:\n# .co/skills/       — project-level (highest priority)\n# ~/.co/skills/     — user-level\n# .claude/skills/   — Claude Code compatible (auto-loaded)\nClaude Code-Equivalent Plugins\n\nSame capabilities, open to any agent\n\nauto_compact, subagents, ulw, tool_approval — these mirror Claude Code's internal capabilities. ConnectOnion makes them available to every agent you build.\n\nfrom connectonion.useful_plugins import auto_compact, subagents, ulw\n\nagent = Agent(\"researcher\", tools=[search], plugins=[\n    auto_compact,   # Auto-compress context at 90% capacity\n    subagents,      # Spawn sub-agents with independent tools\n    ulw,            # Ultra Light Work — fully autonomous mode\n])\nMulti-Agent Trust System\n\nZero token cost for 90% of trust decisions\n\nFast Rules handle trust before LLM involvement. Blocklist, whitelist, invite codes — all resolved instantly.\n\nagent = Agent(\"production\", trust=\"careful\")\n# careful: whitelist → allow, unknown → ask LLM, blocked → deny\n\n# Three presets:\n# \"open\"    — development (allow all)\n# \"careful\" — staging (whitelist + LLM fallback)\n# \"strict\"  — production (whitelist only)\nThe Future is AI-First\nAI Agents Building AI Agents\n\nWhy write code when you can describe what you want? ConnectOnion enables meta-agents that build, test, and deploy other agents.\n\n🤔\nTraditional Development\n✗\nWrite boilerplate, test, debug, repeat\n✗\nManual tool integration for every agent\n✗\nHours spent on repetitive patterns\n✗\nHuman bottleneck in agent creation\nAI-First with ConnectOnion\n✓\nDescribe your agent, let AI build it\n✓\nMeta-agents generate, test, and deploy\n✓\nShip agents in minutes, not hours\n✓\nAI handles the boring parts\nWhy AI-First Development Wins\n10x Faster Development\n\nMeta-agents generate production-ready code in minutes. What took hours now takes seconds.\n\nSelf-Improving Agents\n\nAgents analyze their own execution, identify issues, and generate fixes automatically.\n\nZero Boilerplate\n\nFocus on what you want to build, not how. AI handles imports, error handling, and best practices.\n\nReal-World Example\n\nBuild an email automation agent using a meta-agent:\n\nYou:\n\n\"Create an agent that monitors my inbox and replies to customer questions about pricing\"\n\nMeta-Agent:\n✓ Generated Gmail integration tool\n✓ Created pricing knowledge base\n✓ Built reply agent with context\n✓ Added tests and error handling\n✓ Agent deployed and running\nTime saved: 4 hours · Lines of code written by you: 0\nStart Building AI-First\n\nNo credit card required · Free tier available\n\nOpenOnion for macOS\n\nNative menu bar app for managing your AI agents. Beautiful, fast, and always one click away.\n\nNative Design\n\nBeautiful polished UI following Apple HIG.\n\nLive Stats\n\nTrack uptime and requests in real-time.\n\nFull Settings\n\nConfigure models, keys, and preferences.\n\nQuick Access\n\nOpen chat and control agents from menu bar.\n\nDownload for macOS\n\nFully code-signed and notarized · macOS 12+ · Universal Binary\n\nDownload Latest\nView All Releases\nv0.7.9 · Intel & Apple Silicon\nFREE\n$5 of free credit, no API key needed\n\nGet $5 free credits to try Gemini 2.5 Pro, GPT-4o, Claude, and more. Start building immediately.\n\nmodel=\"co/gemini-3.7-flash\"\nCheck balance: co status\nWhat You Can Build\nFunctions = Tools\ndef search(q: str):\nreturn results\n\nNo wrappers. No decorators. Just functions.\n\nDeploy Anywhere\nagent.serve()\n# Globally accessible\n\nFrom your laptop. No AWS needed.\n\nConnect Agents\nother = connect(\"0x...\")\n# Agents as tools\n\nBuild agent networks. Like the internet, but for AI.\n\nProduction Ready\n\nBuilt for production from day one\n\nAuto Log\n\n.co/logs/\n\n@xray\n\nBreakpoints\n\nPlugins\n\nJust functions\n\nHuman Loop\n\nApproval flows\n\nLearn more in docs →\n0 lines\n\nTo get started. The template is already written.\n\n1 file\n\nIs the thing you change. Usually just the prompt.\n\nYour code\n\nIt lives in your repo, not behind an abstraction.\n\nReady to Start?\nDiscord\nGitHub\nTerminal\nbash\n$pip install connectonion\n$co create my-agent\n$cd my-agent && python agent.py\n\nInstalls stable. Preview releases need an explicit --pre flag or an exact version pin.\n\nQuick Start →\n\nThree commands to a running agent. No AWS. No API key.\n\nNEXT\nGetting Started\nQuick Start\nReady to build?\nGet Started\nView on GitHub\nConnectOnion\n© 2026\nApache-2.0 License",
+    "headings": [
+      "CLI is all you need.",
+      "$ co commands · one command per connection",
+      "# identity & memory",
+      "# mail, calendar & notes",
+      "# chat apps",
+      "# browser & files",
+      "# issues & feedback",
+      "# coding agents",
+      "# models",
+      "# agents & servers",
+      "What You Get Without Building It",
+      "Built-in AI Programmer",
+      "Built-in Frontend & Backend",
+      "Ready-to-Use Tool Ecosystem",
+      "Built-in Approval System",
+      "Skills System",
+      "Claude Code-Equivalent Plugins",
+      "Multi-Agent Trust System",
+      "AI Agents Building AI Agents",
+      "🤔Traditional Development",
+      "AI-First with ConnectOnion",
+      "Why AI-First Development Wins",
+      "Real-World Example",
+      "OpenOnion for macOS",
+      "Native Design",
+      "Live Stats",
+      "Full Settings",
+      "Quick Access",
+      "Download for macOS",
+      "$5 of free credit, no API key needed",
+      "What You Can Build",
+      "Functions = Tools",
+      "Deploy Anywhere",
+      "Connect Agents",
+      "Production Ready",
+      "Ready to Start?",
+      "Ready to build?"
+    ],
+    "links": [
+      {
+        "text": "GitHub",
+        "href": "https://github.com/openonion/connectonion"
+      },
+      {
+        "text": "Browse all commands →",
+        "href": "/cli"
+      },
+      {
+        "text": "GitHubnext previewco github",
+        "href": "/cli/github"
+      },
+      {
+        "text": "Linearco linear",
+        "href": "/cli/linear"
+      },
+      {
+        "text": "Cannyco canny",
+        "href": "/cli/canny"
+      },
+      {
+        "text": "All co commandsThe CLI harness",
+        "href": "/cli"
+      },
+      {
+        "text": "GitHub",
+        "href": "https://github.com/openonion/connectonion"
+      },
+      {
+        "text": "View on GitHub",
+        "href": "https://github.com/openonion/connectonion"
+      }
+    ],
+    "overflow": false,
+    "route": "docs",
+    "mode": "mobile",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "title": "GitHub CLI for AI agents (co github) | ConnectOnion",
+    "text": "ConnectOnion\nQuickstart\nCLI\nPython SDK\nNetwork\nTools\nPlugins\nTUI\nDebug\nBlog\n⌘K\nGetting Started\nGuides\nCLI: Start Here\nCLI: Mail & Calendar\nCLI: Chat Apps\nCLI: Issues & Feedback\nco github\nco linear\nco canny\nCLI: Browser & Files\nCLI: Coding Agents & Memory\nCLI: Build & Ship\nPython SDK: Agent\nPython SDK: Network\nPython SDK: Features\nPython SDK: Tools\nPython SDK: Integrations\nPython SDK: Plugins\nPython SDK: TUI\nPython SDK: Debug\nReleases\nRoadmap\nConnect\nv1.8.10\nUpcoming preview · implementation PR, not released yet\nCopy\nDownload\nco github — GitHub activity as an inbox\n\nExperimental; proposed for the next preview. The released package does not yet include these commands.\n\nUse your existing GitHub CLI login. Co reads only repositories you name, keeps the original Markdown and source links, and writes the same inbox directory as the chat listeners. No copied token, GitHub App or public webhook server.\n\ngh auth login\nco github watch openonion/connectonion\nco github watches\nco github listen\n\n\nlisten runs in the foreground until Ctrl-C. In another terminal:\n\nco github check\nco github receive --timeout 60\nco github done <message-id>\n\n\nreceive prints one JSON record and claims it. It starts a background listener if needed. done completes the record; a claim left unfinished is offered again by the shared inbox recovery mechanism. ls, chats and log inspect the local inbox. check verifies gh authentication, repository access and the listener's actual status. watches prints saved configuration and checkpoints as JSON.\n\nWatch and backfill\nco github watch openonion/connectonion --interval 120\nco github watch openonion/connectonion --since 2026-10-02T00:00:00Z\nco github unwatch openonion/connectonion\n\n\nConfiguration lives in ~/.co/inbox/github/config.json (CO_INBOX_HOME overrides the inbox root). The default interval is 60 seconds; it cannot be shorter. Watch changes take effect at the next scan. The interval applies to all watched repositories. Unwatching preserves already queued messages and checkpoints. --since requests backfill for that repository; reusing the same timestamp does not reset its cursor again. A new timestamp requests another backfill.\n\nFor GitHub Enterprise, first log in with gh auth login --hostname github.example.com, then watch with --host github.example.com. One inbox uses one host. Unwatch its repositories before changing hosts. Co uses gh's active account and environment-token rules; background listeners need credentials available in their own environment.\n\nThe first scan records its start time before fetching and skips earlier history. Activity during initialization is collected. After a restart, successful scans resume from their persisted cursor; interrupted first scans keep their original baseline. All pages must be read and inbox delivery must finish before that repository's checkpoint advances.\n\nMessages\n\nThe listener collects issue/PR creation, observed title/body/label/state changes, conversation comments, inline PR review comments and submitted reviews. Merged PRs are identified from PR details. The event object preserves host, repo, number, kind, action, resource_id, url, state and labels; text contains the original title/body. chat is OWNER/REPO#NUMBER. Every observation has a stable resource/version ID, so cursor overlap and replay do not deliver duplicate work. --raw additionally archives the original API object.\n\nAn observed update does not identify an editor. Its sender is empty rather than incorrectly attributing it to the issue author. This is repository polling, not a historical webhook event stream.\n\nRun a consumer without posting comments\nco github consume --once --no-reply cat\nco github consume --no-reply ./route-github-event\n\n\nThe program receives JSON on stdin and CO_PROVIDER, CO_CHAT, CO_THREAD, CO_SENDER and CO_MSG_ID in its environment. GitHub consumption always keeps stdout local and completes a message only after a successful exit. Failures retain the claim for retry. A dispatcher can queue Codex work using the repository and issue/PR link. A Host explicitly configured with listen: [github] also receives the full JSON record and stores its ordinary turn result locally, without sending a platform reply. It must treat repository content as task input and make repeated execution safe.\n\nThe existing chat providers can opt into --no-reply too; their default still sends stdout as a reply. GitHub has no send, reply, edit, delete or react command in this preview. Use gh for explicitly requested GitHub writes.\n\nLimits and recovery\n\nPolling adds at least one scan interval of delay. It can recover still-existing new messages and current state after downtime. It cannot reconstruct content created and deleted between polls, every intermediate edit, edited review bodies or dismissed reviews. Notifications are not used as a substitute for complete repository coverage.\n\nReviews are read for every PR, including closed PRs, because review discovery must not depend on an issue's update timestamp. This is expensive on repositories with many PRs: select fewer repositories or increase the interval. API rate-limit reset times and Retry-After are honored. Other API/network failures stop the listener visibly without advancing the unfinished checkpoint; consume watches and restarts it under the shared listener rules. co github log shows successful sync times and failure details.\n\nA future webhook transport can add immediate precise events with a separate HMAC secret and delivery recovery. REM reading this inbox is a separate follow-up.\n\nConnectOnion\n·\n© 2026\n·\nApache-2.0 License",
+    "headings": [
+      "co github — GitHub activity as an inbox",
+      "Watch and backfill",
+      "Messages",
+      "Run a consumer without posting comments",
+      "Limits and recovery"
+    ],
+    "links": [
+      {
+        "text": "co github",
+        "href": "/cli/github"
+      },
+      {
+        "text": "co linear",
+        "href": "/cli/linear"
+      },
+      {
+        "text": "co canny",
+        "href": "/cli/canny"
+      }
+    ],
+    "overflow": false,
+    "route": "github",
+    "mode": "desktop",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "title": "GitHub CLI for AI agents (co github) | ConnectOnion",
+    "text": "CLI: Issues & Feedback\nco github\nCopy\nUpcoming preview · implementation PR, not released yet\nco github — GitHub activity as an inbox\n\nExperimental; proposed for the next preview. The released package does not yet include these commands.\n\nUse your existing GitHub CLI login. Co reads only repositories you name, keeps the original Markdown and source links, and writes the same inbox directory as the chat listeners. No copied token, GitHub App or public webhook server.\n\ngh auth login\nco github watch openonion/connectonion\nco github watches\nco github listen\n\n\nlisten runs in the foreground until Ctrl-C. In another terminal:\n\nco github check\nco github receive --timeout 60\nco github done <message-id>\n\n\nreceive prints one JSON record and claims it. It starts a background listener if needed. done completes the record; a claim left unfinished is offered again by the shared inbox recovery mechanism. ls, chats and log inspect the local inbox. check verifies gh authentication, repository access and the listener's actual status. watches prints saved configuration and checkpoints as JSON.\n\nWatch and backfill\nco github watch openonion/connectonion --interval 120\nco github watch openonion/connectonion --since 2026-10-02T00:00:00Z\nco github unwatch openonion/connectonion\n\n\nConfiguration lives in ~/.co/inbox/github/config.json (CO_INBOX_HOME overrides the inbox root). The default interval is 60 seconds; it cannot be shorter. Watch changes take effect at the next scan. The interval applies to all watched repositories. Unwatching preserves already queued messages and checkpoints. --since requests backfill for that repository; reusing the same timestamp does not reset its cursor again. A new timestamp requests another backfill.\n\nFor GitHub Enterprise, first log in with gh auth login --hostname github.example.com, then watch with --host github.example.com. One inbox uses one host. Unwatch its repositories before changing hosts. Co uses gh's active account and environment-token rules; background listeners need credentials available in their own environment.\n\nThe first scan records its start time before fetching and skips earlier history. Activity during initialization is collected. After a restart, successful scans resume from their persisted cursor; interrupted first scans keep their original baseline. All pages must be read and inbox delivery must finish before that repository's checkpoint advances.\n\nMessages\n\nThe listener collects issue/PR creation, observed title/body/label/state changes, conversation comments, inline PR review comments and submitted reviews. Merged PRs are identified from PR details. The event object preserves host, repo, number, kind, action, resource_id, url, state and labels; text contains the original title/body. chat is OWNER/REPO#NUMBER. Every observation has a stable resource/version ID, so cursor overlap and replay do not deliver duplicate work. --raw additionally archives the original API object.\n\nAn observed update does not identify an editor. Its sender is empty rather than incorrectly attributing it to the issue author. This is repository polling, not a historical webhook event stream.\n\nRun a consumer without posting comments\nco github consume --once --no-reply cat\nco github consume --no-reply ./route-github-event\n\n\nThe program receives JSON on stdin and CO_PROVIDER, CO_CHAT, CO_THREAD, CO_SENDER and CO_MSG_ID in its environment. GitHub consumption always keeps stdout local and completes a message only after a successful exit. Failures retain the claim for retry. A dispatcher can queue Codex work using the repository and issue/PR link. A Host explicitly configured with listen: [github] also receives the full JSON record and stores its ordinary turn result locally, without sending a platform reply. It must treat repository content as task input and make repeated execution safe.\n\nThe existing chat providers can opt into --no-reply too; their default still sends stdout as a reply. GitHub has no send, reply, edit, delete or react command in this preview. Use gh for explicitly requested GitHub writes.\n\nLimits and recovery\n\nPolling adds at least one scan interval of delay. It can recover still-existing new messages and current state after downtime. It cannot reconstruct content created and deleted between polls, every intermediate edit, edited review bodies or dismissed reviews. Notifications are not used as a substitute for complete repository coverage.\n\nReviews are read for every PR, including closed PRs, because review discovery must not depend on an issue's update timestamp. This is expensive on repositories with many PRs: select fewer repositories or increase the interval. API rate-limit reset times and Retry-After are honored. Other API/network failures stop the listener visibly without advancing the unfinished checkpoint; consume watches and restarts it under the shared listener rules. co github log shows successful sync times and failure details.\n\nA future webhook transport can add immediate precise events with a separate HMAC secret and delivery recovery. REM reading this inbox is a separate follow-up.\n\nConnectOnion\n© 2026\nApache-2.0 License",
+    "headings": [
+      "co github — GitHub activity as an inbox",
+      "Watch and backfill",
+      "Messages",
+      "Run a consumer without posting comments",
+      "Limits and recovery"
+    ],
+    "links": [
+      {
+        "text": "co github",
+        "href": "/cli/github"
+      },
+      {
+        "text": "co linear",
+        "href": "/cli/linear"
+      },
+      {
+        "text": "co canny",
+        "href": "/cli/canny"
+      }
+    ],
+    "overflow": false,
+    "route": "github",
+    "mode": "mobile",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "title": "Linear CLI for AI agents (co linear) | ConnectOnion",
+    "text": "ConnectOnion\nQuickstart\nCLI\nPython SDK\nNetwork\nTools\nPlugins\nTUI\nDebug\nBlog\n⌘K\nGetting Started\nGuides\nCLI: Start Here\nCLI: Mail & Calendar\nCLI: Chat Apps\nCLI: Issues & Feedback\nco github\nco linear\nco canny\nCLI: Browser & Files\nCLI: Coding Agents & Memory\nCLI: Build & Ship\nPython SDK: Agent\nPython SDK: Network\nPython SDK: Features\nPython SDK: Tools\nPython SDK: Integrations\nPython SDK: Plugins\nPython SDK: TUI\nPython SDK: Debug\nReleases\nRoadmap\nConnect\nv1.8.10\nConnectOnion 1.8.10\nCopy\nDownload\nLinear issues: co linear\n\nList, read, search, create, update and comment on Linear issues from the terminal, as yourself. Built on Linear's GraphQL API (https://api.linear.app/graphql) with a personal API key (#2049).\n\nEvery read is read-only. create, update and comment print a preview and change nothing until you add --yes.\n\nStatus: run against a real workspace on 2026-10-01 (every read, an unknown issue and state, and create → comment → update through the real_api test), and against a fake Linear in the unit tests; see Testing.\n\nSetup\n\nIn Linear, open Settings → Security & access → Personal API keys and create a key. It starts with lin_api_.\n\nSave it, encrypted:\n\nco env set LINEAR_API_KEY lin_api_... --secret\n\n\nWithout --secret it is written in plain text to ~/.co/keys.env, which also works. A LINEAR_API_KEY exported in your shell wins over both.\n\nCheck it:\n\nco linear check\n# ✓ Linear workspace Acme linear.app/acme\n#   Acting as Aaron <aaron@example.com>\n# Next: co linear issues --mine\n\n\nThe key acts with your permissions. Issues and comments it creates are yours.\n\nNames, not ids\n\nIssues are named by the identifier people use, ENG-123. Everything else is named the way Linear shows it, and the command looks up the id:\n\nYOU GIVE\tIT MEANS\tLIST THEM WITH\n--team ENG\ta team key (or exact team name)\tco linear teams\n--state \"In Progress\"\ta workflow state; on update, in the issue's own team\tco linear states --team ENG\n--project \"Q4 Launch\"\ta project name\tco linear projects\n--label bug\ta label of that team or of the workspace\tco linear labels --team ENG\n--assignee me / --assignee bo@example.com\tyou, or a member's email\tco linear users\n--priority 2 / --priority high\t0 none, 1 urgent, 2 high, 3 medium, 4 low\t\n\nNames are matched without regard to case. An unknown name exits 1, lists the valid ones and names the command that lists them:\n\n✗ No label in ENG 'bgu'. Valid: Bug, auth\nNext: co linear labels --team ENG\n\nCommands\nRead\nco linear issues --mine                         # your open issues, newest update first\nco linear issues --team ENG --state \"In Progress\" -n 50\nco linear issues --project \"Q4 Launch\" --json\nco linear issue ENG-123                         # details, labels, link, description, comments\nco linear search \"login redirect\"               # Linear's full-text search, open or closed\nco linear teams | projects | states | labels | users\nco linear check\n\n\nissues leaves out completed and canceled issues unless --state names one (--state Done lists finished work). Lists print one line per issue:\n\n2 open issues assigned to you\nENG-2  In Progress  High         Aaron  2026-09-30  Login redirect loops\nENG-1  Todo         No priority  -      2026-09-01  Old crash\nNext: co linear issue ENG-2\n\n\n--json prints the same fields (id, title, state, assignee, priority, updated) as a JSON array on stdout; the Next: line goes to stderr so stdout parses. co linear issue ENG-123 --json adds url, team, project, labels, created, description and comments.\n\nWrite: preview, then --yes\nco linear create \"Login redirect loops\" --team ENG --label bug --priority 2 --assignee me\nco linear update ENG-123 --state Done --assignee me --priority 1\nco linear comment ENG-123 \"Fixed in #42\"\n\n\nEach prints what it would do, with the names already resolved, and the exact command to run with --yes:\n\nPreview — would change ENG-2 Login redirect loops. Nothing changed in Linear.\n  state:       In Progress → Done\nNext: co linear update ENG-2 --state Done --yes\n\n\nA long description or comment can come from standard input with -:\n\ncat report.md | co linear create \"Crash on login\" --team ENG --description - --yes\necho \"Fixed in #42\" | co linear comment ENG-123 - --yes\n\n\ncreate puts the issue in the team's default state. update changes only the fields you give. Linear notifies the issue's subscribers of updates and comments.\n\nErrors\n\nEvery failure exits 1 and prints the cause and one Next: command on stderr.\n\nCAUSE\tPRINTED\tNEXT\nno key\tLINEAR_API_KEY is not set in ~/.co/keys.env. Create a personal API key in Linear Settings → Security & access → Personal API keys, then save it\tco env set LINEAR_API_KEY lin_api_... --secret\nkey revoked or wrong\tLinear rejected LINEAR_API_KEY: You need to authenticate to access this operation. …\tco env set LINEAR_API_KEY lin_api_... --secret\nunknown issue\tNo issue ENG-999 in this workspace\tco linear search \"<words from its title>\"\nunknown name\tNo team 'XYZ'. Valid: ENG, OPS\tthe listing command\nany other GraphQL error\tLinear: <Linear's message>\tco linear check\n\nupdate with nothing to change exits 2 and names co linear update --help.\n\nLimits\nListings read one page of up to 250 records (teams, states, labels, projects, members). A workspace larger than that is not paged yet.\nAssignees are me or an email; a display name is not matched.\nNo delete, archive, label editing, cycles or OAuth in this version.\nTesting\npytest tests/unit/test_linear_commands.py                 # fake Linear, no network\npytest -m real_api tests/e2e/real_api/test_real_co_linear.py -s\n\n\nThe real test finds the key the way the commands do (shell, ~/.co/keys.env, then the --secret store), and skips when it is set nowhere.\n\nThe real test reads every listing, then creates one issue titled [co linear real_api test] safe to close … in the first team (or LINEAR_TEST_TEAM), comments on it, and moves it to a completed state. The closed issue stays in the workspace.\n\nConnectOnion\n·\n© 2026\n·\nApache-2.0 License",
+    "headings": [
+      "Linear issues: co linear",
+      "Setup",
+      "Names, not ids",
+      "Commands",
+      "Read",
+      "Write: preview, then --yes",
+      "Errors",
+      "Limits",
+      "Testing"
+    ],
+    "links": [
+      {
+        "text": "co github",
+        "href": "/cli/github"
+      },
+      {
+        "text": "co linear",
+        "href": "/cli/linear"
+      },
+      {
+        "text": "co canny",
+        "href": "/cli/canny"
+      }
+    ],
+    "overflow": false,
+    "route": "linear",
+    "mode": "desktop",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "title": "Linear CLI for AI agents (co linear) | ConnectOnion",
+    "text": "CLI: Issues & Feedback\nco linear\nCopy\nConnectOnion 1.8.10\nLinear issues: co linear\n\nList, read, search, create, update and comment on Linear issues from the terminal, as yourself. Built on Linear's GraphQL API (https://api.linear.app/graphql) with a personal API key (#2049).\n\nEvery read is read-only. create, update and comment print a preview and change nothing until you add --yes.\n\nStatus: run against a real workspace on 2026-10-01 (every read, an unknown issue and state, and create → comment → update through the real_api test), and against a fake Linear in the unit tests; see Testing.\n\nSetup\n\nIn Linear, open Settings → Security & access → Personal API keys and create a key. It starts with lin_api_.\n\nSave it, encrypted:\n\nco env set LINEAR_API_KEY lin_api_... --secret\n\n\nWithout --secret it is written in plain text to ~/.co/keys.env, which also works. A LINEAR_API_KEY exported in your shell wins over both.\n\nCheck it:\n\nco linear check\n# ✓ Linear workspace Acme linear.app/acme\n#   Acting as Aaron <aaron@example.com>\n# Next: co linear issues --mine\n\n\nThe key acts with your permissions. Issues and comments it creates are yours.\n\nNames, not ids\n\nIssues are named by the identifier people use, ENG-123. Everything else is named the way Linear shows it, and the command looks up the id:\n\nYOU GIVE\tIT MEANS\tLIST THEM WITH\n--team ENG\ta team key (or exact team name)\tco linear teams\n--state \"In Progress\"\ta workflow state; on update, in the issue's own team\tco linear states --team ENG\n--project \"Q4 Launch\"\ta project name\tco linear projects\n--label bug\ta label of that team or of the workspace\tco linear labels --team ENG\n--assignee me / --assignee bo@example.com\tyou, or a member's email\tco linear users\n--priority 2 / --priority high\t0 none, 1 urgent, 2 high, 3 medium, 4 low\t\n\nNames are matched without regard to case. An unknown name exits 1, lists the valid ones and names the command that lists them:\n\n✗ No label in ENG 'bgu'. Valid: Bug, auth\nNext: co linear labels --team ENG\n\nCommands\nRead\nco linear issues --mine                         # your open issues, newest update first\nco linear issues --team ENG --state \"In Progress\" -n 50\nco linear issues --project \"Q4 Launch\" --json\nco linear issue ENG-123                         # details, labels, link, description, comments\nco linear search \"login redirect\"               # Linear's full-text search, open or closed\nco linear teams | projects | states | labels | users\nco linear check\n\n\nissues leaves out completed and canceled issues unless --state names one (--state Done lists finished work). Lists print one line per issue:\n\n2 open issues assigned to you\nENG-2  In Progress  High         Aaron  2026-09-30  Login redirect loops\nENG-1  Todo         No priority  -      2026-09-01  Old crash\nNext: co linear issue ENG-2\n\n\n--json prints the same fields (id, title, state, assignee, priority, updated) as a JSON array on stdout; the Next: line goes to stderr so stdout parses. co linear issue ENG-123 --json adds url, team, project, labels, created, description and comments.\n\nWrite: preview, then --yes\nco linear create \"Login redirect loops\" --team ENG --label bug --priority 2 --assignee me\nco linear update ENG-123 --state Done --assignee me --priority 1\nco linear comment ENG-123 \"Fixed in #42\"\n\n\nEach prints what it would do, with the names already resolved, and the exact command to run with --yes:\n\nPreview — would change ENG-2 Login redirect loops. Nothing changed in Linear.\n  state:       In Progress → Done\nNext: co linear update ENG-2 --state Done --yes\n\n\nA long description or comment can come from standard input with -:\n\ncat report.md | co linear create \"Crash on login\" --team ENG --description - --yes\necho \"Fixed in #42\" | co linear comment ENG-123 - --yes\n\n\ncreate puts the issue in the team's default state. update changes only the fields you give. Linear notifies the issue's subscribers of updates and comments.\n\nErrors\n\nEvery failure exits 1 and prints the cause and one Next: command on stderr.\n\nCAUSE\tPRINTED\tNEXT\nno key\tLINEAR_API_KEY is not set in ~/.co/keys.env. Create a personal API key in Linear Settings → Security & access → Personal API keys, then save it\tco env set LINEAR_API_KEY lin_api_... --secret\nkey revoked or wrong\tLinear rejected LINEAR_API_KEY: You need to authenticate to access this operation. …\tco env set LINEAR_API_KEY lin_api_... --secret\nunknown issue\tNo issue ENG-999 in this workspace\tco linear search \"<words from its title>\"\nunknown name\tNo team 'XYZ'. Valid: ENG, OPS\tthe listing command\nany other GraphQL error\tLinear: <Linear's message>\tco linear check\n\nupdate with nothing to change exits 2 and names co linear update --help.\n\nLimits\nListings read one page of up to 250 records (teams, states, labels, projects, members). A workspace larger than that is not paged yet.\nAssignees are me or an email; a display name is not matched.\nNo delete, archive, label editing, cycles or OAuth in this version.\nTesting\npytest tests/unit/test_linear_commands.py                 # fake Linear, no network\npytest -m real_api tests/e2e/real_api/test_real_co_linear.py -s\n\n\nThe real test finds the key the way the commands do (shell, ~/.co/keys.env, then the --secret store), and skips when it is set nowhere.\n\nThe real test reads every listing, then creates one issue titled [co linear real_api test] safe to close … in the first team (or LINEAR_TEST_TEAM), comments on it, and moves it to a completed state. The closed issue stays in the workspace.\n\nConnectOnion\n© 2026\nApache-2.0 License",
+    "headings": [
+      "Linear issues: co linear",
+      "Setup",
+      "Names, not ids",
+      "Commands",
+      "Read",
+      "Write: preview, then --yes",
+      "Errors",
+      "Limits",
+      "Testing"
+    ],
+    "links": [
+      {
+        "text": "co github",
+        "href": "/cli/github"
+      },
+      {
+        "text": "co linear",
+        "href": "/cli/linear"
+      },
+      {
+        "text": "co canny",
+        "href": "/cli/canny"
+      }
+    ],
+    "overflow": false,
+    "route": "linear",
+    "mode": "mobile",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "title": "Canny CLI for AI agents (co canny) | ConnectOnion",
+    "text": "ConnectOnion\nQuickstart\nCLI\nPython SDK\nNetwork\nTools\nPlugins\nTUI\nDebug\nBlog\n⌘K\nGetting Started\nGuides\nCLI: Start Here\nCLI: Mail & Calendar\nCLI: Chat Apps\nCLI: Issues & Feedback\nco github\nco linear\nco canny\nCLI: Browser & Files\nCLI: Coding Agents & Memory\nCLI: Build & Ship\nPython SDK: Agent\nPython SDK: Network\nPython SDK: Features\nPython SDK: Tools\nPython SDK: Integrations\nPython SDK: Plugins\nPython SDK: TUI\nPython SDK: Debug\nReleases\nRoadmap\nConnect\nv1.8.10\nConnectOnion 1.8.10\nCopy\nDownload\nCanny feedback: co canny\n\nRead your Canny boards, find the requests with the most votes, read one request's comments, move it to planned and tell its voters, reply, and write changelog entries. co canny calls Canny's REST API directly: no MCP server, no npx, nothing to install beyond connectonion.\n\nReads change nothing. status, comment and changelog create print a preview and change nothing until you add --yes.\n\nSet up\n\nCopy your secret API key from Canny: Settings → API.\n\nSave it, encrypted, where every project reads it:\n\nco env set CANNY_API_KEY <key> --secret\n\n\nChanging a status or commenting needs one more setting. Canny records which admin made the change, and an API key does not say who you are, so tell it your own Canny user id once:\n\nco canny check --email you@example.com     # prints your id and whether you are an admin\nco env set CANNY_USER_ID <id>\n\n\nOnly a Canny admin can change a status. Reads do not need this setting.\n\nCheck it:\n\nco canny check\n\n\nIt prints where the key came from, the workspace (read from your boards' URLs, since the API has no company endpoint), the boards the key sees, and the acting user.\n\nThe key is looked up in this order: your shell, the selected env file (~/.co/keys.env, or the file given with co --env-file), then the encrypted store co env set --secret writes, the same lookup every co command uses (connectonion.environment.setting). CANNY_USER_ID is found the same way.\n\nCommands\nCOMMAND\tWHAT IT DOES\tCHANGES CANNY\nco canny check [--email <address>]\tkey, workspace, boards, acting user; --email looks up a user's id\tno\nco canny boards [--json]\teach board's id, post count, public or private\tno\nco canny posts [--board <id or name>] [--status <status>] [--sort newest|oldest|score|statusChanged|trending] [-n 20] [--json]\tposts: id, votes, status, board, created, title\tno\nco canny search \"<words>\" [--board ...] [-n 20] [--json]\tposts matching the words, best match first\tno\nco canny post <id> [--json]\tone post: details, votes, status, owner, ETA, its 20 newest comments\tno\nco canny status <id> <status> [--comment \"...\"] [--notify] [--yes]\tchange the status; --notify has Canny email the non-admin voters\twith --yes\nco canny comment <id> \"<text>\" [--internal] [--yes]\tcomment as your admin user; --internal keeps it to your team (not on Canny's Free plan)\twith --yes\nco canny changelog [-n 10] [--json]\tchangelog entries, unpublished first\tno\nco canny changelog create \"<title>\" --details <text or -> [--publish] [--yes]\ta new entry; a draft unless --publish; - reads the text from stdin\twith --yes\n\n--status takes Canny's built-in statuses (open, \"under review\", planned, \"in progress\", complete, closed) or any custom status your team created, and several separated by commas. --sort score is most votes first. Votes are Canny's score.\n\n--json prints the same fields as the text listing, as one JSON object on stdout, and moves the Next: line to stderr so the output stays parseable.\n\nThe five most-voted open requests\nco canny posts --status open --sort score -n 5\n\n5 posts; more match, raise -n to see them\n6a2889c586d7b8843bf4cf05    72 votes  open          Feature Requests  2026-09-30  Dark mode\n...\nNext: co canny post 6a2889c586d7b8843bf4cf05\n\n\nEach row starts with the post id that post, status and comment take.\n\nMark a request planned and tell its voters\nco canny status 6a2889c586d7b8843bf4cf05 planned --comment \"On the roadmap for October\" --notify\n\nChange \"Dark mode\" (6a2889c586d7b8843bf4cf05): open -> planned.\nComment: On the roadmap for October\nVotes: 72; this emails its non-admin voters\nRecorded as Canny user 6a2889c586d7b8843bf4cf07 (CANNY_USER_ID)\nNothing changed: this was a preview.\nNext: co canny status 6a2889c586d7b8843bf4cf05 planned --comment 'On the roadmap for October' --notify --yes\n\n\nRun the Next: line to make the change. Setting the status a post already has is accepted by Canny but records nothing and emails no one; the preview says so. A plain co canny comment emails no one; to tell voters, change the status with --notify.\n\nChangelog\nco canny changelog -n 5\ncat notes.md | co canny changelog create \"Dark mode\" --details - --yes\n\n\nAn entry is a draft unless --publish. Canny does not email subscribers for entries made through the API here; send that from Canny's changelog editor. Canny's API has no way to delete an entry, so check the preview.\n\nA post you can open but no listing shows\n\nListings (posts, search) and a board's post count come from Canny's own list, and Canny can keep a post out of it while the post still opens by id. Seen on 2026-10-01 on the test account: a post made through posts/create with test-like text (\"[co canny test] ...\", \"Safe to delete.\") opened with co canny post <id>, took a status change and a comment, and was still absent from posts/list, search and the board's post count an hour later. A second post made the same way with ordinary text was listed at once and counted. The difference Canny's API shows is in posts/retrieve: the listed post has an idea (source: api) and the author's vote (score: 1); the hidden one has idea: null and score: 0, and ideas/list does not contain it. This is Canny's behaviour, not the request: co canny lists with the documented posts/list call. The most likely cause is Canny's spam review (Autopilot), which holds posts it rates as likely spam until an admin approves them; we have not confirmed it in Canny's admin. If a post you expect is missing, open it by id and look for it in Canny's admin inbox.\n\nFree plan\n\nCanny's Free plan has no internal comments. co canny comment --internal --yes is refused with plan does not support internal comments, and the Next: line is the same comment without --internal, as a preview, because that one is public.\n\nRate limits\n\nCanny allows 5 to 20 requests a second, 100 to 600 a minute and 1,000 to 15,000 an hour, depending on the plan, and answers HTTP 429 with a Retry-After header past that. co canny waits out one Retry-After of up to 60 seconds and tries once more. A longer wait (an hourly window) or a second 429 exits 1 naming the seconds and the command to run again; nothing is waited for longer than a minute, so an agent is never left blocked for an hour.\n\nErrors\n\nEvery failure exits 1, prints the cause on stderr, and ends with one Next: line.\n\nEXIT\tPRINTED\tNEXT\n1\tCANNY_API_KEY is not set in ~/.co/keys.env\tco env set CANNY_API_KEY <key> --secret\n1\tCanny rejected the API key (HTTP <code>: ...)\tco env set CANNY_API_KEY <key> --secret\n1\tCanny records which admin changed a status ... (no CANNY_USER_ID)\tco canny check --email you@example.com\n1\tNo Canny board is named \"...\"\tco canny boards\n1\tCanny refused v1/posts/retrieve (HTTP 400): invalid post id\tco canny posts\n1\tCanny refused v1/comments/create (HTTP 400): plan does not support internal comments\tthe same comment without --internal (public)\n1\tCanny's rate limit is reached (HTTP 429) ...\tthe same command, after the wait\n2\ta usage error (unknown flag, -n 0)\tco canny <command> --help\nNot built\n\nCreating posts, voting on behalf of users, merging posts, tags, categories and deleting posts or comments. Canny's API has them; nothing here needed them yet.\n\nConnectOnion\n·\n© 2026\n·\nApache-2.0 License",
+    "headings": [
+      "Canny feedback: co canny",
+      "Set up",
+      "Commands",
+      "The five most-voted open requests",
+      "Mark a request planned and tell its voters",
+      "Changelog",
+      "A post you can open but no listing shows",
+      "Free plan",
+      "Rate limits",
+      "Errors",
+      "Not built"
+    ],
+    "links": [
+      {
+        "text": "co github",
+        "href": "/cli/github"
+      },
+      {
+        "text": "co linear",
+        "href": "/cli/linear"
+      },
+      {
+        "text": "co canny",
+        "href": "/cli/canny"
+      }
+    ],
+    "overflow": false,
+    "route": "canny",
+    "mode": "desktop",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "title": "Canny CLI for AI agents (co canny) | ConnectOnion",
+    "text": "CLI: Issues & Feedback\nco canny\nCopy\nConnectOnion 1.8.10\nCanny feedback: co canny\n\nRead your Canny boards, find the requests with the most votes, read one request's comments, move it to planned and tell its voters, reply, and write changelog entries. co canny calls Canny's REST API directly: no MCP server, no npx, nothing to install beyond connectonion.\n\nReads change nothing. status, comment and changelog create print a preview and change nothing until you add --yes.\n\nSet up\n\nCopy your secret API key from Canny: Settings → API.\n\nSave it, encrypted, where every project reads it:\n\nco env set CANNY_API_KEY <key> --secret\n\n\nChanging a status or commenting needs one more setting. Canny records which admin made the change, and an API key does not say who you are, so tell it your own Canny user id once:\n\nco canny check --email you@example.com     # prints your id and whether you are an admin\nco env set CANNY_USER_ID <id>\n\n\nOnly a Canny admin can change a status. Reads do not need this setting.\n\nCheck it:\n\nco canny check\n\n\nIt prints where the key came from, the workspace (read from your boards' URLs, since the API has no company endpoint), the boards the key sees, and the acting user.\n\nThe key is looked up in this order: your shell, the selected env file (~/.co/keys.env, or the file given with co --env-file), then the encrypted store co env set --secret writes, the same lookup every co command uses (connectonion.environment.setting). CANNY_USER_ID is found the same way.\n\nCommands\nCOMMAND\tWHAT IT DOES\tCHANGES CANNY\nco canny check [--email <address>]\tkey, workspace, boards, acting user; --email looks up a user's id\tno\nco canny boards [--json]\teach board's id, post count, public or private\tno\nco canny posts [--board <id or name>] [--status <status>] [--sort newest|oldest|score|statusChanged|trending] [-n 20] [--json]\tposts: id, votes, status, board, created, title\tno\nco canny search \"<words>\" [--board ...] [-n 20] [--json]\tposts matching the words, best match first\tno\nco canny post <id> [--json]\tone post: details, votes, status, owner, ETA, its 20 newest comments\tno\nco canny status <id> <status> [--comment \"...\"] [--notify] [--yes]\tchange the status; --notify has Canny email the non-admin voters\twith --yes\nco canny comment <id> \"<text>\" [--internal] [--yes]\tcomment as your admin user; --internal keeps it to your team (not on Canny's Free plan)\twith --yes\nco canny changelog [-n 10] [--json]\tchangelog entries, unpublished first\tno\nco canny changelog create \"<title>\" --details <text or -> [--publish] [--yes]\ta new entry; a draft unless --publish; - reads the text from stdin\twith --yes\n\n--status takes Canny's built-in statuses (open, \"under review\", planned, \"in progress\", complete, closed) or any custom status your team created, and several separated by commas. --sort score is most votes first. Votes are Canny's score.\n\n--json prints the same fields as the text listing, as one JSON object on stdout, and moves the Next: line to stderr so the output stays parseable.\n\nThe five most-voted open requests\nco canny posts --status open --sort score -n 5\n\n5 posts; more match, raise -n to see them\n6a2889c586d7b8843bf4cf05    72 votes  open          Feature Requests  2026-09-30  Dark mode\n...\nNext: co canny post 6a2889c586d7b8843bf4cf05\n\n\nEach row starts with the post id that post, status and comment take.\n\nMark a request planned and tell its voters\nco canny status 6a2889c586d7b8843bf4cf05 planned --comment \"On the roadmap for October\" --notify\n\nChange \"Dark mode\" (6a2889c586d7b8843bf4cf05): open -> planned.\nComment: On the roadmap for October\nVotes: 72; this emails its non-admin voters\nRecorded as Canny user 6a2889c586d7b8843bf4cf07 (CANNY_USER_ID)\nNothing changed: this was a preview.\nNext: co canny status 6a2889c586d7b8843bf4cf05 planned --comment 'On the roadmap for October' --notify --yes\n\n\nRun the Next: line to make the change. Setting the status a post already has is accepted by Canny but records nothing and emails no one; the preview says so. A plain co canny comment emails no one; to tell voters, change the status with --notify.\n\nChangelog\nco canny changelog -n 5\ncat notes.md | co canny changelog create \"Dark mode\" --details - --yes\n\n\nAn entry is a draft unless --publish. Canny does not email subscribers for entries made through the API here; send that from Canny's changelog editor. Canny's API has no way to delete an entry, so check the preview.\n\nA post you can open but no listing shows\n\nListings (posts, search) and a board's post count come from Canny's own list, and Canny can keep a post out of it while the post still opens by id. Seen on 2026-10-01 on the test account: a post made through posts/create with test-like text (\"[co canny test] ...\", \"Safe to delete.\") opened with co canny post <id>, took a status change and a comment, and was still absent from posts/list, search and the board's post count an hour later. A second post made the same way with ordinary text was listed at once and counted. The difference Canny's API shows is in posts/retrieve: the listed post has an idea (source: api) and the author's vote (score: 1); the hidden one has idea: null and score: 0, and ideas/list does not contain it. This is Canny's behaviour, not the request: co canny lists with the documented posts/list call. The most likely cause is Canny's spam review (Autopilot), which holds posts it rates as likely spam until an admin approves them; we have not confirmed it in Canny's admin. If a post you expect is missing, open it by id and look for it in Canny's admin inbox.\n\nFree plan\n\nCanny's Free plan has no internal comments. co canny comment --internal --yes is refused with plan does not support internal comments, and the Next: line is the same comment without --internal, as a preview, because that one is public.\n\nRate limits\n\nCanny allows 5 to 20 requests a second, 100 to 600 a minute and 1,000 to 15,000 an hour, depending on the plan, and answers HTTP 429 with a Retry-After header past that. co canny waits out one Retry-After of up to 60 seconds and tries once more. A longer wait (an hourly window) or a second 429 exits 1 naming the seconds and the command to run again; nothing is waited for longer than a minute, so an agent is never left blocked for an hour.\n\nErrors\n\nEvery failure exits 1, prints the cause on stderr, and ends with one Next: line.\n\nEXIT\tPRINTED\tNEXT\n1\tCANNY_API_KEY is not set in ~/.co/keys.env\tco env set CANNY_API_KEY <key> --secret\n1\tCanny rejected the API key (HTTP <code>: ...)\tco env set CANNY_API_KEY <key> --secret\n1\tCanny records which admin changed a status ... (no CANNY_USER_ID)\tco canny check --email you@example.com\n1\tNo Canny board is named \"...\"\tco canny boards\n1\tCanny refused v1/posts/retrieve (HTTP 400): invalid post id\tco canny posts\n1\tCanny refused v1/comments/create (HTTP 400): plan does not support internal comments\tthe same comment without --internal (public)\n1\tCanny's rate limit is reached (HTTP 429) ...\tthe same command, after the wait\n2\ta usage error (unknown flag, -n 0)\tco canny <command> --help\nNot built\n\nCreating posts, voting on behalf of users, merging posts, tags, categories and deleting posts or comments. Canny's API has them; nothing here needed them yet.\n\nConnectOnion\n© 2026\nApache-2.0 License",
+    "headings": [
+      "Canny feedback: co canny",
+      "Set up",
+      "Commands",
+      "The five most-voted open requests",
+      "Mark a request planned and tell its voters",
+      "Changelog",
+      "A post you can open but no listing shows",
+      "Free plan",
+      "Rate limits",
+      "Errors",
+      "Not built"
+    ],
+    "links": [
+      {
+        "text": "co github",
+        "href": "/cli/github"
+      },
+      {
+        "text": "co linear",
+        "href": "/cli/linear"
+      },
+      {
+        "text": "co canny",
+        "href": "/cli/canny"
+      }
+    ],
+    "overflow": false,
+    "route": "canny",
+    "mode": "mobile",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "title": "The first GitHub scan took almost a minute | ConnectOnion",
+    "text": "ConnectOnion\nAll Posts\nDocs\n/\nEngineering blog\nREMOTE BROWSER\n·\n2026-10-02\nThe first GitHub scan took almost a minute\n\nThe owner was reading a REM project page and noticed that GitHub was missing. An issue or a PR discussion had no route into the project's context; someone still had to…\n\nBy ConnectOnion Team · 3 min read · 519 words\n\nCopy\nDownload\nRemote Browser\nRelease\nTesting\n\nThe owner was reading a REM project page and noticed that GitHub was missing. An issue or a PR discussion had no route into the project's context; someone still had to notice it. He wanted the same first step as WhatsApp: a listener that puts messages in the inbox, then lets a consumer wake Codex or route the work.\n\nThe first real catch-up scan made that small request feel less small. I pointed the adapter at the landing-page repository, starting from September 25. It collected 61 PR and comment records and saved its checkpoint. The scan took 58.09 seconds. Our proposed polling interval was 60 seconds. A listener that spends nearly a minute catching up has very little room to pretend that polling is immediate.\n\nThe expensive part came from a question about reviews. Could the listener first find recently updated issues, then read only those PRs? That would keep a quiet repository cheap. I put an old closed PR into a test, left its issue update timestamp in 2020, and gave it a newly submitted review. A consumer still needed to see that review. Filtering candidates by the issue timestamp would discard the PR before asking for its reviews.\n\nSo the scan reads reviews for every PR, including closed ones. That is the uncomfortable boundary of this implementation: the case that prevents missed work also makes the collector expensive. The real scan gave us a number to attach to that tradeoff. I can call this an experimental listener for small repositories; I cannot claim it is ready to poll a large project's full review history every minute.\n\nThe owner had also asked whether Co could use GitHub's official CLI credentials. It can: the adapter calls gh api, leaving the login and credential store with gh. That solved setup, but it did not solve delivery. A successful API read is not yet work that another program can safely take. The listener records its first-start baseline before fetching, writes messages through the existing durable inbox, and advances the repository checkpoint only after the scan's pages and deliveries finish. Repeating the scan sees the same resource/version IDs instead of scheduling the same observation again.\n\nThat gave us a useful stopping point. The listener can recover still-existing activity after downtime, and a local consumer receives the repository, issue or PR number, original content and source link. It keeps its execution log local. It cannot recover a comment created and deleted between polls, or reconstruct every intermediate edit. Those are consequences of reading snapshots, not promises another retry loop can fix.\n\nA webhook transport would change the collection side: precise actions could arrive without rereading every PR, but GitHub would need a reachable receiver, a separate signing secret and missed-delivery recovery. If larger-repository measurements make polling impractical, that is the next decision. The inbox and the program consuming it can stay where they are.\n\nThis PR prepares that boundary for a future preview. REM ingestion follows separately. The missing GitHub entry will also appear on the README, docs and landing-page walls, marked as upcoming; the sixty-second scan is why the label still matters.\n\nCONTINUE READING\n\nRemote Browser\nThe name stopped at the URL\nRemote Browser\nThe skill that stayed after its publisher withdrew it\nRemote Browser\nOne Wiki, one folder in Codex\nBrowse every field note\nConnectOnion\n·\n© 2026\n·\nApache-2.0 License",
+    "headings": [
+      "The first GitHub scan took almost a minute"
+    ],
+    "links": [],
+    "overflow": false,
+    "route": "journal",
+    "mode": "desktop",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "title": "The first GitHub scan took almost a minute | ConnectOnion",
+    "text": "ConnectOnion\nAll Posts\nDocs\n/\nEngineering blog\nREMOTE BROWSER\n·\n2026-10-02\nThe first GitHub scan took almost a minute\n\nThe owner was reading a REM project page and noticed that GitHub was missing. An issue or a PR discussion had no route into the project's context; someone still had to…\n\nBy ConnectOnion Team · 3 min read · 519 words\n\nRemote Browser\nRelease\nTesting\n\nThe owner was reading a REM project page and noticed that GitHub was missing. An issue or a PR discussion had no route into the project's context; someone still had to notice it. He wanted the same first step as WhatsApp: a listener that puts messages in the inbox, then lets a consumer wake Codex or route the work.\n\nThe first real catch-up scan made that small request feel less small. I pointed the adapter at the landing-page repository, starting from September 25. It collected 61 PR and comment records and saved its checkpoint. The scan took 58.09 seconds. Our proposed polling interval was 60 seconds. A listener that spends nearly a minute catching up has very little room to pretend that polling is immediate.\n\nThe expensive part came from a question about reviews. Could the listener first find recently updated issues, then read only those PRs? That would keep a quiet repository cheap. I put an old closed PR into a test, left its issue update timestamp in 2020, and gave it a newly submitted review. A consumer still needed to see that review. Filtering candidates by the issue timestamp would discard the PR before asking for its reviews.\n\nSo the scan reads reviews for every PR, including closed ones. That is the uncomfortable boundary of this implementation: the case that prevents missed work also makes the collector expensive. The real scan gave us a number to attach to that tradeoff. I can call this an experimental listener for small repositories; I cannot claim it is ready to poll a large project's full review history every minute.\n\nThe owner had also asked whether Co could use GitHub's official CLI credentials. It can: the adapter calls gh api, leaving the login and credential store with gh. That solved setup, but it did not solve delivery. A successful API read is not yet work that another program can safely take. The listener records its first-start baseline before fetching, writes messages through the existing durable inbox, and advances the repository checkpoint only after the scan's pages and deliveries finish. Repeating the scan sees the same resource/version IDs instead of scheduling the same observation again.\n\nThat gave us a useful stopping point. The listener can recover still-existing activity after downtime, and a local consumer receives the repository, issue or PR number, original content and source link. It keeps its execution log local. It cannot recover a comment created and deleted between polls, or reconstruct every intermediate edit. Those are consequences of reading snapshots, not promises another retry loop can fix.\n\nA webhook transport would change the collection side: precise actions could arrive without rereading every PR, but GitHub would need a reachable receiver, a separate signing secret and missed-delivery recovery. If larger-repository measurements make polling impractical, that is the next decision. The inbox and the program consuming it can stay where they are.\n\nThis PR prepares that boundary for a future preview. REM ingestion follows separately. The missing GitHub entry will also appear on the README, docs and landing-page walls, marked as upcoming; the sixty-second scan is why the label still matters.\n\nCONTINUE READING\n\nRemote Browser\nThe name stopped at the URL\nRemote Browser\nThe skill that stayed after its publisher withdrew it\nRemote Browser\nOne Wiki, one folder in Codex\nBrowse every field note\nConnectOnion\n© 2026\nApache-2.0 License",
+    "headings": [
+      "The first GitHub scan took almost a minute"
+    ],
+    "links": [],
+    "overflow": false,
+    "route": "journal",
+    "mode": "mobile",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "title": "ConnectOnion — CLI is all you need. The agent CLI harness.",
+    "text": "connectonion\ncommands\ndocs ↗\ngithub ↗\n\nconnectonion · the agent CLI harness · open source · Apache-2.0\n\nCLI is all you need.\n\nBuilt for AI agents, not for you to learn. Install it once, tell Claude Code, Codex or OpenCode to use co, and it finds every command through --help.\n\nStart with co init for global settings, inspect them with co env, then connect Microsoft with co auth microsoft and use co outlook. The same pattern reaches Gmail, your browser, files and chat. Credentials stay on your machine.1\n\n$\npip install connectonion\ncopy\nthen tell your agent: “use co”\nquick start →\nwhy not MCP? →\n\n1,481 GitHub stars · 218 forks · 232 releases · read 23 Sep 2026\n\n~ — co commands · 53 connections\nbuilt into co\nservices\n\n# identity & memory\n\n0x address\nco init\nAgent mailbox\nco email\nco rem\nco rem\nSecrets\nco env\nCredits\nco transfer\n\n# mail, calendar & notes\n\nGmail\nco gmail\nOutlook\nco outlook\nGoogle Calendar\nco gcalendar\nGoogle Meet\nco gcalendar meet\nOneNote\nco onenote\nTeams meetings\nco outlook calendar\n\n# chat apps\n\nWhatsApp\nco whatsapp\nTelegram\nco telegram\nDiscord\nco discord\nSlack\nco slack\nFeishu\nco feishu\nLark\nco lark\nSMS\nco sms\n\n# browser & files\n\nYour Chrome\nco browser\nRemote browser\nco remote-browser\nGoogle Drive\nco gdrive\nYouTube\nco youtube\nTikTok plans\nco tiktok\nSynology NAS\nco syno\nWeb search\nco search\nWeb fetch\nco fetch\n\n# issues & feedback\n\nGitHubnext preview\nco github\nLinear\nco linear\nCanny\nco canny\n\n# coding agents\n\nco ai\nco ai\nClaude Code\nco claude\nCodex\nco skills link\nYour skills\nco skills\nShared skills\nco sub\nEvals\nco eval\nCLI audit\nco audit\nCursor\nco skills discover\nKiro\nco skills discover\n\n# models\n\nManaged keys\nco/… ($5 credit)\nOpenAI\ngpt-…\nAnthropic\nclaude-…\nGemini\ngemini-…\nMistral\nmistral/…\nGroq\ngroq/…\nGrok\ngrok/…\nOpenRouter\nopenrouter/…\nOllama (local)\nollama/…\n\n# agents & servers\n\nRemote agents\nco call\nTrust\nco trust\nYour internet\nco proxy\nYour servers\nco deploy --to\nSSH\nco server ssh\nSchedules\nco schedule\n\n~/\nharness/film\n\nWatch it work. 43 seconds.\n\nReal commands, real output: a browser, search, YouTube, mail, Codex and Claude Code, all through one CLI whose help pages are the agent's instructions.\n\nReal output from co 1.8.10, condensed. The opening co ai run is labelled “next release”. Mail is the agent's own test address; the browser visits public pages only.\n01\nco ai\n\nThe agent reads co linear --help and finds the command itself (next release).\n\n02\nco browser\n\nDrives a real Chrome: the top story on Hacker News, from a plain-English request.\n\n03\nco search · co fetch\n\nA sourced answer, then the page behind it, including YouTube.\n\n04\nco email\n\nThe agent's own address: send, then read the inbox.\n\n05\nco ai --harness\n\nHands a task to Codex or Claude Code and returns the answer.\n\n06\nNext:\n\nEvery answer, and every error, names the command to run next.\n\n~/\nharness/aha\n\nOne request. Several environments.\n\n“Read my Telegram bot's context, check the official docs, ask a teammate's agent to run an allowed check, then email me the answer.” Each hop is a visible CLI command with its own credentials and permissions.\n\nActual read-only co search ConnectOnion output, condensed for the GIF. The configured search engine may use account credits; search is stable in 1.8.10. No Telegram messages were read, remote agents called or emails sent for this demo.\n\nTHE WORKFLOW · EXAMPLE, NOT A LIVE END-TO-END RUN\n\n01\nFind the source\nco search\n\nSearch the web with a sourced answer, then fetch a source page if needed. Stable since 1.8.10; the GIF shows a verified, read-only run.\n\n02\nBring in context\nco telegram receive\n\nRead messages delivered to a bot you control. Receive is experimental and needs a configured bot; it does not access someone else's chats.\n\n03\nAsk another agent\nco call\n\nRun an allowed check on a reachable remote agent. That agent can use Codex separately only if it is installed, authenticated and permitted there.\n\n04\nSend the result\nco email send\n\nSend the finished summary through your connected mailbox, with an explicit recipient and your authorization.\n\nSet up your environment →\n\n~/\nharness/discover\n\nYour agent only needs to know co.\n\nYou don't have to find tools, install skills or list commands in a prompt. Tell your agent to use co. It reads the command list, opens --help on the one it needs, and every command ends by printing what to run next.\n\nIllustrative session · example data · no live action\n↺ replay\nRead transcript\n01\nOne word to remember\nco. Bare co lists every command; co commands lists every subcommand, one per line.\n02\nNo tool list to keep\nThe CLI is the list. When a command is added, your agent sees it the next time it runs co.\n03\nWrong turns point the way\nErrors end with a Next: line, so an agent that guesses wrong is told what to run instead.\n04\nSkills are optional\nco skills link puts ConnectOnion's skills into Claude Code and Codex. It saves a step; nothing needs it.\n05\nCheck any CLI the same way\nco audit gh pr scores another tool's help pages the way an agent reads them: usage, examples, documented flags. In the 1.8.9 preview.\nSee all 42 commands →\n\n~/\nharness/why\n\nWhy not MCP? Why not skills?\n\nBoth work. Both cost something before your agent does anything: MCP puts every tool definition in the model's context, and a skill only helps once someone has found and installed it for that agent. A CLI costs nothing until it runs, and its --help is the manual.11\n\n\tMCP server\tSkills\tco (a CLI)\nBefore the first message\tEvery tool's name, description and schema is loaded into context. Anthropic measured 58 tools across five servers at about 55K tokens.\tEach skill's name and description sit in the prompt; the body loads when used.\tNothing. co is a program on the PATH, not text in the prompt.\nHow the agent finds a capability\tFrom the tool list its client loaded, if that server was installed and configured for this client.\tOnly if someone found the skill and put it in this agent's own folder (~/.claude/skills, ~/.codex/…).\tIt runs co, then --help on the command it needs, about a thousand tokens each. Errors end with a Next: line.\nSetup\tA server process per integration, configured in each client you use.\tA folder per skill, per agent, kept in sync by hand.\tpip install connectonion, once. Every agent with a shell can use it.\n\nNot either-or: co skills link still gives Claude Code and Codex a shortcut to the right command. It is optional, because the CLI already explains itself.\n\n~/\nharness/setup\n\nOne command replaces the setup.\n\nYour agent runs the same co commands you would type. Each tab pairs the setup it replaces with a short command demo.\n\naddress\nbrowser\nmail\nemail\nA keypair and address, made on your machine.\nsetup.diff\n- sign up for an account\n- create an API key, paste it in .env\n- expose a public URL for it\n+ co init\nIllustrative session · example data · no live action\n↺ replay\nRead transcript\n● 1/4 · autoplay · hover or focus to pause\nnotes: browser2 mail7 address9 sessions are simulated10\n\n~/\nharness/chat\n\nShare your agent with a chat link.\n\nco ai prints a chat link. Whoever opens it gets a web page, with no sign-up or install and a key made in their own browser.3 The agent also keeps a Home page for them, and redraws it after a run.4\n\nIllustrative session · example data · no live action\n↺ replay\nRead transcript\n\nMessages pass through the OpenOnion relay, which terminates TLS.\n\nchat.openonion.ai/0xcbef…3318 — the client\nbrowser\nChat\nHome\nCan you send me March's overdue accounts?\nO\n\nPulled 41 overdue rows from the portal and saved arrears-march.xlsx to your Drive. I also emailed you the summary.\n\nMessage the agent…\n↑\n\n~/\nharness/skills\n\nSave a procedure as a skill.\n\nA coding agent needs only its shell to use co. When you want the same steps every time, write them in a SKILL.md. Claude Code's skills load as they are; co skills discover finds Codex, Cursor and Kiro ones too.5 Codex itself runs as a provider, inside its sandbox.6\n\nIllustrative session · example data · no live action\n↺ replay\nRead transcript\n.claude/skills/monthly-arrears/SKILL.md\nmarkdown\n---\nname: monthly-arrears\ndescription: Pull overdue accounts from the portal and file the report.\ntools: [read_file, write_file, Bash(co *)]\n---\n\n1. co browser go_to the arrears page\n2. co browser get_text 'table.arrears' > arrears.csv\n3. co gdrive put arrears-march.xlsx\n4. co email send the owner a two-line summary\n\nThe skill is the runbook. Every step is a command.\n\n~/\nharness/trust\n\nPermissions.\n\nShell commands, file writes and email ask before they run, and file edits arrive as a diff. Another agent can run only what your whitelist names.8\n\nIllustrative session · example data · no live action\n↺ replay\nRead transcript\n01\nApprove a shell command\nA human sees the command before it runs.\n02\nReview a file diff\nChanged lines stay visible in the chat.\n03\nLimit a remote agent\nThe host whitelist decides which commands are allowed.\n\n01 ask before bash\n\nchat — approval\noo-chat\nrm -rf ./exports/2025-*\nAllow once\nReject this request\nOther review options\n⌄\n\n02 edits as a diff\n\nchat — file edit\noo-chat\nEdit\nreport.py\nrows = load(\"arrears.csv\")\n- overdue = [r for r in rows if r.days > 30]\n+ overdue = [r for r in rows if r.days >= 30]\nsend(overdue)\n\n03 a whitelist for everyone else\n\n~/acme-ops\nzsh\n\n~/\nfaq\n\nFAQ.\n›\nWhat is ConnectOnion?\n›\nIs ConnectOnion for people or for AI agents?\n›\nWhy not an MCP server?\n›\nWhy not skills?\n›\nWhat is an agent CLI harness?\n›\nHow do I give Claude Code or Codex access to Gmail?\n›\nHow do I give an AI agent its own email address?\n›\nHow do I connect an AI agent to WhatsApp?\n›\nCan an AI agent use a browser I am logged into?\n›\nHow is it different from an AI agent framework?\n›\nDo I need an API key to try it?\n›\nHow can an agent send email without setting up DNS?\n›\nHow does Gmail or Outlook work without my own OAuth app?\n›\nIs agent traffic end-to-end encrypted?\n›\nHow do I control what an agent is allowed to do?\n›\nWhich models does it work with?\n\n~/\nco commands\n\nAll commands.\n\nAll 50 commands, generated from co commands. Open a group for what each does and its subcommands.\n\n›\n# identity & account\ninit · auth · keys · status · reset · doctor · commands · setup · transfer · env · trust\n›\n# build & test\ncreate · ai · copy · audit · benchmark · eval\n›\n# run & ship\ndeploy · server · schedule\n›\n# browser & network\nbrowser · remote-browser · proxy · call · search · fetch\n›\n# coding agents & memory\nannounce · claude · skills · sub\n›\n# memory\nrem\n›\n# chat apps\nsms · telegram · feishu · lark · discord · slack · whatsapp\n›\n# mail & calendar\nemail · gmail · gcalendar · onenote · outlook\n›\n# issues & feedback\ngithub · linear · canny\n›\n# files & media\ngdrive · youtube · tiktok · syno\nGive your agent the CLI harness.\n$\npip install connectonion\ncopy\n\nThen run co init, and tell your agent to use co.\n\ndocs ↗\ngithub ↗\ndiscord ↗\n\nx\ny\n0x\ncbef…3318\nADDRESS\nco init · co auth · co keys\nIDENTITY\nco browser · co proxy · co call\nBROWSER\nco gmail · co outlook · co email · co sms\nINBOX\nco gdrive · co syno · co deploy --to\nFILES · SHIP\n\n~/notes\n\n›\n11 notes: what each claim depends on, and what on this page is simulated\n\nApache-2.0. Works with OpenAI, Anthropic, Google, Groq, Grok, OpenRouter and Mistral, or managed keys through the co/ prefix.\n\nconnectonion · Apache-2.0 · by OpenOnion\ndocs\ngithub\npypi\ndiscord\nmanifesto",
+    "headings": [
+      "CLI is all you need.",
+      "Watch it work. 43 seconds.",
+      "One request. Several environments.",
+      "Your agent only needs to know co.",
+      "Why not MCP? Why not skills?",
+      "MCP server",
+      "Skills",
+      "co (a CLI)",
+      "One command replaces the setup.",
+      "A keypair and address, made on your machine.",
+      "Share your agent with a chat link.",
+      "Save a procedure as a skill.",
+      "Permissions.",
+      "FAQ.",
+      "All commands.",
+      "Give your agent the CLI harness."
+    ],
+    "links": [
+      {
+        "text": "commands",
+        "href": "#commands"
+      },
+      {
+        "text": "github ↗",
+        "href": "https://github.com/openonion/connectonion"
+      },
+      {
+        "text": "1,481 GitHub stars",
+        "href": "https://github.com/openonion/connectonion/stargazers"
+      },
+      {
+        "text": "See all 42 commands →",
+        "href": "#commands"
+      },
+      {
+        "text": "github ↗",
+        "href": "https://github.com/openonion/connectonion"
+      },
+      {
+        "text": "github",
+        "href": "https://github.com/openonion/connectonion"
+      }
+    ],
+    "overflow": false,
+    "route": "landing",
+    "mode": "desktop",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "title": "ConnectOnion — CLI is all you need. The agent CLI harness.",
+    "text": "connectonion\ndocs ↗\ngithub ↗\n\nconnectonion · the agent CLI harness · open source · Apache-2.0\n\nCLI is all you need.\n\nBuilt for AI agents, not for you to learn. Install it once, tell Claude Code, Codex or OpenCode to use co, and it finds every command through --help.\n\nStart with co init for global settings, inspect them with co env, then connect Microsoft with co auth microsoft and use co outlook. The same pattern reaches Gmail, your browser, files and chat. Credentials stay on your machine.1\n\n$\npip install connectonion\ncopy\nthen tell your agent: “use co”\nquick start →\nwhy not MCP? →\n\n1,481 GitHub stars · 218 forks · 232 releases · read 23 Sep 2026\n\n~ — co commands · 53 connections\nbuilt into co\nservices\n\n# identity & memory\n\n0x address\nco init\nAgent mailbox\nco email\nco rem\nco rem\nSecrets\nco env\nCredits\nco transfer\n\n# mail, calendar & notes\n\nGmail\nco gmail\nOutlook\nco outlook\nGoogle Calendar\nco gcalendar\nGoogle Meet\nco gcalendar meet\nOneNote\nco onenote\nTeams meetings\nco outlook calendar\n\n# chat apps\n\nWhatsApp\nco whatsapp\nTelegram\nco telegram\nDiscord\nco discord\nSlack\nco slack\nFeishu\nco feishu\nLark\nco lark\nSMS\nco sms\n\n# browser & files\n\nYour Chrome\nco browser\nRemote browser\nco remote-browser\nGoogle Drive\nco gdrive\nYouTube\nco youtube\nTikTok plans\nco tiktok\nSynology NAS\nco syno\nWeb search\nco search\nWeb fetch\nco fetch\n\n# issues & feedback\n\nGitHubnext preview\nco github\nLinear\nco linear\nCanny\nco canny\n\n# coding agents\n\nco ai\nco ai\nClaude Code\nco claude\nCodex\nco skills link\nYour skills\nco skills\nShared skills\nco sub\nEvals\nco eval\nCLI audit\nco audit\nCursor\nco skills discover\nKiro\nco skills discover\n\n# models\n\nManaged keys\nco/… ($5 credit)\nOpenAI\ngpt-…\nAnthropic\nclaude-…\nGemini\ngemini-…\nMistral\nmistral/…\nGroq\ngroq/…\nGrok\ngrok/…\nOpenRouter\nopenrouter/…\nOllama (local)\nollama/…\n\n# agents & servers\n\nRemote agents\nco call\nTrust\nco trust\nYour internet\nco proxy\nYour servers\nco deploy --to\nSSH\nco server ssh\nSchedules\nco schedule\n\n~/\nharness/film\n\nWatch it work. 43 seconds.\n\nReal commands, real output: a browser, search, YouTube, mail, Codex and Claude Code, all through one CLI whose help pages are the agent's instructions.\n\nReal output from co 1.8.10, condensed. The opening co ai run is labelled “next release”. Mail is the agent's own test address; the browser visits public pages only.\n01\nco ai\n\nThe agent reads co linear --help and finds the command itself (next release).\n\n02\nco browser\n\nDrives a real Chrome: the top story on Hacker News, from a plain-English request.\n\n03\nco search · co fetch\n\nA sourced answer, then the page behind it, including YouTube.\n\n04\nco email\n\nThe agent's own address: send, then read the inbox.\n\n05\nco ai --harness\n\nHands a task to Codex or Claude Code and returns the answer.\n\n06\nNext:\n\nEvery answer, and every error, names the command to run next.\n\n~/\nharness/aha\n\nOne request. Several environments.\n\n“Read my Telegram bot's context, check the official docs, ask a teammate's agent to run an allowed check, then email me the answer.” Each hop is a visible CLI command with its own credentials and permissions.\n\nActual read-only co search ConnectOnion output, condensed for the GIF. The configured search engine may use account credits; search is stable in 1.8.10. No Telegram messages were read, remote agents called or emails sent for this demo.\n\nTHE WORKFLOW · EXAMPLE, NOT A LIVE END-TO-END RUN\n\n01\nFind the source\nco search\n\nSearch the web with a sourced answer, then fetch a source page if needed. Stable since 1.8.10; the GIF shows a verified, read-only run.\n\n02\nBring in context\nco telegram receive\n\nRead messages delivered to a bot you control. Receive is experimental and needs a configured bot; it does not access someone else's chats.\n\n03\nAsk another agent\nco call\n\nRun an allowed check on a reachable remote agent. That agent can use Codex separately only if it is installed, authenticated and permitted there.\n\n04\nSend the result\nco email send\n\nSend the finished summary through your connected mailbox, with an explicit recipient and your authorization.\n\nSet up your environment →\n\n~/\nharness/discover\n\nYour agent only needs to know co.\n\nYou don't have to find tools, install skills or list commands in a prompt. Tell your agent to use co. It reads the command list, opens --help on the one it needs, and every command ends by printing what to run next.\n\nIllustrative session · example data · no live action\n↺ replay\nRead transcript\n01\nOne word to remember\nco. Bare co lists every command; co commands lists every subcommand, one per line.\n02\nNo tool list to keep\nThe CLI is the list. When a command is added, your agent sees it the next time it runs co.\n03\nWrong turns point the way\nErrors end with a Next: line, so an agent that guesses wrong is told what to run instead.\n04\nSkills are optional\nco skills link puts ConnectOnion's skills into Claude Code and Codex. It saves a step; nothing needs it.\n05\nCheck any CLI the same way\nco audit gh pr scores another tool's help pages the way an agent reads them: usage, examples, documented flags. In the 1.8.9 preview.\nSee all 42 commands →\n\n~/\nharness/why\n\nWhy not MCP? Why not skills?\n\nBoth work. Both cost something before your agent does anything: MCP puts every tool definition in the model's context, and a skill only helps once someone has found and installed it for that agent. A CLI costs nothing until it runs, and its --help is the manual.11\n\nMCP server\nBefore the first message\nEvery tool's name, description and schema is loaded into context. Anthropic measured 58 tools across five servers at about 55K tokens.\nHow the agent finds a capability\nFrom the tool list its client loaded, if that server was installed and configured for this client.\nSetup\nA server process per integration, configured in each client you use.\nSkills\nBefore the first message\nEach skill's name and description sit in the prompt; the body loads when used.\nHow the agent finds a capability\nOnly if someone found the skill and put it in this agent's own folder (~/.claude/skills, ~/.codex/…).\nSetup\nA folder per skill, per agent, kept in sync by hand.\nco (a CLI)\nBefore the first message\nNothing. co is a program on the PATH, not text in the prompt.\nHow the agent finds a capability\nIt runs co, then --help on the command it needs, about a thousand tokens each. Errors end with a Next: line.\nSetup\npip install connectonion, once. Every agent with a shell can use it.\n\nNot either-or: co skills link still gives Claude Code and Codex a shortcut to the right command. It is optional, because the CLI already explains itself.\n\n~/\nharness/setup\n\nOne command replaces the setup.\n\nYour agent runs the same co commands you would type. Each tab pairs the setup it replaces with a short command demo.\n\naddress\nbrowser\nmail\nemail\nA keypair and address, made on your machine.\nsetup.diff\n- sign up for an account\n- create an API key, paste it in .env\n- expose a public URL for it\n+ co init\nIllustrative session · example data · no live action\n↺ replay\nRead transcript\n● 1/4 · autoplay · hover or focus to pause\nnotes: browser2 mail7 address9 sessions are simulated10\n\n~/\nharness/chat\n\nShare your agent with a chat link.\n\nco ai prints a chat link. Whoever opens it gets a web page, with no sign-up or install and a key made in their own browser.3 The agent also keeps a Home page for them, and redraws it after a run.4\n\nIllustrative session · example data · no live action\n↺ replay\nRead transcript\n\nMessages pass through the OpenOnion relay, which terminates TLS.\n\nchat.openonion.ai/0xcbef…3318 — the client\nbrowser\nChat\nHome\nCan you send me March's overdue accounts?\nO\n\nPulled 41 overdue rows from the portal and saved arrears-march.xlsx to your Drive. I also emailed you the summary.\n\nMessage the agent…\n↑\n\n~/\nharness/skills\n\nSave a procedure as a skill.\n\nA coding agent needs only its shell to use co. When you want the same steps every time, write them in a SKILL.md. Claude Code's skills load as they are; co skills discover finds Codex, Cursor and Kiro ones too.5 Codex itself runs as a provider, inside its sandbox.6\n\nIllustrative session · example data · no live action\n↺ replay\nRead transcript\n.claude/skills/monthly-arrears/SKILL.md\nmarkdown\n---\nname: monthly-arrears\ndescription: Pull overdue accounts from the portal and file the report.\ntools: [read_file, write_file, Bash(co *)]\n---\n\n1. co browser go_to the arrears page\n2. co browser get_text 'table.arrears' > arrears.csv\n3. co gdrive put arrears-march.xlsx\n4. co email send the owner a two-line summary\n\nThe skill is the runbook. Every step is a command.\n\n~/\nharness/trust\n\nPermissions.\n\nShell commands, file writes and email ask before they run, and file edits arrive as a diff. Another agent can run only what your whitelist names.8\n\nIllustrative session · example data · no live action\n↺ replay\nRead transcript\n01\nApprove a shell command\nA human sees the command before it runs.\n02\nReview a file diff\nChanged lines stay visible in the chat.\n03\nLimit a remote agent\nThe host whitelist decides which commands are allowed.\n\n01 ask before bash\n\nchat — approval\noo-chat\nrm -rf ./exports/2025-*\nAllow once\nReject this request\nOther review options\n⌄\n\n02 edits as a diff\n\nchat — file edit\noo-chat\nEdit\nreport.py\nrows = load(\"arrears.csv\")\n- overdue = [r for r in rows if r.days > 30]\n+ overdue = [r for r in rows if r.days >= 30]\nsend(overdue)\n\n03 a whitelist for everyone else\n\n~/acme-ops\nzsh\n\n~/\nfaq\n\nFAQ.\n›\nWhat is ConnectOnion?\n›\nIs ConnectOnion for people or for AI agents?\n›\nWhy not an MCP server?\n›\nWhy not skills?\n›\nWhat is an agent CLI harness?\n›\nHow do I give Claude Code or Codex access to Gmail?\n›\nHow do I give an AI agent its own email address?\n›\nHow do I connect an AI agent to WhatsApp?\n›\nCan an AI agent use a browser I am logged into?\n›\nHow is it different from an AI agent framework?\n›\nDo I need an API key to try it?\n›\nHow can an agent send email without setting up DNS?\n›\nHow does Gmail or Outlook work without my own OAuth app?\n›\nIs agent traffic end-to-end encrypted?\n›\nHow do I control what an agent is allowed to do?\n›\nWhich models does it work with?\n\n~/\nco commands\n\nAll commands.\n\nAll 50 commands, generated from co commands. Open a group for what each does and its subcommands.\n\n›\n# identity & account\ninit · auth · keys · status · reset · doctor · commands · setup · transfer · env · trust\n›\n# build & test\ncreate · ai · copy · audit · benchmark · eval\n›\n# run & ship\ndeploy · server · schedule\n›\n# browser & network\nbrowser · remote-browser · proxy · call · search · fetch\n›\n# coding agents & memory\nannounce · claude · skills · sub\n›\n# memory\nrem\n›\n# chat apps\nsms · telegram · feishu · lark · discord · slack · whatsapp\n›\n# mail & calendar\nemail · gmail · gcalendar · onenote · outlook\n›\n# issues & feedback\ngithub · linear · canny\n›\n# files & media\ngdrive · youtube · tiktok · syno\nGive your agent the CLI harness.\n$\npip install connectonion\ncopy\n\nThen run co init, and tell your agent to use co.\n\ndocs ↗\ngithub ↗\ndiscord ↗\n\nx\ny\n0x\ncbef…3318\nADDRESS\nIDENTITY\nco init · co auth · co keys\nBROWSER\nco browser · co proxy · co call\nINBOX\nco gmail · co outlook · co email · co sms\nFILES · SHIP\nco gdrive · co syno · co deploy --to\n\n~/notes\n\n›\n11 notes: what each claim depends on, and what on this page is simulated\n\nApache-2.0. Works with OpenAI, Anthropic, Google, Groq, Grok, OpenRouter and Mistral, or managed keys through the co/ prefix.\n\nconnectonion · Apache-2.0 · by OpenOnion\ndocs\ngithub\npypi\ndiscord\nmanifesto",
+    "headings": [
+      "CLI is all you need.",
+      "Watch it work. 43 seconds.",
+      "One request. Several environments.",
+      "Your agent only needs to know co.",
+      "Why not MCP? Why not skills?",
+      "MCP server",
+      "Skills",
+      "co (a CLI)",
+      "One command replaces the setup.",
+      "A keypair and address, made on your machine.",
+      "Share your agent with a chat link.",
+      "Save a procedure as a skill.",
+      "Permissions.",
+      "FAQ.",
+      "All commands.",
+      "Give your agent the CLI harness."
+    ],
+    "links": [
+      {
+        "text": "commands",
+        "href": "#commands"
+      },
+      {
+        "text": "github ↗",
+        "href": "https://github.com/openonion/connectonion"
+      },
+      {
+        "text": "1,481 GitHub stars",
+        "href": "https://github.com/openonion/connectonion/stargazers"
+      },
+      {
+        "text": "See all 42 commands →",
+        "href": "#commands"
+      },
+      {
+        "text": "github ↗",
+        "href": "https://github.com/openonion/connectonion"
+      },
+      {
+        "text": "github",
+        "href": "https://github.com/openonion/connectonion"
+      }
+    ],
+    "overflow": false,
+    "route": "landing",
+    "mode": "mobile",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "flow": "docs card click",
+    "url": "http://localhost:32147/"
+  },
+  {
+    "flow": "landing anchors",
+    "anchors": [
+      {
+        "text": "commands",
+        "href": "#commands",
+        "exists": true
+      },
+      {
+        "text": "1",
+        "href": "#fn-1",
+        "exists": true
+      },
+      {
+        "text": "why not MCP? →",
+        "href": "#why",
+        "exists": true
+      },
+      {
+        "text": "See all 42 commands →",
+        "href": "#commands",
+        "exists": true
+      },
+      {
+        "text": "11",
+        "href": "#fn-11",
+        "exists": true
+      },
+      {
+        "text": "2",
+        "href": "#fn-2",
+        "exists": true
+      },
+      {
+        "text": "7",
+        "href": "#fn-7",
+        "exists": true
+      },
+      {
+        "text": "9",
+        "href": "#fn-9",
+        "exists": true
+      },
+      {
+        "text": "10",
+        "href": "#fn-10",
+        "exists": true
+      },
+      {
+        "text": "3",
+        "href": "#fn-3",
+        "exists": true
+      },
+      {
+        "text": "4",
+        "href": "#fn-4",
+        "exists": true
+      },
+      {
+        "text": "5",
+        "href": "#fn-5",
+        "exists": true
+      },
+      {
+        "text": "6",
+        "href": "#fn-6",
+        "exists": true
+      },
+      {
+        "text": "8",
+        "href": "#fn-8",
+        "exists": true
+      },
+      {
+        "text": "↩",
+        "href": "#fnref-1",
+        "exists": true
+      },
+      {
+        "text": "↩",
+        "href": "#fnref-2",
+        "exists": true
+      },
+      {
+        "text": "↩",
+        "href": "#fnref-3",
+        "exists": true
+      },
+      {
+        "text": "↩",
+        "href": "#fnref-4",
+        "exists": true
+      },
+      {
+        "text": "↩",
+        "href": "#fnref-5",
+        "exists": true
+      },
+      {
+        "text": "↩",
+        "href": "#fnref-6",
+        "exists": true
+      },
+      {
+        "text": "↩",
+        "href": "#fnref-7",
+        "exists": true
+      },
+      {
+        "text": "↩",
+        "href": "#fnref-8",
+        "exists": true
+      },
+      {
+        "text": "↩",
+        "href": "#fnref-9",
+        "exists": true
+      },
+      {
+        "text": "↩",
+        "href": "#fnref-10",
+        "exists": true
+      },
+      {
+        "text": "↩",
+        "href": "#fnref-11",
+        "exists": true
+      }
+    ]
+  }
+]

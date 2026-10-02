@@ -1,0 +1,420 @@
+[
+  {
+    "flow": "docs GitHub card",
+    "url": "http://localhost:32147/cli/github",
+    "heading": "co github — GitHub activity as an inbox"
+  },
+  {
+    "flow": "landing directory",
+    "mode": "desktop",
+    "text": "~/\nco commands\n\nAll commands.\n\nAll 50 commands, generated from co commands. Open a group for what each does and its subcommands.\n\n›\n# identity & account\ninit · auth · keys · status · reset · doctor · commands · setup · transfer · env · trust\n›\n# build & test\ncreate · ai · copy · audit · benchmark · eval\n›\n# run & ship\ndeploy · server · schedule\n›\n# browser & network\nbrowser · remote-browser · proxy · call · search · fetch\n›\n# coding agents & memory\nannounce · claude · skills · sub\n›\n# memory\nrem\n›\n# chat apps\nsms · telegram · feishu · lark · discord · slack · whatsapp\n›\n# mail & calendar\nemail · gmail · gcalendar · onenote · outlook\n›\n# issues & feedback\ngithub · linear · canny\n›\n# files & media\ngdrive · youtube · tiktok · syno",
+    "overflow": false
+  },
+  {
+    "flow": "mobile docs menu",
+    "text": "CLI: Issues & Feedback\nco github\nCopy\nConnectOnion\nDocs\n⌘K\nGetting Started\nGuides\nCLI: Start Here\nCLI: Mail & Calendar\nCLI: Chat Apps\nCLI: Issues & Feedback\nco github\nco linear\nco canny\nCLI: Browser & Files\nCLI: Coding Agents & Memory\nCLI: Build & Ship\nPython SDK: Agent\nPython SDK: Network\nPython SDK: Features\nPython SDK: Tools\nPython SDK: Integrations\nPython SDK: Plugins\nPython SDK: TUI\nPython SDK: Debug\nReleases\nRoadmap\nConnect\nv1.8.10\nUpcoming preview · implementation PR, not released yet\nco github — GitHub activity as an inbox\n\nExperimental; proposed for the next preview. The released package does not yet include these commands.\n\nUse your existing GitHub CLI login. Co reads only repositories you name, keeps the original Markdown and source links, and writes the same inbox directory as the chat listeners. No copied token, GitHub App or public webhook server.\n\ngh auth login\nco github watch openonion/connectonion\nco github watches\nco github listen\n\n\nlisten runs in the foreground until Ctrl-C. In another terminal:\n\nco github check\nco github receive --timeout 60\nco github done <message-id>\n\n\nreceive prints one JSON record and claims it. It starts a background listener if needed. done completes the record; a claim left unfinished is offered again by the shared inbox recovery mechanism. ls, chats and log inspect the local inbox. check verifies gh authentication, repository access and the listener's actual status. watches prints saved configuration and checkpoints as JSON.\n\nWatch and backfill\nco github watch openonion/connectonion --interval 120\nco github watch openonion/connectonion --since 2026-10-02T00:00:00Z\nco github unwatch openonion/connectonion\n\n\nConfiguration lives in ~/.co/inbox/github/config.json (CO_INBOX_HOME overrides the inbox root). The default interval is 60 seconds; it cannot be shorter. Watch changes take effect at the next scan. The interval applies to all watched repositories. Unwatching preserves already queued messages and checkpoints. --since requests backfill for that repository; reusing the same timestamp does not reset its cursor again. A new timestamp requests another backfill.\n\nFor GitHub Enterprise, first log in with gh auth login --hostname github.example.com, then watch with --host github.example.com. One inbox uses one host. Unwatch its repositories before changing hosts. Co uses gh's active account and environment-token rules; background listeners need credentials available in their own environment.\n\nThe first scan records its start time before fetching and skips earlier history. Activity during initialization is collected. After a restart, successful scans resume from their persisted cursor; interrupted first scans keep their original baseline. All pages must be read and inbox delivery must finish before that repository's checkpoint advances.\n\nMessages\n\nThe listener collects issue/PR creation, observed title/body/label/state changes, conversation comments, inline PR review comments and submitted reviews. Merged PRs are identified from PR details. The event object preserves host, repo, number, kind, action, resource_id, url, state and labels; text contains the original title/body. chat is OWNER/REPO#NUMBER. Every observation has a stable resource/version ID, so cursor overlap and replay do not deliver duplicate work. --raw additionally archives the original API object.\n\nAn observed update does not identify an editor. Its sender is empty rather than incorrectly attributing it to the issue author. This is repository polling, not a historical webhook event stream.\n\nRun a consumer without posting comments\nco github consume --once --no-reply cat\nco github consume --no-reply ./route-github-event\n\n\nThe program receives JSON on stdin and CO_PROVIDER, CO_CHAT, CO_THREAD, CO_SENDER and CO_MSG_ID in its environment. GitHub consumption always keeps stdout local and completes a message only after a successful exit. Failures retain the claim for retry. A dispatcher can queue Codex work using the repository and issue/PR link. A Host explicitly configured with listen: [github] also receives the full JSON record and stores its ordinary turn result locally, without sending a platform reply. It must treat repository content as task input and make repeated execution safe.\n\nThe existing chat providers can opt into --no-reply too; their default still sends stdout as a reply. GitHub has no send, reply, edit, delete or react command in this preview. Use gh for explicitly requested GitHub writes.\n\nLimits and recovery\n\nPolling adds at least one scan interval of delay. It can recover still-existing new messages and current state after downtime. It cannot reconstruct content created and deleted between polls, every intermediate edit, edited review bodies or dismissed reviews. Notifications are not used as a substitute for complete repository coverage.\n\nReviews are read for every PR, including closed PRs, because review discovery must not depend on an issue's update timestamp. This is expensive on reposito"
+  },
+  {
+    "flow": "landing directory",
+    "mode": "mobile",
+    "text": "~/\nco commands\n\nAll commands.\n\nAll 50 commands, generated from co commands. Open a group for what each does and its subcommands.\n\n›\n# identity & account\ninit · auth · keys · status · reset · doctor · commands · setup · transfer · env · trust\n›\n# build & test\ncreate · ai · copy · audit · benchmark · eval\n›\n# run & ship\ndeploy · server · schedule\n›\n# browser & network\nbrowser · remote-browser · proxy · call · search · fetch\n›\n# coding agents & memory\nannounce · claude · skills · sub\n›\n# memory\nrem\n›\n# chat apps\nsms · telegram · feishu · lark · discord · slack · whatsapp\n›\n# mail & calendar\nemail · gmail · gcalendar · onenote · outlook\n›\n# issues & feedback\ngithub · linear · canny\n›\n# files & media\ngdrive · youtube · tiktok · syno",
+    "overflow": false
+  },
+  {
+    "flow": "GitHub branch README",
+    "status": 200,
+    "text": "ConnectOnion\n\nThe agent CLI harness. CLI is all you need.\n\nOne command line, co, gives your AI agent the accounts and tools it works with: Gmail and Outlook, a logged-in browser, your files, chat apps and other agents. Its --help pages are the agent's instructions, and the agent finds them itself: no MCP server, tool schema or skill file to set up.\n\n    \n\nWebsite · Docs · Quick start · Releases · Discord\n\n\nReal output from co 1.8.10. Watch the 43-second film →\n\nIdentity & memory\n    \n\nMail, calendar & notes\n     \n\nChat apps\n     \n\nBrowser & files\n       \n\nIssues & feedback\n  \n\nCoding agents\n        \n\nModels\n        \n\nAgents & servers\n     \n\nEvery command · co commands lists them all.\n\nCLI is all you need\n\nAn agent's work lives in many places: your inbox, your calendar, a chat thread, a web page behind a login, a file on the NAS, an issue tracker, its own notes, another agent. ConnectOnion strings all of that context together with one command line, co. The agent reads a thread with one command, looks something up with the next, and writes the answer with a third. Every step is a line in its shell, and the output of one is the input of the next.\n\nWhy a command line, and not MCP or a plugin per tool\nEvery agent already has one. Claude Code, Codex, Cursor and any agent you write can run a shell command. There is no server to start, no client to configure and nothing to install into the agent.\nIt costs no context until it is used. Tool schemas sit in an agent's prompt whether it needs them or not. A command line is discovered on demand: bare co lists the groups, co gmail --help explains one, and only the page the agent opens enters its context.\nThe help page is the prompt. Each --help says what the command does, what it changes (Read-only, Sends, Changes, Deletes…) and gives a real example, so there is no separate skill file or schema to keep in step. CI fails any page that loses one of those parts (co audit).\nEvery answer names the next step. A list ends with how to open the first item, a missing login ends with Next: co auth microsoft, a typo ends with the command you meant. The agent recovers without asking you.\nIt composes. Commands pipe into each other and into scripts, and the transcript is the same commands you would type, so you can read exactly what the agent did, and run it yourself.\n$ co                       # every command group\n$ co linear --help         # what it does, what it changes, an example\n$ co linear issues -n 3\n3 open issues\nCON-3  Todo  No priority  -  2026-10-01  Import your data\nCON-1  Todo  No priority  -  2026-10-01  Get familiar with Linear\nCON-4  Todo  No priority  -  2026-10-01  Set up your teams\nNext: co linear issue CON-3\nMCP becomes a command too\n\nMCP servers are useful; the protocol is not the problem, the interface is. co mcp (coming next, #2048) puts any MCP server behind the same command line: co mcp tools <server> lists its tools, co mcp help <server> <tool> renders a tool as a help page, and co mcp call runs it. The agent finds MCP tools the way it finds everything else, through --help, and none of them sit in its prompt.\n\nCredentials stay on your machine, in ~/.co/keys.env or encrypted with co env set … --secret. Writes that matter preview until --yes, and in co ai a risky tool call waits for your approval.\n\nInstall and start\npip install connectonion   # Python 3.10+\nco init                    # your identity and ~/.co/keys.env\nco auth microsoft          # or: co auth google\nco outlook                 # or: co gmail\nco commands                # everything else; add --help to any\n\nThe Quick start guide covers Google, the browser, chat apps and project settings.\n\nco rem — your agent's memory\n\nLike REM sleep turns a day's experience into memory, co rem turns your mail and coding sessions into local pages about the people, projects and skills in your work. The first run builds your map and investigates recent work; after you approve a schedule, it keeps that context current overnight. Open it in the morning to see cited facts, decisions and open threads.\n\nAvailable in the opt-in 1.9.0 preview:\n\npip install --upgrade 'connectonion==1.9.0a19'\nco rem init                # build your map and first pages\nco rem open                # read the local notebook\nco rem start               # approve a daily schedule (macOS)\n\nThe notebook stays in ~/.co/rem. co rem open --live reads it from your online co ai Host at https://chat.openonion.ai/<address>/rem, for the Host owner only. Explore co rem, try the sample reader, or read the CLI guide for source controls, runner costs and limits.\n\nSee it work\n\nco search ConnectOnion answers from the web and cites its sources. The default engine uses your own search key, then ConnectOnion credits; --engine ddg is free.\n\nList your Linear issues, then create one. The create shows a preview and changes nothing until --yes.\n\nSearch Slack, then read the whole thread. Each message carries the id that co slack send --reply-to takes.\n\nYour most-voted Canny requests, and a status change you preview before voters hear about it.\n\nco audit scores a CLI's help pages the way an agent reads them. CI runs it on every co page, and it works on any other CLI too.\n\nUse it from Claude Code, Codex or Cursor\n\nNothing to install into them: ask your coding agent to \"use co to check my Outlook inbox\" and it reads co commands and co outlook --help before it acts. co skills link also links ConnectOnion's skills into Claude Code and Codex (co skills).\n\nConnectOnion is also a Python framework for building your own agents on the same harness; see the documentation.\n\nProject\n\nStable 1.8.10 is what pip install connectonion installs; 1.9.0 previews carry new features first (release channels, release notes). Questions go to Discussions or the Discord linked above, bugs to Issues. Contributing · Code of Conduct · Security (report vulnerabilities privately) · Apache-2.0.",
+    "images": [
+      {
+        "alt": "ConnectOnion logo",
+        "src": "https://camo.githubusercontent.com/8fa4519eed5a952527c4d699ca3a2c0284516af87f847b354aada532fa6e71dd/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f66617669636f6e2e706e67",
+        "complete": true,
+        "width": 1024
+      },
+      {
+        "alt": "PyPI",
+        "src": "https://camo.githubusercontent.com/b4369bea1d5018d4f9e07594b8f9069de85f441edc103786103e2196d0540ee9/68747470733a2f2f696d672e736869656c64732e696f2f707970692f762f636f6e6e6563746f6e696f6e3f7374796c653d666c61742d737175617265",
+        "complete": true,
+        "width": 86
+      },
+      {
+        "alt": "Python",
+        "src": "https://camo.githubusercontent.com/36fbfdfef419a520d95969fcad2659a4947c2e3b0476acda148384f6a24f0541/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f636f6e6e6563746f6e696f6e3f7374796c653d666c61742d737175617265",
+        "complete": true,
+        "width": 198
+      },
+      {
+        "alt": "Tests",
+        "src": "https://camo.githubusercontent.com/8fe72adb6149afdb9e0f00ccf6b4b941794348fdb28c641af8f701b80358b72a/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f616374696f6e732f776f726b666c6f772f7374617475732f6f70656e6f6e696f6e2f636f6e6e6563746f6e696f6e2f74657374732e796d6c3f6272616e63683d6d61696e266576656e743d70757368267374796c653d666c61742d737175617265266c6162656c3d7465737473",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "License",
+        "src": "https://camo.githubusercontent.com/c376907d8c48a258e5dcd3854eaf7a375f9b2656b82be0a5cb92edc9ed581d1c/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f636f6e6e6563746f6e696f6e3f7374796c653d666c61742d737175617265",
+        "complete": true,
+        "width": 120
+      },
+      {
+        "alt": "PyPI Downloads",
+        "src": "https://camo.githubusercontent.com/8caa5bc3a6d5c30a178c0e26b8bfab160319765e60dc88d6b3934f0405542bda/68747470733a2f2f7374617469632e706570792e746563682f706572736f6e616c697a65642d62616467652f636f6e6e6563746f6e696f6e3f706572696f643d746f74616c26756e6974733d696e7465726e6174696f6e616c5f73797374656d266c6566745f636f6c6f723d626c61636b2672696768745f636f6c6f723d677265656e266c6566745f746578743d646f776e6c6f616473",
+        "complete": true,
+        "width": 106
+      },
+      {
+        "alt": "Real co 1.8.10 runs: co browser reads the top Hacker News story, co search and co fetch answer with sources, co email sends from the agent's own address, and co ai hands a task to Codex and Claude Code",
+        "src": "https://camo.githubusercontent.com/fabec045d13e736c43e25f85bc201b4963482c037a3734023cdfc9c47fd58898/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f70726f6d6f2f686967686c696768742e6769663f763d32",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "Real co 1.8.10 runs: co browser reads the top Hacker News story, co search and co fetch answer with sources, co email sends from the agent's own address, and co ai hands a task to Codex and Claude Code",
+        "src": "https://camo.githubusercontent.com/fabec045d13e736c43e25f85bc201b4963482c037a3734023cdfc9c47fd58898/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f70726f6d6f2f686967686c696768742e6769663f763d32",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "0x address",
+        "src": "https://camo.githubusercontent.com/2bbc849885e24329a7d5f40b2b588e45d81646484fb874a592c14b13cc98aa78/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f616464726573732e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Agent mailbox",
+        "src": "https://camo.githubusercontent.com/54f00098801522ffb5f517ac547747cdc52354e2d8c960cea6fb460788daca40/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6d61696c626f782e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "co rem",
+        "src": "https://camo.githubusercontent.com/14936a5334ea1ae98cd7a4d655c888ca2ff5b20a866ac1f594be89fdee29ed3f/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6d656d6f72792e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Secrets",
+        "src": "https://camo.githubusercontent.com/ce1cc0862baf3ce6bdfd54774dcefde06cdb7bfc3ba78979a637df5ba874a661/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f736563726574732e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Credits",
+        "src": "https://camo.githubusercontent.com/68ea85bdd97b809675e91862057874ba6c8052ba268b14c936cbee30b9701d80/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f637265646974732e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Gmail",
+        "src": "https://camo.githubusercontent.com/1b183f7ba45292cc3ab1fbfc85f95bd6076afde7c6e18f88fa067b4eaea308fc/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f676d61696c2e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Outlook",
+        "src": "https://camo.githubusercontent.com/648716e39a6e6613f5f9ea7e8b97b79a83179a1c126e2847803296f82a40bb53/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6f75746c6f6f6b2e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Google Calendar",
+        "src": "https://camo.githubusercontent.com/367c0db8eddfc1d1bf96f3d437347cc31b82d2f464f5008ca95c0a65184f0bf4/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6763616c2e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Google Meet",
+        "src": "https://camo.githubusercontent.com/3d1ad8e598459972b4fa185a2c18d053c248cd1b046f74617a2ca076a5eed7f4/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6d6565742e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "OneNote",
+        "src": "https://camo.githubusercontent.com/8c8307944c2d8e18610f9e4212fda24a3c1cef5dd86cf60f50f6faa5f7881fc9/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6f6e656e6f74652e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Teams meetings",
+        "src": "https://camo.githubusercontent.com/904ae2fe50815ba9509fc81f18f2d2ff1c014d79040b1777e50b8606a317524f/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f7465616d732e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "WhatsApp",
+        "src": "https://camo.githubusercontent.com/b98400ff628a7f9ba9cc5ab7e6da6b928189830538e9b2f5fcda2c265aa43b2a/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f77686174736170702e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Telegram",
+        "src": "https://camo.githubusercontent.com/a287875c733cbd01d7046f531cb3d9df6ad8d536c27078a906f937790abea0d5/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f74656c656772616d2e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Discord",
+        "src": "https://camo.githubusercontent.com/caeb6b5d68e2c1a54bcd7c247a44e46b44d2011fe0e6be616683bd5702820763/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f646973636f72642e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Slack",
+        "src": "https://camo.githubusercontent.com/2b3e241e5774e64bb9731dc3438c2d457cc5f2ee58f3ac82e690453826b1224b/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f736c61636b2e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Feishu / Lark",
+        "src": "https://camo.githubusercontent.com/67300a945b5fad1cacac4882681fdc6fec783a93d6d2e0d2f7f165e8f2faa07d/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6665697368752e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "SMS",
+        "src": "https://camo.githubusercontent.com/2960000b97c27bf722334d7b11772a58ae4dcadf2063e4f7ab0721ffbe3f534e/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f736d732e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Your Chrome",
+        "src": "https://camo.githubusercontent.com/3e58a74a2698b7def8be19440072779c8486c23416d7837b6e1e93084c5c20e0/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6368726f6d652e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Remote browser",
+        "src": "https://camo.githubusercontent.com/f2f763689a0b35e9138a5659af9098ec77fdcd27b8f3a49454a1ea20734ff278/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f72656d6f74652e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Google Drive",
+        "src": "https://camo.githubusercontent.com/bf2c310899f478f97b7bac70370cfd2b707178d4b708e2b146d2dd72ede33106/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6764726976652e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "YouTube",
+        "src": "https://camo.githubusercontent.com/88558a98f67d5b090bf38f8d87ae4c1759e002d82e90e184107b1473aaf9cddd/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f796f75747562652e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "TikTok plans",
+        "src": "https://camo.githubusercontent.com/52c7d1d9903192dfa2211d28313528188ab417b88654eddaaa25d3894e181928/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f74696b746f6b2e7376673f763d33",
+        "complete": true,
+        "width": 0
+      },
+      {
+        "alt": "Synology NAS",
+        "src": "https://camo.githubusercontent.com/425ba33d6b7c9b2038534747b0329a5b75547c3e80fd7d23b63bcb4088c8e9ff/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f73796e6f2e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Web search",
+        "src": "https://camo.githubusercontent.com/a1883e5f68f88ff5edf9601ea9aee64cfcf50b8d5f91a2f3b4a369dd8261339a/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f7365617263682e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Web fetch",
+        "src": "https://camo.githubusercontent.com/9304cf6e67c147eec5ea15763d765bb418679c5ec5e1edc4dac4e6f10acc89ab/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f66657463682e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "GitHub",
+        "src": "https://camo.githubusercontent.com/633f9437066cb4cc6b6d1756f1d07ea9978e5d2c8ee9e6caf5b35dc91fd4f347/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6769746875622e7376673f763d33",
+        "complete": true,
+        "width": 0
+      },
+      {
+        "alt": "Linear",
+        "src": "https://camo.githubusercontent.com/f4cf449c6896588a657b5ba9c7328f9a5ca848345e0198c32266e6e016569f7c/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6c696e6561722e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Canny",
+        "src": "https://camo.githubusercontent.com/241ef906a1513021f839af9f60225673358f91dd5824ae938b96a7fca3622f47/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f63616e6e792e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "co ai",
+        "src": "https://camo.githubusercontent.com/5d6a85bea674253123842648649745abad250dcbbf78541e533414b958fa5416/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f61692e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Claude Code",
+        "src": "https://camo.githubusercontent.com/7fbe2b6ffa918bdf4e4dad02cf56633ac6ee9b4e72d4805c08f5b4dac358aa4e/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f636c617564652e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Codex",
+        "src": "https://camo.githubusercontent.com/1a767e78ff0d1a7a6738c7151bbad20cc9167184a06d98c09c44b68709690d52/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f636f6465782e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Your skills",
+        "src": "https://camo.githubusercontent.com/0daaeef1c0976b54ed2e0e80c85e69c16d9c3c655dee81f446950c0c1657e67b/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f736b696c6c732e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Shared skills",
+        "src": "https://camo.githubusercontent.com/c462c32d8407aacbb58203998649db34e42ea671bffdd6f9cbab62116e974c5d/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f7375622e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Evals",
+        "src": "https://camo.githubusercontent.com/5c60bdd0c7cc3785750172b4e0688d27cb84520cdec7589f8da1e650046a30cd/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6576616c2e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "CLI audit",
+        "src": "https://camo.githubusercontent.com/eabf2de6e73355df013b8926424a8cc3853cb7039a0d33b1d9c56b37e599470a/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f61756469742e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Cursor",
+        "src": "https://camo.githubusercontent.com/34ded05593c7622b7860b59d1d32b8f9c2395f4295543056077bb89526d8d5a5/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f637572736f722e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Kiro",
+        "src": "https://camo.githubusercontent.com/bfe100bb20f6fde5b182eedff1b18d8d98b19623cedaaa812cf79171b4e96046/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6b69726f2e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Managed keys",
+        "src": "https://camo.githubusercontent.com/9df4ad090e09beebda7f346593df6409a90bafe4484c1529c60ba6d455c7e050/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6d616e616765642e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "OpenAI",
+        "src": "https://camo.githubusercontent.com/bdfa31429e697db2732c7e09264145e69e2eca171139404e9d23ebc7e6f7437d/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6f70656e61692e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Anthropic",
+        "src": "https://camo.githubusercontent.com/cfbb3ed8d4805d15903f84bc7ad22c1b7ae0234ed953bbef20c2d8e857b33a9c/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f616e7468726f7069632e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Gemini",
+        "src": "https://camo.githubusercontent.com/eb8e5657f327761f206b5d70fe804e8a6aa448001051966dcf3b0776445e4d7e/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f67656d696e692e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Mistral",
+        "src": "https://camo.githubusercontent.com/7db8560fdaadcdd07a2d534892921e527de2136585f29f7af028f2fecb3bde53/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6d69737472616c2e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Groq",
+        "src": "https://camo.githubusercontent.com/16335e26888472941d456f863bff11a017797383202d1197d293007002b012f2/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f67726f712e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Grok",
+        "src": "https://camo.githubusercontent.com/f3bb0ded3f3ab8c2e3b4a21e9e18b78fd57b6658d5b88ab2be6b7b41ad4eeaee/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f67726f6b2e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "OpenRouter",
+        "src": "https://camo.githubusercontent.com/a3e26cdda758ce207fbdad62b70958da2ddf732d6d428f2889ddf67974b90f60/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6f70656e726f757465722e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Ollama (local)",
+        "src": "https://camo.githubusercontent.com/d62d7c1a36e61b965ac0679dd6c0f651ceb11e649bd356b25822cafdeac727f7/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f6f6c6c616d612e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Remote agents",
+        "src": "https://camo.githubusercontent.com/c81acff8f92fa45d4d772c88f03146d6d83671c43f7d583a6b86099bacb8fc73/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f63616c6c2e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Trust",
+        "src": "https://camo.githubusercontent.com/9731c7df6eefc71c425e6576246539698849eb33fc28b368bbec487e92c0b299/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f74727573742e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Your internet",
+        "src": "https://camo.githubusercontent.com/33ffbf372b518131b748786832e1a0bb51c09d45699f2245f6ee6adcbfe18448/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f70726f78792e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Your servers",
+        "src": "https://camo.githubusercontent.com/1dfdf3084224911300b36a359d5a418809f6fb81714381b8961b038d9d04844e/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f7365727665722e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "SSH",
+        "src": "https://camo.githubusercontent.com/c562740af98e02d41be1c89cf641c125fe8bedab625f21c59fc9df44994a87f7/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f7373682e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "Schedules",
+        "src": "https://camo.githubusercontent.com/d710cdb82e1ae01865b99355a5024a4761ebe40c0e468b1b36c5c56b1227f34a/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6c6f676f732f7363686564756c652e7376673f763d33",
+        "complete": true,
+        "width": 88
+      },
+      {
+        "alt": "co search ConnectOnion printing an answer with its GitHub and website sources",
+        "src": "https://camo.githubusercontent.com/ab169588e7596e1c3525cfe3a963a58d098f826329b77e6d7e5c29979055a5c8/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f6168612d7365617263682e676966",
+        "complete": true,
+        "width": 960
+      },
+      {
+        "alt": "co linear issues listing three open issues, then co linear create previewing a new issue",
+        "src": "https://camo.githubusercontent.com/aeb1224c4353aeba2f04a8ff577b62335ab2269746059d5f2e30b17962a4e720/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f64656d6f732f6c696e6561722e6769663f763d32",
+        "complete": true,
+        "width": 960
+      },
+      {
+        "alt": "co slack search finding a message, then co slack thread reading its replies",
+        "src": "https://camo.githubusercontent.com/4b30b538f1598f02baaca6f8a2f2d811f8098f59beb761c4c987f1ac5c979d79/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f64656d6f732f736c61636b2e6769663f763d32",
+        "complete": true,
+        "width": 960
+      },
+      {
+        "alt": "co canny posts ranked by votes, then co canny status previewing a move to planned",
+        "src": "https://camo.githubusercontent.com/fa2cd29c8dbc2713411424044c5f6633081683baf94699444d573560387b413f/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f64656d6f732f63616e6e792e6769663f763d32",
+        "complete": true,
+        "width": 960
+      },
+      {
+        "alt": "co audit co linear scoring 13 help pages and reporting fit for an agent harness",
+        "src": "https://camo.githubusercontent.com/ff6c196b4d47f92d0fdc2186737a3d48d4c44ad1279d3c2e18411e78585aece2/68747470733a2f2f7777772e636f6e6e6563746f6e696f6e2e636f6d2f64656d6f732f61756469742e6769663f763d32",
+        "complete": true,
+        "width": 960
+      }
+    ]
+  }
+]
