@@ -50,3 +50,22 @@ descriptions. This finding also came from CI after the visual review.
 **Publication gate:** verify the exact a21 PyPI package, GitHub release and
 linked package-side review evidence after they are public, then check the
 pinned installation in a clean environment before deploying this docs update.
+
+## Live post-release review
+
+An independent AI reviewer in the same founder role inspected the published
+`/releases`, `/releases/1.9.0a21` and `/releases/archive` at 1440px and 375px,
+including the stable and preview cards, copy actions, menu and disclosure
+states, navigation and source links. The release workflow verified the pinned
+wheel in a clean environment. Unauthenticated HTTP requests confirmed the
+PyPI version page, GitHub release and linked review evidence each return 200.
+
+| Priority | Live finding and user impact | Evidence | Follow-up and recheck criterion |
+| --- | --- | --- | --- |
+| P2 | A first-time evaluator could install a21 and run `co rem open` without ever building memory. | The published a21 note showed `co rem open` after the pin, while the package README puts `co rem init` before it. | Split first-time and existing-notebook next actions; link setup and name `co rem init` before open. Recheck a new visitor can find that order on phone and desktop. |
+| P2 | The linked setup page understated a21's investigation allowance and suggested scheduling on every OS. | Its copy said roughly 20% of a week, and its terminal sequence ended with `co rem start`; the package default is 35 points with a 90% weekly-use stop, and scheduling raises a macOS-only error elsewhere. | Show the a21 default, separate macOS scheduling from manual `co rem sync` on Linux and Windows. Recheck the setup block and prose at both widths before a visitor runs the commands. |
+| P3 | Earlier-release links were small phone tap targets. | Four links on the live 375px release page measured about 20px high. | Give each link a 44px minimum height. Recheck all four targets have room to tap without crowding or horizontal overflow. |
+
+This live review sampled the listed pages and states; it did not inspect every
+historical note, a keyboard-only or screen-reader session, other browsers or
+widths below 375px. An AI took the founder role; no human founder participated.
