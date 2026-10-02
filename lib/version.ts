@@ -7,8 +7,8 @@
  * version shown on the homepage or in structured metadata.
  */
 export const STABLE_VERSION = '1.8.10'
-export const PREVIEW_VERSION: string | null = '1.9.0a15'
-// 1.9.0a15 is opt-in; normal installs remain on the stable line.
+export const PREVIEW_VERSION: string | null = '1.9.0a16'
+// 1.9.0a16 is opt-in; normal installs remain on the stable line.
 export const STABILIZING_VERSION: string | null = null
 
 // Product pages advertise the stable channel. Preview releases remain opt-in.
