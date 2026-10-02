@@ -38,9 +38,12 @@ The gate then found a P2 content gap: the notes had generic search descriptions
 that said only to read a version's changes. A reader searching for a specific
 fix or capability could not tell which result mattered. Descriptions now draw
 from each version's actual note. The built a21, 1.8.10, 1.8.9b1 and unpublished
-1.8.8b10 examples were checked for distinct, accurate wording; the 64-page
-structural check passes. Recheck: the PR's model-based SEO gate must accept the
-new descriptions. This finding also came from CI after the visual review.
+1.8.8b10 examples were checked for distinct, accurate wording. The model gate
+accepted 51 descriptions and identified 13 that still led with release-process
+history or ended mid-sentence. Those 13 now use short, source-checked feature
+summaries from their corresponding notes; the 64-page structural check passes.
+Recheck: the PR's model-based SEO gate must accept all descriptions. This
+finding also came from CI after the visual review.
 
 **Publication gate:** verify the exact a21 PyPI package, GitHub release and
 linked package-side review evidence after they are public, then check the

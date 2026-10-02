@@ -10,6 +10,22 @@ const releases = path.join(process.cwd(), 'public', 'releases')
 const slugs = fs.readdirSync(releases).filter(name => /^\d+\.\d+\.\d+(?:a\d+|b\d+|rc\d+)?\.md$/.test(name))
   .map(name => name.slice(0, -3))
 
+const releaseSummaries: Record<string, string> = {
+  '1.8.4': 'Global settings use the selected env source; co env redacts values; Gmail account-bound drafts and Synology transfers get safer.',
+  '1.8.8': 'One conversation streams across laptop and phone; co benchmark scores skills; browser network and cookies plus co schedule are added.',
+  '1.8.8b1': 'Wiki moves to the 1.8.8 preview line; sync --all --dry-run stays inspection-only, and prompt-free initialization and page maps carry over.',
+  '1.8.8b7': 'co benchmark checks at least five cases before a skill edit; co eval run scores outcomes PASS, FAIL or UNVERIFIED and compares runs.',
+  '1.8.9': 'co auth microsoft adds one consent for mail, calendar, files and OneNote; co onenote, co search, co fetch, task watches and WhatsApp files arrive.',
+  '1.8.9b1': 'An upgraded Wiki notebook rebuilds the owner’s untouched page; malformed nightly review suggestions no longer fail the entire update.',
+  '1.8.9b14': 'Nightly Wiki upkeep updates one page per model turn, archives obsolete uninvestigated map pages, and raises the daily model-call cap to 30.',
+  '1.8.9b19': 'Chat turns refuse ungranted commands; co auth microsoft adds OneNote consent; co ai watches tasks, and co search and co fetch read the web.',
+  '1.8.9b20': 'co auth microsoft requests Notes.ReadWrite for personal Outlook accounts; OneNote accepts it, and experimental co slack joins inbox via Socket Mode.',
+  '1.8.9b22': 'co audit keeps Python’s user-package base while isolating HOME, so user-installed co onenote help pages remain reachable without credential exposure.',
+  '1.8.9b8': 'co audit walks a CLI’s --help pages in an empty home, checks examples and options, and offers model review after rule checks.',
+  '1.9.0a11': 'REM home starts with source-backed pages from the latest pass; older pages become keyboard-accessible recall questions, with counts in a disclosure.',
+  '1.9.0a3': 'co rem init maps without a model and writes recent project pages; this release also fixes cited handles in Gmail lookups and daily-cap messaging.',
+}
+
 export const dynamicParams = false
 
 export function generateStaticParams() {
@@ -33,7 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const description = slug === 'archive'
     ? 'Compare 1.8.10 stable with opt-in 1.9.0a21, use exact pip pins, and browse earlier ConnectOnion release notes and channel policy.'
-    : releaseDescription(fs.readFileSync(path.join(releases, `${slug}.md`), 'utf8'))
+    : releaseSummaries[slug] || releaseDescription(fs.readFileSync(path.join(releases, `${slug}.md`), 'utf8'))
   return makeMetadata(
     slug === 'archive' ? 'ConnectOnion release archive' : `ConnectOnion ${slug} release notes`,
     description,
