@@ -18,7 +18,7 @@ const GROUPS: { label: string; items: Connection[] }[] = [
     items: [
       { name: '0x address', command: 'co init', href: '/cli/init', icon: LuAtSign, color: '#15803d' },
       { name: 'Agent mailbox', command: 'co email', href: '/cli/email', icon: LuMail, color: '#15803d' },
-      { name: 'Memory', command: 'co wiki', href: '/cli/wiki', icon: LuBrain, color: '#15803d' },
+      { name: 'co rem', command: 'co rem', href: '/rem', icon: LuBrain, color: '#15803d' },
       { name: 'Secrets', command: 'co env', href: '/cli/env', icon: LuKeyRound, color: '#15803d' },
     ],
   },

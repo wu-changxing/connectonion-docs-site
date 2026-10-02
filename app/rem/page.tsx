@@ -3,6 +3,7 @@ import path from 'node:path'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { LuEye } from 'react-icons/lu'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { renderBlogMarkdown } from '../../lib/blog-content.mjs'
@@ -13,7 +14,7 @@ import styles from './rem.module.css'
 const URL = 'https://docs.connectonion.com/rem'
 const TITLE = 'co rem: Overnight AI Memory and Morning Recall | ConnectOnion'
 const DESCRIPTION =
-  'REM works through approved sources while you sleep, carries context into the morning, and helps you remember it. Explore the opt-in co rem preview and its limits.'
+  'co rem works through approved sources while you sleep, carries context into the morning, and helps you remember it. Explore the opt-in co rem preview and its limits.'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: URL,
     type: 'website',
-    images: [{ url: '/rem/reader-desktop.png', width: 1440, height: 900, alt: 'REM morning reader with sample notebook context' }],
+    images: [{ url: '/rem/reader-desktop.png', width: 1440, height: 900, alt: 'co rem morning reader with sample notebook context' }],
   },
   twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: ['/rem/reader-desktop.png'] },
 }
@@ -47,7 +48,7 @@ const moments = [
     number: '03',
     time: 'When it matters',
     title: 'Try to remember.',
-    copy: 'An older page becomes a question. Pause before revealing the answer REM already wrote.',
+    copy: 'An older page becomes a question. Pause before revealing the answer co rem already wrote.',
   },
 ]
 
@@ -62,13 +63,8 @@ export default function Page() {
         <section className={styles.hero} aria-labelledby="rem-title">
           <div className={styles.heroMeta}>
             <span className={styles.wordmark}>
-              <svg className={styles.eyeMark} viewBox="0 0 32 32" aria-hidden="true">
-                <rect width="32" height="32" rx="8" fill="#1b2548" />
-                <path d="M4.5 16c3.2-5.1 7.1-7.6 11.5-7.6S24.3 10.9 27.5 16c-3.2 5.1-7.1 7.6-11.5 7.6S7.7 21.1 4.5 16Z" fill="none" stroke="#dbe3ff" strokeWidth="1.65" />
-                <circle cx="16" cy="16" r="4" fill="#dbe3ff" />
-                <path d="M8.5 25.5c4.8 3 11.6 3 16.1-.6" fill="none" stroke="#dfa75a" strokeWidth="1.65" strokeLinecap="round" />
-              </svg>
-              CONNECTONION / REM
+              <LuEye className={styles.eyeMark} aria-hidden="true" />
+              CONNECTONION / co rem
             </span>
             <span className={styles.previewBadge}>Opt-in alpha {preview ?? 'preview'}</span>
           </div>
@@ -78,7 +74,7 @@ export default function Page() {
             <h1 id="rem-title">Wake up with the <em>context</em> you need.</h1>
             <p className={styles.heroLead}>
               Your first run investigates recent important people, mapped projects and organizations.
-              After you approve a schedule, REM keeps that context current overnight.
+              After you approve a schedule, co rem keeps that context current overnight.
             </p>
             <div className={styles.heroActions}>
               <Link className={styles.primaryAction} href="/rem/demo">Explore a sample notebook <span aria-hidden="true">↗</span></Link>
@@ -94,7 +90,7 @@ export default function Page() {
             <Image
               className={styles.desktopShot}
               src="/rem/reader-desktop.png"
-              alt="REM reader showing the morning brief, an older memory to recall, and open threads"
+              alt="co rem reader showing the morning brief, an older memory to recall, and open threads"
               width={1440}
               height={900}
               loading="eager"
@@ -102,7 +98,7 @@ export default function Page() {
             <Image
               className={styles.phoneShot}
               src="/rem/reader-phone.png"
-              alt="REM morning reader at phone width showing today's context and open threads"
+              alt="co rem morning reader at phone width showing today's context and open threads"
               width={390}
               height={844}
             />
@@ -115,7 +111,7 @@ export default function Page() {
           <div className={styles.sectionIntro}>
             <p className={styles.sectionKicker}>The loop</p>
             <h2 id="experience-title">Memory should move with you.</h2>
-            <p>REM is designed around the return to work, when context is useful again.</p>
+            <p>co rem is designed around the return to work, when context is useful again.</p>
           </div>
           <ol className={styles.moments}>
             {moments.map((moment) => (
@@ -152,7 +148,7 @@ export default function Page() {
         <section id="start" className={styles.start} aria-labelledby="start-title">
           <div>
             <p className={styles.sectionKicker}>Start with your own notebook</p>
-            <h2 id="start-title">Try REM on your machine.</h2>
+            <h2 id="start-title">Try co rem on your machine.</h2>
             <p>
               The reader is a local snapshot. An exact version pin opts you into the alpha;
               ordinary installs stay on stable {STABLE_VERSION}.
@@ -170,7 +166,7 @@ export default function Page() {
             {preview ? (
               <pre><code>{`python -m pip install --upgrade 'connectonion==${preview}'\nco rem init --days 5\nco rem open\nco rem start`}</code></pre>
             ) : (
-              <p>The next REM preview is being prepared. Use the stable channel until its exact version is published.</p>
+              <p>The next co rem preview is being prepared. Use the stable channel until its exact version is published.</p>
             )}
             <p>Connect a mailbox first with <code>co auth google</code> or <code>co auth microsoft</code>. <code>co rem start</code> shows sources and asks before scheduling.</p>
           </div>

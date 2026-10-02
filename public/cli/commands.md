@@ -72,7 +72,7 @@ co commands      # this page, in your terminal
 | [`co skills`](/cli/skills) | Discover, copy, list and link existing SKILL.md files; does not author or benchmark them. | discover · copy · manifest · list · link |
 | [`co sub`](/cli/sub) | Follow public skills: co sub sync <0xaddress> once; co sub refreshes all saved publishers | sync · list · remove |
 | `co announce` | Publish ~/.co/agent.json + SKILL.md bodies (publish:true) to the relay. | — |
-| [`co wiki`](/cli/wiki) | Experimental: Personal Wiki — map first, investigate next. Targets 1.9.0. | init · investigate · open · list · show · search · start · stop · status · sync · logs · doctor · advanced · scan · map-skills · stub · reflect · reflections · propose · review · abstract · capture · sources · config |
+| [`co rem`](/cli/rem) | Opt-in 1.9.0 preview: your agent's memory, from approved mail and coding sessions. | init · investigate · open · list · show · search · start · stop · status · sync · logs · doctor · advanced · scan · map-skills · stub · reflect · reflections · propose · review · abstract · capture · sources · config |
 
 ## Build & test
 

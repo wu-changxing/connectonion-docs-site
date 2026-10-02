@@ -40,6 +40,8 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      { source: '/cli/wiki', destination: '/cli/rem', permanent: true },
+      { source: '/cli/wiki.md', destination: '/cli/rem.md', permanent: true },
       {
         source: '/blog/one-mailbox-two-limits',
         destination: '/blog/a-page-should-not-become-a-wall',
