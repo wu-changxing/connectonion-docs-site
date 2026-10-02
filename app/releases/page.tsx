@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'REM investigates recent people, projects and related organizations during init, then opens the connected reader with cited findings and open threads.'
+                ? 'co rem investigates recent people, projects and related organizations during init, then opens the connected reader with cited findings and open threads.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
