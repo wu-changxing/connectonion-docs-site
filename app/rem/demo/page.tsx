@@ -19,7 +19,7 @@ export default function RemDemoPage() {
   return (
     <main className={styles.stage}>
       <header className={styles.bar}>
-        <Link className={styles.back} href="/rem" aria-label="Back to REM overview">← <span>REM</span></Link>
+        <Link className={styles.back} href="/rem" aria-label="Back to co rem overview">← <span>co rem</span></Link>
         <div className={styles.label}>
           <h1>Explore a sample notebook</h1>
           <span className={styles.metaDesktop}>Invented people and sources · frozen {REM_SAMPLE_DATE} · reader {REM_SAMPLE_VERSION}</span>
@@ -30,7 +30,7 @@ export default function RemDemoPage() {
       <iframe
         className={styles.reader}
         src="/rem/sample-reader.html"
-        title="Interactive REM reader with invented notebook data"
+        title="Interactive co rem reader with invented notebook data"
         loading="eager"
       />
     </main>

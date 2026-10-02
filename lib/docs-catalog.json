@@ -481,7 +481,7 @@
   },
   "/rem": {
     "title": "co rem: Overnight AI Memory and Morning Recall | ConnectOnion",
-    "description": "REM works through approved sources while you sleep, carries context into the morning, and helps you remember it. Explore the opt-in co rem preview and its limits.",
+    "description": "co rem works through approved sources while you sleep, carries context into the morning, and helps you remember it. Explore the opt-in co rem preview and its limits.",
     "path": "/rem"
   },
   "/rem/demo": {
@@ -493,11 +493,6 @@
     "title": "co rem CLI reference for the opt-in preview | ConnectOnion",
     "description": "Commands, source controls, review steps, and limits for the opt-in co rem 1.9.0 preview. Read the exact release-synced CLI guide.",
     "path": "/cli/rem"
-  },
-  "/cli/wiki": {
-    "title": "co wiki | ConnectOnion",
-    "description": "Experimental: a notebook about the people, projects and tools in your work, built and kept current from your mail and coding sessions.",
-    "path": "/cli/wiki"
   },
   "/cli/benchmark": {
     "title": "co benchmark and co eval | ConnectOnion",
