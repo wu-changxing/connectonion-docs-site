@@ -257,6 +257,9 @@ export const navigation = [
     prev: { href: '/cli/telegram', title: 'co telegram' },
     next: { href: '/cli/slack', title: 'co slack' }
   },
+  { title: 'co github', href: '/cli/github', icon: VscComment, section: 'CLI: Issues & Feedback', keywords: ['github', 'issues', 'pull requests', 'inbox'], prev: { href: '/cli', title: 'CLI' }, next: { href: '/cli', title: 'CLI' } },
+  { title: 'co linear', href: '/cli/linear', icon: VscComment, section: 'CLI: Issues & Feedback', keywords: ['linear', 'issues', 'pull requests', 'inbox'], prev: { href: '/cli', title: 'CLI' }, next: { href: '/cli', title: 'CLI' } },
+  { title: 'co canny', href: '/cli/canny', icon: VscComment, section: 'CLI: Issues & Feedback', keywords: ['canny', 'issues', 'pull requests', 'inbox'], prev: { href: '/cli', title: 'CLI' }, next: { href: '/cli', title: 'CLI' } },
   {
     title: 'co slack',
     href: '/cli/slack',

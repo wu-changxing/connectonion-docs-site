@@ -98,3 +98,13 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## CLI logo wall audits
+
+Every CLI audit must check each command's corresponding service/feature entry
+on the framework GitHub README, documentation website and landing page.
+Compare the complete inventory, command names, icons, documentation links and
+release status, then verify desktop/mobile rendering. Commands covered by an
+existing feature entry need no duplicate logo; record that mapping in the audit.
+Link companion PRs for separate repositories and mark unpublished integrations
+as upcoming preview work. The framework AGENTS.md records the canonical paths.

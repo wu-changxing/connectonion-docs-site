@@ -201,3 +201,5 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 
 ## Unreleased candidate
 - [1.8.4 candidate guide](https://docs.connectonion.com/candidates/1.8.4/README.md): implementation under review, migration and contracts; no published package pin.
+
+- [GitHub listener (upcoming preview)](https://docs.connectonion.com/cli/github): Issue/PR activity in a local inbox using gh login. Implementation PR; not yet released.

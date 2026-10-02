@@ -1,0 +1,42 @@
+[
+  {
+    "state": "landing recheck",
+    "mode": "desktop",
+    "count": 50,
+    "cta": "See all 50 commands →",
+    "hash": "#commands",
+    "github": "›\n# issues & feedback\ngithub · linear · canny\nco github\nUpcoming preview: Experimental: GitHub issues, PRs and discussion as an inbox.\n↳ listen · receive · done · check · ls · chats · log · consume · watch · unwatch · watches\nco linear\nLinear issues from the terminal, with your personal API key: list, read, search, create, update, comment.\n↳ issues · issue · search · teams · projects · states · labels · users · check · create · update · comment\nco canny\nYour Canny feedback boards: posts, votes and comments; change a post's status, reply, write the changelog.\n↳ check · boards · posts · search · post · status · comment · changelog",
+    "overflow": false
+  },
+  {
+    "state": "journal recheck",
+    "mode": "desktop",
+    "text": "ConnectOnion\nAll Posts\nDocs\n/\nEngineering blog\nGITHUB\n·\n2026-10-02\nThe first GitHub scan took almost a minute\n\nA 58-second GitHub scan exposed the cost of finding reviews on old PRs. Why Co’s first listener reuses gh and keeps collection separate from task routing.\n\nBy ConnectOnion Team · 3 min read · 519 words\n\nCopy\nDownload\nGitHub\nInbox\nCLI\n\nThe owner was reading a REM project page and noticed that GitHub was missing. An issue or a PR discussion had no route into the project's context; someone still had to notice it. He wanted the same first step as WhatsApp: a listener that puts messages in the inbox, then lets a consumer wake Codex or route the work.\n\nThe first real catch-up scan made that small request feel less small. I pointed the adapter at the landing-page repository, starting from September 25. It collected 61 PR and comment records and saved its checkpoint. The scan took 58.09 seconds. Our proposed polling interval was 60 seconds. A listener that spends nearly a minute catching up has very little room to pretend that polling is immediate.\n\nThe expensive part came from a question about reviews. Could the listener first find recently updated issues, then read only those PRs? That would keep a quiet repository cheap. I put an old closed PR into a test, left its issue update timestamp in 2020, and gave it a newly submitted review. A consumer still needed to see that revi",
+    "overflow": false
+  },
+  {
+    "state": "blog listing",
+    "mode": "desktop",
+    "card": "02 Oct 2026 · 3 min\nThe first GitHub scan took almost a minute\n\nA 58-second GitHub scan exposed the cost of finding reviews on old PRs. Why Co’s first listener reuses gh and keeps collection separate from task routing.\n\nRead note"
+  },
+  {
+    "state": "landing recheck",
+    "mode": "mobile",
+    "count": 50,
+    "cta": "See all 50 commands →",
+    "hash": "#commands",
+    "github": "›\n# issues & feedback\ngithub · linear · canny\nco github\nUpcoming preview: Experimental: GitHub issues, PRs and discussion as an inbox.\n↳ listen · receive · done · check · ls · chats · log · consume · watch · unwatch · watches\nco linear\nLinear issues from the terminal, with your personal API key: list, read, search, create, update, comment.\n↳ issues · issue · search · teams · projects · states · labels · users · check · create · update · comment\nco canny\nYour Canny feedback boards: posts, votes and comments; change a post's status, reply, write the changelog.\n↳ check · boards · posts · search · post · status · comment · changelog",
+    "overflow": false
+  },
+  {
+    "state": "journal recheck",
+    "mode": "mobile",
+    "text": "ConnectOnion\nAll Posts\nDocs\n/\nEngineering blog\nGITHUB\n·\n2026-10-02\nThe first GitHub scan took almost a minute\n\nA 58-second GitHub scan exposed the cost of finding reviews on old PRs. Why Co’s first listener reuses gh and keeps collection separate from task routing.\n\nBy ConnectOnion Team · 3 min read · 519 words\n\nGitHub\nInbox\nCLI\n\nThe owner was reading a REM project page and noticed that GitHub was missing. An issue or a PR discussion had no route into the project's context; someone still had to notice it. He wanted the same first step as WhatsApp: a listener that puts messages in the inbox, then lets a consumer wake Codex or route the work.\n\nThe first real catch-up scan made that small request feel less small. I pointed the adapter at the landing-page repository, starting from September 25. It collected 61 PR and comment records and saved its checkpoint. The scan took 58.09 seconds. Our proposed polling interval was 60 seconds. A listener that spends nearly a minute catching up has very little room to pretend that polling is immediate.\n\nThe expensive part came from a question about reviews. Could the listener first find recently updated issues, then read only those PRs? That would keep a quiet repository cheap. I put an old closed PR into a test, left its issue update timestamp in 2020, and gave it a newly submitted review. A consumer still needed to see that review. Filtering ",
+    "overflow": false
+  },
+  {
+    "state": "blog listing",
+    "mode": "mobile",
+    "card": "02 Oct 2026 · 3 min\nThe first GitHub scan took almost a minute\n\nA 58-second GitHub scan exposed the cost of finding reviews on old PRs. Why Co’s first listener reuses gh and keeps collection separate from task routing.\n\nRead note"
+  }
+]
