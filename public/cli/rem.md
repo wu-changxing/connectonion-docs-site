@@ -10,6 +10,26 @@ Old command names (`unfinished`, `people`, `daily`, `subscribe`, `subscriptions`
 See the [2026-09-17 progress review](rem-progress.md) for the feature inventory,
 current CI blockers and remaining work.
 
+## What it is
+
+In REM sleep the brain replays the day and keeps what matters. **co rem** does
+the same for your work: it reads your mail (connected with `co auth google` or
+`co auth microsoft`) and your local Codex and Claude Code sessions, and keeps a
+Markdown page on each person, project and tool you work with. Your agent reads
+those pages, so it picks up where you left off instead of asking again.
+
+The notebook is a folder on your machine, `~/.co/rem`. Saved mail bodies stay
+in its owner-only `.state/` and never go into a page; a model reads them only
+through the login you choose. By default it runs on your own Codex plan and
+spends no OpenOnion credits.
+
+What it costs, measured: the first run writes 12 pages at a time. On a real
+notebook it wrote 198 of 242 people, project and organisation pages in about 25
+minutes, and it stops starting pages at 60 points of your Codex week.
+Investigating a very large subject can still cost millions of tokens; searching
+instead of summarising is
+[#1850](https://github.com/openonion/connectonion/issues/1850).
+
 ## Coming from co wiki (1.8.8–1.8.9)
 
 1.9.0 renames the feature `co rem` (#1932). Nothing needs doing by hand:
@@ -43,7 +63,10 @@ first minutes. Then it uses the configured model to write your own page: the who
 It writes a quick first pass of your page in about 4 minutes, then the whole
 page alongside the selected recent cohort. Next come people active in the last
 14 days, each investigated from up to two years of their mail; recently active
-projects; and organisations linked to those people: 12 pages at a time.
+projects already listed in the map; and organisations linked to those people:
+12 pages at a time. Session folders discovered after the map summary remain
+unmapped candidates during this first run. They do not silently add project
+pages or change the project count the owner just saw.
 An earlier whole-notebook experiment wrote 199 of 242 pages in about 30 minutes
 and moved the Codex week by one point. A person page
 read 150 days at the time; a real contact went back 15 months, so the window is
