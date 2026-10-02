@@ -42,8 +42,10 @@ from each version's actual note. The built a21, 1.8.10, 1.8.9b1 and unpublished
 accepted 51 descriptions and identified 13 that still led with release-process
 history or ended mid-sentence. Those 13 now use short, source-checked feature
 summaries from their corresponding notes; the 64-page structural check passes.
-Recheck: the PR's model-based SEO gate must accept all descriptions. This
-finding also came from CI after the visual review.
+The next model pass accepted 62 pages and identified only two truncated
+descriptions; their summaries now name the actual owner-page mapping and REM
+investigation fixes. Recheck: the PR's model-based SEO gate must accept all 64
+descriptions. This finding also came from CI after the visual review.
 
 **Publication gate:** verify the exact a21 PyPI package, GitHub release and
 linked package-side review evidence after they are public, then check the

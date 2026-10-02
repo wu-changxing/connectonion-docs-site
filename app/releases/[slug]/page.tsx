@@ -14,6 +14,7 @@ const releaseSummaries: Record<string, string> = {
   '1.8.4': 'Global settings use the selected env source; co env redacts values; Gmail account-bound drafts and Synology transfers get safer.',
   '1.8.8': 'One conversation streams across laptop and phone; co benchmark scores skills; browser network and cookies plus co schedule are added.',
   '1.8.8b1': 'Wiki moves to the 1.8.8 preview line; sync --all --dry-run stays inspection-only, and prompt-free initialization and page maps carry over.',
+  '1.8.8b6': 'co wiki init fills the owner page with cited map facts: name, mail counts, top correspondents, coding sessions and candidate self-addresses.',
   '1.8.8b7': 'co benchmark checks at least five cases before a skill edit; co eval run scores outcomes PASS, FAIL or UNVERIFIED and compares runs.',
   '1.8.9': 'co auth microsoft adds one consent for mail, calendar, files and OneNote; co onenote, co search, co fetch, task watches and WhatsApp files arrive.',
   '1.8.9b1': 'An upgraded Wiki notebook rebuilds the owner’s untouched page; malformed nightly review suggestions no longer fail the entire update.',
@@ -24,6 +25,7 @@ const releaseSummaries: Record<string, string> = {
   '1.8.9b8': 'co audit walks a CLI’s --help pages in an empty home, checks examples and options, and offers model review after rule checks.',
   '1.9.0a11': 'REM home starts with source-backed pages from the latest pass; older pages become keyboard-accessible recall questions, with counts in a disclosure.',
   '1.9.0a3': 'co rem init maps without a model and writes recent project pages; this release also fixes cited handles in Gmail lookups and daily-cap messaging.',
+  '1.9.0a4': 'REM skips empty investigations, drops only lines with bad citations, keeps services off people pages, and restores Codex Desktop messages.',
 }
 
 export const dynamicParams = false
