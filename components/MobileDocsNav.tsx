@@ -51,9 +51,12 @@ export function MobileDocsNav() {
       <div className="md:hidden sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="flex items-center justify-between px-4 py-3">
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-md bg-gray-100 text-gray-600 border border-gray-200 hover:bg-gray-200 transition-colors"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md bg-gray-100 text-gray-600 border border-gray-200 hover:bg-gray-200 transition-colors"
             aria-label="Toggle documentation menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-docs-menu"
           >
             {isOpen ? <HiOutlineXMark className="w-5 h-5" /> : <HiOutlineBars3 className="w-5 h-5" />}
           </button>
@@ -115,6 +118,7 @@ export function MobileDocsNav() {
               exit={{ x: '-100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
               className="lg:hidden fixed left-0 top-0 h-screen z-[45]"
+              id="mobile-docs-menu"
             >
               <DocsSidebar />
             </motion.div>

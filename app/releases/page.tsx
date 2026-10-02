@@ -28,13 +28,13 @@ const channels = [
 function InstallCommand({ command }: { command: string }) {
   const [copied, setCopied] = useState(false)
   return (
-    <div className="flex min-w-0 items-start gap-2 rounded-lg bg-gray-950 px-4 py-3 text-white">
-      <code className="min-w-0 flex-1 whitespace-normal break-words font-mono text-sm leading-6">{command}</code>
+    <div className="flex min-w-0 flex-col gap-2 rounded-lg bg-gray-950 px-4 py-3 text-white sm:flex-row sm:items-start">
+      <code className="min-w-0 w-full overflow-x-auto whitespace-pre-wrap break-normal font-mono text-sm leading-6 sm:flex-1">{command}</code>
       <button
         type="button"
         onClick={() => { void navigator.clipboard.writeText(command); setCopied(true) }}
         aria-label={copied ? 'Install command copied' : 'Copy install command'}
-        className="inline-flex min-h-11 shrink-0 items-center gap-1 rounded-md px-2 text-xs font-semibold text-gray-200 hover:bg-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400"
+        className="inline-flex min-h-11 shrink-0 self-end items-center gap-1 rounded-md px-2 text-xs font-semibold text-gray-200 hover:bg-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400 sm:self-auto"
       >
         <HiOutlineClipboard className="h-4 w-4" aria-hidden />
         {copied ? 'Copied' : 'Copy'}
@@ -76,17 +76,17 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'co rem investigates recent people, projects and related organizations during init, then opens the connected reader with cited findings and open threads.'
+                ? 'co rem now shows the full memory and sources on every record. Initial investigation covers eligible pages in the current map; broader historical discovery is still in progress.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
               <>
                 <InstallCommand command={`python -m pip install --upgrade 'connectonion==${PREVIEW_VERSION}'`} />
                 <div className="mt-5 flex flex-wrap gap-x-5 gap-y-1">
-                  <Link href={`/releases/${PREVIEW_VERSION}.md`} className="inline-flex min-h-11 items-center font-semibold text-amber-900 underline underline-offset-4 hover:text-amber-950">
+                  <Link href={`/releases/${PREVIEW_VERSION}`} className="inline-flex min-h-11 items-center font-semibold text-amber-900 underline underline-offset-4 hover:text-amber-950">
                     Read the preview notes
                   </Link>
-                  <Link href="/releases.md" className="inline-flex min-h-11 items-center text-amber-900 underline underline-offset-4 hover:text-amber-950">
+                  <Link href="/releases/archive" className="inline-flex min-h-11 items-center text-amber-900 underline underline-offset-4 hover:text-amber-950">
                     Every release
                   </Link>
                 </div>
@@ -108,9 +108,9 @@ export default function ReleasesPage() {
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
             <Link href="https://github.com/openonion/connectonion/releases" className="text-green-800 underline underline-offset-4 hover:text-green-950">Complete release history</Link>
-            <Link href="/releases/1.9.0a10.md" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.9.0a10 · REM reader</Link>
-            <Link href="/releases/1.8.10.md" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.8.10 · Stable</Link>
-            <Link href="/releases/1.9.0a9.md" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.9.0a9 · First REM reader</Link>
+            <Link href="/releases/1.9.0a10" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.9.0a10 · REM reader</Link>
+            <Link href="/releases/1.8.10" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.8.10 · Stable</Link>
+            <Link href="/releases/1.9.0a9" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.9.0a9 · First REM reader</Link>
           </div>
         </section>
 
@@ -138,7 +138,7 @@ export default function ReleasesPage() {
                 )
               })}
             </dl>
-            <Link href="/releases.md" className="mt-5 inline-flex min-h-11 items-center font-semibold text-green-800 underline underline-offset-4 hover:text-green-950">
+            <Link href="/releases/archive" className="mt-5 inline-flex min-h-11 items-center font-semibold text-green-800 underline underline-offset-4 hover:text-green-950">
               Read the release policy
             </Link>
           </div>

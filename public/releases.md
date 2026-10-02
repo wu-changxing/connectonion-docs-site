@@ -23,6 +23,21 @@ python -m pip install --upgrade 'connectonion==1.8.10'
 
 ## Current preview
 
+Alpha **1.9.0a21** keeps Full memory and sources open on every REM record,
+moves the original note ahead of supporting panels on phones, and raises the
+routine weekly investigation budget to 35 points with a 90% safety floor.
+Initial investigation covers eligible pages in the current map; broader
+historical contact discovery remains in progress. See
+[1.9.0a21 notes](releases/1.9.0a21.md).
+
+```bash
+python -m pip install --upgrade \
+  'connectonion==1.9.0a21'
+co rem open
+```
+
+Earlier alpha previews remain available:
+
 Alpha **1.9.0a20** finishes the visible **co rem** reader labels in its morning
 overview, recall prompt, empty states and source dialogs. See
 [1.9.0a20 notes](releases/1.9.0a20.md).
@@ -31,8 +46,6 @@ overview, recall prompt, empty states and source dialogs. See
 python -m pip install --upgrade 'connectonion==1.9.0a20'
 co rem open --live
 ```
-
-Earlier alpha previews remain available:
 
 Alpha **1.9.0a19** completes the public **co rem** rename: live reader links
 use `/rem`, old `/wiki` addresses redirect, and the README, homepage and docs

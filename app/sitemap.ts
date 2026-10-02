@@ -168,6 +168,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority,
     })
   }
+  for (const file of readdirSync('public/releases')) {
+    if (!/^\d+\.\d+\.\d+(?:a\d+|b\d+|rc\d+)?\.md$/.test(file)) continue
+    const path = `/releases/${file.slice(0, -3)}`
+    entries.set(path, { url: `${BASE_URL}${path}`, changeFrequency: 'monthly', priority: 0.5 })
+  }
+  entries.set('/releases/archive', {
+    url: `${BASE_URL}/releases/archive`,
+    changeFrequency: 'weekly',
+    priority: 0.6,
+  })
   for (const post of getAllBlogPosts()) {
     entries.set(post.href, {
       url: `${BASE_URL}${post.href}`,
