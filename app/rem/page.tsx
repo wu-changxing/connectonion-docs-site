@@ -159,7 +159,8 @@ export default function Page() {
             </p>
             <p>
               <code>co rem init</code> uses your configured model to investigate the first set of
-              pages, then lets you open a notebook with cited findings. It aims for roughly
+              pages. A written project page compares your coding requests with bounded local
+              repository evidence, then lets you open a notebook with cited findings. It aims for roughly
               20% of a weekly runner allowance and finishes the selected work even if it
               takes more, subject to the configured safety floor.
             </p>

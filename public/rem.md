@@ -2,7 +2,7 @@
 
 REM is named for rapid eye movement sleep. It works from sources you approve,
 keeps a local notebook about people and projects, and brings context forward
-when you return. The opt-in `co rem` 1.9.0a15 alpha begins with pages touched
+when you return. The opt-in `co rem` 1.9.0a16 alpha begins with pages touched
 by the latest pass, open threads and an older memory to recall. Records open
 as focused views of state, next exchanges, facts and connected context.
 
@@ -15,7 +15,7 @@ sample is frozen on 2 October 2026 and uses only invented people and sources.
 ## Start the opt-in preview
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a15'
+python -m pip install --upgrade 'connectonion==1.9.0a16'
 co auth google               # or: co auth microsoft
 co rem init --days 5          # a smaller first-run trial
 co rem open                   # read a local, offline snapshot
@@ -31,6 +31,10 @@ configured safety floor. The first run selects projects from the map it just
 showed. Session folders found afterward remain candidates and do not silently
 add project pages to that count. `co rem start` shows which sources, runner, model,
 schedule and limits will be used and asks before enabling background updates.
+Written project pages compare the owner's coding requests with a bounded local
+README, package metadata and Git evidence; unsupported optional sections are
+omitted after investigation. A local commit does not prove a passing test or
+public release.
 `co rem stop` turns the schedule off without deleting the notebook. Run
 `co rem open` again to render a newer snapshot.
 The reader runs locally and works offline. It inherits the a12 fix for Windows
@@ -77,4 +81,4 @@ The default `pip install connectonion` channel remains stable 1.8.10. Its
 experimental memory command is `co wiki`. The `co rem` alpha requires the
 exact version pin above. Preview releases can change before 1.9.0 is stable.
 Read [release channels](/releases) and the
-[1.9.0a15 notes](/releases/1.9.0a15.md) before installing.
+[1.9.0a16 notes](/releases/1.9.0a16.md) before installing.
