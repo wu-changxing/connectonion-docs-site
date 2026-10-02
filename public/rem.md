@@ -35,6 +35,8 @@ Written project pages compare the owner's coding requests with a bounded local
 README, package metadata and Git evidence; unsupported optional sections are
 omitted after investigation. A local commit does not prove a passing test or
 public release.
+Busy Gmail weeks are split without fetching the same message headers twice;
+requests now have a bounded timeout and retry.
 `co rem stop` turns the schedule off without deleting the notebook. Run
 `co rem open` again to render a newer snapshot.
 The reader runs locally and works offline. It inherits the a12 fix for Windows
