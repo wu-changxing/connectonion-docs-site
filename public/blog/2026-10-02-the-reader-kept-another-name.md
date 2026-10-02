@@ -1,6 +1,7 @@
 ---
 seoTitle: co rem Reader Branding and Bookmark Fixes in 1.9.0a20
 description: An independent review of rendered co rem pages found inconsistent reader labels, bookmarks opening Contents, and a mobile popup over preview commands.
+tags: [Testing, UX, Naming]
 ---
 
 # The reader kept another name
