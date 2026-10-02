@@ -156,19 +156,20 @@ export default function Page() {
             <p>
               <code>co rem init</code> uses your configured model to investigate the first set of
               pages. A written project page compares your coding requests with bounded local
-              repository evidence, then lets you open a notebook with cited findings. It aims for roughly
-              20% of a weekly runner allowance and finishes the selected work even if it
-              takes more, subject to the configured safety floor.
+              repository evidence, then lets you open a notebook with cited findings. For
+              Codex investigations, the default routine budget is 35 points per week. No new
+              page starts once the whole Codex week reaches 90% used; explicit limits remain
+              in force. <code>co rem status</code> shows the effective values.
             </p>
           </div>
           <div className={styles.terminal}>
             <div className={styles.terminalTop}><span>TERMINAL</span><span>{preview ?? 'preview'}</span></div>
             {preview ? (
-              <pre><code>{`python -m pip install --upgrade 'connectonion==${preview}'\nco rem init --days 5\nco rem open\nco rem start`}</code></pre>
+              <pre><code>{`python -m pip install --upgrade 'connectonion==${preview}'\nco rem init --days 5\nco rem open`}</code></pre>
             ) : (
               <p>The next co rem preview is being prepared. Use the stable channel until its exact version is published.</p>
             )}
-            <p>Connect a mailbox first with <code>co auth google</code> or <code>co auth microsoft</code>. <code>co rem start</code> shows sources and asks before scheduling.</p>
+            <p>Connect a mailbox first with <code>co auth google</code> or <code>co auth microsoft</code>. On macOS, <code>co rem start</code> shows sources and asks before scheduling. On Linux and Windows, run <code>co rem sync</code> manually when you want an update; background scheduling is macOS-only.</p>
           </div>
         </section>
 
