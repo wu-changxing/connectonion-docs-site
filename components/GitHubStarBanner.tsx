@@ -21,12 +21,13 @@ import { FaStar, FaTimes } from 'react-icons/fa'
 
 export default function GitHubStarBanner() {
   const pathname = usePathname()
+  const isTrialPage = pathname === '/rem' || pathname.startsWith('/rem/')
   const [isVisible, setIsVisible] = useState(false)
   const [starCount, setStarCount] = useState<number | null>(null)
   const [isDismissed, setIsDismissed] = useState(false)
 
   useEffect(() => {
-    if (pathname === '/releases') return
+    if (pathname === '/releases' || isTrialPage) return
 
     const dismissed = localStorage.getItem('github-star-banner-dismissed')
     if (dismissed === 'true') {
@@ -54,7 +55,7 @@ export default function GitHubStarBanner() {
       })
 
     return () => window.removeEventListener('scroll', onScroll)
-  }, [pathname])
+  }, [pathname, isTrialPage])
 
   const handleDismiss = () => {
     setIsVisible(false)
@@ -67,7 +68,7 @@ export default function GitHubStarBanner() {
     handleDismiss()
   }
 
-  if (isDismissed || pathname === '/releases') return null
+  if (isDismissed || pathname === '/releases' || isTrialPage) return null
 
   return (
     <div
