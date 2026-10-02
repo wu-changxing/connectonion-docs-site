@@ -7,7 +7,7 @@
  * version shown on the homepage or in structured metadata.
  */
 export const STABLE_VERSION = '1.8.10'
-export const PREVIEW_VERSION: string | null = '1.9.0a19'
+export const PREVIEW_VERSION: string | null = '1.9.0a20'
 // 1.9.0a19 is opt-in; normal installs remain on the stable line.
 export const STABILIZING_VERSION: string | null = null
 
