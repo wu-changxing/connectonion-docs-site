@@ -21,3 +21,9 @@ The GitHub, Linear and Canny guides and Design Journal returned HTTP 200 from
 the final production build, with the expected unique titles and canonical URLs.
 The journal was also captured at 1440×1000 and 390×844 without horizontal
  overflow. Its screenshots are included alongside the homepage wall captures.
+
+Merged main's co rem canonical-route and branding update (`a9b0813`) before
+review. Rebuilt with Webpack and reran blog checks: 121 Markdown files,
+137 canonical/feed/sitemap entries and 113 generated pages passed. Refreshed
+homepage screenshots; final checks still show 53 cards and no desktop/mobile
+horizontal overflow. The co rem card keeps main's `/rem` canonical target.
