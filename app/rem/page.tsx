@@ -77,7 +77,7 @@ export default function Page() {
             <p className={styles.eyebrow}>A memory with a night cycle</p>
             <h1 id="rem-title">Wake up with the <em>context</em> you need.</h1>
             <p className={styles.heroLead}>
-              Your first run investigates recent important people, projects and organizations.
+              Your first run investigates recent important people, mapped projects and organizations.
               After you approve a schedule, REM keeps that context current overnight.
             </p>
             <div className={styles.heroActions}>
