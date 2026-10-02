@@ -43,8 +43,7 @@
 - [co youtube](https://docs.connectonion.com/cli/youtube): The YouTube Data API
 - [co tiktok](https://docs.connectonion.com/cli/tiktok): Experimental: TikTok post plans and read-only readiness
 - [co skills](https://docs.connectonion.com/cli/skills): Link ConnectOnion's skills into Claude Code and Codex
-- [co rem](https://docs.connectonion.com/rem): your agent's memory — pages on the people, projects and tools in your work; today co wiki (Experimental), co rem from 1.9.0
-- [co wiki](https://docs.connectonion.com/cli/wiki): Experimental: memory — a notebook of your work, from mail and coding sessions
+- [co rem](https://docs.connectonion.com/rem): your agent's memory — overnight context from approved mail and coding sessions; opt-in 1.9.0 preview
 - [co benchmark](https://docs.connectonion.com/cli/benchmark): Benchmark a skill, then co eval it on the real agent
 - [co audit](https://docs.connectonion.com/cli/audit): Preview (1.8.9): is a CLI fit for an agent harness? Scores its help pages
 - [co call](https://docs.connectonion.com/cli/call): Run one command on a remote agent

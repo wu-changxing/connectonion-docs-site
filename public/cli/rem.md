@@ -308,9 +308,10 @@ Every command returns a next command, including in JSON and through a pipe.
 Until 1.8.9 the default opened `https://chat.openonion.ai/<address>/wiki` before
 O Chat served that route, so the page never loaded (#1828). O Chat serves it
 since openonion/oo-chat#246; opening locally stays the default because it works
-offline and needs no Host, and the live view is asked for with `--live`. The
-route and both switches live in `connectonion/rem/reader.py` (`LIVE_WIKI_URL`,
-`LIVE_WIKI_SERVED`, `LIVE_IS_DEFAULT`). `--local` is still accepted and always
+offline and needs no Host, and the live view is asked for with `--live`. New live links use `https://chat.openonion.ai/<address>/rem`; old `/wiki` links
+redirect to `/rem`. The
+route and both switches live in `connectonion/rem/reader.py` (`LIVE_REM_URL`,
+`LIVE_REM_SERVED`, `LIVE_IS_DEFAULT`). `--local` is still accepted and always
 means the snapshot. If the live view says co rem is not yours, add the
 browser's address as an admin of the Host: `co trust admin add <address>`.
 
