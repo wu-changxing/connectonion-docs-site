@@ -27,6 +27,13 @@ overflow appeared in those flows. The stable recommendation and opt-in preview
 remained distinct. The review did not inspect every historical release, a
 keyboard-only or screen-reader session, other browsers, or widths below 375px.
 
+After that visual review, the PR SEO gate found a P1 discovery gap: all 64
+rendered release-note and archive routes were absent from the sitemap. This
+could keep the new readable pages out of search results. We added those routes
+to the generated sitemap; a fresh production build, `check-seo.mjs` over the
+release routes (64 pages), and `test:blog:build` now pass. This CI finding was
+not part of the independent visual review.
+
 **Publication gate:** verify the exact a21 PyPI package, GitHub release and
 linked package-side review evidence after they are public, then check the
 pinned installation in a clean environment before deploying this docs update.
