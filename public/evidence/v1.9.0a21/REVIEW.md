@@ -34,6 +34,14 @@ to the generated sitemap; a fresh production build, `check-seo.mjs` over the
 release routes (64 pages), and `test:blog:build` now pass. This CI finding was
 not part of the independent visual review.
 
+The gate then found a P2 content gap: the notes had generic search descriptions
+that said only to read a version's changes. A reader searching for a specific
+fix or capability could not tell which result mattered. Descriptions now draw
+from each version's actual note. The built a21, 1.8.10, 1.8.9b1 and unpublished
+1.8.8b10 examples were checked for distinct, accurate wording; the 64-page
+structural check passes. Recheck: the PR's model-based SEO gate must accept the
+new descriptions. This finding also came from CI after the visual review.
+
 **Publication gate:** verify the exact a21 PyPI package, GitHub release and
 linked package-side review evidence after they are public, then check the
 pinned installation in a clean environment before deploying this docs update.

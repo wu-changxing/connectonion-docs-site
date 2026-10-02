@@ -16,11 +16,27 @@ export function generateStaticParams() {
   return [...slugs, 'archive'].map(slug => ({ slug }))
 }
 
+function releaseDescription(markdown: string) {
+  const paragraphs = markdown.split(/\n\s*\n/).slice(1)
+    .filter(paragraph => !/^\s*(?:#|```|!\[)/.test(paragraph))
+  const lead = paragraphs[0] || ''
+  const detail = paragraphs.find(paragraph => paragraph.length > 120 &&
+    !/^(?:An opt-in preview|The stable release after|\d+\.\d+\.\d+ is a fix line)/.test(paragraph)) || lead
+  const source = /Never published/i.test(lead) ? lead : detail
+  const plain = source.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*_`#]/g, '').replace(/^\s*[-*]\s+/gm, '')
+    .replace(/\s+/g, ' ').trim()
+  return plain.length > 240 ? `${plain.slice(0, 240).replace(/\s+\S*$/, '')}…` : plain
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
+  const description = slug === 'archive'
+    ? 'Compare 1.8.10 stable with opt-in 1.9.0a21, use exact pip pins, and browse earlier ConnectOnion release notes and channel policy.'
+    : releaseDescription(fs.readFileSync(path.join(releases, `${slug}.md`), 'utf8'))
   return makeMetadata(
     slug === 'archive' ? 'ConnectOnion release archive' : `ConnectOnion ${slug} release notes`,
-    slug === 'archive' ? 'Browse ConnectOnion release channels and past versions.' : `Read the ConnectOnion ${slug} changes and installation instructions.`,
+    description,
     `/releases/${slug}`,
   )
 }
