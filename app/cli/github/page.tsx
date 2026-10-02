@@ -2,7 +2,7 @@ import { ReleaseCliGuide } from '../../../components/ReleaseCliGuide'
 
 export const metadata = {
   title: 'GitHub CLI for AI agents (co github) | ConnectOnion',
-  description: 'Read github through Co. Setup, commands and current limitations.',
+  description: 'Upcoming preview: collect GitHub issues, pull requests, comments and reviews in a durable local inbox using your existing gh login. Not released yet.',
   alternates: { canonical: '/cli/github' },
 }
 

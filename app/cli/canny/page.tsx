@@ -2,7 +2,7 @@ import { ReleaseCliGuide } from '../../../components/ReleaseCliGuide'
 
 export const metadata = {
   title: 'Canny CLI for AI agents (co canny) | ConnectOnion',
-  description: 'Read canny through Co. Setup, commands and current limitations.',
+  description: 'Read Canny feedback posts, votes and comments with co canny. Find feature requests, change their status, reply to users and write changelog entries.',
   alternates: { canonical: '/cli/canny' },
 }
 

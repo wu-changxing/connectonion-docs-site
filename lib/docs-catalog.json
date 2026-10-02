@@ -571,17 +571,17 @@
   },
   "/cli/github": {
     "title": "co github",
-    "description": "github CLI setup, commands and limitations.",
+    "description": "Upcoming preview: collect GitHub issues, pull requests, comments and reviews in a durable local inbox using your existing gh login. Not released yet.",
     "path": "/cli/github"
   },
   "/cli/linear": {
     "title": "co linear",
-    "description": "linear CLI setup, commands and limitations.",
+    "description": "Search, read, create and update Linear issues from the terminal with co linear. Add comments and inspect teams, projects, states and labels.",
     "path": "/cli/linear"
   },
   "/cli/canny": {
     "title": "co canny",
-    "description": "canny CLI setup, commands and limitations.",
+    "description": "Read Canny feedback posts, votes and comments with co canny. Find feature requests, change their status, reply to users and write changelog entries.",
     "path": "/cli/canny"
   }
 }

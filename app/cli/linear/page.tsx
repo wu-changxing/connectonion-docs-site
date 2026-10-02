@@ -2,7 +2,7 @@ import { ReleaseCliGuide } from '../../../components/ReleaseCliGuide'
 
 export const metadata = {
   title: 'Linear CLI for AI agents (co linear) | ConnectOnion',
-  description: 'Read linear through Co. Setup, commands and current limitations.',
+  description: 'Search, read, create and update Linear issues from the terminal with co linear. Add comments and inspect teams, projects, states and labels.',
   alternates: { canonical: '/cli/linear' },
 }
 
