@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Audit dependencies
-        run: npm audit --audit-level=moderate
+        run: node scripts/check-audit.mjs
 
       - name: Verify blog content and discovery
         run: npm run test:blog

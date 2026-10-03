@@ -23,22 +23,29 @@ python -m pip install --upgrade 'connectonion==1.8.10'
 
 ## Current preview
 
-Alpha **1.9.0a21** keeps Full memory and sources open on every REM record,
-moves the original note ahead of supporting panels on phones, and raises the
-routine weekly investigation budget to 35 points with a 90% safety floor.
-Initial investigation covers eligible pages in the current map; broader
-historical contact discovery remains in progress. See
-[1.9.0a21 notes](releases/1.9.0a21.md).
+Alpha **1.9.0a22** makes project findings and their evidence easier to check:
+the current finding leads, partial session coverage is visible, and every
+numbered source can be opened from the reader. See
+[1.9.0a22 notes](releases/1.9.0a22.md).
 
 ```bash
-python -m pip install --upgrade \
-  'connectonion==1.9.0a21'
-co rem open
+python -m pip install --upgrade 'connectonion==1.9.0a22'
+co rem open --live
 ```
 
 Earlier alpha previews remain available:
 
-Alpha **1.9.0a20** finishes the visible **co rem** reader labels in its morning
+Alpha **1.9.0a21** shows the complete REM note and citations by default,
+puts the note before Facts on phones, and gives investigation more weekly
+room while retaining a 10% safety reserve. See
+[1.9.0a21 notes](releases/1.9.0a21.md).
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.0a21'
+co rem open --live
+```
+
+Alpha **1.9.0a20** corrected visible **co rem** reader labels in the morning
 overview, recall prompt, empty states and source dialogs. See
 [1.9.0a20 notes](releases/1.9.0a20.md).
 
@@ -312,4 +319,4 @@ Meaningful feature-train launches, phase promotions, stable releases, and
 material architecture decisions receive a new or substantially updated post.
 
 The OIP-only decision is recorded in
-[DD-053](design-decisions/053-oip-only-browser-and-native-coding-adapters.md).
+[DD-053](/blog/oip-native-coding-adapters).

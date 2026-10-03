@@ -156,7 +156,9 @@ export default function Page() {
             <p>
               <code>co rem init</code> uses your configured model to investigate the first set of
               pages. A written project page compares your coding requests with bounded local
-              repository evidence, then lets you open a notebook with cited findings. For
+              repository evidence, then leads with a supported finding when one exists. The reader
+              shows when only part of a project&apos;s session history was supplied and lets you
+              open each cited source. For
               Codex investigations, the default routine budget is 35 points per week. No new
               page starts once the whole Codex week reaches 90% used; explicit limits remain
               in force. <code>co rem status</code> shows the effective values.
