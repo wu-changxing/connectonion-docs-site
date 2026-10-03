@@ -29,7 +29,7 @@ const releaseSummaries: Record<string, string> = {
   '1.9.0a11': 'REM home starts with source-backed pages from the latest pass; older pages become keyboard-accessible recall questions, with counts in a disclosure.',
   '1.9.0a31': 'REM audits Project claims against cited originals, adds co rem investigate PAGE --retry-refused, and improves the phone reader’s first screen.',
   '1.9.0a34': 'REM reuses parsed coding-session inputs across CLI runs. One 90-day source-only repeat took 2.1 seconds instead of 103.5; page writing was not measured.',
-  '1.9.0a35': 'Written REM pages place the full-size source action beside the useful lead. In five sampled page types at 375×812, the action fit on the first screen and opened Sources.',
+  '1.9.0a35': 'ConnectOnion 1.9.0a35 moves REM View sources beside the first useful claim and tightens phone spacing, so readers can open citations directly from the lead card.',
   '1.9.0a3': 'co rem init maps without a model and writes recent project pages; this release also fixes cited handles in Gmail lookups and daily-cap messaging.',
   '1.9.0a4': 'REM skips empty investigations, drops only lines with bad citations, keeps services off people pages, and restores Codex Desktop messages.',
 }
