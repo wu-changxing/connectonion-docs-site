@@ -2,9 +2,10 @@
 
 co rem is named for rapid eye movement sleep. It works from sources you approve,
 keeps a local notebook about people and projects, and brings context forward
-when you return. The opt-in `co rem` 1.9.0a32 alpha investigates the full
+when you return. The opt-in `co rem` 1.9.0a33 alpha investigates the full
 mapped cohort concurrently, checks written Project claims against their
-originals, and makes cited Skill work openable from the local reader.
+originals, makes cited Skill work openable, and asks the Person writer to leave
+unsupported first-contact dates unknown.
 The first source map shows what it found and which records still need
 investigation. After a written pass, the reader begins with pages touched, open threads
 and an older memory to recall. Records open as focused views of state, next
@@ -20,7 +21,7 @@ sample is frozen on 2 October 2026 and uses only invented people and sources.
 ## Start the opt-in preview
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a32'
+python -m pip install --upgrade 'connectonion==1.9.0a33'
 co auth google               # or: co auth microsoft
 co rem init --days 5          # a smaller first-run trial
 co rem open                   # read a local, offline snapshot
@@ -30,9 +31,11 @@ co rem start                  # review sources and approve a schedule
 `co rem init` maps mail and local coding sessions, then uses the configured
 model to investigate your page, eligible people, queued projects, related
 organizations and installed skills, including in scripts and JSON runs. It estimates the
-work before spending tokens. Roughly 35% of a weekly runner allowance is a
-target; the selected investigation can use more to finish, subject to the
-configured safety floor. The first run selects projects from the map it just
+work before spending tokens. The configured investigation budget (35% of a
+weekly runner allowance by default) is a planning target. New pages can start
+beyond that target until the configured weekly safety floor (90% by default);
+pages already running finish. The input estimate includes cached tokens and is
+not the weekly quota meter. The first run selects projects from the map it just
 showed. Session folders found afterward remain candidates and do not silently
 add project pages to that count. `co rem start` shows which sources, runner, model,
 schedule and limits will be used and asks before enabling background updates.
@@ -93,4 +96,4 @@ The default `pip install connectonion` channel remains stable 1.8.10. Its
 experimental memory command is `co wiki`. The `co rem` alpha requires the
 exact version pin above. Preview releases can change before 1.9.0 is stable.
 Read [release channels](/releases) and the
-[1.9.0a32 notes](/releases/1.9.0a32) before installing.
+[1.9.0a33 notes](/releases/1.9.0a33) before installing.

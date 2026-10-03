@@ -11,7 +11,8 @@
  *   2. The star count fetched github.com/wu-changxing/connectonion, which is not where
  *      the repo lives. It 404s, so the count silently never rendered.
  *   3. Release status is a decision surface. The banner must not cover candidate
- *      versions, promotion requirements, or blocker evidence on /releases.
+ *      versions, promotion requirements, or blocker evidence on /releases or
+ *      an individual release note.
  *   4. The full panel covered first-run commands and reference text on phones.
  *      Keep it behind the small launcher until the reader opens it.
  */
@@ -23,6 +24,7 @@ import { FaStar, FaTimes } from 'react-icons/fa'
 
 export default function GitHubStarBanner() {
   const pathname = usePathname()
+  const isReleasePage = pathname === '/releases' || pathname.startsWith('/releases/')
   const isTrialPage = pathname === '/rem' || pathname.startsWith('/rem/')
   const [isVisible, setIsVisible] = useState(false)
   const [starCount, setStarCount] = useState<number | null>(null)
@@ -32,7 +34,7 @@ export default function GitHubStarBanner() {
   useEffect(() => {
     setIsVisible(false)
     setIsExpanded(false)
-    if (pathname === '/releases' || isTrialPage) return
+    if (isReleasePage || isTrialPage) return
 
     const dismissed = localStorage.getItem('github-star-banner-dismissed')
     if (dismissed === 'true') {
@@ -60,7 +62,7 @@ export default function GitHubStarBanner() {
       })
 
     return () => window.removeEventListener('scroll', onScroll)
-  }, [pathname, isTrialPage])
+  }, [pathname, isReleasePage, isTrialPage])
 
   const handleDismiss = () => {
     setIsVisible(false)
@@ -74,7 +76,7 @@ export default function GitHubStarBanner() {
     handleDismiss()
   }
 
-  if (isDismissed || pathname === '/releases' || isTrialPage) return null
+  if (isDismissed || isReleasePage || isTrialPage) return null
 
   return (
     <div
