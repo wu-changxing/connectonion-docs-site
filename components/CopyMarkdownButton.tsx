@@ -126,7 +126,7 @@ export function CopyMarkdownButton({
           onClick={handleCopy}
           disabled={loading || !content}
           className={`
-            relative flex min-h-11 items-center gap-2 px-3 py-1.5
+            relative flex min-h-11 min-w-11 items-center justify-center gap-2 px-3 py-1.5
             ${copied
               ? 'bg-green-50 border-green-300 text-green-700'
               : 'bg-white border-gray-200 text-gray-600 hover:border-gray-400 hover:text-gray-900'
@@ -138,6 +138,7 @@ export function CopyMarkdownButton({
             active:scale-95
           `}
           title={copied ? "Copied to clipboard!" : "Copy to clipboard"}
+          aria-label={copied ? "Copied to clipboard" : "Copy to clipboard"}
         >
           {loading ? (
             <>

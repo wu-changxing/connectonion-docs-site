@@ -14,7 +14,7 @@ export default function Page() {
       preview
       intro={
         <p className="mb-8 rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-sm text-blue-950">
-          This guide is copied from the published preview tag.{' '}
+          This guide covers the current opt-in preview.{' '}
           <Link href="/rem" className="underline underline-offset-4">See the night-to-morning experience →</Link>
         </p>
       }
