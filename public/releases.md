@@ -23,6 +23,21 @@ python -m pip install --upgrade 'connectonion==1.8.10'
 
 ## Current preview
 
+Alpha **1.9.0a31** checks written Project claims against their cited originals,
+lets you deliberately retry a refused page, and shows the Project purpose first
+on phones. It includes full-cohort concurrent onboarding from the a30 tag.
+See [1.9.0a31 notes](releases/1.9.0a31.md).
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.0a31'
+co rem open
+```
+
+The a30 tag did not publish to PyPI after release CI failed; its full-cohort
+changes are included in a31. See [#2253](https://github.com/openonion/connectonion/issues/2253).
+
+Earlier alpha previews remain available:
+
 Alpha **1.9.0a29** puts the investigate action on the first phone screen of
 mapped Person, Project and Skill pages. A mapped Project now leads with observed
 session coverage and says its purpose remains unverified; the phone privacy
@@ -32,8 +47,6 @@ control has a full touch target. See [1.9.0a29 notes](releases/1.9.0a29.md).
 python -m pip install --upgrade 'connectonion==1.9.0a29'
 co rem open --live
 ```
-
-Earlier alpha previews remain available:
 
 Alpha **1.9.0a28** implements context over control in `co rem investigate`:
 pre-authorizes local search and shell tools upfront, supplies live project
