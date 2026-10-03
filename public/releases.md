@@ -6,8 +6,8 @@ ConnectOnion has two release channels:
 - **Preview** contains opt-in alpha, beta, and release-candidate builds.
 
 Preview releases never replace the stable recommendation. Install one by
-pinning its exact version: `pip install --upgrade 'connectonion==X.YbN'`. The
-pin alone lets pip take that one preview. Do not add `--pre`: it applies to
+pinning the exact version shown below. The pin alone lets pip take that one
+preview. Do not add `--pre`: it applies to
 every dependency too, and under it 1.8.8b7 resolved httpx 1.0.dev6, which has
 no `AsyncClient`, and every remote agent call crashed.
 
@@ -23,6 +23,28 @@ python -m pip install --upgrade 'connectonion==1.8.10'
 
 ## Current preview
 
+Alpha **1.9.0a29** puts the investigate action on the first phone screen of
+mapped Person, Project and Skill pages. A mapped Project now leads with observed
+session coverage and says its purpose remains unverified; the phone privacy
+control has a full touch target. See [1.9.0a29 notes](releases/1.9.0a29.md).
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.0a29'
+co rem open --live
+```
+
+Earlier alpha previews remain available:
+
+Alpha **1.9.0a28** implements context over control in `co rem investigate`:
+pre-authorizes local search and shell tools upfront, supplies live project
+repository paths, and records full audit provenance. See
+[1.9.0a28 notes](releases/1.9.0a28.md).
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.0a28'
+co rem open --live
+```
+
 Alpha **1.9.0a27** keeps institutional and service desk senders out of the
 People notebook and filters dated scratch tasks and prompt fragments from the
 Projects notebook unless they have project evidence. See
@@ -32,8 +54,6 @@ Projects notebook unless they have project evidence. See
 python -m pip install --upgrade 'connectonion==1.9.0a27'
 co rem open --live
 ```
-
-Earlier alpha previews remain available:
 
 Alpha **1.9.0a26** reopens written `co rem` notebooks faster and makes it clear
 when background updates are off while existing memories remain available. The
@@ -365,4 +385,4 @@ Meaningful feature-train launches, phase promotions, stable releases, and
 material architecture decisions receive a new or substantially updated post.
 
 The OIP-only decision is recorded in
-[DD-053](/blog/oip-native-coding-adapters).
+[DD-053](design-decisions/053-oip-only-browser-and-native-coding-adapters.md).

@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'co rem keeps institutional senders out of People and scratch tasks without project evidence out of Projects. The first map shows what needs investigation; historical source-backed findings are still in progress.'
+                ? 'co rem now puts the investigation action near the top of mapped pages on a phone. Project pages state what the source map found and what still needs investigation.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
