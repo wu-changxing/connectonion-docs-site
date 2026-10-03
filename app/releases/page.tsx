@@ -77,7 +77,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'co rem now reuses parsed coding-session inputs across CLI runs. On one 90-day notebook, a source-only repeat took 2.1 seconds instead of 103.5; the notes explain what this trial did not measure.'
+                ? 'Written co rem pages now put a full-size View sources action beside the useful lead. In a five-type 375×812 phone trial, each action fit in the first screen and opened its sources; the notes explain the sample limits.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
