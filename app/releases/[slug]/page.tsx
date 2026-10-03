@@ -19,6 +19,7 @@ const releaseSummaries: Record<string, string> = {
   '1.8.9': 'co auth microsoft adds one consent for mail, calendar, files and OneNote; co onenote, co search, co fetch, task watches and WhatsApp files arrive.',
   '1.8.9b1': 'An upgraded Wiki notebook rebuilds the owner’s untouched page; malformed nightly review suggestions no longer fail the entire update.',
   '1.8.9b14': 'Nightly Wiki upkeep updates one page per model turn, archives obsolete uninvestigated map pages, and raises the daily model-call cap to 30.',
+  '1.8.9b17': 'Gemini 3.8 Flash returns as the default model; co status names free options at zero balance, and co wiki init improves page remapping and Gmail scans.',
   '1.8.9b19': 'Chat turns refuse ungranted commands; co auth microsoft adds OneNote consent; co ai watches tasks, and co search and co fetch read the web.',
   '1.8.9b20': 'co auth microsoft requests Notes.ReadWrite for personal Outlook accounts; OneNote accepts it, and experimental co slack joins inbox via Socket Mode.',
   '1.8.9b22': 'co audit keeps Python’s user-package base while isolating HOME, so user-installed co onenote help pages remain reachable without credential exposure.',
