@@ -2,9 +2,9 @@
 
 co rem is named for rapid eye movement sleep. It works from sources you approve,
 keeps a local notebook about people and projects, and brings context forward
-when you return. The opt-in `co rem` 1.9.0a31 alpha investigates the full
+when you return. The opt-in `co rem` 1.9.0a32 alpha investigates the full
 mapped cohort concurrently, checks written Project claims against their
-originals, and lets you retry one previously refused page.
+originals, and makes cited Skill work openable from the local reader.
 The first source map shows what it found and which records still need
 investigation. After a written pass, the reader begins with pages touched, open threads
 and an older memory to recall. Records open as focused views of state, next
@@ -20,7 +20,7 @@ sample is frozen on 2 October 2026 and uses only invented people and sources.
 ## Start the opt-in preview
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a31'
+python -m pip install --upgrade 'connectonion==1.9.0a32'
 co auth google               # or: co auth microsoft
 co rem init --days 5          # a smaller first-run trial
 co rem open                   # read a local, offline snapshot
@@ -41,6 +41,9 @@ fixed, bounded local repository evidence. The current supported finding leads,
 partial session coverage is marked, and every numbered source can be opened.
 An old README documents its own snapshot, and a local commit does not prove a
 passing test or public release.
+Skill pages keep the mapped invocation name, distinguish the intended result
+from inspected work, and link local output files beside concrete findings when
+those files are available. A run report alone does not prove its output quality.
 Busy Gmail weeks are split without fetching the same message headers twice;
 requests now have a bounded timeout and retry.
 `co rem stop` turns the schedule off without deleting the notebook. Run
@@ -61,6 +64,7 @@ snapshot opening.
   action view and direct record links.
 - Focused people and project records with dated activity, compact facts,
   decisions when recorded, and the full memory and sources visible on the page.
+- Skill records with openable cited run parts and local outputs when available.
 - Archived original excerpts and cited conversations when the source bodies
   are available locally.
 - The last pass's counts and run history, available in a disclosure.
@@ -89,4 +93,4 @@ The default `pip install connectonion` channel remains stable 1.8.10. Its
 experimental memory command is `co wiki`. The `co rem` alpha requires the
 exact version pin above. Preview releases can change before 1.9.0 is stable.
 Read [release channels](/releases) and the
-[1.9.0a31 notes](/releases/1.9.0a31) before installing.
+[1.9.0a32 notes](/releases/1.9.0a32) before installing.
