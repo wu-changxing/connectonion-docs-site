@@ -26,6 +26,7 @@ const releaseSummaries: Record<string, string> = {
   '1.8.9b22': 'co audit keeps Python’s user-package base while isolating HOME, so user-installed co onenote help pages remain reachable without credential exposure.',
   '1.8.9b8': 'co audit walks a CLI’s --help pages in an empty home, checks examples and options, and offers model review after rule checks.',
   '1.9.0a11': 'REM home starts with source-backed pages from the latest pass; older pages become keyboard-accessible recall questions, with counts in a disclosure.',
+  '1.9.0a31': 'REM audits Project claims against cited originals, adds co rem investigate PAGE --retry-refused, and improves the phone reader’s first screen.',
   '1.9.0a3': 'co rem init maps without a model and writes recent project pages; this release also fixes cited handles in Gmail lookups and daily-cap messaging.',
   '1.9.0a4': 'REM skips empty investigations, drops only lines with bad citations, keeps services off people pages, and restores Codex Desktop messages.',
 }
