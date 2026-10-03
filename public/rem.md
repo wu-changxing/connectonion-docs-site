@@ -2,13 +2,15 @@
 
 co rem is named for rapid eye movement sleep. It works from sources you approve,
 keeps a local notebook about people and projects, and brings context forward
-when you return. The opt-in `co rem` 1.9.0a35 alpha investigates the full
+when you return. The opt-in `co rem` 1.9.0a36 alpha investigates the full
 mapped cohort concurrently, checks written Project claims against their
 originals, makes cited Skill work openable, and leaves unsupported Person
 first-contact dates unknown. Follow-up investigations reuse locally parsed
 coding-session inputs across CLI runs; on one 90-day notebook, a source-only
 repeat took 2.1 seconds instead of 103.5. That trial did not measure model
-writing or full first-run time.
+writing or full first-run time. New Outlook HTML reads also keep event fields
+and participant roles on separate lines in provider-rendered source excerpts;
+previously saved excerpts are not rewritten.
 The first source map shows what it found and which records still need
 investigation. After a written pass, the reader begins with pages touched, open threads
 and an older memory to recall. Records open as focused views of state, next
@@ -24,7 +26,7 @@ sample is frozen on 2 October 2026 and uses only invented people and sources.
 ## Start the opt-in preview
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a35'
+python -m pip install --upgrade 'connectonion==1.9.0a36'
 co auth google               # or: co auth microsoft
 co rem init --days 5          # a smaller first-run trial
 co rem open                   # read a local, offline snapshot
@@ -99,4 +101,4 @@ The default `pip install connectonion` channel remains stable 1.8.10. Its
 experimental memory command is `co wiki`. The `co rem` alpha requires the
 exact version pin above. Preview releases can change before 1.9.0 is stable.
 Read [release channels](/releases) and the
-[1.9.0a35 notes](/releases/1.9.0a35) before installing.
+[1.9.0a36 notes](/releases/1.9.0a36) before installing.

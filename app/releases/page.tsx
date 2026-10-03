@@ -18,6 +18,14 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
 import { PREVIEW_VERSION, STABILIZING_VERSION, STABLE_VERSION } from '../../lib/version'
 
+const latestPreview = {
+  version: '1.9.0a36',
+  description: 'New Outlook HTML reads retain paragraph, table-field and participant-role separators, so event details remain distinguishable in provider-rendered text. Already saved excerpts stay as they were; the notes explain the one-message check.',
+}
+if (PREVIEW_VERSION && PREVIEW_VERSION !== latestPreview.version) {
+  throw new Error('Update the release card description for the published preview.')
+}
+
 const channels = [
   { name: 'Alpha', version: 'X.Y.ZaN', description: 'Incomplete, opt-in developer work.', icon: HiOutlineBeaker },
   { name: 'Beta', version: 'X.Y.ZbN', description: 'Feature-complete; testing continues.', icon: HiOutlineArrowPath },
@@ -77,7 +85,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'Written co rem pages now put a full-size View sources action beside the useful lead. In a five-type 375×812 phone trial, each action fit in the first screen and opened its sources; the notes explain the sample limits.'
+                ? latestPreview.description
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
