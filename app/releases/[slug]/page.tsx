@@ -56,7 +56,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     ? 'Compare 1.8.10 stable with opt-in 1.9.0a33, use exact pip pins, and browse earlier ConnectOnion release notes and channel policy.'
     : releaseSummaries[slug] || releaseDescription(fs.readFileSync(path.join(releases, `${slug}.md`), 'utf8'))
   return makeMetadata(
-    slug === 'archive' ? 'ConnectOnion release archive' : `ConnectOnion ${slug} release notes`,
+    slug === 'archive' ? 'ConnectOnion release archive'
+      : slug === '1.9.0a30' ? 'ConnectOnion 1.9.0a30 — never published'
+      : `ConnectOnion ${slug} release notes`,
     description,
     `/releases/${slug}`,
   )
