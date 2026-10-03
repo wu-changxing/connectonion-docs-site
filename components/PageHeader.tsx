@@ -34,6 +34,7 @@ interface PageHeaderProps {
   markdownPath?: string
   markdownFilename?: string
   markdownContent?: string
+  floatingMobileCopy?: boolean
 }
 
 export function PageHeader({
@@ -49,6 +50,7 @@ export function PageHeader({
   markdownPath,
   markdownFilename,
   markdownContent,
+  floatingMobileCopy = true,
 }: PageHeaderProps) {
   return (
     <>
@@ -89,6 +91,8 @@ export function PageHeader({
               content={markdownContent}
               filename={markdownFilename}
               className="flex-shrink-0"
+              floatingMobile={floatingMobileCopy}
+              showMobileLabel={!floatingMobileCopy}
             />
           )}
         </div>

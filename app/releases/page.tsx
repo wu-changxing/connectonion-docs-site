@@ -54,6 +54,7 @@ export default function ReleasesPage() {
           description="Choose the stable release, or opt into a specific preview."
           markdownPath="/releases.md"
           markdownFilename="releases.md"
+          floatingMobileCopy={false}
         />
 
         <section aria-label="Current releases" className="mb-12 grid gap-6 md:grid-cols-2">
