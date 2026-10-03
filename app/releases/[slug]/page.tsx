@@ -77,7 +77,7 @@ export default async function ReleaseNotes({ params }: { params: Promise<{ slug:
         </nav>
         <div className="blog-prose break-words [&_h1]:mb-8 [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:leading-tight [&_pre]:whitespace-pre-wrap [&_pre]:break-normal md:[&_h1]:text-4xl" dangerouslySetInnerHTML={{ __html: renderBlogMarkdown(markdown) }} />
         <p className="mt-12 border-t border-gray-200 pt-6 text-sm text-gray-600">
-          <Link href={source} className="inline-flex min-h-11 items-center underline underline-offset-4">View Markdown source</Link>
+          <a href={source} className="inline-flex min-h-11 items-center underline underline-offset-4">View Markdown source</a>
         </p>
       </article>
     </div>
