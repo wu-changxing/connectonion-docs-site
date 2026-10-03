@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'co rem asks Person investigations to mark unproven first-contact dates Unknown, updates first-run cost guidance, and keeps Skill and Project findings tied to inspectable sources.'
+                ? 'co rem now reuses parsed coding-session inputs across CLI runs. On one 90-day notebook, a source-only repeat took 2.1 seconds instead of 103.5; the notes explain what this trial did not measure.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
