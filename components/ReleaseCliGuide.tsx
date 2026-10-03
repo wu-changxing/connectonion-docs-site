@@ -24,7 +24,7 @@ export function ReleaseCliGuide({ name, preview = false, intro }: { name: CliGui
           ) : (
             <Link href="/releases" className="text-green-700 underline">ConnectOnion {STABLE_VERSION}</Link>
           )}
-          <CopyMarkdownButton markdownPath={`/cli/${name}.md`} filename={`${name}.md`} floatingMobile={false} />
+          <CopyMarkdownButton markdownPath={`/cli/${name}.md`} filename={`${name}.md`} floatingMobile={false} showMobileLabel={name === 'rem'} />
         </div>
         {/* A site-owned note above the synced guide: the guide text is copied
             verbatim from the CLI, so anything the site adds goes here, not into it. */}

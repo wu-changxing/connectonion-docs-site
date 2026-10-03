@@ -2,8 +2,9 @@
 
 co rem is named for rapid eye movement sleep. It works from sources you approve,
 keeps a local notebook about people and projects, and brings context forward
-when you return. The opt-in `co rem` 1.9.0a29 alpha puts the investigate action
-near the top of a mapped page on a phone and gives Project pages an honest lead.
+when you return. The opt-in `co rem` 1.9.0a31 alpha investigates the full
+mapped cohort concurrently, checks written Project claims against their
+originals, and lets you retry one previously refused page.
 The first source map shows what it found and which records still need
 investigation. After a written pass, the reader begins with pages touched, open threads
 and an older memory to recall. Records open as focused views of state, next
@@ -19,7 +20,7 @@ sample is frozen on 2 October 2026 and uses only invented people and sources.
 ## Start the opt-in preview
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a29'
+python -m pip install --upgrade 'connectonion==1.9.0a31'
 co auth google               # or: co auth microsoft
 co rem init --days 5          # a smaller first-run trial
 co rem open                   # read a local, offline snapshot
@@ -88,4 +89,4 @@ The default `pip install connectonion` channel remains stable 1.8.10. Its
 experimental memory command is `co wiki`. The `co rem` alpha requires the
 exact version pin above. Preview releases can change before 1.9.0 is stable.
 Read [release channels](/releases) and the
-[1.9.0a29 notes](/releases/1.9.0a29) before installing.
+[1.9.0a31 notes](/releases/1.9.0a31) before installing.

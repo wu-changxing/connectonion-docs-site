@@ -22,6 +22,7 @@ interface CopyMarkdownButtonProps {
   className?: string
   // Control mobile behavior
   floatingMobile?: boolean
+  showMobileLabel?: boolean
 }
 
 export function CopyMarkdownButton({ 
@@ -29,7 +30,8 @@ export function CopyMarkdownButton({
   content: directContent,
   filename = 'content.md', 
   className = '',
-  floatingMobile = true
+  floatingMobile = true,
+  showMobileLabel = false
 }: CopyMarkdownButtonProps) {
   const [copied, setCopied] = useState(false)
   const [content, setContent] = useState(directContent || '')
@@ -143,17 +145,17 @@ export function CopyMarkdownButton({
           {loading ? (
             <>
               <HiOutlineArrowPath className="w-4 h-4 animate-spin" />
-              <span className="hidden sm:inline">Loading...</span>
+              <span className={showMobileLabel ? 'inline' : 'hidden sm:inline'}>Loading...</span>
             </>
           ) : copied ? (
             <>
               <HiOutlineCheck className="w-4 h-4 animate-in fade-in zoom-in duration-200" />
-              <span className="hidden sm:inline">Copied!</span>
+              <span className={showMobileLabel ? 'inline' : 'hidden sm:inline'}>Copied!</span>
             </>
           ) : (
             <>
               <HiOutlineClipboard className="w-4 h-4" />
-              <span className="hidden sm:inline">Copy</span>
+              <span className={showMobileLabel ? 'inline' : 'hidden sm:inline'}>{showMobileLabel ? 'Copy page' : 'Copy'}</span>
             </>
           )}
         </button>

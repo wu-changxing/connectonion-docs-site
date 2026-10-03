@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'co rem now puts the investigation action near the top of mapped pages on a phone. Project pages state what the source map found and what still needs investigation.'
+                ? 'co rem checks Project claims against cited originals before replacing a page, keeps the prior page when evidence falls short, and lets you retry one refused page.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
