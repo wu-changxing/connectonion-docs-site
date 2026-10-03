@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { makeMetadata } from '../../metadata'
 import { renderBlogMarkdown } from '../../../lib/blog-content.mjs'
+import { PREVIEW_VERSION, STABLE_VERSION } from '../../../lib/version'
 
 const releases = path.join(process.cwd(), 'public', 'releases')
 const slugs = fs.readdirSync(releases).filter(name => /^\d+\.\d+\.\d+(?:a\d+|b\d+|rc\d+)?\.md$/.test(name))
@@ -27,6 +28,7 @@ const releaseSummaries: Record<string, string> = {
   '1.8.9b8': 'co audit walks a CLI’s --help pages in an empty home, checks examples and options, and offers model review after rule checks.',
   '1.9.0a11': 'REM home starts with source-backed pages from the latest pass; older pages become keyboard-accessible recall questions, with counts in a disclosure.',
   '1.9.0a31': 'REM audits Project claims against cited originals, adds co rem investigate PAGE --retry-refused, and improves the phone reader’s first screen.',
+  '1.9.0a34': 'REM reuses parsed coding-session inputs across CLI runs. One 90-day source-only repeat took 2.1 seconds instead of 103.5; page writing was not measured.',
   '1.9.0a3': 'co rem init maps without a model and writes recent project pages; this release also fixes cited handles in Gmail lookups and daily-cap messaging.',
   '1.9.0a4': 'REM skips empty investigations, drops only lines with bad citations, keeps services off people pages, and restores Codex Desktop messages.',
 }
@@ -53,7 +55,7 @@ function releaseDescription(markdown: string) {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const description = slug === 'archive'
-    ? 'Compare 1.8.10 stable with opt-in 1.9.0a33, use exact pip pins, and browse earlier ConnectOnion release notes and channel policy.'
+    ? `Compare stable ${STABLE_VERSION}${PREVIEW_VERSION ? ` with opt-in preview ${PREVIEW_VERSION}` : ''}, use exact pip pins, and browse earlier ConnectOnion release notes and channel policy.`
     : releaseSummaries[slug] || releaseDescription(fs.readFileSync(path.join(releases, `${slug}.md`), 'utf8'))
   return makeMetadata(
     slug === 'archive' ? 'ConnectOnion release archive'
