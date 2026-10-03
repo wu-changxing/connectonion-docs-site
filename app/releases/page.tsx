@@ -19,8 +19,8 @@ import { PageHeader } from '../../components/PageHeader'
 import { PREVIEW_VERSION, STABILIZING_VERSION, STABLE_VERSION } from '../../lib/version'
 
 const latestPreview = {
-  version: '1.9.0a38',
-  description: 'Long REM Skill source dialogs now let readers find a word or phrase and move to the next match inside the retained excerpt. The archived text stays intact, and the dialog names its limits when only a prefix was saved. The notes describe the bounded reader check.',
+  version: '1.9.0a39',
+  description: 'Cited REM Skill findings now put 44-pixel source links beside the lead, so a phone reader can open each numbered original directly. The full memory and View sources remain available; labelled private findings hide their direct links when privacy is on. The notes describe the bounded reader check.',
 }
 if (PREVIEW_VERSION && PREVIEW_VERSION !== latestPreview.version) {
   throw new Error('Update the release card description for the published preview.')
