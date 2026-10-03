@@ -52,7 +52,7 @@ function releaseDescription(markdown: string) {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const description = slug === 'archive'
-    ? 'Compare 1.8.10 stable with opt-in 1.9.0a31, use exact pip pins, and browse earlier ConnectOnion release notes and channel policy.'
+    ? 'Compare 1.8.10 stable with opt-in 1.9.0a32, use exact pip pins, and browse earlier ConnectOnion release notes and channel policy.'
     : releaseSummaries[slug] || releaseDescription(fs.readFileSync(path.join(releases, `${slug}.md`), 'utf8'))
   return makeMetadata(
     slug === 'archive' ? 'ConnectOnion release archive' : `ConnectOnion ${slug} release notes`,

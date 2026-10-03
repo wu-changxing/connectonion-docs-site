@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'co rem checks Project claims against cited originals before replacing a page, keeps the prior page when evidence falls short, and lets you retry one refused page.'
+                ? 'co rem keeps Skill pages tied to their invocation names, opens cited run parts and local outputs, and separates intended results from inspected work.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
