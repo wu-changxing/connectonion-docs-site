@@ -29,6 +29,7 @@ const releaseSummaries: Record<string, string> = {
   '1.9.0a11': 'REM home starts with source-backed pages from the latest pass; older pages become keyboard-accessible recall questions, with counts in a disclosure.',
   '1.9.0a31': 'REM audits Project claims against cited originals, adds co rem investigate PAGE --retry-refused, and improves the phone reader’s first screen.',
   '1.9.0a34': 'REM reuses parsed coding-session inputs across CLI runs. One 90-day source-only repeat took 2.1 seconds instead of 103.5; page writing was not measured.',
+  '1.9.0a35': 'ConnectOnion 1.9.0a35 moves REM View sources beside the first useful claim and tightens phone spacing, so readers can open citations directly from the lead card.',
   '1.9.0a3': 'co rem init maps without a model and writes recent project pages; this release also fixes cited handles in Gmail lookups and daily-cap messaging.',
   '1.9.0a4': 'REM skips empty investigations, drops only lines with bad citations, keeps services off people pages, and restores Codex Desktop messages.',
 }
@@ -81,7 +82,10 @@ export default async function ReleaseNotes({ params }: { params: Promise<{ slug:
           <span className="mx-2" aria-hidden="true">/</span>
           <span>{slug === 'archive' ? 'Archive' : slug}</span>
         </nav>
-        <div className="blog-prose break-words [&_h1]:mb-8 [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:leading-tight [&_pre]:whitespace-pre-wrap [&_pre]:break-normal md:[&_h1]:text-4xl" dangerouslySetInnerHTML={{ __html: renderBlogMarkdown(markdown) }} />
+        <div
+          className={`blog-prose break-words [&_h1]:mb-8 [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:leading-tight [&_pre]:whitespace-pre-wrap [&_pre]:break-normal md:[&_h1]:text-4xl ${slug === 'archive' ? '[&_a]:inline-flex [&_a]:min-h-11 [&_a]:items-center' : ''}`}
+          dangerouslySetInnerHTML={{ __html: renderBlogMarkdown(markdown) }}
+        />
         <p className="mt-12 border-t border-gray-200 pt-6 text-sm text-gray-600">
           <a href={source} className="inline-flex min-h-11 items-center underline underline-offset-4">View Markdown source</a>
         </p>
