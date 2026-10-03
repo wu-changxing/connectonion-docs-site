@@ -254,6 +254,11 @@ h3 .heading-anchor:focus {
   text-underline-offset: 0.2em;
 }
 .blog-prose a:hover { text-decoration-color: #15803d; }
+.blog-prose a[href="#install-this-preview"] {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+}
 .blog-prose strong { color: #111827; font-weight: 700; }
 .blog-prose ul,
 .blog-prose ol { padding-left: 1.5rem; }

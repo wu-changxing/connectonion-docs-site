@@ -51,7 +51,7 @@ function releaseDescription(markdown: string) {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const description = slug === 'archive'
-    ? 'Compare 1.8.10 stable with opt-in 1.9.0a22, use exact pip pins, and browse earlier ConnectOnion release notes and channel policy.'
+    ? 'Compare 1.8.10 stable with opt-in 1.9.0a25, use exact pip pins, and browse earlier ConnectOnion release notes and channel policy.'
     : releaseSummaries[slug] || releaseDescription(fs.readFileSync(path.join(releases, `${slug}.md`), 'utf8'))
   return makeMetadata(
     slug === 'archive' ? 'ConnectOnion release archive' : `ConnectOnion ${slug} release notes`,
@@ -77,7 +77,7 @@ export default async function ReleaseNotes({ params }: { params: Promise<{ slug:
         </nav>
         <div className="blog-prose break-words [&_h1]:mb-8 [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:leading-tight [&_pre]:whitespace-pre-wrap [&_pre]:break-normal md:[&_h1]:text-4xl" dangerouslySetInnerHTML={{ __html: renderBlogMarkdown(markdown) }} />
         <p className="mt-12 border-t border-gray-200 pt-6 text-sm text-gray-600">
-          <Link href={source} className="underline underline-offset-4">View Markdown source</Link>
+          <Link href={source} className="inline-flex min-h-11 items-center underline underline-offset-4">View Markdown source</Link>
         </p>
       </article>
     </div>

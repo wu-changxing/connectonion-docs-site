@@ -114,6 +114,8 @@ export default defineConfig([
     rules: { "react-hooks/immutability": "off" },
   },
   globalIgnores([
+    ".claude/worktrees/**",
+    ".worktrees/**",
     ".next/**",
     "out/**",
     "build/**",

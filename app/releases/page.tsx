@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'co rem leads with a supported project finding when one exists, shows partial session coverage, and opens each numbered source. Broader historical discovery is still in progress.'
+                ? 'The first co rem map now shows what it found, what still needs investigation, and how to continue. Mapped records are a starting point; historical source-backed findings are still in progress.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
