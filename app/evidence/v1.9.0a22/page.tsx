@@ -7,8 +7,8 @@ import { renderBlogMarkdown } from '../../../lib/blog-content.mjs'
 const source = '/evidence/v1.9.0a22/REVIEW.md'
 
 export const metadata = makeMetadata(
-  'REM 1.9.0a22 experience review',
-  'Independent AI founder and UI review of sampled REM pages, source dialogs, mobile states, findings, and remaining gaps.',
+  'co rem project citations and Unknown status: 1.9.0a22 review',
+  'See how co rem 1.9.0a22 handles ambiguous coding replies, repository source citations, Unknown project status, mobile source dialogs, and sampled Skill evidence.',
   '/evidence/v1.9.0a22',
 )
 
