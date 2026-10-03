@@ -1,4 +1,5 @@
 ---
+publishedAt: 2026-10-03T20:21:22Z
 description: The source link worked, but four of five written REM pages hid part of it below a phone's first screen. A small layout change moved evidence beside the claim it supports.
 tags: [REM, Design, Evidence]
 ---
