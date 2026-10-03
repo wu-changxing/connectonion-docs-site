@@ -16,6 +16,7 @@ const releaseSummaries: Record<string, string> = {
   '1.8.8b1': 'Wiki moves to the 1.8.8 preview line; sync --all --dry-run stays inspection-only, and prompt-free initialization and page maps carry over.',
   '1.8.8b6': 'co wiki init fills the owner page with cited map facts: name, mail counts, top correspondents, coding sessions and candidate self-addresses.',
   '1.8.8b7': 'co benchmark checks at least five cases before a skill edit; co eval run scores outcomes PASS, FAIL or UNVERIFIED and compares runs.',
+  '1.8.8b11': 'co browser commands now stop at their deadline, hosted devices receive turns after joining, and co trust and co create report invalid inputs with non-zero exits.',
   '1.8.9': 'co auth microsoft adds one consent for mail, calendar, files and OneNote; co onenote, co search, co fetch, task watches and WhatsApp files arrive.',
   '1.8.9b1': 'An upgraded Wiki notebook rebuilds the owner’s untouched page; malformed nightly review suggestions no longer fail the entire update.',
   '1.8.9b14': 'Nightly Wiki upkeep updates one page per model turn, archives obsolete uninvestigated map pages, and raises the daily model-call cap to 30.',
