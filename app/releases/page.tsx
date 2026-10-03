@@ -76,7 +76,7 @@ export default function ReleasesPage() {
             </h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
               {PREVIEW_VERSION
-                ? 'co rem keeps Skill pages tied to their invocation names, opens cited run parts and local outputs, and separates intended results from inspected work.'
+                ? 'co rem asks Person investigations to mark unproven first-contact dates Unknown, updates first-run cost guidance, and keeps Skill and Project findings tied to inspectable sources.'
                 : 'The stable release is the current recommendation.'}
             </p>
             {PREVIEW_VERSION && (
