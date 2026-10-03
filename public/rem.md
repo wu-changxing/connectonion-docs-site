@@ -2,7 +2,7 @@
 
 co rem is named for rapid eye movement sleep. It works from sources you approve,
 keeps a local notebook about people and projects, and brings context forward
-when you return. The opt-in `co rem` 1.9.0a36 alpha investigates the full
+when you return. The opt-in `co rem` 1.9.0a37 alpha investigates the full
 mapped cohort concurrently, checks written Project claims against their
 originals, makes cited Skill work openable, and leaves unsupported Person
 first-contact dates unknown. Follow-up investigations reuse locally parsed
@@ -10,7 +10,10 @@ coding-session inputs across CLI runs; on one 90-day notebook, a source-only
 repeat took 2.1 seconds instead of 103.5. That trial did not measure model
 writing or full first-run time. New Outlook HTML reads also keep event fields
 and participant roles on separate lines in provider-rendered source excerpts;
-previously saved excerpts are not rewritten.
+previously saved excerpts are not rewritten. Project cards now put a cited
+purpose beside the latest finding, and the phone reader keeps each purpose
+source link next to that purpose. Long purposes can be expanded while Full
+memory remains open on the page.
 The first source map shows what it found and which records still need
 investigation. After a written pass, the reader begins with pages touched, open threads
 and an older memory to recall. Records open as focused views of state, next
@@ -26,7 +29,7 @@ sample is frozen on 2 October 2026 and uses only invented people and sources.
 ## Start the opt-in preview
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a36'
+python -m pip install --upgrade 'connectonion==1.9.0a37'
 co auth google               # or: co auth microsoft
 co rem init --days 5          # a smaller first-run trial
 co rem open                   # read a local, offline snapshot
@@ -72,6 +75,7 @@ snapshot opening.
   action view and direct record links.
 - Focused people and project records with dated activity, compact facts,
   decisions when recorded, and the full memory and sources visible on the page.
+  Project purpose citations stay reachable beside the purpose preview.
 - Skill records with openable cited run parts and local outputs when available.
 - Archived original excerpts and cited conversations when the source bodies
   are available locally.
@@ -101,4 +105,4 @@ The default `pip install connectonion` channel remains stable 1.8.10. Its
 experimental memory command is `co wiki`. The `co rem` alpha requires the
 exact version pin above. Preview releases can change before 1.9.0 is stable.
 Read [release channels](/releases) and the
-[1.9.0a36 notes](/releases/1.9.0a36) before installing.
+[1.9.0a37 notes](/releases/1.9.0a37) before installing.

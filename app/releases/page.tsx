@@ -19,8 +19,8 @@ import { PageHeader } from '../../components/PageHeader'
 import { PREVIEW_VERSION, STABILIZING_VERSION, STABLE_VERSION } from '../../lib/version'
 
 const latestPreview = {
-  version: '1.9.0a36',
-  description: 'New Outlook HTML reads retain paragraph, table-field and participant-role separators, so event details remain distinguishable in provider-rendered text. Already saved excerpts stay as they were; the notes explain the one-message check.',
+  version: '1.9.0a37',
+  description: 'REM Project pages keep their cited purpose and its source links together on a phone. Changed Project cards explain what the work is before the latest finding, and long purposes can be expanded without hiding Full memory. The notes show the limited reader check.',
 }
 if (PREVIEW_VERSION && PREVIEW_VERSION !== latestPreview.version) {
   throw new Error('Update the release card description for the published preview.')
