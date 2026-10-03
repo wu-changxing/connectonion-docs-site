@@ -19,8 +19,8 @@ import { PageHeader } from '../../components/PageHeader'
 import { PREVIEW_VERSION, STABILIZING_VERSION, STABLE_VERSION } from '../../lib/version'
 
 const latestPreview = {
-  version: '1.9.0a37',
-  description: 'REM Project pages keep their cited purpose and its source links together on a phone. Changed Project cards explain what the work is before the latest finding, and long purposes can be expanded without hiding Full memory. The notes show the limited reader check.',
+  version: '1.9.0a38',
+  description: 'Long REM Skill source dialogs now let readers find a word or phrase and move to the next match inside the retained excerpt. The archived text stays intact, and the dialog names its limits when only a prefix was saved. The notes describe the bounded reader check.',
 }
 if (PREVIEW_VERSION && PREVIEW_VERSION !== latestPreview.version) {
   throw new Error('Update the release card description for the published preview.')

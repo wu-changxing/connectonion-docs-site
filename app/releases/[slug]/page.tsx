@@ -32,6 +32,7 @@ const releaseSummaries: Record<string, string> = {
   '1.9.0a35': 'ConnectOnion 1.9.0a35 moves REM View sources beside the first useful claim and tightens phone spacing, so readers can open citations directly from the lead card.',
   '1.9.0a36': 'ConnectOnion 1.9.0a36 keeps Outlook HTML fields and participant roles separate in new mail reads and REM source excerpts, making their details easier to verify.',
   '1.9.0a37': 'ConnectOnion 1.9.0a37 keeps a Project purpose and its cited sources together on phone screens, separates it from the latest finding on Home, and lets readers expand long purposes.',
+  '1.9.0a38': 'ConnectOnion 1.9.0a38 adds Find and Next match inside long REM Skill source dialogs, while preserving the archived excerpt and showing when the retained text is truncated.',
   '1.9.0a3': 'co rem init maps without a model and writes recent project pages; this release also fixes cited handles in Gmail lookups and daily-cap messaging.',
   '1.9.0a4': 'REM skips empty investigations, drops only lines with bad citations, keeps services off people pages, and restores Codex Desktop messages.',
 }
