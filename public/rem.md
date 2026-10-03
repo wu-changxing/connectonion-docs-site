@@ -2,7 +2,7 @@
 
 co rem is named for rapid eye movement sleep. It works from sources you approve,
 keeps a local notebook about people and projects, and brings context forward
-when you return. The opt-in `co rem` 1.9.0a37 alpha investigates the full
+when you return. The opt-in `co rem` 1.9.0a38 alpha investigates the full
 mapped cohort concurrently, checks written Project claims against their
 originals, makes cited Skill work openable, and leaves unsupported Person
 first-contact dates unknown. Follow-up investigations reuse locally parsed
@@ -13,7 +13,9 @@ and participant roles on separate lines in provider-rendered source excerpts;
 previously saved excerpts are not rewritten. Project cards now put a cited
 purpose beside the latest finding, and the phone reader keeps each purpose
 source link next to that purpose. Long purposes can be expanded while Full
-memory remains open on the page.
+memory remains open on the page. Long Skill source dialogs let you find a word
+or phrase and move to the next match in the retained excerpt. A truncated
+excerpt is labelled, so a match does not imply that omitted text was searched.
 The first source map shows what it found and which records still need
 investigation. After a written pass, the reader begins with pages touched, open threads
 and an older memory to recall. Records open as focused views of state, next
@@ -29,7 +31,7 @@ sample is frozen on 2 October 2026 and uses only invented people and sources.
 ## Start the opt-in preview
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a37'
+python -m pip install --upgrade 'connectonion==1.9.0a38'
 co auth google               # or: co auth microsoft
 co rem init --days 5          # a smaller first-run trial
 co rem open                   # read a local, offline snapshot
@@ -78,7 +80,8 @@ snapshot opening.
   Project purpose citations stay reachable beside the purpose preview.
 - Skill records with openable cited run parts and local outputs when available.
 - Archived original excerpts and cited conversations when the source bodies
-  are available locally.
+  are available locally. Long source dialogs offer Find and Next match inside
+  the visible original, including a notice when the retained excerpt is truncated.
 - The last pass's counts and run history, available in a disclosure.
 
 Completed nightly passes can compare cited, keyed Facts and Contact values
@@ -105,4 +108,4 @@ The default `pip install connectonion` channel remains stable 1.8.10. Its
 experimental memory command is `co wiki`. The `co rem` alpha requires the
 exact version pin above. Preview releases can change before 1.9.0 is stable.
 Read [release channels](/releases) and the
-[1.9.0a37 notes](/releases/1.9.0a37) before installing.
+[1.9.0a38 notes](/releases/1.9.0a38) before installing.
