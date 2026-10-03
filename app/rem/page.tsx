@@ -154,14 +154,10 @@ export default function Page() {
               ordinary installs stay on stable {STABLE_VERSION}.
             </p>
             <p>
-              <code>co rem init</code> uses your configured model to investigate the first set of
-              pages. A written project page compares your coding requests with bounded local
-              repository evidence, then leads with a supported finding when one exists. The reader
-              shows when only part of a project&apos;s session history was supplied and lets you
-              open each cited source. For
-              Codex investigations, the default routine budget is 35 points per week. No new
-              page starts once the whole Codex week reaches 90% used; explicit limits remain
-              in force. <code>co rem status</code> shows the effective values.
+              <code>co rem init</code> investigates approved sources with your configured model.
+              Written project pages lead with supported findings and link to their evidence.
+              The <Link href="/cli/rem">CLI guide</Link> explains source controls, budget limits,
+              and <code>co rem status</code>.
             </p>
           </div>
           <div className={styles.terminal}>
