@@ -79,7 +79,7 @@ export function MobileDocsNav() {
           {hasMarkdown ? (
             <button
               onClick={() => copyMarkdown()}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-gray-100 text-gray-600 border border-gray-200 hover:bg-gray-200 transition-colors text-xs font-medium"
+              className="flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-1.5 px-2.5 py-1.5 rounded-md bg-gray-100 text-gray-600 border border-gray-200 hover:bg-gray-200 transition-colors text-xs font-medium"
               title="Copy page as markdown"
               aria-label="Copy page as markdown"
             >

@@ -82,12 +82,15 @@ On a phone, swipe the table left to read the Change and Recheck columns.
 | P2 | The `/releases/archive` Design Journal DD-053 link resolved under `/releases/` and returned 404. | Point it at the existing styled Design Journal route. | Open the link from the rendered archive; expect HTTP 200 and the intended decision article. |
 | P2 | The new Design Journal's inferred category was Remote Browser, although the article is about REM project attribution. Its subtitle repeated the opening sentence and the body offered no link to the evidence review or follow-up issue. A reader could misread the subject and could not verify the next step from the story. | Give the article explicit REM, Memory and Design Journal tags, a distinct description, and links to the a22 review and #2195. | In the rebuilt local production site at 1440 and 375 px, the category and description match the subject; the review link opens the styled report and #2195 has the correct target. No private name appears in the public article. |
 | P3 | The generated blog article's icon-only phone Copy control measured 42×44 px, below the 44 px touch target used elsewhere. | Set its shared minimum width to 44 px and give it an explicit accessible name. | At 375 px the button measures 44×44 px; at both widths it copies the 2,728-character Markdown article. |
-| P3 | On a 375 px phone, the global Star us banner can cover the lower part of a review table while scrolling. Its 48 px Close banner control restores the table, but the interruption slows evidence reading. | Keep the dismiss control visible in this release; revisit the global banner placement for long reference pages. | The independent reviewer closed it and read the full horizontally scrollable table. Recheck on another long phone page before changing the shared banner. |
+| P3 | On a 375 px phone, the global Star us banner can cover the lower part of a review table or install block while scrolling. Its 48 px Close banner control restores the content, but the interruption slows evidence reading. | Keep the dismiss control visible in this release; revisit the global banner placement for long reference pages. | The independent reviewer closed it and read the full horizontally scrollable table and install block. Recheck on another long phone page before changing the shared banner. |
+| P2 | After publication, the a22 release notes installed the pinned package and ran `co rem open` without first creating a notebook. Their install section began around document y=3,851 px on a 375 px phone. A first-time reader could open an empty result and miss the path to the promised pages. | Put a first-run jump link near the title. In the install section, show `co auth google` or Microsoft, `co rem init --days 5`, then `co rem open`; label `co rem open` alone as the existing-notebook viewing path and link to `/rem#start`. | In the local production-mode recheck at 1440 and 375 px, the near-title jump landed on the install heading, the exact a22 pin came before auth, init and open, the existing-notebook path was separate, and `/rem#start` worked. Recheck these on the deployed page. |
+| P2 | The shared phone docs header's “Copy page as markdown” target measured 74×30 px on `/rem` and `/cli/rem`, small for touch even though clipboard copying worked. | Give the shared control at least 44 px height and width without widening the header past 375 px. | In the local production-mode recheck, both routes measured 74×44 px at 375 px, copied the correct Markdown and had no overflow. Recheck on the deployed pages. |
 
 ## Public visual evidence
 
-These screenshots use only `tests/fixtures/rem_reader_notebook.py` and invented
-content. They show structure and interaction, not private trial claims.
+The first five screenshots use only `tests/fixtures/rem_reader_notebook.py` and
+invented content. The last two capture public documentation pages. They show
+structure and interaction, not private trial claims.
 
 | State | Evidence |
 | --- | --- |
@@ -96,6 +99,8 @@ content. They show structure and interaction, not private trial claims.
 | Current desktop project | [project-desktop.png](project-desktop.png) |
 | Current phone first fold | [project-phone.png](project-phone.png) |
 | Source dialog on phone | [source-dialog-phone.png](source-dialog-phone.png) |
+| Release first-run commands on phone | [release-first-run-phone.png](release-first-run-phone.png) |
+| REM phone Copy control | [rem-copy-phone.png](rem-copy-phone.png) |
 
 ## Limits and next recheck
 
