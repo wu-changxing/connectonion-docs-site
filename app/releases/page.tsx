@@ -19,8 +19,8 @@ import { PageHeader } from '../../components/PageHeader'
 import { PREVIEW_VERSION, STABILIZING_VERSION, STABLE_VERSION } from '../../lib/version'
 
 const latestPreview = {
-  version: '1.9.0a40',
-  description: 'REM Skill pages now distinguish coding-session name matches from retained evaluation attempts and say when the installed version and outcome remain unverified. On phones, the mapped Skill investigation action is in the first screen and Skills list links are easier to tap.',
+  version: '1.9.0a41',
+  description: 'REM can discover historical mail contacts, show an all-history first-run cost estimate, and offer nightly upkeep after init. Gmail history uses bounded metadata reads; the People directory keeps one-off contacts searchable on phones.',
 }
 if (PREVIEW_VERSION && PREVIEW_VERSION !== latestPreview.version) {
   throw new Error('Update the release card description for the published preview.')
