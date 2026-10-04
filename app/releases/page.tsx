@@ -19,8 +19,8 @@ import { PageHeader } from '../../components/PageHeader'
 import { PREVIEW_VERSION, STABILIZING_VERSION, STABLE_VERSION } from '../../lib/version'
 
 const latestPreview = {
-  version: '1.9.0a39',
-  description: 'Cited REM Skill findings now put 44-pixel source links beside the lead, so a phone reader can open each numbered original directly. The full memory and View sources remain available; labelled private findings hide their direct links when privacy is on. The notes describe the bounded reader check.',
+  version: '1.9.0a40',
+  description: 'REM Skill pages now distinguish coding-session name matches from retained evaluation attempts and say when the installed version and outcome remain unverified. On phones, the mapped Skill investigation action is in the first screen and Skills list links are easier to tap.',
 }
 if (PREVIEW_VERSION && PREVIEW_VERSION !== latestPreview.version) {
   throw new Error('Update the release card description for the published preview.')
