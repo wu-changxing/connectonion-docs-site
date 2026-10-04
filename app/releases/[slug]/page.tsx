@@ -34,6 +34,7 @@ const releaseSummaries: Record<string, string> = {
   '1.9.0a37': 'ConnectOnion 1.9.0a37 keeps a Project purpose and its cited sources together on phone screens, separates it from the latest finding on Home, and lets readers expand long purposes.',
   '1.9.0a38': 'ConnectOnion 1.9.0a38 adds Find and Next match inside long REM Skill source dialogs, while preserving the archived excerpt and showing when the retained text is truncated.',
   '1.9.0a39': 'ConnectOnion 1.9.0a39 places 44-pixel source links beside cited Skill findings, keeps keyboard focus visible and hides those links with labelled private findings.',
+  '1.9.0a40': 'ConnectOnion 1.9.0a40 distinguishes Skill name matches from retained evaluation attempts and makes mapped Skill investigation and roster navigation easier on phones.',
   '1.9.0a3': 'co rem init maps without a model and writes recent project pages; this release also fixes cited handles in Gmail lookups and daily-cap messaging.',
   '1.9.0a4': 'REM skips empty investigations, drops only lines with bad citations, keeps services off people pages, and restores Codex Desktop messages.',
 }
