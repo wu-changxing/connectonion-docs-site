@@ -20,7 +20,7 @@ import { PREVIEW_VERSION, STABILIZING_VERSION, STABLE_VERSION } from '../../lib/
 
 const latestPreview = {
   version: '1.9.0a41',
-  description: 'REM can discover historical mail contacts, show an all-history first-run cost estimate, and offer nightly upkeep after init. Gmail history uses bounded metadata reads; the People directory keeps one-off contacts searchable on phones.',
+  description: 'REM can discover historical mail contacts, show an all-history first-run cost estimate, and offer nightly upkeep after init. Gmail history uses bounded metadata reads; the People directory keeps one-off contacts searchable on phones. New notebooks use Claude Code with Sonnet 5.5.',
 }
 if (PREVIEW_VERSION && PREVIEW_VERSION !== latestPreview.version) {
   throw new Error('Update the release card description for the published preview.')
