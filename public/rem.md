@@ -5,40 +5,42 @@ sessions you approve into a private notebook about people, projects and skills.
 When you return, it brings forward what changed, what needs attention and the
 original sources behind its claims.
 
-The opt-in 1.9.0a40 preview maps the sources first, investigates eligible
-pages concurrently, and shows the full memory and its sources in the local
-reader. Skill usage now says when a number is only a coding-session name match;
+Stable 1.9.0 maps the sources first, investigates every eligible mapped page
+in the 90-day window concurrently, and shows the full memory and its sources
+in the local reader. Skill usage says when a number is only a coding-session name match;
 retained evaluation attempts are counted separately, and neither count proves
 that the installed version ran or the task succeeded. The latest
-[preview notes](/releases/1.9.0a40) describe the bounded phone and desktop
-checks. Earlier preview changes remain in the [release archive](/releases/archive).
+[release notes](/releases/1.9.0) describe the installed-package trial and
+bounded phone and desktop checks. Earlier previews remain in the
+[release archive](/releases/archive).
 
 The reader image on this page is a real product frame made with an invented
 notebook. No private correspondence is in the example.
 [Explore the full-size sample reader](/rem/demo) to follow a page, inspect a
-source record, and reveal an older memory before installing the alpha. The
+source record, and reveal an older memory before installing. The
 sample is frozen on 2 October 2026 and uses only invented people and sources.
 
-## Start the opt-in preview
+## Start with the stable release
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.0a40'
+python -m pip install --upgrade connectonion
 co auth google               # or: co auth microsoft
-co rem init --days 5          # a smaller first-run trial
+co rem init --days 90         # investigate the full selected 90-day map
 co rem open                   # read a local, offline snapshot
-co rem start                  # review sources and approve a schedule
+co rem start                  # review sources and approve a schedule if init left it off
 ```
 
 `co rem init` maps mail and local coding sessions, then uses the configured
-model to investigate your page, eligible people, queued projects, related
+model to investigate your page, every eligible person, queued projects, related
 organizations and installed skills, including in scripts and JSON runs. It estimates the
-work before spending tokens. The configured investigation budget (35% of a
-weekly runner allowance by default) is a planning target. New pages can start
-beyond that target until the configured weekly safety floor (90% by default);
-pages already running finish. The input estimate includes cached tokens and is
-not the weekly quota meter. The first run selects projects from the map it just
+work before spending tokens and checks selected-model access with a source-free
+turn. The foreground first run has no REM page or weekly quota stop; a model
+provider can still enforce its own limits. Progress reports how many messages,
+people, projects, organisations and skills have been processed. The input
+estimate includes cached tokens and is not the weekly quota meter. The first run selects projects from the map it just
 showed. Session folders found afterward remain candidates and do not silently
-add project pages to that count. `co rem start` shows which sources, runner, model,
+add project pages to that count. A failed page leaves nightly upkeep off and
+names the unfinished work. `co rem start` shows which sources, runner, model,
 schedule and limits will be used and asks before enabling background updates.
 Written project pages compare the owner's project-specific coding requests with
 fixed, bounded local repository evidence. The current supported finding leads,
@@ -98,8 +100,6 @@ records so you can inspect why co rem wrote a claim. The CLI reference describes
 
 ## Stable channel
 
-The default `pip install connectonion` channel remains stable 1.8.10. Its
-experimental memory command is `co wiki`. The `co rem` alpha requires the
-exact version pin above. Preview releases can change before 1.9.0 is stable.
-Read [release channels](/releases) and the
-[1.9.0a40 notes](/releases/1.9.0a40) before installing.
+The default `pip install connectonion` channel is stable 1.9.0 and includes
+`co rem`. Read [release channels](/releases) and the
+[1.9.0 notes](/releases/1.9.0) for the tested scope and remaining limits.
