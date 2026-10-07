@@ -18,14 +18,6 @@ import { ContentNavigation } from '../../components/ContentNavigation'
 import { PageHeader } from '../../components/PageHeader'
 import { PREVIEW_VERSION, STABILIZING_VERSION, STABLE_VERSION } from '../../lib/version'
 
-const latestPreview = {
-  version: '1.9.0a42',
-  description: 'REM keeps completed historical People discovery after a later mail connection failure and brings the historical contact directory before a long mapped roster.',
-}
-if (PREVIEW_VERSION && PREVIEW_VERSION !== latestPreview.version) {
-  throw new Error('Update the release card description for the published preview.')
-}
-
 const channels = [
   { name: 'Alpha', version: 'X.Y.ZaN', description: 'Incomplete, opt-in developer work.', icon: HiOutlineBeaker },
   { name: 'Beta', version: 'X.Y.ZbN', description: 'Feature-complete; testing continues.', icon: HiOutlineArrowPath },
@@ -65,7 +57,7 @@ export default function ReleasesPage() {
           floatingMobileCopy={false}
         />
 
-        <section aria-label="Current releases" className="mb-12 grid gap-6 md:grid-cols-2">
+        <section aria-label="Current releases" className={`mb-12 grid gap-6 ${PREVIEW_VERSION ? 'md:grid-cols-2' : ''}`}>
           <div className="min-w-0 rounded-lg border border-green-200 bg-white p-6">
             <p className="mb-2 text-sm font-semibold text-green-800">Recommended · Stable</p>
             <h2 className="mb-3 text-3xl font-bold text-gray-950">ConnectOnion {STABLE_VERSION}</h2>
@@ -78,30 +70,22 @@ export default function ReleasesPage() {
             </Link>
           </div>
 
-          <div className="min-w-0 rounded-lg border border-amber-300 bg-amber-50/50 p-6">
+          {PREVIEW_VERSION && <div className="min-w-0 rounded-lg border border-amber-300 bg-amber-50/50 p-6">
             <p className="mb-2 text-sm font-semibold text-amber-800">Opt in · Latest preview</p>
-            <h2 className="mb-3 text-3xl font-bold text-gray-950">
-              {PREVIEW_VERSION ? `ConnectOnion ${PREVIEW_VERSION}` : 'No active preview'}
-            </h2>
+            <h2 className="mb-3 text-3xl font-bold text-gray-950">ConnectOnion {PREVIEW_VERSION}</h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
-              {PREVIEW_VERSION
-                ? latestPreview.description
-                : 'The stable release is the current recommendation.'}
+              An exact pin gives access to work still being tested.
             </p>
-            {PREVIEW_VERSION && (
-              <>
-                <InstallCommand command={`python -m pip install --upgrade 'connectonion==${PREVIEW_VERSION}'`} />
-                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-1">
-                  <Link href={`/releases/${PREVIEW_VERSION}`} className="inline-flex min-h-11 items-center font-semibold text-amber-900 underline underline-offset-4 hover:text-amber-950">
-                    Read the preview notes
-                  </Link>
-                  <Link href="/releases/archive" className="inline-flex min-h-11 items-center text-amber-900 underline underline-offset-4 hover:text-amber-950">
-                    Every release
-                  </Link>
-                </div>
-              </>
-            )}
-          </div>
+            <InstallCommand command={`python -m pip install --upgrade 'connectonion==${PREVIEW_VERSION}'`} />
+            <div className="mt-5 flex flex-wrap gap-x-5 gap-y-1">
+              <Link href={`/releases/${PREVIEW_VERSION}`} className="inline-flex min-h-11 items-center font-semibold text-amber-900 underline underline-offset-4 hover:text-amber-950">
+                Read the preview notes
+              </Link>
+              <Link href="/releases/archive" className="inline-flex min-h-11 items-center text-amber-900 underline underline-offset-4 hover:text-amber-950">
+                Every release
+              </Link>
+            </div>
+          </div>}
         </section>
 
         {STABILIZING_VERSION && (
@@ -118,7 +102,7 @@ export default function ReleasesPage() {
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold [&_a]:inline-flex [&_a]:min-h-11 [&_a]:items-center">
             <Link href="https://github.com/openonion/connectonion/releases" className="text-green-800 underline underline-offset-4 hover:text-green-950">Complete release history</Link>
             <Link href="/releases/1.9.0a10" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.9.0a10 · REM reader</Link>
-            <Link href="/releases/1.8.10" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.8.10 · Stable</Link>
+            <Link href="/releases/1.8.10" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.8.10 · Previous stable</Link>
             <Link href="/releases/1.9.0a9" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.9.0a9 · First REM reader</Link>
           </div>
         </section>

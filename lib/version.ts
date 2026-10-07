@@ -6,9 +6,9 @@
  * channel during a release. Preview publication must never replace the stable
  * version shown on the homepage or in structured metadata.
  */
-export const STABLE_VERSION = '1.8.10'
-export const PREVIEW_VERSION: string | null = '1.9.0a42'
-// 1.9.0a42 is opt-in; normal installs remain on the stable line.
+export const STABLE_VERSION = '1.9.0'
+export const PREVIEW_VERSION: string | null = null
+// The REM preview train is complete; normal installs receive 1.9.0.
 export const STABILIZING_VERSION: string | null = null
 
 // Product pages advertise the stable channel. Preview releases remain opt-in.

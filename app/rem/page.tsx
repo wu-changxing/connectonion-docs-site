@@ -7,14 +7,14 @@ import { LuEye } from 'react-icons/lu'
 import { CopyMarkdownButton } from '../../components/CopyMarkdownButton'
 import { ContentNavigation } from '../../components/ContentNavigation'
 import { renderBlogMarkdown } from '../../lib/blog-content.mjs'
-import { PREVIEW_VERSION, STABLE_VERSION } from '../../lib/version'
+import { STABLE_VERSION } from '../../lib/version'
 import { REM_SAMPLE_VERSION } from '../../lib/rem-sample'
 import styles from './rem.module.css'
 
 const URL = 'https://docs.connectonion.com/rem'
 const TITLE = 'co rem: Overnight AI Memory and Morning Recall | ConnectOnion'
 const DESCRIPTION =
-  'co rem works through approved sources while you sleep, carries context into the morning, and helps you remember it. Explore the opt-in co rem preview and its limits.'
+  'co rem works through approved sources while you sleep, carries context into the morning, and helps you remember it. Explore the stable 1.9.0 release and its limits.'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -55,7 +55,6 @@ const moments = [
 export default function Page() {
   const markdown = fs.readFileSync(path.join(process.cwd(), 'public', 'rem.md'), 'utf8')
   const technicalDetails = markdown.slice(markdown.indexOf('## Sources and storage'))
-  const preview = PREVIEW_VERSION
 
   return (
     <main className={styles.page}>
@@ -66,19 +65,19 @@ export default function Page() {
               <LuEye className={styles.eyeMark} aria-hidden="true" />
               CONNECTONION / co rem
             </span>
-            <span className={styles.previewBadge}>Opt-in alpha {preview ?? 'preview'}</span>
+            <span className={styles.previewBadge}>Stable {STABLE_VERSION}</span>
           </div>
 
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>A memory with a night cycle</p>
             <h1 id="rem-title">Wake up with the <em>context</em> you need.</h1>
             <p className={styles.heroLead}>
-              Your first run investigates recent important people, mapped projects, related organizations and installed skills.
+              Your first run investigates every eligible person, mapped project, related organization and installed skill in its 90-day source window.
               After you approve a schedule, co rem keeps that context current overnight.
             </p>
             <div className={styles.heroActions}>
               <Link className={styles.primaryAction} href="/rem/demo">Explore a sample notebook <span aria-hidden="true">↗</span></Link>
-              <a className={styles.secondaryAction} href="#start">Try the preview <span aria-hidden="true">↓</span></a>
+              <a className={styles.secondaryAction} href="#start">Get started <span aria-hidden="true">↓</span></a>
             </div>
           </div>
 
@@ -103,7 +102,7 @@ export default function Page() {
               height={844}
             />
           </div>
-          <p className={styles.frameNote}>A real reader frame from the {REM_SAMPLE_VERSION} preview. Names and sources in the image are invented for review.</p>
+          <p className={styles.frameNote}>A reader frame from stable {REM_SAMPLE_VERSION}. Names and sources in the image are invented for review.</p>
           <Link className={styles.frameOpen} href="/rem/demo">Open the full-size sample reader →</Link>
         </section>
 
@@ -150,23 +149,18 @@ export default function Page() {
             <p className={styles.sectionKicker}>Start with your own notebook</p>
             <h2 id="start-title">Try co rem on your machine.</h2>
             <p>
-              The reader is a local snapshot. An exact version pin opts you into the alpha;
-              ordinary installs stay on stable {STABLE_VERSION}.
+              The reader is a local snapshot. Ordinary installs now receive stable {STABLE_VERSION}.
             </p>
             <p>
               <code>co rem init</code> investigates approved sources with your configured model.
               Written project pages lead with supported findings and link to their evidence.
-              The <Link href="/cli/rem">CLI guide</Link> explains source controls, budget limits,
+              The <Link href="/cli/rem">CLI guide</Link> explains source controls, progress and nightly limits,
               and <code>co rem status</code>.
             </p>
           </div>
           <div className={styles.terminal}>
-            <div className={styles.terminalTop}><span>TERMINAL</span><span>{preview ?? 'preview'}</span></div>
-            {preview ? (
-              <pre><code>{`python -m pip install --upgrade 'connectonion==${preview}'\nco rem init --days 5\nco rem open`}</code></pre>
-            ) : (
-              <p>The next co rem preview is being prepared. Use the stable channel until its exact version is published.</p>
-            )}
+            <div className={styles.terminalTop}><span>TERMINAL</span><span>{STABLE_VERSION}</span></div>
+            <pre><code>{`python -m pip install --upgrade connectonion\nco rem init --days 90\nco rem open`}</code></pre>
             <p>Connect a mailbox first with <code>co auth google</code> or <code>co auth microsoft</code>. On macOS, <code>co rem start</code> shows sources and asks before scheduling. On Linux and Windows, run <code>co rem sync</code> manually when you want an update; background scheduling is macOS-only.</p>
           </div>
         </section>

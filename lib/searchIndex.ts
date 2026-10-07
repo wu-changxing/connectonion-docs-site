@@ -191,6 +191,13 @@ export const pageContentIndex: PageContent[] = [
     content: 'Every stable patch links an open forward-port-required tracker covering every active higher line. New previews, release candidates, and next-minor stable releases are blocked until applicable fixes, tests, migrations, docs, and operational contracts are merged forward.'
   },
   {
+    title: 'A First Run Must Finish Its Map',
+    href: '/blog/a-first-run-must-finish-its-map',
+    section: 'Blog',
+    keywords: ['co rem', 'first run', 'people', 'projects', '90 days', 'model access', 'nightly', 'progress'],
+    content: 'Why REM investigates every eligible mapped Person, Project, Organisation and Skill in the 90-day first run, reports page progress, checks model access before dispatch, and makes nightly source warnings visible.'
+  },
+  {
     title: 'An Image Prefix Is Not an Image',
     href: '/blog/an-image-prefix-is-not-an-image', section: 'Blog',
     keywords: ['image', 'base64', 'data url', 'truncated', 'after_tools', 'reliability'],
