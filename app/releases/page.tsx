@@ -65,7 +65,7 @@ export default function ReleasesPage() {
               The default for everyday use. Preview releases never replace this version in normal upgrades.
             </p>
             <InstallCommand command="python -m pip install --upgrade connectonion" />
-            <Link href={`https://github.com/openonion/connectonion/releases/tag/v${STABLE_VERSION}`} className="mt-5 inline-flex min-h-11 items-center font-semibold text-green-800 underline underline-offset-4 hover:text-green-950">
+            <Link href={`/releases/${STABLE_VERSION}`} className="mt-5 inline-flex min-h-11 items-center font-semibold text-green-800 underline underline-offset-4 hover:text-green-950">
               Read the stable release
             </Link>
           </div>
