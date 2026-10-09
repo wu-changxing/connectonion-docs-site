@@ -43,7 +43,7 @@
 - [co youtube](https://docs.connectonion.com/cli/youtube): The YouTube Data API
 - [co tiktok](https://docs.connectonion.com/cli/tiktok): Experimental: TikTok post plans and read-only readiness
 - [co skills](https://docs.connectonion.com/cli/skills): Link ConnectOnion's skills into Claude Code and Codex
-- [co rem](https://docs.connectonion.com/rem): stable 1.9.0 memory — a complete eligible 90-day first run, followed by approved overnight context from mail and coding sessions
+- [co rem](https://docs.connectonion.com/rem): stable 1.9.1 memory — a first run that investigates every page in a 180-day map and deepens people with older mail, followed by approved overnight context from mail and coding sessions
 - [co benchmark](https://docs.connectonion.com/cli/benchmark): Benchmark a skill, then co eval it on the real agent
 - [co audit](https://docs.connectonion.com/cli/audit): Preview (1.8.9): is a CLI fit for an agent harness? Scores its help pages
 - [co call](https://docs.connectonion.com/cli/call): Run one command on a remote agent
@@ -170,6 +170,8 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 - [Headless Does Not Mean Unconfigured](https://docs.connectonion.com/blog/headless-does-not-mean-unconfigured): Unattended Auto honors deliberate browser/status grants without turning the historical broad co wildcard into unlimited authority
 - [An Image Prefix Is Not an Image](https://docs.connectonion.com/blog/an-image-prefix-is-not-an-image): Strict completeness checks keep truncated data URLs and base64-looking text out of the image upload path
 - [A Patch Must Move Forward](https://docs.connectonion.com/blog/a-patch-must-move-forward): Stable patches require a tracked forward-port into every active higher line, and open obligations block newer preview, RC, and next-minor releases
+- [The Page That Could Only Grow](https://docs.connectonion.com/blog/the-page-that-could-only-grow): co rem 1.9.2b1 lets each investigation pass delete as well as add, so pages improve instead of only growing
+- [A First Run That Investigates](https://docs.connectonion.com/blog/a-first-run-that-investigates): co rem 1.9.1's first run investigates each person over several passes, edits pages in place and deepens people with older mail
 - [A First Run Must Finish Its Map](https://docs.connectonion.com/blog/a-first-run-must-finish-its-map): Why co rem's first run investigates every eligible mapped page, shows progress, and keeps model and nightly failures visible
 - [Your Servers, Your Regions, Your Shared Mailboxes](https://docs.connectonion.com/blog/connectonion-1-6-12): ConnectOnion 1.6.12 behavior and the rule that applicable stable fixes move into every supported newer release line without copying old version metadata
 - [The Work Room Is a Client, Not a Status Panel](https://docs.connectonion.com/blog/workroom-is-a-view): Remote Codex and Claude Code conversation, lifecycle, permissions, and fixed provider input inside one OIP client shell

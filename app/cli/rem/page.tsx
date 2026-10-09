@@ -3,7 +3,7 @@ import { ReleaseCliGuide } from '../../../components/ReleaseCliGuide'
 
 export const metadata = {
   title: 'co rem CLI reference | ConnectOnion',
-  description: 'Commands, source controls, progress, review steps, and nightly upkeep for co rem 1.9.0.',
+  description: 'Commands, source controls, progress, review steps, and nightly upkeep for co rem 1.9.1.',
   alternates: { canonical: '/cli/rem' },
 }
 

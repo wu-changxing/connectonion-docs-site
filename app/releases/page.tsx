@@ -102,7 +102,7 @@ export default function ReleasesPage() {
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold [&_a]:inline-flex [&_a]:min-h-11 [&_a]:items-center">
             <Link href="https://github.com/openonion/connectonion/releases" className="text-green-800 underline underline-offset-4 hover:text-green-950">Complete release history</Link>
             <Link href="/releases/1.9.0a10" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.9.0a10 · REM reader</Link>
-            <Link href="/releases/1.8.10" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.8.10 · Previous stable</Link>
+            <Link href="/releases/1.9.0" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.9.0 · Previous stable</Link>
             <Link href="/releases/1.9.0a9" className="text-green-800 underline underline-offset-4 hover:text-green-950">1.9.0a9 · First REM reader</Link>
           </div>
         </section>
