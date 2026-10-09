@@ -14,7 +14,7 @@ import styles from './rem.module.css'
 const URL = 'https://docs.connectonion.com/rem'
 const TITLE = 'co rem: Overnight AI Memory and Morning Recall | ConnectOnion'
 const DESCRIPTION =
-  'co rem works through approved sources while you sleep, carries context into the morning, and helps you remember it. Explore the stable 1.9.0 release and its limits.'
+  'co rem works through approved sources while you sleep, carries context into the morning, and helps you remember it. Explore the stable 1.9.1 release and its limits.'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -72,7 +72,7 @@ export default function Page() {
             <p className={styles.eyebrow}>A memory with a night cycle</p>
             <h1 id="rem-title">Wake up with the <em>context</em> you need.</h1>
             <p className={styles.heroLead}>
-              Your first run investigates every eligible person, mapped project, related organization and installed skill in its 90-day source window.
+              Your first run investigates every eligible person, mapped project, related organization and installed skill in its 180-day source window, then deepens people with up to two years of older mail.
               After you approve a schedule, co rem keeps that context current overnight.
             </p>
             <div className={styles.heroActions}>
@@ -160,7 +160,7 @@ export default function Page() {
           </div>
           <div className={styles.terminal}>
             <div className={styles.terminalTop}><span>TERMINAL</span><span>{STABLE_VERSION}</span></div>
-            <pre><code>{`python -m pip install --upgrade connectonion\nco rem init --days 90\nco rem open`}</code></pre>
+            <pre><code>{`python -m pip install --upgrade connectonion\nco rem init\nco rem open`}</code></pre>
             <p>Connect a mailbox first with <code>co auth google</code> or <code>co auth microsoft</code>. On macOS, <code>co rem start</code> shows sources and asks before scheduling. On Linux and Windows, run <code>co rem sync</code> manually when you want an update; background scheduling is macOS-only.</p>
           </div>
         </section>

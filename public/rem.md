@@ -5,13 +5,14 @@ sessions you approve into a private notebook about people, projects and skills.
 When you return, it brings forward what changed, what needs attention and the
 original sources behind its claims.
 
-Stable 1.9.0 maps the sources first, investigates every eligible mapped page
-in the 90-day window concurrently, and shows the full memory and its sources
-in the local reader. Skill usage says when a number is only a coding-session name match;
+Stable 1.9.1 maps the sources first, investigates every eligible mapped page
+in the 180-day window, sixteen at a time, then deepens people with up to two
+years of older mail, editing each page in place. The local reader shows the full
+memory and its sources. Skill usage says when a number is only a coding-session name match;
 retained evaluation attempts are counted separately, and neither count proves
 that the installed version ran or the task succeeded. The latest
-[release notes](/releases/1.9.0) describe the installed-package trial and
-bounded phone and desktop checks. Earlier previews remain in the
+[release notes](/releases/1.9.1) describe the real-mailbox trial and the
+reader screenshots. Earlier previews remain in the
 [release archive](/releases/archive).
 
 The reader image on this page is a real product frame made with an invented
@@ -25,7 +26,7 @@ sample is frozen on 2 October 2026 and uses only invented people and sources.
 ```bash
 python -m pip install --upgrade connectonion
 co auth google               # or: co auth microsoft
-co rem init --days 90         # investigate the full selected 90-day map
+co rem init                   # map 180 days and investigate every eligible page
 co rem open                   # read a local, offline snapshot
 co rem start                  # review sources and approve a schedule if init left it off
 ```
@@ -100,6 +101,6 @@ records so you can inspect why co rem wrote a claim. The CLI reference describes
 
 ## Stable channel
 
-The default `pip install connectonion` channel is stable 1.9.0 and includes
+The default `pip install connectonion` channel is stable 1.9.1 and includes
 `co rem`. Read [release channels](/releases) and the
-[1.9.0 notes](/releases/1.9.0) for the tested scope and remaining limits.
+[1.9.1 notes](/releases/1.9.1) for the tested scope and remaining limits.

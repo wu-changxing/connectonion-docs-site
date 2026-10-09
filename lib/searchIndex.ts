@@ -191,6 +191,20 @@ export const pageContentIndex: PageContent[] = [
     content: 'Every stable patch links an open forward-port-required tracker covering every active higher line. New previews, release candidates, and next-minor stable releases are blocked until applicable fixes, tests, migrations, docs, and operational contracts are merged forward.'
   },
   {
+    title: 'A First Run That Investigates',
+    href: '/blog/a-first-run-that-investigates',
+    section: 'Blog',
+    keywords: ['co rem', '1.9.1', 'first run', 'investigate', 'people', '180 days', 'older mail', 'edit in place'],
+    content: 'Why the co rem 1.9.1 first run investigates each person over several passes: reading evidence in rounds, editing pages in place, and deepening people with up to two years of older mail.'
+  },
+  {
+    title: 'The Page That Could Only Grow',
+    href: '/blog/the-page-that-could-only-grow',
+    section: 'Blog',
+    keywords: ['co rem', '1.9.2b1', 'preview', 'investigation', 'delete', 'page quality'],
+    content: 'How co rem 1.9.2b1 lets each investigation pass delete as well as add, so pages improve instead of only growing.'
+  },
+  {
     title: 'A First Run Must Finish Its Map',
     href: '/blog/a-first-run-must-finish-its-map',
     section: 'Blog',
