@@ -28,6 +28,8 @@ const routeToMarkdownMap: Record<string, string> = {
   '/rem': '/rem.md',
   '/cli/discord': '/cli/discord.md',
   '/cli/slack': '/cli/slack.md',
+  '/cli/handoff': '/cli/handoff.md',
+  '/cli/agent-index': '/cli/agent-index.md',
   '/cli/search': '/cli/search.md',
   '/cli/youtube': '/cli/youtube.md',
   '/cli/server': '/cli/server.md',

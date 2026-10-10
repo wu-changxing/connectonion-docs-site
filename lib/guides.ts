@@ -27,7 +27,7 @@ export type Guide = {
   keywords: string[]
 }
 
-export const GUIDES_UPDATED = '2026-09-26'
+export const GUIDES_UPDATED = '2026-10-11'
 
 export const GUIDES: Guide[] = [
   {
@@ -37,7 +37,7 @@ export const GUIDES: Guide[] = [
     description:
       'An agent CLI harness is a set of command-line tools an AI agent runs to reach email, chat apps, a browser, files and servers. How it works, and what ConnectOnion includes.',
     answer:
-      'An agent CLI harness is a set of command-line tools that an AI agent runs to reach real services: email, chat apps, a browser, files and servers. Each capability is an ordinary shell command, so any agent that can run a shell can use it, including Claude Code, Codex and agents you build yourself. A person can run the same command to see exactly what the agent sees. ConnectOnion is an open-source agent CLI harness, and its commands all start with `co`.',
+      'An agent CLI harness is a set of command-line tools that an AI agent runs to reach real services: email, chat apps, a browser, files and servers. Each capability is an ordinary shell command, so any agent that can run a shell can use it, including Claude Code, Codex and agents you build yourself. A person can run the same command to see exactly what the agent sees. One command line strings the context together: the agent reads a thread with one command, looks something up with the next, and writes the answer with a third, and the output of one is the input of the next. ConnectOnion is an open-source agent CLI harness, and its commands all start with `co`.',
     steps: [
       {
         name: 'Install the harness',
@@ -81,6 +81,7 @@ export const GUIDES: Guide[] = [
       ['Is ConnectOnion open source?', 'Yes. It is Apache-2.0 licensed. The source is at github.com/openonion/connectonion and the package is on PyPI as connectonion.'],
     ],
     related: [
+      ['CLI vs MCP: why a command line', '/guides/cli-vs-mcp'],
       ['All co commands', '/cli'],
       ['Quick Start', '/quickstart'],
       ['Give Claude Code access to Gmail', '/guides/claude-code-gmail'],
@@ -373,7 +374,15 @@ export const GUIDES: Guide[] = [
         'Is ConnectOnion for people or for AI agents?',
         'For agents. You install it and tell your agent to use `co`. You can run the same commands to check what it did, but you don\'t need to learn them.',
       ],
+      [
+        'What makes a command line work for an agent?',
+        'Three things. The help page is the prompt: each `--help` says what the command does, what it changes (Read-only, Sends, Changes, Deletes) and gives a real example, so there is no separate schema to keep in step, and CI fails any page that loses one of those parts. Every answer names the next step: a list ends with how to open the first item, a missing login ends with `Next: co auth microsoft`, a typo ends with the command you meant. And it composes: commands pipe into each other and into scripts, and the transcript is the same commands you would type, so you can read exactly what the agent did and run it yourself.',
+      ],
       ['Which agents can use it?', 'Any agent that can run shell commands: Claude Code, Codex, OpenCode, Cursor, ConnectOnion\'s own `co ai`, or a script.'],
+      [
+        'Can co run MCP servers?',
+        'Not yet. `co mcp` is coming next ([#2048](https://github.com/openonion/connectonion/issues/2048)) and is not in any release. The protocol is not the problem, the interface is: the plan puts any MCP server behind the same command line, with `co mcp tools <server>` to list its tools, `co mcp help <server> <tool>` to render one as a help page, and `co mcp call` to run it, so MCP tools are found through `--help` and none sit in the prompt. Until it ships, keep MCP servers in your agent and run `co` beside them.',
+      ],
       [
         'Can I use MCP or skills as well?',
         'Yes. They are not mutually exclusive. ConnectOnion ships skills for Claude Code and Codex (`co skills link`), and an agent that has MCP servers can run `co` beside them.',
