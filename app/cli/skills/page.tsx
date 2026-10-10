@@ -155,6 +155,25 @@ Index written to /Users/you/.co/skills/index.json`}
             </div>
 
             <div>
+              <h3 className="text-xl font-semibold mb-3 flex flex-wrap items-center gap-3">
+                co skills index
+                <span className="rounded-full border border-green-700 px-2 py-0.5 text-xs font-semibold text-green-800">Preview · coming next</span>
+              </h3>
+              <p className="text-gray-700 mb-3">
+                Not in any release yet (<a href="https://github.com/openonion/connectonion/pull/2355" className="text-green-700 underline">#2355</a>). A skill helps only when the agent already suspects it needs one; this writes a generated list of every top-level <code className="bg-gray-100 px-1 rounded">co</code> command into <code className="bg-gray-100 px-1 rounded">~/.codex/AGENTS.md</code> and <code className="bg-gray-100 px-1 rounded">~/.claude/CLAUDE.md</code>, so every session knows <code className="bg-gray-100 px-1 rounded">co</code> exists. Global <code className="bg-gray-100 px-1 rounded">co init</code> will run it for you.
+              </p>
+              <CommandBlock
+                commands={[
+                  'co skills index',
+                  'co skills index --remove'
+                ]}
+              />
+              <p className="text-gray-600 text-sm mt-3">
+                Why it exists, what it writes and how it stays current: <a href="/cli/agent-index" className="text-green-700 underline">Agents know co</a>.
+              </p>
+            </div>
+
+            <div>
               <h3 className="text-xl font-semibold mb-3">co skills manifest</h3>
               <p className="text-gray-700 mb-3">
                 Build skill metadata from a skills directory and merge it into <code className="bg-gray-100 px-1 rounded">agent.json[&quot;skills&quot;]</code> — the shape publishing needs.

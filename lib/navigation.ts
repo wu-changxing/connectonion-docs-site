@@ -356,6 +356,24 @@ export const navigation = [
     section: 'CLI: Coding Agents & Memory',
     keywords: ['skills', 'discover', 'copy', 'link', 'manifest', 'import', 'export', 'symlink', 'claude', 'codex', 'cursor', 'kiro', 'SKILL.md', 'index.json'],
     prev: { href: '/cli/tiktok', title: 'co tiktok' },
+    next: { href: '/cli/agent-index', title: 'Agents know co (preview)' }
+  },
+  {
+    title: 'Agents know co (preview)',
+    href: '/cli/agent-index',
+    icon: HiOutlinePuzzlePiece,
+    section: 'CLI: Coding Agents & Memory',
+    keywords: ['agents.md', 'claude.md', 'codex', 'claude code', 'command index', 'co skills index', 'co init', 'preview'],
+    prev: { href: '/cli/skills', title: 'co skills' },
+    next: { href: '/cli/handoff', title: 'co handoff (preview)' }
+  },
+  {
+    title: 'co handoff (preview)',
+    href: '/cli/handoff',
+    icon: HiOutlineArrowPath,
+    section: 'CLI: Coding Agents & Memory',
+    keywords: ['handoff', 'hand off', 'codex', 'teammate', 'context', 'bundle', 'inbox', 'preview'],
+    prev: { href: '/cli/agent-index', title: 'Agents know co (preview)' },
     next: { href: '/cli/sub', title: 'co sub' }
   },
   {
@@ -364,7 +382,7 @@ export const navigation = [
     icon: HiOutlineArrowPath,
     section: 'CLI: Coding Agents & Memory',
     keywords: ['sub', 'subscribe', 'follow', 'publisher', 'sync', 'mirror', 'fan-out', 'relay', 'subscriptions', '0x address'],
-    prev: { href: '/cli/skills', title: 'co skills' },
+    prev: { href: '/cli/handoff', title: 'co handoff (preview)' },
     next: { href: '/rem', title: 'co rem' }
   },
   {
