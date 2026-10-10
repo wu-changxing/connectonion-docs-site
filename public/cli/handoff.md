@@ -1,145 +1,106 @@
-# co handoff - Hand the work to a teammate's Codex
+# co handoff (experimental)
 
-> **Preview, coming next.** `co handoff` is not in any ConnectOnion release yet.
-> This page describes the first preview as designed in
-> [openonion/connectonion#2351](https://github.com/openonion/connectonion/issues/2351).
-> Command names and flags below are the planned shape; the page is replaced by
-> the shipped `docs/cli/handoff.md` when the release that carries it is public.
-> Until then, check `co handoff --help` on your machine before relying on any line here.
+Hand a task you discussed with your coding agent to another person's coding
+agent. Their Codex (or Claude Code) continues with your decisions, the options
+you rejected and why, and the exact words of the discussion. You do not rewrite
+the background.
 
-## The scenario: "hand this to Ody"
+```bash
+# You, in the directory where you discussed the task with Codex
+co handoff contact ody ody@example.com          # once per person
+co handoff send ody "the login token task"      # preview; nothing is sent
+co handoff send ody --draft ho-98fb1cb3 --yes   # send exactly what you saw
+co handoff status ho-98fb1cb3
 
-You have spent an hour with your Codex on a task. You decided things, you
-rejected things, and you know why. Now Ody should continue it.
+# Ody, on his machine
+co handoff inbox
+co handoff show ho-98fb1cb3 --decisions
+co handoff open ho-98fb1cb3                     # starts his own Codex session
+```
 
-Today that means writing it all down again. With `co handoff` you tell your
-Codex:
+## What is sent
 
-> Hand the login task we just discussed to Ody.
+One bundle (JSON, format `co-handoff/1`):
 
-ConnectOnion prepares the task and the context it needs, shows you exactly what
-would leave your machine, and sends it only when you say so. On Ody's machine a
-dedicated Codex session is created with that context already in it. Ody opens it,
-asks "why not option B?", gets an answer from the material you shared, and
-carries on. Nobody rewrites the background.
-
-Codex stays each person's working interface. There is no shared folder to keep
-up and no document to write by hand.
-
-## What a bundle contains
-
-A handoff is one frozen bundle, prepared from the current Codex session and the
-relevant [co rem](/rem) context:
-
-| Part | What it holds |
+| field | what it holds |
 |---|---|
-| Task | The objective and what "done" means |
-| Where it stands | What is finished, in progress, and already tried |
-| Decided | Each confirmed decision, with its reason |
-| **Rejected** | Each option you dropped, and why. This is what the recipient asks about first |
-| Constraints | Limits the work must respect |
-| Open questions | What is still undecided, and who is waiting on it |
-| Sources | Short excerpts and stable references (repository, branch, commit, PR) |
+| goal | the task, in one or two sentences |
+| decisions | each decision, why, and every rejected option with its reason |
+| current_state | done / in progress / not started |
+| next_step | the single next concrete step |
+| open_questions | proposals and undecided points |
+| evidence | file paths, commands, URLs, issues named in the discussion |
+| recipient_may | permissions the sender stated (empty if none) |
+| excerpt | the last 40 spoken turns of the session, verbatim (each cut at 2,000 characters) |
+| content_hash | covers all of the above, so the recipient can tell the copy is the one you approved |
 
-Proposals are kept apart from confirmed decisions. Anything missing or
-uncertain is marked as such, not filled in with a guess.
+The summary is drafted by one `llm_do` call (default model) from the excerpt
+and your own words. Tool calls, tool output, reasoning and anything the client
+injects (AGENTS.md, skill bodies, environment context) are not read.
 
-What is **not** in a bundle: your system instructions, credentials, execution
-privileges, other conversations, hidden model reasoning, or paths into your
-private filesystem.
+Nothing else leaves the machine: no files, no co rem pages, no mail.
+A bundle containing anything credential-shaped (API keys, tokens, private key
+blocks, JWTs, `PASSWORD=…`) or any value of a KEY/TOKEN/SECRET/PASSWORD
+variable in your environment is refused with exit 1.
 
-Sending freezes the bundle at one version. If you edit it, the earlier approval
-no longer applies to it.
+## Where the session comes from
 
-## Send: preview first, then `--yes`
+| client | file | how the current one is chosen |
+|---|---|---|
+| Codex | `$CODEX_HOME/sessions/YYYY/MM/DD/rollout-*-<thread>.jsonl` | `$CODEX_THREAD_ID` inside Codex, else the newest rollout whose `session_meta.cwd` is this directory |
+| Claude Code | `~/.claude/projects/<cwd, non-alphanumerics as ->/<session>.jsonl` | `$CLAUDE_CODE_SESSION_ID` inside Claude Code, else the newest file there |
 
-Like every `co` command that sends something, `co handoff` previews before it
-acts. The first run prints the bundle and sends nothing; you read it, then
-confirm.
+`--agent codex|claude` picks one client; `--from-file notes.md` skips sessions
+entirely.
 
-Planned shape:
+## Preview, edit, send
 
-```bash
-co handoff send ody            # preview: recipient, task, decisions, rejected options, sources
-co handoff send ody --yes      # send exactly what the preview showed
+`co handoff send` previews by default: recipient, source session, the summary,
+the decisions and the full excerpt, and saves the draft to
+`~/.co/handoff/drafts/<id>.json`. Edit that file (or pass `--edit` to open it in
+`$EDITOR`), then `--draft <id> --yes` sends exactly that file. A draft is bound
+to the recipient it was prepared for.
+
+When an agent runs the command, the preview tells it to show the preview to
+the person and to send only after they approve. A preview is a gate for a
+person; an agent's own `--yes` is not that person's approval.
+
+## Recipients
+
+`<who>` is a contact name (`co handoff contact <name> <address>`, stored in
+`~/.co/handoff/contacts.json`), an email, or a full `0x` agent address, which
+becomes that agent's mailbox `0x<first 10 hex>@mail.openonion.ai`. An unknown
+name exits 1 and prints the exact `co handoff contact` line.
+
+## Transport
+
+Today the bundle travels by the recipient agent's mailbox (`co email`): every
+co identity has an address, delivery works while they are offline, and no Host
+is needed. The mail body opens with a readable summary; the bundle follows in a
+base64 block. One small module (`connectonion/handoff/transport.py`) knows
+this, so a direct agent-to-agent route can replace it.
+
+## Opening
+
+`co handoff open <id>` writes `HANDOFF.md`, `excerpt.md` and `bundle.json` to
+`~/.co/handoff/received/<id>/`, then runs one read-only `codex exec` turn seeded
+with the brief (or `claude -p` with `--agent claude`). It prints:
+
+```
+Continue it:  cd ~/.co/handoff/received/<id> && codex resume <session>
+Ask one question:  cd … && codex exec resume --skip-git-repo-check <session> "<your question>"
 ```
 
-The preview names the recipient, the requested work, the decisions and
-constraints, and the exact source material included. You can approve it, edit
-it, or decline. No answer means nothing is sent.
+`--cd <dir>` runs the session in your project instead. Opening the same
+handoff again prints the existing session and creates no second one. Nothing
+runs before `open`; after it, your own Codex/Claude settings decide what the
+agent may do.
 
-Delivery is not execution. After sending you see the real status: delivered and
-waiting for Ody, accepted, session ready.
+## Not yet
 
-## Receive: inbox, show, open
-
-On Ody's machine the handoff lands in an inbox first. Nothing runs and no
-session is created until Ody accepts it.
-
-Planned shape:
-
-```bash
-co handoff inbox               # handoffs waiting for you
-co handoff show <id>           # read the bundle: task, decisions, rejected options, sources
-co handoff open <id>           # accept, and open the Codex session that continues it
-```
-
-`open` creates a dedicated Codex session on Ody's machine with the brief and its
-evidence in the task workspace. Ody's own approval policy decides whether the
-session starts working at once or waits for him. Opening the same handoff twice
-returns the same session; it does not create a second one.
-
-## Privacy: the preview is what leaves
-
-- **The preview shows exactly what leaves your machine.** The bundle that is
-  sent is the version you saw, byte for byte. An edit makes a new version that
-  needs its own approval.
-- **The AI prepares; you authorize.** Choosing what context is relevant saves
-  you work, but it does not grant permission to share it.
-- **The recipient gets text, not access.** Ody receives the bundle, not a live
-  link into your co rem, your session history, or your machine.
-- **Your instructions do not travel as orders.** Shared text cannot override
-  Ody's execution policy. Running tools or changing code on his machine stays
-  under his own approvals.
-- **Sent is sent.** Withdrawing a handoff stops future access, but it cannot
-  erase a copy that was already delivered.
-
-## How it flows
-
-The first preview covers one known pair of collaborators: your Codex session,
-one handoff, Ody's Codex session. This is the part of the
-[#2351](https://github.com/openonion/connectonion/issues/2351) design that the
-first preview targets:
-
-```mermaid
-sequenceDiagram
-    actor Alice
-    participant AC as Alice's Codex
-    participant A as Alice's ConnectOnion
-    participant B as Ody's ConnectOnion inbox
-    participant BC as Ody's Codex
-    actor Ody
-    Alice->>AC: Hand this task to Ody
-    AC->>A: Prepare task and context bundle
-    A-->>Alice: Preview: recipient, task, decisions, rejected options, sources
-    Alice->>A: Approve (--yes)
-    A->>B: Deliver the frozen bundle
-    B-->>A: Receipt: delivered, waiting for Ody
-    Ody->>B: inbox, show
-    Ody->>B: open (accept)
-    B->>BC: Create a dedicated session with the bundle
-    BC-->>Ody: Session ready
-    Ody->>BC: Why not option B? Continue the work
-```
-
-Not in the first preview, and not described here as working: standing
-auto-approval grants, sending questions and results back to the sender through
-the handoff, finding a teammate's agent from their email
-([#2353](https://github.com/openonion/connectonion/issues/2353)), and
-notifications that pop up inside Codex.
-
-## See also
-
-- [co rem](/rem) - the context a handoff draws on
-- [Agents know co](/cli/agent-index) - how Codex learns that `co handoff` exists
-- [co skills](/cli/skills) - ConnectOnion's skills in Claude Code and Codex
+- Status after delivery: the sender sees the mail service's status, not whether
+  the recipient opened the handoff, and replies do not come back to the
+  original handoff.
+- Finding someone's agent by email (#2353); today you exchange addresses once.
+- Scoped auto-approval grants and recipient-side acceptance policies (#2351).
+- Native Codex notifications: the recipient runs `co handoff inbox`.

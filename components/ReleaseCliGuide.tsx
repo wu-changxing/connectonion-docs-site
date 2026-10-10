@@ -20,7 +20,7 @@ export function ReleaseCliGuide({ name, preview = false, coming = false, intro }
               1.8.4 across two stable releases because it was a literal. */}
           {coming ? (
             <Link href="/releases" className="rounded-full border border-green-700 px-3 py-0.5 text-sm font-semibold text-green-800">
-              Preview · coming next, not in any release yet
+              Coming next · not in any release yet
             </Link>
           ) : preview && PREVIEW_VERSION ? (
             <Link href="/releases" className="text-amber-800 underline">
