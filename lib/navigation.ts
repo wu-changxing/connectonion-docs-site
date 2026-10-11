@@ -319,6 +319,15 @@ export const navigation = [
     section: 'CLI: Browser & Files',
     keywords: ['gdrive', 'google drive', 'drive', 'files', 'list', 'search', 'download', 'upload', 'get', 'put', 'rm', 'trash', 'export', 'google docs', 'sheets', 'slides', 'scope', 'oauth'],
     prev: { href: '/cli/proxy', title: 'co proxy' },
+    next: { href: '/cli/mcp', title: 'co mcp' }
+  },
+  {
+    title: 'co mcp',
+    href: '/cli/mcp',
+    icon: HiOutlineGlobeAlt,
+    section: 'CLI: Browser & Files',
+    keywords: ['mcp', 'codex', 'connector', 'connectors', 'gmail', 'calendar', 'github', 'tools', 'app-server'],
+    prev: { href: '/cli/gdrive', title: 'co gdrive' },
     next: { href: '/cli/synology', title: 'co syno' }
   },
   {
@@ -327,7 +336,7 @@ export const navigation = [
     icon: HiOutlineFolderOpen,
     section: 'CLI: Browser & Files',
     keywords: ['NAS', 'Synology', 'share', 'password', 'expiry', 'revoke'],
-    prev: { href: '/cli/gdrive', title: 'co gdrive' },
+    prev: { href: '/cli/mcp', title: 'co mcp' },
     next: { href: '/cli/youtube', title: 'co youtube' }
   },
   {
