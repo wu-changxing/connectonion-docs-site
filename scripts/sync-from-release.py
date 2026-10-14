@@ -110,7 +110,7 @@ def main() -> int:
     if re.search(r"(a|b|rc)\d+$", version):
         ts = SITE / "lib/version.ts"
         text = ts.read_text()
-        updated = re.sub(r"(PREVIEW_VERSION: string \| null = )'[^']*'", rf"\g<1>'{version}'", text)
+        updated = re.sub(r"(PREVIEW_VERSION: string \| null = )(?:'[^']*'|null)", rf"\g<1>'{version}'", text)   # null after a stable
         write(ts, updated.encode(), changed)
 
     print(f"{len(changed)} file(s) changed from {args.tag}:")
