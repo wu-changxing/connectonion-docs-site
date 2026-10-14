@@ -573,5 +573,10 @@
     "title": "Call your Codex connectors from the terminal (co mcp) | ConnectOnion",
     "description": "List and call the MCP servers and account connectors you already have in Codex, such as Gmail and Calendar, from the terminal: no second login, no model turn.",
     "path": "/cli/mcp"
+  },
+  "/cli/handoff": {
+    "title": "Hand a Claude Code or Codex session to a teammate's AI (co handoff) | ConnectOnion",
+    "description": "co handoff sends the session you had with Claude Code or Codex to another person's coding agent: every message word for word, private sentences removed, sent only on your yes. Their agent does the work and sends the patch back. Preview in 1.9.2.",
+    "path": "/cli/handoff"
   }
 }

@@ -191,6 +191,15 @@ export const navigation = [
     section: 'CLI: Mail & Calendar',
     keywords: ['email', 'agent email', 'inbox', 'send', 'read', 'mail.openonion.ai', 'name', 'upgrade', 'domain', 'quota'],
     prev: { href: '/cli/env', title: 'co env' },
+    next: { href: '/cli/handoff', title: 'co handoff (preview)' }
+  },
+  {
+    title: 'co handoff (preview)',
+    href: '/cli/handoff',
+    icon: HiOutlineEnvelope,
+    section: 'CLI: Mail & Calendar',
+    keywords: ['handoff', 'hand off', 'session', 'Codex', 'Claude Code', 'teammate', 'send', 'accept', 'patch', 'private sentences'],
+    prev: { href: '/cli/email', title: 'co email' },
     next: { href: '/cli/gmail', title: 'co gmail' }
   },
   {
@@ -199,7 +208,7 @@ export const navigation = [
     icon: HiOutlineInbox,
     section: 'CLI: Mail & Calendar',
     keywords: ['gmail', 'google', 'inbox', 'unread', 'read', 'reply', 'send', 'sent', 'search', 'query', 'oauth', 'co auth google', 'mail', 'cc', 'bcc', 'stdin'],
-    prev: { href: '/cli/email', title: 'co email' },
+    prev: { href: '/cli/handoff', title: 'co handoff (preview)' },
     next: { href: '/cli/outlook', title: 'co outlook' }
   },
   {
