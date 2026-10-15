@@ -7,7 +7,7 @@
  * version shown on the homepage or in structured metadata.
  */
 export const STABLE_VERSION = '1.9.2'
-export const PREVIEW_VERSION: string | null = '1.9.3b2'
+export const PREVIEW_VERSION: string | null = '1.9.3b4'
 // No preview ahead of stable 1.9.2.
 export const STABILIZING_VERSION: string | null = null
 
