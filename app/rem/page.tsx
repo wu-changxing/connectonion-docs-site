@@ -135,6 +135,12 @@ export default function Page() {
               not a verified relationship.
             </p>
             <p>
+              Before a page is saved, every quotation on it must match its cited source word for
+              word, and a second model audits its cited claims. What fails goes back to the writer
+              twice; then only the refuted sentences are removed. A phone or email stays only when
+              the mail shows it is the person&apos;s own; otherwise it says Unknown.
+            </p>
+            <p>
               Completed nightly passes can compare cited Facts and Contact fields before and
               after the run. Other prose changes remain page-level, and older run logs have
               no field comparison. A rewritten page alone is not a new fact, and revealing

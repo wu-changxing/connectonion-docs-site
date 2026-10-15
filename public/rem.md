@@ -90,6 +90,30 @@ not measure retention. [Broader claim comparison](https://github.com/openonion/c
 are open work. The [product audit](https://github.com/openonion/connectonion/blob/main/docs/design-evidence/rem-product-audit-2026-10-01.md)
 tracks the ten largest design and product problems.
 
+## How a page is checked before it is saved
+
+Every page a model writes passes the same review, by `co rem init`,
+`co rem investigate`, the project writer or a nightly update:
+
+- A quotation on a person, organisation or project page must appear word for
+  word in a source its line cites. Pages quote the words you may act on (an
+  ask, a price, a decision) instead of retelling them.
+- A second model audits the cited claims on people, organisation and project
+  pages against their originals: who said it, whether an event has passed,
+  whether a contact detail belongs to this person.
+- What review finds goes back to the writer for up to two repairs. After that,
+  only the sentences still refuted are removed and the rest of the page is
+  kept; the review record says how many went.
+- A phone or email stays only when the mail shows it is the person's own. A
+  relay address (Luma, Airbnb) is never someone's email. An unknown company
+  comes only from the address they write from now, never a student address.
+- Every turn is told today's date, and each source is listed once, dated from
+  its original.
+
+A page refused anyway is retried once a day, three times at most on the same
+material. A nightly rewrite that would keep less than 60% of a page keeps the
+old one.
+
 ## Sources and storage
 
 co rem can use connected Gmail and Outlook mail and local Codex and Claude Code
