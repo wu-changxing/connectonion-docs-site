@@ -45,6 +45,7 @@
 - [co skills](https://docs.connectonion.com/cli/skills): Link ConnectOnion's skills into Claude Code and Codex
 - [co rem](https://docs.connectonion.com/rem): stable 1.9.1 memory — a first run that investigates every page in a 180-day map and deepens people with older mail, followed by approved overnight context from mail and coding sessions
 - [co benchmark](https://docs.connectonion.com/cli/benchmark): Benchmark a skill, then co eval it on the real agent
+- [co handoff](https://docs.connectonion.com/cli/handoff): Preview (1.9.2): hand a Claude Code or Codex session to a teammate's agent, private sentences removed, sent on your yes; the patch comes back
 - [co audit](https://docs.connectonion.com/cli/audit): Preview (1.8.9): is a CLI fit for an agent harness? Scores its help pages
 - [co call](https://docs.connectonion.com/cli/call): Run one command on a remote agent
 - [co server](https://docs.connectonion.com/cli/server): Servers you own, for co deploy --to; co server ssh opens a shell
