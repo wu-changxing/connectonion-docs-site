@@ -10,7 +10,7 @@
  */
 import {
   HiOutlineHome, HiOutlineCheckCircle, HiOutlineRocketLaunch, HiOutlineCommandLine, HiOutlineChatBubbleBottomCenterText, HiOutlineCodeBracket, HiOutlineChartBar, HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineBugAnt,
-  HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineBookOpen,
+  HiOutlineDocumentText, HiOutlineFolderOpen, HiOutlineBookOpen, HiOutlineArrowsRightLeft,
   HiOutlineUsers, HiOutlineCog, HiOutlineSquares2X2, HiOutlineCpuChip, HiOutlineGlobeAlt, HiOutlineCamera, HiOutlineLink, HiOutlineEnvelope, HiOutlineWifi, HiOutlineChartBarSquare, HiOutlinePuzzlePiece, HiOutlineCalendar, HiOutlineInbox, HiOutlineArrowUpTray, HiOutlineWrench, HiOutlinePhoto, HiOutlineCursorArrowRays, HiOutlineChevronDown, HiOutlinePresentationChartBar, HiOutlineSquare3Stack3D, HiOutlineMinus, HiOutlineMagnifyingGlass, HiOutlineRectangleGroup, HiOutlineCurrencyDollar, HiOutlineMicrophone, HiOutlineArrowPath, HiOutlineFolderPlus, HiOutlineKey, HiOutlineDocumentDuplicate, HiOutlineServerStack
 } from 'react-icons/hi2'
 import { VscComment, VscGitMerge, VscFileCode, VscKey, VscServerProcess } from 'react-icons/vsc'
@@ -374,6 +374,15 @@ export const navigation = [
     section: 'CLI: Coding Agents & Memory',
     keywords: ['sub', 'subscribe', 'follow', 'publisher', 'sync', 'mirror', 'fan-out', 'relay', 'subscriptions', '0x address'],
     prev: { href: '/cli/skills', title: 'co skills' },
+    next: { href: '/cli/handoff', title: 'co handoff' }
+  },
+  {
+    title: 'co handoff',
+    href: '/cli/handoff',
+    icon: HiOutlineArrowsRightLeft,
+    section: 'CLI: Coding Agents & Memory',
+    keywords: ['handoff', 'hand off', 'session', 'codex', 'claude code', 'teammate', 'context', 'encrypted', 'redact', 'privacy', 'skill'],
+    prev: { href: '/cli/sub', title: 'co sub' },
     next: { href: '/rem', title: 'co rem' }
   },
   {
@@ -382,7 +391,7 @@ export const navigation = [
     icon: HiOutlineCpuChip,
     section: 'CLI: Coding Agents & Memory',
     keywords: ['rem', 'co rem', 'memory', 'agent memory', 'wiki', 'notebook', 'people', 'projects', 'experimental'],
-    prev: { href: '/cli/sub', title: 'co sub' },
+    prev: { href: '/cli/handoff', title: 'co handoff' },
     next: { href: '/cli/rem', title: 'co rem CLI' }
   },
   {
