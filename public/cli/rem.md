@@ -114,7 +114,8 @@ person 1.1M and ~5 minutes, a project 1.2M and ~4 minutes, an organisation
 120k and ~1.5 minutes, a skill 500k and ~3 minutes. The 90-day run was
 interrupted, so these rates do not predict every retry or refusal. Minutes are
 wall clock: after the quick owner turn, the
-full turn and selected pages share up to 16 workers. The estimate simulates
+full turn and selected pages share `limits.workers` workers (default 16),
+the same setting as `co rem investigate CATEGORY`. The estimate simulates
 that queue so a slow last page is not hidden by an average. Init starts every
 selected page and keeps going after individual refusals; there is no REM quota
 gate on this foreground run. A model provider may still refuse new turns at its
@@ -289,6 +290,8 @@ The reader calls these **skill-name matches**: invocation attempts in coding
 sessions matched by name. `Run evidence` counts retained evaluation attempts
 separately; it may show zero even when coding sessions contain name matches.
 Neither count proves that this installed version ran or that the task succeeded.
+The Skills list uses a compact usage count and last date; the skill page keeps
+the match details, scope explanation and usage bar.
 
 Rerunning the map (`init`, `sync`'s map, or `map-skills`) moves an older
 notebook to this shape. Pages made one per copy are merged into the name's page:
@@ -368,6 +371,7 @@ Every command returns a next command, including in JSON and through a pipe.
 | `co rem investigate me` | Fill your own page from what you sent and your coding sessions of the last 30 days. |
 | `co rem enrich people/alice.md` | Follow the leads a page has not followed — links, attachments, older threads — and add what they establish. One model turn with the `rem-enrich` Skill, the page's cited originals and a reading ledger of every source the saved archive holds about the subject (no live mailbox query). Prints the lead list: followed, open, blocked. [Details](#deepen-one-page-enrich-and-muse). |
 | `co rem muse people/alice.md` | Think one page through: ask many questions, study the five best, write only on insight. One thread of seven resumed turns with the `rem-muse` Skill. [Details](#deepen-one-page-enrich-and-muse). |
+| `co rem deepen --pages 2` | Deepen the highest-value thin pages, one enrich then muse round each, within a separate weekly budget. [Details](#deepen-over-time-co-rem-deepen). |
 | `co rem abstract` | Run rem-abstract over existing notebook evidence. |
 | `co rem start` | Confirm source access, run first bounded sync, install macOS background schedule. Asks again whenever anything its summary shows (sources, runner, model, permissions, schedule, limits) changed since the last approval. A start after `stop` resumes the schedule without a batch; `co rem sync` runs one. |
 | `co rem start --yes` | Explicit noninteractive consent for start. |
@@ -395,8 +399,8 @@ browser's address as an admin of the Host: `co trust admin add <address>`.
 
 The page reads each record for what it knows (#1836). A page carries one of
 three tags: **Mapped** (an outline from your sources; its status line still says
-"not investigated yet"), **Some findings** (written content, no investigation
-pass yet) and **Investigated**. "Unknown" lines and placeholders are not shown;
+"not investigated yet"), **Partly investigated** (some sections filled from sources; the rest
+not investigated yet) and **Investigated**. "Unknown" lines and placeholders are not shown;
 the headings still empty are named once at the foot of the page with the
 `co rem investigate '<page>'` command that fills them. Lists put pages with
 findings first, then newest last contact. The Markdown file is unchanged, and
@@ -409,6 +413,7 @@ on one page that is already written, each through the same `co ai` runner and
 the same review gate as investigate (citations trace to a source, every quote is
 word for word in the source it cites, contacts are the subject's own, the cited
 claims pass the audit; review names problems back to the writer twice at most).
+The claim audit judges only lines the run wrote; carried lines are recorded, not refused.
 
 ```bash
 co rem enrich projects/aurora.md   # discovery: follow what the page has not followed
@@ -422,6 +427,12 @@ co rem muse projects/aurora.md     # thinking: ask, choose, study, write only on
   unread attachments, names, older threads and other channels, adds what they
   establish, and replies with a lead list: `followed`, `open` (the next run's
   work) and `blocked`. The lead list is printed and kept in the run record.
+  Project history is studied oldest first, one period per turn in the same
+  thread before other leads, with the full GitHub listing up to 5,000 issues
+  and 5,000 pull requests per repository. For each period's most important
+  decision, it quotes your own words exactly, in their original language,
+  from a session message or mail you wrote and cites it; if none exists,
+  it says so in its reply.
 - **muse** is one conversation of seven turns in the same Codex or Claude Code
   thread (`co ai --json --resume <session>`): turn 1 writes at least twenty
   questions and picks five; turns 2–6 study one question each and edit the
@@ -429,14 +440,70 @@ co rem muse projects/aurora.md     # thinking: ask, choose, study, write only on
   the last turn looks back, brings the lead and the page's shape in line with
   what changed, and lists the questions left open. Its material is the page,
   its cited originals, and the latest enrich lead list and muse open questions
-  for that page. After the review gate, a page that lost any `“…”` quote or
-  any `Sources` id it had at the start is put back as it was, and the result
-  says so.
+  for that page.
+
+Both send dropped `“…”` quotes or pre-existing `Sources` ids back for repair;
+if two repairs cannot restore them, the lost lines are put back as they were,
+with citations renumbered, so the page keeps its new work. A post-run guard
+also restores any remaining loss and reports it in the result.
 
 Both print whether the page changed and its size before and after, record a
-run in `co rem logs` (with usage, counted in the weekly budget like
-investigate), and change no other page. They work on people, projects and orgs
+run in `co rem logs` (with usage, counted in the separate deepening budget),
+and change no other page. They work on people, projects and orgs
 pages.
+
+### Deepen over time: co rem deepen
+
+```bash
+co rem deepen             # one slot: two pages by default
+co rem deepen --pages 1
+co rem deepen projects/lantern-skills.md avery-lin
+```
+
+Optional `PAGE...` selectors resolve like enrich/muse and deepen exactly those
+pages once in the given order, checking the budget before each page; `--pages`
+limits automatic selection only.
+
+One round on one page is **enrich, then muse**, about 25 minutes. Round N reads
+round N-1's open leads and open questions through the latest completed run
+reports. Muse still runs when enrich fails or is refused, using what is there.
+
+Candidates include every notebook page under `people/`, `projects/` and `orgs/`, excluding
+the owner and mapped automated accounts; map rows supply activity, while unmapped
+projects use Sessions under Paths (0 if absent) and Last seen. Orgs sum their
+mapped people's mails and use those people's newest Last seen; unmapped people
+and orgs have value 0.
+The highest priority goes first, ties by record:
+
+```text
+priority = log2(2 + value) × recent × thin / (1 + rounds)
+value = mails for people, sessions for projects, its people's mails for orgs
+recent = 2 for activity within 30 days, otherwise 1
+thin = 1 / (1 + quotes/3 + sources/10)
+```
+
+Quotes and sources count distinct entries on the current page. A page rests
+for 30 days when its last round changed neither characters, quotes nor sources
+and found no insights, or when each of its last two rounds gained little:
+`gain = (quotes after - before) + (sources after - before) + insights` is at most 1
+and the absolute character change is less than 600 in each round. Rest starts
+at the last round. Each round appends its metrics, outcomes, lost quotes,
+insights and token-based points to `.state/depth.json`, keyed by record.
+
+`limits.depth_quota_points` defaults to **30 points of the Codex week**,
+separate from investigation's 35; `limits.depth_pages_per_slot` defaults to 2.
+The shared `limits.quota_floor_percent` (90) also stops new pages. Both bounds
+are checked before each page. Usage counts enrich and muse run logs within
+the reported quota window, or the last seven days when the meter is unknown.
+Each picked page gets a line with its value, recent multiplier, quotes, sources
+and next round number. `--json` includes these selection metrics and priority
+under `picked` (`rounds` is the number of previous rounds).
+The round table shows before/after characters, quotes and sources, insights,
+lost quotes, both outcomes and points; it also reports why it stopped and how
+many candidates remain.
+
+Scheduled `co rem sync --scheduled` runs a slot after a due daily round,
+unless that round was partial. Manual `co rem sync` never deepens pages.
 
 ### What the reader shows
 
@@ -445,6 +512,13 @@ older page before showing its answer. It remains a point-in-time snapshot.
 When pages already exist but no background schedule is authorized, its status
 says **Background updates off** and offers `co rem start`; the written pages
 remain available. A wholly empty notebook still says **Not started**.
+Status, theme and privacy controls live in the sidebar’s **Reader settings**
+disclosure. **EN | 中文** beside the theme controls switches interface labels
+and dates. Your saved choice comes first; otherwise Chinese is preferred when
+it is among your languages, then a Chinese browser language, then English.
+Older notebooks without saved language detection read your own sent mail and
+typed sessions on opening, without writing to the notebook. Configured
+languages still take precedence. Page prose stays as written. On phones, a compact brand and search header keeps Browse within reach.
 
 - **Home** opens with up to three pages changed in the latest pass, labeling
   their statements as current context. A changed Project card shows its purpose
@@ -457,18 +531,28 @@ remain available. A wholly empty notebook still says **Not started**.
   shelves. The last pass's counts and hypnogram are available in **How REM
   processed the last pass**. The owner's page is pinned as **You**.
 - **People, Organisations and Projects** open as a sheet: one row per page,
-  the facts in columns (people: what's open next to the name, then company,
-  role, email, phone, last contact, mails; status is the moon beside the
-  name), a sticky header, sort on any column, filters (*Something open*,
+  the facts in columns (People starts with name and summary, what's open,
+  company and last contact; **More columns** reveals role, email, phone and
+  mails, remembering your choice in this browser; status is the moon beside
+  the name), a sticky header, sort on any shown column, filters (*Something open*,
   *Yours to answer*, *Written*, *Mapped only*) and a text filter. A row opens
   the page. It fits 1440 px; narrower, it scrolls inside itself with the cut
-  edge shaded and the name column held. The columns come from the notebook's
+  edge shaded and the name column held. On phones, People become cards with
+  contact details and open work; empty columns are omitted on desktop. The columns come from the notebook's
   index (`store.people_table`, #2067) when `.state/rem.db` exists, embedded in
   the snapshot; before it does, from each page's Facts and the map's mail
   counts (`index_rows` and `mail_facts` in `reader.py`, `facts()` in the page).
 - **"You", not "the user"**: pages are written about "the user"; the reader
   says "you" ("you have not signed it", "How you write to them") at render
   time only, so the Markdown and Copy Markdown keep the words as written.
+- **Memory markers**: a dawn dot means **updated last night**, for pages
+  rewritten in the latest pass. A faint underline marks a recorded field
+  change, with before/after values on hover. A hollow circle beside a citation
+  means the sentence explicitly says its claim is unconfirmed; uncited prose
+  gets no marker. On entering a page, these update markers fade in once and the
+  changed-field underline draws in about 600 ms. Filtering or rerendering the
+  same view does not replay them; reduced motion shows the final state immediately.
+  A short legend lives in **Reader settings**.
 - **A page** opens on a focused status, next exchanges, compact facts, related
   records and filterable dated Activity. Project pages add purpose and a
   recorded decision when supported. A project opens on its current supported
@@ -478,9 +562,14 @@ remain available. A wholly empty notebook still says **Not started**.
   mentions make cross-page cards and backlinks; their labels distinguish a
   link from a mention. The original prose, every Facts/Contact field,
   Insight, History and Sources stay under the always-visible **Full memory and
-  sources** section. A claim
+  sources** disclosure; decision pages also start with it collapsed. A claim
   number `[n]` opens its source description and, when locally archived, an
-  original excerpt. Grouped citations keep the page compact; each numbered
+  original excerpt. Prose uses quiet raised date markers, kept beside the
+  preceding word; hover or focus reveals the full source label. Adjacent
+  citations share a marker. The source panel keeps the claim and available
+  sender, channel, date and subject visible while excerpts are hidden; **Show
+  labelled passages** reveals them using the existing privacy setting.
+  Grouped citations keep the page compact; each numbered
   row under Sources can also open its own original on a phone. An accepted
   explicit investigation retains the live coding-session inputs it cites,
   even when they were absent from the older map. Cited mail bodies show up to
@@ -494,7 +583,9 @@ remain available. A wholly empty notebook still says **Not started**.
   replaced by a generated summary. A page only mapped from metadata says so
   and gives the command to investigate it.
 - **Open threads** shows all supported obligations with direct record links.
-  **Memory changes** keeps cited field changes separate from page rewrites.
+  Within each direction section, rows keep their date without repeating the
+  direction tag. **Memory changes** keeps cited field changes separate from
+  page rewrites.
   Older run logs have no claim-level comparison; they show an empty state.
 - **Search** routes common requests such as “who do I owe?”, “what changed?”
   and “connected to Mara Ostrowski” to task views. Literal search also answers
@@ -508,8 +599,9 @@ amber kept for what is owed; a dark palette of its own; Optima for titles,
 Charter for prose, the system face for chrome and the mono face for every
 date, count and id. Fonts are local faces, so the page makes no network
 request. Every view fits a 390 px phone without sideways scrolling, keyboard
-focus is visible, and the only motion (the hypnogram drawing in) is off under
-`prefers-reduced-motion`.
+focus is visible, and the hypnogram line is visible immediately. Quotes use a
+warm tint in light mode and warm text with a faint underline in dark mode;
+search matches keep their distinct highlight. Motion respects `prefers-reduced-motion`.
 
 To see every view on an invented notebook, light and dark, desktop and phone:
 `python scripts/capture_rem_reader.py OUT_DIR` (the fixture is
@@ -650,6 +742,20 @@ within the requested page window. The cache contains message text and source
 IDs, but not whole tool-output transcripts. It is not included in reader
 exports. Deleting that directory forces the next investigation to rebuild it.
 
+A session REM does not read, such as one of REM's own turns or a program's
+prompt, is recorded as skipped the first time it is seen and is never opened
+again, even while it grows. On the owner's machine 11,473 of 15,000 Codex
+rollouts were REM's own turns. Every scan reopened them, and a warm scan took
+80 seconds; it now takes about 6. A cache from before Codex `exec` sessions
+were excluded is migrated in place: only the items from such sessions are
+dropped, and nothing is read again. Within one run, the mail metadata and the
+project notes that every page searches are parsed once and then reused until a
+file changes.
+Before page workers start, init and `co rem investigate CATEGORY` scan the
+session stores once, so no page waits on that scan or counts it as its own
+gathering. A person's search of the project notes first checks each note for
+the name in one pass and excerpts only the notes that contain it.
+
 What counts as a message you typed to Codex (#1978). Codex Desktop puts every
 message in the user slot under a metadata block, typed or injected, and says
 in `content_item_kinds` what each part is. A message whose parts are all
@@ -722,13 +828,20 @@ below is good to about one point.
 - **Every run records the meter before and after** (`quota` in the run log,
   shown by `co rem logs`). The difference is what that run cost in points of
   your week, measured rather than estimated from tokens.
-- **A run the meter cannot see is counted from its tokens** (#1990). Codex
-  reports whole percents, and on the 1.9.0a7 acceptance notebook the week read
-  29% before and after every run, 3.4M input tokens in all, so the budget said
-  "0 of 10 points" all week. A run whose reading did not move (or could not be
-  read) now counts `(input − cached input + output) / 1,000,000` points, to one
-  decimal: about a million tokens the model had to read fresh or write is one
-  point. A run that did move the meter counts what the meter says.
+- **Runs that overlap share one meter reading.** Init and CATEGORY runs write
+  many pages at once, and each page's before/after spans every other page's
+  spend. Summing them counted the same movement up to sixteen times: on real
+  first runs the meter moved 3-10 points while the per-run sum said 75-154. Runs
+  whose times overlap are now one group, and a group costs what the meter moved
+  from its first reading to its last. Gaps between groups are not counted, so
+  your own coding between runs stays yours.
+- **A group the meter cannot see is counted from its tokens** (#1990). Codex
+  reports whole percents, so a small group can read the same before and after.
+  It then counts `(input − cached input + output)` divided by 12,000,000 at
+  standard speed or 6,000,000 at fast speed (fast bills twice). Seven large
+  first runs at standard speed moved the meter one point per 11.6M-13.6M fresh
+  tokens. This fallback only applies when the meter stayed flat, so its error
+  is under one point per group.
 - **Scheduled investigation has a weekly budget**, `limits.investigation_quota_points`,
   default **35** points of the weekly window. The
   scheduled round adds up the points its investigation runs used since the
@@ -740,7 +853,9 @@ below is good to about one point.
   estimate; the CLI cannot claim to have measured their plan usage.
 - **Manual investigation is metered too** (#1842). `co rem investigate PAGE`,
   `me` and CATEGORY runs record usage. A CATEGORY run covers all pending pages
-  by default, with up to 10 workers; `--limit N` and `--workers N` bound a trial.
+  by default, using `limits.workers` (default 16), as init does. Set it with
+  `co rem config set limits.workers 8`; `--workers N` overrides one run (1–32).
+  `--limit N` or `--budget N` alone uses one worker.
   It stops starting pages when its explicit `--budget N` is spent or at the
   safety floor. Pages already in flight finish.
 - **After init**, `co rem investigate all --budget 10` works whatever init left:
@@ -764,7 +879,9 @@ bounded by the call cap. Its cost now shows in points, so a cap can follow
 from real numbers. This supersedes the earlier unimplemented 2% initialization
 / 1% daily targets, which needed exactly this meter.
 
-The scheduled daily round maintains first. The first run of the local day then
+The scheduled daily round maintains first. It saves detected owner languages after
+maintenance, including a partial maintenance result, before deciding whether to
+investigate. The first run of the local day then
 investigates unfinished pages, most recent activity first, within a reserved
 share of the daily attempt cap (8 calls; a person is one investigation); every later run
 updates only the people with new mail and the projects with new messages since
