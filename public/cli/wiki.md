@@ -23,7 +23,7 @@ co wiki investigate          # List your actual pages; does not run a model
 
 Copy the `Next:` command printed by `investigate` to investigate one existing
 page. You can also supply an exact title or email when it identifies one page,
-for example `co wiki investigate 'Ody'` if that person exists in your notebook.
+for example `co wiki investigate 'Mara'` if that person exists in your notebook.
 Ambiguous names list the matching paths and do not start a model. Example page
 names in old help text, such as `people/emma.md`, are not built-in records.
 `--help` displays help and exits, even when you also supply a page name.
