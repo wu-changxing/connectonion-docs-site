@@ -252,7 +252,7 @@ numbered for cancel, with recipient, subject, and local send time:
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
 ┃ To                          ┃ Subject                ┃ Sends at     ┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━┩
-│ tamara.berryman@unsw.edu.au │ RE: Access to the MCIC │ Jul 07 08:00 │
+│ mara.lin@example.edu        │ RE: Access to the MCIC │ Jul 07 08:00 │
 └─────────────────────────────┴────────────────────────┴──────────────┘
 ```
 
