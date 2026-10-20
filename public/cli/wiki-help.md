@@ -104,7 +104,7 @@ Usage:
 
 Examples:
   co wiki investigate
-  co wiki investigate people/ody-zhou-c6a901ffd8.md
+  co wiki investigate people/corin-marsh-c6a901ffd8.md
   co wiki investigate people --limit 3
   co wiki investigate projects --list          (show the order, run nothing)
   co wiki investigate all --list               (the first pass's order, run nothing)
@@ -186,7 +186,7 @@ Back:     co wiki --help
 Print one page as Markdown. Read-only.
 
 Usage:    co wiki show PAGE
-Example:  co wiki show people/tamara-berryman-324b6af6e8.md
+Example:  co wiki show people/mara-lin-324b6af6e8.md
           co wiki show me   (your own page)
 Inputs:   PAGE comes from list, search, or the Next line of investigate.
 Next:     co wiki investigate PAGE   (if it still says Unknown)
