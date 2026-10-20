@@ -460,7 +460,7 @@ co rem deepen --pages 1
 co rem deepen projects/lantern-skills.md avery-lin
 ```
 
-Optional `PAGE...` selectors resolve like enrich/muse and deepen exactly those
+Optional `PAGE...` selectors resolve like enrich/muse and deepen only those
 pages once in the given order, checking the budget before each page; `--pages`
 limits automatic selection only.
 
@@ -473,10 +473,11 @@ the owner and mapped automated accounts; map rows supply activity, while unmappe
 projects use Sessions under Paths (0 if absent) and Last seen. Orgs sum their
 mapped people's mails and use those people's newest Last seen; unmapped people
 and orgs have value 0.
+Mapped orgs with no people, or only automated or one-way people, are excluded.
 The highest priority goes first, ties by record:
 
 ```text
-priority = log2(2 + value) × recent × thin / (1 + rounds)
+priority = log2(2 + value) ** 2 * recent * thin / (1 + rounds)
 value = mails for people, sessions for projects, its people's mails for orgs
 recent = 2 for activity within 30 days, otherwise 1
 thin = 1 / (1 + quotes/3 + sources/10)
@@ -495,6 +496,8 @@ separate from investigation's 35; `limits.depth_pages_per_slot` defaults to 2.
 The shared `limits.quota_floor_percent` (90) also stops new pages. Both bounds
 are checked before each page. Usage counts enrich and muse run logs within
 the reported quota window, or the last seven days when the meter is unknown.
+`limits.depth_slot_minutes` (default 60) stops new pages once elapsed slot time
+exceeds it, including explicit `PAGE...` selections; a started round finishes.
 Each picked page gets a line with its value, recent multiplier, quotes, sources
 and next round number. `--json` includes these selection metrics and priority
 under `picked` (`rounds` is the number of previous rounds).
@@ -1571,3 +1574,36 @@ Repeated mapping refreshes generated project counts, dates and paths while prese
 
 See [co rem memory workflows](rem-memory.md) for `reflect`, `review`, `capture`,
 `route` and `daily`, including provider, retention and budget limits.
+
+### Cached page languages
+
+After refreshing the owner's languages, each daily run translates pages changed
+by maintenance or investigation into the first non-English language in
+`co rem languages` (configured or detected), when the runner is ready.
+`limits.translations_per_day` defaults to **10** new translation attempts across
+all daily slots; current cached translations use no attempts. Set it with
+`co rem config set limits.translations_per_day 5`. Failures are reported per page
+in the maintenance result and daily translation run log, and the next page continues.
+
+The reader uses current cached prose for its selected interface language and
+shows the original when no translation is available. Rendering never starts a
+translation. The per-page Read in menu still allows an explicit language choice.
+Quoted evidence stays exactly in its original language.
+
+To backfill existing pages once (the English pages remain the audited source):
+
+```bash
+co rem translate --all --to zh
+co rem --root /path/to/rem translate --all --category people
+co rem translate people/alice-chen.md --to zh
+```
+
+Omit `--to` to use the owner's first configured or detected non-English language.
+`--all` translates people, orgs, projects, decisions, principles and skills, one
+page at a time. It skips current caches, logs/activity, catalog indexes, duplicate
+installations and unlisted records. `--category` selects one of those six types.
+Each page prints `translated`, `cached`, or `failed: reason`, followed by counts.
+A page's reported translation failure does not stop the next page; any failures
+make the command exit 1. `--json` returns the outcomes and counts instead.
+Open or refresh the reader afterward: 中文 mode shows current cached prose, with
+quotes in their original language. An untranslated record still shows **原文**.
