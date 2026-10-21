@@ -589,6 +589,11 @@ languages still take precedence. Page prose stays as written. On phones, a compa
   changed-field underline draws in about 600 ms. Filtering or rerendering the
   same view does not replay them; reduced motion shows the final state immediately.
   A short legend lives in **Reader settings**.
+- **Unreleased candidate (#2624):** related-page cards may hide an exactly
+  repeated excerpt only when its origin, citation IDs, effective privacy and
+  original/translated state also match. Another page's introduction cannot
+  inherit the original source labels. Current public rc12 contains the older
+  behavior; this correction is pending review, native acceptance and publication.
 - **A page** opens on a focused status, next exchanges, compact facts, related
   records and filterable dated Activity. Project pages add purpose and a
   recorded decision when supported. A project opens on its current supported

@@ -90,6 +90,14 @@ not measure retention. [Broader claim comparison](https://github.com/openonion/c
 are open work. The [product audit](https://github.com/openonion/connectonion/blob/main/docs/design-evidence/rem-product-audit-2026-10-01.md)
 tracks the ten largest design and product problems.
 
+### Candidate correction to related-page evidence
+
+An unreleased correction for [issue #2624](https://github.com/openonion/connectonion/issues/2624)
+keeps repeated relationship excerpts attached to their original citations and
+privacy state. It avoids filling a repeated card with a different page's claim.
+This is pending native desktop/phone acceptance, CI and publication; installing
+public rc12 does not apply this correction. No new preview is announced here.
+
 ## How a page is checked before it is saved
 
 Every page a model writes passes the same review, by `co rem init`,
