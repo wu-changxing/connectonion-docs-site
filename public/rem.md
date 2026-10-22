@@ -5,13 +5,13 @@ sessions you approve into a private notebook about people, projects and skills.
 When you return, it brings forward what changed, what needs attention and the
 original sources behind its claims.
 
-Stable 1.9.1 maps the sources first, investigates every eligible mapped page
+The stable 1.9.1 workflow maps sources first, investigates every eligible mapped page
 in the 180-day window, sixteen at a time, then deepens people with up to two
 years of older mail, editing each page in place. The local reader shows the full
 memory and its sources. Skill usage says when a number is only a coding-session name match;
 retained evaluation attempts are counted separately, and neither count proves
-that the installed version ran or the task succeeded. The latest
-[release notes](/releases/1.9.1) describe the real-mailbox trial and the
+that the installed version ran or the task succeeded. The historical
+[1.9.1 release notes](/releases/1.9.1) describe the real-mailbox trial and the
 reader screenshots. Earlier previews remain in the
 [release archive](/releases/archive).
 
@@ -125,6 +125,6 @@ records so you can inspect why co rem wrote a claim. The CLI reference describes
 
 ## Stable channel
 
-The default `pip install connectonion` channel is stable 1.9.1 and includes
+The default `pip install connectonion` channel is stable 1.9.2 and includes
 `co rem`. Read [release channels](/releases) and the
 [1.9.1 notes](/releases/1.9.1) for the tested scope and remaining limits.
