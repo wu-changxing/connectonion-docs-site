@@ -5,7 +5,7 @@ sessions you approve into a private notebook about people, projects and skills.
 When you return, it brings forward what changed, what needs attention and the
 original sources behind its claims.
 
-Introduced in stable 1.9.1, REM maps the sources first, investigates every eligible mapped page
+The stable 1.9.1 workflow maps sources first, investigates every eligible mapped page
 in the 180-day window, sixteen at a time, then deepens people with up to two
 years of older mail, editing each page in place. The local reader shows the full
 memory and its sources. Skill usage says when a number is only a coding-session name match;
