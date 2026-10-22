@@ -128,3 +128,10 @@ records so you can inspect why co rem wrote a claim. The CLI reference describes
 The default `pip install connectonion` channel is stable 1.9.2 and includes
 `co rem`. Read [release channels](/releases) and the
 [1.9.1 notes](/releases/1.9.1) for the tested scope and remaining limits.
+
+## Quotation evidence candidate
+
+A pending repair preserves meaningful word spacing when checking quoted text.
+Ambiguous boundaries in older mail renderings remain unresolved, with their cited
+context retained for review; a text match alone is not semantic verification.
+This candidate is not released. Model and native reader acceptance remain pending.
