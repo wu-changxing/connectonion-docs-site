@@ -74,7 +74,7 @@ export default function ReleasesPage() {
             <p className="mb-2 text-sm font-semibold text-amber-800">Opt in · Latest preview</p>
             <h2 className="mb-3 text-3xl font-bold text-gray-950">ConnectOnion {PREVIEW_VERSION}</h2>
             <p className="mb-6 text-base leading-7 text-gray-700">
-              An exact pin gives access to work still being tested.
+              An exact pin gives access to work still being tested. Requires Python 3.11 or newer.
             </p>
             <InstallCommand command={`python -m pip install --upgrade 'connectonion==${PREVIEW_VERSION}'`} />
             <div className="mt-5 flex flex-wrap gap-x-5 gap-y-1">
