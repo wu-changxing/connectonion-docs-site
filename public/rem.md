@@ -128,3 +128,10 @@ records so you can inspect why co rem wrote a claim. The CLI reference describes
 The default `pip install connectonion` channel is stable 1.9.2 and includes
 `co rem`. Read [release channels](/releases) and the
 [1.9.1 notes](/releases/1.9.1) for the tested scope and remaining limits.
+
+## Deadline visibility candidate
+
+A pending repair keeps recorded deadlines visible even when their requests are
+old, and separates overdue from upcoming counts. Older undated threads remain
+reviewable; age alone does not establish resolution. This candidate is not
+released, and real model and native desktop/phone acceptance remain pending.
