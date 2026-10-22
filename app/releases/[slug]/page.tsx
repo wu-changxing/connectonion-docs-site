@@ -78,6 +78,8 @@ export default async function ReleaseNotes({ params }: { params: Promise<{ slug:
   const source = slug === 'archive' ? '/releases.md' : `/releases/${slug}.md`
   const file = slug === 'archive' ? path.join(process.cwd(), 'public', 'releases.md') : path.join(releases, `${slug}.md`)
   const markdown = fs.readFileSync(file, 'utf8').replace(/\]\((?:releases\/)?(\d+\.\d+\.\d+(?:a\d+|b\d+|rc\d+)?)\.md\)/g, '](/releases/$1)')
+    .replaceAll('](../cli/browser.md)', '](/cli/browser-command)')
+    .replace(/\]\(\.\.\/blog\/2026-10-23-([a-z0-9-]+)\.md\)/g, '](/blog/$1)')
 
   return (
     <div className="px-4 py-12 md:px-8 md:py-20">
