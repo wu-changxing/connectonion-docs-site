@@ -128,3 +128,13 @@ records so you can inspect why co rem wrote a claim. The CLI reference describes
 The default `pip install connectonion` channel is stable 1.9.2 and includes
 `co rem`. Read [release channels](/releases) and the
 [1.9.1 notes](/releases/1.9.1) for the tested scope and remaining limits.
+
+
+### Unchanged-content audit candidate (#2639)
+
+An unreleased correction ties old-content preservation to complete unchanged
+prose contexts, their page/section and exact original citation bindings. Removed
+qualifications or changed evidence do not inherit protection from matching words.
+Deferred unchanged findings remain explicitly unverified rather than a factual
+pass. This is syntactic continuity, not semantic or native product acceptance;
+see the candidate section in the [CLI reference](/cli/rem).
