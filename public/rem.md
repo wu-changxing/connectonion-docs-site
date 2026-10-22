@@ -128,3 +128,11 @@ records so you can inspect why co rem wrote a claim. The CLI reference describes
 The default `pip install connectonion` channel is stable 1.9.2 and includes
 `co rem`. Read [release channels](/releases) and the
 [1.9.1 notes](/releases/1.9.1) for the tested scope and remaining limits.
+
+## Canonical navigation candidate
+
+A pending repair makes missing page references explicit in the body and Related
+area, preserves recorded merge destinations for page navigation, and recognizes
+encoded relative links and section targets. Old numbered-source references are
+not rebound to a merged page without a source mapping. This is not yet released;
+current native desktop, phone and accessibility acceptance remain pending.

@@ -1641,3 +1641,21 @@ A page's reported translation failure does not stop the next page; any failures
 make the command exit 1. `--json` returns the outcomes and counts instead.
 Open or refresh the reader afterward: 中文 mode shows current cached prose, with
 quotes in their original language. An untranslated record still shows **原文**.
+
+### Canonical page navigation candidate (#2197)
+
+An unreleased navigation repair keeps links to merged pages usable and recognizes
+encoded relative paths and section links consistently in related-page projections.
+If a referenced page is absent from the snapshot, the body and Related area visibly
+say **Page unavailable**, with an explanation in the selected interface language.
+The original label and note remain unchanged; the reader does not guess a person
+from a similar name or promise to repair a missing record.
+
+Merge redirects apply to page navigation, not evidence identity. Without an old-to-new
+source-number ledger, a numbered source link on a merged page stays unavailable;
+it is not attached to the same number on the destination page. Ordinary section
+bookmarks preserve their heading/filter state. Shared readers expose only redirects
+already referenced in their exported notes, not the entire historical merge table.
+
+Native desktop/phone and accessibility acceptance are pending. Exact mention scroll
+for backlinks and complete translated-excerpt matching remain separate work.
