@@ -458,5 +458,9 @@
   "gmail-kept-the-body-and-changed-the-id": {
     "title": "Recover Gmail Send Receipts When Message-ID Changes",
     "description": "A live Gmail test exposed rewritten Message-ID headers. A preserved attempt marker recovers send receipts without risking a duplicate email."
+  },
+  "the-maintainer-filled-recent-history": {
+    "title": "REM maintenance and Codex history | ConnectOnion Design Journal",
+    "description": "A local Codex Pro trial checks archival, retained traces and explicit resume, while native Scheduled migration remains unverified."
   }
 }

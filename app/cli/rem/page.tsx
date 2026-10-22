@@ -18,6 +18,12 @@ export default function Page() {
             <Link href="/rem" className="underline underline-offset-4">See the night-to-morning experience →</Link>
           </p>
           <p className="mt-2">
+            In opt-in preview 1.9.3rc13, REM archives its internal Codex calls to keep active
+            history clear, while retaining trace IDs and explicit resume. Upkeep still uses
+            launchd; this preview does not migrate to Codex App Scheduled.{' '}
+            <Link href="/releases/1.9.3rc13" className="underline underline-offset-4">Read the preview limits →</Link>
+          </p>
+          <p className="mt-2">
             Every page a model writes is reviewed before it is saved: quotations must match their cited
             source, a second model audits cited claims on people, organisation and project pages, and
             the writer gets two repair turns before only the refuted sentences are removed. Contact
