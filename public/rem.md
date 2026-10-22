@@ -136,3 +136,8 @@ area, preserves recorded merge destinations for page navigation, and recognizes
 encoded relative links and section targets. Old numbered-source references are
 not rebound to a merged page without a source mapping. This is not yet released;
 current native desktop, phone and accessibility acceptance remain pending.
+
+Backlinks in this candidate open the original reference passage, with its own
+source numbers and controls for repeated references. Missing locations stay
+unavailable; private labels remain respected and no passage text enters the URL.
+Native interaction acceptance is still pending.
