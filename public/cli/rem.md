@@ -1641,3 +1641,28 @@ A page's reported translation failure does not stop the next page; any failures
 make the command exit 1. `--json` returns the outcomes and counts instead.
 Open or refresh the reader afterward: 中文 mode shows current cached prose, with
 quotes in their original language. An untranslated record still shows **原文**.
+
+### Quotation evidence candidate (#2635)
+
+An unreleased repair preserves meaningful word spacing when comparing quotations
+with complete available cited originals. Mail wrapping and tested Han/kana layout
+remain comparable; Korean word spaces are preserved. Punctuation spacing is
+matched without deleting separators from retained text. Other claim-key matching
+is unchanged.
+
+A literal fragment that occurs only inside a larger word or next to flattened
+legacy mail headers is **unresolved**, rather than automatic support or a
+refutation. Review packets carry the quote, matching cited source IDs and bounded
+adjacent retained renderings. Promotion/audit records retain the warnings even
+when no auditor runs. A global PASS cannot resolve those word boundaries and is
+recorded as INSUFFICIENT. Existing policy records insufficient audits without
+refusing claims nobody has shown wrong.
+
+This is a bounded quotation check, not semantic proof of who spoke, what was
+promised, or whether a condition was retained. Unavailable/truncated originals
+remain unjudged. No missing separators are guessed and no real notes are rewritten.
+Native session decisions use their retained typed-user originals for whole-word
+comparison, both when saving a summary and when displaying a saved summary; raw
+attachments are preserved. This is distinct from ambiguous legacy mail rendering.
+Actual model efficacy and current desktop/phone/source-dialog acceptance remain
+pending; no new preview is claimed available by this candidate.
