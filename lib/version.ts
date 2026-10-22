@@ -8,7 +8,7 @@
  */
 export const STABLE_VERSION = '1.9.2'
 export const PREVIEW_VERSION: string | null = '1.9.3rc13'
-// No preview ahead of stable 1.9.2.
+// The RC is opt-in; there is no separate stabilizing channel.
 export const STABILIZING_VERSION: string | null = null
 
 // Product pages advertise the stable channel. Preview releases remain opt-in.
