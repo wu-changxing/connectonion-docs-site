@@ -128,3 +128,12 @@ records so you can inspect why co rem wrote a claim. The CLI reference describes
 The default `pip install connectonion` channel is stable 1.9.1 and includes
 `co rem`. Read [release channels](/releases) and the
 [1.9.1 notes](/releases/1.9.1) for the tested scope and remaining limits.
+
+## Temporal provenance candidate (#2629)
+
+A pending reader fix separates source contact/activity dates from REM maintenance
+dates. Latest-pass badges require recorded page rewrites, and the summary names
+the recorded time rather than assuming yesterday or overnight. A quiet state
+says no supported change was recorded, not that nothing happened. This is not
+yet a published feature or native desktop/phone acceptance. The current rolling
+18-hour run grouping and retained-log limits still apply.

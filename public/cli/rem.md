@@ -581,8 +581,9 @@ languages still take precedence. Page prose stays as written. On phones, a compa
 - **"You", not "the user"**: pages are written about "the user"; the reader
   says "you" ("you have not signed it", "How you write to them") at render
   time only, so the Markdown and Copy Markdown keep the words as written.
-- **Memory markers**: a dawn dot means **updated last night**, for pages
-  rewritten in the latest pass. A faint underline marks a recorded field
+- **Memory markers (candidate, not yet released)**: a dawn dot means
+  **updated in latest pass**, for pages in the recorded changed paths. The
+  dated summary identifies the latest run; a footer date alone does not. A faint underline marks a recorded field
   change, with before/after values on hover. A hollow circle beside a citation
   means the sentence explicitly says its claim is unconfirmed; uncited prose
   gets no marker. On entering a page, these update markers fade in once and the
@@ -1641,3 +1642,21 @@ A page's reported translation failure does not stop the next page; any failures
 make the command exit 1. `--json` returns the outcomes and counts instead.
 Open or refresh the reader afterward: 中文 mode shows current cached prose, with
 quotes in their original language. An untranslated record still shows **原文**.
+
+### Temporal provenance candidate (#2629)
+
+Source activity/contact dates exclude Investigation maintenance dates and file
+mtime. Unknown source activity stays unknown; a genuine mapped mail date remains
+available under the existing map provenance rules. The original Investigation
+footer remains readable as maintenance history. First-build and latest-pass copy
+avoid assuming a recorded run happened today or overnight. A quiet pass says no
+supported change was recorded, rather than claiming nothing happened or that every
+rewrite was only rewording. No recorded run has its own empty state.
+
+A pass retains the current grouping of runs within 18 hours before the latest
+run. First build means the first retained run group, not a verified account
+creation date; deleted/archived older logs limit chronology.
+
+This candidate needs independent review, exact-head CI and native desktop/phone
+acceptance. Offline parser/DOM contracts are not rendered acceptance or proof of
+all-page product maturity.
