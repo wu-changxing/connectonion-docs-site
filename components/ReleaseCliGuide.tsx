@@ -6,11 +6,15 @@ import { renderBlogMarkdown } from '../lib/blog-content.mjs'
 import { PREVIEW_VERSION, STABLE_VERSION } from '../lib/version'
 
 /** Render the reviewed, repository-owned CLI guide used by the installed package. */
-export type CliGuideName = 'env' | 'environment' | 'init' | 'create' | 'gmail' | 'gdrive' | 'synology' | 'outlook' | 'onenote' | 'whatsapp' | 'schedule' | 'gcalendar' | 'telegram' | 'feishu' | 'sms' | 'proxy' | 'server' | 'youtube' | 'commands' | 'discord' | 'wiki-help' | 'rem' | 'benchmark' | 'tiktok' | 'audit' | 'search' | 'slack' | 'mcp'
+export type CliGuideName = 'browser' | 'env' | 'environment' | 'init' | 'create' | 'gmail' | 'gdrive' | 'synology' | 'outlook' | 'onenote' | 'whatsapp' | 'schedule' | 'gcalendar' | 'telegram' | 'feishu' | 'sms' | 'proxy' | 'server' | 'youtube' | 'commands' | 'discord' | 'wiki-help' | 'rem' | 'benchmark' | 'tiktok' | 'audit' | 'search' | 'slack' | 'mcp'
 
 /** A guide for a command that ships only in the current preview says so, with the exact pin. */
 export function ReleaseCliGuide({ name, preview = false, intro }: { name: CliGuideName; preview?: boolean; intro?: React.ReactNode }) {
   const markdown = fs.readFileSync(path.join(process.cwd(), 'public', 'cli', `${name}.md`), 'utf8')
+  const siteMarkdown = markdown
+    .replaceAll('](auth.md)', '](/cli/auth)')
+    .replaceAll('](../useful_tools/browser_tools.md)', '](/useful-tools/browser-tools)')
+    .replaceAll('](../templates/README.md)', '](/tutorials/templates)')
   return (
     <main className="px-4 md:px-8 py-16 md:py-24">
       <article className="max-w-4xl mx-auto min-w-0">
@@ -29,7 +33,7 @@ export function ReleaseCliGuide({ name, preview = false, intro }: { name: CliGui
         {/* A site-owned note above the synced guide: the guide text is copied
             verbatim from the CLI, so anything the site adds goes here, not into it. */}
         {intro}
-        <div className="blog-prose break-words [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:leading-tight [&_h1]:mb-8" dangerouslySetInnerHTML={{ __html: renderBlogMarkdown(markdown) }} />
+        <div className="blog-prose break-words [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:leading-tight [&_h1]:mb-8" dangerouslySetInnerHTML={{ __html: renderBlogMarkdown(siteMarkdown) }} />
       </article>
     </main>
   )
