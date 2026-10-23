@@ -18,9 +18,9 @@ export default function Page() {
             <Link href="/rem" className="underline underline-offset-4">See the night-to-morning experience →</Link>
           </p>
           <p className="mt-2">
-            Preview 1.9.3rc19 adds Codex Scheduled for eligible Macs. Keep Codex open
+            Preview 1.9.3rc20 adds Codex Scheduled for eligible Macs. Keep Codex open
             and the computer awake.{' '}
-            <Link href="/releases/1.9.3rc19" className="underline underline-offset-4">Setup and limits →</Link>
+            <Link href="/releases/1.9.3rc20" className="underline underline-offset-4">Setup and limits →</Link>
           </p>
           <details className="mt-3">
             <summary className="cursor-pointer font-medium">How REM checks pages</summary>
