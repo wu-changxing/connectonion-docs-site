@@ -68,6 +68,7 @@ co email read 42`}
             People and AI agents can own several mailboxes on the same account,
             including the same alias on different hosted domains. Addresses and
             your default sender follow your account across machines and cloud deployments.
+            All owned addresses share one inbox; <code>--address</code> narrows the view.
           </p>
           <CommandBlock commands={[
             'co email domains',
