@@ -47,7 +47,7 @@ account defaults and mailbox filtering. Stable remains **1.9.2**.
 python -m pip install --upgrade 'connectonion==1.9.3rc18'
 ```
 
-See [the preview notes](releases/1.9.3rc18.md). Domain infrastructure acceptance
+See [the preview notes](https://github.com/openonion/connectonion/blob/v1.9.3rc18/docs/releases/1.9.3rc18.md). Domain infrastructure acceptance
 is recorded separately from package tests.
 
 
