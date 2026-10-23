@@ -171,19 +171,18 @@ Claim it: co email name aaron --buy`}
           <h3 className="text-xl font-semibold mb-3">co email upgrade — Raise your sending quota</h3>
 
           <CodeWithResult
-            code={`co email upgrade plus --keep-address
-co email upgrade plus --domain steadmail.com --alias iron.share`}
+            code={`co email upgrade plus --keep-address`}
             language="bash"
           />
 
           <p className="text-gray-600 text-sm mt-3">
-            Paid tiers raise the monthly quota and deduct the price from your credits.
-            <code>--keep-address</code> preserves an existing mail.openonion.ai
-            address on Plus. Otherwise, Plus requires a hosted domain and alias;
-            <code>co email domains</code> lists the domains enabled by the cloud.
-            An already selected account default remains your sender unless you
-            change it with <code>co email default</code>. A quota upgrade does
-            not configure DNS for an arbitrary external domain.
+            Paid tiers raise the monthly quota and deduct the price from your credits.{' '}
+            <code>--keep-address</code>{' '}preserves an existing mail.openonion.ai
+            address on Plus. To add another mailbox, use{' '}<code>co email setup</code>.{' '}
+            Choose only domains currently listed by{' '}<code>co email domains</code>.{' '}
+            Your selected default stays in place until you change it with{' '}
+            <code>co email default</code>. A quota upgrade does not configure DNS
+            for an arbitrary external domain.
 
           </p>
         </section>
