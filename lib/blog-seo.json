@@ -462,5 +462,9 @@
   "the-maintainer-filled-recent-history": {
     "title": "REM maintenance and Codex history | ConnectOnion Design Journal",
     "description": "A local Codex Pro trial checks archival, retained traces and explicit resume, while native Scheduled migration remains unverified."
+  },
+  "a-saved-schedule-still-has-to-run": {
+    "title": "A saved schedule still has to run",
+    "description": "Real native Codex executions lead to a REM scheduling adapter that verifies adoption, preserves the old clock on failure and keeps timezone limits explicit."
   }
 }
