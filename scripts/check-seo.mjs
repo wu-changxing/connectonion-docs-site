@@ -21,6 +21,10 @@ for (const file of files) {
 }
 let failed = false
 const fail = (message) => { console.error('::error::' + message); failed = true }
+const releaseIndex = readFileSync('.next/server/app/releases.html', 'utf8')
+for (const [, route] of releaseIndex.matchAll(/href="(\/releases\/[^"#?]+)"/g)) {
+  if (!manifest.routes[route]) fail(route + ': release channel link has no generated page')
+}
 const checked = []
 const sitemap = readFileSync('.next/server/app/sitemap.xml.body', 'utf8')
 const blogIndex = readFileSync('.next/server/app/blog.html', 'utf8')
