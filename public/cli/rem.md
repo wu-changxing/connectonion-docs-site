@@ -864,6 +864,30 @@ co rem forwards its delegated deadline as `co ai --timeout SECONDS` and gives
 the outer process 15 seconds to exit afterward. The common native adapter
 therefore closes its delegate before co rem process timeout is reached.
 
+## Preview candidate: pending feedback without new originals
+
+
+In a follow-up candidate, an explicit `co rem investigate PAGE` that finds no new
+raw material can process eligible attributed feedback for that page in one bounded
+maintenance turn. The log says `mode: feedback_only`, retains `feedback_items` and
+`feedback_deferred`, and reports the stage as `processing attributed feedback`.
+Raw source/contact counts remain unchanged; this does not stamp a new investigation
+date. No pending feedback still means no model call for an empty source window.
+
+This fallback keeps original attributed records outside extraction/digests, respects
+the input/call allowance, and uses fresh progress when acknowledging acceptance.
+Native turns reject a page changed before processing or during a no-change assessment.
+The existing explicit `retry_refused` route may override this target's refusal
+cooldown/cap; it cannot override missing pages, unresolved legacy history or budgets.
+Automatic calls retain the normal retry limits. Historical `read_before` deepening
+keeps its original date boundary and does not become a feedback review.
+
+Mixed new raw evidence and multi-round investigations still receive their existing
+context; this fallback does not establish managed feedback receipts for those paths.
+It is not an external-agent instant-apply interface. This follow-up candidate is
+not included in the public 1.9.3rc16 preview.
+
+
 ## Scheduling and accounting
 
 launchd invokes the resolved `co rem --root ... sync --scheduled` CLI every
