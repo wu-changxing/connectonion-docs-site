@@ -68,6 +68,7 @@ co email read 42`}
             People and AI agents can own several mailboxes on the same account,
             including the same alias on different hosted domains. Addresses and
             your default sender follow your account across machines and cloud deployments.
+            All owned addresses share one inbox; <code>--address</code> narrows the view.
           </p>
           <CommandBlock commands={[
             'co email domains',
@@ -96,8 +97,8 @@ co email read 42`}
             </div>
           </details>
           <p className="text-gray-600 mt-4 break-words">
-            Reserved hosted pool: mail.openonion.ai, steadmail.com, trustxmail.com and
-            oakinbox.com. Only enabled domains appear in <code>co email domains</code>. Repeat setup with another listed domain to keep the alias on both.
+            Hosted domains: mail.openonion.ai, steadmail.com, trustxmail.com and
+            oakinbox.com. All four are enabled after live incoming tests. <code>co email domains</code> shows the current choices and price. Repeat setup with another listed domain to keep the alias on both.
             External domains such as mail.com cannot be claimed through this command.
           </p>
         </section>
