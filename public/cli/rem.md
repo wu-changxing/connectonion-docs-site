@@ -864,10 +864,10 @@ co rem forwards its delegated deadline as `co ai --timeout SECONDS` and gives
 the outer process 15 seconds to exit afterward. The common native adapter
 therefore closes its delegate before co rem process timeout is reached.
 
-## Preview candidate: pending feedback without new originals
+## Pending feedback without new originals (1.9.3rc17)
 
 
-In a follow-up candidate, an explicit `co rem investigate PAGE` that finds no new
+In 1.9.3rc17, an explicit `co rem investigate PAGE` that finds no new
 raw material can process eligible attributed feedback for that page in one bounded
 maintenance turn. The log says `mode: feedback_only`, retains `feedback_items` and
 `feedback_deferred`, and reports the stage as `processing attributed feedback`.
@@ -884,8 +884,8 @@ keeps its original date boundary and does not become a feedback review.
 
 Mixed new raw evidence and multi-round investigations still receive their existing
 context; this fallback does not establish managed feedback receipts for those paths.
-It is not an external-agent instant-apply interface. This follow-up candidate is
-not included in the public 1.9.3rc16 preview.
+It is not an external-agent instant-apply interface. This fallback ships in the public 1.9.3rc17 preview.
+It does not repair previously saved pages or establish real model/native acceptance.
 
 
 ## Scheduling and accounting
@@ -1737,3 +1737,24 @@ threads are unchanged.
 This is separate from scheduling: REM still uses launchd on macOS. Codex App
 Scheduled is not a public App Server scheduling API; native schedule migration
 has not been enabled by this change.
+
+### Unchanged-content audit continuity (1.9.3rc17, #2639)
+
+1.9.3rc17 narrows the protection for content inherited from an
+accepted page. It compares complete retained prose contexts, including meaningful
+word spaces, the page title and section hierarchy, and exact cited original IDs
+at their relative text positions. Renumbering or line wrapping can preserve
+continuity; removing a condition, moving evidence to another sentence or moving
+history into current context does not. A removed or reordered old paragraph or
+bullet invalidates its section's exemption, so adjacent qualifications cannot
+silently disappear. Headings, fenced examples and Sources rows do not count as
+old prose. Every occurrence of a finding must qualify, including new duplicates.
+
+Unchanged findings can remain deferred under the existing preservation policy,
+but are recorded as **insufficient**, with a deferred count in `review.json`,
+not as a factual pass. Active findings reach ordinary repair/refusal even if the
+model labels its top-level verdict PASS or INSUFFICIENT.
+This is a deterministic continuity check, not semantic equivalence or proof the
+old content is true. Additions may still affect discourse meaning; actual model
+and current native desktop/phone/accessibility acceptance remain unverified.
+Existing notebook pages are not automatically corrected.
