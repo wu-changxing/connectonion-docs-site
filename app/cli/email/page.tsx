@@ -58,7 +58,48 @@ co email read 42`}
           />
 
           <p className="text-gray-600 mt-4">
-            That&apos;s the whole surface. Everything below is detail.
+            Start with your existing mailbox, then add addresses when you need them.
+          </p>
+        </section>
+
+        <section className="mb-20" aria-labelledby="mailbox-domains">
+          <h2 id="mailbox-domains" className="heading-2">Several addresses, one account</h2>
+          <p className="text-gray-700 mb-6">
+            People and AI agents can own several mailboxes on the same account,
+            including the same alias on different hosted domains. Addresses and
+            your default sender follow your account across machines and cloud deployments.
+            All owned addresses share one inbox; <code>--address</code> narrows the view.
+          </p>
+          <CommandBlock commands={[
+            'co email domains',
+            'co email addresses',
+            'co email setup iron.share --domain mail.openonion.ai',
+          ]} />
+          <p className="text-gray-600 mt-4">
+            Setup shows the current one-time price. Add <code>--buy</code> to claim
+            another address while keeping your existing mailboxes. Availability
+            is checked when buying; a taken address is not charged.
+          </p>
+          <details className="mt-6 rounded-lg border border-gray-200 p-5">
+            <summary className="cursor-pointer font-semibold">Choose a sender and read one mailbox</summary>
+            <div className="mt-4">
+              <CommandBlock commands={[
+                'co email setup iron.share --domain mail.openonion.ai --buy',
+                'co email default iron.share@mail.openonion.ai',
+                'co email send alice@example.com "Hello" "Hi" --from iron.share@mail.openonion.ai',
+                'co email inbox --address iron.share@mail.openonion.ai',
+              ]} />
+              <p className="text-gray-600 mt-4">
+                A send without <code>--from</code> uses your account default. Python
+                agents use <code>send_email(..., from_address=&quot;...&quot;)</code> with the
+                same ownership checks. Adding an address does not change your send quota.
+              </p>
+            </div>
+          </details>
+          <p className="text-gray-600 mt-4 break-words">
+            Hosted domains: mail.openonion.ai, steadmail.com, trustxmail.com and
+            oakinbox.com. All four are enabled after live incoming tests. <code>co email domains</code> shows the current choices and price. Repeat setup with another listed domain to keep the alias on both.
+            External domains such as mail.com cannot be claimed through this command.
           </p>
         </section>
 
@@ -117,9 +158,9 @@ co email read 42`}
           <h3 className="text-xl font-semibold mb-3">co email name — Claim a readable address</h3>
 
           <CodeWithResult
-            code={`co email name aaron          # check if aaron@openonion.ai is free + its price
+            code={`co email name aaron          # check if aaron@mail.openonion.ai is free + its price
 co email name aaron --buy    # claim it (one-time charge from your credits)`}
-            result={`✓ aaron@openonion.ai is available — $5.00 one-time, from credits
+            result={`✓ aaron@mail.openonion.ai is available — $5.00 one-time, from credits
 Claim it: co email name aaron --buy`}
             language="bash"
           />
@@ -131,13 +172,19 @@ Claim it: co email name aaron --buy`}
           <h3 className="text-xl font-semibold mb-3">co email upgrade — Raise your sending quota</h3>
 
           <CodeWithResult
-            code={`co email upgrade plus --domain mail.acme.com                  # plus, on your domain
-co email upgrade pro  --domain mail.acme.com --alias support  # pro + a mailbox alias`}
+            code={`co email upgrade plus --keep-address`}
             language="bash"
           />
 
           <p className="text-gray-600 text-sm mt-3">
-            The paid tiers (<code className="bg-gray-100 px-1 rounded">plus</code>, <code className="bg-gray-100 px-1 rounded">pro</code>) send from <strong>your own domain</strong> and lift the monthly quota, billed from your credits. A sending domain is <strong>required</strong> (<code className="bg-gray-100 px-1 rounded">--domain, -d</code>) — leave it out and the upgrade is rejected before anything is charged. <code className="bg-gray-100 px-1 rounded">--alias, -a</code> sets a mailbox alias, e.g. <code className="bg-gray-100 px-1 rounded">support</code> → <code className="bg-gray-100 px-1 rounded">support@mail.acme.com</code>.
+            Paid tiers raise the monthly quota and deduct the price from your credits.{' '}
+            <code>--keep-address</code>{' '}preserves an existing mail.openonion.ai
+            address on Plus. To add another mailbox, use{' '}<code>co email setup</code>.{' '}
+            Choose only domains currently listed by{' '}<code>co email domains</code>.{' '}
+            Your selected default stays in place until you change it with{' '}
+            <code>co email default</code>. A quota upgrade does not configure DNS
+            for an arbitrary external domain.
+
           </p>
         </section>
 

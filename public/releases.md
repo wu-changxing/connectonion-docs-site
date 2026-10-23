@@ -25,6 +25,57 @@ python -m pip install --upgrade 'connectonion==1.9.2'
 
 ## Current preview
 
+Release candidate **1.9.3rc21** moves eligible Codex notebooks on macOS to
+Codex desktop Scheduled, verifies registration before replacing the old clock,
+and archives completed maintenance conversations. Other timezones, headless Macs
+and other runners retain launchd. Keep the app open and computer awake.
+Stable remains **1.9.2**; this preview requires Python **3.11+**.
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.3rc21'
+```
+
+See [the preview notes](releases/1.9.3rc21.md) and their native execution evidence.
+
+## Previous previews
+
+Release candidate **1.9.3rc20** recognizes already-owned addresses during
+repeat email setup even if that domain no longer accepts new purchases. It
+retains multi-address setup, domain discovery, account-wide defaults and the
+merged inbox. Stable remains **1.9.2**; Python 3.11+ is required.
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.3rc20'
+```
+
+See [the preview notes](releases/1.9.3rc20.md). Currently enabled choices come
+from the cloud; unready reserved domains are not offered for new purchases.
+
+
+Release candidate **1.9.3rc19** strengthens mailbox setup regression coverage:
+no purchase after authentication/settings failures or for domains the backend
+has not enabled. It includes rc18's multi-address setup and the corrected quota
+examples. Stable remains **1.9.2**; Python 3.11+ is required.
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.3rc19'
+```
+
+See [the preview notes](releases/1.9.3rc19.md). At rc19 publication,
+steadmail.com and oakinbox.com had not passed incoming delivery. They were
+enabled after live tests on 2026-10-23; the cloud lists all four hosted domains.
+
+Release candidate **1.9.3rc18** exposes hosted-domain discovery and setup of
+additional email aliases on the same cloud account. It retains sender selection,
+account defaults and mailbox filtering. Stable remains **1.9.2**.
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.3rc18'
+```
+
+See [the preview notes](releases/1.9.3rc18.md). Domain infrastructure acceptance
+is recorded separately from package tests.
+
 Release candidate **1.9.3rc17** processes eligible explicit feedback when
 there is no new raw material, narrows inherited-claim audit exemptions and keeps
 supplied argument names in tool error hints. Synthetic retry tests avoid real
@@ -32,13 +83,11 @@ waiting. Stable remains 1.9.2; Python 3.11+ and existing dependency floors remai
 This backend preview does not establish current REM model or native UI acceptance.
 See [1.9.3rc17 notes](releases/1.9.3rc17.md).
 
-Install this published preview at its exact pin:
+After publication, install its exact pin:
 
 ```bash
 python -m pip install --upgrade 'connectonion==1.9.3rc17'
 ```
-
-## Previous previews
 
 Release candidate **1.9.3rc16** skips stale click-approach waypoints under slow
 pointer dispatch, lets supervised local browser jobs pin their existing daemon, and
@@ -46,7 +95,7 @@ keeps isolated project Hosts from inheriting a global handoff watcher. This
 preview requires Python 3.11+ and retains rc15's security dependency floors.
 See [1.9.3rc16 notes](releases/1.9.3rc16.md).
 
-Install this published preview at its exact pin:
+After publication, install its exact pin:
 
 ```bash
 python -m pip install --upgrade 'connectonion==1.9.3rc16'
@@ -108,7 +157,7 @@ Release candidate **1.9.3rc8**: a changed person or organisation without retaine
 routing continuity no longer regains the old subject's contact dates. The next
 successful pass compacts the Investigation footer to the latest of each known
 kind. These fixes do not repair old claims or establish reader maturity.
-See [1.9.3rc8 notes](releases/1.9.3rc8.md). This published preview remains available at its exact pin:
+See [1.9.3rc8 notes](releases/1.9.3rc8.md). After publication:
 
 ```bash
 python -m pip install --upgrade 'connectonion==1.9.3rc8'
@@ -119,7 +168,7 @@ context imports, skill invocation counts and cached evidence samples. This preve
 model probes and repair instructions from being treated as the owner's words. It does
 not purge old messages or repair existing claims. See [1.9.3rc7 notes](releases/1.9.3rc7.md).
 
-This earlier preview is published and remains available at its exact pin:
+After this candidate is published, install its exact pin:
 
 ```bash
 python -m pip install --upgrade 'connectonion==1.9.3rc7'
