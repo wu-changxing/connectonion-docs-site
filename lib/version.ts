@@ -7,7 +7,7 @@
  * version shown on the homepage or in structured metadata.
  */
 export const STABLE_VERSION = '1.9.2'
-export const PREVIEW_VERSION: string | null = '1.9.3rc18'
+export const PREVIEW_VERSION: string | null = '1.9.3rc19'
 // The RC is opt-in; there is no separate stabilizing channel.
 export const STABILIZING_VERSION: string | null = null
 
