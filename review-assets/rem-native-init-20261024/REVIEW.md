@@ -39,3 +39,22 @@ account creation/migration/update/pause, restart/sync persistence, account-task
 archiving, remote project history, lower guide sections, copy/link/keyboard
 interactions, or the page-review disclosure expanded. Screenshots are sample
 coverage and do not constitute an all-page pass.
+
+## Dependency audit follow-up
+
+CI's full dependency audit identified the inherited dev-only Zod 4.4.3 node.
+The [reviewed advisory](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5) affects
+versions below 4.6.6. The lockfile resolves 4.6.7 after updating only that node;
+the parent range accepts Zod 4, and package.json, overrides and the audit gate
+are unchanged. This fixes development-tooling audit failure; it is not evidence
+that the deployed site was exploitable.
+
+Full dependency audit now reports zero findings. Lint, standalone TypeScript,
+the CI-style webpack production build, blog source/build checks and 472-page
+SEO checks passed. The two audit-prefixed phone screenshots recheck the guide
+compatibility expanded and the journal's complete acceptance tail after the
+dependency update. Native execution acceptance remains pending.
+
+The independent AI reviewer checked the one-node lockfile diff and both new
+phone screenshots, finding no P0/P1 in that additional scope. The complete
+post-update audit JSON recorded zero findings across all severity levels.
