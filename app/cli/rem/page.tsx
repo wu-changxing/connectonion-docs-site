@@ -23,6 +23,17 @@ export default function Page() {
             <Link href="/releases/1.9.3rc21" className="underline underline-offset-4">Setup and limits →</Link>
           </p>
           <details className="mt-3">
+            <summary className="cursor-pointer font-medium">Native scheduling compatibility</summary>
+            <p className="mt-2">
+              rc21 uses Codex&apos;s legacy local registration. Registration in newer account storage
+              has not passed REM&apos;s live acceptance. The normal-profile control executed and
+              archived scheduled work after opening Scheduled; the automatic wake fix is under review.
+              A saved task does not prove that its timer
+              runs: check <code>co rem status</code> before relying on unattended upkeep.
+              You can run <code>co rem sync</code> by hand meanwhile.
+            </p>
+          </details>
+          <details className="mt-3">
             <summary className="cursor-pointer font-medium">How REM checks pages</summary>
             <p className="mt-2">
             Every page a model writes is reviewed before it is saved: quotations must match their cited

@@ -1,0 +1,68 @@
+{
+  "browser": "installed Chrome; ephemeral headless context; shared browser untouched",
+  "pages": [
+    {
+      "path": "/cli/rem",
+      "viewport": "1440x1100",
+      "states": [
+        "compatibility collapsed",
+        "compatibility expanded after settle"
+      ],
+      "root_overflow": false,
+      "disclosure_geometry": {
+        "label": "Native scheduling compatibility",
+        "summaryBottom": 297,
+        "paragraphTop": 305
+      }
+    },
+    {
+      "path": "/blog/a-saved-schedule-still-has-to-run",
+      "viewport": "1440x1100",
+      "states": [
+        "follow-up beginning",
+        "cold control paragraph",
+        "complete conclusion above floating control"
+      ],
+      "root_overflow": false,
+      "conclusion_box": {
+        "x": 336,
+        "y": 288.34375,
+        "width": 768,
+        "height": 220.0625
+      }
+    },
+    {
+      "path": "/cli/rem",
+      "viewport": "390x844",
+      "states": [
+        "compatibility collapsed",
+        "compatibility expanded after settle"
+      ],
+      "root_overflow": false,
+      "disclosure_geometry": {
+        "label": "Native scheduling compatibility",
+        "summaryBottom": 354,
+        "paragraphTop": 362
+      }
+    },
+    {
+      "path": "/blog/a-saved-schedule-still-has-to-run",
+      "viewport": "390x844",
+      "states": [
+        "follow-up beginning",
+        "cold control paragraph",
+        "complete conclusion above floating control"
+      ],
+      "root_overflow": false,
+      "conclusion_box": {
+        "x": 20,
+        "y": 96.125,
+        "width": 350,
+        "height": 471.5625
+      }
+    }
+  ],
+  "native_desktop_ui": "not inspected",
+  "guide_source_public_http_parity": true,
+  "page_errors": []
+}
