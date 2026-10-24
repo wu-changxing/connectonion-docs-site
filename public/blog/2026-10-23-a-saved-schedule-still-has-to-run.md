@@ -114,9 +114,10 @@ handover rechecks the same registration immediately before teardown. Private
 fixtures verify that migration and concurrent definition/index changes preserve
 the previous clock; they do not establish live account-mode support.
 
-These changes are [under review](https://github.com/openonion/connectonion/pull/2674),
-with 262 scheduling/service/CLI command tests and 123 help-contract checks passing.
-They have not been released. Native execution, archiving, pause and initialization
+These changes were [merged](https://github.com/openonion/connectonion/pull/2674)
+and are available in [1.9.3rc22](/releases/1.9.3rc22), with 262
+scheduling/service/CLI command tests and 123 help-contract checks passing.
+Native execution, archiving, pause and initialization
 after a normal desktop restart now have receipts. Account-managed registration,
 exact timing, full server/machine restart recovery and actual native desktop UI
 remain unverified. A one-command initialization should remove file editing and

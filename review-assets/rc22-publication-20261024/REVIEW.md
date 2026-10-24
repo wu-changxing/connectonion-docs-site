@@ -54,3 +54,30 @@ pages after sharedco browser OIPrequests failed; shared tabs/cookies and the
 normal Codex profile were untouched. A supplemental export harness initially
 used a wrong Playwright parameter; that attempt was corrected and is not counted
 as a pass. The corrected copy/download check completed successfully.
+
+
+## Published-package handoff
+
+The immutable `v1.9.3rc22` tag at `06a589c6d8e2316859241c3af999f5e2426ce7f1`
+completed [Trusted Publishing run40087202414](https://github.com/openonion/connectonion/actions/runs/40087202414).
+The GitHub prerelease is public. Canonical PyPI JSON and GitHub report identical
+wheel and sdist SHA-256 values; a fresh normal `uv tool` installation resolves
+1.9.3rc22 under the existing Python3.12.10. Stable/latest remains1.9.2.
+The real published-tag documentation sync changed0files; the release note and
+all six tagged asset files were independently compared byte for byte (the
+site's documented Install-heading normalization applies to the note).
+
+The two journals now state that the changes are available in rc22. A fresh
+657-page production build passed. A separate AI founder/marketing/UI role
+recheck opened all eight `published-handoff` screenshots at original resolution:
+both journal first folds and publication paragraphs, at1440x1080 and390x844.
+No P0/P1/P2 finding remained: availability and links are clear, the existing
+native/account/timing limitations remain, and text has no visible overflow.
+The receipt also checks canonical links, release links and page exceptions.
+This closes the publication-label gate for deploying this docs change.
+
+Production URLs remain to be checked after merge. The public-package timed
+native marker control is running separately; this journal recheck does not
+accept that trial or native desktop/account UI. Clipboard was not independently
+replayed by the journal reviewer; the prior measured copy checks retain their
+original scope.

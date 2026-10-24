@@ -19,7 +19,8 @@ knowledge about which initialization command they had used. Calling a separate
 installed `co init` from setup was already fragile: PATH could select an older
 version, and a module could retain paths from an earlier invocation.
 
-The candidate for [issue #2675](https://github.com/openonion/connectonion/issues/2675)
+The fix for [issue #2675](https://github.com/openonion/connectonion/issues/2675),
+available in [1.9.3rc22](/releases/1.9.3rc22),
 shares the local preparation across all four entry points. The identity remains
 the machine's; a missing local profile is created; installed coding agents get
 the bundled skills and generated command index. Every run checks the pieces
@@ -43,9 +44,9 @@ personal links being replaced, and an announcement preview selecting the wrong
 root. The corrected candidate merges metadata, keeps healthy personal links,
 and carries the selected root through both runtime loaders and publication
 previews. Invalid bundled YAML descriptions are now quoted, so a fresh imported
-library does not report those shipped skills as broken. This is a local
-candidate under review, not a claim that a new package is published or that
-every connected service has been tested.
+library does not report those shipped skills as broken. These local preparation
+changes are published in the preview; connected services still need their own
+setup and acceptance checks.
 
 The release handoff exposed the same drift in documentation. The inherited
 handwritten email page described reads and replies differently from the package's
