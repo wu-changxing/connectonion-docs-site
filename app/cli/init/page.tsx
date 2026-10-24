@@ -7,5 +7,5 @@ export const metadata = {
 }
 
 export default function Page() {
-  return <ReleaseCliGuide name="init" reviewUrl="https://github.com/openonion/connectonion/issues/2675" />
+  return <ReleaseCliGuide name="init" preview />
 }

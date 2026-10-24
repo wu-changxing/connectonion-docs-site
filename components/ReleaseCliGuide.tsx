@@ -7,13 +7,13 @@ import { renderBlogMarkdown } from '../lib/blog-content.mjs'
 import { PREVIEW_VERSION, STABLE_VERSION } from '../lib/version'
 
 /** Render the reviewed, repository-owned CLI guide used by the installed package. */
-export type CliGuideName = 'browser' | 'env' | 'environment' | 'init' | 'setup' | 'skills' | 'create' | 'gmail' | 'gdrive' | 'synology' | 'outlook' | 'onenote' | 'whatsapp' | 'schedule' | 'gcalendar' | 'telegram' | 'feishu' | 'sms' | 'proxy' | 'server' | 'youtube' | 'commands' | 'discord' | 'wiki-help' | 'rem' | 'benchmark' | 'tiktok' | 'audit' | 'search' | 'slack' | 'mcp'
+export type CliGuideName = 'browser' | 'env' | 'environment' | 'init' | 'setup' | 'skills' | 'create' | 'gmail' | 'email' | 'gdrive' | 'synology' | 'outlook' | 'onenote' | 'whatsapp' | 'schedule' | 'gcalendar' | 'telegram' | 'feishu' | 'sms' | 'proxy' | 'server' | 'youtube' | 'commands' | 'discord' | 'wiki-help' | 'rem' | 'benchmark' | 'tiktok' | 'audit' | 'search' | 'slack' | 'mcp'
 
 /** A guide for a command that ships only in the current preview says so, with the exact pin. */
 export function ReleaseCliGuide({ name, preview = false, intro, reviewUrl }: { name: CliGuideName; preview?: boolean; intro?: React.ReactNode; reviewUrl?: string }) {
   const markdown = fs.readFileSync(path.join(process.cwd(), 'public', 'cli', `${name}.md`), 'utf8')
-  const onboarding = ['init', 'setup', 'create', 'skills'].includes(name)
-  const siteMarkdown = (reviewUrl ? markdown.replace(/^> \*\*Unreleased change\.\*\*.*\n\n/, '') : markdown)
+  const copyable = ['init', 'setup', 'create', 'skills', 'email'].includes(name)
+  const siteMarkdown = ((reviewUrl || preview) ? markdown.replace(/^> \*\*(?:Unreleased change\.|Preview [^*]+)\*\*.*\n\n/, '') : markdown)
     .replaceAll('](auth.md)', '](/cli/auth)')
     .replace(/\]\((init|setup|skills|create|copy)\.md(?=[)#])/g, '](/cli/$1')
     .replaceAll('](README.md)', '](/cli)')
@@ -30,18 +30,18 @@ export function ReleaseCliGuide({ name, preview = false, intro, reviewUrl }: { n
           {reviewUrl ? (
             <a href={reviewUrl} className="text-amber-800 underline">Unreleased · under review</a>
           ) : preview && PREVIEW_VERSION ? (
-            <Link href="/releases" className="text-amber-800 underline">
-              Preview {PREVIEW_VERSION}: pip install connectonion=={PREVIEW_VERSION}
+            <Link href={`/releases/${PREVIEW_VERSION}`} className="text-amber-800 underline">
+              Preview {PREVIEW_VERSION}
             </Link>
           ) : (
             <Link href="/releases" className="text-green-700 underline">ConnectOnion {STABLE_VERSION}</Link>
           )}
-          <CopyMarkdownButton markdownPath={`/cli/${name}.md`} filename={`${name}.md`} floatingMobile={false} showMobileLabel={name === 'rem' || onboarding} />
+          <CopyMarkdownButton markdownPath={`/cli/${name}.md`} filename={`${name}.md`} floatingMobile={false} showMobileLabel={name === 'rem' || copyable} />
         </div>
         {/* A site-owned note above the synced guide: the guide text is copied
             verbatim from the CLI, so anything the site adds goes here, not into it. */}
         {intro}
-        {onboarding ? <CliGuideBody html={renderBlogMarkdown(siteMarkdown)} /> : <div className="blog-prose break-words [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:leading-tight [&_h1]:mb-8" dangerouslySetInnerHTML={{ __html: renderBlogMarkdown(siteMarkdown) }} />}
+        {copyable ? <CliGuideBody html={renderBlogMarkdown(siteMarkdown)} /> : <div className="blog-prose break-words [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:leading-tight [&_h1]:mb-8" dangerouslySetInnerHTML={{ __html: renderBlogMarkdown(siteMarkdown) }} />}
       </article>
     </div>
   )

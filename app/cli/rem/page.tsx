@@ -18,16 +18,16 @@ export default function Page() {
             <Link href="/rem" className="underline underline-offset-4">See the night-to-morning experience →</Link>
           </p>
           <p className="mt-2">
-            Preview 1.9.3rc21 adds Codex Scheduled for eligible Macs. Keep Codex open
+            Preview 1.9.3rc22 opens Scheduled after native registration and confirms timer changes. Keep Codex open
             and the computer awake.{' '}
-            <Link href="/releases/1.9.3rc21" className="underline underline-offset-4">Setup and limits →</Link>
+            <Link href="/releases/1.9.3rc22" className="underline underline-offset-4">Setup and limits →</Link>
           </p>
           <details className="mt-3">
             <summary className="cursor-pointer font-medium">Native scheduling compatibility</summary>
             <p className="mt-2">
-              rc21 uses Codex&apos;s legacy local registration. Registration in newer account storage
+              Native scheduling uses Codex&apos;s legacy local registration. Registration in newer account storage
               has not passed REM&apos;s live acceptance. The normal-profile control executed and
-              archived scheduled work after opening Scheduled; the automatic wake fix is under review.
+              archived scheduled work after automatic Scheduled delivery, including initialization after a desktop restart.
               A saved task does not prove that its timer
               runs: check <code>co rem status</code> before relying on unattended upkeep.
               You can run <code>co rem sync</code> by hand meanwhile.
