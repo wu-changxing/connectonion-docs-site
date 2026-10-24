@@ -885,13 +885,18 @@ The native adapter in rc21 uses Codex's legacy local-file registration. Newer
 desktop code also has account-managed registration, which can replace the local
 file and task ID. That registration route has not passed REM's live acceptance;
 the presence of a TOML parser or an enabled feature is not proof of compatibility.
-The normal-profile follow-up on 2026-10-24 registered a task but did not observe
-its timed execution; an unlocked, visible-window comparison is still pending.
+The normal-profile follow-up on 2026-10-24 verified real native execution,
+auto-archiving and pause after opening the existing app's Scheduled entry point.
+A running App Server alone had not advanced its registered timer.
+This verifies execution, not exact requested-minute timing: the cold retry
+requested 20:35 Sydney, was indexed for 20:36:33 and began at 20:36:34.
 Check `co rem status` before relying on unattended upkeep;
 `co rem sync` remains available by hand.
 
 **Under review, not yet released:** initialization opens the normal installed
-desktop when it is not running, then independently confirms activation. Stopping
+desktop directly at Scheduled, including when its process is already running,
+then independently confirms activation. After the native index is ready it
+opens Scheduled again, so a cold launch does not depend on an early URL request. Stopping
 waits for native pause acknowledgement before marking the worker disabled or
 starting a replacement launchd timer. A known account-migrated task is identified
 by its legacy association and requires management in Codex Scheduled until an

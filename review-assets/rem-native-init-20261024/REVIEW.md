@@ -1,60 +1,47 @@
-# REM native scheduling follow-up review
+# REM native scheduling follow-up review — 24 October 2026
 
 Independent AI role review from a technology founder / marketing / UI perspective;
 no human founder participation is claimed. Code: openonion/connectonion#2674.
-Guide and journal: wu-changxing/connectonion-docs-site#308. Both remain drafts.
+Guide/journal: wu-changxing/connectonion-docs-site#308. No new package or docs
+production publication is claimed by this review.
 
-## Findings and rechecks
-
-| Priority | User impact and evidence | Improvement / recheck |
+| Priority | User impact and evidence | Improvement and recheck criterion |
 | --- | --- | --- |
-| Release blocker | Two normal-desktop trials registered ACTIVE but produced no timed execution in their six-minute windows. | Keep the release blocked; complete an unlocked, visible-main-window comparison. A subsequent locked-console observation is a condition to test, not an established cause. |
-| P1, fixed | A concurrent ACTIVE definition could acknowledge a pending PAUSED operation and disable its worker. | Bind the wait to the requested definition/version and native snapshot. The concurrent-activation regression must error while leaving the worker enabled. |
-| P1, fixed | A delayed first activation without a worker record could be displayed as Stopped. | Discover the native task independently of worker provider. The delayed-adoption regression must show attention. |
-| P1, fixed | A stopped native worker with a new, unacknowledged ACTIVE request could still display Stopped. | The reactivation-phase test and twelve provider/intent/observation combinations require attention for pending/active/account-unknown states. Confirmed PAUSED still displays Stopped. |
-| Compatibility blocker | Account migration can remove the legacy file and replace its ID. Only cached account state is currently available to this adapter. | Discover a known legacy association and refuse legacy mutation or a second timer. This is a guard, not verified account-mode creation/pause support. |
-| P2, clarified | The first journal wording could imply visibility was the only timer-start gate. | State that a timer-start fallback also exists and keep visibility as an untested condition. The final rendered paragraph uses that qualification. |
-| P2, baseline, nonblocking | The existing floating star can overlap a line during mid-page phone reading. | No global component change. In `journal-phone-tail-readable.png`, the complete final paragraph is visible at y275–684, above the fixed control at y780–828. Temporary overlap remains a minor reading nuisance. |
+| P1, fixed | A running App Server and adopted ACTIVE task did not establish timer execution. Two normal-profile windows missed their runs. | Post-adoption Scheduled delivery passed the normal-profile marker/archive/pause control and a guarded desktop-only restart followed by initialization. The production REM scheduled pass completed. Exact timing and account mode remain separate. |
+| P1, fixed | An acknowledgement could refer to a later concurrent request; delayed activation could look Stopped. | Bind acknowledgement to the expected snapshot, discover native state independently, and retain attention for pending ACTIVE/account-unknown states. Regression and independent AI recheck passed. |
+| P1, fixed | Migration during Scheduled delivery could remove the old clock before storage eligibility was rechecked. | Recheck the same snapshot immediately before teardown. Private fixtures and independent review preserve the old clock for account migration and definition/index changes, retain ACTIVE updates and permit normal PAUSED handover. |
+| Compatibility boundary, open | New account storage can replace IDs/remove TOML; the creation route was not reached in live enrollment trials. | Discover known migrated IDs and refuse legacy mutation. Account creation/update/pause/migration/archiving need their own live acceptance (framework issue2678). |
+| P2, fixed | A guide reader could infer requested-minute precision from execution and exact rule pairs. | The guide now gives the requested20:35, indexed20:36:33, started20:36:34 example and explicitly limits the claim to execution. |
+| P2, capture fixed | The first expanded-phone view needed a settled label/layout recheck. | Current label is complete; summary/paragraph geometry has an8px gap on desktop and phone. |
+| P2, capture fixed | Scrolling to page bottom captured footer, not the new conclusion. | Target the actual paragraph. Current phone conclusion spans y96–568 above the floating control; receipt state names the real content. |
+| P3, inherited | The existing star can overlap text during other mid-page reading positions. | Current required conclusion is fully readable; a global star redesign is outside this fix. |
 
-Final code review found no remaining P0/P1 in its limited scope. Local targeted
-regression finished with 257 passed and three existing deprecation warnings.
-These tests are not a native execution acceptance pass.
+The final independent AI recheck closed all three documentation P2 findings,
+viewed all ten current wake-prefixed images at original size, and found no new
+blocker in that scope. Its earlier source recheck closed the migration-during-open
+P1. Local checks:262 scheduling/service/CLI command tests passed with3 existing
+warnings;123 help-contract tests passed separately. Fixture checks are not live
+account-mode acceptance.
 
-## Actual rendered coverage
+Actual rendered coverage: `/cli/rem` compatibility collapsed and expanded;
+`/blog/a-saved-schedule-still-has-to-run` follow-up beginning, cold-control
+paragraph and complete conclusion, at1440×1100 and390×844. The full journal and
+scheduling guide sources were also read. `wake-receipt.json` records settled
+geometry, source/public/HTTP Markdown parity, no root overflow and no page
+exceptions. Older screenshots remain historical evidence of earlier rounds.
+Final browser captures used installed Chrome in an ephemeral loopback-only
+context after shared co browser OIP requests failed; no shared tabs/cookies or
+normal Codex profile were changed by the documentation check.
 
-- `/cli/rem`: 1440×1100 compatibility expanded; 390×844 expanded and collapsed.
-  Both summaries had distinct rectangles; document width equaled viewport width.
-- Existing journal `/blog/a-saved-schedule-still-has-to-run`: desktop follow-up
-  heading through account-registration discussion; phone follow-up opening;
-  phone visibility / acceptance tail and the complete tail after scrolling.
-- Screenshots are the PNGs alongside this record. The final qualifier was
-  rebuilt, rendered again, and read against the source.
+Production webpack build, blog source/build checks, lint (0 errors/155 existing
+warnings) and full dependency audit (0 findings) passed. The inherited dev-only
+Zod4.4.3 node was updated to4.6.7; parent range and audit gate are unchanged.
+Earlier standalone TypeScript and472-page SEO checks also passed; CI checks the
+current revision independently.
 
-Production build, blog source checks and blog build/discovery checks passed.
-Lint reported zero errors and 155 existing warnings. Production dependency
-audit reported no vulnerabilities; this is not a blanket development audit.
-
-Not covered: native Scheduled UI or desktop accessibility, unlocked control,
-account creation/migration/update/pause, restart/sync persistence, account-task
-archiving, remote project history, lower guide sections, copy/link/keyboard
-interactions, or the page-review disclosure expanded. Screenshots are sample
-coverage and do not constitute an all-page pass.
-
-## Dependency audit follow-up
-
-CI's full dependency audit identified the inherited dev-only Zod 4.4.3 node.
-The [reviewed advisory](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5) affects
-versions below 4.6.6. The lockfile resolves 4.6.7 after updating only that node;
-the parent range accepts Zod 4, and package.json, overrides and the audit gate
-are unchanged. This fixes development-tooling audit failure; it is not evidence
-that the deployed site was exploitable.
-
-Full dependency audit now reports zero findings. Lint, standalone TypeScript,
-the CI-style webpack production build, blog source/build checks and 472-page
-SEO checks passed. The two audit-prefixed phone screenshots recheck the guide
-compatibility expanded and the journal's complete acceptance tail after the
-dependency update. Native execution acceptance remains pending.
-
-The independent AI reviewer checked the one-node lockfile diff and both new
-phone screenshots, finding no P0/P1 in that additional scope. The complete
-post-update audit JSON recorded zero findings across all severity levels.
+Not covered: actual native Scheduled/consent UI, live account lifecycle, exact
+requested-minute precision, full server/machine restart or sleep/wake recovery,
+remote project-history presentation, other viewports, unsampled page positions,
+external-link validation and other disclosure/copy/keyboard interactions. The
+normal desktop restart control retained the managed server. These are sample
+rendered pages and states, not an all-page pass or a human founder review.
