@@ -1,0 +1,141 @@
+{
+  "browser": "installed Chrome, ephemeral headless context; shared browser untouched",
+  "pages": [
+    {
+      "path": "/cli/init",
+      "viewport": "1440x1080",
+      "headings": [
+        "Quick start#",
+        "Global setup: no path#",
+        "Telling Codex and Claude Code that co exists#",
+        "Rerun to repair missing setup#",
+        "Project setup: explicit path#",
+        "Options#",
+        "Migrating scripts#"
+      ],
+      "root_overflow": false,
+      "code_blocks": 3
+    },
+    {
+      "path": "/cli/init",
+      "viewport": "390x844",
+      "headings": [
+        "Quick start#",
+        "Global setup: no path#",
+        "Telling Codex and Claude Code that co exists#",
+        "Rerun to repair missing setup#",
+        "Project setup: explicit path#",
+        "Options#",
+        "Migrating scripts#"
+      ],
+      "root_overflow": false,
+      "code_blocks": 3
+    },
+    {
+      "path": "/cli/setup",
+      "viewport": "1440x1080",
+      "headings": [
+        "What setup prepares#",
+        "Preserve edits or recreate the profile#",
+        "Import a skill library#",
+        "Authentication and recovery#",
+        "Options#"
+      ],
+      "root_overflow": false,
+      "code_blocks": 6
+    },
+    {
+      "path": "/cli/setup",
+      "viewport": "390x844",
+      "headings": [
+        "What setup prepares#",
+        "Preserve edits or recreate the profile#",
+        "Import a skill library#",
+        "Authentication and recovery#",
+        "Options#"
+      ],
+      "root_overflow": false,
+      "code_blocks": 6
+    },
+    {
+      "path": "/cli/create",
+      "viewport": "1440x1080",
+      "headings": [
+        "What it prepares#",
+        "Templates#",
+        "Options#"
+      ],
+      "root_overflow": false,
+      "code_blocks": 2
+    },
+    {
+      "path": "/cli/create",
+      "viewport": "390x844",
+      "headings": [
+        "What it prepares#",
+        "Templates#",
+        "Options#"
+      ],
+      "root_overflow": false,
+      "code_blocks": 2
+    },
+    {
+      "path": "/cli/skills",
+      "viewport": "1440x1080",
+      "headings": [
+        "Quick Start#",
+        "Why#",
+        "Which tier travels#",
+        "Commands#",
+        "co skills discover#",
+        "co skills copy <name>#",
+        "co skills link#",
+        "co skills index#",
+        "co skills manifest#",
+        "co skills list#",
+        "Sources#",
+        "Index format#",
+        "How it composes#",
+        "See Also#"
+      ],
+      "root_overflow": false,
+      "code_blocks": 17
+    },
+    {
+      "path": "/cli/skills",
+      "viewport": "390x844",
+      "headings": [
+        "Quick Start#",
+        "Why#",
+        "Which tier travels#",
+        "Commands#",
+        "co skills discover#",
+        "co skills copy <name>#",
+        "co skills link#",
+        "co skills index#",
+        "co skills manifest#",
+        "co skills list#",
+        "Sources#",
+        "Index format#",
+        "How it composes#",
+        "See Also#"
+      ],
+      "root_overflow": false,
+      "code_blocks": 17
+    }
+  ],
+  "interactions": {
+    "code_copy": {
+      "passed": true,
+      "command": "co setup --name my-alias --bio \"What I work on\"\n"
+    },
+    "page_copy": true,
+    "markdown_download": {
+      "passed": true,
+      "filename": "setup.md"
+    },
+    "section_jump": true,
+    "mobile_navigation": true
+  },
+  "page_errors": []
+}

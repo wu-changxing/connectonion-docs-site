@@ -1,0 +1,30 @@
+{
+  "origin": "http://127.0.0.1:3425",
+  "views": [
+    {
+      "path": "/blog/a-saved-schedule-still-has-to-run",
+      "viewport": "1440x1080",
+      "publication": "These changes were merged and are available in 1.9.3rc22, with 262 scheduling/service/CLI command tests and 123 help-contract checks passing. Native execution, archiving, pause and initialization after a normal desktop restart now have receipts. Account-managed registration, exact timing, full server/machine restart recovery and actual native desktop UI remain unverified. A one-command initialization should remove file editing and repeated setup work; it still owes the user an accurate distinction between a saved request, an acknowledged timer and work that really ran.",
+      "overflow": false
+    },
+    {
+      "path": "/blog/a-saved-schedule-still-has-to-run",
+      "viewport": "390x844",
+      "publication": "These changes were merged and are available in 1.9.3rc22, with 262 scheduling/service/CLI command tests and 123 help-contract checks passing. Native execution, archiving, pause and initialization after a normal desktop restart now have receipts. Account-managed registration, exact timing, full server/machine restart recovery and actual native desktop UI remain unverified. A one-command initialization should remove file editing and repeated setup work; it still owes the user an accurate distinction between a saved request, an acknowledged timer and work that really ran.",
+      "overflow": false
+    },
+    {
+      "path": "/blog/initialization-should-not-depend-on-the-first-command",
+      "viewport": "1440x1080",
+      "publication": "The fix for issue #2675, available in 1.9.3rc22, shares the local preparation across all four entry points. The identity remains the machine's; a missing local profile is created; installed coding agents get the bundled skills and generated command index. Every run checks the pieces again. User skill directories, profile edits and instruction text outside the generated block survive. Project --force does not become permission to replace someone's own skill library.",
+      "overflow": false
+    },
+    {
+      "path": "/blog/initialization-should-not-depend-on-the-first-command",
+      "viewport": "390x844",
+      "publication": "The fix for issue #2675, available in 1.9.3rc22, shares the local preparation across all four entry points. The identity remains the machine's; a missing local profile is created; installed coding agents get the bundled skills and generated command index. Every run checks the pieces again. User skill directories, profile edits and instruction text outside the generated block survive. Project --force does not become permission to replace someone's own skill library.",
+      "overflow": false
+    }
+  ],
+  "page_errors": []
+}

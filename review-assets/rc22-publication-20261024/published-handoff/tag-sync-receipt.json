@@ -1,0 +1,34 @@
+{
+  "tag": "v1.9.3rc22",
+  "sync_changed_files": 0,
+  "release_note_and_assets": [
+    {
+      "file": "docs/releases/1.9.3rc22.md",
+      "sha256": "401b4ab2656ca7aae664216f064af07159fb085a0964446f3dda3cfade88d1e8"
+    },
+    {
+      "file": "docs/releases/assets/v1.9.3rc22/cli-receipt.json",
+      "sha256": "73319539ecb893c8b4014063c5e372cb590160d49d8da5935ff538534ee93888"
+    },
+    {
+      "file": "docs/releases/assets/v1.9.3rc22/init-after.png",
+      "sha256": "989af4958ee5f3c2c3fb29f1f61593f4b8f69f230da015d1b7cb3fb9f8458c1f"
+    },
+    {
+      "file": "docs/releases/assets/v1.9.3rc22/init-before.png",
+      "sha256": "fb4bee14cbc91262495805f8e90602c1352ce53dc5ff744690d68de5310ab6c6"
+    },
+    {
+      "file": "docs/releases/assets/v1.9.3rc22/manifest.yml",
+      "sha256": "583e201a38c7e70a6d951bfdffb68c3259a196813177121341c34ca23536ed0f"
+    },
+    {
+      "file": "docs/releases/assets/v1.9.3rc22/onboarding-desktop.png",
+      "sha256": "1dd79dd6c58e92bdbd68d24dc27c342ce4d94f2218bd1bb7fe5ee40b8a535294"
+    },
+    {
+      "file": "docs/releases/assets/v1.9.3rc22/onboarding-mobile.png",
+      "sha256": "7b1cc672e45d67c393c8d42f4cba8425aae00ded310cdc66a80845ad56a805ad"
+    }
+  ]
+}

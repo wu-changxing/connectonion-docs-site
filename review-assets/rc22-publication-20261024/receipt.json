@@ -1,0 +1,93 @@
+{
+  "state": "candidate only; public package and deployment pending",
+  "pages": [
+    {
+      "path": "/cli/init",
+      "viewport": "1440x1080",
+      "overflow": false
+    },
+    {
+      "path": "/cli/init",
+      "viewport": "390x844",
+      "overflow": false
+    },
+    {
+      "path": "/cli/setup",
+      "viewport": "390x844",
+      "overflow": false
+    },
+    {
+      "path": "/cli/create",
+      "viewport": "390x844",
+      "overflow": false
+    },
+    {
+      "path": "/cli/skills",
+      "viewport": "390x844",
+      "overflow": false
+    },
+    {
+      "path": "/cli/rem",
+      "viewport": "1440x1080",
+      "overflow": false
+    },
+    {
+      "path": "/cli/rem",
+      "viewport": "390x844",
+      "overflow": false
+    },
+    {
+      "path": "/cli/email",
+      "viewport": "1440x1080",
+      "overflow": false
+    },
+    {
+      "path": "/cli/email",
+      "viewport": "390x844",
+      "overflow": false
+    },
+    {
+      "path": "/releases",
+      "viewport": "1440x1080",
+      "canonical": "https://docs.connectonion.com/releases",
+      "overflow": false
+    },
+    {
+      "path": "/releases",
+      "viewport": "390x844",
+      "canonical": "https://docs.connectonion.com/releases",
+      "overflow": false
+    },
+    {
+      "path": "/releases/1.9.3rc22",
+      "viewport": "1440x1080",
+      "canonical": "https://docs.connectonion.com/releases/1.9.3rc22",
+      "overflow": false
+    },
+    {
+      "path": "/releases/1.9.3rc22",
+      "viewport": "390x844",
+      "canonical": "https://docs.connectonion.com/releases/1.9.3rc22",
+      "overflow": false
+    }
+  ],
+  "interactions": {
+    "email_documentation_code_copy": true,
+    "separate_send_variants_clipboard": [
+      "co email send you@example.com \"Hello\" \"My message\"",
+      "co email send you@example.com \"Hello\" \"My message\" --max-cost 0.003 --idempotency-key my-send-001"
+    ],
+    "exact_preview_install_copy": true,
+    "email_page_copy_and_download_with_preview_context": true
+  },
+  "mail_operations": "none; documentation only",
+  "additional_views": [
+    "email-budget-phone.png",
+    "email-send-variants-phone.png",
+    "channels-phone-copied.png",
+    "notes-phone-evidence.png"
+  ],
+  "sitemap_release_and_journal": true,
+  "page_errors": [],
+  "source_public_http_parity": "6/6 guides"
+}
