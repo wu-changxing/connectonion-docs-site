@@ -13,9 +13,9 @@ into one about the owner's. It now only rewrites he, his and she, and never the
 form the page uses for its own subject.
 
 How each one was found is in
-[The repair that guessed](2026-10-20-the-repair-that-guessed.md). The deepen
+[The repair that guessed](https://github.com/openonion/connectonion/blob/ee7981be9488600006c7f5ec0ba829200c5f3938/docs/blog/2026-10-20-the-repair-that-guessed.md). The deepen
 picker changes are in
-[An empty page is not a reason](2026-10-20-an-empty-page-is-not-a-reason.md).
+[An empty page is not a reason](https://github.com/openonion/connectonion/blob/ee7981be9488600006c7f5ec0ba829200c5f3938/docs/blog/2026-10-20-an-empty-page-is-not-a-reason.md).
 
 ```bash
 python -m pip install --upgrade 'connectonion==1.9.3rc11'
