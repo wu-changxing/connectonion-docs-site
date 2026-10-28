@@ -78,7 +78,8 @@ installed skills from source and retained run evidence: 16 pages at a time.
 After the map summary, init prints your notebook languages and whether they
 were detected from your sent mail and typed sessions or set in config. Use
 `co rem init --languages zh,en` to set them before mapping, or
-`co rem config set languages en` to change them later. English remains the
+`co rem config set languages zh,en` (your list, as init prints it) to change them
+later; `languages en` keeps English only. English remains the
 canonical writing language. After tidying and drawing decisions and principles,
 init translates every listed, written page into your first non-English language,
 even when English is first in the list. Mapped-only stubs and the skill catalog
@@ -90,8 +91,10 @@ The estimate includes one translation per selected page plus your page, with
 unknown decision/principle counts treated as zero. Translation uses its own
 `limits.workers` lanes after the investigations, so its wall time is added to
 the page queue. Completed translation runs in this notebook supply median rates;
-otherwise planning uses 80,000 input tokens and 35 seconds per page (measured
-2026-10-21). First-run translation has no daily cap.
+otherwise planning uses 90,000 input tokens and 200 seconds per page (measured
+2026-10-21 on a 297-page notebook at 16 workers: one translation alone takes
+22–40 s, but concurrent turns share the model's throughput; the whole notebook
+took 66 minutes). First-run translation has no daily cap.
 
 Session folders discovered after the map summary remain
 unmapped candidates during this first run. They do not silently add project
@@ -398,6 +401,7 @@ Every command returns a next command, including in JSON and through a pipe.
 | `co rem muse people/alice.md` | Think one page through: ask many questions, study the five best, write only on insight. One thread of seven resumed turns with the `rem-muse` Skill. [Details](#deepen-one-page-enrich-and-muse). |
 | `co rem deepen --pages 2` | Deepen the highest-value thin pages, one enrich then muse round each, within a separate weekly budget. [Details](#deepen-over-time-co-rem-deepen). |
 | `co rem abstract` | Run rem-abstract over existing notebook evidence. |
+| `co rem history [--archive]` | Inspect or archive older internal Codex investigation traces, keeping ordinary, pinned, active and recent chats. |
 | `co rem start` | Confirm source access, run first bounded sync, install macOS background schedule. Asks again whenever anything its summary shows (sources, runner, model, permissions, schedule, limits) changed since the last approval. A start after `stop` resumes the schedule without a batch; `co rem sync` runs one. |
 | `co rem start --yes` | Explicit noninteractive consent for start. |
 | `co rem stop` | Remove that notebook's background job; preserve pages and progress. |
@@ -470,6 +474,8 @@ co rem muse projects/aurora.md     # thinking: ask, choose, study, write only on
 
 Before muse saves the page, an independent reviewer checks each proposed new
 Insight bullet against its cited originals and the existing page, without seeing the writer's reasoning.
+Unresolved `git:` citations are read from the local checkout with `git show`, capped at 40,000 characters.
+The critic judges the same packet twice independently, keeps only bullets both calls rate good, and records both verdicts and their disagreement count.
 Only good insights are kept; weak or wrong bullets are removed, and a weak finding about an obligation
 or a question still owed can move to Open threads.
 
@@ -863,30 +869,6 @@ the task. Investigation is not marked finished on a failed execution.
 co rem forwards its delegated deadline as `co ai --timeout SECONDS` and gives
 the outer process 15 seconds to exit afterward. The common native adapter
 therefore closes its delegate before co rem process timeout is reached.
-
-## Pending feedback without new originals (1.9.3rc17)
-
-
-In 1.9.3rc17, an explicit `co rem investigate PAGE` that finds no new
-raw material can process eligible attributed feedback for that page in one bounded
-maintenance turn. The log says `mode: feedback_only`, retains `feedback_items` and
-`feedback_deferred`, and reports the stage as `processing attributed feedback`.
-Raw source/contact counts remain unchanged; this does not stamp a new investigation
-date. No pending feedback still means no model call for an empty source window.
-
-This fallback keeps original attributed records outside extraction/digests, respects
-the input/call allowance, and uses fresh progress when acknowledging acceptance.
-Native turns reject a page changed before processing or during a no-change assessment.
-The existing explicit `retry_refused` route may override this target's refusal
-cooldown/cap; it cannot override missing pages, unresolved legacy history or budgets.
-Automatic calls retain the normal retry limits. Historical `read_before` deepening
-keeps its original date boundary and does not become a feedback review.
-
-Mixed new raw evidence and multi-round investigations still receive their existing
-context; this fallback does not establish managed feedback receipts for those paths.
-It is not an external-agent instant-apply interface. This fallback ships in the public 1.9.3rc17 preview.
-It does not repair previously saved pages or establish real model/native acceptance.
-
 
 ## Scheduling and accounting
 
@@ -1364,6 +1346,11 @@ before it refuses anything.
   First and Last contact code computed from the whole archive: the packet's
   date range is not the relationship's. A claim a truncated excerpt neither
   supports nor contradicts is left out, not failed.
+  Evidence indexes preserve the original items for retention and auditing, including
+  overflow from capped rounds. In `claim-review.json`, `unretained_citations` lists
+  handed citation numbers with no readable excerpt and `unverified_lines` lists
+  prose citing only those originals (unverified, not refuted); `missing_citations`
+  lists citations never handed to the turn and unavailable in the archive.
 - **Up to two repair turns for every page type; one for enrich and muse.**
   What review names goes back to the writer with where to read the originals.
   Only project pages had repairs before; callum-reid and two skill pages
@@ -1738,6 +1725,17 @@ shows the original when no translation is available. Rendering never starts a
 translation. The per-page Read in menu still allows an explicit language choice.
 Quoted evidence stays exactly in its original language.
 
+What the model sees and must keep: the `## Sources` section is never sent; it is
+copied back byte-identical after the translated prose. Amounts and currency
+symbols stay as written (`$50,000` never becomes US dollars), and so do names of
+people, organisations, projects, products and tools, including lowercase project
+names; the page title and every link text are passed as an explicit list.
+Email addresses, URLs, paths, issue numbers, versions and code spans are kept.
+Each translation is checked before it is cached: headings, `[n]` citations,
+privacy labels, quoted passages and reader markers. When a check fails, the
+model gets one repair turn with the exact difference ("missing [12] (1 time)");
+a second failure is reported and nothing is cached.
+
 To backfill existing pages once (the English pages remain the audited source):
 
 ```bash
@@ -1773,8 +1771,28 @@ pages could not be translated and offers a copyable `translate --all` command.
 
 REM archives its internal Codex threads after each model call, including failed
 calls when the provider remains responsive. A forced cancellation or process
-crash can leave a thread active; existing history is not bulk-archived. They leave the active conversation list while their trace and session ID
-remain available for explicit resume and `co rem logs`. Before resuming, REM
+crash can leave a thread active. In preview 1.9.3rc26, an approved `co rem start`
+also repairs older internal traces; `co rem init` reaches the same approved start.
+Inspect or apply that repair separately:
+
+```bash
+co rem history
+co rem history --archive
+```
+
+Only ConnectOnion-generated conversations or recognized legacy REM delegates
+under this notebook's private task
+directory, older than one hour, are eligible. Personal conversations, pins,
+recent work and threads observed active are retained. The repair uses native
+`thread/read` and `thread/archive`, makes no model calls, writes no native
+database rows, and keeps a private receipt. Valid paginated threads need not
+have a legacy JSONL file. Because native archive also processes descendants,
+an unarchived child outside these safeguards keeps its parent too; unknown
+children also protect the parent. A rerun skips already archived traces. Error results
+in the normal automation inbox and ordinary workspaces remain visible.
+
+They leave the active conversation list while their trace and session ID remain
+available for explicit resume and `co rem logs`. Before resuming, REM
 unarchives the thread, then archives it again after the turn. Ordinary interactive Codex
 threads are unchanged.
 History archiving also applies when launchd owns the timer. In rc21, eligible

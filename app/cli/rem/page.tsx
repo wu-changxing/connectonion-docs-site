@@ -18,9 +18,9 @@ export default function Page() {
             <Link href="/rem" className="underline underline-offset-4">See the night-to-morning experience →</Link>
           </p>
           <p className="mt-2">
-            Preview 1.9.3rc22 opens Scheduled after native registration and confirms timer changes. Keep Codex open
+            Preview 1.9.3rc26 repairs older internal investigation history during approved startup. Keep Codex open
             and the computer awake.{' '}
-            <Link href="/releases/1.9.3rc22" className="underline underline-offset-4">Setup and limits →</Link>
+            <Link href="/releases/1.9.3rc26" className="underline underline-offset-4">Setup and limits →</Link>
           </p>
           <details className="mt-3">
             <summary className="cursor-pointer font-medium">Native scheduling compatibility</summary>
