@@ -25,22 +25,61 @@ python -m pip install --upgrade 'connectonion==1.9.2'
 
 ## Current preview
 
+Release candidate **1.9.3rc26** repairs old REM investigation conversations in
+Codex's active history and fixes initialization omissions. Approved REM startup
+archives proven old internal traces through Codex's native API. Bundled skill
+links into older installations are refreshed, incomplete profiles are repaired,
+and malformed metadata reports an actionable error. Stable remains **1.9.2**.
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.3rc26'
+```
+
+See [the candidate notes](releases/1.9.3rc26.md).
+
+## Previous previews
+
+Release candidate **1.9.3rc25** is the freeze candidate for 1.9.3: rc24 plus
+one release-blocking fix. `co lark listen` no longer loses messages silently:
+history recovery is bounded and runs only at start and reconnect, a rejected
+conversation is skipped instead of stopping recovery, a message that reached
+another client on the same app is reported by `co lark check`, and reactions,
+recalls and group events reach the inbox. If rc25 holds up end to end it is
+promoted unchanged to 1.9.3. Stable remains **1.9.2**.
+
+Opt-in installation:
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.3rc25'
+```
+
+See [the candidate notes](releases/1.9.3rc25.md).
+
+
+Release candidate **1.9.3rc24** froze the 1.9.3 line: after it, only
+release-blocking fixes land. It adds the REM citation, translation, company-scope and
+diary-folder privacy fixes merged after rc23, a macOS user service for
+`co host`, and an error for `co email inbox --address` with an address you do
+not own. Stable remains **1.9.2**.
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.3rc24'
+```
+
+See [the candidate notes](releases/1.9.3rc24.md).
+
 Release candidate **1.9.3rc23** adds generic `co asr` and Python `asr()`.
 Codex is the default provider; existing co configuration can select
 ConnectOnion. Long files are prepared locally in resumable windows. Both
 providers upload audio; the Codex endpoint is unofficial. No Watch connector
 or automatic REM ingestion is included. Stable remains **1.9.2**.
 
-Opt-in installation:
-
 ```bash
 python -m pip install --upgrade 'connectonion==1.9.3rc23'
 ```
 
 See [the candidate notes](releases/1.9.3rc23.md) and
-[ASR configuration and recovery](/asr.md).
-
-## Previous previews
+[ASR configuration and recovery](asr.md).
 
 Release candidate **1.9.3rc22** activates Codex Scheduled after native registration
 and confirms timer changes before handing off the old clock. Normal-profile
