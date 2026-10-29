@@ -25,6 +25,23 @@ python -m pip install --upgrade 'connectonion==1.9.2'
 
 ## Current preview
 
+Release candidate **1.9.3rc27** ships backend repairs for retained
+quotation context and Claude loopback bridge startup. Literal words in an extended
+quote require the same immediately bound originals to count as retained. Genuinely
+missing introductory prose stays introductory. The scoped Claude Hook receiver
+uses its numeric address without reverse DNS. No global DNS or permissions change.
+Stable remains **1.9.2**. The matching PyPI package and GitHub prerelease are public.
+
+Install its exact pin:
+
+```bash
+python -m pip install --upgrade 'connectonion==1.9.3rc27'
+```
+
+See [the candidate notes](releases/1.9.3rc27.md).
+
+## Previous previews
+
 Release candidate **1.9.3rc26** repairs old REM investigation conversations in
 Codex's active history and fixes initialization omissions. Approved REM startup
 archives proven old internal traces through Codex's native API. Bundled skill
@@ -36,8 +53,6 @@ python -m pip install --upgrade 'connectonion==1.9.3rc26'
 ```
 
 See [the candidate notes](releases/1.9.3rc26.md).
-
-## Previous previews
 
 Release candidate **1.9.3rc25** is the freeze candidate for 1.9.3: rc24 plus
 one release-blocking fix. `co lark listen` no longer loses messages silently:
@@ -150,7 +165,7 @@ waiting. Stable remains 1.9.2; Python 3.11+ and existing dependency floors remai
 This backend preview does not establish current REM model or native UI acceptance.
 See [1.9.3rc17 notes](releases/1.9.3rc17.md).
 
-After publication, install its exact pin:
+Install its exact pin:
 
 ```bash
 python -m pip install --upgrade 'connectonion==1.9.3rc17'
@@ -162,7 +177,7 @@ keeps isolated project Hosts from inheriting a global handoff watcher. This
 preview requires Python 3.11+ and retains rc15's security dependency floors.
 See [1.9.3rc16 notes](releases/1.9.3rc16.md).
 
-After publication, install its exact pin:
+Install its exact pin:
 
 ```bash
 python -m pip install --upgrade 'connectonion==1.9.3rc16'
@@ -224,7 +239,7 @@ Release candidate **1.9.3rc8**: a changed person or organisation without retaine
 routing continuity no longer regains the old subject's contact dates. The next
 successful pass compacts the Investigation footer to the latest of each known
 kind. These fixes do not repair old claims or establish reader maturity.
-See [1.9.3rc8 notes](releases/1.9.3rc8.md). After publication:
+See [1.9.3rc8 notes](releases/1.9.3rc8.md). Install its exact pin:
 
 ```bash
 python -m pip install --upgrade 'connectonion==1.9.3rc8'
@@ -235,7 +250,7 @@ context imports, skill invocation counts and cached evidence samples. This preve
 model probes and repair instructions from being treated as the owner's words. It does
 not purge old messages or repair existing claims. See [1.9.3rc7 notes](releases/1.9.3rc7.md).
 
-After this candidate is published, install its exact pin:
+Install its exact pin:
 
 ```bash
 python -m pip install --upgrade 'connectonion==1.9.3rc7'
