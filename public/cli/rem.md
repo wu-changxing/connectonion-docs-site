@@ -1821,10 +1821,9 @@ old content is true. Additions may still affect discourse meaning; actual model
 and current native desktop/phone/accessibility acceptance remain unverified.
 Existing notebook pages are not automatically corrected.
 
+## Retained quotation context (1.9.3rc27, #2687)
 
-## Candidate: retained quotation context (#2687)
-
-A follow-up candidate distinguishes a lost quote from literal words retained
+Since 1.9.3rc27, REM distinguishes a lost quote from literal words retained
 inside one extended quotation. The words, spacing, case and word boundaries must
 remain exact, and the immediately following citations must resolve to the same
 unambiguous original identities. Dates and privacy labels may stand between the
@@ -1838,5 +1837,5 @@ If introductory evidence really is lost, its restoration stays above the first
 content section and retains the writer's new lead. It is not appended below an
 Uncertainties placeholder. This repair does not remove duplicates authored in the
 candidate, repair saved notebooks or establish real model/native usefulness.
-It is not included in the public 1.9.3rc25 preview; normal review and release
-acceptance remain required.
+This repair ships in [1.9.3rc27](/releases/1.9.3rc27). Synthetic regression and
+publication checks do not replace real page-quality acceptance.

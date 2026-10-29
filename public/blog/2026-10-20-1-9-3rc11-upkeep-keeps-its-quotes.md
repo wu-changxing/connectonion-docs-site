@@ -2,7 +2,8 @@
 
 *2026-10-20*
 
-rc9 shipped two REM bugs, and this candidate fixes both.
+This is the historical rc11 release account; the latest preview is listed on
+[Releases](/releases). rc9 shipped two REM bugs, and rc11 fixed both.
 
 Daily upkeep could rewrite a page and lose what it had. In one replay, a page
 with twelve quotes came back with none. Upkeep now checks a rewrite against the
@@ -48,3 +49,15 @@ its new surrounding claim is accurate, and it cannot fix a duplicate the writer
 already supplied. The original review gate remains. This is an unreleased
 follow-up to #2687, not a repair of the owner's saved notebook or proof of current
 model usefulness. Native page and source-entailment acceptance remain separate.
+
+
+## 29 October: publication checkpoint
+
+The bounded repair above ships in [1.9.3rc27](/releases/1.9.3rc27).
+[Version PR #2700](https://github.com/openonion/connectonion/pull/2700) passed
+its exact-head checks; the immutable tag then passed the normal
+[release workflow](https://github.com/openonion/connectonion/actions/runs/40793870137).
+The public wheel and source archive match the workflow artifacts byte for byte.
+The frozen offline suite passed 17,655 tests with 336 skipped. These are package
+and synthetic regression results. No real notebook was rewritten for this trial;
+real-model usefulness, source truth and native desktop/phone acceptance remain open.
