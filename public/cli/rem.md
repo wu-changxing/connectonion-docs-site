@@ -660,6 +660,13 @@ languages still take precedence. Page prose stays as written. On phones, a compa
   never receives them and starts with labelled passages hidden. Missing original bodies are labeled, never
   replaced by a generated summary. A page only mapped from metadata says so
   and gives the command to investigate it.
+- **Unreleased candidate (#2626):** a cited retained mail original can be read
+  without a derived message-index row. Provider/native identity and the full
+  archive filename must agree; ambiguous native/short-hash interpretations or
+  conflicting indexed candidates are not guessed. Privacy, excerpt budgets and
+  capture/retention clocks are preserved. No index rebuild or provider recovery
+  occurs. This correction is pending native acceptance, CI and publication;
+  installed public rc12 does not include it.
 - **Open threads** shows all supported obligations with direct record links.
   Within each direction section, rows keep their date without repeating the
   direction tag. **Memory changes** keeps cited field changes separate from
