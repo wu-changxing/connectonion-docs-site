@@ -250,7 +250,7 @@ context imports, skill invocation counts and cached evidence samples. This preve
 model probes and repair instructions from being treated as the owner's words. It does
 not purge old messages or repair existing claims. See [1.9.3rc7 notes](releases/1.9.3rc7.md).
 
-After this candidate is published, install its exact pin:
+Install its exact pin:
 
 ```bash
 python -m pip install --upgrade 'connectonion==1.9.3rc7'
