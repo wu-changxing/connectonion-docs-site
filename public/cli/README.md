@@ -1,0 +1,1482 @@
+# ConnectOnion CLI
+
+The `co` command-line interface lets you create production-ready AI agent projects in seconds.
+
+## The Problem
+
+Setting up AI agent projects is tedious:
+- Manual `.env` file configuration
+- Copy-pasting boilerplate code
+- Setting up authentication and API keys
+- Managing cryptographic identity
+- Inconsistent project structure
+
+## The Solution
+
+```bash
+co create my-agent
+cd my-agent
+python agent.py
+```
+
+Done. You now have a complete, working AI agent.
+
+## Quick Start (60 seconds)
+
+```bash
+# Install
+pip install connectonion
+
+# Create agent
+co create my-agent
+
+# Run it
+cd my-agent
+python agent.py
+```
+
+The CLI automatically:
+1. Creates your global identity (`~/.co/`)
+2. Guides you through API key setup
+3. Generates complete project structure
+4. Authenticates for managed keys (free credits)
+
+## All Commands
+
+This page walks through the commands in prose. The CLI itself is the register,
+at three levels, each complete at its own level:
+
+```bash
+co                      # every top-level command with a one-line summary
+co commands             # every command and subcommand, one per line — grep it
+co gmail --help         # the options and subcommands of one command
+```
+
+`co commands` is plain text with no colour codes in a pipe, so
+`co commands | grep draft` finds the draft commands without knowing which group
+holds them. In a terminal the same lines have the command column coloured:
+every `co` command follows one look, written down in [audit.md](audit.md#look-the-standard-co-holds-itself-to-1997).
+
+### Claude Code connector preview
+
+`co claude --cwd /path/to/project --model haiku` opens Claude's native
+interactive terminal. On exit it prints the verified session ID; pass
+`--resume <id>` to reopen that session. The wrapper installs temporary Hooks
+through an authenticated loopback receiver and reads user/assistant messages
+from the exact transcript path supplied by `SessionStart`. It skips unknown
+transcript records and does not forward thinking or raw tool data.
+
+`co claude run "Fix the tests" --cwd /path/to/project` starts one Claude Code
+turn using the same runner as a Host-delegated Claude Work Room. Its JSON output
+includes the Claude session ID. Pass `--session <id>` on a later run to continue
+that conversation. A failed run prints a JSON error and exits nonzero.
+
+The connector installs a temporary `SessionStart` Hook and checks its session
+ID and transcript path. A shared terminal can hand over before its first
+prompt: that first browser message starts a new native Claude session, while
+later messages resume the session that already has a completed turn. Host/COAI Claude
+delegation uses this same path. Every headless run (`co claude run`, `co ai`
+delegation, and browser turns in a shared terminal) loads only your user
+settings plus the connector's Hooks (`--setting-sources user
+--strict-mcp-config`): a repository's `.claude/settings.json`,
+`.claude/settings.local.json`, `CLAUDE.md`, and MCP servers do not load, so a
+cloned repo cannot add Hooks or allow Bash in a turn nobody is watching. The
+interactive `co claude` terminal keeps Claude's normal project settings,
+because you are at the keyboard and Claude's own folder-trust prompt applies
+there. With sharing enabled, `co claude` hosts a paired OIP Work Room. The
+`co claude run` command runs one turn and does not host a Work Room.
+
+Every command ends by naming the next one. Commands whose next step depends on
+what they found print it themselves (`Read one with: co gmail read <#>`); every
+other command gets a `Next: …` line on stderr after it returns, from one table
+in the CLI, so stdout stays the command's data and the line still reaches a
+pipe. A test fails when a registered command has no entry, and every tip's
+command is checked against this register, so a tip never points at a command
+that does not exist. `co --no-tips <command>` drops the line for one run and
+`CO_TIPS=off` for every run; error text is never a tip and is never dropped.
+
+### Project Commands
+
+#### `co create [name]` - Create New Project
+
+Creates a new directory with complete agent project.
+
+**Basic usage:**
+```bash
+co create my-agent              # Interactive
+co create my-agent --yes        # Skip prompts
+co create my-agent -t browser    # Specify template
+```
+
+**Options:**
+- `[name]` - Project name (creates directory)
+- `--template, -t` - Template: `minimal` (default), `coder`, `browser`, `web-research`, `custom`
+- `--key` - API key (auto-detects provider)
+- `--description` - For custom templates
+- `--yes, -y` - Skip all prompts
+
+**Templates:**
+- **minimal** - Basic agent with simple tools
+- **coder** - Filesystem + shell access for coding tasks
+- **browser** - Browser automation with Playwright
+- **web-research** - Web scraping and research
+- **custom** - AI-generated from description
+
+**Examples:**
+```bash
+# Simple
+co create my-agent
+
+# With template
+co create scraper -t browser
+
+# Custom AI-generated
+co create email-bot -t custom --description "Monitor Gmail and respond to urgent emails"
+
+# Non-interactive
+co create quick-agent --yes
+```
+
+**What it creates:**
+```
+my-agent/
+├── agent.py                 # Main agent
+├── .env                     # API keys (from ~/.co/keys.env)
+├── .co/
+│   ├── host.yaml            # Project config
+│   ├── control-center/      # Editable full Web app
+│   └── docs/                # Framework docs
+├── co-vibecoding-principles-docs-contexts-all-in-one.md
+└── .gitignore               # Safe defaults
+```
+
+---
+
+#### `co init` - Global Setup
+
+Without a path, `co init` creates or reuses the global identity and authenticates
+into `~/.co/keys.env`. It does not create or modify project files, even inside
+an existing project. Pass a directory explicitly for project setup.
+
+```bash
+co init --yes                 # Global setup only
+co init ./ --yes              # This project's config, .env, and docs
+co init /path/to/project      # Another existing project directory
+```
+
+`--key` explicitly saves a provider key globally in no-path mode; implicitly
+loaded project or process keys are not copied there. Project-only `--template`,
+`--description`, and `--force` require a path. See [init](init.md) for migration
+and offline behavior.
+
+#### `co init ./` - Add to Existing Directory
+
+Adds ConnectOnion to existing project safely.
+
+**Basic usage:**
+```bash
+cd my-existing-project
+co init ./                      # Safe - preserves existing files
+```
+
+**What it does:**
+- ✅ **Preserves** existing files and `.env`
+- ✅ **Appends** only missing API keys
+- ✅ **Updates** `.co/docs/` to latest
+- ✅ **Adds once** `.co/control-center/` and never overwrites your website
+- ✅ **Skips** existing files (like `agent.py`)
+
+**Options:**
+An explicit existing directory replaces `co create`'s new project name.
+Templates are optional: omit `--template` for configuration only.
+
+**Examples:**
+```bash
+# Add to existing project
+cd my-django-app
+co init ./
+
+# With template
+co init ./ --template co-ai
+
+# Update docs only
+co init ./  # Refreshes .co/docs/ to latest version
+```
+
+**Safe for existing projects:**
+```bash
+# Your existing .env
+DATABASE_URL=postgres://localhost/mydb
+SECRET_KEY=mysecret
+
+# After co init ./ - preserved and appended
+DATABASE_URL=postgres://localhost/mydb    # ← kept
+SECRET_KEY=mysecret                        # ← kept
+
+# ConnectOnion API Keys                    # ← appended
+OPENAI_API_KEY=sk-proj-xxx                 # ← added
+```
+
+---
+
+### Authentication & Account Commands
+
+#### `co auth` - Authenticate for Managed Keys
+
+One-time setup for managed LLM keys (free credits included).
+
+**Basic usage:**
+```bash
+co auth
+```
+
+**What it does:**
+1. Signs message with your Ed25519 key
+2. Authenticates with OpenOnion backend
+3. Saves `OPENONION_API_KEY` to `~/.co/keys.env`
+4. Activates your agent email
+
+**Using managed keys:**
+```python
+from connectonion import llm_do
+
+# Use co/ prefix
+response = llm_do("Hello", model="co/gpt-5")
+response = llm_do("Hello", model="co/claude-sonnet-4")
+response = llm_do("Hello", model="co/gemini-3.8-flash")
+```
+
+**Available models:**
+- Paid, once the account has credits (`PAID_MANAGED_MODELS`): `co/gpt-5`, `co/o4-mini`, `co/claude-sonnet-4`
+- Free on every account (`FREE_MANAGED_MODELS`): `co/gemini-3.8-flash` (default), `co/llama` (free), `co/gemma` (free), `co/gemini-3.7-flash` (rollback), `co/gemini-3.6-flash`, `co/gemini-3.5-flash`, `co/gemini-2.5-pro`, `co/gemini-2.5-flash`
+
+**Benefits:**
+- Free credits to start
+- No separate API keys needed
+- Unified billing
+- Automatic rate limiting
+
+**Example output:**
+```bash
+$ co auth
+
+📂 Using global ConnectOnion keys (~/.co)
+✓ Authenticated (Balance: $5.00)
+✓ Saved to ~/.co/keys.env
+✓ Saved to .env
+```
+
+---
+
+#### `co email` - Send & Read Agent Email
+
+Every agent gets its own address (e.g. `0x7a9f3b2c@mail.openonion.ai`),
+activated by `co auth`. Manage it from the terminal.
+
+**Basic usage:**
+```bash
+co email                                          # show inbox (default)
+co email inbox --unread                           # only unread (alias: -u)
+co email read 42                                  # read #42, preserve unread state
+co email read 42 --mark-read                      # explicitly mark it read
+co email send bob@example.com "Hi" "Body text"    # send (HTML auto-detected)
+```
+
+**Subcommands:**
+- `co email` / `co email inbox` - list received email (`--last/-n`, `--unread/-u`, `--address/-a`)
+- `co email read <#>` - print one message's body; add `--mark-read` to consume it
+- `co email send <to> <subject> <message>` - send from your agent address
+- `co email sent` - list sent email (`--last/-n`, `--to`)
+- `co email sent read <#>` - print one sent message's body and status
+- `co email name <name> [--buy]` - check or claim a readable address (e.g. `aaron@openonion.ai`), paid from credits
+- `co email upgrade <tier>` - raise your monthly send quota (`plus --keep-address` preserves an existing hosted address; `--domain`/`--alias` selects a new one), paid from credits
+
+The same `send_email` / `get_emails` functions also work as agent tools, so
+your agent can do everything `co email` does. See [email.md](email.md) for
+details and current limitations.
+
+---
+
+#### `co handoff` - Hand a Task to Another Person's Agent (Experimental)
+
+Hand the task you discussed with Codex or Claude Code to a colleague's coding
+agent: decisions, rejected options and the discussion itself travel with it.
+
+```bash
+co handoff send corin "the login task"          # preview from this session; nothing sent
+co handoff send corin --draft <id> --yes        # send: the mail is one prompt to paste into Codex
+co handoff status <id>                        # accepted? questions?
+co handoff accept <code>                      # recipient's agent runs this from the prompt
+```
+
+See [handoff.md](handoff.md).
+
+---
+
+#### `co approvals` - What Your Agent Did, for Whom
+
+Every tool call in a turn, every network EXEC, every Remote Browser request and
+every trust-list change is one line in `.co/approvals.jsonl`. The agent's own
+write tools cannot edit it.
+
+```bash
+co approvals                       # the newest 50 entries
+co approvals --who 0x3f5a...c9e1   # one requester: also email or provider:sender
+co approvals --json                # for scripts
+```
+
+See [approvals.md](approvals.md).
+
+---
+
+#### `co sms` - Pair & Read Encrypted SMS
+
+```bash
+co sms pair
+co sms inbox --pending
+co sms devices
+```
+
+Pair an OpenOnion Messages Android phone with an Agent-signed QR and explicit
+six-digit device-key comparison. SMS is decrypted inside the current Agent
+process; server storage remains ciphertext-only. See [sms.md](sms.md).
+
+---
+
+#### `co telegram` - Your Telegram Bot as a Directory of Files
+
+```bash
+co telegram send 123456789 "The deployment needs attention"
+co telegram send @my_channel "Version 1.7 is ready for review"
+co telegram listen                       # long poll; every message → ~/.co/inbox/telegram/
+co telegram receive                      # next message as one JSON line
+echo "on it" | co telegram reply -100123.55
+```
+
+Uses your own BotFather token from `TELEGRAM_BOT_TOKEN`; no OpenOnion credits
+are involved. `send` is unchanged; the inbox verbs are the same as
+`co feishu`'s. The same `send_telegram` function is available as an agent tool.
+See [telegram.md](telegram.md) for setup, credential handling, and errors.
+
+#### `co feishu` / `co lark` - A Feishu Bot as a Directory of Files
+
+```bash
+co feishu listen                      # hold the connection; every message → ~/.co/inbox/feishu/
+co feishu receive                     # next message as one JSON line
+echo "done" | co feishu reply om_9f8e # back to where it was asked
+co feishu consume -- claude -p          # one command per message, stdout is the reply
+co ai                                 # your own agent answers the channels in ~/.co/host.yaml
+```
+
+Uses your own self-built Feishu application over the official long connection:
+no public address, no OpenOnion credential, nothing billed. Anything that can
+read a file can consume the directory. See [feishu.md](feishu.md).
+
+#### `co whatsapp` - A WhatsApp Number as a Directory of Files
+
+```bash
+pip install 'connectonion[whatsapp]'
+brew install libmagic                  # also needed; apt install libmagic1 on Debian/Ubuntu
+co whatsapp listen                     # scan the QR once; every message → ~/.co/inbox/whatsapp/
+echo "on it" | co whatsapp reply 3EB0A1
+```
+
+The same nine verbs, against a linked companion device — which is the only way
+to answer in a group a person created, since the official Cloud API has no
+endpoint for joining one. Use a number you have dedicated to this: a linked
+device sees every chat the number is in, and automating the consumer client is
+against WhatsApp's terms. See [whatsapp.md](whatsapp.md).
+
+#### `co discord` - A Discord Bot as a Directory of Files
+
+```bash
+co discord listen                      # Gateway connection; every message → ~/.co/inbox/discord/
+co discord receive                     # next message as one JSON line
+echo "on it" | co discord reply 123456789012345678
+co discord consume -- claude -p
+```
+
+The same verbs, over an outbound Gateway WebSocket: no public endpoint, no
+OpenOnion credential. Your own bot's token lives in `~/.co/keys.env` as
+`DISCORD_BOT_TOKEN`, and the Message Content intent must be on. See
+[discord.md](discord.md).
+
+#### `co slack` - A Slack App as a Directory of Files (Experimental)
+
+```bash
+co slack listen                        # Socket Mode connection; every message → ~/.co/inbox/slack/
+co slack receive                       # next message as one JSON line
+echo "on it" | co slack reply C0123456789:1727500000.123456
+co slack consume -- claude -p
+```
+
+Experimental, like `co discord`: the same verbs, over Slack's Socket Mode, an
+outbound WebSocket, so no public URL and no port. Your own app's two tokens live
+in `~/.co/keys.env` as `SLACK_APP_TOKEN` (`xapp-`) and `SLACK_BOT_TOKEN`
+(`xoxb-`). See [slack.md](slack.md).
+
+---
+
+#### `co gmail` - Send & Read Gmail
+
+Your personal Gmail account from the terminal, via the Gmail API. Requires
+`co auth google` once (Gmail scopes; saved as `GOOGLE_*` in `.env` /
+`~/.co/keys.env`).
+
+**Basic usage:**
+```bash
+co gmail                                            # inbox (10 most recent)
+co gmail inbox -n 25 -u                             # last 25, unread only
+co gmail read 3                                     # read #3, preserve unread state
+co gmail read 3 --mark-read                         # explicitly mark it read
+co gmail send bob@example.com "Hi" "Body text"      # send now
+co gmail search "from:alice@example.com is:unread"  # full Gmail query syntax
+#### `co gdrive` - Google Drive Files
+
+Your Drive from the terminal. Requires `co auth google` once (Drive scope;
+saved as `GOOGLE_*` in `.env` / `~/.co/keys.env`).
+
+**Basic usage:**
+```bash
+co gdrive                             # 20 most recently modified files
+co gdrive search report                # find by name (word prefixes)
+co gdrive get 3 --listing <listing-id> --to ~/Downloads       # download #3 from the listing
+co gdrive put report.pdf               # upload
+```
+
+**Subcommands:**
+
+- `co gmail` / `co gmail inbox` - list recent emails (`--last/-n`, `--unread/-u`)
+- `co gmail read <#>` - show one email; add `--mark-read` to consume it
+- `co gmail reply <#> <message>` - threaded reply (`-` reads stdin)
+- `co gmail send <to> <subject> <message>` - send, with `--cc` and `--bcc`
+- `co gmail sent` - list recently sent emails
+- `co gmail search <query>` - search with Gmail query syntax
+
+The CLI wraps the same `Gmail` tool your agents use. See
+[gmail.md](gmail.md) for details.
+- `co gdrive` / `co gdrive list` - recent files (`--last/-n`)
+- `co gdrive search <query>` - find by file name
+- `co gdrive info <full-file-id> --json` - read-only metadata and export format
+- `co gdrive get <#>` - download (`--to`); Docs/Sheets/Slides are exported to md/csv/pdf
+- `co gdrive put <path>` - upload (`--name`)
+- `co gdrive rm <#>` - move to trash (recoverable)
+
+See [gdrive.md](gdrive.md) for details.
+
+#### Google Calendar and YouTube
+
+The Google-only 1.8.3 candidate adds `co gcalendar` and `co youtube` alongside
+Gmail and Drive. Default `co auth google` requests all four supported services;
+tokens and granted scopes remain local. See [Google auth](../integrations/google.md).
+
+- [co gcalendar](gcalendar.md): list/read events, find free slots, preview and confirm Calendar writes and Meet creation.
+- [co youtube](youtube.md): read channels/videos and preview or confirm uploads and metadata updates.
+
+#### `co tiktok` - TikTok post plans (preview)
+
+- [co tiktok](tiktok.md): seal a local post plan and read login evidence from your own `co browser` tab. Upload and publish are not implemented; `--confirm` refuses to submit.
+
+---
+
+#### `co syno` - Synology NAS
+
+Verified profiles, source-labeled inspections, ordinary file operations and
+explicit sharing-link controls. All twenty core leaves support `--json`,
+`--nas`, `--non-interactive` and `--timeout`.
+
+```bash
+co syno login --name home --url https://nas.example:5001 --username alice
+co syno status --json
+co syno ls /home/docs --json
+co syno search invoice --in /home/docs --json
+co syno download /home/docs/report.pdf --to ./Downloads/
+co syno upload ./report.pdf /home/docs
+co syno share list --json
+```
+
+Legacy env-only NAS credentials require verified login. Numeric migration
+references require the exact `--listing` ID; downloads and uploads never
+overwrite by default. Optional monitoring requires explicit SNMPv3/SSH setup.
+Real NAS acceptance is pending. See [synology.md](synology.md) for the complete
+command inventory, adapter sources and migration behavior.
+
+---
+
+#### `co mcp` - the MCP servers Codex already has (Experimental)
+
+Call the connectors and MCP servers you enabled in Codex (Gmail, Calendar,
+GitHub, your own) straight from the terminal: no second login, no model turn.
+Read-only tools run at once; others preview until `--yes`.
+
+```bash
+co mcp ls
+co mcp tools codex_apps
+co mcp call codex_apps gmail.search_emails '{"query": "newer_than:7d"}'
+```
+
+See [mcp.md](mcp.md).
+
+---
+
+#### `co linear` - Linear issues
+
+Your Linear issues with a personal API key: list, read, search, and create,
+update or comment with a preview first. Issues are `ENG-123`; team, state,
+label and assignee names are looked up for you.
+
+```bash
+co env set LINEAR_API_KEY lin_api_... --secret
+co linear issues --mine
+co linear create "Login redirect loops" --team ENG --label bug --yes
+co linear update ENG-123 --state Done --yes
+```
+
+See [linear.md](linear.md).
+
+---
+
+#### `co onenote` - Browse OneNote by number
+
+After `co auth microsoft`, run `co onenote ls` to see numbered sections,
+`co onenote pages 2` to see numbered pages in section 2, and
+`co onenote read 1` to read page 1. Bare `co onenote` shows recent pages.
+The row list lasts 15 minutes; page and section IDs remain available for
+scripts through `co onenote ls --ids` and `co onenote pages --ids`. See
+[onenote.md](onenote.md) for creation and listing rules.
+
+---
+
+#### `co outlook` - Manage Outlook Email & Contacts
+
+Your personal Outlook account from the terminal, via Microsoft Graph.
+Requires `co auth microsoft` once (Mail/Contacts scopes; saved as `MICROSOFT_*` in
+`.env` / `~/.co/keys.env`).
+
+**Basic usage:**
+```bash
+co outlook                                            # show inbox (default)
+co outlook inbox -n 25 -u                             # last 25, unread only
+co outlook read 3 --listing <listing-id>              # read #3, preserve unread state
+co outlook read 3 --listing <listing-id> --mark-read  # explicitly mark it read
+co outlook send bob@example.com "Hi" "Body text"      # send now
+co outlook send bob@example.com "Hi" - < body.txt     # body from stdin
+co outlook contact add "Nadia Marsh" marsh@example.com  # save contact
+co outlook contact search nadia                       # find by name/email
+```
+
+**Subcommands:**
+- `co outlook` / `co outlook inbox` - numbered inbox table (`--last/-n`, `--unread/-u`)
+- `co outlook read <#> --listing <listing-id>` - print one message's body; add `--mark-read` to consume it. Numbers need the token their listing printed (15 minutes, same account); full message IDs need none
+- `co outlook send <to> <subject> <message>` - send, with `--cc`, `--bcc`, repeatable `--attach FILE` (~3MB Graph limit), and `--at` to schedule (`+30m`, `+2h`, or UTC ISO time — Exchange holds delivery)
+- `co outlook sent` - list recently sent emails
+- `co outlook search <query>` - search subject and body
+- `co outlook contact add <name> <email>` - save a contact
+- `co outlook contact list` - list saved contacts (`--last/-n`)
+- `co outlook contact search <query>` - find contacts by name or email
+
+The CLI wraps the same `Outlook` tool your agents use. See
+[outlook.md](outlook.md) for details.
+
+---
+
+#### `co env` - See, Set and Repair the Selected Env File
+
+Works on global `~/.co/keys.env`, or on the file chosen with `co --env-file PATH`.
+
+```bash
+co env                              # every setting, secrets masked, with its source
+co env get MODEL                    # one value, bare, for $(...)
+co env set OPENAI_API_KEY sk-...    # save one setting (creates the file if needed)
+co env unset OPENAI_API_KEY         # remove one setting
+co env path                         # the selected file's path
+co --env-file ./project.env env     # the same on a project file
+```
+
+- Secrets (`*KEY*`, `*TOKEN*`, `*SECRET*`, …) are masked; `co env show --reveal` prints them.
+- `GOOGLE_*` / `MICROSOFT_*` account fields are refused by `set` and removed as a whole record by `unset`; use `co auth google` / `co auth microsoft` to connect an account.
+- `AGENT_CONFIG_PATH` cannot live in the file it selects; `export` it in your shell.
+- When the file has a broken line, every other `co` command exits 2 and says `Next: co env`; `co env` names the line to fix (never its contents).
+
+Full reference: [env.md](env.md).
+
+### `co schedule` — the agent's recurring work
+
+A hosted agent runs the entries in `.co/schedule.yaml` on its own clock.
+`co schedule` lists them with next and last run, `co schedule check`
+validates the file, and `co schedule run|pause|resume <name>` control one
+entry without editing the file. Full reference: [schedule.md](schedule.md).
+
+#### `co status` - Check Credentials, Account, and Deployments
+
+Shows redacted provider credential availability and source paths, followed by your
+managed-keys balance, usage, and deployed agents. Credential values are hidden by
+default and shown in full only when you explicitly pass `--reveal`.
+
+**Basic usage:**
+```bash
+co status
+co status --reveal  # intentionally print full provider credential values
+```
+
+**Example output:**
+```bash
+$ co status
+
+Credential Sources
+┏━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┓
+┃ Provider   ┃ Credential        ┃ Status                  ┃ Source              ┃
+┡━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━┩
+│ Gemini     │ GEMINI_API_KEY    │ discovered · not loaded │ <project>/.env      │
+│ OpenAI     │ OPENAI_API_KEY    │ configured              │ process environment │
+└────────────┴───────────────────┴─────────────────────────┴─────────────────────┘
+
+ConnectOnion Account Status
+============================
+
+Address:  0x7a9f3b2c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a
+Email:    0x7a9f3b2c@mail.openonion.ai
+Balance:  $5.00
+
+Deployed Agents
+┏━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Project     ┃ Status  ┃ Active ┃ Container ┃ URL                                        ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ co-ai-agent │ running │ yes    │ running   │ https://co-ai-agent-0x....agents.openonion.ai │
+└─────────────┴─────────┴────────┴───────────┴────────────────────────────────────────────┘
+```
+
+**When to use:**
+- See which supported provider credentials are configured or discovered
+- Find a credential's privacy-safe source path without exposing its value
+- Diagnose credentials that exist in `.env` but are not loaded
+- Intentionally inspect full values with `co status --reveal` (avoid shared terminals,
+  logs, recordings, and screenshots)
+- Check remaining credits
+- Verify authentication
+- See account details
+- See deployed agents and their URLs
+
+**At a zero balance** `co status` ends with the free ways to keep going:
+
+```
+⚠️  No credits left. Add credits at https://o.openonion.ai/purchase
+   Or keep going for free:
+   • model="co/gemma"            Google's free Gemma on ConnectOnion's GPU (no credits needed)
+   • model="ollama/<model>"      a model on your own machine, e.g. ollama/llama3.2
+```
+
+---
+
+#### `co reset` - Reset Account
+
+**⚠️ WARNING**: Destructive operation. Deletes all data and creates new account.
+
+**Basic usage:**
+```bash
+co reset
+```
+
+**What it does:**
+- Deletes your account data
+- Clears balance and usage history
+- Creates new account with new keys
+- Generates new address and email
+
+**When to use:**
+- Starting completely fresh
+- Testing account creation
+- Removing old identity
+
+**Example:**
+```bash
+$ co reset
+
+⚠️  WARNING: This will delete ALL your data
+Including:
+  - Account balance
+  - Usage history
+  - Current identity
+
+Continue? (y/N): y
+
+✓ Account reset
+✓ New identity created
+✓ New address: 0x9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0
+```
+
+---
+
+### Utility Commands
+
+#### `co doctor` - Diagnose Issues
+
+Comprehensive diagnostics for your ConnectOnion installation.
+
+**Basic usage:**
+```bash
+co doctor
+```
+
+**What it checks:**
+- **System Info**
+  - ConnectOnion version
+  - Python version and path
+  - Virtual environment status
+  - Command location (`co` in PATH)
+  - Package installation path
+
+- **Configuration**
+  - Config files (`.co/host.yaml`)
+  - Keys directory (`.co/keys/`)
+  - API keys in `.env` files
+  - Agent identity
+
+- **Connectivity**
+  - Backend reachability
+  - Authentication status
+  - Network connectivity
+
+**Example output:**
+```bash
+$ co doctor
+
+🔍 ConnectOnion Diagnostics
+
+┌─ System ─────────────────────────────────┐
+│ Version        ✓ 1.2.1                   │
+│ Python         ✓ 3.11.5                  │
+│ Python Path    /usr/local/bin/python3    │
+│ Environment    ✓ Virtual environment     │
+│ Venv Path      /Users/you/venv           │
+│ Command        ✓ /Users/you/venv/bin/co  │
+│ Package        /Users/you/venv/lib/...   │
+└──────────────────────────────────────────┘
+
+┌─ Configuration ──────────────────────────┐
+│ Config         ✓ .co/host.yaml           │
+│ Keys           ✓ .co/keys/agent.key      │
+│ API Key        ✓ Found in environment    │
+│ Key Preview    sk-proj-abc123...         │
+└──────────────────────────────────────────┘
+
+┌─ Connectivity ───────────────────────────┐
+│ Backend        ✓ https://oo.openonion.ai │
+│ Authentication ✓ Valid credentials       │
+└──────────────────────────────────────────┘
+
+✓ Diagnostics complete — nothing wrong
+```
+
+The closing "run 'co auth'" line appears only when this machine is not
+authenticated. A `Command` row in yellow means the `co` on your PATH reports
+a different version from the package being diagnosed — the `co` you type runs
+other code — and the last line then reads `⚠ Diagnostics complete — nothing
+broken, 1 warning` and names it (exit 0). A `Command` row with `✗` means that
+`co` does not run at all (it crashed on `--version`): a problem, exit 1. A
+`Model` row saying "not set" only means neither `MODEL` nor host.yaml names
+one, so `Agent()` uses the default. Skills that share one finding are one row
+with a count.
+
+**When to use:**
+- Installation issues
+- Command not found
+- API key problems
+- Authentication failures
+- General troubleshooting
+
+**Common issues it detects:**
+- Missing `co` command in PATH, or a `co` on PATH from another version
+- Python version incompatibility
+- Missing API keys
+- Invalid authentication
+- Network connectivity problems
+- Incorrect file permissions
+
+---
+
+#### `co search` / `co fetch` - Search the Web and Read a Page
+
+```bash
+co search "python json module"              # Google via credits; free DuckDuckGo when out
+co search "python json module" --engine ddg # free, no key
+co fetch https://example.com/page           # the page as Markdown
+```
+
+The same tools `co ai` carries. See [search.md](search.md).
+
+---
+
+#### `co copy <name>` - Copy Built-In Tools, Plugins, Skills & Prompts
+
+Copy built-in tools, plugins, prompt templates, trust policies, TUI components, and bundled skills to your project for customization.
+
+**Basic usage:**
+```bash
+co copy --list              # See available items
+co copy Gmail               # Copy to ./tools/
+co copy re_act              # Copy to ./plugins/
+co copy ship-feature        # Copy to ./.co/skills/
+```
+
+**Options:**
+- `--list, -l` - List available tools, plugins, skills, prompts, trust policies, and TUI components
+- `--path, -p` - Custom destination path
+- `--force, -f` - Overwrite existing files
+
+**Examples:**
+```bash
+# Copy a tool
+co copy Gmail
+# Creates: ./tools/gmail.py
+
+# Copy a plugin
+co copy re_act
+# Creates: ./plugins/re_act.py
+
+# Copy a bundled skill
+co copy ship-feature
+# Creates: ./.co/skills/ship-feature/SKILL.md
+
+# Copy multiple items
+co copy Gmail Shell memory
+
+# Custom destination
+co copy Gmail --path ./my_tools/
+```
+
+**After copying:**
+```python
+# Before (from package)
+from connectonion import Gmail
+
+# After (from your copy)
+from tools.gmail import Gmail  # Now customize it!
+```
+
+See [copy documentation](copy.md) for full details.
+
+---
+
+#### `co setup` - Global Identity & Skill Library
+
+One command to set up everything in `~/.co/` needed to publish an agent: keypair, `agent.json` profile, and a populated skill library.
+
+**Basic usage:**
+```bash
+co setup --name my-alias --bio "Concise one-liner"
+```
+
+**What it does:**
+1. Bootstraps identity (`~/.co/keys/agent.key`) if missing
+2. Writes `~/.co/agent.json` with signing address, alias, bio, and skill metadata
+3. Runs `co skills discover && co skills copy --all && co skills manifest` → populates `~/.co/skills/` and updates `agent.json.skills`
+4. Reports auth status
+
+**No separate bundle directory** — `~/.co/` itself is what `oo-publish` reads at publish time.
+
+**Options:**
+- `--name, -n` - Alias for `agent.json` (default `$USER`)
+- `--bio, -b` - One-line bio
+- `--force, -f` - Overwrite existing `agent.json` (backs up to `.bak`)
+- `--no-skills` - Skip the library refresh
+
+See [setup documentation](setup.md) for full details.
+
+---
+
+#### `co skills` - Discover & Import Skills
+
+Scan skill files across Claude Code, Codex, Cursor, Kiro, project `.co/skills/`, and user `~/.co/skills/`, then import selected skills into `~/.co/skills/`.
+
+**Basic usage:**
+```bash
+co skills discover           # Scan all known agent skill directories
+co skills copy ship-feature  # Import into ~/.co/skills/
+co skills copy --all         # Import every discovered skill
+co skills manifest          # Merge {name, description, publish: false}[] into ~/.co/agent.json
+co skills list               # Show what's installed
+```
+
+**Options for discover:**
+- `--no-save` - Don't write `~/.co/skills/index.json`
+- `--json` - Print index as JSON
+- `--include-namespaced` - Include plugin-namespaced skills (default filtered)
+
+**Options for copy:**
+- `--all, -a` - Copy every discovered skill (dedupe by source priority)
+- `--source, -s` - Pick a source: `claude`, `codex`, `cursor`, `kiro`, `co-user`, `co-project`
+- `--force, -f` - Overwrite existing skill(s)
+
+**Sources scanned:** `./.co/skills/`, `~/.co/skills/`, `~/.claude/skills/`, `~/.codex/skills/`, `~/.cursor/rules/`, `~/.kiro/steering/`
+
+`co ai` loads `.co/skills/` and `~/.co/skills/` automatically. The runtime `skills` plugin also checks Claude skill directories directly, but `co skills copy` gives publishing one normalized library under `~/.co/skills/`.
+
+See [skills documentation](skills.md) for full details. `co skills` manages
+skills; it does not author or test them — for that, see the next section.
+
+---
+
+#### `co benchmark` / `co eval run` - Build a Skill Against a Standard
+
+Write at least five cases before the skill, run the real Agent on them, edit
+only the skill, and rerun the identical benchmark:
+
+```bash
+co benchmark check reimbursement        # .co/benchmarks/reimbursement.yaml; never runs an Agent
+co eval run reimbursement --agent agent.py --skill reimbursement --runs 1
+co eval report reimbursement --latest   # case by case, and what changed since the run before
+```
+
+Every expectation is PASS, FAIL or UNVERIFIED with its evidence; a forbidden
+outcome that happened is a hard FAIL, a skill that did not run fails the case,
+and an outside effect the Agent only claimed stays UNVERIFIED. The older
+`co eval [name]` over `.co/evals/*.yaml` works unchanged. See
+[benchmark.md](benchmark.md).
+
+---
+
+#### `co sub` - Subscribe to & Sync Published Agents
+
+Follow another agent's `0x` address, mirror their published skills into `~/.co/subs/<alias>/`, and fan them out into every coding agent you use (Claude Code, Codex, OpenClaw, Cursor, Kiro). `co sub` is the **sync verb** — record-and-pull are the same operation.
+
+**Basic usage:**
+```bash
+co sub sync 0xcd92510bb6cc090374ecc345ef8c19b9d3797624fd1fbf7e078a9372fc31bdc1   # sync one (first subscribe or refresh)
+co sub                       # sync ALL subscribed publishers
+co sub list                  # local view, no relay
+co sub remove changxing      # unsubscribe (by alias or address)
+```
+
+**What `co sub sync <addr>` does:**
+1. `GET /api/agents/<addr>/profile` → write `~/.co/subs/<alias>/agent.json`
+2. Pull each `SKILL.md` body → `~/.co/subs/<alias>/skills/<name>/`
+3. Append `<address> <alias>` to `~/.co/subscriptions.txt` (deduped)
+4. Symlink/copy into every detected `~/.<tool>/` directory
+
+**`co sub` (no subcommand)** walks every entry in `subscriptions.txt` and re-syncs each in order. Stops at the first failure (fail-fast — re-run after fixing).
+
+**Address-only by design** — aliases are mutable and hijackable, so first-time subscriptions require a `0x` address. Once pinned in `subscriptions.txt`, the alias works as a shorthand for refresh and remove.
+
+**Subscriptions file:** `~/.co/subscriptions.txt` (plain text, same shape as `contacts.txt` / `whitelist.txt`).
+
+See [sub documentation](sub.md) for the full fan-out behavior and v1 limitations.
+
+---
+
+#### `co proxy <command>` - Share This Computer's Connection
+
+A browser on a server reaches the internet from a data-centre address. Lend
+yours and its traffic arrives from here instead. See [proxy.md](proxy.md).
+
+```bash
+co proxy share to 0xHOST     # lend your connection to one agent
+co proxy status              # what is shared right now
+co proxy stop 0xHOST         # stop lending
+```
+
+Then: `co remote-browser 0xHOST start --proxy shared`.
+
+The share applies the same destination policy as the host's own egress gateway,
+so a remote agent gets an outbound path to the public web and **not** your
+router, your NAS, or anything else on your LAN.
+
+---
+
+#### `co browser <command>` - Browser Automation
+
+Drive one persistent browser from the shell. Call a browser function directly, or give a quoted task to the AI agent. State persists between commands until you `close`. See [browser.md](browser.md).
+
+**Direct function calls:**
+```bash
+co browser go_to localhost:3000       # navigate
+co browser take_screenshot shot.png   # screenshot
+co browser get_current_url            # print current URL
+co browser get_links_from_page        # one link per line (pipeable)
+co browser close                      # close browser, stop daemon
+```
+
+**Natural language (AI agent on the same browser):**
+```bash
+co browser "click the login button and open the dashboard"
+```
+
+**Scripting (clean stdout, exit codes):**
+```bash
+url=$(co browser get_current_url)
+co browser get_links_from_page | grep github
+co browser --headless go_to "$DEPLOY_URL"   # --headless for CI
+```
+
+**When to use:**
+- Scripting exact browser steps (direct calls)
+- Letting the agent handle a quoted task (`co browser "<instruction>"`)
+- Visual verification and debugging
+
+---
+
+#### `co call <address> <command>` - Run a Command on a Remote Agent
+
+The **remote twin of `co browser`**: run one command on a remote agent and print
+the result — no LLM, no session. What `co browser take_screenshot` does locally,
+`co call <address> co browser take_screenshot` does on a remote agent. See
+[call.md](call.md).
+
+```bash
+co call 0x3d40... co status                                   # run co status remotely
+co call 0x3d40... co browser go_to https://example.com        # drive its browser
+co call --out shot.png 0x3d40... co browser take_screenshot   # save its screenshot
+co call 0x3d40... uptime                                      # any whitelisted command
+```
+
+Everything after the address runs on the remote, gated by **that agent's**
+`.co/host.yaml` whitelist (`co ...` and read-only commands allowed by default).
+Options (`--out`, `--timeout`, `--relay`) go before the address; clean stdout and
+standard exit codes (`0` ok · `1` failure · `2` usage) make it script- and
+agent-friendly.
+
+**When to use:**
+- An agent driving another agent with an exact command
+- Remote-control browser steps from the shell
+- Scripting remote actions (vs. `connect().input()` for LLM-driven tasks)
+
+---
+
+## Global Configuration
+
+### The `~/.co/` Directory
+
+On first use, ConnectOnion creates global configuration:
+
+```
+~/.co/
+├── keys.env             # Shared API keys and identity
+├── keys/                # Master Ed25519 keypair
+│   ├── agent.key        # Private key (NEVER share)
+│   ├── agent.pub        # Public key
+│   └── recovery.txt     # 12-word recovery phrase
+└── logs/                # CLI activity logs
+```
+
+**Your Global Identity:**
+- **Address**: Hex-encoded Ed25519 public key (`0x7a9f3b2c...`)
+- **Email**: Derived address (`0x7a9f3b2c@mail.openonion.ai`)
+- **Keys**: For authentication and signing
+
+All projects share this identity by default (like using same email for all repos).
+
+---
+
+## API Key Management
+
+### Auto-Detection
+
+The CLI automatically detects providers:
+
+| Provider | Format | Example | Env Variable |
+|----------|--------|---------|--------------|
+| OpenAI | `sk-...` / `sk-proj-...` | `sk-proj-abc123...` | `OPENAI_API_KEY` |
+| Anthropic | `sk-ant-...` | `sk-ant-api03-xyz...` | `ANTHROPIC_API_KEY` |
+| Google | `AIza...` | `AIzaSyAbc123...` | `GEMINI_API_KEY` |
+| Groq | `gsk_...` | `gsk_abc123...` | `GROQ_API_KEY` |
+| OpenOnion | JWT token | `eyJhbGciOiJ...` | `OPENONION_API_KEY` |
+
+### Priority Order
+
+For runtime environment loading, the first source defining a variable wins:
+
+1. Existing process environment (shell, container, or service configuration)
+2. The project's `.env`
+3. `~/.co/keys.env` (global fallback)
+
+The project is the nearest directory containing `.co/`, bounded by the current
+Git repository and home directory. Running `co` from `project/src/` loads
+`project/.env`, not `project/src/.env`; Python imports use the same rule.
+Outside a project, `.env` in the current directory is still supported. Loading
+never searches across another repository or treats `~/.co` as a parent project.
+
+Gmail, Outlook, GDrive, and Synology CLI loaders use this same boundary. A
+subdirectory `.env` cannot add missing values behind the project's back.
+Explicit API-key arguments remain caller-controlled; setup commands can prompt
+for missing credentials. No existing environment value is overwritten.
+
+Use `co status` or `co doctor` for redacted credential diagnostics. Set
+`CO_DEBUG_ENV=1` to show the dotenv file path loaded at startup, once, on
+stderr. Nothing else prints it, in a terminal or a pipe, so a command's first
+line is its own. It does not print secret values.
+
+### Backend selection
+
+Set `CONNECTONION_BACKEND_URL` to point the entire managed ConnectOnion client
+at staging or a local API. It applies consistently to authentication, `co/*`
+models, deploys and servers, email, OAuth-backed tools, trust checks, image
+uploads, transcription, announce, and subscriptions.
+
+```bash
+export CONNECTONION_BACKEND_URL=http://localhost:8000
+co doctor
+```
+
+`OPENONION_API_URL` and `OPENONION_BASE_URL` remain compatibility aliases, but
+new configurations should use `CONNECTONION_BACKEND_URL`. An explicit URL takes
+precedence over `OPENONION_DEV` and `ENVIRONMENT=development`.
+
+### Sharing Across Projects
+
+Keys in `~/.co/keys.env` are auto-copied to new projects:
+
+```bash
+# First project - enter key once
+$ co create first-project
+✔ Paste API key: sk-proj-xxx
+  ✓ Saved to ~/.co/keys.env
+
+# Every project after - automatic
+$ co create second-project
+✓ Found API keys in ~/.co/keys.env
+✓ Copied to project
+```
+
+---
+
+## Complete Examples
+
+### First-Time User
+
+```bash
+$ pip install connectonion
+$ co create my-first-agent
+
+🚀 Welcome to ConnectOnion!
+✨ Setting up global configuration...
+  ✓ Generated master keypair
+  ✓ Your address: 0x7a9f...7f8a
+  ✓ Created ~/.co/keys.env
+
+🔐 Authenticating with OpenOnion...
+  ✓ Authenticated (Balance: $5.00)
+
+✔ Paste API key (optional): sk-proj-xxx
+  ✓ Detected OpenAI
+  ✓ Saved to ~/.co/keys.env
+
+✅ Created my-first-agent
+
+cd my-first-agent && python agent.py
+
+💡 Vibe Coding: Use Claude/Cursor with
+   co-vibecoding-principles-docs-contexts-all-in-one.md
+
+📚 Resources:
+   Docs    → https://docs.connectonion.com
+   Discord → https://discord.gg/4xfD9k8AUF
+   GitHub  → https://github.com/openonion/connectonion
+
+$ cd my-first-agent
+$ python agent.py
+```
+
+### Adding to Existing Project
+
+```bash
+$ cd my-django-app
+$ ls
+manage.py settings.py .env
+
+$ cat .env
+DATABASE_URL=postgres://localhost/mydb
+SECRET_KEY=mysecret
+
+$ co init ./
+
+✓ Using global identity
+✓ Found existing .env
+✓ Appending API keys
+
+$ cat .env
+DATABASE_URL=postgres://localhost/mydb
+SECRET_KEY=mysecret
+
+# ConnectOnion API Keys
+OPENAI_API_KEY=sk-proj-xxx
+```
+
+### Quick Troubleshooting
+
+```bash
+# Something not working?
+$ co doctor
+
+# Shows:
+# - What's installed correctly
+# - What's missing
+# - Connectivity status
+# - Specific error locations
+```
+
+---
+
+## Security & Identity
+
+### Ed25519 Cryptographic Identity
+
+Every installation generates master Ed25519 keypair:
+
+**Used for:**
+1. Agent addressing (unique identifier)
+2. Authentication (passwordless)
+3. Message signing (cryptographic proof)
+4. Secure communication (encryption)
+
+**Security:**
+- Never share `.co/keys/` directory
+- Never commit `.env` files
+- Backup 12-word recovery phrase
+- Keys auto-added to `.gitignore`
+
+### Recovery Phrase
+
+12-word phrase in `~/.co/keys/recovery.txt` can restore your keys if you lose them.
+
+**Store safely:**
+- Write down physically
+- Use password manager
+- Never in git repos
+- Never share
+
+---
+
+## Best Practices
+
+### 1. Choose the Right Command
+
+```bash
+# New project?
+co create my-new-project
+
+# Existing project?
+cd my-project && co init ./
+```
+
+### 2. Use Templates
+
+```bash
+# Learning? Start simple
+co create learn -t minimal
+
+# Browser work? Use template
+co create scraper -t browser
+
+# Specific needs? AI generates
+co create custom -t custom --description "Your needs"
+```
+
+### 3. Set Up Keys Once
+
+```bash
+# First project - enter key
+co create first-project
+# (paste key)
+
+# All future projects - automatic
+co create second-project --yes  # No prompt!
+```
+
+### 4. Use Managed Keys
+
+```bash
+# Authenticate once
+co auth
+
+# Free credits in code
+agent = Agent("dev", model="co/o4-mini")
+```
+
+### 5. Leverage Documentation
+
+```bash
+# Every project includes comprehensive docs
+# Drag to Cursor/Claude Code:
+co-vibecoding-principles-docs-contexts-all-in-one.md
+```
+
+---
+
+## Troubleshooting
+
+### Command Not Found
+
+```bash
+# Check installation
+pip show connectonion
+
+# Reinstall
+pip uninstall connectonion
+pip install connectonion
+
+# Use full path
+python -m connectonion.cli.main create my-agent
+```
+
+### Permission Denied
+
+```bash
+# Fix global
+chmod 700 ~/.co
+chmod 600 ~/.co/keys.env
+
+# Fix project
+chmod 700 my-agent/.co
+chmod 600 my-agent/.env
+```
+
+### API Key Issues
+
+```bash
+# Check format
+cat ~/.co/keys.env
+
+# Test auth
+co auth
+
+# Diagnose
+co doctor
+```
+
+### Directory Exists
+
+```bash
+$ co create my-agent
+❌ 'my-agent' exists. Try: co create my-agent-2
+$ echo $?
+1
+
+# Or add to existing
+cd my-agent
+co init ./
+```
+
+---
+
+## Advanced Usage
+
+### Non-Interactive CI/CD
+
+```bash
+# Fully automated
+export OPENAI_API_KEY=sk-proj-xxx
+co create prod-agent --yes --template co-ai
+cd prod-agent
+python agent.py --test
+```
+
+### Batch Creation
+
+```bash
+# Multiple projects
+for name in agent1 agent2 agent3; do
+    co create $name --yes
+done
+```
+
+### Update Docs Only
+
+```bash
+# Refresh to latest
+cd my-old-project
+co init ./  # Updates .co/docs/ without changing code
+```
+
+---
+
+#### `co deploy` - Deploy to Cloud
+
+Deploy your agent to ConnectOnion Cloud.
+
+**Basic usage:**
+```bash
+co deploy
+```
+
+**Requirements:**
+- Git repository with committed code
+- `.co/host.yaml` (created by `co create` or `co init ./`)
+- Authenticated (`co auth`)
+
+**Example:**
+```bash
+$ co deploy
+
+Deploying to ConnectOnion Cloud...
+
+  Project: my-agent
+  Env vars: 3 keys
+
+Uploading...
+Building...
+
+Deployed!
+Agent URL: https://my-agent-abc123.agents.openonion.ai
+```
+
+> **Beta**: This feature is in beta. See [Deploy Guide](../network/deploy.md) for details.
+
+#### `co server` - Servers You Own
+
+A server a deploy goes *onto*, so the agent keeps its address, its logs and any fix you
+made by hand — and answers on its own https hostname.
+
+```bash
+co server new prod                       # have one created ($30/month, charged yearly)
+co server add prod --ssh you@1.2.3.4     # or register one you already have
+co server ls                             # reconciled against what you are billed for
+co deploy --to prod
+```
+
+`co server forget` drops the local entry and the machine keeps billing;
+`co server destroy` tears it down and refunds the unused term. Two commands on purpose.
+
+See [server.md](server.md).
+
+---
+
+## Command Reference Summary
+
+| Command | Purpose | Interactive | Safe for Existing |
+|---------|---------|-------------|-------------------|
+| `co create` | New project | Yes | N/A (creates new dir) |
+| `co init ./` | Add to existing | Yes | ✅ Yes |
+| `co copy` | Copy built-in tools/plugins/skills/prompts | No | ✅ Yes |
+| `co skills` | Discover/import skills | No | ✅ Yes |
+| `co setup` | Global identity + skill library | No | ✅ Yes (idempotent) |
+| `co sub` | Subscribe to a publisher's skills | No | ✅ Yes (idempotent) |
+| `co auth` | Get managed keys | No | ✅ Yes |
+| `co status` | Check balance and deployments | No | ✅ Yes |
+| `co deploy` | Deploy to cloud | No | ✅ Yes |
+| `co server` | Servers you own, and deploy targets | No | ✅ Yes (except `destroy`) |
+| `co reset` | Reset account | Yes | ⚠️ Destructive |
+| `co doctor` | Diagnose issues | No | ✅ Yes |
+| `co commands` | List every command and subcommand, one per line | No | ✅ Yes |
+| `co browser` | Browser command (local) | No | ✅ Yes |
+| `co call` | Run a command on a remote agent | No | ✅ Yes |
+| `co outlook` | Send/read Outlook email | No | ✅ Yes |
+| `co schedule` | See, check, run now, pause and resume `.co/schedule.yaml` entries — [schedule.md](schedule.md) | No | ✅ Yes (writes schedule state only) |
+| `co mcp` | The MCP servers and connectors Codex already has: list, list tools, call one — [mcp.md](mcp.md) | No | ✅ Yes (non-read-only tools only with `--yes`) |
+| `co linear` | Linear issues: list, read, search, create, update, comment — [linear.md](linear.md) | No | ✅ Yes (writes only with `--yes`) |
+| `co canny` | Canny feedback: boards, posts and votes, search, one post's comments; change a status, comment, changelog — [canny.md](canny.md) | No | ✅ Yes (writes only with `--yes`) |
+| `co asr` | Transcribe an audio file; Codex default or configured ConnectOnion provider — [ASR](../asr.md) | Audio upload | Yes, explicit invocation |
+| `co audit` | Is a CLI (co or any other) fit for an agent harness? Scores its help pages — [audit.md](audit.md) | No | ✅ Yes (read-only) |
+
+---
+
+## See Also
+
+- [Agent Documentation](../concepts/agent.md) - Building agents
+- [Tools Documentation](../concepts/tools.md) - Custom tools
+- [Interactive Debugging](../debug/auto_debug.md) - `@xray` debugger
+- [Trust System](../features/trust.md) - Multi-agent trust
+- [Getting Started](../quickstart.md) - Full tutorial
+
+The 1.8.4 Gmail candidate adds `co gmail draft review <draft-id> --json` and
+`co gmail draft send <draft-id> --confirm <review-token> --json`. See
+[gmail.md](gmail.md) for the MIME-bound send and uncertain-outcome contract.

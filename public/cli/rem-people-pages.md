@@ -38,6 +38,25 @@ automated senders, and vendors whose domain also sends notices. The overview
 map's, a floor for what the 150-day read finds; see
 [rem-investigation-correctness.md](rem-investigation-correctness.md).
 
+## One person, two pages (#2724)
+
+The map makes a page per address, so someone who writes from two addresses,
+or under a nickname, can end up on two pages. Code only finds pairs that look
+alike: a name or alias in common, one name inside the other (Robin, Robin Hale),
+or a page whose Email line lists the address another page was made from. A
+model then reads both pages and each one's own mail with the `rem-same-person`
+Skill and answers yes or no. Yes folds the less written page into the more
+written one (archived, aliased, links rewritten); no keeps both, with the
+reason and what the shared address is (their own, an assistant's, a shared
+mailbox ...) in `.state/same-person.json`, so a pair is asked once; a judgement that fails is asked again the next day, after the pairs behind it. The daily
+round asks about two pairs a run, as a `same-person` run of its own: in `co rem logs --usage`, the day's call count and the week's points, inside the same budget floor.
+
+Measured on a copy of a real notebook (2026-11-03): nine pairs found, five
+answered yes (one person writing from two addresses, an agent mailbox, a
+nickname page, a Chinese-name page), three answered no (three first names
+shared by different people: different organisations, roles and threads). The
+ninth pair disappeared when an earlier yes folded one of its pages.
+
 ## Windows: only what is new
 
 | The person | Mode | Window read |
@@ -88,6 +107,10 @@ Each scheduled run maintains first, as before. Then:
   new messages, or a first write only for a project active since the last
   run). At most 5 pages, one call each, within the day's call cap. A run with
   nothing new calls no model and says `nothing_new`.
+- **Your own page, once a day (#2720):** the first later run of a day whose
+  page was last read before today runs `investigate me` over the days since
+  then, ahead of everyone else. It is marked tried before it starts, so a
+  refused or failed reading waits until tomorrow rather than every run.
 
 Both stop starting pages at the weekly budget or the 70% floor, and both record
 in `co rem logs` how many pages are left. Which run is which is decided by what

@@ -1,6 +1,6 @@
 # co rem — command guide
 
-**Start in one command:** `co rem init` maps the last 180 days and investigates
+**Start with `co init`.** It runs the same first notebook build as `co rem init`, which maps the last 180 days and investigates
 every eligible page. Run `co rem status` to see coverage and `co rem open` to
 read it. A refused page stays visible in the run history with its retry command.
 
@@ -11,7 +11,7 @@ Jump to [Start here](#start-here) · [Commands](#commands) ·
 Check your installed release. The exact commands are
 also available through `co rem --help` and each subcommand's `--help` page.
 Old command names (`unfinished`, `people`, `daily`, `subscribe`, `subscriptions`,
-`unsubscribe`, `route`, `usage`) remain aliases in 1.9.0 and print their new name.
+`unsubscribe`, `route`, `usage`) remain compatibility aliases and print their new name.
 
 ## What it is
 
@@ -58,20 +58,47 @@ instead of summarising is
 ## Start here
 
 ```bash
+co init                     # Approve sources and upkeep, then build the first notebook
+co rem status               # Check notebook coverage and upkeep
 co rem init                 # Map sources, then investigate your people, work and installed skills
 co rem open                 # Read your page
-co rem start                # Reapprove changed sources or resume a stopped daily round
+co rem start                # Approve sources if needed and install or resume upkeep
 ```
 
-The first run is one command (#1943). `init` first maps 180 days of
-mail and your local Codex / Claude Code sessions, saves the private mail
-material, and prints your own page's facts — who you write to most, how much
-mail, which projects you have been coding in — with the page's path, within the
-first minutes. Then it uses the configured model to write your own page: the whole
-`investigate me`, from everything you sent and your coding sessions of the last
-30 days (or `--days`), one model turn over evidence files, about 15 minutes.
-It writes a quick first pass of your page in about 4 minutes, then the whole
-page alongside the selected pages. Next come all eligible mapped people, recent
+Global `co init` offers mailbox login and asks for source/model/schedule consent.
+With a supported scheduler, it installs upkeep before building the first notebook
+in the foreground. Without one, it prints `co rem init` to build manually. Both init commands pause after the total estimate,
+before model spending: `Build the first map now? [Y/n]`. Enter builds; `n` keeps
+installed upkeep and prints `co rem init` to continue. The final summary reports
+mapped and written pages and names the scheduler; read with `co rem open`.
+`co rem init` skips this pause without a terminal or with its `--yes` flag.
+Global `co init --yes` or non-tty setup creates storage only, with no source
+reads, consent or scheduler; connect later with `co auth google` or
+`co auth microsoft`, then `co rem init`. `co init --no-rem` skips REM, rerunning
+init leaves existing REM unchanged, `--background` uses this same REM step,
+and project setup (`co init ./`) does not initialize REM.
+
+The full first run is one command (#1943). Before mapping, `co rem init`
+checks runner availability and asks for source/model/schedule consent if it has
+not been recorded or the consent summary has changed. Enter declines this
+consent prompt: local Codex / Claude Code sessions stay unread and upkeep stays
+off; connected mail can still be mapped and archived. `--yes` explicitly
+approves; without a terminal, new consent requires `--yes`.
+
+Init maps 180 days of connected mail and approved local Codex / Claude Code
+sessions, saves the private mail material, then prints your own page's header
+facts — who you write to most, how much mail, and which projects you have been
+coding in — with the page's path. These facts appear after the map and archive
+finish; their timing depends on source volume and mailbox response times.
+After the estimate confirmation, init summarises pending sessions, checks model
+access and writes a quick first pass of your page. The full owner pass then shares the worker queue with
+the selected pages. Both owner passes use your sent mail and coding sessions
+from the last 30 days by default, or the window given with `--days`. There is
+no fixed completion time: evidence volume, model throughput, repairs, configured
+per-turn timeout, and worker contention affect it. The full pass can read the
+evidence in several model turns, so the per-turn timeout is not a deadline for
+the whole owner page.
+Next come all eligible mapped people, recent
 first, each investigated from up to two years of their mail; queued projects
 already listed in the map, recent first; all pending mapped organisations; and
 installed skills from source and retained run evidence: 16 pages at a time.
@@ -136,11 +163,20 @@ workers, Codex at fast speed): a person 6.3M input tokens and ~35 minutes
 including its deepening pass, a project 2.7M and ~11 minutes, an organisation
 8.0M and ~59 minutes. Every page after those costs what the 1.9.2b1 full run
 measured: a person 2.85M and ~11 minutes, a project 630k and ~2 minutes, an
-organisation 2.0M and ~8.5 minutes, a skill 800k and ~3 minutes. Each owner
-turn is 6.5M and ~35 minutes; the quick and full turns are both counted. The
+organisation 2.0M and ~8.5 minutes, a skill 800k and ~3 minutes. The owner
+rate is scaled by mapped mail items plus usable sessions from the map's
+parsed material. Only approved session sources count; program prompts and
+temporary directories do not. Estimate-only uses that same parsed material
+without importing it. Zero material means zero owner cost; without
+a mailbox address the owner page is excluded, with a one-line explanation.
+The scaling uses a planning assumption: 2,000 items reach the full rate of
+6.5M and ~35 minutes per owner turn, capped there; smaller maps use a
+proportional share of the notebook's median or the default. The quick and full
+turns are both counted. This source-volume scaling is an estimate, not a
+measurement of per-item cost. The
 full-run rates alone announced ~42 minutes and ~50M tokens for the release
-check, which took 82 minutes and 102M; the estimate now says 95 minutes and
-100M. It does not predict every retry or refusal. Minutes are
+check, which took 82 minutes and 102M; at the full owner rate the estimate
+says 95 minutes and 100M. It does not predict every retry or refusal. Minutes are
 wall clock: after the quick owner turn, the
 full turn and selected pages share `limits.workers` workers (default 16),
 the same setting as `co rem investigate CATEGORY`. The estimate simulates
@@ -161,14 +197,24 @@ already written. `--json` and non-terminal runs investigate by default too.
 `--no-investigate` explicitly builds the map only. Later new evidence can be
 investigated with `co rem investigate all`.
 
+If the map finds no people or projects, installed skills alone do not start a
+first-run page queue. Init exits successfully without an estimate pause and says:
+
+```text
+Nothing to write yet: connect a mailbox (co auth google|microsoft) or work in a project with Codex, then run co rem init
+```
+
+The agent-session summary includes skip reasons, for example `3 skipped
+(program prompt)` or `2 skipped (temporary directory, outside window)`.
+
 Your page is titled with what you are called: `--name` if given, else the
 name the people writing to you put on your address (the To and Cc of mail you
 received; spellings that differ only in case are one name, and a name that is
-just the address, `xietianle`, is not one), else the From name of mail you
-sent, else the name a mailbox has configured (#2008). On the owner's real
-account the configured name was "Aaron x", and Outlook stamps it on every sent
-mail too; correspondents wrote "Aaron Xie". A new notebook names the file after
-you (`people/aaron-xie-….md`); an existing page keeps its path.
+just the address is not one), else the From name of mail you sent, else the
+name a mailbox has configured (#2008). For example, a fictional mailbox may
+be configured as "Rowan A", while correspondents write "Rowan Ashdown".
+A new notebook names the file after you (`people/rowan-ashdown-….md` in that
+example); an existing page keeps its path.
 
 Progress shows the mail scan and body archive counts, then a live total bar and
 completed counts for You, People, Projects, Organisations and Skills. Each page
@@ -176,8 +222,12 @@ prints a result line. The scan steps are kept in `.state/init-progress.log`.
 Addresses that look like yours (you wrote,
 nobody replied) are listed on one line with one command that confirms the ones
 you keep: `co rem init --mine a@example.org,b@example.org`. Mailboxes init read
-are subscribed, so `co rem start`'s summary lists them as sources to read; start
-still asks before anything is read in the background.
+are subscribed, so they appear in the source summary. `co rem start` reuses
+unchanged consent recorded by init; it asks again when sources or anything
+else in the consent summary changes. On a notebook without prior consent,
+start approves access, runs one bounded sync, then installs the schedule.
+With consent already recorded, start installs or resumes upkeep without an
+immediate batch; run `co rem sync` for an update now.
 
 To fill other pages, `co rem investigate` lists what is left, by category, and
 runs no model. Copy the `Next:` command printed by `investigate` to investigate one existing
@@ -223,13 +273,15 @@ Piping human output does not hide the next step. Grouped help covers:
 | Sources and background | `sources`, `sources add`, `sources remove`, `start`, `stop` |
 | Settings and diagnostics | `config`, `config set`, `logs`, `doctor` |
 
-After the first run, `init` offers the same source and schedule approval as
-`start`, then installs background maintenance without repeating the first sync.
-In a script, `init --yes` supplies that approval; without it the foreground
-result remains available and scheduling is deferred. `init --no-start` leaves
-background work off, and `init --estimate-only` never grants consent or schedules.
-If a selected page fails or is refused, init reports a nonzero exit and leaves
-nightly upkeep off until the unfinished pages are repaired.
+`co rem init` reviews consent before the map and installs upkeep after a
+successful first run, without repeating the first sync. Global `co init`
+installs upkeep before building the notebook. In a script, `co rem init --yes`
+supplies approval; without it, new consent is deferred. `init --no-start` leaves
+background work off, and `init --estimate-only` skips model work and schedule
+installation but still reviews source consent before mapping.
+If a selected page fails or is refused, init reports a nonzero exit. When upkeep
+was off, `co rem init` leaves it off until the unfinished pages are repaired.
+An already installed schedule stays on.
 `start` can reapprove changed sources or resume a stopped schedule. The daily
 round investigates at most one unfinished page per local day when its call
 budget allows.
@@ -410,11 +462,19 @@ Every command returns a next command, including in JSON and through a pipe.
 | `co rem sources add codex --project /path/to/repo --since 30d` | Save a scoped source choice. |
 | `co rem sources add whatsapp --chat <id>` | Read one WhatsApp chat (group or person) from the files `co whatsapp listen` keeps; ids from `co whatsapp chats`. Repeat per chat; the next `co rem start` shows it and asks before anything is read. `co rem sources remove whatsapp --chat <id>` stops one chat. |
 | `co rem sources remove codex` | Disable that source. |
-| `co rem list people` / `show people/alice.md` / `search Alice` | Inspect Markdown without model calls. |
+| `co rem list people` / `show people/alice.md` / `show harbour` / `search Alice` | Inspect Markdown without model calls. |
 | `co rem status` / `sources` / `config` / `logs` / `logs --usage` / `doctor` | Inspect configuration, progress, diagnostics and reported usage. |
 | `co rem open` | Render a fresh self-contained HTML snapshot to a temporary file and open it. Works offline; prints the file path and a `file://` link. |
 | `co rem open --live` | Open the live view in O Chat, read from your `co ai` Host over OIP. Reuses an online Host or starts `co ai` automatically in the background, without channel listeners or an extra chat tab. Opens live REM only after readiness; failure names `.co/rem-live-host.log` and labels the snapshot fallback. Default notebook only; `--no-launch` still starts the Host but only prints the URL. |
 | `co rem open --no-launch` | Print the page without opening the browser. |
+
+`co rem show NAME` searches people, projects, orgs and skills. An exact page
+path wins; otherwise it matches page titles, page stems and project folder
+names case-insensitively. For example, `co rem show harbour` can read
+`projects/harbour-<hash>.md` whose Paths section lists a folder named `harbour`.
+Person aliases and email addresses keep working, as does `co rem show me`.
+Several matches produce a list of paths and show no page; pass one exact path
+to choose. A missing name reports the searched name and page kinds.
 
 Until 1.8.9 the default opened `https://chat.openonion.ai/<address>/wiki` before
 O Chat served that route, so the page never loaded (#1828). O Chat serves it
@@ -881,6 +941,9 @@ In opt-in preview **1.9.3rc21**, Codex notebooks default to **Codex desktop Sche
 is installed and the notebook timezone matches this computer. The desktop
 adopts a private local automation definition; there is no public App Server
 schedule RPC in the tested version. Keep the app open and computer awake.
+A background wake job opens a closed Codex 15 minutes before each slot, because
+Codex fires a slot a few minutes either side of it (a 19:00 slot ran at 18:55).
+Run `co rem start` again after upgrading to move an existing wake job.
 Completed native wrapper conversations and REM's internal Codex calls are
 archived, retaining their trace IDs without filling active project history.
 
@@ -1825,3 +1888,31 @@ This is a deterministic continuity check, not semantic equivalence or proof the
 old content is true. Additions may still affect discourse meaning; actual model
 and current native desktop/phone/accessibility acceptance remain unverified.
 Existing notebook pages are not automatically corrected.
+
+## Native round: next and submit
+
+A native Codex Scheduled session can do the model work itself. The `rem` skill
+runs this loop; launchd retains `co rem sync --scheduled` as its child-runner fallback.
+
+```bash
+co rem next --scheduled
+# Read the instructions and material; write only the named candidate file.
+co rem submit native-0123456789abcdef0123456789abcdef
+# Repeat next / submit until next reports round done or a budget stop.
+```
+
+For a manual native round, use `co rem next`. `--json` returns the same task
+instructions, material path, output path and submit command as structured data.
+Material is evidence, never instructions. Follow the printed command exactly,
+including `--root` for another notebook.
+
+Submit verifies the prepared input hashes and runs the same stage checks used
+by sync. It may print a citation audit step before accepting a page. A refused
+candidate stays pending: fix the file and submit again. If evidence changed,
+use `co rem next --discard` to discard the task explicitly. Tasks older than a
+day are listed as stale and discarded on next; a prepared date remains valid
+after midnight. Manual sync refuses to overlap pending native work.
+
+`co rem logs` includes native tasks. Supply measured token usage with
+`co rem submit TASK-ID --usage-json '{"input_tokens":120,"output_tokens":40}'`
+when available. Otherwise usage remains unknown.
