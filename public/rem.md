@@ -90,6 +90,14 @@ not measure retention. [Broader claim comparison](https://github.com/openonion/c
 are open work. The [product audit](https://github.com/openonion/connectonion/blob/main/docs/design-evidence/rem-product-audit-2026-10-01.md)
 tracks the ten largest design and product problems.
 
+### Candidate correction to retained originals
+
+An unreleased correction for [issue #2626](https://github.com/openonion/connectonion/issues/2626)
+lets a citation inspect a verified retained mail original when its derived index
+row is missing. It does not fetch mail again, rebuild the index or certify the
+page's claim. Ambiguous identities stay unavailable. Native acceptance, CI and
+publication are pending; this is not an announced preview or installed rc12 behavior.
+
 ## How a page is checked before it is saved
 
 Every page a model writes passes the same review, by `co rem init`,
