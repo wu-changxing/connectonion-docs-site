@@ -59,7 +59,7 @@ private copy of each listed message body, once, so investigating a person later
 reads it from disk. Does not run a model, does not turn on the schedule.
 
 Usage:    co wiki init [--days N] [--mine ADDRESS]... [--name NAME] [--mail gmail|outlook]... [--no-mail-archive]
-Example:  co wiki init --days 90 --name "Aaron Xie" --mine aaron@mail.openonion.ai
+Example:  co wiki init --days 90 --name "Rowan Ashdown" --mine rowan@example.org
 
 Inputs:   Connected mailboxes (co auth google, co auth microsoft) and local Codex /
           Claude Code sessions. --mine adds an address that is yours; init also lists
