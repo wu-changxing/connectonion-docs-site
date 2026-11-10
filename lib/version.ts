@@ -6,9 +6,9 @@
  * channel during a release. Preview publication must never replace the stable
  * version shown on the homepage or in structured metadata.
  */
-export const STABLE_VERSION = '1.9.4'
+export const STABLE_VERSION = '1.9.5'
 export const PREVIEW_VERSION: string | null = null
-// No preview is open after stable 1.9.4; there is no separate stabilizing channel.
+// No preview is open after stable 1.9.5; there is no separate stabilizing channel.
 export const STABILIZING_VERSION: string | null = null
 
 // Product pages advertise the stable channel. Preview releases remain opt-in.
