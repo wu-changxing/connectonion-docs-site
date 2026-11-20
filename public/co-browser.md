@@ -24,6 +24,28 @@ Two ways to drive it:
 
 Output contract: **stdout = data, stderr = errors.** Exit code is `0` on success.
 
+## Verify a macOS WTF Browser download
+
+For a Developer ID distribution, the app's signer is
+`Developer ID Application: CONNECTONION PTY LTD (9467FNW739)`.
+Verify an extracted bundle before opening it:
+
+```bash
+codesign --verify --deep --strict --verbose=2 '/path/to/WTF Browser.app'
+codesign --display --verbose=4 '/path/to/WTF Browser.app'
+xcrun stapler validate '/path/to/WTF Browser.app'
+spctl --assess --type execute --verbose=4 '/path/to/WTF Browser.app'
+```
+
+A valid signature alone does not prove notarization. The stapled Apple ticket
+and Gatekeeper assessment must also pass. Older ad-hoc distributions do not
+have that ticket; check the installed artifact rather than assuming its
+Chromium version identifies the signing mode.
+
+Native Intel launch acceptance is separate from signing and notarization.
+An Intel package tested through translation on Apple Silicon does not prove
+native Intel compatibility.
+
 ## Why Use This
 
 An automation script that spins up a fresh headless browser every run throws away
