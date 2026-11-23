@@ -7,8 +7,8 @@
  * version shown on the homepage or in structured metadata.
  */
 export const STABLE_VERSION = '1.9.5'
-export const PREVIEW_VERSION: string | null = null
-// No preview is open after stable 1.9.5; there is no separate stabilizing channel.
+export const PREVIEW_VERSION: string | null = '1.9.7rc25'
+// There is no separate stabilizing channel.
 export const STABILIZING_VERSION: string | null = null
 
 // Product pages advertise the stable channel. Preview releases remain opt-in.
