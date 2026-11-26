@@ -393,7 +393,9 @@ export function buildArticleJsonLd(path: string) {
       '@type': 'SoftwareApplication',
       name: 'ConnectOnion',
       applicationCategory: 'DeveloperApplication',
-      operatingSystem: 'Python 3.9+',
+      operatingSystem: 'macOS, Linux, Windows',
+      runtimePlatform: 'Python 3.11+',
+      softwareRequirements: 'Python >= 3.11',
     },
     inLanguage: 'en',
   }

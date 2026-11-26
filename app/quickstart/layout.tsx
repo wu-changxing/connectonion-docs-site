@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Quick Start — ConnectOnion',
     description: 'Connect your AI agent to email, Gmail, a real browser, chat apps and Claude Code from the command line.',
     url: 'https://docs.connectonion.com/quickstart',
+    images: [{ url: 'https://docs.connectonion.com/og-image.png', width: 1200, height: 630, alt: 'Quick Start — ConnectOnion' }],
   },
 }
 
@@ -19,11 +20,11 @@ const howToData = {
   "description": "CLI is all you need: every step is one co command.",
   "totalTime": "PT5M",
   "tool": [
-    { "@type": "HowToTool", "name": "Python 3.10+" },
+    { "@type": "HowToTool", "name": "Python 3.11+" },
     { "@type": "HowToTool", "name": "pip" }
   ],
   "step": [
-    { "@type": "HowToStep", "name": "Install ConnectOnion", "text": "Run pip install connectonion. It installs the co command. Python 3.10 or newer.", "position": 1 },
+    { "@type": "HowToStep", "name": "Install ConnectOnion", "text": "Run pip install connectonion. It installs the co command. Python 3.11 or newer.", "position": 1 },
     { "@type": "HowToStep", "name": "Give your agent an identity", "text": "Run co init. It creates a keypair and 0x address, signs in with $5 of credit for managed models, and gives the agent its own mailbox.", "position": 2 },
     { "@type": "HowToStep", "name": "Use its own email", "text": "Run co email inbox and co email send. No DNS records or email provider account.", "position": 3 },
     { "@type": "HowToStep", "name": "Connect Gmail", "text": "Run co auth google, then co gmail inbox. No OAuth app; credentials are saved only on your computer.", "position": 4 },

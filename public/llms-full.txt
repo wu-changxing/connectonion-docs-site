@@ -3,7 +3,7 @@
 Complete generated catalogs: https://docs.connectonion.com/docs-index.txt and https://docs.connectonion.com/blog/llms.txt.
 
 This file contains comprehensive, citation-ready documentation for ConnectOnion.
-Source: https://docs.connectonion.com | GitHub: https://github.com/openonion/connectonion | PyPI: https://pypi.org/project/connectonion/
+Source: https://docs.connectonion.com | Website: https://www.connectonion.com | GitHub: https://github.com/openonion/connectonion | PyPI: https://pypi.org/project/connectonion/
 
 Engineering journal catalog: https://docs.connectonion.com/blog/llms.txt | RSS: https://docs.connectonion.com/blog/feed.xml
 
@@ -11,20 +11,18 @@ Engineering journal catalog: https://docs.connectonion.com/blog/llms.txt | RSS: 
 
 ## What is ConnectOnion?
 
-ConnectOnion is an open-source Python toolkit for building AI agents. Current stable version: 1.7.0. License: Apache-2.0.
+ConnectOnion is the open-source Agent CLI harness (`co`) and Python AI agent framework. Current stable version: 1.9.6. License: Apache-2.0.
 
-You do not start from a blank file. `co create my-agent` scaffolds a project that already
-runs — an `agent.py` with a shell, file reading, editing, search and writing already wired
-as tools, a `prompt.md`, and a `.co/` directory holding logs and docs. You edit the
-generated files from there; any plain Python function you add becomes a tool automatically.
+One command line, `co`, gives Claude Code, Codex, Cursor, or your own Python agent direct, progressive-disclosure access to Gmail, Outlook, Google Calendar, OneNote, Obsidian, a real logged-in Chrome browser (`co browser`), WhatsApp, Telegram, Discord, Slack, Feishu/Lark, Microsoft Teams, SMS, Google Drive, Linear, Canny, Synology NAS, and local source-linked Markdown memory (`co rem`). Agents discover tools on demand via `--help` without MCP schema bloat in the system prompt. ConnectOnion also ships a Python SDK (`from connectonion import Agent, llm_do, xray`) where plain Python functions become tools automatically.
 
 **Core facts:**
 - Install: `pip install connectonion`
-- Release channel: stable by default; previews require `--pre` or an exact pin
-- Current channels: stable `1.7.0`; no active stabilizing candidate; latest opt-in preview `1.8.0a1`
-- Minimum Python version: 3.10
-- Default model: `co/gemini-2.5-pro` (managed keys, zero config)
-- Starting point: `co create` writes the project; the generated agent runs before you edit anything
+- CLI entrypoint: `co` (`co init`, `co commands`, `co <service> --help`)
+- License: Apache-2.0
+- Minimum Python version: 3.11 (`Python >= 3.11`)
+- Current channels: stable `1.9.6`; opt-in preview `1.9.7rc30` (previews require an exact version pin)
+- Default model: `co/gemini-3.7-flash` (managed keys via `co init` / `co auth` include $5 credit, or bring your own OpenAI / Anthropic / Gemini / Ollama API keys)
+- Starting point: `co init` gives your agent a `0x` address, mailbox, and `$5` credit; `co create my-agent` scaffolds a working Python agent project
 - GitHub: https://github.com/openonion/connectonion
 - PyPI: https://pypi.org/project/connectonion/
 - Docs: https://docs.connectonion.com
@@ -38,42 +36,34 @@ generated files from there; any plain Python function you add becomes a tool aut
 
 ```bash
 pip install connectonion
-co auth    # Authenticate for managed keys ($5 free credits)
+co init    # Create agent identity, mailbox, and managed keys ($5 free credits)
 ```
 
-The install command above ignores alpha, beta, and RC releases. To test a
-published preview, use `pip install --pre --upgrade connectonion` or install its
-exact version.
+Normal `pip install connectonion` installs the stable channel (`1.9.6`) and ignores alpha, beta, and RC releases. To test an opt-in preview, pin its exact version: `python -m pip install --upgrade 'connectonion==1.9.7rc30'`.
 
 ---
 
-## Release Strategy: Stable 1.7 and 1.8 Preview
+## Agent CLI Harness (`co`) & Local Memory (`co rem`)
 
-ConnectOnion treats a version as a compatibility promise. Stable `1.7.x`
-patches contain maintenance fixes. Opt-in `1.8.0aN` releases carry the next
-feature train. Normal pip installs ignore previews.
+ConnectOnion's `co` CLI harness connects any coding or custom AI agent to real-world tools with progressive disclosure (`--help` costs zero tokens until invoked, and write commands preview effects until `--yes`):
 
-In 1.7.0b10, OIP 0.1 is the only first-party browser protocol. The Python Host
-serves authenticated `/ws`, `@connectonion/react@0.4.2-beta.2` owns browser
-connection and event state, and O Chat renders it. Codex and Claude Code remain
-native backend tools that preserve provider sessions and translate bounded
-activity into OIP tool events. Generic fallback is intentionally absent.
-Host and React advertise the bounded OIP 0.1–0.1 window. Descriptor-less stable
-peers remain the reader-first compatibility alias through the preview train;
-an advertised mismatch fails once as non-retryable rather than reconnecting.
-An authenticated relay reattach verifies the current identity and revocation
-state, then republishes the existing session authority without repeating invite
-onboarding or starting another forwarder. React consumers in separate browser
-bundles share one Document-owned live Agent registry and therefore one
-connection owner, including under Turbopack route-runtime wrappers.
-Host and frontend use a bounded reader-before-writer window: descriptor-less
-0.1 peers remain readable through 1.7.x, unsupported versions fail once, and
-compatibility telemetry contains only classified transport, peer, and outcome.
+- **Mail, Calendar & Notes:** `co email` (the agent's own `0x...@mail.openonion.ai` mailbox with zero DNS setup), `co gmail`, `co outlook`, `co gcalendar`, `co onenote`
+- **Persistent Logged-in Browser:** `co browser` drives one real Chrome profile across commands without writing Playwright scripts or repeating 2FA logins
+- **Chat Apps as File Inboxes:** `co whatsapp`, `co telegram`, `co discord`, `co slack`, `co feishu`, `co sms`
+- **Files, Search & Ops:** `co gdrive`, `co syno` (Synology NAS), `co search`, `co server`, `co schedule`, `co proxy`, `co handoff`
+- **Coding Agent Integration & Auditing:** `co skills link` wires ConnectOnion skills into Claude Code and Codex; `co audit` scores any CLI's `--help` pages for agent legibility; `co benchmark` evaluates skills
+- **Local Context Memory (`co rem`):** Builds and maintains a local, source-linked Markdown notebook (`~/.co/rem`) with a knowledge graph, privacy curtains, and a live reader across mail, chats, and coding sessions (`https://docs.connectonion.com/rem`, `https://docs.connectonion.com/cli/rem`)
+
+---
+
+## Release Strategy & OIP Protocol
+
+ConnectOnion treats a version as a compatibility promise. Stable `1.9.6` is the default production channel; opt-in `1.9.7rc*` release candidates carry upcoming work under an exact version pin. Normal `pip install` upgrades never install previews.
+
+OIP 0.1 is the first-party browser protocol. The Python Host serves authenticated `/ws`, `@connectonion/react` owns browser connection and event state, and O Chat renders it. Codex and Claude Code remain native backend adapters that preserve provider sessions and translate bounded activity into OIP tool events.
 
 - Design decision: https://docs.connectonion.com/blog/oip-native-coding-adapters — one OIP browser lifecycle, native coding adapters, deterministic Codex routing, and open-without-turn Work Rooms
 - Release channels: https://docs.connectonion.com/releases
-- Milestone: https://github.com/openonion/connectonion/milestone/7
-- Integration issue: https://github.com/openonion/connectonion/issues/1045
 
 ---
 
@@ -196,7 +186,7 @@ Agent(
     name="my_bot",                     # Required: agent identifier
     tools=[func1, func2],              # Optional: Python functions as tools
     system_prompt="You are helpful",   # Optional: string, file path, or Path object
-    model="co/gemini-2.5-pro",         # Optional: LLM model
+    model="co/gemini-3.7-flash",       # Optional: LLM model (default: co/gemini-3.7-flash)
     max_iterations=10,                 # Optional: max tool call loops
     api_key="sk-...",                  # Optional: override env variable
     plugins=[skills, tool_approval],   # Optional: plugin list
@@ -254,17 +244,17 @@ co copy web_fetch     # → tools/web_fetch.py
 
 | Prefix | Provider | Example |
 |--------|----------|---------|
-| `co/` | OpenOnion managed keys | `co/gemini-2.5-pro`, `co/gpt-4o` |
+| `co/` | OpenOnion managed keys | `co/gemini-3.7-flash` (default), `co/gemini-2.5-pro`, `co/gpt-4o` |
 | `gpt-*` | OpenAI (bring your own key) | `gpt-4o`, `gpt-4o-mini` |
-| `claude-*` | Anthropic (bring your own key) | `claude-3-5-sonnet-20241022` |
+| `claude-*` | Anthropic (bring your own key) | `claude-sonnet-4-5` |
 | `gemini-*` | Google (bring your own key) | `gemini-2.5-pro` |
 
-**co/ managed keys:** No API key needed. New accounts get $5 free credits. Authenticate with `co auth`.
+**co/ managed keys:** No API key needed. New accounts get $5 free credits. Initialize with `co init` or `co auth`.
 
 ```python
-agent = Agent("bot", model="co/gemini-2.5-pro")   # managed key
-agent = Agent("bot", model="gpt-4o")               # your OpenAI key
-agent = Agent("bot", model="claude-3-5-sonnet-20241022")  # your Anthropic key
+agent = Agent("bot", model="co/gemini-3.7-flash")   # default managed key
+agent = Agent("bot", model="gpt-4o")                # your OpenAI key
+agent = Agent("bot", model="claude-sonnet-4-5")     # your Anthropic key
 ```
 
 ---
@@ -397,7 +387,7 @@ For single LLM calls without an agent:
 from connectonion import llm_do
 
 # Simple call
-result = llm_do("Summarize this text", model="co/gemini-2.5-flash")
+result = llm_do("Summarize this text", model="co/gemini-3.7-flash")
 
 # Structured output
 from pydantic import BaseModel
@@ -409,34 +399,36 @@ class Sentiment(BaseModel):
 result = llm_do(
     "Analyze sentiment: 'I love this product!'",
     output_type=Sentiment,
-    model="co/gemini-2.5-flash"
+    model="co/gemini-3.7-flash"
 )
 # result.label == "positive", result.score == 0.95
 ```
 
-Default model for `llm_do`: `co/gemini-2.5-flash`.
+Default model for `Agent` and `llm_do`: `co/gemini-3.7-flash`.
 
 ---
 
 ## CLI Reference
 
-All CLI commands:
+Core `co` CLI harness commands (run `co commands` or `co <cmd> --help` for full discovery):
 
 ```bash
-co create my-agent             # Create new agent project (the co-ai template)
-                               # One template: the same agent `co ai` runs.
-                               # Specialise it with skills in .co/skills/.
-co init                        # Add .co/ to existing directory
-co auth                        # Authenticate for managed keys
-co auth google                 # Connect Google (Gmail, Calendar)
-co auth microsoft              # Connect Microsoft (Outlook, Calendar)
-co doctor                      # Check installation health
-co status                      # Show project status
-co keys                        # Show agent keys and credentials
-co copy --list                 # List all copyable items
-co copy <name>                 # Copy tool/plugin/skill to project
-co browser                     # Launch browser agent
-co ai                          # AI coding assistant for ConnectOnion
+co init                        # Create agent 0x identity, mailbox, and $5 managed credit
+co create my-agent             # Scaffold a new Python agent project
+co auth google                 # Connect Gmail, Google Calendar, and Google Drive
+co auth microsoft              # Connect Outlook, Microsoft Calendar, OneNote, and Teams
+co email                       # Read/send from the agent's own 0x...@mail.openonion.ai mailbox
+co gmail / co outlook          # Read, search, draft, and send Gmail / Outlook mail
+co browser                     # Drive one persistent, logged-in Chrome session
+co whatsapp / co telegram      # Connect chat apps as local file inboxes
+co slack / co discord / co sms # Slack, Discord, Feishu/Lark, and Android SMS inboxes
+co rem                         # Local source-linked Markdown memory & live reader
+co skills link                 # Link ConnectOnion skills into Claude Code and Codex
+co audit <cli>                 # Score any CLI's --help pages for AI agent legibility
+co doctor / co status          # Check installation health, Host status, and credit balance
+co keys                        # Inspect masked agent keys and credentials
+co copy --list / co copy <x>   # Copy built-in tool/plugin/skill source into your project
+co ai                          # AI coding assistant and remote Work Room Host
 ```
 
 ---
@@ -551,11 +543,14 @@ Environment variable: `CONNECTONION_LOG=path/to/log.log`
 
 ## Version History
 
+- 1.9.6 — Current stable release: cross-platform background Host from `co init`, `model: claude-code`, `co rem` Today desk, knowledge graph & three privacy levels, `co send`/`co receive`, and local `co wechat` reader
+- 1.9.0 → 1.9.5 — `co rem` source-linked Markdown memory across mail, chats, and coding sessions
+- 1.8.x — Agent CLI harness (`co`), `co audit`, `co benchmark`, OneNote, Slack, web search, and `co schedule`
+- 1.7.0 — OIP 0.1 Work Room, native Codex and Claude Code delegation
+- 1.6.6 — `co/gemini-3.7-flash` becomes the default model for `Agent` and `llm_do`
 - 0.9.0 — useful_skills/ folder, ship-feature skill, co copy skills support
-- 0.8.9 — cc_prompt template, browser tool improvements
 - 0.5.0 → 0.8.x — Trust system, multi-agent networking, plugin architecture
 - 0.1.0 → 0.4.x — Multi-model support, CLI, email tools, event system
-- 0.0.2 → 0.0.9 — Initial production releases
 
 ---
 

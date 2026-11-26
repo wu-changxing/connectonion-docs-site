@@ -42,6 +42,9 @@ const nextConfig: NextConfig = {
     return [
       { source: '/cli/wiki', destination: '/cli/rem', permanent: true },
       { source: '/cli/wiki.md', destination: '/cli/rem.md', permanent: true },
+      { source: '/cli/browser', destination: '/cli/browser-command', permanent: true },
+      { source: '/concepts/models', destination: '/models', permanent: true },
+      { source: '/concepts/agent', destination: '/agent', permanent: true },
       {
         source: '/blog/one-mailbox-two-limits',
         destination: '/blog/a-page-should-not-become-a-wall',
