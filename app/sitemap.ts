@@ -136,7 +136,6 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/blog/oip-native-coding-adapters', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/the-owner-needs-a-door', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/a-page-should-not-become-a-wall', priority: 0.6, changeFrequency: 'monthly' },
-  { path: '/blog/connectonion-1-6-12', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/a-patch-must-move-forward', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/an-image-prefix-is-not-an-image', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/blog/headless-does-not-mean-unconfigured', priority: 0.6, changeFrequency: 'monthly' },
@@ -149,16 +148,21 @@ const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/blog/network-protocol-design', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/blog/trust-keyword', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/links', priority: 0.4, changeFrequency: 'monthly' },
-  { path: '/releases', priority: 0.7, changeFrequency: 'weekly' },
   { path: '/roadmap', priority: 0.6, changeFrequency: 'weekly' },
   { path: '/website-maintenance', priority: 0.3, changeFrequency: 'monthly' },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries = new Map<string, MetadataRoute.Sitemap[number]>()
-  // Discover routes at build time so new documentation cannot miss the sitemap.
+  // Discover routes at build time so new documentation cannot miss the sitemap,
+  // while excluding internal review/evidence routes.
   for (const file of readdirSync('app', { recursive: true }) as string[]) {
-    if (!file.endsWith('page.tsx') || file.includes('[')) continue
+    if (
+      !file.endsWith('page.tsx') ||
+      file.includes('[') ||
+      file.startsWith('evidence/') ||
+      file.startsWith('design-evidence/')
+    ) continue
     const path = '/' + file.replace(/\/?page\.tsx$/, '')
     entries.set(path, { url: `${BASE_URL}${path}`, changeFrequency: 'monthly', priority: 0.6 })
   }

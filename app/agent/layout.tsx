@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'Agent — ConnectOnion',
-  description: 'ConnectOnion Agent class: the core orchestrator for AI agents. Pass tools as plain Python functions, configure event hooks, and run multi-turn conversations. Supports all major LLM providers.',
+  title: 'Agent Class API Reference — Python AI Agents | ConnectOnion',
+  description: 'ConnectOnion Agent class API reference: pass plain Python functions as tools, configure prompts, models, plugins, and 12 event hooks, and run tasks with agent.input().',
   alternates: { canonical: 'https://docs.connectonion.com/agent' },
   openGraph: {
-    title: 'Agent — ConnectOnion',
+    title: 'Agent Class API Reference — Python AI Agents | ConnectOnion',
     description: 'The Agent class: LLM calls, tool execution, and event hooks in one object.',
     url: 'https://docs.connectonion.com/agent',
+    images: [{ url: 'https://docs.connectonion.com/og-image.png', width: 1200, height: 630, alt: 'ConnectOnion Agent Class API Reference' }],
   },
 }
 
@@ -22,7 +23,7 @@ const techArticleData = {
   "publisher": { "@type": "Organization", "name": "ConnectOnion", "url": "https://docs.connectonion.com" },
   "programmingLanguage": "Python",
   "proficiencyLevel": "Beginner",
-  "dependencies": "Python 3.9+, connectonion"
+  "dependencies": "Python 3.11+, connectonion"
 }
 
 const breadcrumbData = {

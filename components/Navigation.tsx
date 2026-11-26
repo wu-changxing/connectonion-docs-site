@@ -110,7 +110,7 @@ export default function Navigation({ markdownContent, markdownPath, filename = '
             <NavLink href="/xray" icon={<HiOutlineBolt className="w-4 h-4" />}>
               @xray
             </NavLink>
-            <NavLink href="https://github.com/wu-changxing/connectonion" icon={<FaGithub className="w-4 h-4" />} external>
+            <NavLink href="https://github.com/openonion/connectonion" icon={<FaGithub className="w-4 h-4" />} external>
               GitHub
             </NavLink>
             <NavLink href="https://pypi.org/project/connectonion/" icon={<HiOutlineArrowTopRightOnSquare className="w-4 h-4" />} external>
@@ -182,7 +182,7 @@ export default function Navigation({ markdownContent, markdownPath, filename = '
                 <MobileNavLink href="/xray" onClick={() => setIsOpen(false)}>
                   @xray
                 </MobileNavLink>
-                <MobileNavLink href="https://github.com/wu-changxing/connectonion" onClick={() => setIsOpen(false)} external>
+                <MobileNavLink href="https://github.com/openonion/connectonion" onClick={() => setIsOpen(false)} external>
                   GitHub
                 </MobileNavLink>
                 <MobileNavLink href="https://pypi.org/project/connectonion/" onClick={() => setIsOpen(false)} external>

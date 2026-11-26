@@ -91,11 +91,15 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "ConnectOnion",
-  "alternateName": "Connect Onion",
+  "alternateName": ["connectonion", "co", "ConnectOnion CLI"],
   "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "Python 3.9+",
-  "description": "ConnectOnion is the agent CLI harness. One co command each connects an AI agent to Gmail, Outlook, Google Calendar, WhatsApp, Telegram, Feishu, SMS, a real browser, Google Drive and a Synology NAS, and plugs it into Claude Code and Codex. It also ships a Python SDK for building your own agent.",
+  "applicationSubCategory": "AI Agent CLI Harness and Python Framework",
+  "operatingSystem": "macOS, Linux, Windows",
+  "runtimePlatform": "Python 3.11+",
+  "softwareRequirements": "Python >= 3.11",
+  "description": "ConnectOnion is the open-source Agent CLI harness (co) and Python AI agent framework. One co command each connects an AI agent, Claude Code, Codex, or Cursor to Gmail, Outlook, Google Calendar, WhatsApp, Telegram, Slack, Feishu, SMS, a persistent logged-in Chrome browser, Google Drive, Synology NAS, and local source-linked Markdown memory (co rem).",
   "url": BASE_URL,
+  "codeRepository": "https://github.com/openonion/connectonion",
   "author": {
     "@type": "Organization",
     "name": "ConnectOnion",
@@ -123,15 +127,17 @@ const organizationData = {
   "@type": "Organization",
   "@id": `${BASE_URL}/#organization`,
   "name": "ConnectOnion",
-  "alternateName": ["Connect Onion", "ConnectOnion Framework"],
+  "alternateName": ["OpenOnion", "ConnectOnion Team"],
   "url": BASE_URL,
   "logo": `${BASE_URL}/onion-logo.png`,
   "sameAs": [
+    "https://www.connectonion.com",
+    "https://github.com/openonion",
     "https://github.com/openonion/connectonion",
     "https://pypi.org/project/connectonion/",
     "https://discord.gg/4xfD9k8AUF"
   ],
-  "description": "ConnectOnion — the agent CLI harness. Open source, Apache-2.0."
+  "description": "ConnectOnion — the open-source agent CLI harness and Python AI agent framework. Apache-2.0, Python 3.11+."
 };
 
 // Describe the documentation collection without advertising a nonexistent search endpoint.

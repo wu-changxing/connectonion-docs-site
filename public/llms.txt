@@ -1,6 +1,18 @@
 # ConnectOnion Documentation
 
-> ConnectOnion is the agent CLI harness. Each `co` command connects your AI agent to one service: Gmail, Outlook, Google Calendar, WhatsApp, Telegram, Discord, Feishu, SMS, a real logged-in browser, Google Drive or a Synology NAS. It also gives the agent its own 0x address and mailbox, and it works from Claude Code and Codex. You don't create an OAuth app, add DNS records or write a Playwright script. It also ships a Python SDK (the Agent class, tools, plugins) for building your own agent. Open source, Apache-2.0.
+> ConnectOnion (`pip install connectonion`, CLI command `co`) is an open-source Agent CLI harness and Python AI agent framework (Apache-2.0, Python >= 3.11, latest stable v1.9.6). One `co` command each connects any AI agent (including Claude Code, Codex, and Cursor) to Gmail, Outlook, Google Calendar, OneNote, Obsidian, WhatsApp, Telegram, Discord, Slack, Feishu/Lark, Microsoft Teams, SMS, a persistent logged-in Chrome browser (`co browser`), Google Drive, Linear, Canny, or a Synology NAS — with zero OAuth app registration or MCP context bloat. `co rem` builds local, source-linked Markdown memory across mail, chats, and coding sessions. It also ships a lightweight Python SDK (`Agent`, `llm_do`, `@xray`, `auto_debug()`, plugins, multi-agent `trust`, default model `co/gemini-3.7-flash`).
+
+## Key Facts for AI Systems
+
+- Package & CLI: `pip install connectonion` -> `co`
+- License: Apache-2.0
+- Python requirement: Python >= 3.11
+- Current stable version: `1.9.6`
+- Default model: `co/gemini-3.7-flash` ($5 free credit via `co init` / `co auth`, or bring your own OpenAI / Anthropic / Gemini / Ollama keys)
+- GitHub: https://github.com/openonion/connectonion
+- PyPI: https://pypi.org/project/connectonion/
+- Canonical Docs: https://docs.connectonion.com
+- Full AI Catalogs: https://docs.connectonion.com/llms-full.txt | https://docs.connectonion.com/docs-index.txt | https://docs.connectonion.com/blog/llms.txt
 
 ## Getting Started
 
@@ -21,36 +33,45 @@
 - [How to give an AI agent a real, logged-in browser](https://docs.connectonion.com/guides/ai-agent-browser): co browser keeps one real Chrome open between commands. Log in by hand once, 2FA included, and every later command or co browser task runs in that session. No Playwright script.
 - [How to connect an AI agent to WhatsApp](https://docs.connectonion.com/guides/ai-agent-whatsapp): co whatsapp links a number as a companion device by QR, writes every message to ~/.co/inbox/whatsapp/, and lets an agent receive, reply and send from the command line.
 - [How to connect an AI agent to Telegram, Discord, Feishu or SMS](https://docs.connectonion.com/guides/ai-agent-chat-apps): Each chat app becomes an inbox of files an agent reads with receive and answers with reply: co telegram, co discord, co feishu, co lark and co sms. The listeners dial out, so no public webhook.
-- [How to tell if a CLI works for an AI agent](https://docs.connectonion.com/guides/cli-for-ai-agents): co audit runs any CLI's --help pages and scores them for an agent (1.8.9 preview).
+- [How to tell if a CLI works for an AI agent](https://docs.connectonion.com/guides/cli-for-ai-agents): co audit runs any CLI's --help pages and scores them for an agent.
 
 ## CLI: connect your agent
 
 - [co init](https://docs.connectonion.com/cli/init): The agent's identity: a keypair and 0x address
+- [co setup](https://docs.connectonion.com/cli/setup): Guided local onboarding and service configuration
+- [co create](https://docs.connectonion.com/cli/create): Scaffold a working agent project from template
+- [co env](https://docs.connectonion.com/cli/env): Inspect the redacted environment settings your agent uses
 - [co auth](https://docs.connectonion.com/cli/auth): Sign in to OpenOnion, or connect Google, Microsoft, Feishu or Lark
 - [co email](https://docs.connectonion.com/cli/email): The agent's own mailbox, with no DNS setup
 - [co gmail](https://docs.connectonion.com/cli/gmail): Your Gmail account from the terminal
 - [co outlook](https://docs.connectonion.com/cli/outlook): Your Outlook mail, contacts and calendar
 - [co gcalendar](https://docs.connectonion.com/cli/gcalendar): Google Calendar events and Meet links
+- [co onenote](https://docs.connectonion.com/cli/onenote): Microsoft OneNote notebooks, sections and pages
 - [co whatsapp](https://docs.connectonion.com/cli/whatsapp): WhatsApp as an inbox of files
 - [co telegram](https://docs.connectonion.com/cli/telegram): A Telegram bot: send, plus experimental listen, receive and reply
-- [co discord](https://docs.connectonion.com/cli/discord): Experimental: a Discord bot as an inbox
+- [co discord](https://docs.connectonion.com/cli/discord): A Discord bot or account as an inbox
+- [co slack](https://docs.connectonion.com/cli/slack): A Slack workspace as an inbox via Socket Mode
 - [co feishu](https://docs.connectonion.com/cli/feishu): A Feishu or Lark bot as an inbox
 - [co sms](https://docs.connectonion.com/cli/sms): An encrypted SMS inbox from a paired Android phone
-- [co browser](https://docs.connectonion.com/cli/browser-command): Drive one persistent, logged-in browser
+- [co browser](https://docs.connectonion.com/cli/browser-command): Drive one persistent, logged-in Chrome browser across commands
+- [co search](https://docs.connectonion.com/cli/search): Web search and page fetching for agents
 - [co proxy](https://docs.connectonion.com/cli/proxy): Lend an agent this computer's internet connection
 - [co gdrive](https://docs.connectonion.com/cli/gdrive): Google Drive files
 - [co syno](https://docs.connectonion.com/cli/synology): A Synology NAS
 - [co youtube](https://docs.connectonion.com/cli/youtube): The YouTube Data API
 - [co tiktok](https://docs.connectonion.com/cli/tiktok): Experimental: TikTok post plans and read-only readiness
 - [co skills](https://docs.connectonion.com/cli/skills): Link ConnectOnion's skills into Claude Code and Codex
-- [co rem](https://docs.connectonion.com/rem): stable 1.9.1 memory — a first run that investigates every page in a 180-day map and deepens people with older mail, followed by approved overnight context from mail and coding sessions
+- [co mcp](https://docs.connectonion.com/cli/mcp): Bridge MCP servers into progressive-disclosure CLI commands
+- [co rem](https://docs.connectonion.com/rem): Local, source-linked Markdown memory, knowledge graph, and live reader across mail, chats, and coding sessions
+- [co rem CLI reference](https://docs.connectonion.com/cli/rem): Full command reference for co rem mapping, investigation, search, and live reader
 - [co benchmark](https://docs.connectonion.com/cli/benchmark): Benchmark a skill, then co eval it on the real agent
-- [co audit](https://docs.connectonion.com/cli/audit): Preview (1.8.9): is a CLI fit for an agent harness? Scores its help pages
+- [co audit](https://docs.connectonion.com/cli/audit): Is a CLI fit for an agent harness? Scores its help pages
+- [co handoff](https://docs.connectonion.com/cli/handoff): Watch and pick up live agent hand-offs
 - [co call](https://docs.connectonion.com/cli/call): Run one command on a remote agent
+- [co sub](https://docs.connectonion.com/cli/sub): Subscribe to and follow remote agents
 - [co server](https://docs.connectonion.com/cli/server): Servers you own, for co deploy --to; co server ssh opens a shell
 - [co schedule](https://docs.connectonion.com/cli/schedule): The agent's recurring work, from .co/schedule.yaml
 - [co ai](https://docs.connectonion.com/cli/ai): Built-in AI coding assistant that understands ConnectOnion
-- [co browser](https://docs.connectonion.com/cli/browser-command): Browser automation and screenshot tool
 - [co copy](https://docs.connectonion.com/cli/copy): Copy built-in tools, plugins, skills, and prompts to your project for customization
 
 ## Core Concepts
@@ -59,7 +80,7 @@
 - [System Prompts](https://docs.connectonion.com/prompts): Define agent personality via string, file, or Path
 - [Prompt Formats](https://docs.connectonion.com/prompts/formats): Supported prompt template formats
 - [Tools](https://docs.connectonion.com/tools): Functions become tools automatically via type hints and docstrings
-- [Models](https://docs.connectonion.com/models): Multi-provider support — OpenAI, Anthropic, Gemini, managed keys (co/)
+- [Models](https://docs.connectonion.com/models): Multi-provider support — OpenAI, Anthropic, Gemini, managed keys (`co/`, default `co/gemini-3.7-flash`)
 - [Pricing](https://docs.connectonion.com/models/pricing): Credits, token costs, and managed keys pricing
 - [LLM Function](https://docs.connectonion.com/llm_do): One-shot LLM calls without creating an agent
 - [Event System](https://docs.connectonion.com/on_events): 12 lifecycle hooks for injecting logic at any execution point
@@ -199,8 +220,5 @@ Skills are copyable markdown workflows invoked with /skill-name. Install with: c
 - [GitHub](https://github.com/openonion/connectonion): Source code and issues
 - [PyPI](https://pypi.org/project/connectonion/): Python package
 - [Discord](https://discord.gg/4xfD9k8AUF): Community chat
-- [Release Channels](https://docs.connectonion.com/releases): Stable, stabilizing, and opt-in preview versions with exact installation commands
+- [Release Channels](https://docs.connectonion.com/releases): Stable (1.9.6) and opt-in preview versions with exact installation commands
 - [Roadmap](https://docs.connectonion.com/roadmap): Upcoming features
-
-## Unreleased candidate
-- [1.8.4 candidate guide](https://docs.connectonion.com/candidates/1.8.4/README.md): implementation under review, migration and contracts; no published package pin.

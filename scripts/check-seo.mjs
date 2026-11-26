@@ -4,7 +4,9 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs'
 const BASE_URL = 'https://docs.connectonion.com'
 const manifest = JSON.parse(readFileSync('.next/prerender-manifest.json', 'utf8'))
 const files = process.argv.includes('--all')
-  ? readdirSync('app', { recursive: true }).filter((file) => file.endsWith('page.tsx')).map((file) => 'app/' + file)
+  ? readdirSync('app', { recursive: true })
+      .filter((file) => file.endsWith('page.tsx') && !file.startsWith('evidence/') && !file.startsWith('design-evidence/'))
+      .map((file) => 'app/' + file)
   : process.argv.slice(2)
 const routes = new Set()
 for (const file of files) {
@@ -40,7 +42,7 @@ for (const route of routes) {
   if (!title || (route !== '/' && title.includes('Python AI Agents from a Working Template'))) fail(route + ': missing or inherited title')
   if (!description) fail(route + ': missing description')
   if (canonical?.replace(/\/$/, '') !== expected) fail(route + ': canonical ' + canonical + ', expected ' + expected)
-  if (!sitemap.includes('<loc>' + BASE_URL + route + '</loc>') && !sitemap.includes('<loc>' + expected + '</loc>')) fail(route + ': absent from built sitemap')
+  if (!route.startsWith('/evidence/') && !route.startsWith('/design-evidence/') && !sitemap.includes('<loc>' + BASE_URL + route + '</loc>') && !sitemap.includes('<loc>' + expected + '</loc>')) fail(route + ': absent from built sitemap')
   if (route.startsWith('/blog/')) {
     if (!blogIndex.includes('href="' + route + '"')) fail(route + ': absent from server-rendered blog index')
     if (!blogCatalog.includes(expected)) fail(route + ': absent from AI blog catalog')

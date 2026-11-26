@@ -6,13 +6,13 @@ export const dynamic = 'force-static'
 
 export function GET() {
   const routes = (readdirSync('app', { recursive: true }) as string[])
-    .filter((file) => file.endsWith('page.tsx') && !file.includes('[') && !file.startsWith('blog/'))
+    .filter((file) => file.endsWith('page.tsx') && !file.includes('[') && !file.startsWith('blog/') && !file.startsWith('evidence/') && !file.startsWith('design-evidence/'))
     .map((file) => '/' + file.replace(/\/?page\.tsx$/, ''))
     .sort()
   const lines = [
     '# ConnectOnion documentation catalog',
     '',
-    'Official documentation for ConnectOnion, the open-source Python agent toolkit maintained by OpenOnion.',
+    'Official documentation for ConnectOnion, the open-source Agent CLI harness and Python AI agent framework maintained by OpenOnion (Apache-2.0, Python >= 3.11).',
     'Source: https://github.com/openonion/connectonion',
     'Package: https://pypi.org/project/connectonion/',
     'Engineering articles: https://docs.connectonion.com/blog/llms.txt',

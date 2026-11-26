@@ -156,7 +156,7 @@ export default function HomePage() {
               <img src="https://img.shields.io/badge/license-Apache_2.0-green.svg" alt="Apache-2.0 License" />
             </a>
             <a href="https://pypi.org/project/connectonion/" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python 3.9+" />
+              <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python 3.11+" />
             </a>
             <a href="https://pepy.tech/projects/connectonion" target="_blank" rel="noopener noreferrer">
               <img src="https://img.shields.io/pypi/dm/connectonion?label=PyPI%20downloads" alt="PyPI Downloads" />
