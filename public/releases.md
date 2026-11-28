@@ -21,6 +21,20 @@ no `AsyncClient`, and every remote agent call crashed.
 
 ## Current preview
 
+Release candidate **1.9.7rc34** fixes the unattended REM upgrade on macOS. REM rebuilds an incompatible reader index before switching the idle reader on its existing URL. If preparation fails, the previous usable page stays available ([#3483](https://github.com/openonion/connectonion/issues/3483)). Today's task draft drawer shows **Write full screen** beside **More** and **Send** ([#3484](https://github.com/openonion/connectonion/pull/3484)). See [1.9.7rc34 notes](releases/1.9.7rc34.md).
+
+Release candidate **1.9.7rc33** strips `[personal]` and `[sensitive]` passages server-side before serializing shared REM snapshots ([#3435](https://github.com/openonion/connectonion/issues/3435)), fixes task-summary/empty-heading/private-link leaks and non-default WeChat inheritance ([#3436](https://github.com/openonion/connectonion/issues/3436), [#3417](https://github.com/openonion/connectonion/issues/3417), [#3387](https://github.com/openonion/connectonion/issues/3387), [#3375](https://github.com/openonion/connectonion/issues/3375)), makes `Write full screen` / `全屏写` visibly labeled on Today reply cards ([#3479](https://github.com/openonion/connectonion/issues/3479)), adds phone knowledge-graph priority labels, middle-truncation, tap-to-inspect, and accessible mini-graph links ([#3390](https://github.com/openonion/connectonion/issues/3390)), resolves elapsed-appointment, Memory-changes, organisation-count, translation-count, and Keys-loading inconsistencies ([#3439](https://github.com/openonion/connectonion/issues/3439), [#3438](https://github.com/openonion/connectonion/issues/3438), [#3437](https://github.com/openonion/connectonion/issues/3437), [#3364](https://github.com/openonion/connectonion/issues/3364)), updates the opt-in `overnight` schedule to ten half-hour waves (`22:00`–`02:30`) with a `03:00` cutoff and late-wave task gating ([#3480](https://github.com/openonion/connectonion/issues/3480)), keeps upgraded macOS REM live Hosts in the owner's `Aqua` GUI session ([#3317](https://github.com/openonion/connectonion/issues/3317)), and ships Notion markdown/list support ([#3452](https://github.com/openonion/connectonion/pull/3452)). See [1.9.7rc33 notes](releases/1.9.7rc33.md).
+
+Release candidate **1.9.7rc32** splits the 22k-line `reader.html` monolith into modular `connectonion/rem/reader_ui/` source files assembled in memory with zero build toolchain ([#3478](https://github.com/openonion/connectonion/pull/3478)), adds the opt-in five-start `overnight` REM schedule profile (`00:00`–`03:00` with a hard `03:30` continuation stop to keep daytime five-hour rolling quotas clean, [#3480](https://github.com/openonion/connectonion/issues/3480)), adds atomic staged `co rem upgrade` with post-upgrade HTML prewarming and resilient scheduled wrappers ([#3363](https://github.com/openonion/connectonion/issues/3363), [#3474](https://github.com/openonion/connectonion/issues/3474)), fixes REM's live Host onto dedicated preferred port `18765` with macOS tab reuse and safe daily-deduped `co rem open --morning`, and extends browser upgrade build polling to 180 seconds. See [1.9.7rc32 notes](releases/1.9.7rc32.md).
+
+Release candidate **1.9.7rc31** introduces REM's Cold Porcelain visual grounding, four pluggable skins (`Porcelain`, `Klein`, `Onion`, `Classic`), a three-column entity and entry reading layout, and 56 real-notebook fixes across `#view=open` batch triage, `cover`/`public` quote redaction, Evidence Drawer geometry, 1,300+ contact pagination, sub-120ms search, live 2D/3D graph theme sync, and cross-platform Keychain error handling ([#3470](https://github.com/openonion/connectonion/issues/3470)). See [1.9.7rc31 notes](releases/1.9.7rc31.md).
+
+Release candidate **1.9.7rc30** migrates REM to SQLite store v3 (persistent WAL, incremental vacuum, per-record upserts, external-content FTS5 with CJK search, and cached attachment/translation/research text) and serves a CLI-hosted loopback live reader with gzip compression, native PDF/image/table attachment previews via `/rem/attachment`, bounded idle refreshes, unclipped schedule hour labels, and mobile Today layout fixes ([#3469](https://github.com/openonion/connectonion/issues/3469), [#3468](https://github.com/openonion/connectonion/issues/3468), [#3467](https://github.com/openonion/connectonion/issues/3467)). See [1.9.7rc30 notes](releases/1.9.7rc30.md).
+
+Release candidate **1.9.7rc29** splits REM Waiting on You into a tag-grouped triage list with in-place completion and a focused item console, adds a synchronized horizontal flipper strip to Today, deduplicates cross-page obligations, and self-heals `owner_record()` when `.state/map.json` is absent ([#3464](https://github.com/openonion/connectonion/pull/3464)). See [1.9.7rc29 notes](releases/1.9.7rc29.md).
+
+Release candidate **1.9.7rc28** adds REM SQLite store v2 queries, Agent Host security gates, first-class `devices` pages, reader performance fixes ([#3458](https://github.com/openonion/connectonion/pull/3458), [#3453](https://github.com/openonion/connectonion/issues/3453)), and the `co teams` Microsoft Teams CLI and `Teams` tool ([#3459](https://github.com/openonion/connectonion/pull/3459), [#1907](https://github.com/openonion/connectonion/issues/1907)). See [1.9.7rc28 notes](releases/1.9.7rc28.md).
+
 Release candidate **1.9.7rc27** updates the REM Today reply workspace. See [1.9.7rc27 notes](releases/1.9.7rc27.md).
 
 Release candidate **1.9.7rc26** adds attachment sending and downloads for the agent mailbox (#3440). See [1.9.7rc26 notes](releases/1.9.7rc26.md).
@@ -54,7 +68,7 @@ Before it, release candidate **1.9.7rc1**: a restricted claude-code Host from ho
 and `co asana`. See [1.9.7rc1 notes](releases/1.9.7rc1.md).
 
 ```bash
-python -m pip install --upgrade 'connectonion==1.9.7rc27'
+python -m pip install --upgrade 'connectonion==1.9.7rc33'
 ```
 
 ## Current release

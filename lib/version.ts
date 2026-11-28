@@ -7,7 +7,7 @@
  * version shown on the homepage or in structured metadata.
  */
 export const STABLE_VERSION = '1.9.6'
-export const PREVIEW_VERSION: string | null = '1.9.7rc30'
+export const PREVIEW_VERSION: string | null = '1.9.7rc34'
 // There is no separate stabilizing channel.
 export const STABILIZING_VERSION: string | null = null
 

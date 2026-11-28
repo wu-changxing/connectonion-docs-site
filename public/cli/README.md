@@ -548,13 +548,30 @@ move a due date, mark a task done or open, or comment, with a preview first.
 Rows from the last list stand in for long IDs for 15 minutes.
 
 ```bash
-co env set ASANA_ACCESS_TOKEN <pat> --secret
+co auth asana        # or: co env set ASANA_ACCESS_TOKEN <pat> --secret
 co asana projects
 co asana tasks 1 --assignee me --due-to 2026-11-09
 co asana update 1209876543210987 --due-on 2026-11-14 --yes
 ```
 
 See [asana.md](asana.md).
+
+---
+
+#### `co notion` - Notion pages and databases
+
+Read the Notion pages and databases your key can read (an internal connection:
+the pages given to it): list them, search titles, read a page with its completeness, and query a
+database by its real columns. Read-only.
+
+```bash
+co env set NOTION_API_KEY ntn_... --secret
+co notion check
+co notion pages
+co notion db <database-link> --where "Status=In progress"
+```
+
+See [notion.md](notion.md).
 
 ---
 
@@ -569,11 +586,24 @@ scripts through `co onenote ls --ids` and `co onenote pages --ids`. See
 
 ---
 
+#### `co teams` - Microsoft Teams chats and joined teams
+
+With a work or school `co auth microsoft` sign-in, run `co teams` (`co teams chats`)
+to see numbered 1:1, group and meeting chats with `[UNREAD]` markers,
+`co teams read 1` to read chat 1 as plain text in chronological order, and
+`co teams send 1 "On my way"` to preview a reply (`--yes` sends it). `co teams teams`
+and `co teams channels 1` list joined teams and their channels. Personal
+Microsoft accounts are refused up front. See [teams.md](teams.md) for scope
+checks and Microsoft Graph limits.
+
+---
+
 #### `co obsidian` - Browse local Obsidian notes
 
 Run `co obsidian` to list registered vaults and `co obsidian ls --vault 1` to
 see the folders in the first vault. Choose a folder with `--folder`, then
-list, read or search its Markdown notes. See the [Obsidian command guide](obsidian.md)
+list, read or search its Markdown notes. `create` and `append` preview changes;
+writing requires `--yes --expect` from that preview. See the [Obsidian command guide](obsidian.md)
 for examples.
 
 ---
@@ -1514,6 +1544,8 @@ See [server.md](server.md).
 | `co mcp` | The MCP servers and connectors Codex already has: list, list tools, call one — [mcp.md](mcp.md) | No | ✅ Yes (non-read-only tools only with `--yes`) |
 | `co linear` | Linear issues: list, read, search, create, update, comment — [linear.md](linear.md) | No | ✅ Yes (writes only with `--yes`) |
 | `co asana` | Asana tasks: projects, tasks, one task's comments and activity; move a due date, mark done, comment — [asana.md](asana.md) | No | ✅ Yes (writes only with `--yes`) |
+| `co notion` | Notion pages and databases: list what is shared, search titles, read a page, query a database, its columns — [notion.md](notion.md) | No | ✅ Yes (read-only) |
+| `co granola` | Personal Granola meeting summaries: check key, list personal folders, browse notes, live `changes`/`show --json` — [granola.md](granola.md) | No | ✅ Yes (read-only) |
 | `co canny` | Canny feedback: boards, posts and votes, search, one post's comments; change a status, comment, changelog — [canny.md](canny.md) | No | ✅ Yes (writes only with `--yes`) |
 | `co asr` | Transcribe an audio file; Codex default or configured ConnectOnion provider — [ASR](../asr.md) | Audio upload | Yes, explicit invocation |
 | `co audit` | Is a CLI (co or any other) fit for an agent harness? Scores its help pages — [audit.md](audit.md) | No | ✅ Yes (read-only) |
